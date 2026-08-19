@@ -103,6 +103,35 @@ def _reoptimize_point(
     stopping: dict[str, Any],
 ) -> ProfilePoint:
     state = torch.nn.Parameter(theta0.detach().clone())
+    adam_epochs = int(optimizer_config.get("adam_warmup_epochs", 0))
+    if adam_epochs > 0:
+        adam = torch.optim.Adam(
+            [state], lr=float(optimizer_config["adam_learning_rate"])
+        )
+        try:
+            for _ in range(adam_epochs):
+                adam.zero_grad(set_to_none=True)
+                warmup_value = objective(state, coordinate)
+                if warmup_value.ndim != 0 or not torch.isfinite(warmup_value):
+                    raise ValueError("objective must return a finite scalar")
+                warmup_value.backward()
+                adam.step()
+        except Exception as error:
+            return ProfilePoint(
+                offset,
+                coordinate.detach().clone(),
+                None,
+                "PROFILE_FAILURE",
+                f"Adam warmup failed: {type(error).__name__}: {error}",
+                None,
+                0,
+                0,
+                None,
+                None,
+                False,
+                False,
+                False,
+            )
     optimizer = torch.optim.LBFGS(
         [state],
         max_iter=int(optimizer_config["inner_iterations"]),
@@ -270,4 +299,3 @@ def compare_curvature(
         )
         / denominator,
     }
-

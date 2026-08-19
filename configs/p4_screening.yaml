@@ -44,8 +44,19 @@ optimizer:
   lbfgs_tolerance_change: 1.0e-12
 stationarity_gates: {theta: 0.02, parameter: 0.02}
 profile:
-  offsets: [-0.15, -0.10, -0.05, 0.0, 0.05, 0.10, 0.15]
+  offsets: [-0.075, -0.05, -0.025, 0.0, 0.025, 0.05, 0.075]
   optimizer_source: configs/p3_profile.yaml
+  optimizer_amendment:
+    adam_warmup_epochs: 500
+    adam_learning_rate: 0.001
+    outer_steps_max: 15
+    inner_iterations: 50
+  stopping_amendment:
+    relative_loss_change: 0.002
+    normalized_gradient: 0.005
+  fit_quality_amendment:
+    minimum_r_squared: 0.99
+    maximum_normalized_rmse: 0.03
 gamma:
   alpha_grid: [1.0e-12, 1.0e-10, 1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2]
   cg_tolerance: 1.0e-10
@@ -60,4 +71,3 @@ hard_gates:
   maximum_profile_failure_fraction: 0.5
   classical_minimum_inside_interval: true
   classical_curvature_positive: true
-
