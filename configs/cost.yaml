@@ -1,0 +1,11 @@
+schema_version: 1
+phase: P8_COMPUTATIONAL_COST
+contract_id: SAEPS-JCP-EXEC-v2.0
+source_config: configs/locked/scalar.yaml
+benchmark: Burgers
+split: cost_only_development
+seeds: [0, 1, 2]
+timing_clock: perf_counter_wall_seconds
+aggregation: median_across_completed_cost_runs
+peak_memory_policy: null_unless_native_cpu_tensor_peak_is_reliably_available
+scientific_gate: descriptive_only
