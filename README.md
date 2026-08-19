@@ -9,7 +9,7 @@ A negative scientific result is a valid completion.
 ## Protocol state
 
 - Active contract: `SAEPS-JCP-EXEC-v2.0`
-- Current phase: P2 complete (engineering PASS, SG-1 FAIL); next P3
+- Current phase: P3 Nonlinear Profile Engine
 - Confirmation protocol: **UNLOCKED**
 - Python: 3.12.13
 - Default numerical dtype: float64

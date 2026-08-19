@@ -1,0 +1,28 @@
+schema_version: 1
+phase: P3
+dtype: float64
+profile_points: [-0.15, -0.10, -0.05, 0.0, 0.05, 0.10, 0.15]
+optimizer:
+  name: LBFGS
+  outer_steps_max: 20
+  inner_iterations: 20
+  history_size: 50
+  line_search: strong_wolfe
+  tolerance_grad: 1.0e-12
+  tolerance_change: 1.0e-14
+stopping:
+  minimum_outer_steps: 3
+  plateau_window: 3
+  relative_loss_change: 1.0e-11
+  normalized_gradient: 1.0e-9
+fit_quality:
+  minimum_r_squared: 0.999999
+  maximum_normalized_rmse: 1.0e-6
+  maximum_design_condition: 1.0e5
+  positive_curvature_required: true
+acceptance:
+  known_curvature_relative_error: 1.0e-8
+  known_minimum_absolute_error: 1.0e-8
+  order_invariance_absolute_tolerance: 1.0e-12
+  reproducibility_absolute_tolerance: 1.0e-12
+

@@ -13,7 +13,7 @@
 | P0 | Repository Bootstrap | PASSED | PASSED | N/A |
 | P1 | SAEPS Core Verification | PASSED | PASSED | N/A |
 | P2 | Controlled Tangent Geometry | PASSED | PASSED | FAIL |
-| P3 | Nonlinear Profile Engine | NOT_STARTED | NOT_RUN | N/A |
+| P3 | Nonlinear Profile Engine | IN_PROGRESS | NOT_RUN | N/A |
 | P4 | Scalar PDE Screening & LOCK | NOT_STARTED | NOT_RUN | N/A |
 | P5 | Scalar Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P6 | Multi-parameter Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
@@ -81,7 +81,7 @@
 ## P3 — Nonlinear State-Reoptimization Engine
 
 **依赖:** P2 engineering `PASSED`  
-**状态:** `NOT_STARTED`
+**状态:** `IN_PROGRESS`
 
 - [ ] 实现 `profile_frozen()`、`profile_reoptimized()`；
 - [ ] 实现 `fit_local_quadratic()`、`estimate_curvature()`；
