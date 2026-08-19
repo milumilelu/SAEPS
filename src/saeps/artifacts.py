@@ -14,6 +14,13 @@ def _json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _hash_matches_with_portable_newlines(path: Path, expected: str) -> bool:
+    data = path.read_bytes()
+    canonical = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    variants = {data, canonical, canonical.replace(b"\n", b"\r\n")}
+    return any(hashlib.sha256(value).hexdigest() == expected for value in variants)
+
+
 def _accepted_run(root: Path, phase_directory: str, evidence_name: str) -> Path:
     evidence = _json(root / "docs/evidence" / evidence_name)
     run = root / "outputs/runs" / phase_directory / evidence["run_id"]
@@ -27,7 +34,7 @@ def _records(run: Path) -> list[dict[str, Any]]:
     records = []
     for item in manifest["records"]:
         path = run / item["path"]
-        if hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
+        if not _hash_matches_with_portable_newlines(path, item["sha256"]):
             raise RuntimeError(f"raw record hash mismatch: {path}")
         records.append(_json(path))
     return records
