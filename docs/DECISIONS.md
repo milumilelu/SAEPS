@@ -35,3 +35,15 @@ development_evidence: docs/evidence/P2_DEVELOPMENT.md and p2-development-s0-2026
 affected_configs: configs/locked/controlled_geometry.yaml (SHA256 32003edbcfbe03c6bf357ffce25051ba9b279263a15d2e80b4c762087ec0c30e).
 authorizing_protocol: SAEPS-JCP-EXEC-v2.0 sections 8 and 11.
 ```
+
+## D-002 — Carry P3 profile rules into global lock
+
+```text
+date: 2026-08-19
+decision_id: D-002
+decision: Adopt the seven default offsets, independent theta0 initialization, combined LBFGS/plateau/gradient stopping rule, and quadratic fit-quality gates from configs/p3_profile.yaml for the forthcoming global protocol lock.
+reason: The synthetic optimization test recovered known frozen/reoptimized curvature and minimum, was invariant to point order, reproduced exactly, and rejected failed/missing points.
+development_evidence: docs/evidence/P3_ACCEPTANCE.md.
+affected_configs: configs/p3_profile.yaml; future configs/locked/scalar.yaml.
+authorizing_protocol: SAEPS-JCP-EXEC-v2.0 sections 12 and P3 acceptance criteria.
+```

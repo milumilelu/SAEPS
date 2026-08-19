@@ -13,7 +13,7 @@
 | P0 | Repository Bootstrap | PASSED | PASSED | N/A |
 | P1 | SAEPS Core Verification | PASSED | PASSED | N/A |
 | P2 | Controlled Tangent Geometry | PASSED | PASSED | FAIL |
-| P3 | Nonlinear Profile Engine | IN_PROGRESS | NOT_RUN | N/A |
+| P3 | Nonlinear Profile Engine | PASSED | PASSED | N/A |
 | P4 | Scalar PDE Screening & LOCK | NOT_STARTED | NOT_RUN | N/A |
 | P5 | Scalar Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P6 | Multi-parameter Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
@@ -81,18 +81,18 @@
 ## P3 — Nonlinear State-Reoptimization Engine
 
 **依赖:** P2 engineering `PASSED`  
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — evidence: `docs/evidence/P3_ACCEPTANCE.md`
 
-- [ ] 实现 `profile_frozen()`、`profile_reoptimized()`；
-- [ ] 实现 `fit_local_quadratic()`、`estimate_curvature()`；
-- [ ] 实现 `estimate_profile_minimum()`、`compare_curvature()`；
-- [ ] 每点从同一 \(\theta_0\) 初始化，禁止 previous-point continuation；
-- [ ] stopping rule 同时包含 optimizer termination、loss plateau、normalized theta-gradient；
-- [ ] 实现 synthetic known-curvature test；
-- [ ] 验证 point-order invariance 与 independent initialization reproducibility；
-- [ ] failed point 明确标记，禁止静默插值；
-- [ ] 锁定 fit quality 与 profile failure rules；
-- [ ] 保存验收证据并提交 P3 commit。
+- [x] 实现 `profile_frozen()`、`profile_reoptimized()`；
+- [x] 实现 `fit_local_quadratic()`、`estimate_curvature()`；
+- [x] 实现 `estimate_profile_minimum()`、`compare_curvature()`；
+- [x] 每点从同一 \(\theta_0\) 初始化，禁止 previous-point continuation；
+- [x] stopping rule 同时包含 optimizer termination、loss plateau、normalized theta-gradient；
+- [x] 实现 synthetic known-curvature test；
+- [x] 验证 point-order invariance 与 independent initialization reproducibility；
+- [x] failed point 明确标记，禁止静默插值；
+- [x] 锁定 fit quality 与 profile failure rules；
+- [x] 保存验收证据并提交 P3 commit。
 
 ## P4 — Scalar PDE Screening & LOCK
 
