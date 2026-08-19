@@ -1,0 +1,19 @@
+schema_version: 1
+project: saeps-validation
+runtime:
+  python: "3.12.13"
+  dtype: float64
+  device: cpu
+  deterministic: true
+outputs:
+  root: outputs/runs
+smoke:
+  seed: 0
+  hidden_width: 12
+  adam_steps: 600
+  learning_rate: 0.01
+  collocation_points: 48
+  initial_condition_weight: 10.0
+  max_state_rmse: 0.03
+  max_roundtrip_abs_error: 1.0e-12
+

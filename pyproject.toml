@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saeps-validation"
+version = "0.1.0"
+description = "Reproducible SAEPS validation for inverse physics-informed neural networks"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy==2.3.5",
+  "PyYAML==6.0.3",
+  "torch==2.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.1.1",
+  "setuptools==84.0.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]

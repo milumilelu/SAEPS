@@ -1,0 +1,1198 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+% ============================================================
+% SAEPS manuscript v0.15 — ANM narrative draft with extracted reduced-validation results
+% ============================================================
+
+\usepackage{amsmath,amssymb,amsfonts,bm,mathtools,amsthm}
+\usepackage{booktabs,multirow,array,longtable,threeparttable}
+\usepackage{graphicx,subcaption,caption}
+\usepackage{xcolor,hyperref,enumitem,algorithm,algorithmic,siunitx,url,float,pdflscape,placeins}
+\usepackage[final]{microtype}
+% Reduce distracting word-break hyphenation in the preprint layout without disabling it completely.
+\emergencystretch=2em
+\hyphenpenalty=5000
+\exhyphenpenalty=5000
+\tolerance=2000
+\hbadness=10000
+\pdfstringdefDisableCommands{%
+  \def\corref#1{}%
+  \def\cortext#1#2{}%
+  \def\ead#1{}%
+}
+
+\hypersetup{hidelinks}
+\journal{Applied Numerical Mathematics}
+
+\newcommand{\rbar}{\bar r}
+\newcommand{\Jt}{J_\theta}
+\newcommand{\Jl}{J_\lambda}
+\newcommand{\At}{A_\theta^{(\gamma)}}
+\newcommand{\Fse}{F_{\lambda}^{\rm se}}
+\newcommand{\gse}{g_{\lambda}^{\rm se}}
+\newcommand{\Dlse}{\Delta\lambda^{\rm se}}
+\newcommand{\Fraw}{F_{\lambda}^{\rm raw}}
+\newcommand{\etalow}{\eta^{\rm se}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\classlabel}[1]{\textnormal{\emph{#1}}}
+\newtheorem{proposition}{Proposition}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{State-adapted residual elimination for local parameter reliability in inverse physics-informed neural networks}
+
+\author[a]{Ziwei Ren}
+\author[a,b]{Shijin Zhang}
+\author[a,b]{Ming Chen\corref{mycorrespondingauthor}}
+\ead{chenmingnwpu@nwpu.edu.cn}
+\author[a]{Chuangrui Zheng}
+\cortext[mycorrespondingauthor]{Corresponding author.}
+\address[a]{School of Software, Northwestern Polytechnical University, Xi'an 710129, China}
+\address[b]{Suzhou Key Lab of Aerospace Industry Software and Data Science, Yangtze River Delta Research Institute of NPU, Taicang 215400, China}
+
+\begin{abstract}
+\hyphenpenalty=6000\exhyphenpenalty=6000\emergencystretch=2em
+Inverse physics-informed neural networks (PINNs) jointly estimate PDE parameters and a neural representation of the state.  This joint training raises a local reliability question: residual loss and raw parameter sensitivity cannot tell whether a parameter perturbation leaves an effect that the network weights cannot reproduce.  We derive state-adapted effective parameter signals (SAEPS), a local tangent-space method that removes residual components explainable by neural-state adaptation through a Tikhonov least-squares problem.  The method computes state-eliminated curvature, retained sensitivity, and a reduced score from the remaining residual signal.  Numerical experiments validate three diagnostic regimes.  Manufactured source-amplitude benchmarks are classified as \classlabel{reliable-local-signal} cases, with retained sensitivities close to one and stable grid, damping, and profile checks.  Burgers and coupled reaction--diffusion targets show state absorption: large raw fixed-network sensitivity is mostly removed by local state elimination.  Two-temperature targets show score misalignment, where a nonzero retained signal is accompanied by an unfavorable reduced-score direction.  Together, these quantities provide a local reduced-residual audit that distinguishes retained, absorbed, and directionally misaligned parameter signals at trained inverse-PINN checkpoints.
+\end{abstract}
+
+
+\begin{keyword}
+Inverse problems \sep Physics-informed neural networks \sep Parameter reliability \sep Residual geometry \sep Tikhonov elimination \sep Sensitivity analysis
+\end{keyword}
+
+\end{frontmatter}
+
+% ============================================================
+\section{Introduction}
+% ============================================================
+
+Parameter identification for PDE models is a numerical inverse problem in which the state equation, the observation map, and the residual functional jointly determine how a physical parameter can be inferred from data.  Classical PDE-constrained formulations make this structure explicit by solving or eliminating the state before analyzing the reduced parameter problem through optimization and sensitivity~\cite{becker2005parameter}.  General inverse-problem treatments formalize the same reduced-space viewpoint through regularization and parameter-estimation theory~\cite{engl1996regularization,tarantola2005inverse}.  Uncertainty-oriented formulations then add likelihood, posterior, or profile-based summaries for the estimated parameters~\cite{pedretscher2019parameter,aster2018parameter}.
+
+Physics-informed neural networks (PINNs)~\cite{raissi2019physics} offer an alternative approach.  A PINN represents the PDE state by a neural network $u_\theta$ with weights $\theta$, and enforces the governing equations, initial and boundary conditions, and data constraints as penalty terms in a loss function.  Automatic differentiation computes the PDE residuals directly from the network output, removing the need for a hand-crafted numerical discretization.  In a forward setting, only $\theta$ is optimized.  In an inverse PINN, the physical parameters $\lambda$ (material coefficients, source amplitudes, etc.) are treated as additional trainable variables and optimized jointly with $\theta$.  This allows a PINN to estimate parameters simultaneously with learning the state from sparse and noisy observations; examples include nonlinear diffusion~\cite{kadeethum2020pinns}, solid mechanics~\cite{haghighat2021physics}, and multiphase poromechanics~\cite{amini2023inverse}.  Frameworks such as DeepXDE~\cite{lu2021deepxde} have made these formulations broadly accessible.
+
+Research on PINNs has largely focused on training.  Gradient-flow and neural-tangent-kernel analyses explain how loss imbalance and spectral conditioning affect convergence~\cite{wang2021understanding,wang2022ntk}.  Empirical studies characterize failure modes caused by stiffness, sampling, or poor initialization~\cite{krishnapriyan2021characterizing}.  Causal training and adaptive activations modify the optimization dynamics to improve convergence~\cite{wang2022respecting,jagtap2020adaptive}.  These contributions address whether a PINN can be trained to a small residual loss; they do not examine whether the resulting parameter estimate is locally supported by residual information after training.
+
+For inverse PINNs specifically, the joint optimization of $\theta$ and $\lambda$ creates a parameter reliability problem that has no direct analogue in classical fixed-solver inverse methods.  Because the neural state is an overparameterized, adaptive object, it can locally compensate for changes in the physical parameters.  A parameter perturbation that would produce a clear residual signal under a fixed numerical solver may instead be absorbed by a small adjustment of the network weights.  The residual loss can therefore be small while the target parameter remains poorly constrained.  We call this mechanism \emph{state absorption}.  Parameter-estimation theory with neural-network discretizations acknowledges that the network can act as an implicit regularizer and that the interplay between state approximation and parameter identifiability must be examined at the level of the residual linearization~\cite{kaltenbacher2022discretization,aarset2022learning}.
+
+Several lines of work provide tools for assessing parameter uncertainty, but they do not explicitly address the state-absorption mechanism in inverse PINNs.  Bayesian PINNs quantify posterior uncertainty under additional stochastic assumptions~\cite{yang2021bpinns,zhang2019uncertainty}.  Adversarial and residual-based formulations give complementary uncertainty measures~\cite{yang2019adversarial}.  Profile likelihood distinguishes structural and practical identifiability by reoptimizing nuisance variables over a parameter grid, and it is widely used to test whether a parameter is constrained by data under a given noise model~\cite{raue2009structural}.  Sloppiness analysis reveals that nonlinear least-squares models often contain stiff and sloppy parameter combinations, with the local geometry governed by a few dominant directions~\cite{gutenkunst2007universally,transtrum2011geometry}.  Global sensitivity analysis studies variance-based parameter influence~\cite{saltelli2008global}.  These methods are valuable, but in their standard forms they evaluate identifiability in a space where the state is either fixed or re-solved from scratch.  In an inverse PINN, the state is not re-solved; it is a trained network with a high-dimensional tangent space that can absorb parameter-induced residual variation.  This motivates a reduced-residual diagnostic that removes the state-explainable component before interpreting parameter sensitivity.
+
+The mathematical operation closest to this removal is reduced-space sensitivity and variable projection.  In PDE-constrained optimization, the state is eliminated before the reduced parameter problem is analyzed~\cite{hinze2009optimization,biegler2007realtime}.  In separable nonlinear least squares, variable projection removes a block of variables algebraically and optimizes the remaining parameters~\cite{golub1973variable,golub2003separable}.  Both approaches form a reduced objective or reduced residual whose curvature reflects parameter information after admissible state adjustments.  In an inverse PINN, the neural-state degrees of freedom are not separable in closed form, but they can be eliminated at the level of the trained linearization.  SAEPS performs this operation by removing residual components that lie in the span of the network-weight Jacobian through a Tikhonov least-squares problem.  The resulting reduced quadratic model yields state-eliminated curvature, score, retained sensitivity, and a diagnostic step for target-parameter perturbations.
+
+We formulate SAEPS as a residual-space numerical diagnostic for trained inverse-PINN checkpoints. In operational terms, SAEPS takes a trained inverse-PINN solution and a designated target-parameter subset as input.  It linearizes the weighted residual with respect to both the network weights $\theta$ and the target parameters $\lambda$, then removes residual components that lie in the column space of the weight Jacobian $J_\theta$ by solving a Tikhonov-regularized least-squares problem.  The key object is a residual-space operator $A_\theta^{(\gamma)}$ that maps any residual perturbation to the cost that remains after the best damped neural-state adjustment.  Applying this operator to the parameter Jacobian $J_\lambda$ yields the state-eliminated curvature $F_\lambda^{\rm se}$, which measures how much residual signal a parameter perturbation retains after state adaptation.  Applying it to the current weighted residual $\bar r$ yields the state-eliminated score $g_\lambda^{\rm se}$, which indicates the direction of that signal in parameter space.  The retained sensitivity $\eta^{\rm se}$ compares $F_\lambda^{\rm se}$ with the raw fixed-network curvature, directly quantifying state absorption.  None of these quantities requires retraining the network or evaluating the forward model at new parameter values; they are computed entirely from the Jacobians and residuals at the trained solution.  The output is a structured local diagnosis: the curvature tells whether any independent signal remains, the score tells whether that signal points toward a useful correction, and the damping-sensitivity scan tells whether the diagnosis is stable under the regularization choice.  The formal derivation of $A_\theta^{(\gamma)}$ and the associated diagnostic quantities is given in Section~2.
+
+The contribution of this paper is threefold.  First, we formulate local inverse-PINN parameter reliability as a state-eliminated residual-space problem at a trained solution.  Second, we derive the SAEPS curvature and score from Tikhonov elimination of neural-state tangent directions.  Third, we validate the diagnostics on validity-gated inverse-PINN checkpoints and controlled manufactured benchmarks, showing that SAEPS separates parameter information that is retained, state-absorbed, or score-misaligned.  The resulting classification provides information that neither raw fixed-network sensitivity nor final parameter error alone can supply.
+
+% ============================================================
+\section{State-eliminated residual sensitivity for inverse PINNs}
+% ============================================================
+
+\subsection{Problem setup and linearized residual geometry}
+
+Let $u$ denote the PDE state and $\lambda\in\R^p$ the physical parameters.  The inverse problem consists of a governing PDE operator $\mathcal N$, initial and boundary constraints $\mathcal B$, an observation map $\mathcal O$, and data $y$:
+\begin{equation}
+    \mathcal N(u,\lambda)=0,\qquad
+    \mathcal B(u,\lambda)=0,\qquad
+    \mathcal O(u)=y.
+    \label{eq:pde_inverse_problem}
+\end{equation}
+An inverse PINN represents the state by a neural network $u_\theta$ with weights $\theta$ and estimates $(\theta,\lambda)$ jointly by minimizing a weighted residual objective
+\begin{equation}
+    \min_{\theta,\lambda}
+    \frac12\|W_d^{1/2}r_d(\theta,\lambda)\|^2
+    +\frac12\|W_p^{1/2}r_p(\theta,\lambda)\|^2
+    +\frac12\|W_b^{1/2}r_b(\theta,\lambda)\|^2,
+    \label{eq:pinn_training_objective}
+\end{equation}
+where $r_d$, $r_p$, and $r_b$ denote the data, PDE, and boundary/initial-condition residuals with weight matrices $W_d$, $W_p$, $W_b$.  Throughout the paper, all Jacobians are taken with respect to the stacked weighted residual
+\begin{equation}
+    \bar r(\theta,\lambda)=W^{1/2}r(\theta,\lambda),
+    \label{eq:weighted_residual}
+\end{equation}
+where $r$ collects the residual blocks and $W^{1/2}$ is the block-diagonal square-root weight matrix.
+
+Linearizing $\bar r$ at a trained checkpoint $(\theta_\ast,\lambda_\ast)$ yields
+\begin{equation}
+    \delta\bar r = J_\theta\delta\theta + J_\lambda\delta\lambda,
+    \label{eq:linearized_residual}
+\end{equation}
+with Jacobians
+\begin{equation}
+    J_\theta=\frac{\partial\bar r}{\partial\theta}\in\R^{m\times n_\theta},\qquad
+    J_\lambda=\frac{\partial\bar r}{\partial\lambda}\in\R^{m\times p},
+\end{equation}
+where $m$ is the number of residual evaluations on the diagnostic grid, $n_\theta$ the number of network weights, and $p$ the number of target parameters.  The raw fixed-network curvature
+\begin{equation}
+    F_{\lambda}^{\rm raw}=J_\lambda^\top J_\lambda
+    \label{eq:F_raw}
+\end{equation}
+measures the residual change caused by a parameter perturbation when $\theta$ is held fixed.
+
+This fixed-network view is incomplete because the neural state can adapt.  If the columns of $J_\lambda$ lie mainly in the column space of $J_\theta$, then any residual effect of a parameter perturbation $\delta\lambda$ can be approximately reproduced by a suitable weight perturbation $\delta\theta$.  In this case, $F_{\lambda}^{\rm raw}$ overstates the amount of independent parameter information retained after state adaptation.  We call this phenomenon \emph{state absorption}.  To obtain a meaningful local measure of parameter reliability, we must remove residual components that can be explained by the network-weight tangent space and examine what remains.
+
+\subsection{Tikhonov state-elimination operator}
+
+For a given residual-space vector $y\in\R^m$, we ask how much of $y$ can be explained by the columns of $J_\theta$ when large weight perturbations are penalized.  This leads to the Tikhonov problem
+\begin{equation}
+    Q_\gamma(y)
+    =\min_{\delta\theta}
+    \bigl(
+        \|J_\theta\delta\theta-y\|_2^2
+        +\gamma\|\delta\theta\|_2^2
+    \bigr),
+    \qquad \gamma>0.
+    \label{eq:tikhonov_elimination}
+\end{equation}
+Equivalently, $Q_\gamma(y)$ asks for the smallest damped residual cost that can be achieved by fitting the perturbation $y$ through an adjustment of the network weights alone.  The damping parameter $\gamma$ stabilizes the elimination when $J_\theta^\top J_\theta$ is ill-conditioned, which is typical for overparameterized neural networks.  The minimizer satisfies the normal equations
+\begin{equation}
+    (J_\theta^\top J_\theta+\gamma I)\delta\theta_\gamma = J_\theta^\top y,
+\end{equation}
+and substitution back into \eqref{eq:tikhonov_elimination} gives the closed-form quadratic value
+\begin{equation}
+    Q_\gamma(y)=y^\top A_\theta^{(\gamma)} y,
+    \label{eq:qgamma_quadratic}
+\end{equation}
+where
+\begin{equation}
+    A_\theta^{(\gamma)}
+    = I - J_\theta(J_\theta^\top J_\theta+\gamma I)^{-1}J_\theta^\top .
+    \label{eq:A_operator}
+\end{equation}
+The operator $A_\theta^{(\gamma)}$ is symmetric positive semidefinite for $\gamma>0$.  It maps a residual vector $y$ to the residual cost that remains after the best damped neural-state adjustment has been removed.  As $\gamma\to 0$, $A_\theta^{(\gamma)}$ approaches the orthogonal projector onto the complement of $\operatorname{range}(J_\theta)$ in the Euclidean metric.  For ill-conditioned $J_\theta$, the damped version is essential to avoid numerical instability.  The entire SAEPS method is built on the action of $A_\theta^{(\gamma)}$ on the parameter Jacobian and the current residual.
+
+\subsection{State-eliminated curvature, score, and retained sensitivity}
+
+SAEPS derives two complementary quantities from the operator $A_\theta^{(\gamma)}$: one that measures the strength of the residual signal remaining after state elimination, and one that measures its direction.
+
+\medskip\noindent
+\textbf{Curvature.}
+Setting $y = J_\lambda\delta\lambda$ in \eqref{eq:qgamma_quadratic} gives the state-eliminated residual cost for a target-parameter perturbation:
+\begin{equation}
+    Q_\gamma(J_\lambda\delta\lambda)
+    = \delta\lambda^\top F_\lambda^{\rm se}\,\delta\lambda,
+    \qquad
+    F_\lambda^{\rm se}=J_\lambda^\top A_\theta^{(\gamma)} J_\lambda .
+    \label{eq:A_curvature}
+\end{equation}
+The matrix $F_\lambda^{\rm se}\in\R^{p\times p}$ is the \textbf{state-eliminated curvature}.  It measures how much residual signal a parameter perturbation retains after the network weights are allowed to adapt locally.
+
+\medskip\noindent
+\textbf{Score.}
+Applying the same operator to the current weighted residual gives the \textbf{state-eliminated score}
+\begin{equation}
+    g_\lambda^{\rm se}=J_\lambda^\top A_\theta^{(\gamma)}\bar r .
+    \label{eq:A_score}
+\end{equation}
+While $F_\lambda^{\rm se}$ quantifies the local curvature of the reduced residual model, $g_\lambda^{\rm se}$ gives the corresponding residual-gradient direction in the same state-eliminated geometry.  A target parameter may retain nonzero curvature while the score points in a direction that does not align with the true parameter correction.  This separation of strength and direction is central to the diagnostic.
+
+\medskip\noindent
+\textbf{Diagnostic step.}
+From the reduced quadratic model one obtains the local diagnostic step
+\begin{equation}
+    \Delta\lambda^{\rm se}=-(F_\lambda^{\rm se}+\rho I)^{-1}g_\lambda^{\rm se},
+    \qquad \rho\ge 0,
+    \label{eq:diagnostic_step}
+\end{equation}
+where $\rho$ is a parameter-space ridge used when $F_\lambda^{\rm se}$ is ill-conditioned.  When reference parameters are available, the alignment between $\Delta\lambda^{\rm se}$ and the true correction direction evaluates whether the local reduced score points toward a useful improvement.
+
+\medskip\noindent
+\textbf{Retained sensitivity.}
+To relate the state-eliminated curvature to the raw fixed-network sensitivity, we define the coordinate-wise retained fraction
+\begin{equation}
+    \eta_j^{\rm se}=
+    \frac{e_j^\top F_\lambda^{\rm se} e_j}
+         {e_j^\top F_{\lambda}^{\rm raw} e_j+\epsilon},
+    \label{eq:eta_coordinate}
+\end{equation}
+where $\epsilon$ guards against division by zero.  For multi-parameter targets, direction-wise and trace summaries are used analogously:
+\begin{equation}
+    \eta_v^{\rm se}=
+    \frac{v^\top F_\lambda^{\rm se} v}
+         {v^\top F_{\lambda}^{\rm raw} v+\epsilon},
+    \qquad
+    \eta_{\rm tr}^{\rm se}=
+    \frac{\operatorname{tr}(F_\lambda^{\rm se})}
+         {\operatorname{tr}(F_{\lambda}^{\rm raw})+\epsilon}.
+    \label{eq:eta_direction_trace}
+\end{equation}
+A small retained fraction, $\eta_j^{\rm se}\ll 1$, indicates state absorption: most of the raw sensitivity is reproducible by neural-state adaptation.  A larger $\eta_j^{\rm se}$ signals that meaningful residual information survives state elimination.
+
+\medskip\noindent
+\textbf{Diagnostic logic.}
+$F_\lambda^{\rm se}$ and $g_\lambda^{\rm se}$ are complementary.  A parameter may have non-negligible state-eliminated curvature but a score that points away from the reference correction---a situation we call \emph{score misalignment}---or it may have both weak curvature and an unhelpful score direction.  Retained sensitivity $\eta^{\rm se}$ normalizes the curvature and facilitates comparison across parameters and benchmarks.  A retained fraction close to one is therefore a necessary but not sufficient indicator of local parameter reliability: the reduced score $g_\lambda^{\rm se}$ may still point in an unhelpful direction, producing a score-misaligned case.  Together, these quantities provide a structured local picture: the curvature tells whether any signal remains after state adaptation, and the score tells whether that signal supports a useful correction.
+
+\subsection{Reduced-space interpretation}
+
+The preceding quantities are the exact gradient and curvature of a locally reduced least-squares model, rather than independent diagnostic constructions.  At a fixed checkpoint, consider the regularized quadratic model
+\begin{equation}
+\Phi_\gamma(\delta\theta,\delta\lambda)
+=
+\frac12\left\|\bar r+J_\theta\delta\theta+J_\lambda\delta\lambda\right\|_2^2
++\frac{\gamma}{2}\|\delta\theta\|_2^2,
+\label{eq:joint_local_model}
+\end{equation}
+and eliminate the network-weight increment by defining
+\begin{equation}
+\widehat\Phi_\gamma(\delta\lambda)
+=
+\min_{\delta\theta}\Phi_\gamma(\delta\theta,\delta\lambda).
+\label{eq:reduced_local_model}
+\end{equation}
+
+\begin{proposition}[Local reduced gradient and curvature]
+\label{prop:reduced_gradient_curvature}
+For every $\gamma>0$, the reduced objective in \eqref{eq:reduced_local_model} is
+\begin{equation}
+\widehat\Phi_\gamma(\delta\lambda)
+=
+\frac12
+\bigl(\bar r+J_\lambda\delta\lambda\bigr)^\top
+A_\theta^{(\gamma)}
+\bigl(\bar r+J_\lambda\delta\lambda\bigr).
+\label{eq:reduced_objective_closed_form}
+\end{equation}
+Consequently,
+\begin{equation}
+\nabla\widehat\Phi_\gamma(0)=g_\lambda^{\rm se},
+\qquad
+\nabla^2\widehat\Phi_\gamma(\delta\lambda)=F_\lambda^{\rm se}.
+\label{eq:reduced_gradient_hessian}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Set $x=\bar r+J_\lambda\delta\lambda$.  The first-order condition for minimizing \eqref{eq:joint_local_model} with respect to $\delta\theta$ gives
+\[
+\delta\theta_\gamma(\delta\lambda)
+=-(J_\theta^\top J_\theta+\gamma I)^{-1}J_\theta^\top x.
+\]
+Substitution into \eqref{eq:joint_local_model} yields \eqref{eq:reduced_objective_closed_form}.  Differentiating the resulting quadratic with respect to $\delta\lambda$ gives \eqref{eq:reduced_gradient_hessian} together with the definitions in \eqref{eq:A_score} and \eqref{eq:A_curvature}.
+\end{proof}
+
+Equivalently, $F_\lambda^{\rm se}$ is the Schur complement of the regularized network-weight block in the joint Gauss--Newton matrix
+\begin{equation}
+\begin{bmatrix}
+J_\theta^\top J_\theta+\gamma I & J_\theta^\top J_\lambda\\
+J_\lambda^\top J_\theta & J_\lambda^\top J_\lambda
+\end{bmatrix}.
+\label{eq:joint_regularized_gn}
+\end{equation}
+Indeed,
+\begin{equation}
+F_\lambda^{\rm se}
+=
+J_\lambda^\top J_\lambda
+-
+J_\lambda^\top J_\theta
+(J_\theta^\top J_\theta+\gamma I)^{-1}
+J_\theta^\top J_\lambda.
+\label{eq:regularized_schur_complement}
+\end{equation}
+As $\gamma\downarrow0$, this expression approaches
+\begin{equation}
+J_\lambda^\top
+\left[I-J_\theta(J_\theta^\top J_\theta)^\dagger J_\theta^\top\right]
+J_\lambda,
+\label{eq:undamped_reduced_curvature}
+\end{equation}
+which is the Gauss--Newton curvature after orthogonal elimination of the network-state tangent directions.  SAEPS can therefore be interpreted as a Tikhonov-regularized local profiling of the linearized least-squares residual.  Under an independent Gaussian residual model, the same reduced quadratic is the local approximation obtained by profiling the nuisance state coordinates.
+
+\subsection{Matrix-free implementation and practical notes}
+
+The matrix $A_\theta^{(\gamma)}$ is never formed explicitly.  Its action on a vector $y$ is computed by solving the regularized normal system
+\begin{equation}
+    (J_\theta^\top J_\theta+\gamma I)z = J_\theta^\top y
+    \label{eq:normal_system}
+\end{equation}
+and returning $A_\theta^{(\gamma)}y = y - J_\theta z$.  The required operations are Jacobian-vector products $v\mapsto J_\theta v$, vector-Jacobian products $w\mapsto J_\theta^\top w$, and iterative solves with the regularized normal matrix.  Conjugate gradients are used with a predefined tolerance and maximum iteration count; the convergence flag and iteration count are recorded for every solve.
+
+When the target dimension is small, the columns of $J_\lambda$ can be stored explicitly; for larger targets, $J_\lambda$ is applied matrix-free.  The damping is scaled relative to the state-Jacobian spectrum:
+\begin{equation}
+    \gamma = \gamma_\alpha\,\lambda_{\max}(J_\theta^\top J_\theta),
+    \label{eq:relative_gamma}
+\end{equation}
+where $\lambda_{\max}$ is estimated by a few power iterations and $\gamma_\alpha$ is a dimensionless grid declared in the experimental configuration.  Because the norm $\|\delta\theta\|$ depends on the network parameterization, each SAEPS result must be reported together with the network architecture and the $\gamma$ grid.  The effect of the damping choice on the qualitative diagnosis is assessed through a damping-sensitivity scan over the declared $\gamma_\alpha$ values.
+
+\begin{algorithm}[t]
+\caption{SAEPS at a validity-passing checkpoint}
+\label{alg:saeps}
+\begin{algorithmic}[1]
+\REQUIRE checkpoint $(\theta_\ast,\lambda_\ast)$, weighted residual $\bar r$, target parameter subset, damping grid $\{\gamma_\alpha\}$, parameter ridge $\rho$, diagnostic grid, residual weights, parameter coordinates.
+\STATE Verify the checkpoint-validity gate and record PDE, data, boundary, initial-condition, and state residuals.
+\STATE Record network architecture, activation, parameter scaling, and checkpoint metadata.
+\STATE Compute Jacobian actions $J_\theta$, $J_\theta^\top$, and $J_\lambda$ by automatic differentiation on the diagnostic grid.
+\FOR{each $\gamma_\alpha$ in the declared grid}
+    \STATE Set $\gamma = \gamma_\alpha\lambda_{\max}(J_\theta^\top J_\theta)$.
+    \STATE For any required $y$, solve $(J_\theta^\top J_\theta+\gamma I)z = J_\theta^\top y$ via conjugate gradients; return $A_\theta^{(\gamma)}y = y - J_\theta z$.
+    \STATE Record Krylov iterations, residual norm, condition estimate, and convergence flag.
+    \STATE Assemble $F_\lambda^{\rm se} = J_\lambda^\top A_\theta^{(\gamma)} J_\lambda$ and $g_\lambda^{\rm se} = J_\lambda^\top A_\theta^{(\gamma)}\bar r$.
+    \STATE Compute $\eta^{\rm se}$ and $\Delta\lambda^{\rm se} = -(F_\lambda^{\rm se}+\rho I)^{-1}g_\lambda^{\rm se}$.
+    \STATE If reference parameters are available, record score alignment and harmful-step indicators.
+\ENDFOR
+\STATE Return $\{F_\lambda^{\rm se}, g_\lambda^{\rm se}, \eta^{\rm se}, \Delta\lambda^{\rm se}\}$, damping metadata, validity metadata, and provenance.
+\end{algorithmic}
+\end{algorithm}
+
+SAEPS is applied only to checkpoints that pass a predefined validity gate on the PDE, data, boundary/initial-condition, and state residuals.  This gate screens out checkpoints for which state, residual-block, or linear-solve errors would make the diagnostic uninterpretable.  Checkpoints that fail the gate are reported separately and excluded from the main diagnostic aggregation.
+
+
+% ============================================================
+\section{Numerical experiments}
+% ============================================================
+
+The numerical study tests whether a target-parameter residual signature is retained after local neural-state adaptation, absorbed by the network-weight tangent space, or accompanied by a reduced-score direction that is inconsistent with the reference correction.  The experiments are organized into retained-signal positive controls, state-absorption tests, and score-misalignment tests.  All trainable physical parameters are represented in natural-log coordinates.  Complete manufactured formulas, source constructions, sampling rules, and row-level validity values are reported in the Supplementary Material.
+
+\subsection{Benchmark definitions}
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\renewcommand{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\scriptsize
+\begin{tabular}{@{}p{0.17\textwidth}p{0.36\textwidth}p{0.20\textwidth}p{0.19\textwidth}@{}}
+\toprule
+Benchmark & State equation and domain & Reference / observations & Target coordinates \\
+\midrule
+Scalar source amplitude & $u_t-Du_{xx}+cu=\lambda q+s$ on $[0,1]\times[0,1]$, with $D=0.05$ and $c=1$ & Closed-form manufactured state; observations, initial data, and boundary data sampled from $u^\star$ & $\log\lambda$, $\lambda^\star=1.0$, $\lambda_0=0.98$ \\
+Coupled source amplitude & $u_t=D_u u_{xx}-au+bv+\lambda_u q_u+s_u$, $v_t=D_v v_{xx}+au-bv+\lambda_v q_v+s_v$ on $[0,1]\times[0,1]$ & Closed-form manufactured two-channel state; both channels observed & $\log\lambda_u$, $\log\lambda_v$, with $(\lambda_u^\star,\lambda_v^\star)=(1.0,0.8)$ \\
+Burgers & $u_t+u u_x=\mu u_{xx}$ on $[0,1]\times[0,0.4]$ with periodic boundary condition and $u(x,0)=\sin(2\pi x)$ & Periodic finite-difference reference on a $128\times2001$ grid; data obtained by periodic spatial indexing and linear interpolation in time & $\log\mu$, $\mu^\star=0.05$, $\mu_0=0.08$ \\
+Coupled reaction--diffusion & $u_t=D_u u_{xx}-au+bv+s_u$, $v_t=D_v v_{xx}+au-bv+s_v$ on $[0,1]\times[0,0.4]$, with $D_u=0.03$, $D_v=0.02$ & Manufactured states $u^\star=0.8+0.2\sin(\pi x)e^{-t}$ and $v^\star=0.6+0.15\cos(\pi x)e^{-0.7t}$; both channels observed & $\log a$, $\log b$, with $(a^\star,b^\star)=(0.8,0.75)$ and initial values $(0.6,0.95)$ \\
+Two-temperature & $u_{e,t}=\kappa_e u_{e,xx}-G(u_e-u_l)+I_0S$, $u_{l,t}=G(u_e-u_l)$ on $[0,1]\times[0,0.4]$, with $c_e=c_l=1$ & Manufactured states $u_l^\star=0.4+0.15\sin(\pi x)e^{-0.5t}$ and $u_e^\star=u_l^\star+0.5\partial_tu_l^\star$; both channels observed & $\log I_0$, $\log\kappa_e$, $\log G$, with $(I_0^\star,\kappa_e^\star,G^\star)=(1.0,0.4,2.0)$ \\
+\bottomrule
+\end{tabular}
+\caption{Benchmark definitions used for the main SAEPS validation.  The complete forcing terms $s$, $s_u$, $s_v$, and $S(x,t)$ are obtained by substituting the stated reference states into the corresponding governing equations and are listed in the Supplementary Material.}
+\label{tab:benchmark_protocol}
+\end{threeparttable}
+\end{table}
+\FloatBarrier
+
+Table~\ref{tab:benchmark_protocol} summarizes the benchmark matrix used in the main text.  The source-amplitude benchmarks are controlled positive cases in which a target parameter multiplies a prescribed source signature.  Burgers and coupled reaction--diffusion test whether large fixed-network sensitivity survives state adaptation.  The two-temperature model tests whether nonzero state-eliminated curvature is accompanied by a useful reduced-score direction.
+
+
+
+\subsection{Training and diagnostic protocol}
+
+For the Burgers, coupled reaction--diffusion, and two-temperature chain, the inverse PINN is a tanh multilayer perceptron with width 24 and depth 3.  Adam is run for 600 epochs with learning rate $2\times10^{-3}$.  Each epoch uses $n_{\rm PDE}=64$, $n_{\rm data}=96$, $n_{\rm IC}=48$, and $n_{\rm BC}=48$ training samples.  Interior PDE and data points are sampled uniformly in the corresponding space--time domain; initial-condition points are sampled uniformly in $x$ at $t=0$; boundary points are sampled uniformly in $t$ at $x=0$ and $x=1$.  The sampler is seed controlled and resamples every epoch.  The main validation uses noise level $\sigma=0$ and observation fraction $1.0$.  The training loss uses block weights $w_{\rm PDE}=5$, $w_{\rm data}=10$, $w_{\rm IC}=10$, and $w_{\rm BC}=2$.
+
+The SAEPS diagnostic grid for the main chain uses $n_{\rm PDE}=16$, $n_{\rm data}=24$, $n_{\rm IC}=16$, and $n_{\rm BC}=16$ samples drawn once per checkpoint from the same distributions.  The weighted residual used by SAEPS applies the same block weights as the training loss.  The core diagnostics use
+\begin{equation}
+    \gamma=\gamma_\alpha\lambda_{\max}(J_\theta^\top J_\theta),
+    \qquad \gamma_\alpha=10^{-7},
+\end{equation}
+and the damping audit uses the extended grid
+\[
+\gamma_\alpha\in\{10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2},1,10^{2}\}
+\]
+for consistency checks.  The target-level values in Table~\ref{tab:target_classification} are evaluated at the core scale $\gamma_\alpha=10^{-7}$.  The conjugate-gradient tolerance is $10^{-8}$ with a maximum of 300 iterations for the main chain.  Source-amplitude positive controls use the same residual-block structure with larger training samples and a maximum of 500 conjugate-gradient iterations; details are provided in the Supplementary Material.
+
+\subsection{Validity gate and target-label rules}
+
+A checkpoint from the main three-benchmark chain enters target-level aggregation only if it passes the checkpoint-quality gate
+\begin{equation}
+\begin{aligned}
+\mathrm{PASS}=\mathbf{1}\{&E_{\rm PDE}\le 5\times10^{-2}
+\land E_{\rm data}\le 5\times10^{-2}
+\land E_{\rm IC}\le 5\times10^{-2}\\
+&\land E_{\rm BC}\le 5\times10^{-2}
+\land \mathrm{nRMSE}_{\rm state}\le 5\times10^{-1}\}.
+\end{aligned}
+\label{eq:checkpoint_gate}
+\end{equation}
+The gate is applied to unweighted residual-block MSEs.  State nRMSE is computed over all state channels as
+\begin{equation}
+    \mathrm{nRMSE}_{\rm state}
+    =
+    \frac{\|u_\theta-u_{\rm ref}\|_2}{\|u_{\rm ref}\|_2+10^{-12}},
+\end{equation}
+where the tensor norm concatenates all channels.  The SAEPS diagnostic solve gate is separate: every conjugate-gradient solve required to apply $A_\theta^{(\gamma)}$ to the columns of $J_\lambda$ and to the residual vector must satisfy
+\begin{equation}
+    \frac{\|(J_\theta^\top J_\theta+\gamma I)z-J_\theta^\top y\|_2}
+    {\|J_\theta^\top y\|_2+10^{-30}}
+    \le 10^{-8}.
+    \label{eq:cg_gate}
+\end{equation}
+Rows failing either gate are excluded from the main target-level medians and are reported separately.  In the main three-benchmark chain, Burgers contributes four validity-passing rows; coupled reaction--diffusion and two-temperature contribute five validity-passing rows per target.
+
+When reference parameters are available, the validation-only score alignment is
+\begin{equation}
+    \mathrm{align}
+    =
+    \frac{
+    \langle \Delta\lambda^{\rm se},\lambda_{\rm ref}-\lambda_{\rm ckpt}\rangle
+    }{
+    \|\Delta\lambda^{\rm se}\|_2\|\lambda_{\rm ref}-\lambda_{\rm ckpt}\|_2+10^{-30}
+    }.
+    \label{eq:score_alignment}
+\end{equation}
+This quantity is used only for manufactured or synthetic validation because it requires a reference parameter.  The weak-eigendirection diagnostic is the smallest eigenvalue of the symmetrized state-eliminated curvature,
+\begin{equation}
+    \lambda_{\min}^{\rm weak}
+    =
+    \lambda_{\min}\!\left(\frac{F_\lambda^{\rm se}+(F_\lambda^{\rm se})^\top}{2}\right).
+\end{equation}
+The internal target decision rule uses the priority order
+\begin{equation}
+\begin{cases}
+\classlabel{score-misaligned}, & \mathrm{align}<0,\\
+\classlabel{state-absorbed}, & \mathrm{align}\ge0\ \text{and}\ \eta^{\rm se}<0.15,\\
+\classlabel{weak-eigendirection}, & \mathrm{align}\ge0,\ \eta^{\rm se}\ge0.15,\ \lambda_{\min}^{\rm weak}<10^{-4},\\
+\classlabel{locally reliable}, & \mathrm{otherwise}.
+\end{cases}
+\label{eq:target_rule}
+\end{equation}
+The paper-facing summary reports the three observed regimes \classlabel{reliable-local-signal}, \classlabel{state-absorbed}, and \classlabel{score-misaligned}.  Grid, damping, and profile audits are reported as consistency checks rather than as replacement labels.
+
+% ============================================================
+\section{Results and discussion}
+% ============================================================
+
+\subsection{Benchmark matrix and diagnostic classification}
+
+The benchmark matrix in Section~3 is designed to test three SAEPS regimes: retained local signal, state absorption, and score misalignment. Table~\ref{tab:target_classification} summarizes the target-level classification obtained after applying SAEPS to validity-passing checkpoints. All scalar values in the table are medians over validity-passing checkpoints unless otherwise stated.
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\renewcommand{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\footnotesize
+\begin{tabular}{@{}p{0.30\textwidth}p{0.45\textwidth}p{0.19\textwidth}@{}}
+\toprule
+Benchmark / target & SAEPS evidence and consistency checks & Classification \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Retained local signal}} \\
+\midrule
+scalar source amplitude / $\log\lambda$ & $\eta^{\rm se}=0.995162$; score alignment $=1$. Checks: grid-stable; plateau-stable; checkpoint-centered. & \classlabel{reliable-local-signal} \\
+coupled source amplitude / $\log\lambda_u$ & $\eta^{\rm se}=0.995788$; score alignment $=1$. Checks: grid-stable; plateau-stable; checkpoint-centered. & \classlabel{reliable-local-signal} \\
+coupled source amplitude / $\log\lambda_v$ & $\eta^{\rm se}=0.999656$; score alignment $=1$. Checks: grid-stable; plateau-stable; checkpoint-centered. & \classlabel{reliable-local-signal} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{State absorption}} \\
+\midrule
+Burgers / $\log\mu$ & $\Fraw=42770.6$; $\eta^{\rm se}=0.032039$. Checks: grid-stable; damping-sensitive. & \classlabel{state-absorbed} \\
+coupled reaction--diffusion / $\log a$ & $\Fraw=19767.7$; $\eta^{\rm se}=0.068481$. Checks: grid-stable; damping-sensitive. & \classlabel{state-absorbed} \\
+coupled reaction--diffusion / $\log b$ & $\Fraw=7740.64$; $\eta^{\rm se}=0.068123$. Checks: grid-stable; damping-sensitive. & \classlabel{state-absorbed} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Score misalignment}} \\
+\midrule
+two-temperature / $\log G$ & $\eta^{\rm se}=0.046764$; score alignment $=-0.167709$. Checks: grid-sensitive; damping-sensitive. & \classlabel{score-misaligned} \\
+two-temperature / $\log I_0$ & $\eta^{\rm se}=0.044639$; score alignment $=-0.167709$. Checks: grid-sensitive; damping-sensitive. & \classlabel{score-misaligned} \\
+two-temperature / $\log\kappa_e$ & $\eta^{\rm se}=0.041688$; score alignment $=-0.167709$. Checks: grid-sensitive; damping-sensitive. & \classlabel{score-misaligned} \\
+\bottomrule
+\end{tabular}
+\caption{Target-level SAEPS diagnostic classification across retained, state-absorbed, and score-misaligned regimes. Reported scalar values are medians over validity-passing checkpoints unless otherwise stated.}
+\label{tab:target_classification}
+\end{threeparttable}
+\end{table}
+\FloatBarrier
+
+Table~\ref{tab:target_classification} and Fig.~\ref{fig:three_saeps_regimes} show that SAEPS separates the tested targets into three interpretable regimes. The manufactured source-amplitude targets retain nearly all of their parameter residual signal after state elimination and satisfy all consistency checks. Burgers and coupled reaction--diffusion have large raw sensitivity but small retained fractions, indicating state absorption. The two-temperature targets have a nonzero retained signal but an unfavorable reduced-score direction, indicating score misalignment. The following subsections examine the regimes and the consistency checks supporting the classifications. The complete target-level numerical summary is reported in Supplementary Table~\ref{tab:s4_target_summary}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_three_saeps_regimes.pdf}
+\caption{Three SAEPS diagnostic regimes across target rows. Manufactured source-amplitude targets retain nearly all parameter residual signal after state elimination. Burgers and coupled reaction--diffusion have large raw fixed-network sensitivity but low retained sensitivity, indicating state absorption. Two-temperature targets show unfavorable reduced-score alignment, indicating score misalignment. Reported values are medians over validity-passing checkpoints. Axis abbreviations denote scalar source amplitude (S), coupled source amplitude (CS), Burgers (B), coupled reaction--diffusion (CRD), and two-temperature (2T).}
+\label{fig:three_saeps_regimes}
+\end{figure}
+
+% ------------------------------------------------------------
+\subsection{Retained local signals and reduced-residual interpretation}
+% ------------------------------------------------------------
+
+The manufactured source-amplitude benchmarks serve as the positive-control group. In these problems the target parameter multiplies a prescribed source term whose empirical residual signature is designed to be transverse to the neural-state tangent response at the trained solution. Consequently, the columns of $J_\lambda$ retain a large component after the Tikhonov elimination of $\operatorname{range}(J_\theta)$, and the state-eliminated curvature remains close to the raw fixed-network sensitivity.
+
+All three source-amplitude targets are classified as \classlabel{reliable-local-signal}. The scalar source-amplitude target $\log\lambda$ reaches a median state nRMSE of $2.54\times10^{-5}$ and a median parameter log-error of $6.76\times10^{-6}$, with a retained sensitivity $\eta^{\rm se}=0.995162$ and a score alignment of $1$. The coupled source-amplitude targets behave similarly: for $\log\lambda_u$ the median state nRMSE is $2.72\times10^{-5}$, the median parameter log-error is $5.95\times10^{-6}$, and $\eta^{\rm se}=0.995788$; for $\log\lambda_v$ the median parameter log-error is $4.21\times10^{-6}$ and $\eta^{\rm se}=0.999656$. All three targets are grid-stable, plateau-stable under the damping scan, and checkpoint-centered in the profile audit.
+
+These results directly reflect the reduced-residual logic of SAEPS. When the parameter residual direction lies almost entirely outside the neural-state tangent response, the operator $A_\theta^{(\gamma)}$ leaves it essentially unchanged, so $F_{\lambda}^{\rm se}\approx F_{\lambda}^{\rm raw}$. The near-unit retained sensitivity and positive score alignment are consistent with a strong and correctly oriented reduced residual quadratic model. In such cases, the SAEPS diagnostic coincides with what a classical reduced-parameter sensitivity analysis would report if the state were eliminated exactly.
+
+% ------------------------------------------------------------
+\subsection{State absorption and score misalignment: mechanisms and diagnostic value}
+% ------------------------------------------------------------
+
+The two cautionary regimes demonstrate why raw fixed-network sensitivity alone is insufficient for inverse-PINN reliability and how SAEPS separates distinct failure modes.
+
+\medskip\noindent
+\textbf{State absorption despite large raw sensitivity.}
+The Burgers and coupled reaction--diffusion targets exhibit large raw curvature but small retained fractions. For Burgers/$\log\mu$, $\Fraw=42770.6$ and $\eta^{\rm se}=0.032039$; for coupled reaction--diffusion/$\log a$, $\Fraw=19767.7$ and $\eta^{\rm se}=0.068481$; for $\log b$, $\Fraw=7740.64$ and $\eta^{\rm se}=0.068123$. The columns of $J_\lambda$ lie predominantly in the column space of $J_\theta$, so the damped projection $A_\theta^{(\gamma)}J_\lambda$ yields only a weak residual signal. The targets are therefore classified as \classlabel{state-absorbed}.
+
+This regime reveals a mechanism that is not visible in fixed-network Fisher information. A large $F_{\lambda}^{\rm raw}$ measures the effect of a parameter perturbation under frozen network weights. SAEPS shows that, once the weights are allowed to adapt locally, the same residual perturbation can be reproduced almost entirely by a small $\delta\theta$, leaving little independent parameter information. The \classlabel{state-absorbed} label thus prevents overinterpretation of a numerically large but geometrically redundant sensitivity.
+
+\medskip\noindent
+\textbf{Score misalignment with non-negligible reduced curvature.}
+The two-temperature targets $\log G$, $\log I_0$, and $\log\kappa_e$ show a different cautionary pattern. The retained sensitivity is nonzero but small ($\eta^{\rm se}=0.046764$, $0.044639$, $0.041688$), and the reduced-score direction is unfavorable, with a median score alignment of $-0.167709$ for all three targets. The diagnosis is \classlabel{score-misaligned}.
+
+This separation between curvature strength and score direction is central to the SAEPS logic. A non-negligible $F_{\lambda}^{\rm se}$ indicates that some residual signal survives state elimination, but the signal may point in a direction that does not correspond to a useful parameter correction. The two-temperature results show that even when curvature-based evidence is present, the local residual gradient can still be inconsistent with the true parameter displacement. SAEPS captures this misalignment through the reduced score, providing a diagnostic that curvature alone cannot offer.
+
+% ------------------------------------------------------------
+\subsection{Consistency checks and stress tests}
+% ------------------------------------------------------------
+
+Every SAEPS classification is accompanied by numerical consistency checks that make the label depend on grid, damping, and profile behavior rather than on a single favorable scalar.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig2_grid_damping_consistency.pdf}
+\caption{Grid and damping consistency checks for representative target rows. The source-amplitude target remains stable under diagnostic-grid refinement and damping variation, whereas cautionary targets expose either weak retained signal or damping-sensitive behavior. Full grid/rank and damping traces are reported in the Supplementary Material.}
+\label{fig:grid_damping_consistency}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/fig3_reduced_profile_audit.pdf}
+\caption{Reduced profile audit for representative target rows. The source-amplitude target is checkpoint-centered and passes the other consistency checks. For state-absorbed and score-misaligned targets, profile behavior alone does not override the cautionary classification because retained sensitivity, damping stability, or reduced-score direction fails the declared reliability criteria.}
+\label{fig:reduced_profile_audit}
+\end{figure}
+
+\medskip\noindent
+\textbf{Grid and rank audit.}
+The diagnostic residual grid is refined through the multipliers $\{1,4,16,64,256\}$ relative to the base diagnostic grid. A target is treated as grid-stable when its classification and retained-sensitivity ordering are preserved at the largest grid levels. All source-amplitude and state-absorbed targets are grid-stable; the two-temperature targets are grid-sensitive, indicating that their residual geometry has not yet converged at the base resolution.
+
+\medskip\noindent
+\textbf{Damping audit.}
+The Tikhonov parameter is written as $\gamma=\gamma_\alpha\sigma_1(J_\theta)^2$, where $\sigma_1(J_\theta)$ is the largest singular value of the state Jacobian.  The damping audit uses the extended grid $\gamma_\alpha\in\{10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2},1,10^{2}\}$, while the target-level medians in Table~\ref{tab:target_classification} are evaluated at the core scale $\gamma_\alpha=10^{-7}$.  A target is considered plateau-stable when the retained sensitivity remains high and approximately constant across the available sweep, without a qualitative change in the diagnostic label under the median-based criterion. Source-amplitude targets are plateau-stable; state-absorbed and score-misaligned targets show damping sensitivity. This sensitivity is itself a diagnostic: a label that depends strongly on $\gamma$ signals a target whose residual signal is fragile at the chosen linearization scale.
+
+\medskip\noindent
+\textbf{Profile audit.}
+A quadratic reduced-profile scan along the diagnostic step $\Delta\lambda^{\rm se}$ checks whether the trained parameter lies near the minimum of the reduced residual model. Source-amplitude targets are checkpoint-centered and pass the other consistency checks. For the state-absorbed and score-misaligned targets, the profile audit does not override the cautionary classification, because the retained fraction, damping stability, or reduced-score direction fails the declared reliability criteria.
+
+\medskip\noindent
+\textbf{Stress tests.}
+Selected checks on observation noise, data sparsity, and network architecture for Burgers/$\log\mu$ and coupled reaction--diffusion/$\log a$ support the \classlabel{state-absorbed} interpretation for these selected targets under observation-noise, sparsity, and architecture perturbations. Full target-level stress-test details are reported in the Supplementary Material.
+
+Collectively, Fig.~\ref{fig:grid_damping_consistency} and Fig.~\ref{fig:reduced_profile_audit} show how the consistency checks prevent a \classlabel{reliable-local-signal} label unless retained sensitivity is high, the damping plateau is flat, the grid convergence is clean, and the profile is centered. The checks thus operationalize the SAEPS diagnostic logic as a structured audit rather than a single-number threshold. Full grid/rank, damping, and profile audit traces are provided in Supplementary Figs.~\ref{fig:s2_grid_rank}--\ref{fig:s4_profile}, and the selected noise/sparsity and architecture stress tests are reported in Supplementary Figs.~\ref{fig:s5_noise_sparsity}--\ref{fig:s6_architecture}.
+
+% ------------------------------------------------------------
+\subsection{Relation to classical sensitivity concepts, scope, and limitations}
+% ------------------------------------------------------------
+
+The SAEPS formulation places it within a family of reduced-space sensitivity methods, but its scope is deliberately local and tied to a fixed trained solution.
+
+\medskip\noindent
+\textbf{Relation to profile likelihood and variable projection.}
+Profile likelihood evaluates parameter identifiability by fixing a parameter and reoptimizing all nuisance variables; the resulting profile reveals whether the data constrain that parameter. SAEPS performs a quadratic local analog of this reoptimization: it removes residual directions that can be absorbed by the network weights through a single Tikhonov solve, without iterative retraining. In the limiting case in which the state is eliminated exactly and the objective is linear least squares, $F_{\lambda}^{\rm se}$ reduces to the Schur-complement curvature for the target parameter. SAEPS extends this reduced-space logic to overparameterized neural-state models by introducing the regularized tangent-space projector $A_\theta^{(\gamma)}$.
+
+\medskip\noindent
+\textbf{Raw Fisher information versus state-eliminated curvature.}
+Raw fixed-network sensitivity $\Fraw = J_\lambda^\top J_\lambda$ measures the residual change when the network is frozen. SAEPS replaces it with $\Fse = J_\lambda^\top A_\theta^{(\gamma)} J_\lambda$, which measures the residual change that remains after admissible neural-state adaptation. The difference between the two is the state-absorption effect, quantified by the retained sensitivity $\eta^{\rm se}$. In the benchmarks, this difference is negligible for the source-amplitude targets ($\eta^{\rm se}\approx 1$) but dramatic for Burgers ($\eta^{\rm se}\approx 0.03$), illustrating that raw sensitivity can overstate local parameter information by more than an order of magnitude when the neural trial space is flexible.
+
+\medskip\noindent
+\textbf{Scope and limitations.}
+SAEPS audits the trained residual linearization rather than the global inverse problem. Its diagnostic statements are tied to the trained solution, the residual weighting, the neural architecture, and the declared Tikhonov scale $\gamma$. Score alignment is used only for manufactured-benchmark validation because it requires reference parameters; in real inverse problems the deployable evidence is the combination of state-eliminated curvature, retained sensitivity, and the grid, damping, and profile consistency checks. This role is complementary to global identifiability analysis, posterior uncertainty quantification, and cross-validation with classical solvers.
+
+\FloatBarrier
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+
+This paper has introduced SAEPS, a local reduced-residual diagnostic for inverse physics-informed neural networks. The method eliminates residual components that can be explained by the network-weight tangent response and reports state-eliminated curvature, retained sensitivity, and reduced-score quantities for the target parameters.
+
+The numerical validation confirms three diagnostic regimes predicted by the construction. Manufactured source-amplitude problems retain most of their parameter signal and show stable grid, damping, and profile checks. Burgers and coupled reaction--diffusion exhibit state absorption, where large raw fixed-network sensitivity is mostly removed by local state elimination. The two-temperature benchmark exhibits score misalignment, where nonzero retained residual signal is accompanied by an unfavorable reduced-score direction.
+
+These results support SAEPS as a local reliability audit for trained inverse-PINN solutions. Its role is complementary: SAEPS tests whether the trained residual linearization supports, absorbs, or misaligns a target-parameter signal, whereas global identifiability analysis and posterior uncertainty quantification address different levels of inverse-problem uncertainty.
+
+\FloatBarrier
+\clearpage
+% ============================================================
+\section*{Supplementary material}
+% ============================================================
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\section*{Reproducibility trace}
+
+The source-amplitude positive controls, the Burgers, coupled reaction--diffusion, and two-temperature checkpoints, and all paper-facing figures and table mirrors are generated from the current paper package.  The corresponding provenance scripts are listed by role: source-amplitude positive controls in \texttt{outputs/saeps\_positive\_controls\_v1/}; main-chain inverse-PINN checkpoints in \texttt{experiments/}; paper figures and table mirrors in \texttt{scripts/} and \texttt{outputs/paper\_figures\_v1/plot\_data/}.  The copied submission figures are stored in \texttt{figures/}.
+
+\section*{Appendix A. Complete Benchmark Definitions}
+
+\subsection*{A.1 Scalar Source-Amplitude Positive Control}
+
+The scalar source-amplitude benchmark is posed on $(x,t)\in[0,1]\times[0,1]$:
+\begin{equation}
+    u_t-Du_{xx}+cu=\lambda q(x,t)+s(x,t),
+    \qquad D=0.05,\quad c=1.
+\end{equation}
+The trainable target coordinate is $\log \lambda$, with $\lambda^\star=1.0$ and initial value $\lambda_0=0.98$.  The manufactured state and source signature are
+\begin{align}
+    u^\star(x,t)&=\sin(\pi x)e^{-t}+0.2\sin(3\pi x)\sin(2\pi t),\\
+    q(x,t)&=\sin(2\pi x)(1+t).
+\end{align}
+The forcing is
+\begin{equation}
+    s(x,t)=u_t^\star-Du_{xx}^\star+cu^\star-\lambda^\star q(x,t).
+\end{equation}
+Initial data, boundary data, and observations are sampled from $u^\star$.
+
+\subsection*{A.2 Coupled Source-Amplitude Positive Control}
+
+The coupled source-amplitude benchmark is posed on $(x,t)\in[0,1]\times[0,1]$:
+\begin{align}
+    u_t &=D_u u_{xx}-a u+bv+\lambda_u q_u(x,t)+s_u(x,t),\\
+    v_t &=D_v v_{xx}+a u-bv+\lambda_v q_v(x,t)+s_v(x,t),
+\end{align}
+with fixed coefficients
+\begin{equation}
+    D_u=0.04,\qquad D_v=0.02,\qquad a=0.8,\qquad b=0.75.
+\end{equation}
+The trainable coordinates are $\log\lambda_u$ and $\log\lambda_v$, with $(\lambda_u^\star,\lambda_v^\star)=(1.0,0.8)$ and initial values $(0.98,0.82)$.  The manufactured states and source signatures are
+\begin{align}
+    u^\star(x,t)&=\sin(\pi x)e^{-t}+0.1\sin(2\pi x)\sin t,\\
+    v^\star(x,t)&=\cos(0.5\pi x)e^{-0.5t}+0.1\sin(3\pi x)\cos t,\\
+    q_u(x,t)&=\sin(2\pi x)(1+t),\\
+    q_v(x,t)&=\cos(3\pi x)(1+0.5t).
+\end{align}
+The forcing terms are
+\begin{align}
+    s_u(x,t)&=u_t^\star-D_u u_{xx}^\star+a u^\star-bv^\star-\lambda_u^\star q_u(x,t),\\
+    s_v(x,t)&=v_t^\star-D_v v_{xx}^\star-a u^\star+bv^\star-\lambda_v^\star q_v(x,t).
+\end{align}
+Both state channels are observed, and initial and boundary data are sampled from $(u^\star,v^\star)$.
+
+\subsection*{A.3 Burgers Benchmark}
+
+The Burgers benchmark uses
+\begin{equation}
+    u_t+u u_x=\mu u_{xx},\qquad x\in[0,1],\quad t\in[0,0.4],
+\end{equation}
+with periodic boundary condition $u(0,t)=u(1,t)$.  The trainable coordinate is $\log\mu$, with $\mu^\star=0.05$ and initial value $\mu_0=0.08$.  The finite-difference reference uses
+\begin{equation}
+\begin{aligned}
+    u(x,0)&=\sin(2\pi x),\qquad N_x=128,\quad N_t=2001,\\
+    \Delta x&=1/128,\qquad \Delta t=0.4/2000.
+\end{aligned}
+\end{equation}
+The time update is explicit Euler with centered periodic finite differences,
+\begin{equation}
+    u^{k+1}=u^k+\Delta t\left[-u^k D_x u^k+\mu D_{xx}u^k\right],
+\end{equation}
+where $D_x$ and $D_{xx}$ are implemented with periodic array shifts.  PINN data values are obtained by periodic nearest-neighbor indexing in space and linear interpolation in time. No source term is used in this benchmark.
+
+\subsection*{A.4 Coupled Reaction--Diffusion Benchmark}
+
+The coupled reaction--diffusion benchmark uses
+\begin{align}
+    u_t&=D_u u_{xx}-a u+bv+s_u(x,t),\\
+    v_t&=D_v v_{xx}+a u-bv+s_v(x,t),
+\end{align}
+on $[0,1]\times[0,0.4]$, with $D_u=0.03$ and $D_v=0.02$.  The trainable coordinates are $\log a$ and $\log b$, with $(a^\star,b^\star)=(0.8,0.75)$ and initial values $(0.6,0.95)$.  The manufactured states are
+\begin{align}
+    u^\star(x,t)&=0.8+0.2\sin(\pi x)e^{-t},\\
+    v^\star(x,t)&=0.6+0.15\cos(\pi x)e^{-0.7t}.
+\end{align}
+The source functions are
+\begin{align}
+    s_u(x,t)&=u_t^\star-D_u u_{xx}^\star+a^\star u^\star-b^\star v^\star,\\
+    s_v(x,t)&=v_t^\star-D_v v_{xx}^\star-a^\star u^\star+b^\star v^\star.
+\end{align}
+Initial conditions, Dirichlet boundary conditions at $x=0$ and $x=1$, and observations are sampled from $(u^\star,v^\star)$.
+
+\subsection*{A.5 Two-Temperature Benchmark}
+
+The two-temperature benchmark is implemented in normalized heat-capacity units:
+\begin{align}
+    u_{e,t}&=\kappa_e u_{e,xx}-G(u_e-u_l)+I_0S(x,t),\\
+    u_{l,t}&=G(u_e-u_l),
+\end{align}
+on $[0,1]\times[0,0.4]$.  Thus the residual code corresponds to $c_e=c_l=1$.  The trainable coordinates are $\log I_0$, $\log\kappa_e$, and $\log G$, with $(I_0^\star,\kappa_e^\star,G^\star)=(1.0,0.4,2.0)$ and initial values $(0.8,0.55,1.6)$.  The manufactured states are
+\begin{align}
+    u_l^\star(x,t)&=0.4+0.15\sin(\pi x)e^{-0.5t},\\
+    u_e^\star(x,t)&=u_l^\star(x,t)+0.5\,\partial_t u_l^\star(x,t).
+\end{align}
+The source signature is
+\begin{equation}
+    S(x,t)=\frac{\partial_t u_e^\star-\kappa_e^\star \partial_{xx}u_e^\star+G^\star(u_e^\star-u_l^\star)}{I_0^\star}.
+\end{equation}
+Initial conditions, Dirichlet boundary conditions at $x=0$ and $x=1$, and observations are sampled from $(u_e^\star,u_l^\star)$.
+
+\section*{Appendix B. Training, Validity, and Diagnostic Rules}
+
+\subsection*{B.1 Shared Training Protocol}
+
+Table~\ref{tab:s1_benchmark_protocol} summarizes the benchmark protocol.  For the main Burgers, coupled reaction--diffusion, and two-temperature chain, the network is a tanh MLP with width 24 and depth 3.  Adam uses learning rate $2\times10^{-3}$ for 600 epochs.  Training samples $n_{\rm PDE}=64$, $n_{\rm data}=96$, $n_{\rm IC}=48$, and $n_{\rm BC}=48$ per epoch.  Interior PDE points and data points are sampled uniformly from the corresponding space--time domain; initial-condition points are sampled uniformly in $x$ at $t=0$; boundary points are sampled uniformly in $t$ at $x=0$ and $x=1$.  The sampler is seed controlled and resamples the main-chain training points at every epoch.  For each checkpoint, the diagnostic sample is drawn once from the same uniform distributions with a fixed seed offset.  The source-amplitude positive controls use uniform samples over the same residual-block domains, with a fixed training sample for the Adam/LBFGS run.  The block weights used in the training loss and SAEPS weighted residual are $w_{\rm PDE}=5$, $w_{\rm data}=10$, $w_{\rm IC}=10$, and $w_{\rm BC}=2$ for the main chain.  The main validation uses noise level $\sigma=0$ and observation fraction $1.0$.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{Benchmark protocol table.  Source-code provenance is listed separately in the data and code trace section.}
+\label{tab:s1_benchmark_protocol}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.15\linewidth}p{0.27\linewidth}p{0.17\linewidth}p{0.18\linewidth}p{0.17\linewidth}}
+\toprule
+Benchmark & State equation / reference & Target coordinates & Training and diagnostic samples & Reference construction \\
+\midrule
+Scalar source amplitude & Closed-form manufactured $u^\star$ on $[0,1]^2$ & $\log\lambda$ & Train: 256/512/128/128; diagnostic base: 1/4/2/2 with multipliers 1,4,16,64,256 & Closed-form state and forcing \\
+Coupled source amplitude & Closed-form manufactured $(u^\star,v^\star)$ on $[0,1]^2$ & $\log\lambda_u$, $\log\lambda_v$ & Train: 256/512/128/128; diagnostic base: 1/4/2/2 with multipliers 1,4,16,64,256 & Closed-form two-channel state and forcing \\
+Burgers & Explicit periodic finite-difference reference, $128\times2001$ grid & $\log\mu$ & Train: 64/96/48/48; diagnostic: 16/24/16/16 & Periodic finite-difference reference and interpolation \\
+Coupled reaction--diffusion & Closed-form manufactured $(u^\star,v^\star)$ on $[0,1]\times[0,0.4]$ & $\log a$, $\log b$ & Train: 64/96/48/48; diagnostic: 16/24/16/16 & Closed-form state and manufactured sources \\
+Two-temperature & Closed-form manufactured $(u_e^\star,u_l^\star)$ on $[0,1]\times[0,0.4]$ & $\log I_0$, $\log\kappa_e$, $\log G$ & Train: 64/96/48/48; diagnostic: 16/24/16/16 & Closed-form state and normalized source signature \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection*{B.2 Checkpoint Validity Gate}
+
+For the main three-benchmark chain, the evaluation routine applies a checkpoint-quality gate before target-level SAEPS aggregation:
+\begin{equation}
+\begin{aligned}
+\mathrm{PASS}=\mathbf{1}
+\{&E_{\rm PDE}\le 5\times10^{-2}
+\land E_{\rm data}\le 5\times10^{-2}
+\land E_{\rm IC}\le 5\times10^{-2}\\
+&\land E_{\rm BC}\le 5\times10^{-2}
+\land \mathrm{nRMSE}_{\rm state}\le 5\times10^{-1}\}.
+\end{aligned}
+\end{equation}
+The gate MSEs are computed on unweighted residual blocks.  The reported SAEPS quantities are computed on the weighted residual vector.  State nRMSE is computed on a $12\times8$ mesh for the main chain as
+\begin{equation}
+    \mathrm{nRMSE}_{\rm state}=\frac{\|u_\theta-u^\star\|_2}{\|u^\star\|_2+10^{-12}},
+\end{equation}
+with all state channels concatenated by the tensor norm.  Positive-control checkpoints use the stricter state threshold $0.02$ and additionally require finite parameter errors.  This checkpoint-quality gate is separate from the SAEPS diagnostic solve gate described in Appendix~B.3.  A target-level row is admissible for aggregation only when the checkpoint gate passes and all conjugate-gradient solves required to apply $A_\theta$ for that target-level diagnostic satisfy the relative-residual tolerance.
+
+Table~\ref{tab:s2_validity_summary} summarizes the validity counts for the main three-benchmark chain.  Table~\ref{tab:s3_validity_rows} reports the corresponding row-level residual and state-error values.
+
+\begin{table}[H]
+\centering
+\caption{Checkpoint validity summary for the main three-benchmark chain.}
+\label{tab:s2_validity_summary}
+\begin{tabular}{llrrr}
+\toprule
+Benchmark & Target & Rows & PASS & FAIL \\
+\midrule
+Burgers & $\log\mu$ & 5 & 4 & 1 \\
+Coupled reaction--diffusion & $\log a$ & 5 & 5 & 0 \\
+Coupled reaction--diffusion & $\log b$ & 5 & 5 & 0 \\
+Two-temperature & $\log G$ & 5 & 5 & 0 \\
+Two-temperature & $\log I_0$ & 5 & 5 & 0 \\
+Two-temperature & $\log\kappa_e$ & 5 & 5 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{landscape}
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{llclrrrrr}
+\caption{Row-level checkpoint validity values for the main three-benchmark chain.  Abbreviations: B, Burgers; CRD, coupled reaction--diffusion; 2T, two-temperature.}
+\label{tab:s3_validity_rows}\\
+\toprule
+Benchmark & Seed & Target & Gate & PDE MSE & Data MSE & IC MSE & BC MSE & State nRMSE \\
+\midrule
+\endfirsthead
+\toprule
+Benchmark & Seed & Target & Gate & PDE MSE & Data MSE & IC MSE & BC MSE & State nRMSE \\
+\midrule
+\endhead
+B & 0 & $\log\mu$ & PASS & 3.06e-02 & 2.15e-03 & 1.26e-02 & 1.91e-02 & 1.44e-01 \\
+B & 1 & $\log\mu$ & PASS & 1.81e-02 & 3.61e-03 & 1.54e-02 & 7.47e-03 & 1.58e-01 \\
+B & 2 & $\log\mu$ & PASS & 5.43e-03 & 8.02e-03 & 1.21e-02 & 3.48e-02 & 1.71e-01 \\
+B & 3 & $\log\mu$ & PASS & 1.24e-02 & 4.42e-03 & 7.06e-03 & 1.29e-02 & 1.57e-01 \\
+B & 4 & $\log\mu$ & FAIL & 5.41e-02 & 4.88e-03 & 8.81e-03 & 2.49e-02 & 1.60e-01 \\
+CRD & 0 & $\log a$ & PASS & 2.11e-04 & 2.56e-05 & 5.48e-05 & 1.12e-04 & 7.56e-03 \\
+CRD & 0 & $\log b$ & PASS & 2.11e-04 & 2.56e-05 & 5.48e-05 & 1.12e-04 & 7.56e-03 \\
+CRD & 1 & $\log a$ & PASS & 3.84e-04 & 5.62e-05 & 7.07e-05 & 2.96e-04 & 1.14e-02 \\
+CRD & 1 & $\log b$ & PASS & 3.84e-04 & 5.62e-05 & 7.07e-05 & 2.96e-04 & 1.14e-02 \\
+CRD & 2 & $\log a$ & PASS & 4.36e-04 & 9.01e-05 & 1.75e-04 & 3.92e-04 & 1.52e-02 \\
+CRD & 2 & $\log b$ & PASS & 4.36e-04 & 9.01e-05 & 1.75e-04 & 3.92e-04 & 1.52e-02 \\
+CRD & 3 & $\log a$ & PASS & 4.73e-04 & 7.86e-05 & 7.50e-05 & 2.56e-04 & 1.13e-02 \\
+CRD & 3 & $\log b$ & PASS & 4.73e-04 & 7.86e-05 & 7.50e-05 & 2.56e-04 & 1.13e-02 \\
+CRD & 4 & $\log a$ & PASS & 9.26e-04 & 6.34e-05 & 1.31e-04 & 3.85e-04 & 1.45e-02 \\
+CRD & 4 & $\log b$ & PASS & 9.26e-04 & 6.34e-05 & 1.31e-04 & 3.85e-04 & 1.45e-02 \\
+2T & 0 & $\log G$ & PASS & 3.58e-05 & 4.58e-06 & 3.28e-06 & 1.24e-05 & 5.14e-03 \\
+2T & 0 & $\log I_0$ & PASS & 3.58e-05 & 4.58e-06 & 3.28e-06 & 1.24e-05 & 5.14e-03 \\
+2T & 0 & $\log\kappa_e$ & PASS & 3.58e-05 & 4.58e-06 & 3.28e-06 & 1.24e-05 & 5.14e-03 \\
+2T & 1 & $\log G$ & PASS & 6.80e-05 & 5.77e-06 & 9.51e-06 & 2.04e-05 & 5.90e-03 \\
+2T & 1 & $\log I_0$ & PASS & 6.80e-05 & 5.77e-06 & 9.51e-06 & 2.04e-05 & 5.90e-03 \\
+2T & 1 & $\log\kappa_e$ & PASS & 6.80e-05 & 5.77e-06 & 9.51e-06 & 2.04e-05 & 5.90e-03 \\
+2T & 2 & $\log G$ & PASS & 8.25e-05 & 3.57e-05 & 5.26e-05 & 1.06e-04 & 1.43e-02 \\
+2T & 2 & $\log I_0$ & PASS & 8.25e-05 & 3.57e-05 & 5.26e-05 & 1.06e-04 & 1.43e-02 \\
+2T & 2 & $\log\kappa_e$ & PASS & 8.25e-05 & 3.57e-05 & 5.26e-05 & 1.06e-04 & 1.43e-02 \\
+2T & 3 & $\log G$ & PASS & 9.79e-05 & 5.67e-06 & 1.14e-05 & 2.08e-05 & 6.22e-03 \\
+2T & 3 & $\log I_0$ & PASS & 9.79e-05 & 5.67e-06 & 1.14e-05 & 2.08e-05 & 6.22e-03 \\
+2T & 3 & $\log\kappa_e$ & PASS & 9.79e-05 & 5.67e-06 & 1.14e-05 & 2.08e-05 & 6.22e-03 \\
+2T & 4 & $\log G$ & PASS & 1.40e-04 & 5.81e-06 & 1.18e-05 & 2.11e-05 & 6.59e-03 \\
+2T & 4 & $\log I_0$ & PASS & 1.40e-04 & 5.81e-06 & 1.18e-05 & 2.11e-05 & 6.59e-03 \\
+2T & 4 & $\log\kappa_e$ & PASS & 1.40e-04 & 5.81e-06 & 1.18e-05 & 2.11e-05 & 6.59e-03 \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+
+\subsection*{B.3 SAEPS Linear Solve and Label Rules}
+
+The main chain computes
+\begin{equation}
+    \gamma=\gamma_\alpha \lambda_{\max}(J_\theta^\top J_\theta),
+    \qquad \gamma_\alpha=10^{-7}
+\end{equation}
+for core target-level diagnostics. The damping-consistency audit uses the extended grid $\gamma_\alpha\in\{10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2},1,10^{2}\}$.  The state-elimination operator is applied as
+\begin{equation}
+    A_\theta y
+    =
+    y-J_\theta z,\qquad
+    (J_\theta^\top J_\theta+\gamma I)z=J_\theta^\top y.
+\end{equation}
+The conjugate-gradient solve is initialized at zero and is marked converged when the relative residual recorded by the implementation satisfies
+\begin{equation}
+    \frac{\|(J_\theta^\top J_\theta+\gamma I)z-J_\theta^\top y\|_2}
+    {\|J_\theta^\top y\|_2+10^{-30}}
+    \le \tau_{\rm CG}.
+\end{equation}
+The tolerance and maximum iteration count are $\tau_{\rm CG}=10^{-8}$ and 300 for the main chain, and $\tau_{\rm CG}=10^{-8}$ and 500 for the source-amplitude positive controls.  The solve is run for each column of $J_\lambda$ and once for the weighted residual vector; target-level aggregation requires all corresponding solve-convergence checks to pass.
+
+The score-alignment quantity is
+\begin{equation}
+    \mathrm{align}
+    =
+    \frac{
+    \langle \Delta\lambda^{\rm se},\lambda_{\rm ref}-\lambda_{\rm ckpt}\rangle
+    }{
+    \|\Delta\lambda^{\rm se}\|_2\|\lambda_{\rm ref}-\lambda_{\rm ckpt}\|_2+10^{-30}
+    },
+\end{equation}
+where $\Delta\lambda^{\rm se}$ is the SAEPS diagnostic step, $\lambda_{\rm ref}$ is the manufactured or synthetic reference parameter, and $\lambda_{\rm ckpt}$ is the checkpoint parameter.  This quantity is a manufactured/synthetic validation diagnostic only, because it requires the reference parameter and is therefore not deployable in real inverse problems without known truth.
+
+The weak-eigendirection value is the smallest eigenvalue of the symmetrized state-eliminated curvature matrix,
+\begin{equation}
+    \lambda_{\min}^{\rm weak}
+    =
+    \lambda_{\min}\!\left(\frac{F_\lambda^{\rm se}+(F_\lambda^{\rm se})^\top}{2}\right).
+\end{equation}
+The same function also returns the projection of the parameter-error direction onto the corresponding weakest eigenvector, but the current main-chain label rule uses the eigenvalue threshold rather than that projection ratio.
+
+The main-chain internal decision rule applies the following priority order:
+\begin{equation}
+\begin{cases}
+\classlabel{score-misaligned}, & \mathrm{align}<0,\\
+\classlabel{state-absorbed}, & \mathrm{align}\ge0\ \mathrm{and}\ \etalow<0.15,\\
+\classlabel{weak-eigendirection}, & \mathrm{align}\ge0,\ \etalow\ge0.15,\ \lambda_{\min}^{\rm weak}<10^{-4},\\
+\classlabel{locally reliable}, & \mathrm{otherwise}.
+\end{cases}
+\end{equation}
+The source-amplitude positive-control decision rule applies:
+\begin{equation}
+\begin{cases}
+\classlabel{unstable-denominator}, & \mathrm{denominator\ unstable},\\
+\classlabel{low-retained-sensitivity}, & \etalow\le0.2,\\
+\classlabel{score-misaligned}, & \etalow>0.2\ \mathrm{and}\ \mathrm{score}\le0.5,\\
+\classlabel{reliable-local-signal}, & \mathrm{otherwise}.
+\end{cases}
+\end{equation}
+The paper-facing summary reports \classlabel{reliable-local-signal}, \classlabel{state-absorbed}, and \classlabel{score-misaligned}, with grid, damping, and profile status reported separately.
+
+\section*{Appendix C. Supplementary Numerical Tables and Figures}
+
+
+
+\begin{landscape}
+\begingroup
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{center}
+\captionof{table}{Target-level SAEPS numerical summary. Values are medians over validity-passing checkpoints.}
+\label{tab:s4_target_summary}
+\begin{tabular}{p{0.28\linewidth}lrrrrrrr}
+\toprule
+Target & Label & $n$ & State nRMSE & Log error & $\Fraw$ & $\Fse$ & $\etalow$ & Score \\
+\midrule
+Scalar source / $\log\lambda$ & reliable & 5 & 2.537e-05 & 6.758e-06 & 3.013e+02 & 2.999e+02 & 9.952e-01 & 1.0000 \\
+Coupled source / $\log\lambda_u$ & reliable & 5 & 2.721e-05 & 5.950e-06 & 3.013e+02 & 2.999e+02 & 9.958e-01 & 1.0000 \\
+Coupled source / $\log\lambda_v$ & reliable & 5 & 2.721e-05 & 4.213e-06 & 1.298e+02 & 1.297e+02 & 9.997e-01 & 1.0000 \\
+Burgers / $\log\mu$ & state-absorbed & 4 & 1.572e-01 & 2.208e-01 & 4.277e+04 & 1.374e+03 & 3.204e-02 & 1.0000 \\
+CRD / $\log a$ & state-absorbed & 5 & 1.139e-02 & 4.465e-02 & 1.977e+04 & 1.353e+03 & 6.848e-02 & 0.9994 \\
+CRD / $\log b$ & state-absorbed & 5 & 1.139e-02 & 4.443e-02 & 7.741e+03 & 5.278e+02 & 6.812e-02 & 0.9994 \\
+2T / $\log G$ & score-misaligned & 5 & 6.216e-03 & 2.587e-01 & 6.384e+01 & 3.028e+00 & 4.676e-02 & -0.1677 \\
+2T / $\log I_0$ & score-misaligned & 5 & 6.216e-03 & 3.661e-01 & 3.999e+02 & 1.781e+01 & 4.464e-02 & -0.1677 \\
+2T / $\log\kappa_e$ & score-misaligned & 5 & 6.216e-03 & 2.616e-01 & 1.070e+03 & 4.385e+01 & 4.169e-02 & -0.1677 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\endgroup
+\end{landscape}
+
+\begin{landscape}
+\begingroup
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{center}
+\captionof{table}{Target-level consistency checks corresponding to Table~\ref{tab:s4_target_summary}.}
+\label{tab:s5_consistency}
+\begin{tabular}{p{0.28\linewidth}p{0.22\linewidth}p{0.18\linewidth}p{0.24\linewidth}}
+\toprule
+Target & Regime & Grid status & Damping/profile status \\
+\midrule
+Scalar source / $\log\lambda$ & Retained local signal & grid-stable & plateau-stable; checkpoint-centered \\
+Coupled source / $\log\lambda_u$ & Retained local signal & grid-stable & plateau-stable; checkpoint-centered \\
+Coupled source / $\log\lambda_v$ & Retained local signal & grid-stable & plateau-stable; checkpoint-centered \\
+Burgers / $\log\mu$ & State absorption & grid-stable & damping-sensitive; checkpoint-centered \\
+CRD / $\log a$ & State absorption & grid-stable & damping-sensitive; checkpoint-centered \\
+CRD / $\log b$ & State absorption & grid-stable & damping-sensitive; not recorded \\
+2T / $\log G$ & Score misalignment & grid-sensitive & damping-sensitive; not recorded \\
+2T / $\log I_0$ & Score misalignment & grid-sensitive & damping-sensitive; checkpoint-centered \\
+2T / $\log\kappa_e$ & Score misalignment & grid-sensitive & damping-sensitive; checkpoint-centered \\
+\bottomrule
+\end{tabular}
+\end{center}
+\endgroup
+\end{landscape}
+
+
+\begin{landscape}
+\begingroup
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{longtable}{lllr}
+\caption{Seed-level retained-sensitivity values used by Supplementary Fig.~S1.  Abbreviations: S, scalar source amplitude; CS, coupled source amplitude; B, Burgers; CRD, coupled reaction--diffusion; 2T, two-temperature.}
+\label{tab:s5_seed_eta}\\
+\toprule
+Benchmark & Seed & Target & $\etalow$ \\
+\midrule
+\endfirsthead
+\toprule
+Benchmark & Seed & Target & $\etalow$ \\
+\midrule
+\endhead
+S & 0 & $\log\lambda$ & 9.952e-01 \\
+S & 1 & $\log\lambda$ & 9.952e-01 \\
+S & 2 & $\log\lambda$ & 9.952e-01 \\
+S & 3 & $\log\lambda$ & 9.952e-01 \\
+S & 4 & $\log\lambda$ & 9.952e-01 \\
+CS & 0 & $\log\lambda_u$ & 9.958e-01 \\
+CS & 1 & $\log\lambda_u$ & 9.958e-01 \\
+CS & 2 & $\log\lambda_u$ & 9.958e-01 \\
+CS & 3 & $\log\lambda_u$ & 9.958e-01 \\
+CS & 4 & $\log\lambda_u$ & 9.958e-01 \\
+CS & 0 & $\log\lambda_v$ & 9.997e-01 \\
+CS & 1 & $\log\lambda_v$ & 9.997e-01 \\
+CS & 2 & $\log\lambda_v$ & 9.997e-01 \\
+CS & 3 & $\log\lambda_v$ & 9.997e-01 \\
+CS & 4 & $\log\lambda_v$ & 9.997e-01 \\
+B & 0 & $\log\mu$ & 5.590e-03 \\
+B & 1 & $\log\mu$ & 5.086e-03 \\
+B & 2 & $\log\mu$ & 6.960e-03 \\
+B & 3 & $\log\mu$ & 2.320e-03 \\
+CRD & 0 & $\log a$ & 7.539e-02 \\
+CRD & 1 & $\log a$ & 5.403e-02 \\
+CRD & 2 & $\log a$ & 5.923e-02 \\
+CRD & 3 & $\log a$ & 4.654e-02 \\
+CRD & 4 & $\log a$ & 7.640e-02 \\
+CRD & 0 & $\log b$ & 7.310e-02 \\
+CRD & 1 & $\log b$ & 4.715e-02 \\
+CRD & 2 & $\log b$ & 4.990e-02 \\
+CRD & 3 & $\log b$ & 5.457e-02 \\
+CRD & 4 & $\log b$ & 7.513e-02 \\
+2T & 0 & $\log G$ & 5.332e-02 \\
+2T & 1 & $\log G$ & 4.828e-02 \\
+2T & 2 & $\log G$ & 4.109e-02 \\
+2T & 3 & $\log G$ & 2.695e-02 \\
+2T & 4 & $\log G$ & 6.149e-02 \\
+2T & 0 & $\log I_0$ & 4.814e-02 \\
+2T & 1 & $\log I_0$ & 4.587e-02 \\
+2T & 2 & $\log I_0$ & 4.897e-02 \\
+2T & 3 & $\log I_0$ & 2.574e-02 \\
+2T & 4 & $\log I_0$ & 5.151e-02 \\
+2T & 0 & $\log\kappa_e$ & 4.673e-02 \\
+2T & 1 & $\log\kappa_e$ & 4.312e-02 \\
+2T & 2 & $\log\kappa_e$ & 4.162e-02 \\
+2T & 3 & $\log\kappa_e$ & 2.498e-02 \\
+2T & 4 & $\log\kappa_e$ & 4.890e-02 \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_s1_seed_level_eta_distributions.pdf}
+\caption{Seed-level retained sensitivity distributions for the target rows in Table~\ref{tab:s5_seed_eta}.}
+\label{fig:s1_seed_eta}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_s2_full_grid_rank_audit.pdf}
+\caption{Full diagnostic-grid and rank audit exported for the current paper package.}
+\label{fig:s2_grid_rank}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_s3_full_gamma_sweep.pdf}
+\caption{Full damping sweep used in the current figure package. The target-level medians are evaluated at the core scale $\gamma_\alpha=10^{-7}$; the sweep shown here is the extended consistency audit over $\gamma_\alpha\in\{10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2},1,10^{2}\}$.}
+\label{fig:s3_gamma}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_s4_full_profile_audit.pdf}
+\caption{Full reduced-profile audit traces exported for the current paper package.}
+\label{fig:s4_profile}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_s5_noise_sparsity_stress.pdf}
+\caption{Selected noise and sparsity stress tests.  These rows are scope-limited stress tests and do not constitute a full Cartesian robustness claim.}
+\label{fig:s5_noise_sparsity}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_s6_architecture_dependence.pdf}
+\caption{Selected architecture-dependence audit exported for the current paper package.}
+\label{fig:s6_architecture}
+\end{figure}
+
+\begin{thebibliography}{99}
+
+\bibitem{becker2005parameter}
+R.~Becker, M.~Braack, B.~Vexler,
+Parameter identification for chemical models in combustion problems,
+\textit{Appl. Numer. Math.} \textbf{54} (2005) 519--536.
+
+\bibitem{engl1996regularization}
+H.W.~Engl, M.~Hanke, A.~Neubauer,
+\textit{Regularization of Inverse Problems},
+Kluwer Academic Publishers, Dordrecht, 1996.
+
+\bibitem{tarantola2005inverse}
+A.~Tarantola,
+\textit{Inverse Problem Theory and Methods for Model Parameter Estimation},
+SIAM, Philadelphia, 2005.
+
+\bibitem{pedretscher2019parameter}
+B.~Pedretscher, B.~Kaltenbacher, O.~Pfeiler,
+Parameter identification and uncertainty quantification in stochastic state space models and its application to texture analysis,
+\textit{Appl. Numer. Math.} \textbf{146} (2019) 38--54.
+
+\bibitem{aster2018parameter}
+R.C.~Aster, B.~Borchers, C.H.~Thurber,
+\textit{Parameter Estimation and Inverse Problems}, 3rd ed.,
+Elsevier, Amsterdam, 2018.
+
+\bibitem{raissi2019physics}
+M.~Raissi, P.~Perdikaris, G.E.~Karniadakis,
+Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations,
+\textit{J. Comput. Phys.} \textbf{378} (2019) 686--707.
+
+\bibitem{kadeethum2020pinns}
+T.~Kadeethum, T.M.~J{\o}rgensen, H.M.~Nick,
+Physics-informed neural networks for solving nonlinear diffusivity and Biot's equations,
+\textit{PLoS ONE} \textbf{15} (2020) e0232683.
+
+\bibitem{haghighat2021physics}
+E.~Haghighat, M.~Raissi, A.~Moure, H.~G{\'o}mez, R.~Juanes,
+A physics-informed deep learning framework for inversion and surrogate modeling in solid mechanics,
+\textit{Comput. Methods Appl. Mech. Engrg.} \textbf{379} (2021) 113741.
+
+\bibitem{amini2023inverse}
+D.~Amini, E.~Haghighat, R.~Juanes,
+Inverse modeling of nonisothermal multiphase poromechanics using physics-informed neural networks,
+\textit{J. Comput. Phys.} \textbf{490} (2023) 112323.
+
+\bibitem{lu2021deepxde}
+L.~Lu, X.~Meng, Z.~Mao, G.E.~Karniadakis,
+DeepXDE: A deep learning library for solving differential equations,
+\textit{SIAM Rev.} \textbf{63} (2021) 208--228.
+
+\bibitem{wang2021understanding}
+S.~Wang, Y.~Teng, P.~Perdikaris,
+Understanding and mitigating gradient flow pathologies in physics-informed neural networks,
+\textit{SIAM J. Sci. Comput.} \textbf{43} (2021) A3055--A3081.
+
+\bibitem{wang2022ntk}
+S.~Wang, X.~Yu, P.~Perdikaris,
+When and why PINNs fail to train: A neural tangent kernel perspective,
+\textit{J. Comput. Phys.} \textbf{449} (2022) 110768.
+
+\bibitem{krishnapriyan2021characterizing}
+A.~Krishnapriyan, A.~Gholami, S.~Zhe, R.~Kirby, M.W.~Mahoney,
+Characterizing possible failure modes in physics-informed neural networks,
+\textit{Adv. Neural Inf. Process. Syst.} \textbf{34} (2021) 26548--26560.
+
+\bibitem{wang2022respecting}
+S.~Wang, S.~Sankaran, P.~Perdikaris,
+Respecting causality is all you need for training physics-informed neural networks,
+\textit{Comput. Methods Appl. Mech. Engrg.} \textbf{403} (2023) 115671.
+
+\bibitem{jagtap2020adaptive}
+A.D.~Jagtap, K.~Kawaguchi, G.E.~Karniadakis,
+Adaptive activation functions accelerate convergence in deep and physics-informed neural networks,
+\textit{J. Comput. Phys.} \textbf{404} (2020) 109136.
+
+\bibitem{kaltenbacher2022discretization}
+B.~Kaltenbacher, T.T.N.~Nguyen,
+Discretization of parameter identification in PDEs using neural networks,
+\textit{Inverse Problems} \textbf{38} (2022) 124007.
+
+\bibitem{aarset2022learning}
+C.~Aarset, M.~Holler, T.T.N.~Nguyen,
+Learning-informed parameter identification in nonlinear time-dependent PDEs,
+\textit{Appl. Math. Optim.} \textbf{88} (2023) 76.
+
+\bibitem{yang2021bpinns}
+L.~Yang, X.~Meng, G.E.~Karniadakis,
+B-PINNs: Bayesian physics-informed neural networks for forward and inverse PDE problems with noisy data,
+\textit{J. Comput. Phys.} \textbf{425} (2021) 109913.
+
+\bibitem{zhang2019uncertainty}
+D.~Zhang, L.~Lu, L.~Guo, G.E.~Karniadakis,
+Quantifying total uncertainty in physics-informed neural networks for solving forward and inverse stochastic problems,
+\textit{J. Comput. Phys.} \textbf{397} (2019) 108850.
+
+\bibitem{yang2019adversarial}
+Y.~Yang, P.~Perdikaris,
+Adversarial uncertainty quantification in physics-informed neural networks,
+\textit{J. Comput. Phys.} \textbf{394} (2019) 136--152.
+
+\bibitem{raue2009structural}
+A.~Raue, C.~Kreutz, T.~Maiwald, J.~Bachmann, M.~Schilling, U.~Klingm{\"u}ller, J.~Timmer,
+Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood,
+\textit{Bioinformatics} \textbf{25} (2009) 1923--1929.
+
+\bibitem{gutenkunst2007universally}
+R.N.~Gutenkunst, J.J.~Waterfall, F.P.~Casey, K.S.~Brown, C.R.~Myers, J.P.~Sethna,
+Universally sloppy parameter sensitivities in systems biology models,
+\textit{PLoS Comput. Biol.} \textbf{3} (2007) e189.
+
+\bibitem{transtrum2011geometry}
+M.K.~Transtrum, B.B.~Machta, J.P.~Sethna,
+Geometry of nonlinear least squares with applications to sloppy models and optimization,
+\textit{Phys. Rev. E} \textbf{83} (2011) 036701.
+
+\bibitem{saltelli2008global}
+A.~Saltelli, M.~Ratto, T.~Andres, F.~Campolongo, J.~Cariboni, D.~Gatelli, M.~Saisana, S.~Tarantola,
+\textit{Global Sensitivity Analysis: The Primer},
+Wiley, Chichester, 2008.
+
+\bibitem{hinze2009optimization}
+M.~Hinze, R.~Pinnau, M.~Ulbrich, S.~Ulbrich,
+\textit{Optimization with PDE Constraints},
+Springer, Dordrecht, 2009.
+
+\bibitem{biegler2007realtime}
+L.T.~Biegler, O.~Ghattas, M.~Heinkenschloss, D.E.~Keyes, B.~van Bloemen Waanders (Eds.),
+\textit{Real-Time PDE-Constrained Optimization},
+SIAM, Philadelphia, 2007.
+
+\bibitem{golub1973variable}
+G.H.~Golub, V.~Pereyra,
+The differentiation of pseudo-inverses and nonlinear least squares problems whose variables separate,
+\textit{SIAM J. Numer. Anal.} \textbf{10} (1973) 413--432.
+
+\bibitem{golub2003separable}
+G.~Golub, V.~Pereyra,
+Separable nonlinear least squares: the variable projection method and its applications,
+\textit{Inverse Probl.} \textbf{19} (2003) R1--R26.
+
+\end{thebibliography}
+
+\end{document}
