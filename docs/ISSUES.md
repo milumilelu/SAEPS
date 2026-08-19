@@ -237,3 +237,31 @@ affected_runs: seed 20 development only.
 protocol_impact: Solver gate FAIL independently of the gamma-profile failure. This confirms that the v2 CG robustness issue is not resolved by simple Jacobi scaling.
 resolution_or_status: OPEN. Do not raise iteration limits or residual tolerances using this result. A separately preregistered Krylov/preconditioner development study is required.
 ```
+
+## I-017 — v3.3 full-RHS solver gates fail while parameter curvature agrees
+
+```text
+date: 2026-08-19
+issue_id: I-017
+phase: V3.3 numerical-decomposition development
+classification: numerical failure
+description: Standard CG, Jacobi-PCG, augmented LSQR and the strict direct audit do not all pass their registered full-RHS gates. However, the parameter-column CG solve passes at relative residual 5.78e-11 and its curvature differs from explicit direct by only 2.58e-9. Augmented LSQR differs from explicit by 2.15e-10. Failures are driven mainly by the auxiliary residual RHS; Jacobi-PCG remains materially less accurate.
+evidence: outputs/runs/v3_3_numerical_decomposition/v3-3-num-decomp-s20-20260819T142127.327595+0000-3b23a23db90f and docs/evidence/V3_3_SEED20_ACCEPTANCE.md.
+affected_runs: seed 20 v3.3 development only.
+protocol_impact: Registered chain remains FAIL and no paper-facing comparison is emitted. The nonbinding decomposition establishes that standard-CG solver error does not explain the seed-20 parameter-curvature discrepancy.
+resolution_or_status: OPEN. Preserve full-RHS failures. Future solver work should distinguish parameter-curvature and score/residual RHS objectives and investigate augmented Krylov stopping without changing these observed gates post hoc.
+```
+
+## I-018 — v3.3 locates the largest seed-20 discrepancy at the profile layer
+
+```text
+date: 2026-08-19
+issue_id: I-018
+phase: V3.3 numerical-decomposition development
+classification: scientific failure
+description: Explicit GN differs from the valid exact gamma reduction by 1.172%, whereas exact gamma differs from the strict finest profile curvature by 7.045%. The total explicit-GN to profile discrepancy is 8.300%. The profile endpoint still fails registered multiscale and optimization-accuracy gates.
+evidence: docs/evidence/V3_3_SEED20_ACCEPTANCE.md and the accepted v3.3 raw run.
+affected_runs: seed 20 v3.3 development only.
+protocol_impact: The decomposition favors nonlinear/profile error over GN or parameter-curvature solver error as the dominant observed segment, but cannot validate a scientific equality because Hprofile is not converged.
+resolution_or_status: OPEN. Continue branch/optimization/function-space diagnosis only under a new amendment; do not reinterpret this nonbinding diagnostic as paper evidence or activate additional seeds.
+```

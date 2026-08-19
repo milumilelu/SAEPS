@@ -47,3 +47,14 @@ Run-level provenance schema is defined by the execution contract. Experimental p
 - Engineering validation: `PASSED`; gamma-primary chain: `FAIL`
 - Seeds 21–24 and 30–44 remain inactive; confirmation unauthorized
 - Evidence: `docs/evidence/V3_2_SEED20_ACCEPTANCE.md`
+
+## V3.3 Numerical-Decomposition Development
+
+- Contract: `docs/v3_3/EXECUTION_CONTRACT.md`
+- Accepted seed-20 run: `v3-3-num-decomp-s20-20260819T142127.327595+0000-3b23a23db90f`
+- Clean implementation commit: `b0c317c8d13d49db5942dee5203c964cb74bb482`
+- Configuration hash: `83c190d1d76600671ae5558e93b50720ef96169e7bd43fab073f874237029bae`
+- Engineering validation: `PASSED`; registered all-gates chain: `FAIL`
+- Diagnostic scope: `NONBINDING_DIAGNOSTIC_ONLY`
+- Seeds 21–24 and 30–44 remain inactive; confirmation unauthorized
+- Evidence: `docs/evidence/V3_3_SEED20_ACCEPTANCE.md`
