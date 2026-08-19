@@ -1,0 +1,20 @@
+{
+  "config_hash": "4f70ec215ed259c38d67271badce53c5773f84b7280b2989d0d2e614cb6b8847",
+  "implementation_commit": "296a4bb334a9603c0f9417042481abbd6e4bd6e3",
+  "phase": "P4",
+  "run_id": "p4-screening-s0-20260819T080159.676328+0000-56ebdbadfb52",
+  "schema_version": 1,
+  "selected_candidate": "Burgers",
+  "selection_audit": [
+    {"criterion": "hard_numerical_gates", "remaining": ["Allen-Cahn", "Burgers"]},
+    {"criterion": "stationarity_passing_count", "remaining": ["Allen-Cahn", "Burgers"]},
+    {"criterion": "classical_curvature_clarity", "remaining": ["Burgers"]},
+    {"criterion": "reoptimization_failure_rate", "remaining": ["Burgers"]},
+    {"criterion": "alphabetical_name", "selected": "Burgers"}
+  ],
+  "status": "PASSED_LOCK_READY",
+  "summaries": {
+    "Allen-Cahn": {"classical_median_r_squared": 0.9984252615077979, "hard_gate": "PASS", "nominal_gamma_alpha": 1e-10, "reoptimization_failures": 0, "stationarity_passed": 3},
+    "Burgers": {"classical_median_r_squared": 0.9998460719661915, "hard_gate": "PASS", "nominal_gamma_alpha": 1e-8, "reoptimization_failures": 0, "stationarity_passed": 3}
+  }
+}

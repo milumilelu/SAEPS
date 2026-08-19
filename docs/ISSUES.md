@@ -69,3 +69,17 @@ affected_runs: Seeds 10,11,12,13,16 each have five CHECKPOINT_INVALID records; a
 protocol_impact: SG-1=FAIL. P2 engineering gate remains PASSED, so P3 may proceed. Final claims must retain this negative result.
 resolution_or_status: OPEN scientific result. No threshold, source, gamma, seed, or alpha will be changed and confirmation will not be rerun.
 ```
+
+## I-005 — P4 development screening audit and fit-rule corrections
+
+```text
+date: 2026-08-19
+issue_id: I-005
+phase: P4 development
+classification: implementation failure
+description: Early screening attempts failed before preserving evidence, emitted a non-JSON -Infinity clarity sentinel, applied synthetic profile thresholds to real PINNs, and incorrectly counted quadratic-fit failures as reoptimization failures.
+evidence: Development-only failed attempts preceding p4-screening-s0-20260819T080159.676328+0000-56ebdbadfb52; no confirmation seed was run.
+affected_runs: Failed/unaccepted P4 development directories remain under outputs/runs/p4_screening.
+protocol_impact: None on confirmation. All corrections were made using seeds 0,1,2 before global LOCK.
+resolution_or_status: RESOLVED. Failed development now serializes legal nulls; real-PINN profile thresholds/window are uniform; 42/42 optimization statuses are separated from fit quality; final clean screening evidence is preserved.
+```

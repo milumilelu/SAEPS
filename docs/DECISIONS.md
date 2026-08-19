@@ -47,3 +47,15 @@ development_evidence: docs/evidence/P3_ACCEPTANCE.md.
 affected_configs: configs/p3_profile.yaml; future configs/locked/scalar.yaml.
 authorizing_protocol: SAEPS-JCP-EXEC-v2.0 sections 12 and P3 acceptance criteria.
 ```
+
+## D-003 — Select Burgers and create the global confirmation lock
+
+```text
+date: 2026-08-19
+decision_id: D-003
+decision: Select Burgers for scalar confirmation and freeze scalar, CRD multi-parameter, robustness, bootstrap, profile, gamma and artifact protocols.
+reason: Both scalar candidates passed hard gates and 3/3 stationarity. Burgers first won at the preregistered classical curvature-clarity criterion (median R2 0.999846 vs 0.998425). No forbidden SAEPS/result metric was consulted.
+development_evidence: docs/evidence/P4_SCREENING.md and docs/evidence/P6_DEVELOPMENT.md.
+affected_configs: configs/locked/scalar.yaml, multi.yaml, robustness.yaml and their SHA256 sidecars.
+authorizing_protocol: SAEPS-JCP-EXEC-v2.0 sections 4.2, 8, 13 and subsequent locked confirmation phases.
+```
