@@ -220,3 +220,17 @@
 - [x] 实现 standard CG + Jacobi-PCG development gate；
 - [x] 完成 seed 20 严格串行运行；在 unregularized multiscale convergence gate 合规停止；
 - [x] 生成机器可读证据；seeds 21–24 不允许激活。
+
+## V3.2 Gamma-Matched Primary — Development Only
+
+**状态:** `IN_PROGRESS`
+**隔离:** 仅 seed 20；21–24、30–44 均禁止；`confirmation_authorized: false`。
+
+- [x] 建立 v3.2 gamma-primary 可执行契约与独立配置；
+- [x] 实现正负独立 local-continuation branches；
+- [x] 实现 nominal/strict optimization-accuracy convergence；
+- [x] 将 gamma-matched profile 设为主 gate、unregularized 设为非阻断诊断；
+- [x] 无条件执行 standard CG + Jacobi-PCG seed-20 gate；
+- [x] 执行 exact gamma-matched Hessian reduction 与四量比较；
+- [ ] 运行真实 seed 20、生成证据并判定是否可请求激活 21–24；
+- [ ] 自动提交并推送 GitHub private `main`。

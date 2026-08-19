@@ -83,3 +83,15 @@ development_evidence: docs/evidence/V3_FOUNDATION_ACCEPTANCE.md; no v3.1 run was
 affected_configs: configs/v3_1/seed20_development.yaml only; v2 locked and v3.0 configurations remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_006_V3_1_STATE_MINIMUM.md and docs/v3_1/EXECUTION_CONTRACT.md.
 ```
+
+## D-006 — Make gamma-matched profiling the v3.2 primary chain
+
+```text
+date: 2026-08-19
+decision_id: D-006
+decision: Open isolated v3.2 seed-20 development with gamma-matched profile as primary and unregularized profile as a nonbinding gamma-to-zero diagnostic.
+reason: v3.1 successfully established numerical local-minimum candidates at the center and all unregularized points, but the unregularized curvature lacked a stable h-to-zero limit. That result diagnoses unregularized weight-geometry instability and must not preempt the finite-gamma SAEPS validation actually defined by the method.
+development_evidence: docs/evidence/V3_1_SEED20_ACCEPTANCE.md; no v3.2 result was inspected before this decision.
+affected_configs: configs/v3_2/seed20_gamma_primary.yaml only; v2, v3.0 and v3.1 remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_007_V3_2_GAMMA_PRIMARY.md and docs/v3_2/EXECUTION_CONTRACT.md.
+```
