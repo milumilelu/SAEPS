@@ -1,0 +1,109 @@
+schema_version: 1
+phase: P2_CONFIRMATION
+contract_id: SAEPS-JCP-EXEC-v2.0
+development_config_hash: 439c80c7e16611f913f05cfb6aa7e60aefcefc3a7bea6e3061583879c93b26bd
+development_run_id: p2-development-s0-20260819T072005.205758+0000-bc9e08a3bcd1
+development_seeds:
+- 0
+- 1
+- 2
+confirmation_seeds:
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+dtype: float64
+device: cpu
+pde:
+  domain:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  diffusion: 0.05
+  reaction: 1.0
+  lambda_star: 1.0
+  truth: sin(pi*x)*exp(-t) + 0.2*sin(3*pi*x)*sin(2*pi*t)
+network:
+  architecture: tanh_mlp_2x8x1
+  hidden_width: 8
+training:
+  sampling: locked_tensor_grid_same_as_diagnostic
+  pde_points: 81
+  data_points: 81
+  initial_points: 17
+  boundary_points_per_side: 17
+  loss_weights:
+    pde: 5.0
+    data: 10.0
+    initial: 10.0
+    boundary: 2.0
+  adam_epochs: 1200
+  adam_learning_rate: 0.01
+  lbfgs_max_iterations: 300
+  lbfgs_tolerance_grad: 1.0e-10
+  lbfgs_tolerance_change: 1.0e-12
+diagnostic:
+  pde_grid:
+  - 9
+  - 9
+  data_grid:
+  - 9
+  - 9
+  initial_points: 17
+  boundary_points_per_side: 17
+fourier_library:
+  spatial_frequencies:
+  - 1
+  - 2
+  - 3
+  - 4
+  temporal_modes:
+  - constant
+  - sin1
+  - cos1
+  - sin2
+  - cos2
+  svd_relative_tolerance: 1.0e-10
+  orthogonality_tolerance: 1.0e-10
+  selection_statistic: median_development_tangent_overlap
+  parallel_rule: maximum
+  perpendicular_rule: minimum_among_empirically_orthogonal_candidates
+selected_sources:
+  q_parallel: sin3x_sin2t
+  q_perpendicular: sin4x_constantt
+  normalization: unit discrete L2 norm on locked diagnostic PDE grid
+  empirical_inner_product: 3.0357660829594124e-18
+alpha_values:
+- 0.0
+- 0.25
+- 0.5
+- 0.75
+- 1.0
+gamma:
+  alpha_grid:
+  - 1.0e-12
+  - 1.0e-10
+  - 1.0e-08
+  - 1.0e-06
+  - 0.0001
+  - 0.01
+  cg_tolerance: 1.0e-10
+  cg_acceptance: 1.0e-08
+  cg_max_iterations: 300
+  explicit_mf_relative_tolerance: 1.0e-06
+  plateau_relative_tolerance: 0.05
+  selector: smallest_cg_eligible_point_with_explicit_plateau_to_preceding_gamma
+  nominal_alpha: 1.0e-10
+confirmation_rules:
+  checkpoint_training_loss_max: 0.1
+  checkpoint_theta_stationarity_max: 0.01
+  monotonic_absolute_tolerance: 1.0e-08
+  spearman_median_gate: 0.9
+  monotonic_seed_gate: 8

@@ -1,0 +1,33 @@
+{
+  "checkpoint_thresholds": {
+    "diagnostic_theta_stationarity_max": 0.01,
+    "training_loss_max": 0.1
+  },
+  "checkpoints": {
+    "0": {"diagnostic_theta_stationarity": 0.0021225260694753708, "state_rmse_validation_only": 0.041770659159763086, "svd_rank": 33, "training_loss": 0.009744618304600173},
+    "1": {"diagnostic_theta_stationarity": 0.008324317256809884, "state_rmse_validation_only": 0.09020897545422792, "svd_rank": 32, "training_loss": 0.07821128438890147},
+    "2": {"diagnostic_theta_stationarity": 0.002124953301007418, "state_rmse_validation_only": 0.016971458480637434, "svd_rank": 33, "training_loss": 0.0025827410815752534}
+  },
+  "development_config_hash": "439c80c7e16611f913f05cfb6aa7e60aefcefc3a7bea6e3061583879c93b26bd",
+  "development_run_id": "p2-development-s0-20260819T072005.205758+0000-bc9e08a3bcd1",
+  "development_seeds": [0, 1, 2],
+  "gamma_selection": {
+    "adjacent_explicit_relative_changes": [0.011046771439529217, 0.12327065300820524, 0.4622256502079963, 0.5694930298713532, 0.7309378021669132],
+    "eligible": [false, true, true, true, true, true],
+    "nominal_gamma_alpha": 1e-10,
+    "selector": "smallest_cg_eligible_point_with_explicit_plateau_to_preceding_gamma"
+  },
+  "implementation_commit": "bc2fe2952b7fed19fb61a788212c1fc30a1dbf3a",
+  "locked_config_sha256": "32003edbcfbe03c6bf357ffce25051ba9b279263a15d2e80b4c762087ec0c30e",
+  "phase": "P2_DEVELOPMENT",
+  "schema_version": 1,
+  "selected_sources": {
+    "empirical_inner_product": 3.0357660829594124e-18,
+    "q_parallel": "sin3x_sin2t",
+    "q_parallel_median_tangent_overlap": 0.9744552801695352,
+    "q_perpendicular": "sin4x_constantt",
+    "q_perpendicular_median_tangent_overlap": 0.7472291536969442
+  },
+  "status": "PASSED_PHASE_LOCK_READY"
+}
+
