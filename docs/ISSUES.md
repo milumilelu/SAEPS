@@ -265,3 +265,17 @@ affected_runs: seed 20 v3.3 development only.
 protocol_impact: The decomposition favors nonlinear/profile error over GN or parameter-curvature solver error as the dominant observed segment, but cannot validate a scientific equality because Hprofile is not converged.
 resolution_or_status: OPEN. Continue branch/optimization/function-space diagnosis only under a new amendment; do not reinterpret this nonbinding diagnostic as paper evidence or activate additional seeds.
 ```
+
+## I-019 — First v3.4 seeds 22–24 attempts have dirty provenance
+
+```text
+date: 2026-08-20
+issue_id: I-019
+phase: V3.4 curvature-validation development
+classification: implementation failure
+description: Seeds 21–24 were first launched sequentially in one shell after a clean seed20 acceptance commit. Seed21 correctly recorded a clean worktree, but its untracked output made provenance.git_dirty=true for the first attempts of seeds 22–24.
+evidence: first-attempt run IDs v3-4-curvature-s22-20260819T161010.489555+0000-627a3d606103, v3-4-curvature-s23-20260819T161346.185202+0000-89a746206c9b, and v3-4-curvature-s24-20260819T161609.839251+0000-2d27d5327755.
+affected_runs: the three named first attempts only; seed21 is clean and remains accepted.
+protocol_impact: Numeric attempts are retained but are ineligible for formal v3.4 aggregation. No config, threshold, seed, optimizer, or scientific rule changes.
+resolution_or_status: RESOLVED operationally by committing all attempts, then rerunning seeds 22, 23 and 24 one at a time from a clean worktree and committing each before starting the next seed. Acceptance selects only clean-provenance runs by a rule independent of numeric outcomes.
+```
