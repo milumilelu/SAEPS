@@ -37,3 +37,13 @@ Run-level provenance schema is defined by the execution contract. Experimental p
 - Strict full-chain gate: `FAIL` at unregularized multiscale convergence
 - Seed status: 21–24 inactive; 30–44 unseen/inactive; confirmation unauthorized
 - Evidence: `docs/evidence/V3_1_SEED20_ACCEPTANCE.md`
+
+## V3.2 Gamma-Primary Development
+
+- Contract: `docs/v3_2/EXECUTION_CONTRACT.md`
+- Accepted seed-20 run: `v3-2-gamma-primary-s20-20260819T133259.913719+0000-defb083d1a75`
+- Clean run commit: `681e6354c3cf199533f275f9cc933c6565849158`
+- Configuration hash: `f65072d22a444786f19c7c92cc617f5a1b3fb55ebbee3d3433404a64568ac9bb`
+- Engineering validation: `PASSED`; gamma-primary chain: `FAIL`
+- Seeds 21–24 and 30–44 remain inactive; confirmation unauthorized
+- Evidence: `docs/evidence/V3_2_SEED20_ACCEPTANCE.md`

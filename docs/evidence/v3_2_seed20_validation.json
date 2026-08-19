@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "common_center": {
+      "detail": "common center passes G_theta, S_theta and exact second-order gates; S_lambda recorded",
+      "status": "PASS"
+    },
+    "decision_mapping": {
+      "detail": "primary chain FAIL; secondary unregularized result is nonbinding; seed expansion forbidden",
+      "status": "PASS"
+    },
+    "gamma_primary_result": {
+      "detail": "gamma 8/8 passes; multiscale and finest-scale accuracy failures retained separately",
+      "status": "PASS"
+    },
+    "profile_structure": {
+      "detail": "primary/secondary roles, 8/8 accuracy levels and both continuation lineages verified",
+      "status": "PASS"
+    },
+    "protocol_isolation": {
+      "detail": "only seed 20 active; v2 and all reserved seeds remain isolated",
+      "status": "PASS"
+    },
+    "provenance": {
+      "detail": "clean formal-run commit 681e6354c3cf199533f275f9cc933c6565849158 verified",
+      "status": "PASS"
+    },
+    "run_manifest": {
+      "detail": "run v3-2-gamma-primary-s20-20260819T133259.913719+0000-defb083d1a75 manifest and config hash verified",
+      "status": "PASS"
+    },
+    "solver_and_exact_hessian": {
+      "detail": "standard CG/PCG failures and successful exact gamma reduction verified",
+      "status": "PASS"
+    }
+  },
+  "confirmation_authorized": false,
+  "phase": "V3_2_GAMMA_PRIMARY_DEVELOPMENT",
+  "primary_chain_gate": "FAIL",
+  "schema_version": 1,
+  "seeds_21_24_authorized": false,
+  "status": "PASSED"
+}

@@ -209,3 +209,31 @@ affected_runs: seed 20 development only.
 protocol_impact: Full-chain gate FAIL. Gamma-matched profile, Krylov gate, exact reduced-Hessian comparison, seeds 21-24 and confirmation were not run.
 resolution_or_status: OPEN scientific result. Do not tune profile tolerances or h values using this result. A new user-authorized development amendment would be required to distinguish branch switching, finite optimization accuracy and genuine lack of twice-differentiable reduced geometry.
 ```
+
+## I-015 — v3.2 gamma profile is locally positive but fails finest accuracy/convergence
+
+```text
+date: 2026-08-19
+issue_id: I-015
+phase: V3.2 gamma-primary development
+classification: scientific failure
+description: Both nominal and strict gamma-matched continuation profiles had 8/8 numerical local-minimum candidates with positive state-Hessian minima near 2.04e-4. Strict curvature was 35.8240, 35.7741, 35.4660 and 33.4943 over the four h scales. The finest adjacent change was 5.8868%, above the registered 5% gate, and the nominal/strict difference at h=0.00625 was 21.4971%.
+evidence: outputs/runs/v3_2_gamma_primary/v3-2-gamma-primary-s20-20260819T133259.913719+0000-defb083d1a75 and docs/evidence/V3_2_SEED20_ACCEPTANCE.md.
+affected_runs: seed 20 development only.
+protocol_impact: Gamma-matched primary profile FAIL. The exact gamma reduction passed, but primary comparison is forbidden and seeds 21-24 remain inactive.
+resolution_or_status: OPEN. Do not relax the 5% gates, discard the finest scale or choose nominal/strict accuracy post hoc. A new protocol is required for branch/accuracy/function-space investigation.
+```
+
+## I-016 — v3.2 standard CG and Jacobi-PCG both fail the seed-20 solver gate
+
+```text
+date: 2026-08-19
+issue_id: I-016
+phase: V3.2 gamma-primary development
+classification: numerical failure
+description: Standard matrix-free CG failed within 500 iterations with verified residual about 1.20e-7 on at least one solve. Exact-development Jacobi-PCG also failed: its two verified residuals were about 1.40e-5 and 0.2905 after 500 iterations. The diagonal preconditioner degraded the residual right-hand-side solve.
+evidence: the krylov_gate record in v3-2-gamma-primary-s20-20260819T133259.913719+0000-defb083d1a75.
+affected_runs: seed 20 development only.
+protocol_impact: Solver gate FAIL independently of the gamma-profile failure. This confirms that the v2 CG robustness issue is not resolved by simple Jacobi scaling.
+resolution_or_status: OPEN. Do not raise iteration limits or residual tolerances using this result. A separately preregistered Krylov/preconditioner development study is required.
+```
