@@ -153,3 +153,17 @@ affected_runs: The failed development run is retained with PROFILE_FAILURE and n
 protocol_impact: None on v2 and no v3 confirmation was authorized. This exposed an over-strict and counterproductive development optimizer setting before any v3 lock.
 resolution_or_status: DEVELOPMENT CORRECTION. Remove the Adam warmup for fixed-parameter base refinement, use direct LBFGS from the already-trained checkpoint, and use a combined 0.002 plateau / 0.002 normalized-gradient rule. This remains stricter than the v2 locked profile gradient threshold of 0.005 and is applied before any successful foundation result is observed.
 ```
+
+## I-011 — v3 foundation exposes nonpositive exact state Hessians and unusable profiles
+
+```text
+date: 2026-08-19
+issue_id: I-011
+phase: V3 foundation development
+classification: scientific failure
+description: After the corrected common-base refinement passed its registered engineering stopping rule, the exact unregularized and gamma-matched state Hessian blocks had respectively 18 and 16 eigenvalues at or below the positive-definiteness tolerance. Their minimum eigenvalues were -1.6379580 and -1.6348888, so neither exact Schur reduction is valid. All eight unregularized profile points and six of eight gamma-matched points failed the registered optimizer rule, leaving no multiscale curvature estimates.
+evidence: outputs/runs/v3_foundation/v3-foundation-s20-20260819T114157.433693+0000-00bb43b42152.
+affected_runs: v3 foundation seed 20 only; this is development evidence and is excluded from v2 and any future confirmation statistics.
+protocol_impact: The five requested diagnostics are executable, but they refute treating the present checkpoint as a locally convex state-profiled reference. v3 confirmation readiness is not established.
+resolution_or_status: OPEN scientific result. Preserve the negative result and correct only the full-Hessian top-level status aggregation so invalid child reductions report NUMERICAL_FAILURE. Do not relax profile or Hessian thresholds and do not tune for a favorable curvature result.
+```

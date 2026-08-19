@@ -344,11 +344,19 @@ def full_hessian_references(
     symmetry_pass = symmetry <= float(
         specification["symmetry_relative_tolerance"]
     )
+    reductions_pass = all(
+        item["status"] == "PASS" for item in [unregularized, matched]
+    )
+    overall_pass = symmetry_pass and reductions_pass
+    if not symmetry_pass:
+        failure_reason = "full Hessian symmetry tolerance failed"
+    elif not reductions_pass:
+        failure_reason = "one or more state Hessian blocks are not valid for reduction"
+    else:
+        failure_reason = None
     return {
-        "status": "PASS" if symmetry_pass else "NUMERICAL_FAILURE",
-        "failure_reason": None
-        if symmetry_pass
-        else "full Hessian symmetry tolerance failed",
+        "status": "PASS" if overall_pass else "NUMERICAL_FAILURE",
+        "failure_reason": failure_reason,
         "dimension": int(hessian.shape[0]),
         "symmetry_relative_error": symmetry,
         "exact_parameter_block": parameter.tolist(),
