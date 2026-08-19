@@ -1,0 +1,27 @@
+schema_version: 1
+phase: P1
+seed: 20260819
+dtype: float64
+tiny_problem:
+  hidden_width: 4
+  grid_points: 17
+  target_parameters: 2
+  pde_weight: 2.0
+  data_weight: 3.0
+saeps:
+  gamma_alpha: 1.0e-4
+  cg_tolerance: 1.0e-10
+  cg_max_iterations: 200
+  svd_relative_tolerance: 1.0e-12
+acceptance:
+  random_operator_vectors: 10
+  operator_relative_error: 1.0e-6
+  curvature_relative_error: 1.0e-6
+  symmetry_relative_error: 1.0e-8
+  psd_relative_tolerance: 1.0e-8
+  cg_relative_residual: 1.0e-8
+  scalar_eta_tolerance: 1.0e-8
+  finite_difference_step: 1.0e-6
+  finite_difference_relative_error: 2.0e-5
+  reproducibility_absolute_tolerance: 1.0e-13
+

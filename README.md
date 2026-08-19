@@ -9,7 +9,7 @@ A negative scientific result is a valid completion.
 ## Protocol state
 
 - Active contract: `SAEPS-JCP-EXEC-v2.0`
-- Current phase: P0 Repository Bootstrap
+- Current phase: P1 SAEPS Core Verification
 - Confirmation protocol: **UNLOCKED**
 - Python: 3.12.13
 - Default numerical dtype: float64
@@ -40,6 +40,7 @@ With the virtual environment active:
 ```powershell
 pytest -q
 python scripts/00_smoke_test.py
+python scripts/01_validate_core.py
 ```
 
 The smoke test trains a real tiny PINN for the ODE \(u_t+u=0\), saves a

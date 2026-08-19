@@ -11,7 +11,7 @@
 | Phase | 名称 | 状态 | Engineering gate | Scientific result |
 |---|---|---|---|---|
 | P0 | Repository Bootstrap | PASSED | PASSED | N/A |
-| P1 | SAEPS Core Verification | NOT_STARTED | NOT_RUN | N/A |
+| P1 | SAEPS Core Verification | IN_PROGRESS | NOT_RUN | N/A |
 | P2 | Controlled Tangent Geometry | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P3 | Nonlinear Profile Engine | NOT_STARTED | NOT_RUN | N/A |
 | P4 | Scalar PDE Screening & LOCK | NOT_STARTED | NOT_RUN | N/A |
@@ -40,7 +40,7 @@
 ## P1 — SAEPS Core Verification
 
 **依赖:** P0 `PASSED`  
-**状态:** `NOT_STARTED`
+**状态:** `IN_PROGRESS`
 
 - [ ] 实现 residual-first API 和 parameter coordinate transform；
 - [ ] 实现 explicit \(J_\theta,J_\lambda\)、JVP、VJP；
