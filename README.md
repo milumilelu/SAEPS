@@ -9,8 +9,8 @@ A negative scientific result is a valid completion.
 ## Protocol state
 
 - Active contract: `SAEPS-JCP-EXEC-v2.0`
-- Current phase: P4 Scalar PDE Screening & LOCK
-- Confirmation protocol: **UNLOCKED**
+- Current phase: P5 Scalar Confirmation (global protocol LOCKED)
+- Confirmation protocol: **LOCKED** at `ad794ca2908c8935d0e21702fab7914ff944cce7`
 - Python: 3.12.13
 - Default numerical dtype: float64
 

@@ -14,7 +14,7 @@
 | P1 | SAEPS Core Verification | PASSED | PASSED | N/A |
 | P2 | Controlled Tangent Geometry | PASSED | PASSED | FAIL |
 | P3 | Nonlinear Profile Engine | PASSED | PASSED | N/A |
-| P4 | Scalar PDE Screening & LOCK | IN_PROGRESS | NOT_RUN | N/A |
+| P4 | Scalar PDE Screening & LOCK | PASSED | PASSED | N/A |
 | P5 | Scalar Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P6 | Multi-parameter Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P7 | Robustness & Architecture | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
@@ -97,21 +97,21 @@
 ## P4 — Scalar PDE Screening & LOCK
 
 **依赖:** P3 `PASSED`  
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — evidence: `docs/evidence/P4_SCREENING.md`; lock commit: `ad794ca2908c8935d0e21702fab7914ff944cce7`
 
-- [ ] 仅用 seeds `[0,1,2]` 筛选 `Allen-Cahn` 与 `Burgers`；
-- [ ] 运行 forward/PINN/profile feasibility；
-- [ ] 验证 conventional profile 的明确局部 minimum；
-- [ ] 统计 joint stationarity passing count；
-- [ ] 验证 CG/Jacobian stability；
-- [ ] 按预注册顺序选择，禁止依据 eta/优势/图形；
-- [ ] 未入选结果保留用于 Supplementary；
-- [ ] 创建 `configs/locked/scalar.yaml`；
-- [ ] 锁定 architecture、sensors、weights、optimizer/stopping、thresholds；
-- [ ] 锁定 profile interval/fit、gamma algorithm、bootstrap、robustness seeds；
-- [ ] 更新 `docs/DECISIONS.md`；
-- [ ] 生成 `docs/LOCKED_PROTOCOL.md` 的 SHA256、commit、date、reason；
-- [ ] 提交 LOCK commit。
+- [x] 仅用 seeds `[0,1,2]` 筛选 `Allen-Cahn` 与 `Burgers`；
+- [x] 运行 forward/PINN/profile feasibility；
+- [x] 验证 conventional profile 的明确局部 minimum；
+- [x] 统计 joint stationarity passing count；
+- [x] 验证 CG/Jacobian stability；
+- [x] 按预注册顺序选择，禁止依据 eta/优势/图形；
+- [x] 未入选结果保留用于 Supplementary；
+- [x] 创建 `configs/locked/scalar.yaml`；
+- [x] 锁定 architecture、sensors、weights、optimizer/stopping、thresholds；
+- [x] 锁定 profile interval/fit、gamma algorithm、bootstrap、robustness seeds；
+- [x] 更新 `docs/DECISIONS.md`；
+- [x] 生成 `docs/LOCKED_PROTOCOL.md` 的 SHA256、commit、date、reason；
+- [x] 提交 LOCK commit。
 
 ## P5 — Scalar Confirmation
 

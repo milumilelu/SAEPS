@@ -1,16 +1,16 @@
 # LOCKED_PROTOCOL.md
 
-**状态:** `LOCK_PENDING_COMMIT`  
-**警告:** confirmation 仍未授权；必须先提交本锁定内容，再填写实际 lock commit。
+**状态:** `LOCKED`  
+**警告:** confirmation 配置已冻结；禁止依据 confirmation 结果修改。
 
 ## Lock Metadata
 
 ```yaml
-status: LOCK_PENDING_COMMIT
+status: LOCKED
 contract_id: SAEPS-JCP-EXEC-v2.0
 lock_date: 2026-08-19
 lock_basis_commit: 66c58f416d184546f93c4c0c0341cc8b83ada51a
-lock_commit: PENDING
+lock_commit: ad794ca2908c8935d0e21702fab7914ff944cce7
 decision_id: D-003
 locked_config_hashes:
   scalar: cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8
