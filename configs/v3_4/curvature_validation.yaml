@@ -1,0 +1,77 @@
+schema_version: 1
+contract_id: SAEPS-CURVATURE-VALIDATION-v3.4-development
+phase: V3_4_CURVATURE_VALIDATION_DEVELOPMENT
+status: FROZEN_BEFORE_EVALUATION_SEEDS
+confirmation_authorized: false
+source_scalar_config: configs/locked/scalar.yaml
+benchmark: Burgers
+split: v3_4_development
+protocol_seed: 20
+evaluation_seeds: [21, 22, 23, 24]
+inactive_future_confirmation_seeds: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+center:
+  required_objective_gradient_tolerance: 1.0e-4
+  residual_stationarity_tolerance: 1.0e-4
+local_minimum:
+  normalized_gradient_tolerance: 1.0e-6
+  hessian_absolute_tolerance: 1.0e-8
+  hessian_relative_tolerance: 1.0e-10
+  maximum_escape_cycles: 50
+  negative_probe_relative_radii: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+  trust_initial_relative_radius: 3.0e-2
+  trust_minimum_relative_radius: 1.0e-6
+  trust_maximum_relative_radius: 2.0e-1
+  trust_backtracking_factors: [1.0, 0.5, 0.25, 0.125]
+  minimum_actual_decrease: 1.0e-12
+  optimizer:
+    adam_warmup_epochs: 500
+    adam_learning_rate: 5.0e-4
+    outer_steps_max: 30
+    inner_iterations: 100
+    history_size: 100
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-13
+    tolerance_change: 1.0e-15
+  polish_optimizer:
+    adam_warmup_epochs: 0
+    adam_learning_rate: 5.0e-4
+    outer_steps_max: 20
+    inner_iterations: 100
+    history_size: 100
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-13
+    tolerance_change: 1.0e-15
+  stopping:
+    minimum_outer_steps: 4
+    plateau_window: 4
+    relative_loss_change: 1.0e-5
+    normalized_gradient: 1.0e-6
+profile:
+  h_values: [0.05, 0.025, 0.0125, 0.00625]
+  accuracy_levels: {nominal: 1.0e-4, strict: 1.0e-6}
+  optimization_error_relative_tolerance: 0.05
+  accuracy_relative_tolerance: 0.05
+  certified_adjacent_scales_required: 2
+  exact_agreement_relative_tolerance: 0.05
+  denominator_absolute_floor: 1.0e-8
+branch_audit:
+  x_points: 33
+  t_points: 17
+  relative_floor: 1.0e-12
+  function_distance_alert: 0.25
+gamma: {alpha: 1.0e-8}
+solvers:
+  normal_equation_tolerance: 1.0e-10
+  parameter_residual_acceptance: 1.0e-8
+  curvature_relative_acceptance: 1.0e-6
+  max_iterations: 500
+  explicit_parameter_relative_normal_residual: 1.0e-10
+  explicit_objective_identity_tolerance: 1.0e-10
+  lsqr_relative_normal_residual: 1.0e-8
+full_hessian:
+  symmetry_relative_tolerance: 1.0e-8
+  positive_eigenvalue_relative_tolerance: 1.0e-10
+  solve_relative_tolerance: 1.0e-8
+local_gn_relative_tolerance: 0.05
+scientific_gate: none_development_only
+

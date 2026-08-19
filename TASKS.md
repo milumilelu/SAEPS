@@ -247,4 +247,20 @@
 - [x] development decomposition 强制标记 `NONBINDING_DIAGNOSTIC_ONLY`；
 - [x] 运行真实 seed 20 并生成机器可读验收证据；
 - [x] 运行全仓库验证；
-- [ ] 自动提交并推送 GitHub private `main`。
+- [x] 自动提交并推送 GitHub private `main`。
+
+## V3.4 Curvature Validation — Development Only
+
+**状态:** `IN_PROGRESS`
+**隔离:** protocol seed 20；仅在固定 readiness gate 通过后运行 21–24；30–44 禁止；confirmation 未授权。
+
+- [x] 冻结 curvature / score / preconditioner 三类 solver gate；
+- [x] 将 exact gamma Schur reduction 定义为 small-network local gold standard；
+- [x] 实现 profile optimization-error resolution certificate；
+- [x] 实现 weight-space 与 fixed-grid function-space branch audit；
+- [x] 冻结 seeds 21–24 前的 v3.4 配置与 5% local-validation thresholds；
+- [ ] 运行 seed20 protocol verification；
+- [ ] readiness 通过后运行 seeds 21–24，不修改规则；
+- [ ] 聚合五个 development seeds 并生成验收证据；
+- [ ] 运行全仓库验证；
+- [ ] 自动提交并使用本地代理推送 GitHub private `main`。

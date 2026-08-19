@@ -107,3 +107,15 @@ development_evidence: docs/evidence/V3_2_SEED20_ACCEPTANCE.md; the v3.3 solver a
 affected_configs: configs/v3_3/seed20_numerical_decomposition.yaml only; v2 through v3.2 remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_008_V3_3_NUMERICAL_DECOMPOSITION.md and docs/v3_3/EXECUTION_CONTRACT.md.
 ```
+
+## D-008 — Freeze v3.4 curvature-validation hierarchy before seeds 21–24
+
+```text
+date: 2026-08-20
+decision_id: D-008
+decision: Separate curvature, score and preconditioner solver gates; use the exact gamma Schur complement as the small-network local gold standard; and classify profile scales with a numerical-resolution certificate rather than requiring the smallest h to pass.
+reason: V3.3 showed 1e-9 to 1e-10 agreement among parameter-curvature solvers despite auxiliary residual-RHS failures, only 1.1724% GN-to-exact error, and dominant instability at the finest nonlinear-profile scale. The mathematical objects and validation roles must therefore be separated.
+development_evidence: docs/evidence/V3_3_SEED20_ACCEPTANCE.md and the user-supplied v3.3 review. No seed 21–24 v3.4 result was observed before this decision.
+affected_configs: configs/v3_4/curvature_validation.yaml only; v2 through v3.3 remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_009_V3_4_CURVATURE_VALIDATION.md and docs/v3_4/EXECUTION_CONTRACT.md.
+```
