@@ -1,0 +1,11 @@
+schema_version: 1
+phase: P7
+seeds: [10, 11, 12, 13, 14]
+noise_levels: [0.0, 0.01, 0.05]
+observation_fractions: [1.0, 0.5, 0.25]
+nominal_architecture: tanh_mlp_2x16x1
+narrow_architecture: tanh_mlp_2x8x1
+wide_architecture: tanh_mlp_2x32x1
+maximum_noise_sparsity_runs: 45
+scientific_gate: descriptive_only
+

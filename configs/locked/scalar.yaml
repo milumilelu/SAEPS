@@ -1,0 +1,85 @@
+schema_version: 1
+phase: P5_SCALAR_CONFIRMATION
+contract_id: SAEPS-JCP-EXEC-v2.0
+selection_evidence_run: p4-screening-s0-20260819T080159.676328+0000-56ebdbadfb52
+selected_benchmark: Burgers
+selection_basis: classical_curvature_clarity_after_hard_gate_and_stationarity_ties
+development_seeds: [0, 1, 2]
+confirmation_seeds: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+dtype: float64
+device: cpu
+domain: {x: [0.0, 1.0], t: [0.0, 0.4]}
+benchmark:
+  equation: u_t + u*u_x = mu*u_xx
+  coordinate: log_mu
+  truth_parameter: 0.05
+  initial_parameter: 0.08
+  initial_condition: sin(2*pi*x)
+forward_solver:
+  method: periodic_second_order_fd_rk4
+  spatial_points: 128
+  time_steps: 2000
+network: {architecture: tanh_mlp_2x16x1, hidden_width: 16}
+points: {pde: 96, data: 128, initial: 48, boundary_times: 48}
+sensor_layout: fixed_seeded_uniform_per_run
+loss_weights: {pde: 5.0, data: 10.0, initial: 10.0, boundary: 2.0}
+optimizer:
+  adam_epochs: 1600
+  adam_learning_rate: 0.003
+  lbfgs_max_iterations: 300
+  lbfgs_tolerance_grad: 1.0e-10
+  lbfgs_tolerance_change: 1.0e-12
+additional_training:
+  enabled: true
+  trigger: either_locked_stationarity_gate_fails
+  maximum_retries: 1
+  adam_epochs: 800
+  adam_learning_rate: 0.001
+  lbfgs_max_iterations: 300
+stationarity_gates: {theta: 0.02, parameter: 0.02}
+checkpoint_gates: {state_rmse_max_validation_only: 0.15}
+profile:
+  offsets: [-0.075, -0.05, -0.025, 0.0, 0.025, 0.05, 0.075]
+  initialization: every_point_from_same_checkpoint_theta
+  previous_point_continuation: forbidden
+  objective: 0.5_mean_weighted_residual_squared
+  optimizer:
+    name: LBFGS
+    adam_warmup_epochs: 500
+    adam_learning_rate: 0.001
+    outer_steps_max: 15
+    inner_iterations: 50
+    history_size: 50
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-12
+    tolerance_change: 1.0e-14
+  stopping:
+    minimum_outer_steps: 3
+    plateau_window: 3
+    relative_loss_change: 0.002
+    normalized_gradient: 0.005
+  fit_quality:
+    minimum_r_squared: 0.99
+    maximum_normalized_rmse: 0.03
+    maximum_design_condition: 1.0e5
+    positive_curvature_required: true
+gamma:
+  alpha_grid: [1.0e-12, 1.0e-10, 1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2]
+  nominal_alpha: 1.0e-8
+  selector: smallest_cg_eligible_point_with_explicit_plateau_to_preceding_gamma
+  plateau_relative_tolerance: 0.05
+  cg_tolerance: 1.0e-10
+  cg_acceptance: 1.0e-8
+  cg_max_iterations: 500
+  explicit_mf_relative_tolerance: 1.0e-6
+bootstrap:
+  method: paired_percentile
+  resamples: 10000
+  rng_seed: 20260819
+  confidence_level: 0.95
+  invalid_pair_rule: exclude_from_numeric_bootstrap_but_retain_planned_denominator_10
+scientific_gate:
+  wins_required_out_of_planned_10: 9
+  median_D_must_be_positive: true
+  strong_ci_lower_must_be_positive: true
+
