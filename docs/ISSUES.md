@@ -27,3 +27,31 @@ affected_runs: p1-core-s20260819-20260819T065537.942753+0000-828593bb8854
 protocol_impact: None. The run preceded the P1 implementation commit and was excluded from acceptance evidence.
 resolution_or_status: RESOLVED before commit c4becc79f1e6d0968f55c27ae90c36898798e5af by fixing the reference right-hand side at the true physical parameters. The clean acceptance run has two nonzero eta values.
 ```
+
+## I-002 — Controlled checkpoint diagnostic stationarity mismatch
+
+```text
+date: 2026-08-19
+issue_id: I-002
+phase: P2 development
+classification: numerical failure
+description: The first committed P2 development run optimized seeded random training points but produced diagnostic theta-stationarity values 0.0461 to 0.1180, above the draft 0.01 confirmation gate.
+evidence: Development run p2-development-s0-20260819T071251.094966+0000-9afa0dda4d34 on commit be1e6d93b444f2e6217d6f34abdb9f3b10bfe71c.
+affected_runs: p2-development-s0-20260819T071251.094966+0000-9afa0dda4d34
+protocol_impact: No confirmation run was started and the generated phase lock was not committed.
+resolution_or_status: RESOLVED by using the task-book-compatible fixed tensor grid for both training and diagnostics and increasing development optimization. Seeds 0,1,2 then gave pilot S_theta 0.00212, 0.00832, 0.00212 without relaxing the 0.01 gate.
+```
+
+## I-003 — Initial gamma plateau selector had no eligible pair
+
+```text
+date: 2026-08-19
+issue_id: I-003
+phase: P2 development
+classification: numerical failure
+description: The rule requiring both endpoints of a 5% adjacent plateau pair to pass CG found no pair. CG eligibility was [false,true,true,true,true,true]; the first two eligible points differed by 12.3% under the then-used matrix-free eta statistic.
+evidence: scripts/02_develop_controlled.py exited nonzero on committed implementation db1d108 before creating a development result or lock.
+affected_runs: No run ID was issued because failure preceded provenance/result creation.
+protocol_impact: No confirmation run was started and no phase lock was created.
+resolution_or_status: RESOLVED in development by separating the dense explicit plateau diagnostic from matrix-free CG eligibility. The locked selector is the smallest CG-eligible point whose explicit eta changes by at most the unchanged 5% tolerance from the preceding smaller gamma.
+```

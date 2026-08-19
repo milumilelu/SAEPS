@@ -50,7 +50,7 @@ gamma:
   cg_max_iterations: 300
   explicit_mf_relative_tolerance: 1.0e-6
   plateau_relative_tolerance: 0.05
-  selector: smallest_lower_endpoint_of_eligible_adjacent_plateau_pair
+  selector: smallest_cg_eligible_point_with_explicit_plateau_to_preceding_gamma
 confirmation_rules:
   checkpoint_training_loss_max: 0.1
   checkpoint_theta_stationarity_max: 0.01

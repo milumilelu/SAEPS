@@ -402,6 +402,9 @@ def _gamma_sweep_for_seed(
             matrix_free_value = vector - linearization.jvp_theta(solve.solution)
             explicit_value = explicit_operator @ vector
             eta = float((torch.dot(vector, matrix_free_value) / torch.dot(vector, vector)).item())
+            explicit_eta = float(
+                (torch.dot(vector, explicit_value) / torch.dot(vector, vector)).item()
+            )
             operator_relative_error = float(
                 (
                     torch.linalg.vector_norm(matrix_free_value - explicit_value)
@@ -412,6 +415,7 @@ def _gamma_sweep_for_seed(
                 {
                     "alpha": alpha,
                     "eta": eta,
+                    "explicit_eta": explicit_eta,
                     "cg_converged": solve.converged,
                     "cg_relative_residual": solve.relative_residual,
                     "cg_iterations": solve.iterations,
@@ -430,7 +434,7 @@ def select_nominal_gamma(
     comparison_gate = float(config["gamma"]["explicit_mf_relative_tolerance"])
     plateau_gate = float(config["gamma"]["plateau_relative_tolerance"])
     eligible: list[bool] = []
-    median_vectors: list[torch.Tensor] = []
+    median_explicit_vectors: list[torch.Tensor] = []
     for index, _ in enumerate(grid):
         rows = [sweeps[seed][index]["values"] for seed in sorted(sweeps)]
         eligible.append(
@@ -442,12 +446,12 @@ def select_nominal_gamma(
                 for value in seed_rows
             )
         )
-        median_vectors.append(
+        median_explicit_vectors.append(
             torch.tensor(
                 [
                     torch.median(
                         torch.tensor(
-                            [seed_rows[alpha_index]["eta"] for seed_rows in rows],
+                            [seed_rows[alpha_index]["explicit_eta"] for seed_rows in rows],
                             dtype=torch.float64,
                         )
                     ).item()
@@ -458,14 +462,25 @@ def select_nominal_gamma(
         )
     adjacent_changes: list[float] = []
     for index in range(len(grid) - 1):
-        denominator = torch.linalg.vector_norm(median_vectors[index]) + torch.finfo(torch.float64).eps
+        denominator = (
+            torch.linalg.vector_norm(median_explicit_vectors[index])
+            + torch.finfo(torch.float64).eps
+        )
         adjacent_changes.append(
-            float((torch.linalg.vector_norm(median_vectors[index + 1] - median_vectors[index]) / denominator).item())
+            float(
+                (
+                    torch.linalg.vector_norm(
+                        median_explicit_vectors[index + 1]
+                        - median_explicit_vectors[index]
+                    )
+                    / denominator
+                ).item()
+            )
         )
     candidates = [
         index
-        for index, change in enumerate(adjacent_changes)
-        if eligible[index] and eligible[index + 1] and change <= plateau_gate
+        for index in range(1, len(grid))
+        if eligible[index] and adjacent_changes[index - 1] <= plateau_gate
     ]
     if not candidates:
         raise RuntimeError(
@@ -474,9 +489,11 @@ def select_nominal_gamma(
     selected_index = candidates[0]
     return grid[selected_index], {
         "eligible": eligible,
-        "median_eta_vectors_alpha_0_0.5_1": [vector.tolist() for vector in median_vectors],
-        "adjacent_relative_changes": adjacent_changes,
-        "selected_lower_index": selected_index,
+        "median_explicit_eta_vectors_alpha_0_0.5_1": [
+            vector.tolist() for vector in median_explicit_vectors
+        ],
+        "adjacent_explicit_relative_changes": adjacent_changes,
+        "selected_index": selected_index,
     }
 
 

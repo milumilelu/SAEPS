@@ -11,6 +11,7 @@ from saeps.controlled import (
     make_diagnostic_points,
     network_state_and_derivatives,
     select_directions,
+    select_nominal_gamma,
     spearman,
     truth_operator,
     truth_state,
@@ -68,3 +69,26 @@ def test_spearman_handles_monotone_and_ties() -> None:
     ) == pytest.approx(1.0, abs=1.0e-15)
     tied = spearman([0.0, 0.25, 0.5, 0.75, 1.0], [1.0, 1.0, 2.0, 3.0, 3.0])
     assert 0.9 < tied < 1.0
+
+
+def test_gamma_selector_separates_explicit_plateau_from_cg_eligibility() -> None:
+    config = load_config(ROOT / "configs/p2_development.yaml")
+    config["gamma"]["alpha_grid"] = [1.0e-12, 1.0e-10, 1.0e-8]
+    sweeps = {}
+    for seed in [0, 1, 2]:
+        sweeps[seed] = []
+        for index, gamma_alpha in enumerate(config["gamma"]["alpha_grid"]):
+            rows = []
+            for eta in [0.1, 0.3, 0.6]:
+                rows.append(
+                    {
+                        "explicit_eta": eta * (1.0 + 0.01 * index),
+                        "cg_converged": index > 0,
+                        "cg_relative_residual": 1.0e-12 if index > 0 else 1.0e-3,
+                        "explicit_mf_relative_error": 1.0e-12 if index > 0 else 1.0e-2,
+                    }
+                )
+            sweeps[seed].append({"gamma_alpha": gamma_alpha, "values": rows})
+    selected, evidence = select_nominal_gamma(sweeps, config)
+    assert selected == 1.0e-10
+    assert evidence["eligible"] == [False, True, True]
