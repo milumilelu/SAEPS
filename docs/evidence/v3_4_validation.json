@@ -1,0 +1,152 @@
+{
+  "aggregate": {
+    "confirmation_authorized": false,
+    "development_generalization": "NOT_ESTABLISHED",
+    "evaluation_branch_audit_pass_count": 3,
+    "evaluation_center_pass_count": 3,
+    "evaluation_curvature_solver_pass_count": 2,
+    "evaluation_exact_local_pass_count": 3,
+    "evaluation_finite_radius_pass_count": 1,
+    "evaluation_full_readiness_pass_count": 0,
+    "evaluation_local_GN_pass_count": 1,
+    "evaluation_median_local_GN_relative_error": 0.08240600500443845,
+    "evaluation_raw_exceeds_exact_count": 3,
+    "evaluation_score_solver_pass_count": 0,
+    "evaluation_seed_count": 4,
+    "evaluation_valid_local_GN_denominator": 3,
+    "planned_seed_count": 5,
+    "protocol_seed": 20
+  },
+  "checks": {
+    "accepted_run_lineage": {
+      "detail": "five accepted clean-provenance runs and manifests verified",
+      "status": "PASS"
+    },
+    "development_aggregation": {
+      "detail": "0/4 evaluation full readiness retained; separated denominators aggregated",
+      "status": "PASS"
+    },
+    "protocol_isolation": {
+      "detail": "frozen seed split, thresholds, v2 lock and confirmation prohibition verified",
+      "status": "PASS"
+    },
+    "protocol_seed_gate": {
+      "detail": "seed20 readiness passes while nonbinding score failure remains visible",
+      "status": "PASS"
+    },
+    "retained_dirty_attempts": {
+      "detail": "three dirty-provenance attempts are retained and excluded independently of values",
+      "status": "PASS"
+    }
+  },
+  "phase": "V3_4_CURVATURE_VALIDATION_DEVELOPMENT",
+  "schema_version": 1,
+  "seed_rows": [
+    {
+      "Fraw": 803.4190131203369,
+      "Fse_GN_explicit": 36.27420665140673,
+      "Hred_exact_gamma": 35.85384600186285,
+      "branch_audit_pass": true,
+      "center_pass": true,
+      "certified_h_values": [
+        0.05,
+        0.025
+      ],
+      "curvature_solver_pass": true,
+      "exact_local_pass": true,
+      "finite_radius_pass": true,
+      "local_GN_pass": true,
+      "local_GN_relative_error": 0.011724283345280168,
+      "maximum_parent_function_relative_distance": 0.005421242391668273,
+      "raw_to_exact_ratio": 22.408168236082506,
+      "readiness_pass": true,
+      "role": "PROTOCOL",
+      "score_solver_pass": false,
+      "seed": 20
+    },
+    {
+      "Fraw": null,
+      "Fse_GN_explicit": null,
+      "Hred_exact_gamma": null,
+      "branch_audit_pass": false,
+      "center_pass": false,
+      "certified_h_values": [],
+      "curvature_solver_pass": false,
+      "exact_local_pass": false,
+      "finite_radius_pass": false,
+      "local_GN_pass": false,
+      "local_GN_relative_error": null,
+      "maximum_parent_function_relative_distance": null,
+      "raw_to_exact_ratio": null,
+      "readiness_pass": false,
+      "role": "EVALUATION",
+      "score_solver_pass": false,
+      "seed": 21
+    },
+    {
+      "Fraw": 903.2365177948291,
+      "Fse_GN_explicit": 21.69144111850205,
+      "Hred_exact_gamma": 20.040022891791978,
+      "branch_audit_pass": true,
+      "center_pass": true,
+      "certified_h_values": [
+        0.05
+      ],
+      "curvature_solver_pass": true,
+      "exact_local_pass": true,
+      "finite_radius_pass": false,
+      "local_GN_pass": false,
+      "local_GN_relative_error": 0.08240600500443845,
+      "maximum_parent_function_relative_distance": 0.005507154775396121,
+      "raw_to_exact_ratio": 45.07163103914308,
+      "readiness_pass": false,
+      "role": "EVALUATION",
+      "score_solver_pass": false,
+      "seed": 22
+    },
+    {
+      "Fraw": 876.2160364897726,
+      "Fse_GN_explicit": 31.26778697494743,
+      "Hred_exact_gamma": 34.48646574797556,
+      "branch_audit_pass": true,
+      "center_pass": true,
+      "certified_h_values": [
+        0.05,
+        0.025
+      ],
+      "curvature_solver_pass": true,
+      "exact_local_pass": true,
+      "finite_radius_pass": true,
+      "local_GN_pass": false,
+      "local_GN_relative_error": 0.09333165064086255,
+      "maximum_parent_function_relative_distance": 0.006340929700537136,
+      "raw_to_exact_ratio": 25.40753357833453,
+      "readiness_pass": false,
+      "role": "EVALUATION",
+      "score_solver_pass": false,
+      "seed": 23
+    },
+    {
+      "Fraw": 767.933496266856,
+      "Fse_GN_explicit": 25.507431290630702,
+      "Hred_exact_gamma": 24.299426747867983,
+      "branch_audit_pass": true,
+      "center_pass": true,
+      "certified_h_values": [
+        0.05
+      ],
+      "curvature_solver_pass": false,
+      "exact_local_pass": true,
+      "finite_radius_pass": false,
+      "local_GN_pass": true,
+      "local_GN_relative_error": 0.04971329386890613,
+      "maximum_parent_function_relative_distance": 0.006192582363656796,
+      "raw_to_exact_ratio": 31.602947025663227,
+      "readiness_pass": false,
+      "role": "EVALUATION",
+      "score_solver_pass": false,
+      "seed": 24
+    }
+  ],
+  "status": "PASSED"
+}

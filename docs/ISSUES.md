@@ -279,3 +279,17 @@ affected_runs: the three named first attempts only; seed21 is clean and remains 
 protocol_impact: Numeric attempts are retained but are ineligible for formal v3.4 aggregation. No config, threshold, seed, optimizer, or scientific rule changes.
 resolution_or_status: RESOLVED operationally by committing all attempts, then rerunning seeds 22, 23 and 24 one at a time from a clean worktree and committing each before starting the next seed. Acceptance selects only clean-provenance runs by a rule independent of numeric outcomes.
 ```
+
+## I-020 — v3.4 seed20 local agreement does not generalize to 21–24
+
+```text
+date: 2026-08-20
+issue_id: I-020
+phase: V3.4 curvature-validation development
+classification: scientific failure
+description: None of four frozen evaluation seeds passes the complete v3.4 readiness chain. Seed21 fails the common-center numerical-minimum gate. Among seeds 22–24, only seed24 passes the 5% local GN-to-exact gate; errors are 8.24%, 9.33%, and 4.97%. Curvature solver passes 2/3 and finite-radius validation passes 1/3 center-valid evaluation seeds.
+evidence: docs/evidence/V3_4_ACCEPTANCE.md and docs/evidence/v3_4_validation.json.
+affected_runs: accepted clean-provenance v3.4 seeds 20–24; dirty first attempts remain excluded by I-019.
+protocol_impact: Development generalization is NOT_ESTABLISHED. Confirmation seeds 30–44 remain forbidden. Seed20 cannot be presented as representative cross-seed evidence.
+resolution_or_status: OPEN scientific result. Do not relax 5% gates, increase solver iterations, select favorable scales, or rerun seeds. Any next investigation requires a new development amendment and must retain this negative denominator.
+```

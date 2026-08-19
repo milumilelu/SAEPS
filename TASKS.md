@@ -251,7 +251,7 @@
 
 ## V3.4 Curvature Validation — Development Only
 
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — engineering; development generalization `NOT_ESTABLISHED`
 **隔离:** protocol seed 20；仅在固定 readiness gate 通过后运行 21–24；30–44 禁止；confirmation 未授权。
 
 - [x] 冻结 curvature / score / preconditioner 三类 solver gate；
@@ -260,7 +260,7 @@
 - [x] 实现 weight-space 与 fixed-grid function-space branch audit；
 - [x] 冻结 seeds 21–24 前的 v3.4 配置与 5% local-validation thresholds；
 - [x] 运行 seed20 protocol verification；readiness `PASS`，配置 hash `89374e21...`；
-- [ ] readiness 通过后运行 seeds 21–24，不修改规则；
-- [ ] 聚合五个 development seeds 并生成验收证据；
-- [ ] 运行全仓库验证；
+- [x] readiness 通过后运行 seeds 21–24，不修改规则；evaluation full readiness `0/4`；
+- [x] 聚合五个 development seeds 并生成验收证据；
+- [x] 运行全仓库验证；41 tests 与 v2–v3.4 validators 全部通过；
 - [ ] 自动提交并使用本地代理推送 GitHub private `main`。

@@ -58,3 +58,15 @@ Run-level provenance schema is defined by the execution contract. Experimental p
 - Diagnostic scope: `NONBINDING_DIAGNOSTIC_ONLY`
 - Seeds 21–24 and 30–44 remain inactive; confirmation unauthorized
 - Evidence: `docs/evidence/V3_3_SEED20_ACCEPTANCE.md`
+
+## V3.4 Curvature-Validation Development
+
+- Contract: `docs/v3_4/EXECUTION_CONTRACT.md`
+- Frozen implementation commit: `37e057c0a73c2f2897c60351c91fb64521779328`
+- Configuration hash: `89374e212ee3960d944600d08b4c18821db6d7622096fabe81334dd10949ec6f`
+- Accepted seeds: protocol 20; evaluation 21–24
+- Clean-run commits are recorded per raw result and validated automatically
+- Dirty first attempts for 22–24 are retained but excluded by provenance rule
+- Engineering validation: `PASSED`; evaluation full readiness: `0/4`
+- Development generalization: `NOT_ESTABLISHED`; confirmation unauthorized
+- Evidence: `docs/evidence/V3_4_ACCEPTANCE.md`
