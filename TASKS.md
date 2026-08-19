@@ -16,7 +16,7 @@
 | P3 | Nonlinear Profile Engine | PASSED | PASSED | N/A |
 | P4 | Scalar PDE Screening & LOCK | PASSED | PASSED | N/A |
 | P5 | Scalar Confirmation | PASSED | PASSED | PARTIALLY_SUPPORTED |
-| P6 | Multi-parameter Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
+| P6 | Multi-parameter Confirmation | PASSED | PASSED | FAIL |
 | P7 | Robustness & Architecture | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
 | P8 | Computational Cost | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
 | P9 | Final Audit | NOT_STARTED | NOT_RUN | NOT_RUN |
@@ -134,18 +134,18 @@
 ## P6 — Multi-parameter Confirmation
 
 **依赖:** P5 engineering `PASSED`  
-**状态:** `NOT_STARTED`
+**状态:** `PASSED` — evidence: `docs/evidence/P6_ACCEPTANCE.md`; SG-3: `FAIL`
 
-- [ ] 使用 CRD joint target \((\log a,\log b)\)；
-- [ ] 运行全部 10 个 confirmation seeds；
-- [ ] 计算 full \(Fraw,Fse\)，禁止逐坐标标签；
-- [ ] 输出 eigenvalues/eigenvectors、condition number、trace、determinant、coupling；
-- [ ] 每 seed 沿 \(v_{max},v_{min}\) 运行 nonlinear profiles；
-- [ ] 计算 directional curvature ratio error；
-- [ ] 按升序自动选择 first valid seed，运行 \(5\times5\) 2D grid；
-- [ ] 自动生成 Figure 5 和 Table 3；
-- [ ] 计算 SG-3：至少 9/10 valid seeds ordering 一致；
-- [ ] 保存验收证据并提交 P6 commit。
+- [x] 使用 CRD joint target \((\log a,\log b)\)；
+- [x] 运行全部 10 个 confirmation seeds；
+- [x] 对通过 solver 的 seeds 计算 full \(Fraw,Fse\)，禁止逐坐标标签；
+- [x] 输出可计算 seeds 的 eigenvalues/eigenvectors、condition number、trace、determinant、coupling；
+- [x] 对有效 checkpoint 沿 \(v_{max},v_{min}\) 运行 nonlinear profiles；
+- [x] 有效方向对为 0，directional ratio error 不可计算；
+- [x] first-valid 选择返回空，\(5\times5\) grid 合规标记 `NOT_APPLICABLE_NO_VALID_SEED`；
+- [x] 自动生成 Figure 5 和 Table 3；
+- [x] 计算 SG-3：`FAIL`（0/10）；
+- [x] 保存验收证据并提交 P6 commit。
 
 ## P7 — Robustness & Architecture Transfer
 

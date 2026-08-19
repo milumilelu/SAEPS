@@ -35,6 +35,8 @@ H_{prof}(v_{max})>H_{prof}(v_{min}),
 
 与 SAEPS eigendirection ordering 一致。必须同时报告 directional curvature ratio error。
 
+**Observed 2026-08-19:** `FAIL`. Zero of ten seeds formed a valid directional profile pair; the denominator remains 0/10, not 0/0. Evidence: `docs/evidence/P6_ACCEPTANCE.md`.
+
 ## Robustness 与 Cost
 
 P7 不设强阳性门槛。P8 未给定硬性成本比阈值；两者为描述性证据，不得事后发明 PASS 线。

@@ -97,3 +97,17 @@ affected_runs: 1 CHECKPOINT_INVALID, 8 PROFILE_FAILURE, 1 PASS out of 10 planned
 protocol_impact: SG-2 is only PARTIALLY_SUPPORTED. P7 proceeds because the locked protocol-stop trigger is NOT_SUPPORTED, but final recommendation must emphasize unresolved profile/numerical limitations.
 resolution_or_status: OPEN locked scientific/numerical result. No confirmation rerun or lock modification is permitted.
 ```
+
+## I-007 — P6 has no valid directional profile pair
+
+```text
+date: 2026-08-19
+issue_id: I-007
+phase: P6 confirmation
+classification: scientific failure
+description: P6 produced 4 checkpoint-invalid, 4 solver-failure and 2 profile-failure seeds, leaving zero valid eigendirection pairs and no eligible seed for the 5x5 grid.
+evidence: docs/evidence/P6_ACCEPTANCE.md and p6-multi-s10-20260819T082908.416321+0000-e44ef183ef75.
+affected_runs: all 10 locked P6 confirmation seeds.
+protocol_impact: SG-3=FAIL. The first-valid grid is NOT_APPLICABLE because selecting an invalid seed is forbidden. Final evidence is numerically limited.
+resolution_or_status: OPEN locked result. No CG/profile threshold changes and no rerun are permitted.
+```
