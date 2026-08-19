@@ -111,3 +111,17 @@ affected_runs: all 10 locked P6 confirmation seeds.
 protocol_impact: SG-3=FAIL. The first-valid grid is NOT_APPLICABLE because selecting an invalid seed is forbidden. Final evidence is numerically limited.
 resolution_or_status: OPEN locked result. No CG/profile threshold changes and no rerun are permitted.
 ```
+
+## I-008 — P7 failures concentrate under sparsity and wide architecture
+
+```text
+date: 2026-08-19
+issue_id: I-008
+phase: P7 robustness
+classification: descriptive numerical limitation
+description: Of 55 new runs, 10 failed the locked CG tolerance and 2 failed the locked checkpoint gate. The noise=0.01/fraction=0.25 cell retained only 2/5 valid runs; wide architecture retained 3/5.
+evidence: docs/evidence/P7_ACCEPTANCE.md and p7-robustness-s10-20260819T084233.286983+0000-fa8846c72a36.
+affected_runs: 12/55 new P7 records; every failed record remains in the manifest with its final status and reason.
+protocol_impact: P7 engineering remains PASSED because all planned runs completed with legal statuses. P7 has no positive scientific threshold and cannot repair SG-1, SG-2 or SG-3.
+resolution_or_status: OPEN descriptive result. No locked threshold, gamma or method setting was changed and no P7 run will be repeated.
+```

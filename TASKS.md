@@ -17,8 +17,8 @@
 | P4 | Scalar PDE Screening & LOCK | PASSED | PASSED | N/A |
 | P5 | Scalar Confirmation | PASSED | PASSED | PARTIALLY_SUPPORTED |
 | P6 | Multi-parameter Confirmation | PASSED | PASSED | FAIL |
-| P7 | Robustness & Architecture | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
-| P8 | Computational Cost | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
+| P7 | Robustness & Architecture | PASSED | PASSED | DESCRIPTIVE_ONLY |
+| P8 | Computational Cost | IN_PROGRESS | NOT_RUN | DESCRIPTIVE |
 | P9 | Final Audit | NOT_STARTED | NOT_RUN | NOT_RUN |
 
 ## P0 — Repository Bootstrap
@@ -150,21 +150,21 @@
 ## P7 — Robustness & Architecture Transfer
 
 **依赖:** P5/P6 engineering 完成  
-**状态:** `NOT_STARTED`
+**状态:** `PASSED` — evidence: `docs/evidence/P7_ACCEPTANCE.md`
 
-- [ ] 若 P5 NOT_SUPPORTED，记录 `completion_mode: PROTOCOL_STOP` 并停止大规模 runs；
-- [ ] 否则执行 scalar 的 3 noise × 3 observation fractions；
-- [ ] 9 conditions 每个使用 5 个预注册 seeds，最多 45 runs；
-- [ ] nominal architecture 使用核心 10 seeds；
-- [ ] narrow 与 wide 各使用 5 个锁定 seeds；
-- [ ] 报告 effect、stationarity、SAEPS/raw 趋势和失效条件；
-- [ ] 不设置强阳性 scientific gate；
-- [ ] 保存失败并提交 P7 commit。
+- [x] P5 为 PARTIALLY_SUPPORTED，未触发 `PROTOCOL_STOP`；
+- [x] 执行 scalar 的 3 noise × 3 observation fractions；
+- [x] 9 conditions 每个使用 5 个预注册 seeds，共 45 runs；
+- [x] nominal architecture 引用封存的核心 10 seeds，未重复 confirmation；
+- [x] narrow 与 wide 各使用 5 个锁定 seeds；
+- [x] 报告 effect、stationarity、SAEPS/raw 趋势和失效条件；
+- [x] 不设置强阳性 scientific gate；
+- [x] 55/55 新 runs 均有最终状态并保存验收证据。
 
 ## P8 — Computational Cost
 
 **依赖:** 核心 confirmation 完成  
-**状态:** `NOT_STARTED`
+**状态:** `IN_PROGRESS`
 
 - [ ] 聚合 training、SAEPS、frozen profile、reoptimized profile times；
 - [ ] 聚合 CG iterations、JVP/VJP counts；
