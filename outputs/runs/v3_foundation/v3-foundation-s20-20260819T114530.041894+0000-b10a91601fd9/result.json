@@ -1,0 +1,447 @@
+{
+  "benchmark": "Burgers",
+  "common_base_refinement": {
+    "closure_calls": 446,
+    "delta_loss_relative": 0.17726411742463785,
+    "delta_theta_relative": 0.3643831404120737,
+    "failure_reason": null,
+    "gradient_pass": true,
+    "initial_loss_mean": 0.03664740690239766,
+    "initial_normalized_state_gradient": 0.0006206003498015513,
+    "loss": 0.030151136661942555,
+    "normalized_gradient": 0.0015049219754577536,
+    "offset": 0.0,
+    "optimizer_terminated": true,
+    "outer_steps": 4,
+    "parameter_stationarity_residual_normalized": 0.023961408874754706,
+    "plateau_pass": true,
+    "refined_normalized_state_gradient": 0.0015049219754577536,
+    "relative_loss_change": 0.0007395644316334771,
+    "status": "PASS",
+    "theta_stationarity_residual_normalized": 0.0036246200809613455
+  },
+  "config_hash": "f42431dc76f9cc09012a33a4f430c1cefbbd0d36744687b7039d9833cf6e3d59",
+  "config_path": "configs/v3/foundation_development.yaml",
+  "engineering_gate": "PASSED",
+  "failure_reason": null,
+  "full_hessian": {
+    "dimension": 66,
+    "exact_parameter_block": [
+      [
+        642.5759708480765
+      ]
+    ],
+    "failure_reason": "one or more state Hessian blocks are not valid for reduction",
+    "gamma_matched": {
+      "condition_number": null,
+      "failure_reason": "state Hessian block is not positive definite",
+      "maximum_state_eigenvalue": 307023.2259849011,
+      "minimum_state_eigenvalue": -1.6348888317698758,
+      "nonpositive_eigenvalue_count": 16,
+      "positive_eigenvalue_tolerance": 3.070232259849011e-05,
+      "reduced_hessian": null,
+      "solve_relative_residual": null,
+      "status": "NUMERICAL_FAILURE"
+    },
+    "status": "NUMERICAL_FAILURE",
+    "symmetry_relative_error": 1.1572220327543531e-16,
+    "unregularized": {
+      "condition_number": null,
+      "failure_reason": "state Hessian block is not positive definite",
+      "maximum_state_eigenvalue": 307023.22291572834,
+      "minimum_state_eigenvalue": -1.6379580047122924,
+      "nonpositive_eigenvalue_count": 18,
+      "positive_eigenvalue_tolerance": 3.0702322291572836e-05,
+      "reduced_hessian": null,
+      "solve_relative_residual": null,
+      "status": "NUMERICAL_FAILURE"
+    }
+  },
+  "gamma": 0.003069172941731466,
+  "gauss_newton": {
+    "CG_iterations": [
+      289,
+      341
+    ],
+    "CG_relative_residual": [
+      2.359418871581997e-11,
+      6.541371054051336e-11
+    ],
+    "Fraw": [
+      [
+        645.4436613094956
+      ]
+    ],
+    "Fse_explicit": [
+      [
+        22.40331108005994
+      ]
+    ],
+    "Fse_matrix_free": [
+      [
+        22.403311040024043
+      ]
+    ],
+    "JVP_count": 637,
+    "VJP_count": 636,
+    "explicit_matrix_free_relative_error": 1.7870526473895056e-09,
+    "failure_reason": null,
+    "status": "PASS"
+  },
+  "joint_training": {
+    "learned_log_parameter": -3.1726751774155977,
+    "learned_parameter": 0.04189138099395541,
+    "state_rmse_validation_only": 0.04368311516775872,
+    "training_loss_mean": 0.03664740690239766,
+    "training_seconds": 6.2950416000094265
+  },
+  "phase": "V3_FOUNDATION_DEVELOPMENT",
+  "profiles": {
+    "gamma_matched": {
+      "adjacent_convergence": [
+        {
+          "coarse_h": 0.05,
+          "fine_h": 0.025,
+          "pass": false,
+          "relative_change": null
+        },
+        {
+          "coarse_h": 0.025,
+          "fine_h": 0.0125,
+          "pass": false,
+          "relative_change": null
+        },
+        {
+          "coarse_h": 0.0125,
+          "fine_h": 0.00625,
+          "pass": false,
+          "relative_change": null
+        }
+      ],
+      "all_points_have_final_status": true,
+      "center_loss_mean": 0.030151136661942555,
+      "curvature_estimates_unnormalized": [
+        {
+          "curvature": null,
+          "h": 0.05,
+          "pair_status": "PROFILE_FAILURE"
+        },
+        {
+          "curvature": null,
+          "h": 0.025,
+          "pair_status": "PROFILE_FAILURE"
+        },
+        {
+          "curvature": null,
+          "h": 0.0125,
+          "pair_status": "PROFILE_FAILURE"
+        },
+        {
+          "curvature": null,
+          "h": 0.00625,
+          "pair_status": "PROFILE_FAILURE"
+        }
+      ],
+      "failure_reason": "planned points or two-finest multiscale convergence gate failed",
+      "finest_curvature": null,
+      "gamma": 0.003069172941731466,
+      "objective": "gamma_matched",
+      "objective_scaling": "0.5*mean(r^2) + gamma/(2*m)*||theta-theta_base||^2",
+      "points": [
+        {
+          "closure_calls": 1698,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss": 0.02386306989752345,
+          "normalized_gradient": 5.653149314823728e-05,
+          "offset": -0.05,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0003864220456217572,
+          "status": "PASS"
+        },
+        {
+          "closure_calls": 1689,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.02045852295919902,
+          "normalized_gradient": 0.0004596213127397301,
+          "offset": 0.05,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": false,
+          "relative_loss_change": 0.0014423068727815944,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1423,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss": 0.02346292277970461,
+          "normalized_gradient": 6.758926023977058e-05,
+          "offset": -0.025,
+          "optimizer_terminated": true,
+          "outer_steps": 17,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0001947235024891414,
+          "status": "PASS"
+        },
+        {
+          "closure_calls": 1685,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.022926904985756957,
+          "normalized_gradient": 0.0003138171375241552,
+          "offset": 0.025,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0002015686624334649,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1686,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.02307452372041756,
+          "normalized_gradient": 0.0002566448249363024,
+          "offset": -0.0125,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.00019698162134380512,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1681,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.023089288814255062,
+          "normalized_gradient": 0.0012702112648724333,
+          "offset": 0.0125,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.00023196385111810824,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1683,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.023372895143418726,
+          "normalized_gradient": 0.00034377061764910924,
+          "offset": -0.00625,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0003312032903863629,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1693,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.023250770271799295,
+          "normalized_gradient": 0.0025096408484214373,
+          "offset": 0.00625,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 7.310045998922682e-05,
+          "status": "PROFILE_FAILURE"
+        }
+      ],
+      "residual_count": 368,
+      "status": "PROFILE_FAILURE"
+    },
+    "unregularized": {
+      "adjacent_convergence": [
+        {
+          "coarse_h": 0.05,
+          "fine_h": 0.025,
+          "pass": false,
+          "relative_change": null
+        },
+        {
+          "coarse_h": 0.025,
+          "fine_h": 0.0125,
+          "pass": false,
+          "relative_change": null
+        },
+        {
+          "coarse_h": 0.0125,
+          "fine_h": 0.00625,
+          "pass": false,
+          "relative_change": null
+        }
+      ],
+      "all_points_have_final_status": true,
+      "center_loss_mean": 0.030151136661942555,
+      "curvature_estimates_unnormalized": [
+        {
+          "curvature": null,
+          "h": 0.05,
+          "pair_status": "PROFILE_FAILURE"
+        },
+        {
+          "curvature": null,
+          "h": 0.025,
+          "pair_status": "PROFILE_FAILURE"
+        },
+        {
+          "curvature": null,
+          "h": 0.0125,
+          "pair_status": "PROFILE_FAILURE"
+        },
+        {
+          "curvature": null,
+          "h": 0.00625,
+          "pair_status": "PROFILE_FAILURE"
+        }
+      ],
+      "failure_reason": "planned points or two-finest multiscale convergence gate failed",
+      "finest_curvature": null,
+      "gamma": 0.0,
+      "objective": "unregularized",
+      "objective_scaling": "0.5*mean(r^2)",
+      "points": [
+        {
+          "closure_calls": 1683,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.02315197112905359,
+          "normalized_gradient": 0.00015557318387927522,
+          "offset": -0.05,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0001579306174118479,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1675,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.02264442332629518,
+          "normalized_gradient": 0.0006520549772965167,
+          "offset": 0.05,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0001891650154579455,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1683,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.02295389292439536,
+          "normalized_gradient": 0.0006942980675082777,
+          "offset": -0.025,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.00010157499425174701,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1694,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.022052273716339384,
+          "normalized_gradient": 0.0010911089163446507,
+          "offset": 0.025,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.00018714373239531873,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1684,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.018182293126790518,
+          "normalized_gradient": 0.0024557806189006016,
+          "offset": -0.0125,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": false,
+          "relative_loss_change": 0.002272278982926503,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1684,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.02247114860007301,
+          "normalized_gradient": 0.0004121273489600538,
+          "offset": 0.0125,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0002730821359763942,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1690,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.022592575362716874,
+          "normalized_gradient": 0.0008130102864066466,
+          "offset": -0.00625,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.0001826084395540467,
+          "status": "PROFILE_FAILURE"
+        },
+        {
+          "closure_calls": 1688,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss": 0.022559157515543077,
+          "normalized_gradient": 0.0001985055864842482,
+          "offset": 0.00625,
+          "optimizer_terminated": true,
+          "outer_steps": 20,
+          "plateau_pass": true,
+          "relative_loss_change": 0.00019355467533537993,
+          "status": "PROFILE_FAILURE"
+        }
+      ],
+      "residual_count": 368,
+      "status": "PROFILE_FAILURE"
+    }
+  },
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "6309a62ca206fb73e28258b742f7bfafa68a6fa0",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-19T11:45:30.041894+00:00",
+    "torch_cuda_available": false
+  },
+  "residual_count": 368,
+  "run_id": "v3-foundation-s20-20260819T114530.041894+0000-b10a91601fd9",
+  "schema_version": 1,
+  "scientific_gate": "NONE_DEVELOPMENT_ONLY",
+  "seed": 20,
+  "split": "v3_foundation_development",
+  "status": "PASS",
+  "v2_scalar_lock_sha256": "cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8"
+}

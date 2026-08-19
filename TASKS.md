@@ -204,5 +204,5 @@
 - [x] 实现 unregularized 和 gamma-matched 双 nonlinear profile；
 - [x] 实现 exact full-Hessian reduced reference 与正定性/solve 审计；
 - [x] 实现多尺度 symmetric-curvature convergence 主 gate；
-- [ ] 使用真实 Burgers seed 20 完成 foundation end-to-end validation；
+- [x] 使用真实 Burgers seed 20 完成 foundation end-to-end validation；工程 `PASSED`，exact-Hessian/profile 科学诊断失败并完整保留；
 - [ ] 运行 fresh-clone 数据链验证、提交并推送 GitHub。

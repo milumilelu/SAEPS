@@ -17,3 +17,13 @@
 - P0 evidence: `docs/evidence/P0_ACCEPTANCE.md` and `docs/evidence/p0_acceptance.json`
 
 Run-level provenance schema is defined by the execution contract. Experimental provenance entries will be generated automatically; they must not be entered manually as paper values.
+
+## V3 Foundation Development
+
+- Development-only contract: `docs/v3/EXECUTION_CONTRACT.md`
+- Formal foundation run: `v3-foundation-s20-20260819T114530.041894+0000-b10a91601fd9`
+- Clean implementation commit: `6309a62ca206fb73e28258b742f7bfafa68a6fa0`
+- Configuration hash: `f42431dc76f9cc09012a33a4f430c1cefbbd0d36744687b7039d9833cf6e3d59`
+- v2 scalar lock hash verified unchanged: `cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8`
+- Acceptance: `docs/evidence/V3_FOUNDATION_ACCEPTANCE.md`
+- Scope remains `DEVELOPMENT_ONLY`; no v3 confirmation is authorized.
