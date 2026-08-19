@@ -14,18 +14,19 @@ network:
   architecture: tanh_mlp_2x8x1
   hidden_width: 8
 training:
-  pde_points: 96
-  data_points: 96
-  initial_points: 32
-  boundary_points_per_side: 32
+  sampling: locked_tensor_grid_same_as_diagnostic
+  pde_points: 81
+  data_points: 81
+  initial_points: 17
+  boundary_points_per_side: 17
   loss_weights:
     pde: 5.0
     data: 10.0
     initial: 10.0
     boundary: 2.0
-  adam_epochs: 800
+  adam_epochs: 1200
   adam_learning_rate: 0.01
-  lbfgs_max_iterations: 120
+  lbfgs_max_iterations: 300
   lbfgs_tolerance_grad: 1.0e-10
   lbfgs_tolerance_change: 1.0e-12
 diagnostic:
@@ -51,7 +52,7 @@ gamma:
   plateau_relative_tolerance: 0.05
   selector: smallest_lower_endpoint_of_eligible_adjacent_plateau_pair
 confirmation_rules:
-  checkpoint_training_loss_max: 0.5
+  checkpoint_training_loss_max: 0.1
   checkpoint_theta_stationarity_max: 0.01
   monotonic_absolute_tolerance: 1.0e-8
   spearman_median_gate: 0.9

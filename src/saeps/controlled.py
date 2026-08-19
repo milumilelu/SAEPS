@@ -114,6 +114,23 @@ def network_state_and_derivatives(
 
 def make_training_points(config: dict[str, Any], seed: int) -> PointSet:
     training = config["training"]
+    if training.get("sampling") == "locked_tensor_grid_same_as_diagnostic":
+        points = make_diagnostic_points(config)
+        declared = (
+            int(training["pde_points"]),
+            int(training["data_points"]),
+            int(training["initial_points"]),
+            int(training["boundary_points_per_side"]),
+        )
+        actual = (
+            points.pde_x.numel(),
+            points.data_x.numel(),
+            points.initial_x.numel(),
+            points.boundary_t.numel(),
+        )
+        if declared != actual:
+            raise ValueError(f"declared training point counts {declared} do not match grid {actual}")
+        return points
     dtype = getattr(torch, config["dtype"])
     generator = torch.Generator(device="cpu").manual_seed(seed + 20_000)
 
@@ -900,10 +917,16 @@ def run_controlled_confirmation(output_root: str | Path, repo_root: str | Path) 
                 "parameter_coordinates": ["log_lambda"],
                 "training_points": {
                     key: config["training"][key]
-                    for key in ["pde_points", "data_points", "initial_points", "boundary_points_per_side"]
+                    for key in [
+                        "sampling",
+                        "pde_points",
+                        "data_points",
+                        "initial_points",
+                        "boundary_points_per_side",
+                    ]
                 },
                 "diagnostic_points": config["diagnostic"],
-                "sensor_layout": "seeded_uniform_training_and_locked_tensor_grid_diagnostic",
+                "sensor_layout": "locked_tensor_grid_shared_by_training_and_diagnostic",
                 "loss_weights": config["training"]["loss_weights"],
                 "optimizer": "Adam_then_LBFGS_strong_wolfe",
                 "learning_rate": config["training"]["adam_learning_rate"],
