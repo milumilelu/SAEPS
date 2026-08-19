@@ -22,6 +22,7 @@ class ScalarPoints:
     data_t: torch.Tensor
     initial_x: torch.Tensor
     boundary_t: torch.Tensor
+    data_noise: torch.Tensor
 
 
 @dataclass(frozen=True)
@@ -69,13 +70,21 @@ def make_scalar_points(config: dict[str, Any], seed: int) -> ScalarPoints:
     def random(count: int) -> torch.Tensor:
         return torch.rand(count, dtype=dtype, generator=generator)
 
+    data_count = max(
+        1,
+        round(
+            int(counts["data"])
+            * float(config.get("observation_fraction", 1.0))
+        ),
+    )
     return ScalarPoints(
         pde_x=random(int(counts["pde"])),
         pde_t=final_time * random(int(counts["pde"])),
-        data_x=random(int(counts["data"])),
-        data_t=final_time * random(int(counts["data"])),
+        data_x=random(data_count),
+        data_t=final_time * random(data_count),
         initial_x=random(int(counts["initial"])),
         boundary_t=final_time * random(int(counts["boundary_times"])),
+        data_noise=torch.randn(data_count, dtype=dtype, generator=generator),
     )
 
 
@@ -104,8 +113,14 @@ def scalar_residual(
         pde = state_t - diffusion * state_xx - physical * (state - state**3)
     else:
         raise ValueError(f"unknown benchmark: {benchmark}")
-    data = scalar_network(theta, points.data_x, points.data_t, width)[0] - interpolate_solution(
-        reference, points.data_x, points.data_t
+    data_truth = interpolate_solution(reference, points.data_x, points.data_t)
+    noise_scale = float(config.get("observation_noise", 0.0)) * float(
+        torch.std(data_truth).item()
+    )
+    data = (
+        scalar_network(theta, points.data_x, points.data_t, width)[0]
+        - data_truth
+        - noise_scale * points.data_noise
     )
     zero_t = torch.zeros_like(points.initial_x)
     initial = scalar_network(theta, points.initial_x, zero_t, width)[0] - initial_state(
