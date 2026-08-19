@@ -10,7 +10,7 @@
 
 | Phase | 名称 | 状态 | Engineering gate | Scientific result |
 |---|---|---|---|---|
-| P0 | Repository Bootstrap | IN_PROGRESS | TESTING | N/A |
+| P0 | Repository Bootstrap | PASSED | PASSED | N/A |
 | P1 | SAEPS Core Verification | NOT_STARTED | NOT_RUN | N/A |
 | P2 | Controlled Tangent Geometry | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P3 | Nonlinear Profile Engine | NOT_STARTED | NOT_RUN | N/A |
@@ -23,18 +23,19 @@
 
 ## P0 — Repository Bootstrap
 
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — evidence: `docs/evidence/P0_ACCEPTANCE.md`
 
-- [ ] 创建 Python package、`pyproject.toml`、README、LICENSE、`.gitignore`；
-- [ ] 创建 `src/ tests/ configs/ scripts/ outputs/ paper_artifacts/`；
-- [ ] 固定 Python 与 package versions；
-- [ ] 实现 deterministic seed、config、structured logging、run ID/hash；
-- [ ] 记录 hardware、dtype、timestamp、git commit；
-- [ ] 配置 CI；
-- [ ] 实现 tiny PINN smoke test：train → save → reload → recompute residual → consistency；
-- [ ] 运行 `pytest -q`；
-- [ ] 运行 `python scripts/00_smoke_test.py`；
-- [ ] 保存验收证据并提交 P0 commit。
+- [x] 创建 Python package、`pyproject.toml`、README、LICENSE、`.gitignore`；
+- [x] 创建 `src/ tests/ configs/ scripts/ outputs/ paper_artifacts/`；
+- [x] 固定 Python 与完整 dependency closure；
+- [x] 实现 deterministic seed、config、structured logging、run ID/hash；
+- [x] 记录 hardware、dtype、timestamp、git commit；
+- [x] 配置 CI；
+- [x] 实现 tiny PINN smoke test：train → save → reload → recompute residual → consistency；
+- [x] 运行 `pytest -q`：9 passed；
+- [x] 运行 `python scripts/00_smoke_test.py`：PASS；
+- [x] 保存机器可读与人类可读验收证据；
+- [x] 提交 P0 implementation 与 acceptance commits。
 
 ## P1 — SAEPS Core Verification
 

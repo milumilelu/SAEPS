@@ -12,8 +12,8 @@
 ## Active Governance
 
 - Active contract: `docs/EXECUTION_CONTRACT.md` (`SAEPS-JCP-EXEC-v2.0`)
-- Current protocol state: `PRE-IMPLEMENTATION / UNLOCKED`
-- Git repository: initialized on branch `main`; no phase commit yet at the time of protocol adoption.
+- Current protocol state: `P0 PASSED / UNLOCKED`
+- P0 implementation commit: `6c88a860dbaf95988ae75b30b9f0efcdd951623c`
+- P0 evidence: `docs/evidence/P0_ACCEPTANCE.md` and `docs/evidence/p0_acceptance.json`
 
 Run-level provenance schema is defined by the execution contract. Experimental provenance entries will be generated automatically; they must not be entered manually as paper values.
-
