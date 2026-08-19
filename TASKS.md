@@ -18,8 +18,8 @@
 | P5 | Scalar Confirmation | PASSED | PASSED | PARTIALLY_SUPPORTED |
 | P6 | Multi-parameter Confirmation | PASSED | PASSED | FAIL |
 | P7 | Robustness & Architecture | PASSED | PASSED | DESCRIPTIVE_ONLY |
-| P8 | Computational Cost | IN_PROGRESS | NOT_RUN | DESCRIPTIVE |
-| P9 | Final Audit | NOT_STARTED | NOT_RUN | NOT_RUN |
+| P8 | Computational Cost | PASSED | PASSED | DESCRIPTIVE_ONLY |
+| P9 | Final Audit | IN_PROGRESS | NOT_RUN | NOT_RUN |
 
 ## P0 — Repository Bootstrap
 
@@ -164,21 +164,21 @@
 ## P8 — Computational Cost
 
 **依赖:** 核心 confirmation 完成  
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — evidence: `docs/evidence/P8_ACCEPTANCE.md`
 
-- [ ] 聚合 training、SAEPS、frozen profile、reoptimized profile times；
-- [ ] 聚合 CG iterations、JVP/VJP counts；
-- [ ] 能可靠取得时报告 peak memory；
-- [ ] 全部 timing 关联 hardware、dtype、config 与 commit；
-- [ ] 计算 \(T_{reoptimized\ profile}/T_{SAEPS}\)；
-- [ ] 自动生成 Figure 6 或等价成本表；
-- [ ] 不事后发明成本 PASS threshold；
-- [ ] 保存验收证据并提交 P8 commit。
+- [x] 聚合 training、SAEPS、frozen profile、reoptimized profile times；
+- [x] 聚合 CG iterations、JVP/VJP counts；
+- [x] peak memory 因 CPU backend 无可靠 native tensor peak 而明确记录 `null` 和原因；
+- [x] 全部 timing 关联 hardware、dtype、config 与 commit；
+- [x] 计算 \(T_{reoptimized\ profile}/T_{SAEPS}=2.0483\)（paired median）；
+- [x] 自动生成 Figure 6 和成本 CSV；
+- [x] 不事后发明成本 PASS threshold；
+- [x] 保存验收证据。
 
 ## P9 — Paper Artifacts & Final Audit
 
 **依赖:** P0–P8 engineering 完成，P7 可为合规 `PROTOCOL_STOP`  
-**状态:** `NOT_STARTED`
+**状态:** `IN_PROGRESS`
 
 - [ ] 自动生成 Figures 1–6；
 - [ ] 自动生成 Tables 1–3；

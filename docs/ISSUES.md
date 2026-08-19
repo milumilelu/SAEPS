@@ -125,3 +125,17 @@ affected_runs: 12/55 new P7 records; every failed record remains in the manifest
 protocol_impact: P7 engineering remains PASSED because all planned runs completed with legal statuses. P7 has no positive scientific threshold and cannot repair SG-1, SG-2 or SG-3.
 resolution_or_status: OPEN descriptive result. No locked threshold, gamma or method setting was changed and no P7 run will be repeated.
 ```
+
+## I-009 — P8 speedup is modest and profile fits remain fragile
+
+```text
+date: 2026-08-19
+issue_id: I-009
+phase: P8 computational cost
+classification: descriptive practical/numerical limitation
+description: The paired median reoptimized-profile/SAEPS time ratio is 2.0483, not an order-of-magnitude gain. All 21 reoptimization points completed, but only 1/3 reoptimized profile fits passed locked fit quality.
+evidence: docs/evidence/P8_ACCEPTANCE.md and p8-cost-s0-20260819T085547.064222+0000-b80f00209a91.
+affected_runs: three cost-only development seeds [0,1,2].
+protocol_impact: P8 engineering remains PASSED and is descriptive. The result limits practical speed claims and reinforces the P5 profile-quality concern.
+resolution_or_status: OPEN descriptive result. No post hoc cost threshold was introduced and no timing run will be repeated.
+```
