@@ -71,3 +71,15 @@ development_evidence: v2 FINAL_VALIDATION_REPORT.md and user-authorized review r
 affected_configs: configs/v3/foundation_development.yaml only; configs/locked/* remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_005_V3_FOUNDATION.md and docs/v3/EXECUTION_CONTRACT.md.
 ```
+
+## D-005 — Require a true state local minimum before v3 curvature comparison
+
+```text
+date: 2026-08-19
+decision_id: D-005
+decision: Open an isolated v3.1 seed-20 development workflow with unified 1e-4 objective-gradient tolerance, exact state-Hessian gate, negative-direction probes, trust-region saddle escape and Jacobi-PCG diagnostics.
+reason: v3.0 located the failure at nonlinear state optimization and second-order geometry: the nominal center passed a loose first-order rule while exact state Hessians remained indefinite and profiles failed. Increasing L-BFGS iterations alone cannot establish a local minimum.
+development_evidence: docs/evidence/V3_FOUNDATION_ACCEPTANCE.md; no v3.1 run was inspected before this decision.
+affected_configs: configs/v3_1/seed20_development.yaml only; v2 locked and v3.0 configurations remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_006_V3_1_STATE_MINIMUM.md and docs/v3_1/EXECUTION_CONTRACT.md.
+```

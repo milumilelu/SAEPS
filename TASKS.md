@@ -207,3 +207,16 @@
 - [x] 使用真实 Burgers seed 20 完成 foundation end-to-end validation；工程 `PASSED`，exact-Hessian/profile 科学诊断失败并完整保留；
 - [x] 在 commit `0b82d08` 的 fresh clone 中重建 artifacts，并通过 v2/v3 validators；重建后工作树干净；
 - [x] 提交全部 raw/evidence；GitHub 推送由本任务最终发布步骤完成。
+
+## V3.1 State Local Minimum — Development Only
+
+**状态:** `IN_PROGRESS`
+**隔离:** 仅 seed 20 激活；21–24、30–44 均禁止运行；`confirmation_authorized: false`。
+
+- [x] 建立 v3.1 可执行契约与独立配置；
+- [x] 实现 center/profile 统一 `1e-4` objective-gradient gate；
+- [x] 实现 exact state-Hessian local-minimum gate 与双向负曲率 probe；
+- [x] 实现 exact-Hessian trust-region / saddle escape；
+- [x] 实现 standard CG + Jacobi-PCG development gate；
+- [ ] 完成 seed 20 严格串行全链条运行；
+- [ ] 生成机器可读证据并判定是否允许激活 seeds 21–24。
