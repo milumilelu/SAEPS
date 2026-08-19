@@ -195,7 +195,7 @@
 
 ## V3 Foundation Corrections — Development Only
 
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED`
 **隔离:** v2 `PASSED` 结果与 `configs/locked/*` 不变；v3 confirmation 未授权。
 
 - [x] 将完整 v2 raw runs 与 paper artifacts 纳入版本控制并生成 SHA-256 snapshot；
@@ -205,4 +205,5 @@
 - [x] 实现 exact full-Hessian reduced reference 与正定性/solve 审计；
 - [x] 实现多尺度 symmetric-curvature convergence 主 gate；
 - [x] 使用真实 Burgers seed 20 完成 foundation end-to-end validation；工程 `PASSED`，exact-Hessian/profile 科学诊断失败并完整保留；
-- [ ] 运行 fresh-clone 数据链验证、提交并推送 GitHub。
+- [x] 在 commit `0b82d08` 的 fresh clone 中重建 artifacts，并通过 v2/v3 validators；重建后工作树干净；
+- [x] 提交全部 raw/evidence；GitHub 推送由本任务最终发布步骤完成。

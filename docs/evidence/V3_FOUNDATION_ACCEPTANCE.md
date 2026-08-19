@@ -23,3 +23,7 @@
 ## 判定
 
 这不是工程失败：所有计划点均有最终状态，失败数据完整保存，full-Hessian 无效性也被机器可读地报告。它是明确的数值/科学警报：当前 checkpoint 不能被表述为具有可靠局部凸 state-profile geometry，七点二次拟合也不能再充当主要证据。v3 confirmation 未授权。
+
+## Fresh-clone audit
+
+在 clean commit `0b82d08` 的全新 clone 中，依次执行 v2 canonical snapshot verification、paper artifact rebuild、v2 repository validator 与 v3 foundation validator，全部 `PASSED`；artifact 重建后 `git status --porcelain` 为空。该检查同时发现并修复了历史 CRLF/LF 物理字节哈希不可移植问题，数值内容未改变。
