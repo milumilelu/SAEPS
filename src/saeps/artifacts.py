@@ -42,7 +42,12 @@ def _records(run: Path) -> list[dict[str, Any]]:
 
 def _write_csv(path: Path, fields: list[str], rows: Iterable[dict[str, Any]]) -> None:
     with path.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore")
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=fields,
+            extrasaction="ignore",
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(rows)
 
