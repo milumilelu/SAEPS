@@ -41,6 +41,12 @@ H_{prof}(v_{max})>H_{prof}(v_{min}),
 
 P7 不设强阳性门槛。P8 未给定硬性成本比阈值；两者为描述性证据，不得事后发明 PASS 线。
 
+**Observed P7:** 55/55 new runs completed with 43 PASS, 2 CHECKPOINT_INVALID and 10 SOLVER_FAILURE. Failure frequency concentrated under sparse observations and the wide architecture; valid-cell median elimination effects remained positive. This is descriptive only.
+
+**Observed P8:** the median paired reoptimized-profile/SAEPS wall-time ratio was 2.0483 on three cost-only development seeds. The speedup is modest, not order-of-magnitude; peak native CPU tensor memory was not reliably available and is reported as null.
+
 ## Final Mapping
 
 最终结论只能是 `SUPPORTED`、`PARTIALLY_SUPPORTED`、`NOT_SUPPORTED`；具体映射遵循 `docs/EXECUTION_CONTRACT.md` 第 20 节。
+
+**Observed final mapping:** `PARTIALLY_SUPPORTED / INVESTIGATE_NUMERICS`. Numerical core checks passed and the single valid scalar pair was positive, but unresolved stationarity, CG and profile-fit failures prevent broad claims.

@@ -9,8 +9,10 @@ A negative scientific result is a valid completion.
 ## Protocol state
 
 - Active contract: `SAEPS-JCP-EXEC-v2.0`
-- Current phase: P5 Scalar Confirmation (global protocol LOCKED)
+- Current phase: P9 complete; engineering protocol execution PASSED
 - Confirmation protocol: **LOCKED** at `ad794ca2908c8935d0e21702fab7914ff944cce7`
+- Scientific conclusion: **PARTIALLY_SUPPORTED**
+- Recommendation: **INVESTIGATE_NUMERICS**
 - Python: 3.12.13
 - Default numerical dtype: float64
 
@@ -56,3 +58,15 @@ raw run files -> aggregation -> paper_artifacts/data -> figures/tables/report
 ```
 
 Never manually enter experimental results into paper artifacts.
+
+## Final artifact build and audit
+
+```powershell
+python scripts/09_build_paper_artifacts.py
+python scripts/validate_repository.py
+```
+
+The first command rebuilds Figures 1–6, Tables 1–3, supplementary artifacts and
+`FINAL_VALIDATION_REPORT.md` from accepted raw runs. The second command returns
+0 only when the engineering protocol is complete; negative scientific gates
+remain visible and do not count as engineering failure.

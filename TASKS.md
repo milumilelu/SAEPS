@@ -19,7 +19,7 @@
 | P6 | Multi-parameter Confirmation | PASSED | PASSED | FAIL |
 | P7 | Robustness & Architecture | PASSED | PASSED | DESCRIPTIVE_ONLY |
 | P8 | Computational Cost | PASSED | PASSED | DESCRIPTIVE_ONLY |
-| P9 | Final Audit | IN_PROGRESS | NOT_RUN | NOT_RUN |
+| P9 | Final Audit | PASSED | PASSED | PARTIALLY_SUPPORTED / INVESTIGATE_NUMERICS |
 
 ## P0 — Repository Bootstrap
 
@@ -178,17 +178,17 @@
 ## P9 — Paper Artifacts & Final Audit
 
 **依赖:** P0–P8 engineering 完成，P7 可为合规 `PROTOCOL_STOP`  
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — evidence: `docs/evidence/P9_ACCEPTANCE.md`
 
-- [ ] 自动生成 Figures 1–6；
-- [ ] 自动生成 Tables 1–3；
-- [ ] 自动生成全部 Supplementary artifacts；
-- [ ] 验证 raw→aggregate→artifact 数值一致；
-- [ ] 验证 seed completeness、locked hashes、failed-run reporting；
-- [ ] 验证 bootstrap 与 cost lineage；
-- [ ] 运行 `python scripts/09_build_paper_artifacts.py`；
-- [ ] 运行 `python scripts/validate_repository.py`；
-- [ ] 自动生成 `FINAL_VALIDATION_REPORT.md`；
-- [ ] 给出唯一 scientific conclusion 与 recommendation；
-- [ ] 确认 scientific FAIL / P7 protocol stop 不导致 validator 失败；
-- [ ] 运行最终测试，确认工作树干净并提交最终 commit。
+- [x] 自动生成 Figures 1–6；
+- [x] 自动生成 Tables 1–3；
+- [x] 自动生成 11 个 Supplementary artifacts；
+- [x] 验证 raw→aggregate→artifact 数值一致；
+- [x] 验证 seed completeness、locked hashes、failed-run reporting；
+- [x] 验证 bootstrap 与 cost lineage；
+- [x] 运行 `python scripts/09_build_paper_artifacts.py`，exit 0；
+- [x] 运行 `python scripts/validate_repository.py`，exit 0；
+- [x] 自动生成 `FINAL_VALIDATION_REPORT.md`；
+- [x] 唯一结论 `PARTIALLY_SUPPORTED`；唯一建议 `INVESTIGATE_NUMERICS`；
+- [x] scientific FAIL/PARTIAL 不导致 validator 工程失败；
+- [x] 最终测试 30/30 通过；最终 commit 后再次验证干净工作树。

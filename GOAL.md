@@ -28,22 +28,22 @@
 
 只有同时满足以下条件，Goal 才能标记为完成：
 
-- [ ] 仓库可在干净环境中按文档安装并运行；
-- [ ] P0–P9 mandatory engineering work 均完成；P7 可为契约授权的 `PROTOCOL_STOP`；
-- [ ] SAEPS explicit 与 matrix-free 数值一致性测试通过；
-- [ ] controlled tangent-geometry、nonlinear profile、scalar confirmation 和 two-parameter joint-geometry 实验完成；
-- [ ] development 与 confirmation 数据、配置和 seed 严格分离；
-- [ ] confirmation 配置已锁定，SHA256 hash 可验证；
-- [ ] 所有预注册 confirmation runs 均有最终状态；失败 run 均保留并说明原因；
-- [ ] 所有正式 SAEPS checkpoint 均执行 stationarity gate；无效 checkpoint 未被描述为有效验证；
-- [ ] 所有 paper-facing 数值由 raw machine-readable results 自动聚合；
-- [ ] 单一命令可重新生成最终 figures、tables、summary 并检查其一致性；
-- [ ] `python scripts/validate_repository.py` 返回 `0`；
-- [ ] `FINAL_VALIDATION_REPORT.md` 已自动生成并包含全部偏差和失败 run；
-- [ ] 报告科学结论明确为 `SUPPORTED`、`PARTIALLY_SUPPORTED` 或 `NOT_SUPPORTED`；
-- [ ] 报告建议明确为 `PROCEED_TO_PAPER`、`PROCEED_WITH_LIMITED_CLAIMS`、`REVISE_METHOD`、`INVESTIGATE_NUMERICS` 或 `STOP`；
-- [ ] computational-cost evidence 包含 \(T_{reoptimized\ profile}/T_{SAEPS}\)；
-- [ ] 测试通过，`git status` 干净，阶段 commits、最终 commit 与全部结果可追溯。
+- [x] 仓库可在干净环境中按文档安装并运行；
+- [x] P0–P9 mandatory engineering work 均完成；
+- [x] SAEPS explicit 与 matrix-free 数值一致性测试通过；
+- [x] controlled tangent-geometry、nonlinear profile、scalar confirmation 和 two-parameter joint-geometry 实验完成；
+- [x] development 与 confirmation 数据、配置和 seed 严格分离；
+- [x] confirmation 配置已锁定，SHA256 hash 可验证；
+- [x] 所有预注册 confirmation runs 均有最终状态；失败 run 均保留并说明原因；
+- [x] 所有正式 SAEPS checkpoint 均执行 stationarity gate；无效 checkpoint 未被描述为有效验证；
+- [x] 所有 paper-facing 数值由 raw machine-readable results 自动聚合；
+- [x] 单一命令可重新生成最终 figures、tables、summary 并检查其一致性；
+- [x] `python scripts/validate_repository.py` 返回 `0`；
+- [x] `FINAL_VALIDATION_REPORT.md` 已自动生成并包含全部偏差和失败 run；
+- [x] 报告科学结论为 `PARTIALLY_SUPPORTED`；
+- [x] 报告建议为 `INVESTIGATE_NUMERICS`；
+- [x] computational-cost evidence 包含 \(T_{reoptimized\ profile}/T_{SAEPS}\)；
+- [x] 测试通过，`git status` 干净，阶段 commits、最终 commit 与全部结果可追溯。
 
 科学 gate 失败不妨碍 Goal 工程完成；缺失实验、违反协议、不可追溯结果或工程验收失败则不允许完成。
 
