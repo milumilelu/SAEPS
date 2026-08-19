@@ -10,6 +10,8 @@ median_i\rho_{Spearman}(\alpha,\eta_i^{se})\ge0.9
 
 且至少 8/10 confirmation seeds 满足 LOCK 前定义的正确单调趋势。报告 all seeds、median、IQR、violations 和完整 denominator。
 
+**Observed 2026-08-19:** `FAIL`. All 5 valid seeds were monotonic with Spearman approximately 1, but 5/10 seeds failed the locked checkpoint stationarity gate. The binding denominator is therefore 5/10 monotonic, below 8/10. Evidence: `docs/evidence/P2_ACCEPTANCE.md`.
+
 ## SG-2 Scalar Paired Comparison
 
 定义 \(D_i=E_{raw,i}-E_{SAEPS,i}\)。
@@ -38,4 +40,3 @@ P7 不设强阳性门槛。P8 未给定硬性成本比阈值；两者为描述�
 ## Final Mapping
 
 最终结论只能是 `SUPPORTED`、`PARTIALLY_SUPPORTED`、`NOT_SUPPORTED`；具体映射遵循 `docs/EXECUTION_CONTRACT.md` 第 20 节。
-

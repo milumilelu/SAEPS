@@ -55,3 +55,17 @@ affected_runs: No run ID was issued because failure preceded provenance/result c
 protocol_impact: No confirmation run was started and no phase lock was created.
 resolution_or_status: RESOLVED in development by separating the dense explicit plateau diagnostic from matrix-free CG eligibility. The locked selector is the smallest CG-eligible point whose explicit eta changes by at most the unchanged 5% tolerance from the preceding smaller gamma.
 ```
+
+## I-004 — P2 scientific gate not supported on locked denominator
+
+```text
+date: 2026-08-19
+issue_id: I-004
+phase: P2 confirmation
+classification: scientific failure
+description: Only 5/10 confirmation checkpoints passed the locked S_theta<=0.01 gate. Those five were all monotonic with Spearman approximately 1, but the preregistered 8/10 monotonic requirement was not met.
+evidence: docs/evidence/P2_ACCEPTANCE.md; run p2-confirmation-s10-20260819T072235.025972+0000-7059ee357d5a.
+affected_runs: Seeds 10,11,12,13,16 each have five CHECKPOINT_INVALID records; all 50 planned records remain in the manifest.
+protocol_impact: SG-1=FAIL. P2 engineering gate remains PASSED, so P3 may proceed. Final claims must retain this negative result.
+resolution_or_status: OPEN scientific result. No threshold, source, gamma, seed, or alpha will be changed and confirmation will not be rerun.
+```

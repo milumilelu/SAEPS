@@ -12,7 +12,7 @@
 |---|---|---|---|---|
 | P0 | Repository Bootstrap | PASSED | PASSED | N/A |
 | P1 | SAEPS Core Verification | PASSED | PASSED | N/A |
-| P2 | Controlled Tangent Geometry | IN_PROGRESS | NOT_RUN | NOT_RUN |
+| P2 | Controlled Tangent Geometry | PASSED | PASSED | FAIL |
 | P3 | Nonlinear Profile Engine | NOT_STARTED | NOT_RUN | N/A |
 | P4 | Scalar PDE Screening & LOCK | NOT_STARTED | NOT_RUN | N/A |
 | P5 | Scalar Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
@@ -58,25 +58,25 @@
 ## P2 — Controlled Tangent Geometry
 
 **依赖:** P1 `PASSED`  
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — engineering evidence: `docs/evidence/P2_ACCEPTANCE.md`; scientific SG-1: `FAIL`
 
 ### Development
 
-- [ ] 仅用 seeds `[0,1,2]` 建立 manufactured parabolic PDE；
-- [ ] 固定 \(D,c,\lambda^*,u^*\) 和 Fourier library；
-- [ ] 实现 tangent overlap \(\omega(q)\)；
-- [ ] 选择、归一化并锁定 \(q_\parallel,q_\perp\)；
-- [ ] 记录 development evidence、配置 hash 和 decision。
+- [x] 仅用 seeds `[0,1,2]` 建立 manufactured parabolic PDE；
+- [x] 固定 \(D,c,\lambda^*,u^*\) 和 Fourier library；
+- [x] 实现 tangent overlap \(\omega(q)\)；
+- [x] 选择、归一化并锁定 \(q_\parallel,q_\perp\)；
+- [x] 记录 development evidence、配置 hash 和 decision。
 
 ### Confirmation
 
-- [ ] 使用 `[10,11,12,13,14,15,16,17,18,19]`；
-- [ ] 每 seed 运行 5 个 \(\alpha\)，共 50 evaluations；
-- [ ] 每个 run 有合法最终状态；
-- [ ] 报告 all seed values、每 seed Spearman、median、IQR 和 monotonicity；
-- [ ] 自动生成 Figure 2；
-- [ ] 计算 SG-1：median Spearman `>=0.9` 且至少 `8/10` 单调；
-- [ ] 保存验收证据并提交 P2 commit。
+- [x] 使用 `[10,11,12,13,14,15,16,17,18,19]`；
+- [x] 每 seed 运行 5 个 \(\alpha\)，共 50 evaluations；
+- [x] 每个 run 有合法最终状态；
+- [x] 报告 all seed values、每 seed Spearman、median、IQR 和 monotonicity；
+- [x] 自动生成 Figure 2；
+- [x] 计算 SG-1：`FAIL`（5/10 valid 且 5/10 单调；valid seeds 的 median Spearman≈1）；
+- [x] 保存验收证据并提交 P2 commit。
 
 ## P3 — Nonlinear State-Reoptimization Engine
 
