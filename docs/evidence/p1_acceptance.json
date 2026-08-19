@@ -1,0 +1,62 @@
+{
+  "config_hash": "5ec8fb4209850b1d2d3d5c28b1a69f5ffdc7c0ffc521981fa3a8de2b5c966e5d",
+  "dimensions": {
+    "parameter": 2,
+    "residual": 34,
+    "svd_rank": 10,
+    "theta": 13
+  },
+  "dtype": "float64",
+  "implementation_commit": "c4becc79f1e6d0968f55c27ae90c36898798e5af",
+  "metrics": {
+    "curvature_relative_error": 1.3919433666028684e-13,
+    "eta": [0.12842721109728797, 0.3207511640169977],
+    "finite_difference_parameter_relative_error": 1.68936304717265e-10,
+    "finite_difference_theta_relative_error": 1.8324275812944072e-10,
+    "formal_cg_relative_residuals": [
+      1.6300175184077764e-12,
+      1.8073294431554353e-11,
+      2.003580231558835e-12
+    ],
+    "loewner_minimum_eigenvalue": 0.012139096465286436,
+    "minimum_eigenvalue": 0.05311907298541512,
+    "operator_relative_errors": [
+      1.6147977385048251e-15,
+      1.7297090967299933e-15,
+      3.770353825318927e-15,
+      1.7568113779704271e-15,
+      9.8716766388271e-16,
+      7.071663530294358e-15,
+      3.2569226576423164e-15,
+      3.66465534900568e-15,
+      9.07617867654501e-15,
+      3.45377318845962e-15
+    ],
+    "reproducibility_max_abs_error": 0.0,
+    "score_relative_error": 6.756196003611306e-14,
+    "symmetry_relative_error": 3.926716887141203e-14
+  },
+  "operation_counts": {
+    "explicit_jacobians": 0,
+    "jvp_parameter": 2,
+    "jvp_theta": 140,
+    "vjp_theta": 140
+  },
+  "phase": "P1",
+  "pytest": {
+    "passed": 13,
+    "status": "PASS",
+    "wall_summary": "13 passed in 3.13s"
+  },
+  "regularization": {
+    "gamma": 0.013558509246160415,
+    "gamma_alpha": 0.0001,
+    "lambda_max": 135.58509246160415,
+    "rule": "gamma = gamma_alpha * lambda_max(J_theta^T J_theta)"
+  },
+  "run_id": "p1-core-s20260819-20260819T065755.242464+0000-dfcb22fd2b2b",
+  "schema_version": 1,
+  "status": "PASSED",
+  "validation_date": "2026-08-19"
+}
+

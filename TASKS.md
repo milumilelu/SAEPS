@@ -11,7 +11,7 @@
 | Phase | 名称 | 状态 | Engineering gate | Scientific result |
 |---|---|---|---|---|
 | P0 | Repository Bootstrap | PASSED | PASSED | N/A |
-| P1 | SAEPS Core Verification | IN_PROGRESS | NOT_RUN | N/A |
+| P1 | SAEPS Core Verification | PASSED | PASSED | N/A |
 | P2 | Controlled Tangent Geometry | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P3 | Nonlinear Profile Engine | NOT_STARTED | NOT_RUN | N/A |
 | P4 | Scalar PDE Screening & LOCK | NOT_STARTED | NOT_RUN | N/A |
@@ -40,20 +40,20 @@
 ## P1 — SAEPS Core Verification
 
 **依赖:** P0 `PASSED`  
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — evidence: `docs/evidence/P1_ACCEPTANCE.md`
 
-- [ ] 实现 residual-first API 和 parameter coordinate transform；
-- [ ] 实现 explicit \(J_\theta,J_\lambda\)、JVP、VJP；
-- [ ] 实现 SVD exact reference、explicit Tikhonov、matrix-free CG/Krylov；
-- [ ] 实现唯一共享的 `Fraw/Fse/gse/eta`；
-- [ ] 至少 10 个随机 \(y\) 验证 operator relative error `<1e-6`；
-- [ ] 验证 curvature relative error `<1e-6`；
-- [ ] 验证 symmetry `<1e-8`；
-- [ ] 验证 PSD、Loewner relation、scalar eta bound；
-- [ ] 验证每个正式 CG relative residual `<=1e-8`；
-- [ ] 验证 finite-difference/autodiff derivatives；
-- [ ] 验证相同 config+seed 重复运行一致性；
-- [ ] 保存真实数值测试证据并提交 P1 commit。
+- [x] 实现 residual-first API 和 parameter coordinate transform；
+- [x] 实现 explicit \(J_\theta,J_\lambda\)、JVP、VJP；
+- [x] 实现 SVD exact reference、explicit Tikhonov、matrix-free CG/Krylov；
+- [x] 实现唯一共享的 `Fraw/Fse/gse/eta`；
+- [x] 至少 10 个随机 \(y\) 验证 operator relative error `<1e-6`；
+- [x] 验证 curvature relative error `<1e-6`；
+- [x] 验证 symmetry `<1e-8`；
+- [x] 验证 PSD、Loewner relation、scalar eta bound；
+- [x] 验证每个正式 CG relative residual `<=1e-8`；
+- [x] 验证 finite-difference/autodiff derivatives；
+- [x] 验证相同 config+seed 重复运行一致性；
+- [x] 保存真实数值测试证据并提交 P1 commit。
 
 ## P2 — Controlled Tangent Geometry
 
