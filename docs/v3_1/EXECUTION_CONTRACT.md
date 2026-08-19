@@ -37,7 +37,7 @@ A state is a numerical local-minimum candidate only if
 \lambda_{\min}(H_{\theta\theta})\ge-\tau.
 \]
 
-If this fails, evaluate both signs of the most-negative unit eigenvector at every preregistered relative radius in `[1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1]`, scaled by `max(||theta||,1)`. Record every loss. A lower-loss candidate may seed an exact-Hessian trust-region step and subsequent common L-BFGS polish. At most 12 saddle-escape cycles are allowed. Failure remains `NUMERICAL_FAILURE`; thresholds must not be relaxed.
+If this fails, evaluate both signs of the most-negative unit eigenvector at every registered relative radius in `[1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1]`, scaled by `max(||theta||,1)`. Record every loss. A lower-loss candidate may seed an exact-Hessian trust-region step and subsequent common L-BFGS polish. At most 50 saddle-escape cycles are allowed. This budget was registered after the first retained v3.1 development attempt ended at cycle 12 while every cycle still exhibited an actual negative-direction decrease; no gradient, Hessian, profile or solver threshold changed. Failure remains `NUMERICAL_FAILURE`.
 
 The trust-region candidate set contains both signs of the negative-curvature direction, a spectrally shifted Newton step, and steepest descent, each with registered backtracking factors. The actually evaluated objective, not the quadratic model, selects acceptance.
 

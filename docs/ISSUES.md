@@ -181,3 +181,17 @@ affected_runs: No numeric run content changed. The defect affected cross-platfor
 protocol_impact: Fresh-clone auditability was not yet achieved; v2 scientific results and locked hashes were unaffected.
 resolution_or_status: RESOLVED by versioning snapshot schema 2 with canonical-LF byte counts/hashes and allowing historical run/artifact manifests to match only raw, canonical-LF, or canonical-CRLF byte variants. A content change other than newline encoding still fails verification.
 ```
+
+## I-013 — v3.1 first saddle-escape budget ended while descent remained
+
+```text
+date: 2026-08-19
+issue_id: I-013
+phase: V3.1 state-minimum development
+classification: numerical failure
+description: The first seed-20 run reduced center mean loss from 0.0366474 to 0.00391424 and passed the common 1e-4 objective-gradient gate, but failed the exact Hessian gate with lambda_min=-1.9064e-5, tau=7.9877e-7 and four negative directions. All 12 registered negative-direction probes found actual lower-loss points, so the fixed cycle budget—not absence of an escape direction—caused termination.
+evidence: outputs/runs/v3_1_state_minimum/v3-1-state-min-s20-20260819T122121.398764+0000-d11519b48fd2.
+affected_runs: seed 20 development attempt only. No profile, Krylov comparison, seed 21–24 or confirmation run was started.
+protocol_impact: The strict center gate correctly stopped the chain. No scientific threshold is changed.
+resolution_or_status: DEVELOPMENT CORRECTION. Increase only the exact-Hessian saddle-escape cycle budget from 12 to 50 because every observed cycle retained a verified descent direction. Gradient tolerance, Hessian tau, profile convergence and solver gates remain unchanged. This is not an L-BFGS-iteration-only remedy.
+```
