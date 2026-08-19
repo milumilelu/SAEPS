@@ -207,6 +207,77 @@ def train_scalar_checkpoint(
     return checkpoint, points
 
 
+def refine_scalar_checkpoint(
+    config: dict[str, Any],
+    checkpoint: ScalarCheckpoint,
+    points: ScalarPoints,
+    reference: ForwardSolution,
+    settings: dict[str, Any],
+) -> ScalarCheckpoint:
+    """Apply the single locked, uniform checkpoint-refinement retry."""
+    started = time.perf_counter()
+    theta = torch.nn.Parameter(checkpoint.theta.detach().clone())
+    log_parameter = torch.nn.Parameter(checkpoint.log_parameter.detach().clone())
+    adam = torch.optim.Adam(
+        [theta, log_parameter], lr=float(settings["adam_learning_rate"])
+    )
+    for _ in range(int(settings["adam_epochs"])):
+        adam.zero_grad(set_to_none=True)
+        residual = scalar_residual(
+            theta, log_parameter, checkpoint.benchmark, points, reference, config
+        )
+        loss = 0.5 * torch.mean(residual.square())
+        loss.backward()
+        adam.step()
+    calls = 0
+    lbfgs = torch.optim.LBFGS(
+        [theta, log_parameter],
+        max_iter=int(settings["lbfgs_max_iterations"]),
+        tolerance_grad=float(config["optimizer"]["lbfgs_tolerance_grad"]),
+        tolerance_change=float(config["optimizer"]["lbfgs_tolerance_change"]),
+        history_size=100,
+        line_search_fn="strong_wolfe",
+    )
+
+    def closure() -> torch.Tensor:
+        nonlocal calls
+        calls += 1
+        lbfgs.zero_grad(set_to_none=True)
+        residual = scalar_residual(
+            theta, log_parameter, checkpoint.benchmark, points, reference, config
+        )
+        value = 0.5 * torch.mean(residual.square())
+        value.backward()
+        return value
+
+    lbfgs.step(closure)
+    residual = scalar_residual(
+        theta, log_parameter, checkpoint.benchmark, points, reference, config
+    )
+    loss = float((0.5 * torch.mean(residual.square())).item())
+    width = int(config["network"]["hidden_width"])
+    prediction = scalar_network(theta, points.data_x, points.data_t, width)[0]
+    truth = interpolate_solution(reference, points.data_x, points.data_t)
+    state_rmse = float(torch.sqrt(torch.mean((prediction - truth).square())).item())
+    truth_parameter = float(config["benchmarks"][checkpoint.benchmark]["truth_parameter"])
+    learned = float(torch.exp(log_parameter.detach())[0].item())
+    iterations = int(lbfgs.state[theta].get("n_iter", 0))
+    return ScalarCheckpoint(
+        benchmark=checkpoint.benchmark,
+        seed=checkpoint.seed,
+        theta=theta.detach().clone(),
+        log_parameter=log_parameter.detach().clone(),
+        training_loss=loss,
+        state_rmse=state_rmse,
+        parameter_relative_error=abs(learned - truth_parameter) / truth_parameter,
+        adam_epochs=checkpoint.adam_epochs + int(settings["adam_epochs"]),
+        lbfgs_iterations=checkpoint.lbfgs_iterations + iterations,
+        lbfgs_closure_calls=checkpoint.lbfgs_closure_calls + calls,
+        stop_reason="LOCKED_UNIFORM_RETRY_COMPLETED",
+        elapsed_seconds=checkpoint.elapsed_seconds + (time.perf_counter() - started),
+    )
+
+
 def classical_observation_loss(
     config: dict[str, Any],
     benchmark: str,
@@ -219,4 +290,3 @@ def classical_observation_loss(
         truth, points.data_x, points.data_t
     )
     return float((0.5 * torch.mean(difference.square())).item())
-
