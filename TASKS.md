@@ -259,7 +259,7 @@
 - [x] 实现 profile optimization-error resolution certificate；
 - [x] 实现 weight-space 与 fixed-grid function-space branch audit；
 - [x] 冻结 seeds 21–24 前的 v3.4 配置与 5% local-validation thresholds；
-- [ ] 运行 seed20 protocol verification；
+- [x] 运行 seed20 protocol verification；readiness `PASS`，配置 hash `89374e21...`；
 - [ ] readiness 通过后运行 seeds 21–24，不修改规则；
 - [ ] 聚合五个 development seeds 并生成验收证据；
 - [ ] 运行全仓库验证；
