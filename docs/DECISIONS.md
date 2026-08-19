@@ -95,3 +95,15 @@ development_evidence: docs/evidence/V3_1_SEED20_ACCEPTANCE.md; no v3.2 result wa
 affected_configs: configs/v3_2/seed20_gamma_primary.yaml only; v2, v3.0 and v3.1 remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_007_V3_2_GAMMA_PRIMARY.md and docs/v3_2/EXECUTION_CONTRACT.md.
 ```
+
+## D-007 — Open v3.3 numerical-decomposition development
+
+```text
+date: 2026-08-19
+decision_id: D-007
+decision: Open isolated v3.3 seed-20 development and retain a nonbinding four-node decomposition even when a registered solver or profile gate fails.
+reason: v3.2 simultaneously exposed gamma-profile convergence/accuracy failure and normal-equation Krylov failure, while the exact gamma reduction passed. Suppressing the comparison after either failure prevents attribution among solver, Gauss--Newton and nonlinear-profile errors.
+development_evidence: docs/evidence/V3_2_SEED20_ACCEPTANCE.md; the v3.3 solver and error definitions were registered before any v3.3 run.
+affected_configs: configs/v3_3/seed20_numerical_decomposition.yaml only; v2 through v3.2 remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_008_V3_3_NUMERICAL_DECOMPOSITION.md and docs/v3_3/EXECUTION_CONTRACT.md.
+```

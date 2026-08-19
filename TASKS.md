@@ -233,4 +233,18 @@
 - [x] 无条件执行 standard CG + Jacobi-PCG seed-20 gate；
 - [x] 执行 exact gamma-matched Hessian reduction 与四量比较；
 - [x] 运行真实 seed 20并生成证据；gamma profile 与 solver gate 失败，不可请求激活 21–24；
+- [x] 自动提交并推送 GitHub private `main`。
+
+## V3.3 Numerical Decomposition — Development Only
+
+**状态:** `IN_PROGRESS`
+**隔离:** 仅 seed 20；21–24、30–44 均禁止；`confirmation_authorized: false`。
+
+- [x] 预注册 explicit → matrix-free → exact → profile 四节点契约；
+- [x] 实现 explicit augmented direct GN reference；
+- [x] 实现保留失败数值的 standard CG / Jacobi-PCG 诊断；
+- [x] 实现 matrix-free augmented LSQR 交叉验证；
+- [x] development decomposition 强制标记 `NONBINDING_DIAGNOSTIC_ONLY`；
+- [ ] 运行真实 seed 20 并生成机器可读验收证据；
+- [ ] 运行全仓库验证；
 - [ ] 自动提交并推送 GitHub private `main`。
