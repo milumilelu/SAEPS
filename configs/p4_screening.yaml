@@ -1,0 +1,63 @@
+schema_version: 1
+phase: P4_SCREENING
+development_seeds: [0, 1, 2]
+candidates: [Allen-Cahn, Burgers]
+selection_order:
+  - hard_numerical_gates
+  - stationarity_passing_count
+  - classical_curvature_clarity
+  - reoptimization_failure_rate
+  - alphabetical_name
+forbidden_selection_metrics: [eta, saeps_advantage, figure_appearance, expected_regime]
+dtype: float64
+domain: {x: [0.0, 1.0], t: [0.0, 0.4]}
+forward_solver:
+  method: periodic_second_order_fd_rk4
+  spatial_points: 128
+  time_steps: 2000
+benchmarks:
+  Burgers:
+    equation: u_t + u*u_x = mu*u_xx
+    coordinate: log_mu
+    truth_parameter: 0.05
+    initial_parameter: 0.08
+    initial_condition: sin(2*pi*x)
+  Allen-Cahn:
+    equation: u_t = diffusion*u_xx + rho*(u-u^3)
+    coordinate: log_rho
+    truth_parameter: 2.0
+    initial_parameter: 1.4
+    fixed_diffusion: 0.01
+    initial_condition: 0.5*sin(2*pi*x)
+network: {architecture: tanh_mlp_2x16x1, hidden_width: 16}
+points:
+  pde: 96
+  data: 128
+  initial: 48
+  boundary_times: 48
+loss_weights: {pde: 5.0, data: 10.0, initial: 10.0, boundary: 2.0}
+optimizer:
+  adam_epochs: 1600
+  adam_learning_rate: 0.003
+  lbfgs_max_iterations: 300
+  lbfgs_tolerance_grad: 1.0e-10
+  lbfgs_tolerance_change: 1.0e-12
+stationarity_gates: {theta: 0.02, parameter: 0.02}
+profile:
+  offsets: [-0.15, -0.10, -0.05, 0.0, 0.05, 0.10, 0.15]
+  optimizer_source: configs/p3_profile.yaml
+gamma:
+  alpha_grid: [1.0e-12, 1.0e-10, 1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2]
+  cg_tolerance: 1.0e-10
+  cg_acceptance: 1.0e-8
+  cg_max_iterations: 500
+  explicit_mf_relative_tolerance: 1.0e-6
+  plateau_relative_tolerance: 0.05
+hard_gates:
+  forward_finite: true
+  state_rmse_max: 0.15
+  minimum_valid_checkpoints: 1
+  maximum_profile_failure_fraction: 0.5
+  classical_minimum_inside_interval: true
+  classical_curvature_positive: true
+

@@ -14,7 +14,7 @@
 | P1 | SAEPS Core Verification | PASSED | PASSED | N/A |
 | P2 | Controlled Tangent Geometry | PASSED | PASSED | FAIL |
 | P3 | Nonlinear Profile Engine | PASSED | PASSED | N/A |
-| P4 | Scalar PDE Screening & LOCK | NOT_STARTED | NOT_RUN | N/A |
+| P4 | Scalar PDE Screening & LOCK | IN_PROGRESS | NOT_RUN | N/A |
 | P5 | Scalar Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P6 | Multi-parameter Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P7 | Robustness & Architecture | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
@@ -97,7 +97,7 @@
 ## P4 — Scalar PDE Screening & LOCK
 
 **依赖:** P3 `PASSED`  
-**状态:** `NOT_STARTED`
+**状态:** `IN_PROGRESS`
 
 - [ ] 仅用 seeds `[0,1,2]` 筛选 `Allen-Cahn` 与 `Burgers`；
 - [ ] 运行 forward/PINN/profile feasibility；
