@@ -9,6 +9,7 @@ from saeps.v3.foundation import (
     refine_common_base,
     run_multiscale_profile,
 )
+from saeps.v3.validation import _hash_matches_with_portable_newlines
 
 
 DTYPE = torch.float64
@@ -120,3 +121,14 @@ def test_full_hessian_and_gauss_newton_agree_for_linear_residual() -> None:
         atol=1.0e-12,
         rtol=0.0,
     )
+
+
+def test_manifest_hash_accepts_only_newline_equivalent_bytes(tmp_path) -> None:
+    import hashlib
+
+    path = tmp_path / "record.json"
+    path.write_bytes(b'{\r\n  "status": "PASS"\r\n}\r\n')
+    expected_lf = hashlib.sha256(b'{\n  "status": "PASS"\n}\n').hexdigest()
+    assert _hash_matches_with_portable_newlines(path, expected_lf)
+    path.write_bytes(b'{\r\n  "status": "FAILED"\r\n}\r\n')
+    assert not _hash_matches_with_portable_newlines(path, expected_lf)

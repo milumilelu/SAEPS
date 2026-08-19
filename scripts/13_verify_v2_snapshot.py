@@ -31,14 +31,17 @@ def inventory(root: Path) -> list[dict[str, object]]:
     files: list[Path] = []
     for relative in V2_RUN_DIRECTORIES + V2_PAPER_DIRECTORIES:
         files.extend(path for path in (root / relative).rglob("*") if path.is_file())
-    return [
-        {
-            "path": path.relative_to(root).as_posix(),
-            "bytes": path.stat().st_size,
-            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-        }
-        for path in sorted(files)
-    ]
+    records = []
+    for path in sorted(files):
+        canonical = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        records.append(
+            {
+                "path": path.relative_to(root).as_posix(),
+                "canonical_lf_bytes": len(canonical),
+                "canonical_lf_sha256": hashlib.sha256(canonical).hexdigest(),
+            }
+        )
+    return records
 
 
 def main() -> int:
@@ -48,8 +51,9 @@ def main() -> int:
     root = Path(__file__).resolve().parents[1]
     destination = root / "docs/evidence/v2_data_snapshot.json"
     current = {
-        "schema_version": 1,
+        "schema_version": 2,
         "protocol": "SAEPS-JCP-EXEC-v2.0",
+        "hash_canonicalization": "all CRLF and CR newlines converted to LF before byte count and SHA256",
         "scope": V2_RUN_DIRECTORIES + V2_PAPER_DIRECTORIES,
         "files": inventory(root),
     }

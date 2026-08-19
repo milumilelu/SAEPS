@@ -167,3 +167,17 @@ affected_runs: v3 foundation seed 20 only; this is development evidence and is e
 protocol_impact: The five requested diagnostics are executable, but they refute treating the present checkpoint as a locally convex state-profiled reference. v3 confirmation readiness is not established.
 resolution_or_status: OPEN scientific result. Preserve the negative result and correct only the full-Hessian top-level status aggregation so invalid child reductions report NUMERICAL_FAILURE. Do not relax profile or Hessian thresholds and do not tune for a favorable curvature result.
 ```
+
+## I-012 — Fresh-clone audit exposed platform-dependent raw hashes
+
+```text
+date: 2026-08-19
+issue_id: I-012
+phase: V3 foundation acceptance / fresh-clone audit
+classification: implementation failure
+description: The first clean clone reproduced the tracked numeric content but failed the v2 snapshot before repository validation. Historical raw JSON files were CRLF in the source worktree while Git checked them out as LF under .gitattributes; the snapshot and several historical manifests had recorded physical CRLF byte hashes.
+evidence: fresh clone C:/Users/RZF/AppData/Local/Temp/saeps-fresh-clone-ae778484b217498ebe56130b74cc4007; first mismatch was outputs/runs/p1/p1-core-s20260819-20260819T065537.942753+0000-828593bb8854/result.json.
+affected_runs: No numeric run content changed. The defect affected cross-platform verification of text-file bytes only.
+protocol_impact: Fresh-clone auditability was not yet achieved; v2 scientific results and locked hashes were unaffected.
+resolution_or_status: RESOLVED by versioning snapshot schema 2 with canonical-LF byte counts/hashes and allowing historical run/artifact manifests to match only raw, canonical-LF, or canonical-CRLF byte variants. A content change other than newline encoding still fails verification.
+```

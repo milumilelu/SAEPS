@@ -35,6 +35,13 @@ def _json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _hash_matches_with_portable_newlines(path: Path, expected: str) -> bool:
+    data = path.read_bytes()
+    canonical = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    variants = {data, canonical, canonical.replace(b"\n", b"\r\n")}
+    return any(hashlib.sha256(value).hexdigest() == expected for value in variants)
+
+
 def _evidence_run(root: Path, phase: str, evidence: str) -> Path:
     run_id = _json(root / "docs/evidence" / evidence)["run_id"]
     return root / "outputs/runs" / phase / run_id
@@ -47,7 +54,7 @@ def _verify_manifest(run: Path) -> list[dict[str, Any]]:
         path = run / item["path"]
         if not path.is_file():
             raise AssertionError(f"manifest path missing: {path}")
-        if hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
+        if not _hash_matches_with_portable_newlines(path, item["sha256"]):
             raise AssertionError(f"manifest hash mismatch: {path}")
         row = _json(path)
         if row["status"] not in LEGAL_STATUSES:
@@ -212,7 +219,7 @@ def validate_repository(
         manifest = _json(artifact_root / "manifest.json")
         for item in manifest["files"]:
             path = artifact_root / item["path"]
-            if hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
+            if not _hash_matches_with_portable_newlines(path, item["sha256"]):
                 raise AssertionError(f"paper artifact hash mismatch: {path}")
         figures = sorted((artifact_root / "figures").glob("figure*.svg"))
         tables = sorted((artifact_root / "tables").glob("table*.csv"))

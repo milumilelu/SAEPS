@@ -25,6 +25,13 @@ def _json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _hash_matches_with_portable_newlines(path: Path, expected: str) -> bool:
+    data = path.read_bytes()
+    canonical = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    variants = {data, canonical, canonical.replace(b"\n", b"\r\n")}
+    return any(hashlib.sha256(value).hexdigest() == expected for value in variants)
+
+
 def _check(checks: dict[str, Any], name: str, action: Callable[[], str]) -> None:
     try:
         checks[name] = {"status": "PASS", "detail": action()}
@@ -63,9 +70,10 @@ def validate_v3_foundation(repo_root: str | Path) -> dict[str, Any]:
             path = root / item["path"]
             if not path.is_file():
                 raise AssertionError(f"v2 snapshot path missing: {item['path']}")
-            if path.stat().st_size != item["bytes"]:
-                raise AssertionError(f"v2 snapshot size changed: {item['path']}")
-            if hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
+            canonical = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            if len(canonical) != item["canonical_lf_bytes"]:
+                raise AssertionError(f"v2 canonical size changed: {item['path']}")
+            if hashlib.sha256(canonical).hexdigest() != item["canonical_lf_sha256"]:
                 raise AssertionError(f"v2 snapshot hash changed: {item['path']}")
         return f"{len(snapshot['files'])} immutable v2 raw/artifact files verified"
 
@@ -79,7 +87,7 @@ def validate_v3_foundation(repo_root: str | Path) -> dict[str, Any]:
             raise AssertionError("foundation manifest must contain exactly one result")
         record = manifest["records"][0]
         result_path = run / record["path"]
-        if hashlib.sha256(result_path.read_bytes()).hexdigest() != record["sha256"]:
+        if not _hash_matches_with_portable_newlines(result_path, record["sha256"]):
             raise AssertionError("foundation result hash mismatch")
         result = _json(result_path)
         if result["status"] not in FINAL_STATUSES:
