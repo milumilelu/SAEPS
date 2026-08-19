@@ -139,3 +139,17 @@ affected_runs: three cost-only development seeds [0,1,2].
 protocol_impact: P8 engineering remains PASSED and is descriptive. The result limits practical speed claims and reinforces the P5 profile-quality concern.
 resolution_or_status: OPEN descriptive result. No post hoc cost threshold was introduced and no timing run will be repeated.
 ```
+
+## I-010 — v3 common-base refinement first development attempt failed
+
+```text
+date: 2026-08-19
+issue_id: I-010
+phase: V3 foundation development
+classification: numerical failure
+description: The first seed-20 common-base refinement reduced mean loss from 0.0366474 to 0.0237451 but failed both the registered plateau and normalized-gradient stopping thresholds after 20 outer steps. Its Adam warmup plus repeated LBFGS path ended with normalized gradient 0.0012525, larger than the incoming checkpoint value 0.0006206.
+evidence: outputs/runs/v3_foundation/v3-foundation-s20-20260819T114025.011649+0000-9f1cb97b7363.
+affected_runs: The failed development run is retained with PROFILE_FAILURE and no downstream curvature calculation.
+protocol_impact: None on v2 and no v3 confirmation was authorized. This exposed an over-strict and counterproductive development optimizer setting before any v3 lock.
+resolution_or_status: DEVELOPMENT CORRECTION. Remove the Adam warmup for fixed-parameter base refinement, use direct LBFGS from the already-trained checkpoint, and use a combined 0.002 plateau / 0.002 normalized-gradient rule. This remains stricter than the v2 locked profile gradient threshold of 0.005 and is applied before any successful foundation result is observed.
+```

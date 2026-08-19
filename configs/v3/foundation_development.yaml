@@ -15,19 +15,19 @@ gamma:
   cg_max_iterations: 500
 base_refinement:
   optimizer:
-    adam_warmup_epochs: 1000
+    adam_warmup_epochs: 0
     adam_learning_rate: 5.0e-4
-    outer_steps_max: 20
-    inner_iterations: 75
-    history_size: 75
+    outer_steps_max: 15
+    inner_iterations: 100
+    history_size: 100
     line_search: strong_wolfe
     tolerance_grad: 1.0e-13
     tolerance_change: 1.0e-15
   stopping:
-    minimum_outer_steps: 4
-    plateau_window: 4
-    relative_loss_change: 5.0e-4
-    normalized_gradient: 1.0e-4
+    minimum_outer_steps: 3
+    plateau_window: 3
+    relative_loss_change: 2.0e-3
+    normalized_gradient: 2.0e-3
 profile:
   h_values: [0.05, 0.025, 0.0125, 0.00625]
   optimizer:

@@ -1,0 +1,63 @@
+{
+  "benchmark": "Burgers",
+  "common_base_refinement": {
+    "closure_calls": 1722,
+    "delta_loss_relative": null,
+    "delta_theta_relative": null,
+    "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+    "gradient_pass": false,
+    "initial_loss_mean": 0.03664740690239766,
+    "initial_normalized_state_gradient": 0.0006206003498015513,
+    "loss": 0.023745094365907733,
+    "normalized_gradient": 0.0012525002874918662,
+    "offset": 0.0,
+    "optimizer_terminated": true,
+    "outer_steps": 20,
+    "plateau_pass": false,
+    "refined_normalized_state_gradient": null,
+    "relative_loss_change": 0.0008224939975392739,
+    "status": "PROFILE_FAILURE"
+  },
+  "config_hash": "7b803bf7c8f593c4ae5d2cf5f9db7b248e01b6280a299453b94c357d0db2a00b",
+  "config_path": "configs/v3/foundation_development.yaml",
+  "engineering_gate": "FAILED",
+  "failure_reason": "common base refinement failed",
+  "full_hessian": null,
+  "gauss_newton": null,
+  "joint_training": {
+    "learned_log_parameter": -3.1726751774155977,
+    "learned_parameter": 0.04189138099395541,
+    "state_rmse_validation_only": 0.04368311516775872,
+    "training_loss_mean": 0.03664740690239766,
+    "training_seconds": 6.251394800012349
+  },
+  "phase": "V3_FOUNDATION_DEVELOPMENT",
+  "profiles": null,
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "edaa45cd5f332ea23045b89f3cd1ddc57c695d3e",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-19T11:40:25.011649+00:00",
+    "torch_cuda_available": false
+  },
+  "run_id": "v3-foundation-s20-20260819T114025.011649+0000-9f1cb97b7363",
+  "schema_version": 1,
+  "scientific_gate": "NONE_DEVELOPMENT_ONLY",
+  "seed": 20,
+  "split": "v3_foundation_development",
+  "status": "PROFILE_FAILURE",
+  "v2_scalar_lock_sha256": "cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8"
+}
