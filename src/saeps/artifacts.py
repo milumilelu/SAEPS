@@ -390,16 +390,20 @@ def build_paper_artifacts(repo_root: str | Path) -> dict[str, Any]:
         if path.is_file()
         and path.name not in {".gitkeep", "manifest.json", "validation.json"}
     )
-    artifact_manifest = {
-        "schema_version": 1,
-        "files": [
+    manifest_files = []
+    for path in output_files:
+        canonical = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        manifest_files.append(
             {
-                "path": str(path.relative_to(artifact_root)),
-                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-                "bytes": path.stat().st_size,
+                "path": path.relative_to(artifact_root).as_posix(),
+                "canonical_lf_sha256": hashlib.sha256(canonical).hexdigest(),
+                "canonical_lf_bytes": len(canonical),
             }
-            for path in output_files
-        ],
+        )
+    artifact_manifest = {
+        "schema_version": 2,
+        "hash_canonicalization": "all CRLF and CR newlines converted to LF",
+        "files": manifest_files,
     }
     (artifact_root / "manifest.json").write_text(
         json.dumps(artifact_manifest, indent=2, sort_keys=True) + "\n",

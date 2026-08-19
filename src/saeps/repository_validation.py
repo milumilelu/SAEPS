@@ -219,7 +219,13 @@ def validate_repository(
         manifest = _json(artifact_root / "manifest.json")
         for item in manifest["files"]:
             path = artifact_root / item["path"]
-            if not _hash_matches_with_portable_newlines(path, item["sha256"]):
+            if manifest["schema_version"] == 2:
+                canonical = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+                if len(canonical) != item["canonical_lf_bytes"]:
+                    raise AssertionError(f"paper artifact canonical size mismatch: {path}")
+                if hashlib.sha256(canonical).hexdigest() != item["canonical_lf_sha256"]:
+                    raise AssertionError(f"paper artifact canonical hash mismatch: {path}")
+            elif not _hash_matches_with_portable_newlines(path, item["sha256"]):
                 raise AssertionError(f"paper artifact hash mismatch: {path}")
         figures = sorted((artifact_root / "figures").glob("figure*.svg"))
         tables = sorted((artifact_root / "tables").glob("table*.csv"))
