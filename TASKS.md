@@ -192,3 +192,17 @@
 - [x] 唯一结论 `PARTIALLY_SUPPORTED`；唯一建议 `INVESTIGATE_NUMERICS`；
 - [x] scientific FAIL/PARTIAL 不导致 validator 工程失败；
 - [x] 最终测试 30/30 通过；最终 commit 后再次验证干净工作树。
+
+## V3 Foundation Corrections — Development Only
+
+**状态:** `IN_PROGRESS`
+**隔离:** v2 `PASSED` 结果与 `configs/locked/*` 不变；v3 confirmation 未授权。
+
+- [x] 将完整 v2 raw runs 与 paper artifacts 纳入版本控制并生成 SHA-256 snapshot；
+- [x] 建立 `docs/v3/`、`configs/v3/` 与独立 seed/split policy；
+- [x] 实现共同 state-profiled base checkpoint 与 base drift 指标；
+- [x] 实现 unregularized 和 gamma-matched 双 nonlinear profile；
+- [x] 实现 exact full-Hessian reduced reference 与正定性/solve 审计；
+- [x] 实现多尺度 symmetric-curvature convergence 主 gate；
+- [ ] 使用真实 Burgers seed 20 完成 foundation end-to-end validation；
+- [ ] 运行 fresh-clone 数据链验证、提交并推送 GitHub。

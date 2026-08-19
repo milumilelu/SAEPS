@@ -7,6 +7,7 @@ import hashlib
 import json
 import statistics
 import subprocess
+import sys
 import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
@@ -72,14 +73,16 @@ def _run_check(checks: dict[str, Any], name: str, action: Callable[[], Any]) -> 
         }
 
 
-def validate_repository(repo_root: str | Path) -> dict[str, Any]:
+def validate_repository(
+    repo_root: str | Path, *, write_output: bool = False
+) -> dict[str, Any]:
     root = Path(repo_root)
     checks: dict[str, Any] = {}
     state: dict[str, Any] = {}
 
     def tests() -> str:
         completed = subprocess.run(
-            [str(root / ".venv/Scripts/python.exe"), "-m", "pytest", "-q"],
+            [sys.executable, "-m", "pytest", "-q"],
             cwd=root,
             check=False,
             capture_output=True,
@@ -273,11 +276,12 @@ def validate_repository(repo_root: str | Path) -> dict[str, Any]:
         "checks": checks,
         "scientific_failure_is_engineering_failure": False,
     }
-    destination = root / "paper_artifacts/data/validation.json"
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(
-        json.dumps(result, allow_nan=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
+    if write_output:
+        destination = root / "paper_artifacts/data/validation.json"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(
+            json.dumps(result, allow_nan=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
     return result

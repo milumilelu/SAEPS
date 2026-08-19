@@ -59,3 +59,15 @@ development_evidence: docs/evidence/P4_SCREENING.md and docs/evidence/P6_DEVELOP
 affected_configs: configs/locked/scalar.yaml, multi.yaml, robustness.yaml and their SHA256 sidecars.
 authorizing_protocol: SAEPS-JCP-EXEC-v2.0 sections 4.2, 8, 13 and subsequent locked confirmation phases.
 ```
+
+## D-004 — Open isolated v3 foundation development
+
+```text
+date: 2026-08-19
+decision_id: D-004
+decision: Preserve v2 unchanged and create a development-only v3 namespace for five foundation corrections.
+reason: The v2 negative audit exposed regularization, Gauss-Newton/exact-Hessian, base-state, curvature-estimation and external-reproducibility gaps. The user explicitly authorized a separate v3 rather than retuning v2.
+development_evidence: v2 FINAL_VALIDATION_REPORT.md and user-authorized review response; no v3 result was inspected before this decision.
+affected_configs: configs/v3/foundation_development.yaml only; configs/locked/* remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_005_V3_FOUNDATION.md and docs/v3/EXECUTION_CONTRACT.md.
+```

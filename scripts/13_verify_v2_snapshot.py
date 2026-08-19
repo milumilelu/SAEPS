@@ -8,9 +8,28 @@ import json
 from pathlib import Path
 
 
+V2_RUN_DIRECTORIES = [
+    "outputs/runs/p1",
+    "outputs/runs/p2_confirmation",
+    "outputs/runs/p2_development",
+    "outputs/runs/p3",
+    "outputs/runs/p4_screening",
+    "outputs/runs/p5_scalar",
+    "outputs/runs/p6_development",
+    "outputs/runs/p6_multi",
+    "outputs/runs/p7_robustness",
+    "outputs/runs/p8_cost",
+]
+V2_PAPER_DIRECTORIES = [
+    "paper_artifacts/data",
+    "paper_artifacts/figures",
+    "paper_artifacts/tables",
+]
+
+
 def inventory(root: Path) -> list[dict[str, object]]:
     files: list[Path] = []
-    for relative in ["outputs/runs", "paper_artifacts/data", "paper_artifacts/figures", "paper_artifacts/tables"]:
+    for relative in V2_RUN_DIRECTORIES + V2_PAPER_DIRECTORIES:
         files.extend(path for path in (root / relative).rglob("*") if path.is_file())
     return [
         {
@@ -31,12 +50,7 @@ def main() -> int:
     current = {
         "schema_version": 1,
         "protocol": "SAEPS-JCP-EXEC-v2.0",
-        "scope": [
-            "outputs/runs",
-            "paper_artifacts/data",
-            "paper_artifacts/figures",
-            "paper_artifacts/tables",
-        ],
+        "scope": V2_RUN_DIRECTORIES + V2_PAPER_DIRECTORIES,
         "files": inventory(root),
     }
     if arguments.write:

@@ -1,0 +1,59 @@
+schema_version: 1
+contract_id: SAEPS-FOUNDATION-v3.0-development
+phase: V3_FOUNDATION_DEVELOPMENT
+status: NOT_LOCKED
+confirmation_authorized: false
+source_scalar_config: configs/locked/scalar.yaml
+benchmark: Burgers
+split: v3_foundation_development
+foundation_validation_seed: 20
+reserved_development_seeds: [20, 21, 22, 23, 24]
+inactive_future_confirmation_seeds: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+gamma:
+  alpha: 1.0e-8
+  cg_tolerance: 1.0e-10
+  cg_max_iterations: 500
+base_refinement:
+  optimizer:
+    adam_warmup_epochs: 1000
+    adam_learning_rate: 5.0e-4
+    outer_steps_max: 20
+    inner_iterations: 75
+    history_size: 75
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-13
+    tolerance_change: 1.0e-15
+  stopping:
+    minimum_outer_steps: 4
+    plateau_window: 4
+    relative_loss_change: 5.0e-4
+    normalized_gradient: 1.0e-4
+profile:
+  h_values: [0.05, 0.025, 0.0125, 0.00625]
+  optimizer:
+    adam_warmup_epochs: 200
+    adam_learning_rate: 5.0e-4
+    outer_steps_max: 20
+    inner_iterations: 75
+    history_size: 75
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-13
+    tolerance_change: 1.0e-15
+  stopping:
+    minimum_outer_steps: 4
+    plateau_window: 4
+    relative_loss_change: 5.0e-4
+    normalized_gradient: 1.0e-4
+  convergence:
+    adjacent_pairs_required: 2
+    relative_tolerance: 0.05
+    denominator_absolute_floor: 1.0e-8
+full_hessian:
+  symmetry_relative_tolerance: 1.0e-8
+  positive_eigenvalue_relative_tolerance: 1.0e-10
+  solve_relative_tolerance: 1.0e-8
+foundation_engineering_gate:
+  require_base_refinement_pass: true
+  require_all_profile_points_have_final_status: true
+  require_full_hessian_diagnostics: true
+scientific_gate: none_development_only
