@@ -1,0 +1,132 @@
+{
+  "checks": {
+    "all_reoptimized_points_pass": true,
+    "combined_stopping_rule": true,
+    "failed_point_status": true,
+    "independent_initialization_reproducibility": true,
+    "known_frozen_curvature": true,
+    "known_minimum": true,
+    "known_reoptimized_curvature": true,
+    "missing_point_not_interpolated": true,
+    "point_order_invariance": true
+  },
+  "comparison_example": {
+    "D_paired": 0.9787499999999988,
+    "E_raw": 0.978749999999999,
+    "E_saeps": 2.7755575615628904e-16
+  },
+  "config_hash": "707a3d7d97d063a4dce9bfb5778533fe7256a7b71e58c8f12b9476758a0c65c9",
+  "elapsed_seconds": 0.9121100000047591,
+  "errors": {
+    "frozen_curvature_relative": 9.818775960045607e-16,
+    "minimum_absolute": 3.469446951953614e-18,
+    "order_invariance_max_absolute": 0.0,
+    "reoptimized_curvature_relative": 2.7755575615628914e-16,
+    "reproducibility_max_absolute": 0.0
+  },
+  "estimated": {
+    "frozen_curvature": 3.1659999999999964,
+    "minimum": 0.030000000000000002,
+    "reoptimized_curvature": 1.6000000000000005,
+    "reoptimized_normalized_rmse": 4.097899027589427e-16,
+    "reoptimized_r_squared": 1.0
+  },
+  "forced_failure": {
+    "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+    "status": "PROFILE_FAILURE"
+  },
+  "known": {
+    "frozen_curvature": 3.1659999999999995,
+    "minimum": 0.03,
+    "reoptimized_curvature": 1.6
+  },
+  "phase": "P3",
+  "points": [
+    {
+      "closure_calls": 7,
+      "loss": 0.22592,
+      "normalized_gradient": 0.0,
+      "offset": -0.15,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.21352000000000002,
+      "normalized_gradient": 0.0,
+      "offset": -0.1,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.20512000000000002,
+      "normalized_gradient": 0.0,
+      "offset": -0.05,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 3,
+      "loss": 0.20072,
+      "normalized_gradient": 0.0,
+      "offset": 0.0,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.20032,
+      "normalized_gradient": 0.0,
+      "offset": 0.05,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.20392000000000002,
+      "normalized_gradient": 0.0,
+      "offset": 0.1,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.21152,
+      "normalized_gradient": 0.0,
+      "offset": 0.15,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    }
+  ],
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "4959f30dd7e5a4b30f51ef69775681efda9ef384",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-19T07:31:55.389643+00:00",
+    "torch_cuda_available": false
+  },
+  "run_id": "p3-profile-s20260819-20260819T073155.389643+0000-212ceee31e5e",
+  "schema_version": 1,
+  "status": "PASS"
+}

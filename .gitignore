@@ -10,13 +10,9 @@ htmlcov/
 .idea/
 .vscode/
 
-# Raw/generated experiment data are regenerated and can be large.
-outputs/runs/
+# v2 raw runs and paper artifacts are intentionally versioned. They are small,
+# immutable audit evidence required for fresh-clone repository validation.
 outputs/smoke/
-paper_artifacts/data/
-paper_artifacts/figures/
-paper_artifacts/tables/
-paper_artifacts/manifest.json
 
 # Keep directory sentinels.
 !outputs/.gitkeep

@@ -1,0 +1,52 @@
+{
+  "checks": {
+    "bootstrap_lineage": {
+      "detail": "10,000-resample paired percentile bootstrap reproduces exactly",
+      "status": "PASS"
+    },
+    "cost_lineage": {
+      "detail": "times, paired ratio, CG/JVP/VJP lineage reproduce from raw records",
+      "status": "PASS"
+    },
+    "failed_run_reporting": {
+      "detail": "all 56 failed/invalid raw records are reported",
+      "status": "PASS"
+    },
+    "locked_hashes_and_mutation": {
+      "detail": "3 locked configs match recorded hashes and lock commit bytes",
+      "status": "PASS"
+    },
+    "paper_artifacts": {
+      "detail": "artifact manifest, 6 SVG figures and 3 CSV tables verified",
+      "status": "PASS"
+    },
+    "provenance_completeness": {
+      "detail": "P2 and P5-P8 formal summaries contain clean-commit environment provenance",
+      "status": "PASS"
+    },
+    "raw_manifests": {
+      "detail": "all accepted run manifests and raw SHA-256 hashes verified",
+      "status": "PASS"
+    },
+    "raw_to_aggregate_equality": {
+      "detail": "status counts and P5 paired median reproduce from raw records",
+      "status": "PASS"
+    },
+    "scientific_gate_and_final_mapping": {
+      "detail": "scientific FAIL/PARTIAL results retained without causing engineering failure",
+      "status": "PASS"
+    },
+    "seed_and_run_completeness": {
+      "detail": "P2=50, P5=10, P6=10, P7=55, P8=3",
+      "status": "PASS"
+    },
+    "unit_and_integration_tests": {
+      "detail": "..............................                                           [100%]",
+      "status": "PASS"
+    }
+  },
+  "phase": "P9",
+  "schema_version": 1,
+  "scientific_failure_is_engineering_failure": false,
+  "status": "PASSED"
+}

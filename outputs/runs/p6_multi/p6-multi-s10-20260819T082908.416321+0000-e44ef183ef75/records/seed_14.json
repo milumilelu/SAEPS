@@ -1,0 +1,211 @@
+{
+  "CG_iterations": [
+    378,
+    374,
+    449
+  ],
+  "CG_relative_residual": [
+    1.1144361842896661e-11,
+    3.7242508529818e-11,
+    8.82998819700875e-11
+  ],
+  "Fraw": [
+    [
+      201.0865694473102,
+      -177.9659472377163
+    ],
+    [
+      -177.9659472377163,
+      217.00688139186929
+    ]
+  ],
+  "Fse": [
+    [
+      11.5098332396229,
+      -10.070983060427032
+    ],
+    [
+      -10.070983120431594,
+      12.344177028917432
+    ]
+  ],
+  "JVP_count": 1212,
+  "VJP_count": 1210,
+  "architecture": "two_channel_tanh_mlp_2x12x1",
+  "benchmark": "coupled-reaction-diffusion",
+  "checkpoint_epoch": 1600,
+  "condition_number": 11.912308122748993,
+  "config_hash": "89c22c7af1afc1c594e84d221fe182ce4b01dcf0c729b442ff9ce35a62d26318",
+  "config_path": "configs/locked/multi.yaml",
+  "coupling": -0.8449018876473942,
+  "determinant": 40.65471867551018,
+  "diagnostic_points": {
+    "boundary_times": 48,
+    "data": 128,
+    "initial": 48,
+    "pde": 96
+  },
+  "directional_curvature_ratio_error": null,
+  "directional_predicted_ratio": null,
+  "directional_profile_ratio": null,
+  "dtype": "float64",
+  "eigenvalues": [
+    1.8473854590345606,
+    22.006624809505773
+  ],
+  "eigenvectors": [
+    [
+      -0.7215911800465965,
+      -0.6923194124672228
+    ],
+    [
+      -0.6923194124672228,
+      0.7215911800465965
+    ]
+  ],
+  "eta": [
+    0.05723819980249237,
+    0.056883804558374426
+  ],
+  "failure_reason": "locked eigendirection profile fit failed",
+  "gamma": 0.0013768647284010604,
+  "gamma_alpha": 1e-08,
+  "git_commit": "59fb24a0bb4d287ce47c55e3540af326a524cc0e",
+  "gse": [
+    0.27957674115024866,
+    -0.1780792276795185
+  ],
+  "hardware": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "lambda_stationarity": 0.008078879374185197,
+  "learning_rate": 0.003,
+  "loss_weights": {
+    "boundary_u": 2.0,
+    "boundary_v": 2.0,
+    "data_u": 10.0,
+    "data_v": 10.0,
+    "initial_u": 10.0,
+    "initial_v": 10.0,
+    "pde_u": 5.0,
+    "pde_v": 5.0
+  },
+  "optimizer": {
+    "adam_epochs": 1600,
+    "adam_learning_rate": 0.003,
+    "lbfgs_max_iterations": 300,
+    "lbfgs_tolerance_change": 1e-12,
+    "lbfgs_tolerance_grad": 1e-10
+  },
+  "parameter_coordinates": [
+    "log_a",
+    "log_b"
+  ],
+  "parameter_error": {
+    "validation_only": true,
+    "value": [
+      0.016936279450878444,
+      0.009791800065458212
+    ]
+  },
+  "peak_memory": null,
+  "profile_curvature_max": null,
+  "profile_curvature_min": null,
+  "profile_fit_quality": null,
+  "profile_max_direction": {
+    "curvature": 0.030079049240880257,
+    "fit_status": "PASS",
+    "losses": [
+      0.0002000679569653042,
+      0.00014263496267513185,
+      0.00010460511033435329,
+      9.035963939438503e-05,
+      8.615728253745885e-05,
+      0.00010537981778844433,
+      0.00014459219878791246
+    ],
+    "minimum": 0.012319224493397108,
+    "normalized_rmse": 0.012763201090792254,
+    "offsets": [
+      -0.075,
+      -0.05,
+      -0.025,
+      0.0,
+      0.025,
+      0.05,
+      0.075
+    ],
+    "r_squared": 0.9984962515184609,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS"
+    ]
+  },
+  "profile_min_direction": {
+    "failure_reason": "quadratic R^2 0.9310296747208986 below locked threshold",
+    "fit_status": "PROFILE_FAILURE",
+    "losses": [
+      0.00011170908521424785,
+      9.636190110355135e-05,
+      9.050099812257297e-05,
+      9.035963939438503e-05,
+      8.735676421513293e-05,
+      8.899001183958435e-05,
+      8.988036434202698e-05
+    ],
+    "offsets": [
+      -0.075,
+      -0.05,
+      -0.025,
+      0.0,
+      0.025,
+      0.05,
+      0.075
+    ],
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS"
+    ]
+  },
+  "profile_points": [
+    -0.075,
+    -0.05,
+    -0.025,
+    0.0,
+    0.025,
+    0.05,
+    0.075
+  ],
+  "residuals": {
+    "total_weighted_rms": 0.02817959350082179
+  },
+  "run_id": "p6-multi-s10-20260819T082908.416321+0000-e44ef183ef75-seed14",
+  "schema_version": 1,
+  "seed": 14,
+  "sensor_layout": "fixed_seeded_uniform_per_run",
+  "split": "confirmation",
+  "state_error": {
+    "validation_only": true,
+    "value": 0.003574060107034166
+  },
+  "status": "PROFILE_FAILURE",
+  "theta_stationarity": 0.013592716510536118,
+  "timestamp": "2026-08-19T08:29:08.416321+00:00",
+  "trace": 23.854010268540332,
+  "training_points": {
+    "boundary_times": 48,
+    "data": 128,
+    "initial": 48,
+    "pde": 96
+  },
+  "training_stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+  "training_time": 6.2214356000040425
+}

@@ -1,0 +1,87 @@
+{
+  "Fraw": null,
+  "Fse": null,
+  "architecture": "two_channel_tanh_mlp_2x12x1",
+  "benchmark": "coupled-reaction-diffusion",
+  "checkpoint_epoch": 1600,
+  "config_hash": "89c22c7af1afc1c594e84d221fe182ce4b01dcf0c729b442ff9ce35a62d26318",
+  "config_path": "configs/locked/multi.yaml",
+  "diagnostic_points": {
+    "boundary_times": 48,
+    "data": 128,
+    "initial": 48,
+    "pde": 96
+  },
+  "dtype": "float64",
+  "eta": null,
+  "failure_reason": "locked multi checkpoint gate failed",
+  "gamma_alpha": 1e-08,
+  "git_commit": "59fb24a0bb4d287ce47c55e3540af326a524cc0e",
+  "gse": null,
+  "hardware": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "lambda_stationarity": 0.006300124606751758,
+  "learning_rate": 0.003,
+  "loss_weights": {
+    "boundary_u": 2.0,
+    "boundary_v": 2.0,
+    "data_u": 10.0,
+    "data_v": 10.0,
+    "initial_u": 10.0,
+    "initial_v": 10.0,
+    "pde_u": 5.0,
+    "pde_v": 5.0
+  },
+  "optimizer": {
+    "adam_epochs": 1600,
+    "adam_learning_rate": 0.003,
+    "lbfgs_max_iterations": 300,
+    "lbfgs_tolerance_change": 1e-12,
+    "lbfgs_tolerance_grad": 1e-10
+  },
+  "parameter_coordinates": [
+    "log_a",
+    "log_b"
+  ],
+  "parameter_error": {
+    "validation_only": true,
+    "value": [
+      0.048595354850612116,
+      0.0459090948490893
+    ]
+  },
+  "peak_memory": null,
+  "profile_curvature": null,
+  "profile_fit_quality": null,
+  "profile_points": [
+    -0.075,
+    -0.05,
+    -0.025,
+    0.0,
+    0.025,
+    0.05,
+    0.075
+  ],
+  "residuals": {
+    "total_weighted_rms": 0.02148624978567652
+  },
+  "run_id": "p6-multi-s10-20260819T082908.416321+0000-e44ef183ef75-seed18",
+  "schema_version": 1,
+  "seed": 18,
+  "sensor_layout": "fixed_seeded_uniform_per_run",
+  "split": "confirmation",
+  "state_error": {
+    "validation_only": true,
+    "value": 0.0038623956851051577
+  },
+  "status": "CHECKPOINT_INVALID",
+  "theta_stationarity": 0.029256026548763928,
+  "timestamp": "2026-08-19T08:29:08.416321+00:00",
+  "training_points": {
+    "boundary_times": 48,
+    "data": 128,
+    "initial": 48,
+    "pde": 96
+  },
+  "training_stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+  "training_time": 6.311573999992106
+}

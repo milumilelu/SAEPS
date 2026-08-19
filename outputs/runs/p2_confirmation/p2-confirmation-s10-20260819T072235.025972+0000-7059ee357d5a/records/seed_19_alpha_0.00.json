@@ -1,0 +1,110 @@
+{
+  "CG_iterations": [
+    174,
+    169
+  ],
+  "CG_relative_residual": [
+    1.0204180514446419e-11,
+    9.345892831086777e-11
+  ],
+  "D_paired": null,
+  "E_raw": null,
+  "E_saeps": null,
+  "Fraw": [
+    [
+      5.000000000000003
+    ]
+  ],
+  "Fse": [
+    [
+      0.13878948486650386
+    ]
+  ],
+  "JVP_count": 350,
+  "VJP_count": 349,
+  "alpha": 0.0,
+  "architecture": "tanh_mlp_2x8x1",
+  "benchmark": "controlled_manufactured_parabolic",
+  "checkpoint_epoch": 1200,
+  "config_hash": "68253e3eb4d25a2497983c0402aa3028b991e2b02e2cee9efcd73485774bfe8f",
+  "config_path": "configs/locked/controlled_geometry.yaml",
+  "diagnostic_points": {
+    "boundary_points_per_side": 17,
+    "data_grid": [
+      9,
+      9
+    ],
+    "initial_points": 17,
+    "pde_grid": [
+      9,
+      9
+    ]
+  },
+  "dtype": "float64",
+  "eta": 0.027757896973300757,
+  "explicit_mf_relative_error": 6.426240540847396e-10,
+  "failure_reason": null,
+  "frozen_profile_time": null,
+  "gamma": 3.2851526756922337e-06,
+  "gamma_alpha": 1e-10,
+  "git_commit": "7bc466a60936e065430e5180d3279aa90a9cef10",
+  "gse": [
+    0.08371225321241281
+  ],
+  "hardware": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "lambda_stationarity": 0.03844341700973197,
+  "lbfgs_closure_calls": 324,
+  "learning_rate": 0.01,
+  "loss_weights": {
+    "boundary": 2.0,
+    "data": 10.0,
+    "initial": 10.0,
+    "pde": 5.0
+  },
+  "optimizer": "Adam_then_LBFGS_strong_wolfe",
+  "parameter_coordinates": [
+    "log_lambda"
+  ],
+  "parameter_error": {
+    "validation_only": true,
+    "value": 0.0
+  },
+  "peak_memory": null,
+  "phase_lock_commit": "7bc466a60936e065430e5180d3279aa90a9cef10",
+  "phase_lock_sha256": "32003edbcfbe03c6bf357ffce25051ba9b279263a15d2e80b4c762087ec0c30e",
+  "profile_curvature": null,
+  "profile_fit_quality": null,
+  "profile_points": null,
+  "reoptimized_profile_time": null,
+  "residuals": {
+    "boundary_weighted_rms": 0.04559905589128654,
+    "initial_weighted_rms": 0.022733489154261807,
+    "observation_weighted_rms": 0.05807695684272927,
+    "pde_weighted_rms": 0.09261709708218306,
+    "total_weighted_rms": 0.07012734008262386
+  },
+  "run_id": "p2-confirmation-s10-20260819T072235.025972+0000-7059ee357d5a-seed19-alpha0.00",
+  "saeps_time": 3.45345199998701,
+  "schema_version": 1,
+  "seed": 19,
+  "sensor_layout": "locked_tensor_grid_shared_by_training_and_diagnostic",
+  "source_parallel": "sin3x_sin2t",
+  "source_perpendicular": "sin4x_constantt",
+  "split": "confirmation",
+  "state_error": {
+    "validation_only": true,
+    "value": 0.018365546319432585
+  },
+  "status": "PASS",
+  "theta_stationarity": 0.007474919465477967,
+  "timestamp": "2026-08-19T07:22:35.025972+00:00",
+  "training_points": {
+    "boundary_points_per_side": 17,
+    "data_points": 81,
+    "initial_points": 17,
+    "pde_points": 81,
+    "sampling": "locked_tensor_grid_same_as_diagnostic"
+  },
+  "training_stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+  "training_time": 2.7650577999884263
+}

@@ -1,0 +1,240 @@
+{
+  "alpha_summary": {
+    "0.0": {
+      "all_valid_seed_values": [
+        0.024400955439251023,
+        0.033944165447477914,
+        0.025805813537996013,
+        0.027234185249862593,
+        0.027757896973300757
+      ],
+      "median": 0.027234185249862593,
+      "q1": 0.025805813537996013,
+      "q3": 0.027757896973300757
+    },
+    "0.25": {
+      "all_valid_seed_values": [
+        0.06050959077059461,
+        0.11436914747827658,
+        0.07857339817331505,
+        0.056710901889400755,
+        0.06883167415370636
+      ],
+      "median": 0.06883167415370636,
+      "q1": 0.06050959077059461,
+      "q3": 0.07857339817331505
+    },
+    "0.5": {
+      "all_valid_seed_values": [
+        0.0999086399680296,
+        0.1953657052731144,
+        0.12517020840207418,
+        0.08947820880965274,
+        0.11345622361622872
+      ],
+      "median": 0.11345622361622872,
+      "q1": 0.0999086399680296,
+      "q3": 0.12517020840207418
+    },
+    "0.75": {
+      "all_valid_seed_values": [
+        0.14051206405728087,
+        0.2765714742840624,
+        0.16950835904664655,
+        0.12344995539132908,
+        0.1593804456350572
+      ],
+      "median": 0.1593804456350572,
+      "q1": 0.14051206405728087,
+      "q3": 0.16950835904664655
+    },
+    "1.0": {
+      "all_valid_seed_values": [
+        0.1844059018078316,
+        0.35834881907089344,
+        0.20767573504216036,
+        0.16071229223232103,
+        0.20885543734975007
+      ],
+      "median": 0.20767573504216036,
+      "q1": 0.1844059018078316,
+      "q3": 0.20885543734975007
+    }
+  },
+  "alphas": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "completed_evaluations": 50,
+  "config_hash": "68253e3eb4d25a2497983c0402aa3028b991e2b02e2cee9efcd73485774bfe8f",
+  "elapsed_seconds": 108.59190169999783,
+  "engineering_gate": "PASSED",
+  "invalid_seeds": 5,
+  "monotonic_seed_count": 5,
+  "per_seed": {
+    "10": {
+      "eta": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "monotonic": false,
+      "spearman": null,
+      "status": "INVALID"
+    },
+    "11": {
+      "eta": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "monotonic": false,
+      "spearman": null,
+      "status": "INVALID"
+    },
+    "12": {
+      "eta": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "monotonic": false,
+      "spearman": null,
+      "status": "INVALID"
+    },
+    "13": {
+      "eta": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "monotonic": false,
+      "spearman": null,
+      "status": "INVALID"
+    },
+    "14": {
+      "eta": [
+        0.024400955439251023,
+        0.06050959077059461,
+        0.0999086399680296,
+        0.14051206405728087,
+        0.1844059018078316
+      ],
+      "monotonic": true,
+      "spearman": 0.9999999999999998,
+      "status": "VALID"
+    },
+    "15": {
+      "eta": [
+        0.033944165447477914,
+        0.11436914747827658,
+        0.1953657052731144,
+        0.2765714742840624,
+        0.35834881907089344
+      ],
+      "monotonic": true,
+      "spearman": 0.9999999999999998,
+      "status": "VALID"
+    },
+    "16": {
+      "eta": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "monotonic": false,
+      "spearman": null,
+      "status": "INVALID"
+    },
+    "17": {
+      "eta": [
+        0.025805813537996013,
+        0.07857339817331505,
+        0.12517020840207418,
+        0.16950835904664655,
+        0.20767573504216036
+      ],
+      "monotonic": true,
+      "spearman": 0.9999999999999998,
+      "status": "VALID"
+    },
+    "18": {
+      "eta": [
+        0.027234185249862593,
+        0.056710901889400755,
+        0.08947820880965274,
+        0.12344995539132908,
+        0.16071229223232103
+      ],
+      "monotonic": true,
+      "spearman": 0.9999999999999998,
+      "status": "VALID"
+    },
+    "19": {
+      "eta": [
+        0.027757896973300757,
+        0.06883167415370636,
+        0.11345622361622872,
+        0.1593804456350572,
+        0.20885543734975007
+      ],
+      "monotonic": true,
+      "spearman": 0.9999999999999998,
+      "status": "VALID"
+    }
+  },
+  "phase": "P2_CONFIRMATION",
+  "phase_lock_commit": "7bc466a60936e065430e5180d3279aa90a9cef10",
+  "phase_lock_sha256": "32003edbcfbe03c6bf357ffce25051ba9b279263a15d2e80b4c762087ec0c30e",
+  "planned_evaluations": 50,
+  "planned_seeds": 10,
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "7bc466a60936e065430e5180d3279aa90a9cef10",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-19T07:22:35.025972+00:00",
+    "torch_cuda_available": false
+  },
+  "run_id": "p2-confirmation-s10-20260819T072235.025972+0000-7059ee357d5a",
+  "schema_version": 1,
+  "scientific_gate_sg1": "FAIL",
+  "spearman": {
+    "median": 0.9999999999999998,
+    "q1": 0.9999999999999998,
+    "q3": 0.9999999999999998
+  },
+  "status_counts": {
+    "CHECKPOINT_INVALID": 25,
+    "NUMERICAL_FAILURE": 0,
+    "PASS": 25,
+    "PROFILE_FAILURE": 0,
+    "SOLVER_FAILURE": 0
+  },
+  "valid_seeds": 5
+}

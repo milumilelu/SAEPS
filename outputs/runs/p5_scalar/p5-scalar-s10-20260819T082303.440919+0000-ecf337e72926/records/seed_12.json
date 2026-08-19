@@ -1,0 +1,201 @@
+{
+  "CG_iterations": [
+    311,
+    396
+  ],
+  "CG_relative_residual": [
+    3.2339034461974885e-11,
+    4.066937957519961e-11
+  ],
+  "D_paired": null,
+  "E_raw": null,
+  "E_saeps": null,
+  "Fraw": [
+    [
+      512.487543513142
+    ]
+  ],
+  "Fse": [
+    [
+      17.193141762067494
+    ]
+  ],
+  "JVP_count": 714,
+  "VJP_count": 713,
+  "architecture": "tanh_mlp_2x16x1",
+  "benchmark": "Burgers",
+  "checkpoint_epoch": 1600,
+  "classical_profile": {
+    "curvature": 0.022494782883709687,
+    "losses": [
+      6.120713333801114e-05,
+      2.750548864511889e-05,
+      6.952227361770738e-06,
+      0.0,
+      7.104745497222929e-06,
+      2.872558336953586e-05,
+      6.532466051686095e-05
+    ],
+    "minimum": -0.0009491273216611764,
+    "normalized_rmse": 0.006483781187519913,
+    "offsets": [
+      -0.075,
+      -0.05,
+      -0.025,
+      0.0,
+      0.025,
+      0.05,
+      0.075
+    ],
+    "r_squared": 0.9996981430482099,
+    "status": "PASS"
+  },
+  "config_hash": "2a5ee035d01f64c23f65c6c2458bc5594036862039b09c9022b4b460a27a1856",
+  "config_path": "configs/locked/scalar.yaml",
+  "diagnostic_points": {
+    "boundary_times": 48,
+    "data": 128,
+    "initial": 48,
+    "pde": 96
+  },
+  "dtype": "float64",
+  "eta": 0.03354840908757932,
+  "eta_profile": null,
+  "failure_reason": "locked profile/fit/classical rule failed",
+  "frozen_curvature": null,
+  "frozen_profile": {
+    "curvature": 1.3982598669143722,
+    "fit_status": "PASS",
+    "losses": [
+      0.03536536623902507,
+      0.03340414014322048,
+      0.03219083993283988,
+      0.03178529196397017,
+      0.03225093370855759,
+      0.03365501266544944,
+      0.03606879581828999
+    ],
+    "minimum": -0.002730054100200071,
+    "normalized_rmse": 0.014140730402544642,
+    "offsets": [
+      -0.075,
+      -0.05,
+      -0.025,
+      0.0,
+      0.025,
+      0.05,
+      0.075
+    ],
+    "r_squared": 0.9984261987786277,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS"
+    ]
+  },
+  "frozen_profile_time": null,
+  "gamma": 0.0013133041840853582,
+  "gamma_alpha": 1e-08,
+  "git_commit": "90ca1a4765cd69c8cb7134b341a90ad17085b040",
+  "gse": [
+    -1.2595750284598306
+  ],
+  "hardware": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "lambda_stationarity": 0.0025762256313147836,
+  "learned_parameter": 0.03144583309157951,
+  "learning_rate": 0.003,
+  "loss_weights": {
+    "boundary": 2.0,
+    "data": 10.0,
+    "initial": 10.0,
+    "pde": 5.0
+  },
+  "optimizer": {
+    "adam_epochs": 1600,
+    "adam_learning_rate": 0.003,
+    "lbfgs_max_iterations": 300,
+    "lbfgs_tolerance_change": 1e-12,
+    "lbfgs_tolerance_grad": 1e-10
+  },
+  "parameter_coordinates": [
+    "log_mu"
+  ],
+  "parameter_error": {
+    "validation_only": true,
+    "value": 0.3710833381684099
+  },
+  "peak_memory": null,
+  "profile_curvature": null,
+  "profile_fit_quality": null,
+  "profile_points": [
+    -0.075,
+    -0.05,
+    -0.025,
+    0.0,
+    0.025,
+    0.05,
+    0.075
+  ],
+  "reoptimized_profile": {
+    "failure_reasons": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "fit_failure_reason": "quadratic R^2 0.6704386403623877 below locked threshold",
+    "fit_status": "PROFILE_FAILURE",
+    "losses": [
+      0.02935204661755624,
+      0.029418037447185335,
+      0.02951412872109538,
+      0.029278721334573606,
+      0.029275755571532305,
+      0.029322052686006652,
+      0.029108510961020614
+    ],
+    "objective_scaling": "0.5 * mean(weighted_residual^2)",
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS",
+      "PASS"
+    ]
+  },
+  "reoptimized_profile_time": null,
+  "residuals": {
+    "total_weighted_rms": 0.2521320763566991
+  },
+  "retry_used": false,
+  "run_id": "p5-scalar-s10-20260819T082303.440919+0000-ecf337e72926-seed12",
+  "saeps_time": 17.105670500008273,
+  "schema_version": 1,
+  "seed": 12,
+  "sensor_layout": "fixed_seeded_uniform_per_run",
+  "split": "confirmation",
+  "state_error": {
+    "validation_only": true,
+    "value": 0.05764841865545558
+  },
+  "status": "PROFILE_FAILURE",
+  "theta_stationarity": 0.0055774011300089256,
+  "timestamp": "2026-08-19T08:23:03.440919+00:00",
+  "training_points": {
+    "boundary_times": 48,
+    "data": 128,
+    "initial": 48,
+    "pde": 96
+  },
+  "training_stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+  "training_time": 3.7843471999949543
+}

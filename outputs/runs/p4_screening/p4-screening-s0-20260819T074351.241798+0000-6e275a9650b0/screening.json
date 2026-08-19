@@ -1,0 +1,402 @@
+{
+  "candidate_results": {
+    "Allen-Cahn": {
+      "gamma_selection": {
+        "adjacent_relative_changes": [
+          0.046883905035482135,
+          0.20275332714798,
+          0.11475596339514349,
+          0.7564262211215973,
+          4.018373623032644
+        ],
+        "eligible": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "median_explicit_eta": [
+          0.05136025299113855,
+          0.053768222214973425,
+          0.06466990816389122,
+          0.07209116577791401,
+          0.12662281388355212,
+          0.6354405892673896
+        ],
+        "selected_index": 1
+      },
+      "rows": [
+        {
+          "checkpoint": {
+            "learned_parameter": 1.535098475978531,
+            "parameter_relative_error_validation_only": 0.23245076201073445,
+            "parameter_stationarity": 0.011676457420738895,
+            "state_rmse_validation_only": 0.021679733287510175,
+            "stationarity_pass": true,
+            "stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+            "theta_stationarity": 0.008084557141961225,
+            "training_loss": 0.0025892833360916263,
+            "training_seconds": 3.683403700008057
+          },
+          "classical_profile": {
+            "failure_reason": "quadratic R^2 0.993778082686891 below locked threshold",
+            "losses": [
+              0.00017941572431342336,
+              8.39006061652157e-05,
+              2.2070505376049383e-05,
+              0.0,
+              2.4432409660448267e-05,
+              0.00010280277514628666,
+              0.00024324792845388236
+            ],
+            "offsets": [
+              -0.15,
+              -0.1,
+              -0.05,
+              0.0,
+              0.05,
+              0.1,
+              0.15
+            ],
+            "status": "PROFILE_FAILURE"
+          },
+          "gamma_sweep": [
+            {
+              "cg_converged": false,
+              "cg_iterations": 500,
+              "cg_relative_residual": 0.0006027888742204347,
+              "explicit_eta": 0.04433579786971401,
+              "explicit_mf_relative_error": 0.006324799316265893,
+              "gamma": 2.4374196470546506e-07,
+              "gamma_alpha": 1e-12
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 355,
+              "cg_relative_residual": 2.8272095258207027e-11,
+              "explicit_eta": 0.04646107663007009,
+              "explicit_mf_relative_error": 2.328959269297487e-08,
+              "gamma": 2.4374196470546508e-05,
+              "gamma_alpha": 1e-10
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 138,
+              "cg_relative_residual": 2.9052434021744283e-11,
+              "explicit_eta": 0.055630209445931146,
+              "explicit_mf_relative_error": 1.298503757809882e-08,
+              "gamma": 0.002437419647054651,
+              "gamma_alpha": 1e-08
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 57,
+              "cg_relative_residual": 4.5862791555583076e-11,
+              "explicit_eta": 0.0642434822216536,
+              "explicit_mf_relative_error": 3.0404819509514104e-09,
+              "gamma": 0.24374196470546505,
+              "gamma_alpha": 1e-06
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 27,
+              "cg_relative_residual": 7.410882352781832e-11,
+              "explicit_eta": 0.12662281388355212,
+              "explicit_mf_relative_error": 4.708110663286431e-10,
+              "gamma": 24.374196470546508,
+              "gamma_alpha": 0.0001
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 13,
+              "cg_relative_residual": 5.453113748976854e-12,
+              "explicit_eta": 0.6779590616523974,
+              "explicit_mf_relative_error": 5.167153030924726e-13,
+              "gamma": 2437.419647054651,
+              "gamma_alpha": 0.01
+            }
+          ],
+          "reoptimized_profile": {
+            "failure_reasons": [
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied"
+            ],
+            "fit_failure_reason": "profile contains failed or missing points; interpolation is forbidden",
+            "fit_status": "PROFILE_FAILURE",
+            "losses": [
+              0.7872623996480489,
+              0.6809531054368014,
+              0.602273662396045,
+              0.5635847129734299,
+              0.4940183330673544,
+              0.5597680651224286,
+              0.45478247776003555
+            ],
+            "statuses": [
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE"
+            ]
+          },
+          "seed": 0
+        },
+        {
+          "checkpoint": {
+            "learned_parameter": 1.5337236134804306,
+            "parameter_relative_error_validation_only": 0.2331381932597847,
+            "parameter_stationarity": 3.6152318447628044e-05,
+            "state_rmse_validation_only": 0.02145974873216814,
+            "stationarity_pass": true,
+            "stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+            "theta_stationarity": 0.0030192379188749953,
+            "training_loss": 0.002764096286193131,
+            "training_seconds": 2.980857200003811
+          },
+          "classical_profile": {
+            "failure_reason": "quadratic R^2 0.9939980561019768 below locked threshold",
+            "losses": [
+              0.00017712473961692944,
+              8.27655217461423e-05,
+              2.175375602951519e-05,
+              0.0,
+              2.4036443192661876e-05,
+              0.00010102948314902698,
+              0.00023877783682944856
+            ],
+            "offsets": [
+              -0.15,
+              -0.1,
+              -0.05,
+              0.0,
+              0.05,
+              0.1,
+              0.15
+            ],
+            "status": "PROFILE_FAILURE"
+          },
+          "gamma_sweep": [
+            {
+              "cg_converged": false,
+              "cg_iterations": 500,
+              "cg_relative_residual": 8.711294117148864e-06,
+              "explicit_eta": 0.05252645668483381,
+              "explicit_mf_relative_error": 0.005292474501889268,
+              "gamma": 1.1164732653284407e-07,
+              "gamma_alpha": 1e-12
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 390,
+              "cg_relative_residual": 5.5301471447171624e-11,
+              "explicit_eta": 0.057210723351757385,
+              "explicit_mf_relative_error": 2.0280293523307953e-07,
+              "gamma": 1.1164732653284407e-05,
+              "gamma_alpha": 1e-10
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 166,
+              "cg_relative_residual": 6.449614646170086e-11,
+              "explicit_eta": 0.06504020976283398,
+              "explicit_mf_relative_error": 7.052890319868244e-08,
+              "gamma": 0.0011164732653284408,
+              "gamma_alpha": 1e-08
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 68,
+              "cg_relative_residual": 2.6692314257961242e-11,
+              "explicit_eta": 0.07340734722566222,
+              "explicit_mf_relative_error": 1.817320790046103e-09,
+              "gamma": 0.11164732653284407,
+              "gamma_alpha": 1e-06
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 29,
+              "cg_relative_residual": 4.148311790765907e-11,
+              "explicit_eta": 0.1579424499592931,
+              "explicit_mf_relative_error": 1.4237364190085766e-10,
+              "gamma": 11.164732653284409,
+              "gamma_alpha": 0.0001
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 12,
+              "cg_relative_residual": 3.608825970194562e-11,
+              "explicit_eta": 0.6354405892673896,
+              "explicit_mf_relative_error": 8.965461781892446e-12,
+              "gamma": 1116.4732653284407,
+              "gamma_alpha": 0.01
+            }
+          ],
+          "reoptimized_profile": {
+            "failure_reasons": [
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied"
+            ],
+            "fit_failure_reason": "profile contains failed or missing points; interpolation is forbidden",
+            "fit_status": "PROFILE_FAILURE",
+            "losses": [
+              1.0558684814730785,
+              0.9999836278560102,
+              0.9657119269296991,
+              0.9617904448016954,
+              0.956653767268931,
+              0.9795184168025988,
+              0.8493746154123012
+            ],
+            "statuses": [
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE"
+            ]
+          },
+          "seed": 1
+        },
+        {
+          "checkpoint": {
+            "learned_parameter": 1.5271280674288066,
+            "parameter_relative_error_validation_only": 0.2364359662855967,
+            "parameter_stationarity": 0.005639567785172376,
+            "state_rmse_validation_only": 0.02175776640858159,
+            "stationarity_pass": true,
+            "stop_reason": "ADAM_COMPLETED_THEN_LBFGS_MAX_ITERATIONS",
+            "theta_stationarity": 0.018918047706968835,
+            "training_loss": 0.003043764467717866,
+            "training_seconds": 3.011320000005071
+          },
+          "classical_profile": {
+            "failure_reason": "quadratic R^2 0.9940527936755481 below locked threshold",
+            "losses": [
+              0.00018302935788299822,
+              8.55077793423336e-05,
+              2.246978849563261e-05,
+              0.0,
+              2.4815933364333046e-05,
+              0.00010427825179530476,
+              0.00024638534726410496
+            ],
+            "offsets": [
+              -0.15,
+              -0.1,
+              -0.05,
+              0.0,
+              0.05,
+              0.1,
+              0.15
+            ],
+            "status": "PROFILE_FAILURE"
+          },
+          "gamma_sweep": [
+            {
+              "cg_converged": false,
+              "cg_iterations": 500,
+              "cg_relative_residual": 2.070510119962351e-06,
+              "explicit_eta": 0.05136025299113855,
+              "explicit_mf_relative_error": 0.01137613554707555,
+              "gamma": 5.608845225126271e-08,
+              "gamma_alpha": 1e-12
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 369,
+              "cg_relative_residual": 8.177131235836717e-11,
+              "explicit_eta": 0.053768222214973425,
+              "explicit_mf_relative_error": 6.556891477669479e-07,
+              "gamma": 5.608845225126272e-06,
+              "gamma_alpha": 1e-10
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 168,
+              "cg_relative_residual": 9.919119007894632e-11,
+              "explicit_eta": 0.06466990816389122,
+              "explicit_mf_relative_error": 4.0482682869030496e-08,
+              "gamma": 0.0005608845225126271,
+              "gamma_alpha": 1e-08
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 76,
+              "cg_relative_residual": 8.899613100167598e-11,
+              "explicit_eta": 0.07209116577791401,
+              "explicit_mf_relative_error": 1.3269765619491178e-09,
+              "gamma": 0.056088452251262716,
+              "gamma_alpha": 1e-06
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 30,
+              "cg_relative_residual": 6.9826550647917e-11,
+              "explicit_eta": 0.10801180204481275,
+              "explicit_mf_relative_error": 3.474773819710466e-10,
+              "gamma": 5.608845225126272,
+              "gamma_alpha": 0.0001
+            },
+            {
+              "cg_converged": true,
+              "cg_iterations": 14,
+              "cg_relative_residual": 3.168031972623235e-11,
+              "explicit_eta": 0.5180250725415257,
+              "explicit_mf_relative_error": 1.837131405020694e-11,
+              "gamma": 560.8845225126272,
+              "gamma_alpha": 0.01
+            }
+          ],
+          "reoptimized_profile": {
+            "failure_reasons": [
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied",
+              "combined optimizer/plateau/gradient stopping rule not satisfied"
+            ],
+            "fit_failure_reason": "profile contains failed or missing points; interpolation is forbidden",
+            "fit_status": "PROFILE_FAILURE",
+            "losses": [
+              1.0568718371258723,
+              1.0100661299616498,
+              0.9968711850109451,
+              0.9529493213525594,
+              0.9629519390981613,
+              1.0065936358290681,
+              1.050513471146132
+            ],
+            "statuses": [
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE",
+              "PROFILE_FAILURE"
+            ]
+          },
+          "seed": 2
+        }
+      ],
+      "summary": {
+        "classical_clarity": 

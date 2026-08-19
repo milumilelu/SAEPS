@@ -70,3 +70,9 @@ The first command rebuilds Figures 1–6, Tables 1–3, supplementary artifacts 
 `FINAL_VALIDATION_REPORT.md` from accepted raw runs. The second command returns
 0 only when the engineering protocol is complete; negative scientific gates
 remain visible and do not count as engineering failure.
+
+The accepted v2 raw JSON records, manifests, aggregate data, figures and tables
+are versioned in `outputs/runs/` and `paper_artifacts/`. This permits a fresh
+clone to audit the exact raw-to-aggregate lineage without rerunning locked
+confirmation experiments. Failed development and confirmation records are
+retained; they must not be deleted or silently filtered.

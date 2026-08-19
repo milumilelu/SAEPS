@@ -1,0 +1,77 @@
+{
+  "aggregate_operation_counts": {
+    "median_CG_iterations_by_solve": [
+      256,
+      293
+    ],
+    "median_CG_total_iterations": 549,
+    "median_JVP_count": 556,
+    "median_VJP_count": 555
+  },
+  "artifact_finalization": {
+    "method": "manifest-verified aggregation from immutable raw records",
+    "provenance": {
+      "device": "cpu",
+      "dtype": "float64",
+      "git_branch": "main",
+      "git_commit": "af533f5ec4c2c968aae89903d42ee06073f962d5",
+      "git_dirty": false,
+      "git_status_porcelain": "",
+      "machine": "AMD64",
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "2.3.5",
+        "torch": "2.13.0"
+      },
+      "platform": "Windows-11-10.0.26100-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+      "python_version": "3.12.13",
+      "timestamp": "2026-08-19T08:58:07.630591+00:00",
+      "torch_cuda_available": false
+    }
+  },
+  "completed": 3,
+  "cost_config_hash": "4cdc7598052372d4457040b97071311c9b4e0e95b5bbdd7e3763a62af650c532",
+  "engineering_gate": "PASSED",
+  "locked_scalar_file_sha256": "cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8",
+  "median_paired_reoptimized_to_saeps_ratio": 2.048278475698233,
+  "median_times_seconds": {
+    "frozen_profile_seconds": 0.004964000007021241,
+    "reoptimized_profile_seconds": 9.124859600007767,
+    "saeps_seconds": 5.220969800007879,
+    "training_seconds": 3.7658553999935975
+  },
+  "peak_memory_bytes": null,
+  "peak_memory_reason": "Native peak CPU tensor memory is not reliably exposed by the selected PyTorch backend; Python allocation peaks would be misleading.",
+  "phase": "P8",
+  "planned": 3,
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "45d28c5724730dd544ee6c444b96a8b7baf5dba2",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-19T08:55:47.064222+00:00",
+    "torch_cuda_available": false
+  },
+  "ratio_of_median_reoptimized_to_median_saeps": 1.7477326913467297,
+  "run_id": "p8-cost-s0-20260819T085547.064222+0000-b80f00209a91",
+  "schema_version": 1,
+  "scientific_gate": "DESCRIPTIVE_ONLY",
+  "status_counts": {
+    "PASS": 3,
+    "SOLVER_FAILURE": 0
+  }
+}
