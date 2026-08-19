@@ -15,7 +15,7 @@
 | P2 | Controlled Tangent Geometry | PASSED | PASSED | FAIL |
 | P3 | Nonlinear Profile Engine | PASSED | PASSED | N/A |
 | P4 | Scalar PDE Screening & LOCK | PASSED | PASSED | N/A |
-| P5 | Scalar Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
+| P5 | Scalar Confirmation | PASSED | PASSED | PARTIALLY_SUPPORTED |
 | P6 | Multi-parameter Confirmation | NOT_STARTED | NOT_RUN | NOT_RUN |
 | P7 | Robustness & Architecture | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
 | P8 | Computational Cost | NOT_STARTED | NOT_RUN | DESCRIPTIVE |
@@ -116,20 +116,20 @@
 ## P5 — Scalar Confirmation
 
 **依赖:** LOCK `PASSED`  
-**状态:** `NOT_STARTED`
+**状态:** `PASSED` — evidence: `docs/evidence/P5_ACCEPTANCE.md`; SG-2: `PARTIALLY_SUPPORTED`
 
-- [ ] 运行全部 10 个 confirmation seeds；
-- [ ] 每 seed 执行 training、stationarity、SAEPS；
-- [ ] 执行 frozen、independent reoptimized、classical profiles；
-- [ ] 执行 curvature fitting 与 fit-quality gate；
-- [ ] 计算 \(Fraw,Fse,Hprofile,Eraw,Esaeps,D_i\)；
-- [ ] 计算 \(\eta^{se}\) 与 \(\eta_{profile}\) 的 scatter/correlation/error；
-- [ ] 计算 paired wins、median(D)、locked bootstrap 95% CI；
-- [ ] 报告 planned/valid/invalid/failed denominator；
-- [ ] 自动生成 Figures 3–4 和 Table 2；
-- [ ] 分类 SG-2：STRONGLY / WITH_UNCERTAINTY / PARTIAL / NOT；
-- [ ] 若 NOT_SUPPORTED，登记 P7 `PROTOCOL_STOP`；
-- [ ] 保存验收证据并提交 P5 commit。
+- [x] 运行全部 10 个 confirmation seeds；
+- [x] 每 seed 执行 training、stationarity、SAEPS；
+- [x] 执行 frozen、independent reoptimized、classical profiles；
+- [x] 执行 curvature fitting 与 fit-quality gate；
+- [x] 计算有效 seed 的 \(Fraw,Fse,Hprofile,Eraw,Esaeps,D_i\)；
+- [x] 计算有效 seed 的 \(\eta^{se}\) 与 \(\eta_{profile}\)；
+- [x] 计算 paired wins、median(D)、locked bootstrap 95% CI；
+- [x] 报告 planned/valid/invalid/failed denominator；
+- [x] 自动生成 curvature-error Figure、Table 2 与完整 profile raw data；
+- [x] 分类 SG-2：`PARTIALLY_SUPPORTED`（仅 1/10 valid）；
+- [x] SG-2 非 NOT_SUPPORTED，因此 P7 不触发 `PROTOCOL_STOP`；
+- [x] 保存验收证据并提交 P5 commit。
 
 ## P6 — Multi-parameter Confirmation
 

@@ -83,3 +83,17 @@ affected_runs: Failed/unaccepted P4 development directories remain under outputs
 protocol_impact: None on confirmation. All corrections were made using seeds 0,1,2 before global LOCK.
 resolution_or_status: RESOLVED. Failed development now serializes legal nulls; real-PINN profile thresholds/window are uniform; 42/42 optimization statuses are separated from fit quality; final clean screening evidence is preserved.
 ```
+
+## I-006 — P5 confirmation has inadequate valid profile coverage
+
+```text
+date: 2026-08-19
+issue_id: I-006
+phase: P5 confirmation
+classification: scientific failure
+description: Only seed 18 produced a valid paired curvature comparison. Seed 10 failed the locked checkpoint gate; seeds 11-17 and 19 completed every optimization point but failed locked quadratic R2.
+evidence: docs/evidence/P5_ACCEPTANCE.md and p5-scalar-s10-20260819T082303.440919+0000-ecf337e72926.
+affected_runs: 1 CHECKPOINT_INVALID, 8 PROFILE_FAILURE, 1 PASS out of 10 planned.
+protocol_impact: SG-2 is only PARTIALLY_SUPPORTED. P7 proceeds because the locked protocol-stop trigger is NOT_SUPPORTED, but final recommendation must emphasize unresolved profile/numerical limitations.
+resolution_or_status: OPEN locked scientific/numerical result. No confirmation rerun or lock modification is permitted.
+```

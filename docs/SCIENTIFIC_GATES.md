@@ -23,6 +23,8 @@ median_i\rho_{Spearman}(\alpha,\eta_i^{se})\ge0.9
 
 不得将 9/10 改成 9/N。SG-2 NOT_SUPPORTED 触发 P7 `PROTOCOL_STOP`。
 
+**Observed 2026-08-19:** `PARTIALLY_SUPPORTED`. Only 1/10 seeds formed a valid pair; it had positive D, while eight locked profile fits failed and one checkpoint was invalid. The single-value bootstrap interval is degenerate and is not treated as strong evidence. Evidence: `docs/evidence/P5_ACCEPTANCE.md`.
+
 ## SG-3 Multi-parameter Ordering
 
 PASS 当且仅当至少 9/10 valid confirmation seeds 满足：
