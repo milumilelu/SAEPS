@@ -27,3 +27,13 @@ Run-level provenance schema is defined by the execution contract. Experimental p
 - v2 scalar lock hash verified unchanged: `cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8`
 - Acceptance: `docs/evidence/V3_FOUNDATION_ACCEPTANCE.md`
 - Scope remains `DEVELOPMENT_ONLY`; no v3 confirmation is authorized.
+
+## V3.1 State-Minimum Development
+
+- Contract: `docs/v3_1/EXECUTION_CONTRACT.md`
+- Accepted seed-20 run: `v3-1-state-min-s20-20260819T122328.472834+0000-629b7eb8ec88`
+- Clean run commit: `0cbde5853a33ac8dc02f3f64e598210854b3e1a7`
+- Engineering validation: `PASSED`
+- Strict full-chain gate: `FAIL` at unregularized multiscale convergence
+- Seed status: 21–24 inactive; 30–44 unseen/inactive; confirmation unauthorized
+- Evidence: `docs/evidence/V3_1_SEED20_ACCEPTANCE.md`

@@ -195,3 +195,17 @@ affected_runs: seed 20 development attempt only. No profile, Krylov comparison, 
 protocol_impact: The strict center gate correctly stopped the chain. No scientific threshold is changed.
 resolution_or_status: DEVELOPMENT CORRECTION. Increase only the exact-Hessian saddle-escape cycle budget from 12 to 50 because every observed cycle retained a verified descent direction. Gradient tolerance, Hessian tau, profile convergence and solver gates remain unchanged. This is not an L-BFGS-iteration-only remedy.
 ```
+
+## I-014 — v3.1 seed-20 local minima do not yield convergent unregularized curvature
+
+```text
+date: 2026-08-19
+issue_id: I-014
+phase: V3.1 state-minimum development
+classification: scientific failure
+description: The center and all eight unregularized profile points passed the common 1e-4 objective-gradient and exact state-Hessian gates. Nevertheless, symmetric profile curvature changed 19.2297 -> 16.0247 -> 8.71031 -> -1.45182 over h=[0.05,0.025,0.0125,0.00625]. The two binding finest relative changes were 0.839743 and 6.999596, both above 0.05.
+evidence: outputs/runs/v3_1_state_minimum/v3-1-state-min-s20-20260819T122328.472834+0000-629b7eb8ec88 and docs/evidence/V3_1_SEED20_ACCEPTANCE.md.
+affected_runs: seed 20 development only.
+protocol_impact: Full-chain gate FAIL. Gamma-matched profile, Krylov gate, exact reduced-Hessian comparison, seeds 21-24 and confirmation were not run.
+resolution_or_status: OPEN scientific result. Do not tune profile tolerances or h values using this result. A new user-authorized development amendment would be required to distinguish branch switching, finite optimization accuracy and genuine lack of twice-differentiable reduced geometry.
+```

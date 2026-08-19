@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "center_local_minimum": {
+      "detail": "center passes common gradient, residual stationarity and exact Hessian gates",
+      "status": "PASS"
+    },
+    "protocol_isolation": {
+      "detail": "only seed 20 active; v2 lock and all reserved seeds remain isolated",
+      "status": "PASS"
+    },
+    "provenance": {
+      "detail": "clean formal-run commit 0cbde5853a33ac8dc02f3f64e598210854b3e1a7 verified",
+      "status": "PASS"
+    },
+    "run_manifest": {
+      "detail": "run v3-1-state-min-s20-20260819T122328.472834+0000-629b7eb8ec88 manifest and config hash verified",
+      "status": "PASS"
+    },
+    "serial_stop_discipline": {
+      "detail": "binding profile failure stopped all downstream work and seed expansion",
+      "status": "PASS"
+    },
+    "unregularized_profile": {
+      "detail": "8/8 points pass; multiscale status is retained as PROFILE_FAILURE",
+      "status": "PASS"
+    }
+  },
+  "confirmation_authorized": false,
+  "full_chain_gate": "FAIL",
+  "phase": "V3_1_STATE_MINIMUM_DEVELOPMENT",
+  "schema_version": 1,
+  "seeds_21_24_authorized": false,
+  "status": "PASSED"
+}
