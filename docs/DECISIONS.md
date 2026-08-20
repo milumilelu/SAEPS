@@ -143,3 +143,15 @@ development_evidence: docs/evidence/V3_5_ACCEPTANCE.md; seeds 30--44 were not ru
 affected_configs: configs/v3_6/locked_scalar_confirmation.yaml; all earlier locks and results remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_011_V3_6_CONFIRMATION_LOCK.md and docs/v3_6/LOCKED_PROTOCOL.md. This decision locks but does not authorize execution.
 ```
+
+## D-011 — Authorize the one-shot v3.6 execution without changing its lock
+
+```text
+date: 2026-08-20
+decision_id: D-011
+decision: Authorize exactly one execution of locked seeds 30--44 after the clean pre-confirmation audit passes; do not authorize any rerun or protocol modification.
+reason: The user supplied SAEPS Master Research Program v4.0 as the task book and the active goal explicitly requires execution, adjudication and permanent freezing of v3.6 before any later research branch.
+development_evidence: docs/evidence/PRE_CONFIRMATION_AUDIT.json status PASSED; no v3.6 output existed at authorization.
+affected_configs: configs/v3_6/EXECUTION_AUTHORIZATION.json only. configs/v3_6/locked_scalar_confirmation.yaml remains byte-identical to lock commit 4eb28f5.
+authorizing_protocol: SAEPS Master Research Program v4.0 Phase A and docs/v3_6/LOCKED_PROTOCOL.md.
+```

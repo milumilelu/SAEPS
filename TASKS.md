@@ -283,7 +283,7 @@
 ## V3.6 Scalar Curvature Confirmation Lock
 
 **协议锁状态:** `PASSED` — locked, static audit only
-**confirmation 执行状态:** `NOT_STARTED` — `execution_authorized: false`
+**locked-config execution flag:** `false` — immutable; separate one-shot authorization recorded below
 
 - [x] 冻结不可替换的 planned seeds `30--44`；
 - [x] 冻结 baseline→enhanced-rescue center 和 two-pass scaled-LSQR refinement；
@@ -294,4 +294,20 @@
 - [x] 冻结 first-order GN indicator 定义、5% classification 和 nonbinding role；
 - [x] scope 限定为 scalar curvature；排除 score/update/multi-parameter/profile；
 - [x] 静态验证未创建、未读取任何 v3.6 confirmation run；
-- [ ] 等待单独明确授权后一次性运行 seeds 30--44；运行后禁止调参或改协议。
+- [x] 已记录独立 one-shot authorization；运行后禁止调参、改协议或重跑。
+
+## V3.6 One-Shot Confirmation Execution
+
+**preflight:** `PASSED` — `docs/evidence/PRE_CONFIRMATION_AUDIT.json`
+**execution authorization:** `AUTHORIZED_ONCE` — protocol mutation and rerun remain forbidden
+**confirmation:** `NOT_STARTED`
+
+- [x] 验证 immutable lock commit、config SHA-256 与三个 source hashes；
+- [x] 验证 planned seeds 精确为 `30--44` 且不存在 prior v3.6 output；
+- [x] 运行 47 tests、v3.6 lock validator 与 repository validator；
+- [x] 保存 clean-commit pre-confirmation audit；
+- [x] 记录独立 execution authorization，不修改 locked config；
+- [ ] 一次性执行全部 15 seeds；
+- [ ] 从 raw records 自动聚合并按冻结规则 adjudicate；
+- [ ] 冻结结果、failed seeds、manifest hash、provenance 与 audit；
+- [ ] 永久关闭 v3.6 并进入预声明结果分支。
