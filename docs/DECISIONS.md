@@ -131,3 +131,15 @@ development_evidence: docs/evidence/V3_4_ACCEPTANCE.md; no seed 25–29 result w
 affected_configs: configs/v3_5/diagnostic_engineering.yaml only; v2 through v3.4 remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_010_V3_5_SECOND_ORDER_ENGINEERING.md and docs/v3_5/EXECUTION_CONTRACT.md.
 ```
+
+## D-010 — Lock v3.6 untouched scalar-curvature confirmation
+
+```text
+date: 2026-08-20
+decision_id: D-010
+decision: Close development and lock seeds 30--44 for a one-shot scalar-curvature confirmation using the frozen baseline-then-rescue center, two-pass scaled-LSQR refinement, exact finite-gamma reduced-Hessian gold standard and paired D=Eraw-Esaeps primary estimand.
+reason: V3.5 established on development data that the scientifically relevant question is comparative improvement over raw fixed-state curvature, while absolute 5% SAEPS accuracy is not uniform. The new primary rule returns to that original comparative question without erasing the negative 5% finding.
+development_evidence: docs/evidence/V3_5_ACCEPTANCE.md; seeds 30--44 were not run or inspected before this lock.
+affected_configs: configs/v3_6/locked_scalar_confirmation.yaml; all earlier locks and results remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_011_V3_6_CONFIRMATION_LOCK.md and docs/v3_6/LOCKED_PROTOCOL.md. This decision locks but does not authorize execution.
+```

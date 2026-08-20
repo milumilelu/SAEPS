@@ -279,3 +279,19 @@
 - [x] 聚合 v3.5 evidence；first-order indicator promising，paired D positive 8/8；
 - [x] 全仓库验收：42 tests 与 v2–v3.5 validators 全部通过；
 - [x] 提交并代理推送 GitHub。
+
+## V3.6 Scalar Curvature Confirmation Lock
+
+**协议锁状态:** `PASSED` — locked, static audit only
+**confirmation 执行状态:** `NOT_STARTED` — `execution_authorized: false`
+
+- [x] 冻结不可替换的 planned seeds `30--44`；
+- [x] 冻结 baseline→enhanced-rescue center 和 two-pass scaled-LSQR refinement；
+- [x] 冻结 exact finite-gamma reduced Hessian gold standard；
+- [x] 冻结 paired `D=Eraw-Esaeps`、15-seed planned denominator 与 invalid non-win rule；
+- [x] 冻结 `12/15` strict-win、positive median D 和单侧 exact sign test 联合主判据；
+- [x] 将 `E_SAEPS` median/IQR/range/all-values 与 5% count 定义为 secondary；
+- [x] 冻结 first-order GN indicator 定义、5% classification 和 nonbinding role；
+- [x] scope 限定为 scalar curvature；排除 score/update/multi-parameter/profile；
+- [x] 静态验证未创建、未读取任何 v3.6 confirmation run；
+- [ ] 等待单独明确授权后一次性运行 seeds 30--44；运行后禁止调参或改协议。

@@ -195,3 +195,19 @@ Validator exit code：`0 = protocol complete`；`1 = engineering incomplete`。S
 
 P0–P9 mandatory engineering 完成，P7 可为授权 protocol stop；全部 runs 有合法状态；配置和结果可追溯；artifact 与 validator 通过；最终报告生成；工作树干净且阶段 commits/最终 commit 可追溯。阴性科学结论不构成执行失败。
 
+## 16. v3.6 Scalar Curvature Confirmation Lock
+
+本节仅验收协议锁，不授权或运行 confirmation。
+
+- `configs/v3_6/locked_scalar_confirmation.yaml` 固定且只包含 seeds `30--44`；
+- `protocol_locked=true` 且 `execution_authorized=false`；
+- center、solver、gamma、gold standard 与 v3.5 冻结来源的 SHA-256 一致；
+- primary 固定为 paired `D=Eraw-Esaeps`；至少 12 valid pairs、planned 15 中至少 12 strict wins、valid-pair median D positive 和单侧 exact sign-test `p<=0.05` 必须同时满足；
+- invalid seed 保留在 planned denominator 并计作 planned non-win；
+- `E_SAEPS` 的 seed values、median、linear-quantile IQR、range 与 5% count 为 secondary；5% 不是 universal accuracy gate；
+- first-order GN indicator 的公式、0.05 classification threshold 与 secondary nonbinding role 均冻结；
+- scope 仅 scalar curvature，禁止 score、update、multi-parameter 与 nonlinear profile；
+- `configs/v3_6/LOCK_RECORD.json` 的 raw SHA-256 与 first lock commit 可复核；
+- `python scripts/26_validate_v3_6_lock.py` exit 0，且不存在 v3.6 run output directory。
+
+**PASS:** 静态锁完整、不可变且零 confirmation runs。科学结果仍为 `NOT_STARTED`。

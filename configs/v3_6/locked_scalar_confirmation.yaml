@@ -1,0 +1,144 @@
+schema_version: 1
+contract_id: SAEPS-SCALAR-CONFIRMATION-v3.6
+phase: V3_6_SCALAR_CONFIRMATION_LOCK
+protocol_locked: true
+execution_authorized: false
+lock_date: 2026-08-20
+lock_parent_commit: 9d6ccb7f7fc1c1a016fe4f315a3ecdf402cafbe7
+source_files:
+  scalar_config:
+    path: configs/locked/scalar.yaml
+    sha256: cb5c2e9e3eee2d5462dd92ac0b9cd3b2b607ea487367d9c83b18a3a8af9c5cf8
+  v3_5_development_config:
+    path: configs/v3_5/diagnostic_engineering.yaml
+    sha256: 3a8d8948e9ca15662715de483e72bc81cd3da03e1186cae22e1d924852dec163
+  v3_5_engineering_choice:
+    path: configs/v3_5/locked_engineering_choice.json
+    sha256: 902169c6b014f9b9c2d0713e7e71c07b84f757512e9df6e99e2c8cf63ee37ba4
+benchmark: Burgers
+scope:
+  included: scalar_curvature_only
+  excluded: [score, parameter_update, multi_parameter, nonlinear_profile]
+planned_seeds: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+seed_policy:
+  replacement_forbidden: true
+  development_feedback_forbidden: true
+  one_shot_execution: true
+  retain_every_planned_seed: true
+center:
+  policy: baseline_then_frozen_enhanced_rescue
+  baseline: v3_4_exact_trust
+  rescue: v3_5_enhanced_extended_exact_trust
+  required_objective_gradient_tolerance: 1.0e-4
+  residual_stationarity_tolerance: 1.0e-4
+  local_minimum:
+    normalized_gradient_tolerance: 1.0e-6
+    hessian_absolute_tolerance: 1.0e-8
+    hessian_relative_tolerance: 1.0e-10
+    maximum_escape_cycles: 50
+    negative_probe_relative_radii: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+    trust_initial_relative_radius: 3.0e-2
+    trust_minimum_relative_radius: 1.0e-6
+    trust_maximum_relative_radius: 2.0e-1
+    trust_backtracking_factors: [1.0, 0.5, 0.25, 0.125]
+    minimum_actual_decrease: 1.0e-12
+    maximum_rescue_steps: 40
+    rescue_initial_relative_radius: 0.05
+    rescue_minimum_relative_radius: 1.0e-8
+    rescue_maximum_relative_radius: 0.25
+    optimizer:
+      adam_warmup_epochs: 500
+      adam_learning_rate: 5.0e-4
+      outer_steps_max: 30
+      inner_iterations: 100
+      history_size: 100
+      line_search: strong_wolfe
+      tolerance_grad: 1.0e-13
+      tolerance_change: 1.0e-15
+    polish_optimizer:
+      adam_warmup_epochs: 0
+      adam_learning_rate: 5.0e-4
+      outer_steps_max: 20
+      inner_iterations: 100
+      history_size: 100
+      line_search: strong_wolfe
+      tolerance_grad: 1.0e-13
+      tolerance_change: 1.0e-15
+    stopping:
+      minimum_outer_steps: 4
+      plateau_window: 4
+      relative_loss_change: 1.0e-5
+      normalized_gradient: 1.0e-6
+    rescue_eigenvalue_clip_relative: 1.0e-8
+    rescue_armijo_constant: 1.0e-4
+    rescue_backtracking_factors: [1.0, 0.5, 0.25, 0.125, 0.0625]
+gamma:
+  definition: alpha_times_lambda_max_of_JthetaT_Jtheta_at_center
+  alpha: 1.0e-8
+curvature_solver:
+  selected: scaled_LSQR_iterative_refinement
+  formulation: augmented_least_squares
+  scaling: exact_diag_JthetaT_Jtheta_plus_gammaI_via_basis_JVPs
+  tolerance: 1.0e-10
+  max_iterations_per_pass: 500
+  refinement_passes: 2
+  maximum_total_iterations: 1500
+  verified_normal_residual_acceptance: 1.0e-8
+  explicit_reference_relative_acceptance: 1.0e-6
+gold_standard:
+  quantity: exact_finite_gamma_reduced_Hessian
+  formula: Hll_minus_Hltheta_times_inverse_Hthetatheta_plus_gammaI_times_Hthetalambda
+  symmetry_relative_tolerance: 1.0e-8
+  positive_eigenvalue_relative_tolerance: 1.0e-10
+  solve_relative_tolerance: 1.0e-8
+errors:
+  denominator_floor: 1.0e-8
+  Fse_GN_source: selected_scaled_LSQR_iterative_refinement
+  E_raw: abs_Fraw_minus_Hred_exact_gamma_over_abs_Hred_exact_gamma_plus_floor
+  E_SAEPS: abs_Fse_GN_minus_Hred_exact_gamma_over_abs_Hred_exact_gamma_plus_floor
+  D: E_raw_minus_E_SAEPS
+valid_pair:
+  requires: [center_pass, exact_gold_pass, selected_solver_pass, all_primary_quantities_finite]
+  allowed_final_statuses: [PASS, CHECKPOINT_INVALID, SOLVER_FAILURE, NUMERICAL_FAILURE]
+  invalid_seed_numeric_primary_excluded: true
+  invalid_seed_retained_in_planned_denominator: true
+primary:
+  alternative: D_greater_than_zero
+  strict_win_rule: D_greater_than_tie_tolerance
+  tie_tolerance: 1.0e-12
+  tie_rule: planned_nonwin_and_excluded_from_sign_test
+  planned_denominator: 15
+  minimum_valid_pairs: 12
+  planned_seed_wins_required: 12
+  valid_pair_median_D_must_be_positive: true
+  test: exact_one_sided_paired_sign_test
+  null_success_probability: 0.5
+  alpha: 0.05
+  continuity_correction: false
+  success_requires_all_primary_conditions: true
+secondary:
+  E_SAEPS_summary: [median, IQR, range, all_seed_values]
+  median_definition: average_two_middle_order_statistics_when_even
+  IQR_definition: q25_and_q75_numpy_linear_quantiles_then_q75_minus_q25
+  range_definition: minimum_and_maximum
+  report_E_raw: true
+  report_planned_valid_invalid_counts: true
+  historical_5_percent_statement: SAEPS_is_not_uniformly_accurate_within_5_percent
+  five_percent_is_universal_accuracy_requirement: false
+gn_indicator:
+  name: first_order_correction_relative_to_GN
+  definition: abs_deltaH_first_over_max_abs_Fse_GN_and_1e-8
+  deltaH_first: Sll_minus_2_xT_Sthetalambda_plus_xT_Sthetatheta_x
+  x_definition: inverse_JthetaT_Jtheta_plus_gammaI_times_JthetaT_Jlambda
+  threshold: 0.05
+  predicted_class: within_5_percent_if_indicator_less_than_or_equal_to_threshold
+  observed_class: within_5_percent_if_E_SAEPS_less_than_or_equal_to_threshold
+  recalibration_forbidden: true
+  role: secondary_nonbinding_diagnostic
+  reports: [confusion_matrix, accuracy, spearman_with_E_SAEPS, median_absolute_calibration_error, all_seed_values]
+reporting:
+  failed_and_invalid_seeds_must_be_visible: true
+  paper_facing_values_generated_from_machine_readable_results: true
+  posthoc_threshold_or_endpoint_changes_forbidden: true
+  scientific_outcomes: [SUPPORTED, PARTIALLY_SUPPORTED, NOT_SUPPORTED]
+  insufficient_valid_pairs_outcome: NOT_SUPPORTED_with_insufficient_valid_pairs_reason
