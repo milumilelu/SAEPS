@@ -119,3 +119,15 @@ development_evidence: docs/evidence/V3_3_SEED20_ACCEPTANCE.md and the user-suppl
 affected_configs: configs/v3_4/curvature_validation.yaml only; v2 through v3.3 remain unchanged.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_009_V3_4_CURVATURE_VALIDATION.md and docs/v3_4/EXECUTION_CONTRACT.md.
 ```
+
+## D-009 — Open v3.5 second-order diagnostics and new-seed engineering
+
+```text
+date: 2026-08-20
+decision_id: D-009
+decision: Explain cross-seed GN error through exact residual-Hessian block/Shapley decomposition before changing SAEPS, and isolate center/solver engineering on new seeds 25–29.
+reason: V3.4 preserved strong raw-to-reduced absorption but found GN-to-exact errors of 1.17%, 8.24%, 9.33% and 4.97%, plus independent center and scalable-solver failures. These mechanisms must be measured separately.
+development_evidence: docs/evidence/V3_4_ACCEPTANCE.md; no seed 25–29 result was observed before this decision.
+affected_configs: configs/v3_5/diagnostic_engineering.yaml only; v2 through v3.4 remain unchanged.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_010_V3_5_SECOND_ORDER_ENGINEERING.md and docs/v3_5/EXECUTION_CONTRACT.md.
+```

@@ -264,3 +264,16 @@
 - [x] 聚合五个 development seeds 并生成验收证据；
 - [x] 运行全仓库验证；41 tests 与 v2–v3.4 validators 全部通过；
 - [x] 自动提交并使用本地代理推送 GitHub private `main`。
+
+## V3.5 Second-Order Diagnostic and Engineering — Development Only
+
+**状态:** `IN_PROGRESS`
+**隔离:** retrospective 20/22/23/24；engineering 25–27；held-out development 28–29；confirmation 30–44 禁止。
+
+- [x] 预注册 residual-Hessian 三块、Shapley decomposition 与 indicator candidates；
+- [x] 预注册新 development seed split 和两阶段 freeze；
+- [x] 预注册未来 paired comparative estimand `D=Eraw-Esaeps`；
+- [ ] 运行 retrospective second-order decomposition；
+- [ ] 在 seeds 25–27 比较 center/solver engineering candidates 并冻结；
+- [ ] 在 held-out seeds 28–29 验证冻结选择；
+- [ ] 聚合、全仓库验收、提交并代理推送 GitHub。

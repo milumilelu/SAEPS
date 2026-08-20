@@ -1,0 +1,74 @@
+schema_version: 1
+contract_id: SAEPS-SECOND-ORDER-ENGINEERING-v3.5-development
+phase: V3_5_SECOND_ORDER_ENGINEERING_DEVELOPMENT
+confirmation_authorized: false
+source_scalar_config: configs/locked/scalar.yaml
+benchmark: Burgers
+retrospective_diagnostic_seeds: [20, 22, 23, 24]
+engineering_seeds: [25, 26, 27]
+heldout_development_seeds: [28, 29]
+inactive_future_confirmation_seeds: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+center:
+  required_objective_gradient_tolerance: 1.0e-4
+  residual_stationarity_tolerance: 1.0e-4
+local_minimum:
+  normalized_gradient_tolerance: 1.0e-6
+  hessian_absolute_tolerance: 1.0e-8
+  hessian_relative_tolerance: 1.0e-10
+  maximum_escape_cycles: 50
+  negative_probe_relative_radii: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+  trust_initial_relative_radius: 3.0e-2
+  trust_minimum_relative_radius: 1.0e-6
+  trust_maximum_relative_radius: 2.0e-1
+  trust_backtracking_factors: [1.0, 0.5, 0.25, 0.125]
+  minimum_actual_decrease: 1.0e-12
+  optimizer:
+    adam_warmup_epochs: 500
+    adam_learning_rate: 5.0e-4
+    outer_steps_max: 30
+    inner_iterations: 100
+    history_size: 100
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-13
+    tolerance_change: 1.0e-15
+  polish_optimizer:
+    adam_warmup_epochs: 0
+    adam_learning_rate: 5.0e-4
+    outer_steps_max: 20
+    inner_iterations: 100
+    history_size: 100
+    line_search: strong_wolfe
+    tolerance_grad: 1.0e-13
+    tolerance_change: 1.0e-15
+  stopping:
+    minimum_outer_steps: 4
+    plateau_window: 4
+    relative_loss_change: 1.0e-5
+    normalized_gradient: 1.0e-6
+enhanced_center:
+  maximum_rescue_steps: 40
+  initial_relative_radius: 0.05
+  minimum_relative_radius: 1.0e-8
+  maximum_relative_radius: 0.25
+  eigenvalue_clip_relative: 1.0e-8
+  armijo_constant: 1.0e-4
+  backtracking_factors: [1.0, 0.5, 0.25, 0.125, 0.0625]
+gamma: {alpha: 1.0e-8}
+solvers:
+  tolerance: 1.0e-10
+  parameter_residual_acceptance: 1.0e-8
+  curvature_relative_acceptance: 1.0e-6
+  max_iterations: 500
+  refinement_passes: 2
+full_hessian:
+  symmetry_relative_tolerance: 1.0e-8
+  positive_eigenvalue_relative_tolerance: 1.0e-10
+  solve_relative_tolerance: 1.0e-8
+decomposition:
+  shapley_reproduction_relative_tolerance: 1.0e-10
+  denominator_floor: 1.0e-8
+future_comparative_estimand:
+  denominator_floor: 1.0e-8
+  primary: paired_D_equals_Eraw_minus_Esaeps
+scientific_gate: none_development_only
+
