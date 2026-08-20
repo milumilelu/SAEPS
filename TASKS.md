@@ -317,7 +317,7 @@
 
 ## V4.1 — POST_CONFIRMATION_DEVELOPMENT (Execution-Semantic Repair)
 
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — engineering development; held-out full-chain 5/5
 **隔离:** 全新 seeds；不读取 v3.6 选科学阈值；不重跑 30–44；不生成 "corrected v3.6"
 **触发分支:** v3.6 `NOT_SUPPORTED` → B−1 implementation / numerical-availability failure
 **目标:** 修复 confirmation execution semantics，不改变 SAEPS 科学方法
@@ -331,12 +331,12 @@
 - [x] 不改 center/`gamma`/solver/gold standard/primary `D` 定义；
 - [x] dev seeds `45–49` engineering integration：4/5 binding-valid，seed49 center invalid；真实 score-fail/curvature-pass 4/4；
 - [x] 在 commit `09a31c6` 冻结 code+config+tests 与 semantic gate graph；
-- [ ] 在冻结 executable 下运行 held-out `50–54`；
-- [ ] 验证 50–54 在冻结代码下 gate semantics/center/exact gold/solver 全链稳定，方可进入 V4.2。
+- [x] 在冻结 executable 下运行 held-out `50–54`；
+- [x] 50–54 gate semantics/center/exact gold/solver 全链稳定 5/5；允许创建独立 V4.2 lock。
 
 ## V4.2 — Corrected Untouched Confirmation
 
-**状态:** `BLOCKED`（依赖 V4.1 全链稳定）
+**状态:** `NOT_STARTED` — V4.1 prerequisite `PASSED`; confirmation 尚未授权
 **隔离:** 全新 confirmation seeds `55–69`；不复用 30–44；不改科学规则
 **目标:** 修复后 execution semantics 下对 SAEPS-vs-raw 比较假设做干净 untouched 检验
 **任务书:** `docs/v4_2_CORRECTED_CONFIRMATION.md`

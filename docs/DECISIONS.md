@@ -191,3 +191,15 @@ development_evidence: docs/evidence/v4_1_engineering_integration_validation.json
 affected_configs: configs/v4_1/EXECUTABLE_FREEZE.json; confirmation seeds 55--69 remain inactive.
 authorizing_protocol: docs/v4_1_POST_CONFIRMATION_DEVELOPMENT.md sections 4--5 and Amendment 012.
 ```
+
+## D-015 — Accept v4.1 held-out execution-semantic repair
+
+```text
+date: 2026-08-20
+decision_id: D-015
+decision: Accept v4.1 as PASSED development engineering and permit creation, but not execution, of a separate v4.2 confirmation lock on seeds 55--69.
+reason: Under the frozen executable, held-out seeds 50--54 pass center, parameter-only reference, curvature solver, exact gold and finite-primary nodes 5/5. Score diagnostics fail 5/5 yet remain nonbinding as preregistered, and all computable quantities are retained.
+development_evidence: docs/evidence/v4_1_heldout_development_validation.json and docs/evidence/V4_1_ACCEPTANCE.md.
+affected_configs: Future configs/v4_2 lock only; v3.6 and v4.1 outputs remain immutable.
+authorizing_protocol: docs/v4_2_CORRECTED_CONFIRMATION.md section 1.
+```
