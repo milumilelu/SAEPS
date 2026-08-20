@@ -354,7 +354,12 @@ def run_v41_cohort(
         "config_hash": digest,
         "provenance": provenance,
         "binding_valid_count": sum(record["binding_valid"] for record in records),
-        "score_failure_count": sum(record["statuses"]["score_solver_status"] != "PASS" for record in records),
+        "score_computed_count": sum(
+            record["statuses"]["score_solver_status"] != "NOT_COMPUTED" for record in records
+        ),
+        "score_failure_count": sum(
+            record["statuses"]["score_solver_status"] == "SOLVER_FAILURE" for record in records
+        ),
         "record_all_computable_count": sum(
             all(record[key] is not None for key in ["F_raw", "F_se_explicit", "F_se_GN", "H_red_exact_gamma"])
             for record in records
@@ -377,4 +382,3 @@ def run_v41_cohort(
         {"schema_version": 1, "planned": 5, "records": manifest_rows},
     )
     return summary
-

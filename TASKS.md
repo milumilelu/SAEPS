@@ -329,7 +329,8 @@
 - [x] 加入 regression test：param RHS PASS + score RHS FAIL → 断言 `CURVATURE_GATE=PASS`；
 - [x] 改为 fail-soft / record-all-computable：早退 gate 仍保存已算出的 `F_raw`/explicit `F_se`/exact Hessian/solver diagnostics；
 - [x] 不改 center/`gamma`/solver/gold standard/primary `D` 定义；
-- [ ] dev seeds `45–49` engineering integration → 冻结 code+config+tests → held-out `50–54`；
+- [x] dev seeds `45–49` engineering integration：4/5 binding-valid，seed49 center invalid；真实 score-fail/curvature-pass 4/4；
+- [ ] 冻结 code+config+tests → held-out `50–54`；
 - [ ] 验证 50–54 在冻结代码下 gate semantics/center/exact gold/solver 全链稳定，方可进入 V4.2。
 
 ## V4.2 — Corrected Untouched Confirmation
