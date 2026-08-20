@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -138,6 +139,29 @@ def validate_v42_result(repo_root: str | Path) -> dict[str, Any]:
         "classification": "non-scientific schema adapter; no seed or primary quantity recomputed",
         "detail": recovery,
     }
+    result_record_path = root / "configs/v4_2/CONFIRMATION_RESULT_RECORD.json"
+    if result_record_path.is_file():
+        result_record = _json(result_record_path)
+        committed = subprocess.run(
+            ["git", "show", f"{result_record['result_commit']}:outputs/runs/v4_2_corrected_confirmation/manifest.json"],
+            cwd=root,
+            capture_output=True,
+            check=False,
+        )
+        committed_manifest = json.loads(committed.stdout.decode("utf-8")) if committed.returncode == 0 else None
+        result_record_pass = (
+            committed_manifest == manifest
+            and result_record["raw_records_sha256"] == manifest["raw_records_sha256"]
+            and result_record["scientific_status"] == summary["scientific_status"]
+            and result_record["valid_pairs"] == summary["valid"]
+            and result_record["rerun_permitted"] is False
+            and result_record["v3_6_result_modified"] is False
+        )
+        checks["permanent_result_record"] = {
+            "status": "PASS" if result_record_pass else "FAIL",
+            "result_commit": result_record["result_commit"],
+            "raw_records_sha256": result_record["raw_records_sha256"],
+        }
     status = "PASSED" if all(row["status"] == "PASS" for row in checks.values()) else "FAILED"
     return {
         "schema_version": 1,
@@ -148,4 +172,3 @@ def validate_v42_result(repo_root: str | Path) -> dict[str, Any]:
         "raw_records_sha256": manifest["raw_records_sha256"],
         "rerun_permitted": False,
     }
-

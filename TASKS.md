@@ -348,5 +348,5 @@
 - [x] 自动 adjudication：12/15 wins、median D `27.6363`、exact sign p `0.00024414`，四项全 PASS；
 - [x] 生成 `V4_2_CONFIRMATION_REPORT.md` / `v4_2_confirmation.json` / `V4_2_FAILED_SEEDS.md`；
 - [x] 记录并审计 post-seed `failure_stage` schema recovery；无 seed 或 primary quantity 重算；
-- [ ] 记录 result commit / config hash / raw manifests hash / scientific status；**v4.2 永久关闭**；
+- [x] 记录 result commit / config hash / raw manifests hash / scientific status；**v4.2 永久关闭**；
 - [x] lock record 包含 runner/aggregator/test-suite/semantic-gate-graph hashes。
