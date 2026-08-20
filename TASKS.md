@@ -274,6 +274,6 @@
 - [x] 预注册新 development seed split 和两阶段 freeze；
 - [x] 预注册未来 paired comparative estimand `D=Eraw-Esaeps`；
 - [x] 运行 retrospective second-order decomposition；发现跨块抵消，尚无稳定单指标；
-- [ ] 在 seeds 25–27 比较 center/solver engineering candidates 并冻结；
+- [x] 在 seeds 25–27 比较并冻结：baseline→rescue center；two-pass scaled-LSQR refinement；
 - [ ] 在 held-out seeds 28–29 验证冻结选择；
 - [ ] 聚合、全仓库验收、提交并代理推送 GitHub。

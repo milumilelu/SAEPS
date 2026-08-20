@@ -172,33 +172,6 @@ def run_v35_cohort(
                             "explicit_objective_identity_tolerance": 1.0e-10,
                         },
                     )
-                    matrix_free = _matrix_free_normal_solvers(
-                        linearization,
-                        linearization.parameter_columns_matrix_free(),
-                        residual,
-                        gamma,
-                        {
-                            "normal_equation_tolerance": solver_spec["tolerance"],
-                            "max_iterations": solver_spec["max_iterations"],
-                            "acceptance_relative_residual": solver_spec[
-                                "parameter_residual_acceptance"
-                            ],
-                        },
-                    )
-                    lsqr = _augmented_lsqr_reference(
-                        linearization,
-                        jacobian_parameter,
-                        residual,
-                        gamma,
-                        {
-                            "lsqr_relative_normal_residual": solver_spec["tolerance"],
-                            "lsqr_curvature_relative_tolerance": solver_spec[
-                                "curvature_relative_acceptance"
-                            ],
-                            "max_iterations": solver_spec["max_iterations"],
-                        },
-                        float(explicit["Fse"][0][0]),
-                    )
                     scaled = scaled_augmented_lsqr_candidates(
                         linearization,
                         jacobian_parameter[:, 0],
@@ -209,25 +182,6 @@ def run_v35_cohort(
                     )
                     reference = float(explicit["Fse"][0][0])
                     candidates = {
-                        "standard_CG": {
-                            "Fse": float(matrix_free["standard_cg"]["Fse"][0][0]),
-                            "residual": float(
-                                matrix_free["standard_cg"]["verified_relative_residuals"][0]
-                            ),
-                            "iterations": int(matrix_free["standard_cg"]["iterations"][0]),
-                        },
-                        "augmented_LSQR": {
-                            "Fse": float(lsqr["Fse"][0][0]),
-                            "residual": float(lsqr["relative_normal_residuals"][0]),
-                            "iterations": int(lsqr["iterations"][0]),
-                        },
-                        "scaled_LSQR": {
-                            "Fse": scaled["scaled_LSQR"]["Fse"],
-                            "residual": scaled["scaled_LSQR"][
-                                "verified_original_relative_normal_residual"
-                            ],
-                            "iterations": int(scaled["scaled_LSQR"]["iterations"]),
-                        },
                         "scaled_LSQR_iterative_refinement": {
                             "Fse": scaled["scaled_LSQR_iterative_refinement"]["Fse"],
                             "residual": scaled["scaled_LSQR_iterative_refinement"][
@@ -240,6 +194,57 @@ def run_v35_cohort(
                             ),
                         },
                     }
+                    if role == "ENGINEERING_SELECTION":
+                        matrix_free = _matrix_free_normal_solvers(
+                            linearization,
+                            linearization.parameter_columns_matrix_free(),
+                            residual,
+                            gamma,
+                            {
+                                "normal_equation_tolerance": solver_spec["tolerance"],
+                                "max_iterations": solver_spec["max_iterations"],
+                                "acceptance_relative_residual": solver_spec[
+                                    "parameter_residual_acceptance"
+                                ],
+                            },
+                        )
+                        lsqr = _augmented_lsqr_reference(
+                            linearization,
+                            jacobian_parameter,
+                            residual,
+                            gamma,
+                            {
+                                "lsqr_relative_normal_residual": solver_spec["tolerance"],
+                                "lsqr_curvature_relative_tolerance": solver_spec[
+                                    "curvature_relative_acceptance"
+                                ],
+                                "max_iterations": solver_spec["max_iterations"],
+                            },
+                            reference,
+                        )
+                        candidates.update(
+                            {
+                                "standard_CG": {
+                                    "Fse": float(matrix_free["standard_cg"]["Fse"][0][0]),
+                                    "residual": float(
+                                        matrix_free["standard_cg"]["verified_relative_residuals"][0]
+                                    ),
+                                    "iterations": int(matrix_free["standard_cg"]["iterations"][0]),
+                                },
+                                "augmented_LSQR": {
+                                    "Fse": float(lsqr["Fse"][0][0]),
+                                    "residual": float(lsqr["relative_normal_residuals"][0]),
+                                    "iterations": int(lsqr["iterations"][0]),
+                                },
+                                "scaled_LSQR": {
+                                    "Fse": scaled["scaled_LSQR"]["Fse"],
+                                    "residual": scaled["scaled_LSQR"][
+                                        "verified_original_relative_normal_residual"
+                                    ],
+                                    "iterations": int(scaled["scaled_LSQR"]["iterations"]),
+                                },
+                            }
+                        )
                     for candidate in candidates.values():
                         candidate["curvature_relative_error"] = _relative(
                             candidate["Fse"], reference
@@ -329,4 +334,3 @@ def run_v35_cohort(
         newline="\n",
     )
     return result
-
