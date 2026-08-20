@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -147,6 +148,34 @@ def validate_v3_6_result(repo_root: str | Path) -> dict[str, Any]:
         "status": "PASS" if terminal and len(records) == 15 else "FAIL",
         "status_counts": recomputed["status_counts"],
     }
+    result_record_path = root / "configs/v3_6/CONFIRMATION_RESULT_RECORD.json"
+    if result_record_path.is_file():
+        result_record = _json(result_record_path)
+        commit = result_record["result_commit"]
+        committed_manifest = subprocess.run(
+            ["git", "show", f"{commit}:outputs/runs/v3_6_scalar_confirmation/manifest.json"],
+            cwd=root,
+            capture_output=True,
+            check=False,
+        )
+        committed_manifest_value = (
+            json.loads(committed_manifest.stdout.decode("utf-8"))
+            if committed_manifest.returncode == 0
+            else None
+        )
+        result_record_pass = (
+            result_record["locked_config_sha256"] == lock_record["locked_config_sha256"]
+            and result_record["raw_records_sha256"] == manifest["raw_records_sha256"]
+            and result_record["scientific_status"] == summary["scientific_status"]
+            and result_record["valid_pairs"] == summary["valid"]
+            and result_record["rerun_permitted"] is False
+            and committed_manifest_value == manifest
+        )
+        checks["permanent_result_record"] = {
+            "status": "PASS" if result_record_pass else "FAIL",
+            "result_commit": commit,
+            "raw_records_sha256": result_record["raw_records_sha256"],
+        }
     status = "PASSED" if all(row["status"] == "PASS" for row in checks.values()) else "FAILED"
     return {
         "schema_version": 1,
@@ -159,4 +188,3 @@ def validate_v3_6_result(repo_root: str | Path) -> dict[str, Any]:
         "checks": checks,
         "raw_records_sha256": manifest["raw_records_sha256"],
     }
-

@@ -312,4 +312,5 @@
 - [x] 生成 confirmation report、machine JSON、failed-seed report 与 raw manifest hash；
 - [x] 只读审计定位 excluded score-RHS 被错误绑定的 implementation failure；
 - [x] 永久关闭 v3.6；禁止重跑、改 raw 或 corrected reaggregation；
+- [x] 记录 immutable result commit、raw manifest hash 与 `CONFIRMATION_RESULT_RECORD.json`；
 - [ ] 创建新 seeds 的 `POST_CONFIRMATION_DEVELOPMENT` postmortem；不启动外部 replication、多参数或 broad robustness。
