@@ -179,3 +179,15 @@ development_evidence: docs/evidence/v3_6_confirmation.json and docs/v4_1_POST_CO
 affected_configs: configs/v4_1/post_confirmation_development.yaml only; v3.6 remains immutable and closed.
 authorizing_protocol: docs/protocol_amendments/AMENDMENT_012_V4_1_EXECUTION_SEMANTIC_REPAIR.md.
 ```
+
+## D-014 — Freeze the v4.1 executable before held-out development
+
+```text
+date: 2026-08-20
+decision_id: D-014
+decision: Freeze v4.1 config, runner, separated numerical references, validator, semantic gate graph and regression test at commit 09a31c6 before seeds 50--54.
+reason: Engineering seeds 45--49 produced 4/5 binding-valid chains; all four center-valid seeds demonstrated the required score-fail/curvature-pass separation and complete core-quantity recording. Seed49 center failure is retained without threshold change.
+development_evidence: docs/evidence/v4_1_engineering_integration_validation.json.
+affected_configs: configs/v4_1/EXECUTABLE_FREEZE.json; confirmation seeds 55--69 remain inactive.
+authorizing_protocol: docs/v4_1_POST_CONFIRMATION_DEVELOPMENT.md sections 4--5 and Amendment 012.
+```
