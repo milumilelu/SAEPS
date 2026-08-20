@@ -1,0 +1,35 @@
+schema_version: 1
+contract_id: SAEPS-POST-CONFIRMATION-DEVELOPMENT-v4.1
+phase: V4_1_POST_CONFIRMATION_DEVELOPMENT
+confirmation_authorized: false
+v3_6_rerun_forbidden: true
+source_v3_6_protocol:
+  path: configs/v3_6/locked_scalar_confirmation.yaml
+  sha256: b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99
+engineering_integration_seeds: [45, 46, 47, 48, 49]
+heldout_development_seeds: [50, 51, 52, 53, 54]
+inactive_future_confirmation_seeds: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+execution_semantics:
+  explicit_curvature_reference_rhs: J_lambda_only
+  score_residual_rhs_role: independent_nonbinding_diagnostic
+  unified_status_reuse_forbidden: true
+  fail_soft_record_all_computable: true
+  binding_nodes:
+    - center_status
+    - parameter_reference_status
+    - curvature_solver_status
+    - exact_reference_status
+    - finite_primary_status
+  nonbinding_nodes: [score_solver_status]
+unchanged_scientific_definitions:
+  center: inherited_byte_identical_values_from_v3_6
+  gamma: inherited_byte_identical_values_from_v3_6
+  curvature_solver: inherited_byte_identical_values_from_v3_6
+  gold_standard: inherited_byte_identical_values_from_v3_6
+  primary_D: inherited_byte_identical_values_from_v3_6
+development_gate:
+  engineering_requires_record_completeness: true
+  heldout_requires_all_5_binding_valid: true
+  heldout_requires_semantic_regression_pass: true
+  scientific_gate: none_development_only
+

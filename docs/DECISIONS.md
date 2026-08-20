@@ -167,3 +167,15 @@ development_evidence: Not development; immutable confirmation evidence in docs/e
 affected_configs: No locked config changed. v3.6 is permanently closed; future work must be a new POST_CONFIRMATION_DEVELOPMENT version with new seeds.
 authorizing_protocol: SAEPS Master Research Program v4.0 Branch B-minus and docs/v3_6/LOCKED_PROTOCOL.md.
 ```
+
+## D-013 — Open v4.1 post-confirmation execution-semantic development
+
+```text
+date: 2026-08-20
+decision_id: D-013
+decision: Repair only execution semantics on development seeds 45--49, freeze executable code/config/tests, then evaluate held-out development seeds 50--54.
+reason: V3.6 failed because an excluded score RHS contaminated a curvature-only gate. Read-only evidence shows the intended curvature-specific reference and solver criteria passed 14/14 center-valid runs, so changing SAEPS, center, gamma, solver, gold standard or D would be unjustified.
+development_evidence: docs/evidence/v3_6_confirmation.json and docs/v4_1_POST_CONFIRMATION_DEVELOPMENT.md.
+affected_configs: configs/v4_1/post_confirmation_development.yaml only; v3.6 remains immutable and closed.
+authorizing_protocol: docs/protocol_amendments/AMENDMENT_012_V4_1_EXECUTION_SEMANTIC_REPAIR.md.
+```

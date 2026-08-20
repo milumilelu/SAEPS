@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "primary_binding_gate": "binding_valid",
+  "binding_nodes": [
+    "center_status",
+    "parameter_reference_status",
+    "curvature_solver_status",
+    "exact_reference_status",
+    "finite_primary_status"
+  ],
+  "nonbinding_nodes": [
+    "score_solver_status"
+  ],
+  "curvature_gate_expression": "parameter_reference_status == PASS and curvature_solver_status == PASS",
+  "binding_valid_expression": "center_status == PASS and CURVATURE_GATE == PASS and exact_reference_status == PASS and finite_primary_status == PASS",
+  "forbidden_dependency": "score_solver_status -> CURVATURE_GATE",
+  "fail_soft": true
+}

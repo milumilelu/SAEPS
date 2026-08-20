@@ -313,4 +313,35 @@
 - [x] 只读审计定位 excluded score-RHS 被错误绑定的 implementation failure；
 - [x] 永久关闭 v3.6；禁止重跑、改 raw 或 corrected reaggregation；
 - [x] 记录 immutable result commit、raw manifest hash 与 `CONFIRMATION_RESULT_RECORD.json`；
-- [ ] 创建新 seeds 的 `POST_CONFIRMATION_DEVELOPMENT` postmortem；不启动外部 replication、多参数或 broad robustness。
+- [x] 创建 `POST_CONFIRMATION_DEVELOPMENT` postmortem（见 `docs/v4_1_POST_CONFIRMATION_DEVELOPMENT.md`）；分类为 `implementation failure / numerical availability failure`（B−1），明确 `comparative hypothesis was not tested`；不启动外部 replication、多参数或 broad robustness。
+
+## V4.1 — POST_CONFIRMATION_DEVELOPMENT (Execution-Semantic Repair)
+
+**状态:** `IN_PROGRESS`
+**隔离:** 全新 seeds；不读取 v3.6 选科学阈值；不重跑 30–44；不生成 "corrected v3.6"
+**触发分支:** v3.6 `NOT_SUPPORTED` → B−1 implementation / numerical-availability failure
+**目标:** 修复 confirmation execution semantics，不改变 SAEPS 科学方法
+**任务书:** `docs/v4_1_POST_CONFIRMATION_DEVELOPMENT.md`
+
+- [x] 永久保护 v3.6（不改 raw / 不重跑 / 不 corrected aggregation）；
+- [x] 新建 `explicit_curvature_reference`：只接受 `J_lambda` RHS，score/residual RHS 为独立非绑定 diagnostic；
+- [x] 禁止复用含混统一 `status`；每 numerical object 独立状态，aggregator 只读 binding nodes；
+- [x] 加入 regression test：param RHS PASS + score RHS FAIL → 断言 `CURVATURE_GATE=PASS`；
+- [x] 改为 fail-soft / record-all-computable：早退 gate 仍保存已算出的 `F_raw`/explicit `F_se`/exact Hessian/solver diagnostics；
+- [x] 不改 center/`gamma`/solver/gold standard/primary `D` 定义；
+- [ ] dev seeds `45–49` engineering integration → 冻结 code+config+tests → held-out `50–54`；
+- [ ] 验证 50–54 在冻结代码下 gate semantics/center/exact gold/solver 全链稳定，方可进入 V4.2。
+
+## V4.2 — Corrected Untouched Confirmation
+
+**状态:** `BLOCKED`（依赖 V4.1 全链稳定）
+**隔离:** 全新 confirmation seeds `55–69`；不复用 30–44；不改科学规则
+**目标:** 修复后 execution semantics 下对 SAEPS-vs-raw 比较假设做干净 untouched 检验
+**任务书:** `docs/v4_2_CORRECTED_CONFIRMATION.md`
+
+- [ ] preflight：lock config/commit/seed=55–69/无已有 run/source hash/tests 全过；保存 `PRE_CONFIRMATION_AUDIT.json`；
+- [ ] 一次性执行 seeds `55–69`，每 seed 单一正式结果；invalid 不补/不重跑/不删；
+- [ ] 自动 adjudication：保留 paired `D`、planned denominator=15、12/15 strict-win、positive median D、单侧 exact sign test 联合主判据；
+- [ ] 生成 `V4_2_CONFIRMATION_REPORT.md` / `v4_2_confirmation.json` / `V4_2_FAILED_SEEDS.md` / `CONFIRMATION_RESULT_RECORD.json`；
+- [ ] 记录 result commit / config hash / raw manifests hash / scientific status；**v4.2 永久关闭**；
+- [ ] lock record 必须含 `runner_commit`/`runner_file_sha256`/`aggregator_file_sha256`/`test_suite_commit`/`semantic_gate_graph_sha256`（protocol+runner-code+semantic integration-test 锁）。
