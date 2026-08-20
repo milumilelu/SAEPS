@@ -300,14 +300,16 @@
 
 **preflight:** `PASSED` — `docs/evidence/PRE_CONFIRMATION_AUDIT.json`
 **execution authorization:** `AUTHORIZED_ONCE` — protocol mutation and rerun remain forbidden
-**confirmation:** `NOT_STARTED`
+**confirmation:** `NOT_SUPPORTED` — permanently closed; implementation/numerical availability failure
 
 - [x] 验证 immutable lock commit、config SHA-256 与三个 source hashes；
 - [x] 验证 planned seeds 精确为 `30--44` 且不存在 prior v3.6 output；
 - [x] 运行 47 tests、v3.6 lock validator 与 repository validator；
 - [x] 保存 clean-commit pre-confirmation audit；
 - [x] 记录独立 execution authorization，不修改 locked config；
-- [ ] 一次性执行全部 15 seeds；
-- [ ] 从 raw records 自动聚合并按冻结规则 adjudicate；
-- [ ] 冻结结果、failed seeds、manifest hash、provenance 与 audit；
-- [ ] 永久关闭 v3.6 并进入预声明结果分支。
+- [x] 一次性执行全部 15 seeds；14 solver failures、1 center invalid、0 valid；
+- [x] 从 raw records 自动聚合并按冻结规则 adjudicate `NOT_SUPPORTED`；
+- [x] 生成 confirmation report、machine JSON、failed-seed report 与 raw manifest hash；
+- [x] 只读审计定位 excluded score-RHS 被错误绑定的 implementation failure；
+- [x] 永久关闭 v3.6；禁止重跑、改 raw 或 corrected reaggregation；
+- [ ] 创建新 seeds 的 `POST_CONFIRMATION_DEVELOPMENT` postmortem；不启动外部 replication、多参数或 broad robustness。

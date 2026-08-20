@@ -321,3 +321,17 @@ affected_runs: eight valid development seeds across retrospective, engineering a
 protocol_impact: The indicator may be frozen for future confirmation reporting, but cannot be described as validated or recalibrated using confirmation results.
 resolution_or_status: OPEN scientific validation requirement. Confirmation remains unauthorized.
 ```
+
+## I-023 — v3.6 curvature-only confirmation was invalidated by an excluded score-RHS gate
+
+```text
+date: 2026-08-20
+issue_id: I-023
+phase: V3.6 one-shot scalar confirmation
+classification: implementation failure
+description: The one-shot runner reused an explicit augmented-reference status defined as the maximum normal residual over both the parameter-curvature RHS and residual/score RHS. V3.6 scope is curvature only. All 14 solver-failed seeds pass the parameter-reference residual, selected two-pass scaled-LSQR residual, objective identity and curvature-agreement thresholds; only the excluded score RHS exceeds the direct 1e-10 threshold. Seed37 independently fails the frozen center.
+evidence: docs/evidence/v3_6_confirmation.json, docs/evidence/V3_6_CONFIRMATION_REPORT.md and outputs/runs/v3_6_scalar_confirmation.
+affected_runs: the sole and permanent v3.6 seeds 30--44 cohort; 14 SOLVER_FAILURE and 1 CHECKPOINT_INVALID, 0 valid pairs.
+protocol_impact: The locked automatic result is NOT_SUPPORTED for insufficient valid pairs. The comparative SAEPS-versus-raw hypothesis and frozen GN indicator were not tested. Raw records lack all primary quantities for the solver-failed seeds, so a corrected v3.6 reaggregation is impossible without forbidden recomputation/rerun.
+resolution_or_status: PERMANENTLY CLOSED. Do not rerun, edit or continue v3.6. Open only a new POST_CONFIRMATION_DEVELOPMENT version on new seeds, separate curvature and score gates, and require an untouched future confirmation cohort for any corrected method.
+```

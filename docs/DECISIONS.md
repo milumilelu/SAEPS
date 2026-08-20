@@ -155,3 +155,15 @@ development_evidence: docs/evidence/PRE_CONFIRMATION_AUDIT.json status PASSED; n
 affected_configs: configs/v3_6/EXECUTION_AUTHORIZATION.json only. configs/v3_6/locked_scalar_confirmation.yaml remains byte-identical to lock commit 4eb28f5.
 authorizing_protocol: SAEPS Master Research Program v4.0 Phase A and docs/v3_6/LOCKED_PROTOCOL.md.
 ```
+
+## D-012 — Permanently close v3.6 as NOT_SUPPORTED with implementation failure
+
+```text
+date: 2026-08-20
+decision_id: D-012
+decision: Preserve the sole v3.6 cohort unchanged, adjudicate NOT_SUPPORTED from 0/15 valid pairs, and permanently prohibit any v3.6 rerun or corrected reaggregation.
+reason: All planned seeds have terminal results, but an implementation defect bound the excluded score RHS into the curvature-only direct-reference gate. Fourteen seeds were therefore marked SOLVER_FAILURE and seed37 was center-invalid. Required comparative quantities were not retained for failed seeds.
+development_evidence: Not development; immutable confirmation evidence in docs/evidence/v3_6_confirmation.json and raw manifest hash 3c7061a963710d28579661ae5792e9e55642119a6777e7d04097d5c16b544aa9.
+affected_configs: No locked config changed. v3.6 is permanently closed; future work must be a new POST_CONFIRMATION_DEVELOPMENT version with new seeds.
+authorizing_protocol: SAEPS Master Research Program v4.0 Branch B-minus and docs/v3_6/LOCKED_PROTOCOL.md.
+```
