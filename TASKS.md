@@ -336,14 +336,14 @@
 
 ## V4.2 — Corrected Untouched Confirmation
 
-**状态:** `NOT_STARTED` — V4.1 prerequisite `PASSED`; confirmation 尚未授权
+**状态:** `AUTHORIZED_ONCE` — preflight `PASSED`; execution not yet started
 **隔离:** 全新 confirmation seeds `55–69`；不复用 30–44；不改科学规则
 **目标:** 修复后 execution semantics 下对 SAEPS-vs-raw 比较假设做干净 untouched 检验
 **任务书:** `docs/v4_2_CORRECTED_CONFIRMATION.md`
 
 - [x] 创建 protocol + executable lock candidate；seeds 固定 `55–69`，科学规则不变；
 - [x] 记录 config/runner/aggregator/tests/semantic graph hashes；
-- [ ] 完成 clean preflight 并记录独立 one-shot authorization；
+- [x] 完成 clean preflight 并记录独立 one-shot authorization；
 - [ ] 一次性执行 seeds `55–69`，每 seed 单一正式结果；invalid 不补/不重跑/不删；
 - [ ] 自动 adjudication：保留 paired `D`、planned denominator=15、12/15 strict-win、positive median D、单侧 exact sign test 联合主判据；
 - [ ] 生成 `V4_2_CONFIRMATION_REPORT.md` / `v4_2_confirmation.json` / `V4_2_FAILED_SEEDS.md` / `CONFIRMATION_RESULT_RECORD.json`；

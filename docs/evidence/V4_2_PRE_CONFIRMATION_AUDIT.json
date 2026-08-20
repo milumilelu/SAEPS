@@ -1,0 +1,156 @@
+{
+  "checks": {
+    "absence_of_prior_run": {
+      "paths": [],
+      "status": "PASS"
+    },
+    "clean_source": {
+      "git_branch": "main",
+      "git_commit": "050a728496918427dcb87583e9c011973668a0b3",
+      "git_dirty": false,
+      "git_status_porcelain": "",
+      "status": "PASS"
+    },
+    "executable_hashes": {
+      "files": [
+        {
+          "actual": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+          "expected": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+          "path": "configs/v4_2/locked_corrected_confirmation.yaml"
+        },
+        {
+          "actual": "6675f7adea71ee513edb5b1217a0169793ef8e543a978ec7154f024f5b9956d5",
+          "expected": "6675f7adea71ee513edb5b1217a0169793ef8e543a978ec7154f024f5b9956d5",
+          "path": "src/saeps/v42/pipeline.py"
+        },
+        {
+          "actual": "bdfebdb07dc89cc7b0ea414d838dd7a3400ca65da3565c9f9493744434179019",
+          "expected": "bdfebdb07dc89cc7b0ea414d838dd7a3400ca65da3565c9f9493744434179019",
+          "path": "src/saeps/v42/aggregation.py"
+        },
+        {
+          "actual": "36b6428ad1a613eebcd9d3537273cee972bab0590a88763431ca59e5074f627b",
+          "expected": "36b6428ad1a613eebcd9d3537273cee972bab0590a88763431ca59e5074f627b",
+          "path": "src/saeps/v42/preflight.py"
+        },
+        {
+          "actual": "fc78e63c00e961cde01eb54a3ca25ad86313a350d257d5b79a7b0e7337a620bf",
+          "expected": "fc78e63c00e961cde01eb54a3ca25ad86313a350d257d5b79a7b0e7337a620bf",
+          "path": "src/saeps/v41/pipeline.py"
+        },
+        {
+          "actual": "936dfa80c660abd7a10fb24cd5f2d346d92b3d7a591686a91186235e5af8703e",
+          "expected": "936dfa80c660abd7a10fb24cd5f2d346d92b3d7a591686a91186235e5af8703e",
+          "path": "src/saeps/v41/numerics.py"
+        },
+        {
+          "actual": "6e4773f519ab256671ebf74d07d60c9bc261a253765a7fdcd4e0f32d09e4915f",
+          "expected": "6e4773f519ab256671ebf74d07d60c9bc261a253765a7fdcd4e0f32d09e4915f",
+          "path": "tests/test_v41_gate_semantics.py"
+        },
+        {
+          "actual": "856c61f0f36893ef8acec5791381bed25a3e7d782ab9f5e5dc9108edb33f56fe",
+          "expected": "856c61f0f36893ef8acec5791381bed25a3e7d782ab9f5e5dc9108edb33f56fe",
+          "path": "tests/test_v42_aggregation.py"
+        },
+        {
+          "actual": "c914eceb17b0dc7a12225aa78e341cdc3593c07e8e6aaf451d34b84e2e374500",
+          "expected": "c914eceb17b0dc7a12225aa78e341cdc3593c07e8e6aaf451d34b84e2e374500",
+          "path": "docs/v4_1/SEMANTIC_GATE_GRAPH.json"
+        }
+      ],
+      "status": "PASS"
+    },
+    "locked_config": {
+      "lock_commit": "4d1d3277124da2eae5a03e000c9f29a23e3da626",
+      "sha256": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+      "status": "PASS"
+    },
+    "planned_seeds": {
+      "seeds": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "status": "PASS"
+    },
+    "source_hashes": {
+      "sources": [
+        {
+          "actual": "b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99",
+          "expected": "b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99",
+          "path": "configs/v3_6/locked_scalar_confirmation.yaml"
+        },
+        {
+          "actual": "cd4065a2f82bc81f0243b119640a9330f77fdca3e9f95bd59ae5683cdd613ef7",
+          "expected": "cd4065a2f82bc81f0243b119640a9330f77fdca3e9f95bd59ae5683cdd613ef7",
+          "path": "configs/v4_1/EXECUTABLE_FREEZE.json"
+        },
+        {
+          "actual": "ff35c660aa57322b0605287fac6292169efcb5372db06e28b461ced5390505c4",
+          "expected": "ff35c660aa57322b0605287fac6292169efcb5372db06e28b461ced5390505c4",
+          "path": "docs/evidence/v4_1_heldout_development_validation.json"
+        }
+      ],
+      "status": "PASS"
+    },
+    "static_commands": {
+      "commands": {
+        "pytest": {
+          "command": [
+            "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stderr_tail": "",
+          "stdout_tail": "..................................................                       [100%]\n============================== warnings summary ===============================\ntests/test_p1_core.py: 18 warnings\n  C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Lib\\site-packages\\torch\\jit\\_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n50 passed, 18 warnings in 4.32s\n"
+        },
+        "v3_6_result_validator": {
+          "command": [
+            "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+            "scripts/30_validate_v3_6_confirmation.py"
+          ],
+          "exit_code": 0,
+          "stderr_tail": "",
+          "stdout_tail": "ive_normal_residual\": 1.2963277508882231e-09,\n          \"seed\": 42,\n          \"selected_curvature_solver_pass\": true,\n          \"selected_relative_normal_residual\": 3.814028529216202e-15,\n          \"selected_vs_explicit_relative_error\": 1.997335586121592e-15\n        },\n        {\n          \"parameter_reference_pass\": true,\n          \"parameter_rhs_relative_normal_residual\": 8.303699398850621e-14,\n          \"score_rhs_failed_1e-10\": true,\n          \"score_rhs_relative_normal_residual\": 4.966419021108637e-10,\n          \"seed\": 43,\n          \"selected_curvature_solver_pass\": true,\n          \"selected_relative_normal_residual\": 4.90031817394636e-14,\n          \"selected_vs_explicit_relative_error\": 7.249861620879156e-15\n        },\n        {\n          \"parameter_reference_pass\": true,\n          \"parameter_rhs_relative_normal_residual\": 3.9968641009920536e-14,\n          \"score_rhs_failed_1e-10\": true,\n          \"score_rhs_relative_normal_residual\": 5.057010495123305e-10,\n          \"seed\": 44,\n          \"selected_curvature_solver_pass\": true,\n          \"selected_relative_normal_residual\": 3.592175365022173e-15,\n          \"selected_vs_explicit_relative_error\": 3.8698398571479024e-15\n        }\n      ],\n      \"status\": \"PASS\"\n    },\n    \"locked_lineage\": {\n      \"config_sha256\": \"b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99\",\n      \"execution_commit\": \"9bd462ad8754c28db5fb84ee0a432ee26f359b47\",\n      \"lock_commit\": \"4eb28f54bda7133efb317211ecd3833afd8d510b\",\n      \"status\": \"PASS\"\n    },\n    \"permanent_result_record\": {\n      \"raw_records_sha256\": \"3c7061a963710d28579661ae5792e9e55642119a6777e7d04097d5c16b544aa9\",\n      \"result_commit\": \"911fb02eba65d77357ec8d145f7943403d8f1f98\",\n      \"status\": \"PASS\"\n    },\n    \"planned_completeness\": {\n      \"planned\": 15,\n      \"seeds\": [\n        30,\n        31,\n        32,\n        33,\n        34,\n        35,\n        36,\n        37,\n        38,\n        39,\n        40,\n        41,\n        42,\n        43,\n        44\n      ],\n      \"status\": \"PASS\"\n    },\n    \"raw_manifest_hashes\": {\n      \"raw_records_sha256\": \"3c7061a963710d28579661ae5792e9e55642119a6777e7d04097d5c16b544aa9\",\n      \"status\": \"PASS\"\n    },\n    \"raw_to_aggregate\": {\n      \"invalid\": 15,\n      \"scientific_status\": \"NOT_SUPPORTED\",\n      \"status\": \"PASS\",\n      \"valid\": 0\n    },\n    \"terminal_statuses\": {\n      \"status\": \"PASS\",\n      \"status_counts\": {\n        \"CHECKPOINT_INVALID\": 1,\n        \"NUMERICAL_FAILURE\": 0,\n        \"PASS\": 0,\n        \"PROFILE_FAILURE\": 0,\n        \"SOLVER_FAILURE\": 14\n      }\n    }\n  },\n  \"confirmation_execution_status\": \"PERMANENTLY_CLOSED_IMPLEMENTATION_FAILURE\",\n  \"phase\": \"V3_6_CONFIRMATION_RESULT_AUDIT\",\n  \"raw_records_sha256\": \"3c7061a963710d28579661ae5792e9e55642119a6777e7d04097d5c16b544aa9\",\n  \"rerun_permitted\": false,\n  \"schema_version\": 1,\n  \"scientific_interpretation\": \"NOT_SUPPORTED due zero valid pairs; comparative hypothesis not tested\",\n  \"scientific_status\": \"NOT_SUPPORTED\",\n  \"status\": \"PASSED\"\n}\n"
+        },
+        "v4_1_heldout_validator": {
+          "command": [
+            "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+            "scripts/32_validate_v4_1_cohort.py",
+            "--role",
+            "HELDOUT_DEVELOPMENT"
+          ],
+          "exit_code": 0,
+          "stderr_tail": "",
+          "stdout_tail": "{\n  \"binding_valid_count\": 5,\n  \"checks\": {\n    \"fail_soft_record_completeness\": {\n      \"all_core_quantities_count\": 5,\n      \"center_valid_denominator\": 5,\n      \"status\": \"PASS\"\n    },\n    \"heldout_full_chain\": {\n      \"binding_valid_count\": 5,\n      \"required\": 5,\n      \"status\": \"PASS\"\n    },\n    \"manifest_and_completeness\": {\n      \"seeds\": [\n        50,\n        51,\n        52,\n        53,\n        54\n      ],\n      \"status\": \"PASS\"\n    },\n    \"score_is_nonbinding\": {\n      \"score_failed_but_binding_valid_count\": 5,\n      \"status\": \"PASS\"\n    },\n    \"summary_and_provenance\": {\n      \"binding_valid_count\": 5,\n      \"scientific_gate\": \"NONE_DEVELOPMENT_ONLY\",\n      \"status\": \"PASS\"\n    }\n  },\n  \"confirmation_55_69_authorized\": false,\n  \"heldout_full_chain_gate\": \"PASS\",\n  \"phase\": \"V4_1_POST_CONFIRMATION_DEVELOPMENT\",\n  \"role\": \"HELDOUT_DEVELOPMENT\",\n  \"schema_version\": 1,\n  \"status\": \"PASSED\"\n}\n"
+        }
+      },
+      "status": "PASS"
+    },
+    "v3_6_permanent_protection": {
+      "raw_records_sha256": "3c7061a963710d28579661ae5792e9e55642119a6777e7d04097d5c16b544aa9",
+      "scientific_status": "NOT_SUPPORTED",
+      "status": "PASS"
+    }
+  },
+  "execution_started": false,
+  "phase": "V4_2_PRE_CONFIRMATION_AUDIT",
+  "prior_runs": 0,
+  "schema_version": 1,
+  "status": "PASSED"
+}

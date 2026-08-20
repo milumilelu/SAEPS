@@ -215,3 +215,15 @@ development_evidence: docs/evidence/V4_1_ACCEPTANCE.md and docs/evidence/v4_1_he
 affected_configs: configs/v4_2/locked_corrected_confirmation.yaml; v3.6 and v4.1 remain unchanged.
 authorizing_protocol: docs/v4_2_CORRECTED_CONFIRMATION.md and Amendment 013. Execution still requires clean preflight and a separate authorization record.
 ```
+
+## D-017 — Authorize one-shot v4.2 execution after full preflight
+
+```text
+date: 2026-08-20
+decision_id: D-017
+decision: Authorize exactly one execution of untouched seeds 55--69 under the immutable v4.2 protocol and executable lock.
+reason: V4.1 held-out full-chain gate passed 5/5 and the v4.2 preflight passed config, executable, source, seed, zero-prior-run, test and v3.6-protection checks.
+development_evidence: docs/evidence/V4_2_PRE_CONFIRMATION_AUDIT.json and docs/evidence/V4_1_ACCEPTANCE.md.
+affected_configs: configs/v4_2/EXECUTION_AUTHORIZATION.json only; locked config and executable bytes remain unchanged.
+authorizing_protocol: user v4.1 task and docs/v4_2_CORRECTED_CONFIRMATION.md sections 3--4.
+```
