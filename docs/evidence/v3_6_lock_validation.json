@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "frozen_lineage": {
+      "detail": "all three source hashes and v3.5 frozen engineering choices match",
+      "status": "PASS"
+    },
+    "immutable_lock_record": {
+      "detail": "current bytes equal the separately recorded first lock commit",
+      "status": "PASS"
+    },
+    "no_confirmation_execution": {
+      "detail": "no v3.6 confirmation output directory exists",
+      "status": "PASS"
+    },
+    "numerical_chain": {
+      "detail": "center, two-pass scaled-LSQR, gamma and exact finite-gamma gold are frozen",
+      "status": "PASS"
+    },
+    "primary_estimand_and_test": {
+      "detail": "paired D, 12/15 planned wins, positive median and exact one-sided sign test frozen",
+      "status": "PASS"
+    },
+    "protocol_and_scope": {
+      "detail": "locked, unauthorized, curvature-only protocol with exact seeds 30--44",
+      "status": "PASS"
+    },
+    "secondary_and_indicator": {
+      "detail": "absolute SAEPS error and fixed 5% GN-indicator classification are secondary",
+      "status": "PASS"
+    }
+  },
+  "confirmation_runs_executed": 0,
+  "execution_authorized": false,
+  "lock_commit": "4eb28f54bda7133efb317211ecd3833afd8d510b",
+  "locked_config_sha256": "b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99",
+  "phase": "V3_6_SCALAR_CONFIRMATION_LOCK",
+  "planned_seeds": [
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44
+  ],
+  "protocol_locked": true,
+  "schema_version": 1,
+  "status": "PASSED"
+}

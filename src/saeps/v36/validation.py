@@ -156,11 +156,12 @@ def validate_v3_6_lock(repo_root: str | Path) -> dict[str, Any]:
     _check(checks, "immutable_lock_record", lock_record)
 
     def no_execution() -> str:
-        forbidden = [
-            root / "outputs/runs/v3_6_scalar_confirmation",
-            root / "outputs/runs/v3_6_confirmation",
+        run_root = root / "outputs/runs"
+        existing = [
+            str(path.relative_to(root))
+            for path in run_root.glob("v3_6*")
+            if path.exists()
         ]
-        existing = [str(path.relative_to(root)) for path in forbidden if path.exists()]
         if existing:
             raise AssertionError(f"v3.6 run output exists during lock-only phase: {existing}")
         return "no v3.6 confirmation output directory exists"
