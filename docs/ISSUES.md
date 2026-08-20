@@ -335,3 +335,17 @@ affected_runs: the sole and permanent v3.6 seeds 30--44 cohort; 14 SOLVER_FAILUR
 protocol_impact: The locked automatic result is NOT_SUPPORTED for insufficient valid pairs. The comparative SAEPS-versus-raw hypothesis and frozen GN indicator were not tested. Raw records lack all primary quantities for the solver-failed seeds, so a corrected v3.6 reaggregation is impossible without forbidden recomputation/rerun.
 resolution_or_status: PERMANENTLY CLOSED. Do not rerun, edit or continue v3.6. Open only a new POST_CONFIRMATION_DEVELOPMENT version on new seeds, separate curvature and score gates, and require an untouched future confirmation cohort for any corrected method.
 ```
+
+## I-024 — v4.2 post-seed aggregation required a non-scientific schema adapter
+
+```text
+date: 2026-08-20
+issue_id: I-024
+phase: V4.2 corrected untouched confirmation
+classification: implementation failure
+description: All 15 one-shot seed records were written, but the frozen aggregator expected a reporting-only failure_stage key absent from the v4.1 independent-status raw schema. Aggregation therefore stopped after seed69. Raw records contained every primary quantity for valid seeds and complete independent statuses for invalid seeds.
+evidence: outputs/runs/v4_2_corrected_confirmation, docs/evidence/v4_2_confirmation.json and scripts/36_finalize_interrupted_v4_2_from_raw.py.
+affected_runs: no seed computation; aggregation only. Seeds 55--69 were not rerun.
+protocol_impact: A fail-closed recovery derived failure_stage only in memory from frozen independent statuses and invoked the byte-locked aggregator. No raw record, primary value, threshold, seed or scientific formula changed. Independent raw-to-aggregate reproduction passes and yields SUPPORTED under all four locked conditions.
+resolution_or_status: RESOLVED WITH RECORDED DEVIATION. V4.2 remains one-shot and permanently closed. Future runners must integration-test raw schema against the aggregator before lock.
+```

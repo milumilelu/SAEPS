@@ -227,3 +227,15 @@ development_evidence: docs/evidence/V4_2_PRE_CONFIRMATION_AUDIT.json and docs/ev
 affected_configs: configs/v4_2/EXECUTION_AUTHORIZATION.json only; locked config and executable bytes remain unchanged.
 authorizing_protocol: user v4.1 task and docs/v4_2_CORRECTED_CONFIRMATION.md sections 3--4.
 ```
+
+## D-018 — Permanently close v4.2 as SUPPORTED
+
+```text
+date: 2026-08-20
+decision_id: D-018
+decision: Adjudicate v4.2 SUPPORTED and permanently close seeds 55--69 with no rerun or result mutation.
+reason: Twelve of fifteen planned seeds are valid strict wins, median D is positive, and the exact one-sided sign-test p-value is 0.000244140625. All four locked primary conditions pass. Three center-invalid seeds remain planned non-wins.
+development_evidence: Not development; untouched confirmation evidence in docs/evidence/v4_2_confirmation.json and outputs/runs/v4_2_corrected_confirmation.
+affected_configs: No locked config or executable changed. A reporting-only schema adapter is disclosed in I-024; independent raw-to-aggregate validation passes.
+authorizing_protocol: docs/v4_2_CORRECTED_CONFIRMATION.md and Amendment 013.
+```

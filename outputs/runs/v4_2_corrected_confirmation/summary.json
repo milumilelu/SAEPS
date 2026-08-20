@@ -1,0 +1,291 @@
+{
+  "aggregation_recovery": {
+    "aggregator_file_sha256": "bdfebdb07dc89cc7b0ea414d838dd7a3400ca65da3565c9f9493744434179019",
+    "raw_record_count": 15,
+    "reason": "runner aggregation failed after seed_69 because frozen aggregator expected a non-scientific failure_stage field absent from the fail-soft raw schema",
+    "recovery_environment": {
+      "device": "cpu",
+      "dtype": "float64",
+      "git_branch": "main",
+      "git_commit": "6a876235dc0e6564f501d47cd426b794038765a3",
+      "git_dirty": true,
+      "git_status_porcelain": "?? outputs/runs/v4_2_corrected_confirmation/\n?? scripts/36_finalize_interrupted_v4_2_from_raw.py",
+      "machine": "AMD64",
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "2.3.5",
+        "torch": "2.13.0"
+      },
+      "platform": "Windows-11-10.0.26100-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+      "python_version": "3.12.13",
+      "timestamp": "2026-08-20T07:51:43.159654+00:00",
+      "torch_cuda_available": false
+    },
+    "schema_adapter": "failure_stage derived in memory from independent node statuses; no raw or primary value changed",
+    "seed_computation_repeated": false
+  },
+  "config_sha256": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+  "exact_one_sided_sign_p": 0.000244140625,
+  "execution_claim": {
+    "execution_commit": "6a876235dc0e6564f501d47cd426b794038765a3",
+    "locked_config_sha256": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+    "planned_seeds": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69
+    ],
+    "rerun_forbidden": true,
+    "runner_commit": "4d1d3277124da2eae5a03e000c9f29a23e3da626",
+    "schema_version": 1,
+    "state": "V4_2_EXECUTION_CLAIMED_ONE_SHOT",
+    "timestamp": "2026-08-20T06:53:36.798861+00:00"
+  },
+  "execution_provenance": {
+    "git_commit": "6a876235dc0e6564f501d47cd426b794038765a3",
+    "git_dirty": false,
+    "source": "execution_claim_and_clean_preflight",
+    "timestamp": "2026-08-20T06:53:36.798861+00:00"
+  },
+  "gn_indicator": {
+    "accuracy": 0.75,
+    "confusion_matrix": {
+      "false_negative": 1,
+      "false_positive": 2,
+      "true_negative": 7,
+      "true_positive": 2
+    },
+    "median_absolute_calibration_error": 0.024829885433312708,
+    "spearman_with_E_SAEPS": 0.6223776223776224,
+    "threshold": 0.05,
+    "values": [
+      0.06384744422573439,
+      0.1370548267187766,
+      0.0036444572321466108,
+      0.037416630185954446,
+      0.11664751050420634,
+      0.04779986114703036,
+      0.12665493416375148,
+      0.07418383117800183,
+      0.057067832601948885,
+      0.12953770015722407,
+      0.16027804946745663,
+      0.03368448848952654
+    ]
+  },
+  "invalid": 3,
+  "lock_commit": "4d1d3277124da2eae5a03e000c9f29a23e3da626",
+  "median_D": 27.636319042759617,
+  "per_seed": [
+    {
+      "D": 22.125505298045184,
+      "E_SAEPS": 0.07896165264683183,
+      "E_raw": 22.204466950692016,
+      "I_GN": 0.06384744422573439,
+      "failure_stage": null,
+      "seed": 55,
+      "status": "PASS"
+    },
+    {
+      "D": 19.89558958727207,
+      "E_SAEPS": 0.09228635641137681,
+      "E_raw": 19.98787594368345,
+      "I_GN": 0.1370548267187766,
+      "failure_stage": null,
+      "seed": 56,
+      "status": "PASS"
+    },
+    {
+      "D": null,
+      "E_SAEPS": null,
+      "E_raw": null,
+      "I_GN": null,
+      "failure_stage": "center",
+      "seed": 57,
+      "status": "CHECKPOINT_INVALID"
+    },
+    {
+      "D": 28.78022726198675,
+      "E_SAEPS": 0.014205395885719103,
+      "E_raw": 28.794432657872466,
+      "I_GN": 0.0036444572321466108,
+      "failure_stage": null,
+      "seed": 58,
+      "status": "PASS"
+    },
+    {
+      "D": 25.577120708232986,
+      "E_SAEPS": 0.021715011023100337,
+      "E_raw": 25.598835719256087,
+      "I_GN": 0.037416630185954446,
+      "failure_stage": null,
+      "seed": 59,
+      "status": "PASS"
+    },
+    {
+      "D": 27.316963211244364,
+      "E_SAEPS": 0.09673677812004086,
+      "E_raw": 27.413699989364403,
+      "I_GN": 0.11664751050420634,
+      "failure_stage": null,
+      "seed": 60,
+      "status": "PASS"
+    },
+    {
+      "D": null,
+      "E_SAEPS": null,
+      "E_raw": null,
+      "I_GN": null,
+      "failure_stage": "center",
+      "seed": 61,
+      "status": "CHECKPOINT_INVALID"
+    },
+    {
+      "D": 30.375316707436234,
+      "E_SAEPS": 0.0711029192867545,
+      "E_raw": 30.44641962672299,
+      "I_GN": 0.04779986114703036,
+      "failure_stage": null,
+      "seed": 62,
+      "status": "PASS"
+    },
+    {
+      "D": null,
+      "E_SAEPS": null,
+      "E_raw": null,
+      "I_GN": null,
+      "failure_stage": "center",
+      "seed": 63,
+      "status": "CHECKPOINT_INVALID"
+    },
+    {
+      "D": 23.58527969883542,
+      "E_SAEPS": 0.06994578374279685,
+      "E_raw": 23.655225482578217,
+      "I_GN": 0.12665493416375148,
+      "failure_stage": null,
+      "seed": 64,
+      "status": "PASS"
+    },
+    {
+      "D": 30.18303290969161,
+      "E_SAEPS": 0.1005405439049031,
+      "E_raw": 30.283573453596514,
+      "I_GN": 0.07418383117800183,
+      "failure_stage": null,
+      "seed": 65,
+      "status": "PASS"
+    },
+    {
+      "D": 27.955674874274873,
+      "E_SAEPS": 0.08431587634006277,
+      "E_raw": 28.039990750614937,
+      "I_GN": 0.057067832601948885,
+      "failure_stage": null,
+      "seed": 66,
+      "status": "PASS"
+    },
+    {
+      "D": 38.63089578113575,
+      "E_SAEPS": 0.04202628007674943,
+      "E_raw": 38.672922061212496,
+      "I_GN": 0.12953770015722407,
+      "failure_stage": null,
+      "seed": 67,
+      "status": "PASS"
+    },
+    {
+      "D": 29.604063267466135,
+      "E_SAEPS": 0.20705105793242895,
+      "E_raw": 29.811114325398563,
+      "I_GN": 0.16027804946745663,
+      "failure_stage": null,
+      "seed": 68,
+      "status": "PASS"
+    },
+    {
+      "D": 25.22413207607626,
+      "E_SAEPS": 0.055107913353732524,
+      "E_raw": 25.279239989429993,
+      "I_GN": 0.03368448848952654,
+      "failure_stage": null,
+      "seed": 69,
+      "status": "PASS"
+    }
+  ],
+  "phase": "V4_2_CORRECTED_UNTOUCHED_CONFIRMATION",
+  "planned": 15,
+  "primary_conditions": {
+    "exact_sign_test": true,
+    "minimum_valid_pairs": true,
+    "planned_seed_wins": true,
+    "positive_median_D": true
+  },
+  "schema_version": 1,
+  "scientific_status": "SUPPORTED",
+  "secondary": {
+    "E_SAEPS_IQR": 0.04156145680405607,
+    "E_SAEPS_all_valid": [
+      0.07896165264683183,
+      0.09228635641137681,
+      0.014205395885719103,
+      0.021715011023100337,
+      0.09673677812004086,
+      0.0711029192867545,
+      0.06994578374279685,
+      0.1005405439049031,
+      0.08431587634006277,
+      0.04202628007674943,
+      0.20705105793242895,
+      0.055107913353732524
+    ],
+    "E_SAEPS_median": 0.07503228596679316,
+    "E_SAEPS_q25": 0.05183750503448675,
+    "E_SAEPS_q75": 0.09339896183854282,
+    "E_SAEPS_range": [
+      0.014205395885719103,
+      0.20705105793242895
+    ],
+    "E_SAEPS_within_5_percent_count": 3,
+    "E_raw_all_valid": [
+      22.204466950692016,
+      19.98787594368345,
+      28.794432657872466,
+      25.598835719256087,
+      27.413699989364403,
+      30.44641962672299,
+      23.655225482578217,
+      30.283573453596514,
+      28.039990750614937,
+      38.672922061212496,
+      29.811114325398563,
+      25.279239989429993
+    ]
+  },
+  "sign_test_non_tied_denominator": 12,
+  "status_counts": {
+    "CHECKPOINT_INVALID": 3,
+    "NUMERICAL_FAILURE": 0,
+    "PASS": 12,
+    "PROFILE_FAILURE": 0,
+    "SOLVER_FAILURE": 0
+  },
+  "strict_losses": 0,
+  "strict_wins_out_of_planned_15": 12,
+  "ties": 0,
+  "v3_6_result_modified": false,
+  "valid": 12
+}
