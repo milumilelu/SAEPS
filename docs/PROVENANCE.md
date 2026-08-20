@@ -70,3 +70,19 @@ Run-level provenance schema is defined by the execution contract. Experimental p
 - Engineering validation: `PASSED`; evaluation full readiness: `0/4`
 - Development generalization: `NOT_ESTABLISHED`; confirmation unauthorized
 - Evidence: `docs/evidence/V3_4_ACCEPTANCE.md`
+
+## V3.5 Second-Order Diagnostic and Engineering
+
+- Contract: `docs/v3_5/EXECUTION_CONTRACT.md`
+- Implementation commit: `8ce1d38cf788b477c5d9d6c7f2f27b3b8cd26609`
+- Config hash: `a39f7b922e3769fab21b3e923428c6adec2514ab33402e5a8e165e0ee0bb93fd`
+- Retrospective decomposition: seeds 20,22,23,24
+- Engineering selection: seeds 25–27
+- Engineering freeze commit: `1616d07732be62d70f2e75b54039926147de01ec`
+- Held-out development: seeds 28–29
+- Selected center: baseline then extended exact-trust rescue
+- Selected solver: two-pass scaled-LSQR iterative refinement
+- Engineering: center 4/5; selected solver 4/4 valid centers
+- Comparative D positive 8/8 valid development seeds
+- Confirmation 30–44 remains unseen and unauthorized
+- Evidence: `docs/evidence/V3_5_ACCEPTANCE.md`

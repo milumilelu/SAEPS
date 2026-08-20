@@ -293,3 +293,31 @@ affected_runs: accepted clean-provenance v3.4 seeds 20–24; dirty first attempt
 protocol_impact: Development generalization is NOT_ESTABLISHED. Confirmation seeds 30–44 remain forbidden. Seed20 cannot be presented as representative cross-seed evidence.
 resolution_or_status: OPEN scientific result. Do not relax 5% gates, increase solver iterations, select favorable scales, or rerun seeds. Any next investigation requires a new development amendment and must retain this negative denominator.
 ```
+
+## I-021 — v3.5 engineering improves but does not eliminate center/solver limitations
+
+```text
+date: 2026-08-20
+issue_id: I-021
+phase: V3.5 second-order engineering development
+classification: numerical failure
+description: The baseline center passes 2/5 new seeds and the frozen rescue raises validity to 4/5, leaving seed27 invalid. Two-pass scaled-LSQR refinement passes 4/4 valid centers but costs 1500 iterations plus 65 exact-development setup JVPs per seed.
+evidence: docs/evidence/V3_5_ENGINEERING_SELECTION.md and docs/evidence/V3_5_ACCEPTANCE.md.
+affected_runs: engineering seeds 25–27 and held-out development seeds 28–29.
+protocol_impact: Engineering generalization is improved and held-out 2/2, but neither perfect center robustness nor practical large-network scalability is established.
+resolution_or_status: OPEN limitation. Do not relax center/solver thresholds. Any future confirmation lock must retain invalid planned seeds and report setup/iteration cost.
+```
+
+## I-022 — v3.5 first-order trust indicator is promising but development-selected
+
+```text
+date: 2026-08-20
+issue_id: I-022
+phase: V3.5 second-order diagnostic development
+classification: scientific limitation
+description: Among six preregistered candidates, the first-order reduced-correction ratio has Spearman 0.8095, 8/8 same-5% classification and median calibration error 0.0345 across valid development seeds. Individual block norm ratios perform poorly because signed Shapley contributions cancel.
+evidence: docs/evidence/v3_5_validation.json.
+affected_runs: eight valid development seeds across retrospective, engineering and held-out roles.
+protocol_impact: The indicator may be frozen for future confirmation reporting, but cannot be described as validated or recalibrated using confirmation results.
+resolution_or_status: OPEN scientific validation requirement. Confirmation remains unauthorized.
+```

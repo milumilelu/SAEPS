@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "cohort_lineage": {
+      "detail": "three clean cohort manifests and provenance commits verified",
+      "status": "PASS"
+    },
+    "engineering_generalization": {
+      "detail": "center rescue gives 4/5 new-seed validity; selected solver passes 4/4 valid centers",
+      "status": "PASS"
+    },
+    "indicator_and_comparative_aggregation": {
+      "detail": "all indicators aggregated descriptively; paired D is positive on 8/8 valid development seeds",
+      "status": "PASS"
+    },
+    "protocol_isolation": {
+      "detail": "all development roles and unseen confirmation reservation verified",
+      "status": "PASS"
+    },
+    "second_order_decomposition": {
+      "detail": "8 valid seeds reproduce exact-minus-GN with registered Shapley tolerance",
+      "status": "PASS"
+    },
+    "two_stage_freeze": {
+      "detail": "held-out run descends from freeze and evaluates only selected solver",
+      "status": "PASS"
+    }
+  },
+  "comparative_estimand_aggregate": {
+    "D_positive_count": 8,
+    "confirmation_claim": false,
+    "median_D": 28.380100804528468,
+    "minimum_D": 21.396443952688536,
+    "valid_seed_count": 8
+  },
+  "confirmation_authorized": false,
+  "engineering_aggregate": {
+    "baseline_center_pass_count": 2,
+    "heldout_center_pass_count": 2,
+    "heldout_solver_pass_count": 2,
+    "new_development_seed_count": 5,
+    "rescue_additional_pass_count": 2,
+    "selected_center_fail_count": 1,
+    "selected_center_pass_count": 4,
+    "selected_solver_pass_count": 4,
+    "selected_solver_valid_center_denominator": 4
+  },
+  "indicator_summary": {
+    "S_lambda_lambda_scalar_ratio": {
+      "denominator": 8,
+      "median_absolute_calibration_error": 0.09889662851364989,
+      "same_5_percent_classification_count": 2,
+      "spearman_with_GN_error": 0.6666666666666666
+    },
+    "S_theta_lambda_frobenius_ratio": {
+      "denominator": 8,
+      "median_absolute_calibration_error": 0.10030734405487929,
+      "same_5_percent_classification_count": 2,
+      "spearman_with_GN_error": 0.5476190476190477
+    },
+    "S_theta_theta_spectral_ratio": {
+      "denominator": 8,
+      "median_absolute_calibration_error": 0.09852472510179296,
+      "same_5_percent_classification_count": 2,
+      "spearman_with_GN_error": 0.42857142857142855
+    },
+    "absolute_shapley_sum_relative_to_GN": {
+      "denominator": 8,
+      "median_absolute_calibration_error": 0.17518042505518028,
+      "same_5_percent_classification_count": 6,
+      "spearman_with_GN_error": 0.5476190476190477
+    },
+    "first_order_correction_relative_to_GN": {
+      "denominator": 8,
+      "median_absolute_calibration_error": 0.034506422414484136,
+      "same_5_percent_classification_count": 8,
+      "spearman_with_GN_error": 0.8095238095238095
+    },
+    "maximum_block_ratio": {
+      "denominator": 8,
+      "median_absolute_calibration_error": 0.09844629268985364,
+      "same_5_percent_classification_count": 2,
+      "spearman_with_GN_error": 0.6666666666666666
+    }
+  },
+  "phase": "V3_5_SECOND_ORDER_ENGINEERING_DEVELOPMENT",
+  "schema_version": 1,
+  "status": "PASSED"
+}

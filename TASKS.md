@@ -267,7 +267,7 @@
 
 ## V3.5 Second-Order Diagnostic and Engineering — Development Only
 
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — engineering; future confirmation lock candidate only
 **隔离:** retrospective 20/22/23/24；engineering 25–27；held-out development 28–29；confirmation 30–44 禁止。
 
 - [x] 预注册 residual-Hessian 三块、Shapley decomposition 与 indicator candidates；
@@ -275,5 +275,7 @@
 - [x] 预注册未来 paired comparative estimand `D=Eraw-Esaeps`；
 - [x] 运行 retrospective second-order decomposition；发现跨块抵消，尚无稳定单指标；
 - [x] 在 seeds 25–27 比较并冻结：baseline→rescue center；two-pass scaled-LSQR refinement；
-- [ ] 在 held-out seeds 28–29 验证冻结选择；
-- [ ] 聚合、全仓库验收、提交并代理推送 GitHub。
+- [x] 在 held-out seeds 28–29 验证冻结选择；center 2/2，selected solver 2/2；
+- [x] 聚合 v3.5 evidence；first-order indicator promising，paired D positive 8/8；
+- [x] 全仓库验收：42 tests 与 v2–v3.5 validators 全部通过；
+- [ ] 提交并代理推送 GitHub。
