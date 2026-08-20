@@ -278,4 +278,4 @@
 - [x] 在 held-out seeds 28–29 验证冻结选择；center 2/2，selected solver 2/2；
 - [x] 聚合 v3.5 evidence；first-order indicator promising，paired D positive 8/8；
 - [x] 全仓库验收：42 tests 与 v2–v3.5 validators 全部通过；
-- [ ] 提交并代理推送 GitHub。
+- [x] 提交并代理推送 GitHub。
