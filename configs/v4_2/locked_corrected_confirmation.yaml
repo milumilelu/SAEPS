@@ -1,0 +1,62 @@
+schema_version: 1
+contract_id: SAEPS-CORRECTED-SCALAR-CONFIRMATION-v4.2
+phase: V4_2_CORRECTED_UNTOUCHED_CONFIRMATION
+protocol_locked: true
+execution_authorized: false
+source_v3_6_scientific_protocol:
+  path: configs/v3_6/locked_scalar_confirmation.yaml
+  sha256: b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99
+source_v4_1_executable_freeze:
+  path: configs/v4_1/EXECUTABLE_FREEZE.json
+  sha256: cd4065a2f82bc81f0243b119640a9330f77fdca3e9f95bd59ae5683cdd613ef7
+source_v4_1_heldout_evidence:
+  path: docs/evidence/v4_1_heldout_development_validation.json
+  sha256: ff35c660aa57322b0605287fac6292169efcb5372db06e28b461ced5390505c4
+benchmark: Burgers
+scope: scalar_curvature_only
+planned_seeds: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+seed_policy:
+  one_shot_execution: true
+  replacement_forbidden: true
+  selective_rerun_forbidden: true
+  retain_every_planned_seed: true
+  development_feedback_forbidden: true
+unchanged_definitions:
+  center: configs/v3_6/locked_scalar_confirmation.yaml#center
+  gamma: configs/v3_6/locked_scalar_confirmation.yaml#gamma
+  curvature_solver: configs/v3_6/locked_scalar_confirmation.yaml#curvature_solver
+  gold_standard: configs/v3_6/locked_scalar_confirmation.yaml#gold_standard
+  errors: configs/v3_6/locked_scalar_confirmation.yaml#errors
+  gn_indicator: configs/v3_6/locked_scalar_confirmation.yaml#gn_indicator
+primary:
+  alternative: D_greater_than_zero
+  strict_win_rule: D_greater_than_tie_tolerance
+  tie_tolerance: 1.0e-12
+  tie_rule: planned_nonwin_and_excluded_from_sign_test
+  planned_denominator: 15
+  minimum_valid_pairs: 12
+  planned_seed_wins_required: 12
+  valid_pair_median_D_must_be_positive: true
+  test: exact_one_sided_paired_sign_test
+  null_success_probability: 0.5
+  alpha: 0.05
+  continuity_correction: false
+  success_requires_all_primary_conditions: true
+secondary:
+  E_SAEPS_summary: [median, IQR, range, all_seed_values]
+  median_definition: average_two_middle_order_statistics_when_even
+  IQR_definition: q25_and_q75_numpy_linear_quantiles_then_q75_minus_q25
+  range_definition: minimum_and_maximum
+  five_percent_is_universal_accuracy_requirement: false
+gn_indicator:
+  threshold: 0.05
+  recalibration_forbidden: true
+  role: secondary_nonbinding_diagnostic
+required_binding_nodes:
+  - center_status
+  - parameter_reference_status
+  - curvature_solver_status
+  - exact_reference_status
+  - finite_primary_status
+nonbinding_nodes: [score_solver_status]
+

@@ -203,3 +203,15 @@ development_evidence: docs/evidence/v4_1_heldout_development_validation.json and
 affected_configs: Future configs/v4_2 lock only; v3.6 and v4.1 outputs remain immutable.
 authorizing_protocol: docs/v4_2_CORRECTED_CONFIRMATION.md section 1.
 ```
+
+## D-016 — Create the v4.2 corrected untouched confirmation lock
+
+```text
+date: 2026-08-20
+decision_id: D-016
+decision: Lock a new one-shot scalar-curvature confirmation on untouched seeds 55--69 using the v4.1 repaired executable and unchanged v3.6 scientific definitions.
+reason: V4.1 frozen held-out seeds 50--54 passed the complete binding chain 5/5 and demonstrated that score failure is nonbinding. A new cohort is required because v3.6 is permanently closed.
+development_evidence: docs/evidence/V4_1_ACCEPTANCE.md and docs/evidence/v4_1_heldout_development_validation.json.
+affected_configs: configs/v4_2/locked_corrected_confirmation.yaml; v3.6 and v4.1 remain unchanged.
+authorizing_protocol: docs/v4_2_CORRECTED_CONFIRMATION.md and Amendment 013. Execution still requires clean preflight and a separate authorization record.
+```

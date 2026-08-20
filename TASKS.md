@@ -341,7 +341,8 @@
 **目标:** 修复后 execution semantics 下对 SAEPS-vs-raw 比较假设做干净 untouched 检验
 **任务书:** `docs/v4_2_CORRECTED_CONFIRMATION.md`
 
-- [ ] preflight：lock config/commit/seed=55–69/无已有 run/source hash/tests 全过；保存 `PRE_CONFIRMATION_AUDIT.json`；
+- [x] 创建 protocol + executable lock candidate；seeds 固定 `55–69`，科学规则不变；
+- [ ] 记录 config/runner/aggregator/tests/semantic graph hashes 并完成 preflight；
 - [ ] 一次性执行 seeds `55–69`，每 seed 单一正式结果；invalid 不补/不重跑/不删；
 - [ ] 自动 adjudication：保留 paired `D`、planned denominator=15、12/15 strict-win、positive median D、单侧 exact sign test 联合主判据；
 - [ ] 生成 `V4_2_CONFIRMATION_REPORT.md` / `v4_2_confirmation.json` / `V4_2_FAILED_SEEDS.md` / `CONFIRMATION_RESULT_RECORD.json`；
