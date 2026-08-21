@@ -393,4 +393,4 @@
   - [x] 建立 real-residual、function-preserving width expansion、matrix-free cost-only protocol；
   - [x] checkpoints `120--124` 全部 PASS，覆盖 101--100001 state parameters；
 - [x] v4-compatible robustness seeds `130--139`：60/60 terminal records；noise/sparsity 43/45 binding-valid，architecture 9/15，wide 0/5 center-valid；
-- [ ] final v4 evidence audit and current report（generator implemented；待 full test/validator audit）。
+- [x] final v4 evidence audit and current report：80 tests PASS；all integrity validators PASS；V4.6 held-out retains expected scientific FAIL；

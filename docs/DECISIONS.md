@@ -534,3 +534,15 @@ scientific_scope: Supports scalar noise/sparsity robustness at tested cells and 
 development_evidence: docs/evidence/v4_8_robustness.json and docs/evidence/V4_8_ROBUSTNESS_REPORT.md.
 authorizing_protocol: Amendment 020.
 ```
+
+## D-043 — Close the V4 evidence audit with limited scientific support
+
+```text
+date: 2026-08-21
+decision_id: D-043
+decision: Close the current V4 audit as PASSED_WITH_SCIENTIFIC_LIMITATIONS; classify the scientific conclusion PARTIALLY_SUPPORTED and recommend INVESTIGATE_NUMERICS.
+reason: Full tests and all applicable integrity validators pass. Burgers and Allen scalar confirmations are supported, but controlled confirmation is not supported, two-parameter confirmation is untested, Allen profile reliability is weak, and wide architecture has 0/5 valid centers.
+paper_scope: Not ready for a full JCP claim. A limited scalar finite-gamma curvature claim is evidence-supported if all limitations and planned denominators are reported.
+validation_evidence: docs/evidence/v4_final_validation.json, docs/evidence/v4_final_audit.json and V4_FINAL_AUDIT_REPORT.md.
+authorizing_protocol: SAEPS Master Research Program v4.0 and Amendments 012--020.
+```
