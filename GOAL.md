@@ -55,10 +55,10 @@
 - [x] Allen--Cahn 外部 scalar replication 完成独立 development、lock 与 untouched confirmation；
 - [x] controlled tangent mechanism 在 fresh seeds 上完成计划分母验证，或保留阴性结果并收缩 claim；
 - [ ] two-parameter exact reduced geometry 完成独立 development 与 confirmation；
-- [ ] directional-HVP adequacy diagnostic 完成 explicit 数值一致性及 untouched 外部评价；
+- [x] directional-HVP adequacy diagnostic 完成 explicit 数值一致性及 untouched 外部评价；
 - [x] practical scalability 至少覆盖真实 residual 上的约 `10^2--10^5` state-parameter scale；
 - [x] v4-compatible noise/sparsity 与 architecture robustness 完成；
-- [ ] 当前总报告从全部不可变历史结果和新 raw outputs 自动生成。
+- [x] 当前总报告从全部不可变历史结果和新 raw outputs 自动生成。
 
 ## 最终科学结论规则
 

@@ -1,0 +1,81 @@
+{
+  "audit_status": "PASSED_WITH_SCIENTIFIC_LIMITATIONS",
+  "checks": {
+    "all_sources_loaded_and_hashed": true,
+    "allen_result_audit_passed": true,
+    "burgers_result_audit_passed": true,
+    "controlled_result_audit_passed": true,
+    "robustness_integrity_passed": true,
+    "scalability_integrity_passed": true,
+    "two_parameter_confirmation_untouched": true
+  },
+  "claim_boundary": [
+    "Exact finite-gamma scalar reduced curvature is supported on Burgers and Allen-Cahn.",
+    "SAEPS is a moderate-error Gauss-Newton surrogate, not an exact reduced-Hessian surrogate.",
+    "The planned controlled-mechanism gate is not supported because center availability is 6/10.",
+    "Two-parameter confirmation is not tested; wide-architecture curvature is not tested.",
+    "Scalability evidence is cost-only on a function-preserving padded controlled checkpoint."
+  ],
+  "paper_readiness": "NOT_READY_FOR_FULL_JCP_CLAIM",
+  "phase": "V4_FINAL_EVIDENCE_AUDIT",
+  "recommendation": "INVESTIGATE_NUMERICS",
+  "results": {
+    "allen_scalar": {
+      "median_D": 20.00649513947428,
+      "median_E_SAEPS": 0.2785667026005181,
+      "planned": 10,
+      "profile_bridge_pass": 1,
+      "sign_p": 0.001953125,
+      "status": "SUPPORTED",
+      "valid": 9,
+      "wins": 9
+    },
+    "burgers_scalar": {
+      "median_D": 27.636319042759617,
+      "median_E_SAEPS": 0.07503228596679316,
+      "planned": 15,
+      "sign_p": 0.000244140625,
+      "status": "SUPPORTED",
+      "valid": 12,
+      "wins": 12
+    },
+    "controlled_mechanism": {
+      "planned": 10,
+      "planned_monotonic": 6,
+      "status": "NOT_SUPPORTED",
+      "valid": 6,
+      "valid_median_spearman": 0.9999999999999998
+    },
+    "robustness": {
+      "binding_valid": 52,
+      "exact_anchor_valid": 14,
+      "exact_anchor_wins": 14,
+      "planned": 60,
+      "wide_architecture_valid": 0
+    },
+    "scalability": {
+      "largest_solve_seconds": 5.036618499987526,
+      "maximum_state_parameters": 100001,
+      "scope_limit": "function-preserving padded controlled-PINN checkpoint; cost-only, not scientific curvature confirmation",
+      "status": "PASSED"
+    },
+    "two_parameter": {
+      "comparative_hypothesis_tested": false,
+      "confirmation_authorized": false,
+      "engineering_status": "PASSED",
+      "heldout_binding_valid": 1,
+      "heldout_status": "FAILED"
+    }
+  },
+  "schema_version": 1,
+  "scientific_conclusion": "PARTIALLY_SUPPORTED",
+  "source_sha256": {
+    "docs/evidence/v4_2_confirmation.json": "99184fce55c8847482f3adc4cf7d5db74b97f8a99f3171a95ab8cd3f101ea718",
+    "docs/evidence/v4_4_allen_confirmation.json": "4e0188bfbe3e204f6a6c8cf2cdbd16fa8f0c0223e5922e97e0c6c2d7e37470d6",
+    "docs/evidence/v4_5_controlled_confirmation.json": "09475d034f2764eebab634d95de8ca604147c98ab04d13092ed63c4f27fefa0f",
+    "docs/evidence/v4_6_two_parameter_engineering.json": "1761f5a49dc5a211b65a1b5817387fd8bad35b66118a652c3253153c124f1ba1",
+    "docs/evidence/v4_6_two_parameter_heldout.json": "67f9cfb5b5115c27490bee4cf3e761dd1767e523142920dea9e0126b7d72d111",
+    "docs/evidence/v4_7_scalability.json": "a4c5baa332b17d8131d69060814e3875a61915aa0fe7ba4d13a182248c434295",
+    "docs/evidence/v4_8_robustness.json": "56fb4dc8b5325c3b0a05feaec71e69140602d10316285fcba5be5b284104b212"
+  }
+}

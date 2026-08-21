@@ -372,7 +372,7 @@
 - [x] v4.4 clean preflight PASS，零 prior run，记录独立 one-shot authorization；
 - [x] Allen--Cahn confirmation seeds `75--84`：9/10 planned strict wins，exact sign p `0.001953125`，`SUPPORTED`；seed81 center-invalid；
 - [x] v4.4 post-summary packaging path deviation recovered without seed rerun；raw hashes and frozen-aggregate reproduction PASS；
-- [ ] controlled-mechanism closure seeds `85--99`；
+- [x] controlled-mechanism closure seeds `85--99`（one-shot `NOT_SUPPORTED`，永久关闭）；
   - [x] 建立 Amendment 016、v4.5 development contract 与机器可读 seed isolation；
   - [x] 冻结 P2 scientific objects；development 禁止使用 eta/monotonicity/Spearman 选择 center；
   - [x] engineering v1 `85--87`：2/3 center PASS，失败分母保留；
@@ -381,7 +381,7 @@
   - [x] executable freeze 后 held-out seeds `88--89`：2/2 centers、10/10 alpha numerical evaluations PASS；
   - [x] 独立 confirmation lock、clean preflight（71 tests）与 one-shot authorization；
   - [x] one-shot confirmation seeds `90--99`：6/10 valid、6/10 planned monotonic、median valid Spearman 1.0；`NOT_SUPPORTED` 永久关闭；
-- [ ] two-parameter exact geometry seeds `100--114`；
+- [x] two-parameter exact geometry program `100--116`（held-out 1/2，confirmation `105--114` 未运行并永久停止）；
   - [x] 建立 Amendment 017、fresh seed isolation、matrix-primary exact-geometry development contract；
   - [x] seed100 architecture fallback：width12/8 center FAIL，width6 complete binding chain PASS并锁定为 candidate；
   - [x] engineering seeds `100--102`：width6 complete binding 3/3，nontrivial coupling 3/3；
@@ -389,8 +389,8 @@
   - [x] byte-freeze unchanged width6 executable；仅授权 recovery held-out `115--116`；
   - [x] recovery held-out seeds `115--116`：1/2 binding PASS；held-out gate FAILED；
   - [x] untouched confirmation seeds `105--114` 保持未运行并永久不授权；two-parameter comparative hypothesis 未检验；
-- [ ] practical scalability checkpoints `120--124`；
+- [x] practical scalability checkpoints `120--124`；
   - [x] 建立 real-residual、function-preserving width expansion、matrix-free cost-only protocol；
   - [x] checkpoints `120--124` 全部 PASS，覆盖 101--100001 state parameters；
 - [x] v4-compatible robustness seeds `130--139`：60/60 terminal records；noise/sparsity 43/45 binding-valid，architecture 9/15，wide 0/5 center-valid；
-- [ ] final v4 evidence audit and current report.
+- [ ] final v4 evidence audit and current report（generator implemented；待 full test/validator audit）。
