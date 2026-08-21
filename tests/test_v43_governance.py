@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import yaml
 
@@ -44,3 +45,13 @@ def test_allen_development_uses_only_reserved_development_seeds() -> None:
     assert architecture["fallback_order"] == [16, 12, 8]
     assert architecture["selected_width"] == 8
     assert "D" in architecture["selection_forbidden_metrics"]
+
+
+def test_allen_semantic_graph_keeps_profile_and_score_nonbinding() -> None:
+    graph = json.loads(
+        (ROOT / "docs/v4_3/ALLEN_SEMANTIC_GATE_GRAPH.json").read_text(encoding="utf-8")
+    )
+    assert "score_solver_status" in graph["nonbinding_nodes"]
+    assert "profile_status" in graph["nonbinding_nodes"]
+    assert "score_solver_status" not in graph["curvature_gate"]["requires"]
+    assert graph["fail_soft_recording"] is True

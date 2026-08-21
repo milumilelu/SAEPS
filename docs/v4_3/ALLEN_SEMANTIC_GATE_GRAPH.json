@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "phase": "V4_3_ALLEN_CAHN_EXTERNAL_DEVELOPMENT",
+  "binding_nodes": [
+    "center_status",
+    "parameter_reference_status",
+    "curvature_solver_status",
+    "exact_reference_status",
+    "finite_primary_status"
+  ],
+  "nonbinding_nodes": [
+    "score_solver_status",
+    "profile_status",
+    "directional_indicator_status"
+  ],
+  "curvature_gate": {
+    "requires": [
+      "parameter_reference_status",
+      "curvature_solver_status"
+    ],
+    "forbids_dependency_on": [
+      "score_solver_status",
+      "profile_status",
+      "directional_indicator_status"
+    ]
+  },
+  "binding_valid": {
+    "requires_all_binding_nodes_pass": true,
+    "score_failure_allowed": true,
+    "profile_failure_allowed": true,
+    "directional_indicator_failure_allowed": true
+  },
+  "fail_soft_recording": true,
+  "scientific_gate": "NONE_DEVELOPMENT_ONLY"
+}
