@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "binding_valid": true,
+      "condition": "architecture=narrow",
+      "path": "records/condition_00.json",
+      "sha256": "a1c4f03e550ddf2547661b215da38c65d2a42232cf9b880c3db6436137330fe6",
+      "status": "PASS"
+    },
+    {
+      "binding_valid": true,
+      "condition": "architecture=nominal",
+      "path": "records/condition_01.json",
+      "sha256": "18c0a5f45a7cd1c13712d084fe609a2464891a41a93b9713fc1bda89a4db3c88",
+      "status": "PASS"
+    },
+    {
+      "binding_valid": false,
+      "condition": "architecture=wide",
+      "path": "records/condition_02.json",
+      "sha256": "9c075a78144895d36381c590123b39a897cdf0aefaf53d873a7c312b1d0d3b08",
+      "status": "CHECKPOINT_INVALID"
+    }
+  ],
+  "schema_version": 1
+}
