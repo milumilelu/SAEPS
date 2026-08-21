@@ -45,7 +45,8 @@ def run_v45_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
     development = load_config(development_path)
     if seed not in development["engineering_seeds"]:
         raise ValueError("only registered v4.5 engineering seeds are authorized")
-    destination = root / f"outputs/runs/v4_5_controlled_mechanism/engineering/seed_{seed}"
+    revision = str(development["output_revision"])
+    destination = root / f"outputs/runs/v4_5_controlled_mechanism/{revision}/seed_{seed}"
     if destination.exists():
         raise RuntimeError("seed output already exists; rerun forbidden")
     for item in development["protected_sources"].values():

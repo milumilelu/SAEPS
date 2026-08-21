@@ -389,5 +389,19 @@ description: The first seed85 development attempt completed center work but call
 evidence: retained terminal traceback from scripts/47_run_v4_5_controlled_engineering.py --seed 85 at commit 09f7a59; no output directory was created.
 affected_runs: seed85 initial engineering attempt only; no scientific record or metric was accepted.
 protocol_impact: No gamma, threshold, source, alpha or scientific rule changes. Before repeating seed85, the development runner must become parameter-RHS-only and fail-soft, with preregistered standard-CG then scaled-LSQR refinement candidates evaluated against the unchanged residual and explicit-reference gates.
-resolution_or_status: OPEN ENGINEERING. Commit the semantic repair and solver candidate order before any new seed85 attempt.
+resolution_or_status: RESOLVED. The parameter-only standard-CG then scaled-LSQR chain was committed before the accepted seed85 attempt. Seeds85--86 pass all five alpha solver gates; the score RHS is absent and nonbinding as required.
+```
+
+## I-028 — v4.5 engineering v1 center gate passes 2/3
+
+```text
+date: 2026-08-21
+issue_id: I-028
+phase: V4.5 controlled-mechanism engineering
+classification: numerical failure
+description: Under the first registered enhanced-center settings, seeds85 and 86 pass the exact center and all five alpha solver gates, while seed87 remains CHECKPOINT_INVALID. Seed87's two best enhanced starts have no negative Hessian direction but normalized objective gradients 6.146e-6 and 2.540e-6 versus the unchanged 1e-6 gate after exhausting 80 damped-GN iterations.
+evidence: outputs/runs/v4_5_controlled_mechanism/engineering/seed_85 through seed_87.
+affected_runs: v4.5 engineering v1 seeds85--87; denominator is 2/3 and the registered 3/3 gate fails.
+protocol_impact: Held-out seeds88--89 remain forbidden. Development selection explicitly permits center-validity engineering and forbids eta/monotonicity/Spearman. Since the failure is first-order convergence without detected negative curvature, register a 160-iteration GN candidate without changing any tolerance, then evaluate all three engineering seeds in a separate revision rather than selectively repeating seed87.
+resolution_or_status: OPEN ENGINEERING V2. Preserve v1 unchanged; commit config and output namespace before running engineering_v2 seeds85--87.
 ```

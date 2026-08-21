@@ -29,4 +29,6 @@ Engineering may freeze one deterministic center workflow only if all three engin
 
 Curvature solver development binds only the parameter RHS. Candidate order is standard CG followed, on failure, by the already established two-pass scaled-LSQR refinement. Score/residual RHS is excluded from this controlled eta experiment. Both candidates retain the unchanged `1e-8` verified residual and `1e-6` explicit-reference agreement gates; selecting a solver from eta behavior is forbidden.
 
+Engineering v1 passes 2/3 centers. Seed87 has no registered negative Hessian direction at its best candidates but exhausts 80 damped-GN iterations slightly above the unchanged gradient gate. Engineering v2 therefore preregisters 160 iterations and must rerun all three engineering seeds in a separate namespace. This selection uses only center convergence; no eta, monotonicity or Spearman value entered the decision.
+
 Only after held-out acceptance may a separate confirmation protocol be drafted. Confirmation success rules cannot be modified using seeds `90--99`.
