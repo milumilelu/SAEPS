@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "phase": "V4_4_ALLEN_CAHN_EXTERNAL_CONFIRMATION",
+  "binding_nodes": [
+    "center_status",
+    "parameter_reference_status",
+    "curvature_solver_status",
+    "exact_reference_status",
+    "finite_primary_status"
+  ],
+  "nonbinding_nodes": [
+    "score_solver_status",
+    "profile_status",
+    "directional_indicator_status"
+  ],
+  "primary_aggregator_reads": [
+    "binding_valid",
+    "status",
+    "E_raw",
+    "E_SAEPS",
+    "D"
+  ],
+  "invalid_planned_seed_is_nonwin": true,
+  "fail_soft_recording": true,
+  "profile_cannot_change_primary_validity": true,
+  "indicator_cannot_change_primary_validity": true
+}

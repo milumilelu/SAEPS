@@ -1,0 +1,91 @@
+schema_version: 1
+contract_id: SAEPS-ALLEN-CAHN-EXTERNAL-CONFIRMATION-v4.4
+phase: V4_4_ALLEN_CAHN_EXTERNAL_CONFIRMATION
+protocol_locked: true
+confirmation_authorized: false
+benchmark: Allen-Cahn
+scope: scalar_curvature_primary_with_nonlinear_profile_secondary
+planned_seeds: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+# Structural aliases consumed by the byte-locked runner; both equal planned_seeds.
+development_seeds: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+engineering_seeds: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+heldout_development_seeds: []
+seed_policy:
+  one_shot_execution: true
+  replacement_forbidden: true
+  selective_rerun_forbidden: true
+  retain_every_planned_seed: true
+  development_feedback_forbidden: true
+source_development_freeze:
+  path: configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json
+  sha256: f58ae5936815d05d2049708fcdcc891ff5a2553334b6fec183255e5223996707
+source_heldout_evidence:
+  path: docs/evidence/v4_3_allen_heldout_validation.json
+  sha256: 1878803da66be6a8bcb22a125174f877f0b59af4a1fb88d7ef1d1c938a6097d4
+protected_sources:
+  scalar_runtime:
+    path: configs/p4_screening.yaml
+    sha256: 9f0fb03f3165f4977f79bfe356973c3c4e5c3bec83c143a444fa695e01d1187c
+  curvature_protocol:
+    path: configs/v3_6/locked_scalar_confirmation.yaml
+    sha256: b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99
+  profile_protocol:
+    path: configs/v3_4/curvature_validation.yaml
+    sha256: 6d115c34c40e522acc5ad2734f081e690b0f7602b3f6de9a2811b0667752fd66
+center_engineering:
+  output_revision: records
+  start_relative_radii: [0.0, 0.01, 0.03]
+  perturbation_seed_offset: 43000
+  multidirection_escape:
+    maximum_cycles: 40
+    maximum_negative_directions: 12
+    relative_radii: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+    minimum_actual_decrease: 1.0e-12
+  gauss_newton:
+    maximum_iterations: 80
+    initial_damping: 1.0e-6
+    minimum_damping: 1.0e-12
+    maximum_damping: 1.0e4
+    accepted_damping_factor: 0.3
+    rejected_damping_factor: 10.0
+    maximum_relative_step: 0.1
+    backtracking_factors: [1.0, 0.5, 0.25, 0.125, 0.0625]
+    normalized_gradient_tolerance: 1.0e-7
+architecture_engineering:
+  fallback_order: [16, 12, 8]
+  screening_seed: -1
+  selected_width: 8
+directional_indicator:
+  explicit_relative_tolerance: 1.0e-6
+  threshold: 0.05
+  recalibration_forbidden: true
+binding_nodes:
+  - center_status
+  - parameter_reference_status
+  - curvature_solver_status
+  - exact_reference_status
+  - finite_primary_status
+nonbinding_nodes: [score_solver_status, profile_status, directional_indicator_status]
+primary:
+  estimand: D_equals_E_raw_minus_E_SAEPS
+  gold_standard: exact_finite_gamma_reduced_hessian
+  planned_denominator: 10
+  minimum_valid_pairs: 8
+  planned_strict_wins_required: 8
+  tie_tolerance: 1.0e-12
+  invalid_planned_seed_is_nonwin: true
+  valid_pair_median_D_must_be_positive: true
+  test: exact_one_sided_paired_sign_test
+  null_success_probability: 0.5
+  alpha: 0.05
+  success_requires_all_primary_conditions: true
+secondary:
+  E_SAEPS_summary: [all_values, median, IQR, range, within_5_percent_count]
+  gamma_matched_nonlinear_profile: independently_statused_nonbinding_bridge
+  first_order_GN_indicator: frozen_nonbinding_no_recalibration
+reporting:
+  fail_soft_record_all_computable: true
+  raw_schema_must_match_aggregator_before_authorization: true
+  failed_and_invalid_seeds_visible: true
+  paper_values_from_raw_only: true
+scientific_gate: LOCKED_PENDING_ONE_SHOT_EXECUTION
