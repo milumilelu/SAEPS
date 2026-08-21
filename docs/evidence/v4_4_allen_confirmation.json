@@ -1,0 +1,265 @@
+{
+  "result_audit": {
+    "checks": {
+      "all_primary_conditions_pass": true,
+      "exact_seed_set": true,
+      "locked_aggregate_reproduction": true,
+      "per_seed_manifests_match": true,
+      "planned_denominator_is_10": true,
+      "raw_hashes_match": true,
+      "raw_records_sha256_matches": true,
+      "scientific_status_supported": true,
+      "seed_computation_not_repeated": true
+    },
+    "planned_seeds": [
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84
+    ],
+    "raw_records_sha256": "de7f91b110da243c87a5b9d59846f49cbf53a22c8dc303e510d66ff2b94c657a",
+    "schema_version": 1,
+    "scientific_status": "SUPPORTED",
+    "status": "PASSED"
+  },
+  "schema_version": 1,
+  "summary": {
+    "exact_one_sided_sign_p": 0.001953125,
+    "execution_claim": {
+      "git_commit": "e19ace0ea4a680160952027b83675d3a110a1548",
+      "locked_config_sha256": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+      "planned_seeds": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "rerun_forbidden": true,
+      "schema_version": 1,
+      "state": "V4_4_EXECUTION_CLAIMED_ONE_SHOT",
+      "timestamp": "2026-08-21T10:37:03.449264+00:00"
+    },
+    "gn_indicator": {
+      "accuracy": 1.0,
+      "median_absolute_calibration_error": 0.06304870820014902,
+      "spearman_with_E_SAEPS": 0.9833333333333333,
+      "threshold": 0.05,
+      "values": [
+        0.1953242938055221,
+        0.10445721042137125,
+        0.27412066458856293,
+        0.2186292687515774,
+        0.3162483971710989,
+        0.26293085276861794,
+        0.1266103673147758,
+        0.1684867405596572,
+        0.1755483784034869
+      ]
+    },
+    "invalid": 1,
+    "lock_commit": "01c9d39f2442af6c67c74a8ff79799b5f5a66cb7",
+    "locked_config_sha256": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+    "median_D": 20.00649513947428,
+    "per_seed": [
+      {
+        "D": 19.47752056562624,
+        "E_SAEPS": 0.2447844734604011,
+        "E_raw": 19.722305039086642,
+        "I_GN": 0.1953242938055221,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 75,
+        "status": "PASS"
+      },
+      {
+        "D": 16.092807668044106,
+        "E_SAEPS": 0.11989208107810757,
+        "E_raw": 16.212699749122212,
+        "I_GN": 0.10445721042137125,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 76,
+        "status": "PASS"
+      },
+      {
+        "D": 21.831332270767952,
+        "E_SAEPS": 0.390496875238999,
+        "E_raw": 22.22182914600695,
+        "I_GN": 0.27412066458856293,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 77,
+        "status": "PASS"
+      },
+      {
+        "D": 21.63291781138913,
+        "E_SAEPS": 0.2816779769517264,
+        "E_raw": 21.914595788340858,
+        "I_GN": 0.2186292687515774,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 78,
+        "status": "PASS"
+      },
+      {
+        "D": 24.71649886667989,
+        "E_SAEPS": 0.466723310546641,
+        "E_raw": 25.18322217722653,
+        "I_GN": 0.3162483971710989,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 79,
+        "status": "PASS"
+      },
+      {
+        "D": 20.00649513947428,
+        "E_SAEPS": 0.36626326604931475,
+        "E_raw": 20.372758405523594,
+        "I_GN": 0.26293085276861794,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 80,
+        "status": "PASS"
+      },
+      {
+        "D": null,
+        "E_SAEPS": null,
+        "E_raw": null,
+        "I_GN": null,
+        "binding_valid": false,
+        "failure_reason": "frozen center policy failed",
+        "profile_status": "NOT_COMPUTED",
+        "seed": 81,
+        "status": "CHECKPOINT_INVALID"
+      },
+      {
+        "D": 19.157810936386536,
+        "E_SAEPS": 0.15552413475287816,
+        "E_raw": 19.313335071139413,
+        "I_GN": 0.1266103673147758,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 82,
+        "status": "PASS"
+      },
+      {
+        "D": 17.48944647287584,
+        "E_SAEPS": 0.21819187737819457,
+        "E_raw": 17.707638350254037,
+        "I_GN": 0.1684867405596572,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PASS",
+        "seed": 83,
+        "status": "PASS"
+      },
+      {
+        "D": 21.628984837846165,
+        "E_SAEPS": 0.2785667026005181,
+        "E_raw": 21.907551540446683,
+        "I_GN": 0.1755483784034869,
+        "binding_valid": true,
+        "failure_reason": null,
+        "profile_status": "PROFILE_FAILURE",
+        "seed": 84,
+        "status": "PASS"
+      }
+    ],
+    "phase": "V4_4_ALLEN_CAHN_EXTERNAL_CONFIRMATION",
+    "planned": 10,
+    "primary_conditions": {
+      "exact_sign_test": true,
+      "minimum_valid_pairs": true,
+      "planned_seed_wins": true,
+      "positive_median_D": true
+    },
+    "provenance": {
+      "device": "cpu",
+      "dtype": "float64",
+      "git_branch": "main",
+      "git_commit": "e19ace0ea4a680160952027b83675d3a110a1548",
+      "git_dirty": false,
+      "git_status_porcelain": "",
+      "machine": "AMD64",
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "2.3.5",
+        "torch": "2.13.0"
+      },
+      "platform": "Windows-11-10.0.26100-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+      "python_version": "3.12.13",
+      "timestamp": "2026-08-21T10:37:03.449264+00:00",
+      "torch_cuda_available": false
+    },
+    "schema_version": 1,
+    "scientific_status": "SUPPORTED",
+    "secondary": {
+      "E_SAEPS_IQR": 0.14807138867112019,
+      "E_SAEPS_all_valid": [
+        0.2447844734604011,
+        0.11989208107810757,
+        0.390496875238999,
+        0.2816779769517264,
+        0.466723310546641,
+        0.36626326604931475,
+        0.15552413475287816,
+        0.21819187737819457,
+        0.2785667026005181
+      ],
+      "E_SAEPS_median": 0.2785667026005181,
+      "E_SAEPS_q25": 0.21819187737819457,
+      "E_SAEPS_q75": 0.36626326604931475,
+      "E_SAEPS_range": [
+        0.11989208107810757,
+        0.466723310546641
+      ],
+      "E_SAEPS_within_5_percent_count": 0,
+      "E_raw_all_valid": [
+        19.722305039086642,
+        16.212699749122212,
+        22.22182914600695,
+        21.914595788340858,
+        25.18322217722653,
+        20.372758405523594,
+        19.313335071139413,
+        17.707638350254037,
+        21.907551540446683
+      ],
+      "profile_bridge_FAILURE": 9,
+      "profile_bridge_PASS": 1
+    },
+    "sign_test_non_tied_denominator": 9,
+    "status_counts": {
+      "CHECKPOINT_INVALID": 1,
+      "NUMERICAL_FAILURE": 0,
+      "PASS": 9,
+      "PROFILE_FAILURE": 0,
+      "SOLVER_FAILURE": 0
+    },
+    "strict_losses": 0,
+    "strict_wins_out_of_planned": 9,
+    "ties": 0,
+    "valid": 9
+  }
+}

@@ -326,3 +326,17 @@ development_evidence: docs/evidence/V4_4_PRE_CONFIRMATION_AUDIT.json; no seed 75
 affected_configs: configs/v4_4/EXECUTION_AUTHORIZATION.json only. Locked config and executable remain byte-identical.
 authorizing_protocol: Amendment 015 and docs/v4_4_ALLEN_CONFIRMATION_PROTOCOL.md.
 ```
+
+## D-026 — Adjudicate v4.4 SUPPORTED and permanently close seeds 75--84
+
+```text
+date: 2026-08-21
+decision_id: D-026
+decision: Adjudicate the untouched Allen--Cahn v4.4 comparative curvature claim SUPPORTED and permanently close seeds 75--84 with no rerun or result mutation.
+reason: Nine of ten planned seeds are valid strict wins, median D is 20.0064951395, and the exact one-sided sign-test p-value is 0.001953125. All four locked primary conditions pass. Seed81 is center-invalid and remains a planned non-win.
+secondary_limitations: E_SAEPS median is 27.8567% with 0/9 within 5%; the gamma-matched nonlinear profile bridge passes only 1/10. Therefore exact-surrogate accuracy and nonlinear-profile agreement are not established.
+execution_deviation: I-026 records a post-summary directory-path packaging failure. Recovery did not rerun any seed or change any scientific object, and independent frozen-aggregate reproduction passes.
+development_evidence: Not development; untouched confirmation evidence in docs/evidence/v4_4_allen_confirmation.json and outputs/runs/v4_4_allen_cahn_confirmation.
+affected_configs: No locked config or executable changed. V3.6 and v4.2 remain permanently closed and unchanged.
+authorizing_protocol: Amendment 015 and docs/v4_4_ALLEN_CONFIRMATION_PROTOCOL.md.
+```

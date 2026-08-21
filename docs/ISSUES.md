@@ -363,3 +363,17 @@ affected_runs: Allen-Cahn development seed70 initial frozen-policy attempt only.
 protocol_impact: Confirms the v4.0 warning that Burgers numerical settings cannot be assumed valid cross-PDE. The failed attempt is retained. Center engineering is restricted to seeds 70--72 and may use only exact center validity/loss, never D or SAEPS advantage; seeds 73--74 are held out until an executable freeze.
 resolution_or_status: OPEN DEVELOPMENT. Evaluate deterministic damped-GN/multistart center engineering without relaxing the exact first- or second-order thresholds.
 ```
+
+## I-026 — v4.4 post-seed packaging used an incorrect result directory
+
+```text
+date: 2026-08-21
+issue_id: I-026
+phase: V4.4 Allen-Cahn external confirmation
+classification: implementation failure
+description: All ten one-shot seed computations and the frozen aggregate summary were written successfully, after which the execution wrapper attempted to hash records/seed_N/result.json although the frozen seed runner had written architecture_w8/seed_N/result.json.
+evidence: outputs/runs/v4_4_allen_cahn_confirmation, the terminal FileNotFoundError, and scripts/44_finalize_interrupted_v4_4_from_raw.py.
+affected_runs: no seed computation; top-level manifest and failed-seed packaging only. Seeds 75--84 were each computed exactly once and must not be rerun.
+protocol_impact: The existing summary was produced by the frozen aggregator before the exception. Recovery may only hash the existing raw files at their actual paths, generate missing packaging artifacts, and independently reproduce the aggregate. No raw record, scientific value, threshold, status rule, seed or locked executable may change.
+resolution_or_status: RESOLVED WITH RECORDED DEVIATION. Raw outputs were committed unchanged before recovery. The one-shot finalizer generated only the missing packaging artifacts from actual raw paths; independent frozen-aggregate reproduction and all raw hashes pass. Seeds 75--84 are permanently closed.
+```

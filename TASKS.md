@@ -354,8 +354,8 @@
 ## V4.3 — Supported-Branch Research Program
 
 **状态:** `IN_PROGRESS`
-**授权范围:** governance synchronization and Allen--Cahn development seeds `70--74` only
-**禁止:** seeds `75--139` remain reserved/inactive until their own gates and locks
+**授权范围:** Allen--Cahn external confirmation is permanently closed; next authorized work begins with controlled-mechanism development under a separate lock
+**禁止:** seeds `85--139` remain reserved/inactive until their own gates and locks
 
 - [x] 建立 Amendment 014 与 v4.3 execution contract；
 - [x] 明确 v2、v3.6、v4.2 的历史状态与 claim 边界；
@@ -367,10 +367,11 @@
 - [x] 真实 raw schema→validator 集成测试通过，未使用 comparative quantities 选择配置；
 - [x] 在 commit `6490977` 冻结 Allen--Cahn config/runner/center/indicator/validator/tests/semantic graph；
 - [x] 冻结 executable 下 held-out seeds `73--74` binding chain 2/2 PASS，profile bridge 1/2；
-- [ ] Allen--Cahn executable/protocol lock；
+- [x] Allen--Cahn executable/protocol lock；
 - [x] Allen--Cahn v4.4 protocol/runner/aggregator/preflight/tests/semantic graph lock candidate；
 - [x] v4.4 clean preflight PASS，零 prior run，记录独立 one-shot authorization；
-- [ ] Allen--Cahn confirmation seeds `75--84`；
+- [x] Allen--Cahn confirmation seeds `75--84`：9/10 planned strict wins，exact sign p `0.001953125`，`SUPPORTED`；seed81 center-invalid；
+- [x] v4.4 post-summary packaging path deviation recovered without seed rerun；raw hashes and frozen-aggregate reproduction PASS；
 - [ ] controlled-mechanism closure seeds `85--99`；
 - [ ] two-parameter exact geometry seeds `100--114`；
 - [ ] practical scalability checkpoints `120--124`；
