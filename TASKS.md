@@ -377,6 +377,7 @@
   - [x] 冻结 P2 scientific objects；development 禁止使用 eta/monotonicity/Spearman 选择 center；
   - [x] engineering v1 `85--87`：2/3 center PASS，失败分母保留；
   - [x] engineering_v2 `85--87`：3/3 exact centers、15/15 alpha solver evaluations PASS；
+  - [x] byte-freeze v4.5 config/runtime/center/solver/tests/semantic graph；仅授权 held-out `88--89`；
   - [ ] executable freeze 后 held-out seeds `88--89`；
   - [ ] 独立 lock/preflight 后 one-shot confirmation seeds `90--99`；
 - [ ] two-parameter exact geometry seeds `100--114`；

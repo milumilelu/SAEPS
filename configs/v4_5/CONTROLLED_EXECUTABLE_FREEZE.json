@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "contract_id": "SAEPS-CONTROLLED-MECHANISM-HELDOUT-FREEZE-v4.5",
+  "freeze_date": "2026-08-21",
+  "source_commit": "65d8e30ec2a1852fff38d7e9ea5b38743a8d08e2",
+  "heldout_authorized": true,
+  "heldout_seeds": [88, 89],
+  "confirmation_authorized": false,
+  "confirmation_seeds_inactive": [90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
+  "file_sha256": {
+    "configs/v4_5/controlled_mechanism_development.yaml": "5e2c01528bac2af9fa7b192835e482715991e7abcdfa3bb36adfbd5c2be98022",
+    "src/saeps/v45/pipeline.py": "a9e4bf035a9f90f4136314b17fb3f201b66b6fef63c52f4ab75b3b37f6281dd3",
+    "src/saeps/v43/center.py": "688dd9a98a82163e368fc8d61c431599a824c4b9434b2dbd86926b751fd8d5c4",
+    "src/saeps/controlled.py": "49f665ebeab7d0258025c0a32c9ed8ad9e7948d31ad69650c0570958efe253d6",
+    "scripts/49_run_v4_5_controlled_heldout.py": "fc60c616cdb925fbbd092beef4bd56afd4f3330ed25a618d8023108b420230ab",
+    "tests/test_v45_pipeline.py": "dc91360170aacda6a892268ef9bc741d5842faa3a9d7cd19357705f94ec84b47",
+    "tests/test_v45_governance.py": "d18bbe3287c5352c874bbc437e15a8aa26534e71a35ff86c46485352ca51665b",
+    "docs/v4_5/CONTROLLED_SEMANTIC_GATE_GRAPH.json": "39ad6d8e69355d0105d172bef576f1bd1c70591d7d895072f86255bb8ddcc955",
+    "docs/evidence/v4_5_controlled_engineering.json": "17cfe0a0504cb723cc06d6e4a8879e4b5b8bd5558bd9cbea43a3f47f1678f30f"
+  },
+  "selection_metrics_excluded": ["eta", "monotonicity", "spearman", "figure_appearance"],
+  "rerun_forbidden_after_seed_output": true
+}

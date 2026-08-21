@@ -365,3 +365,15 @@ forbidden_evidence_not_used: Eta, monotonicity, Spearman correlation and figure 
 affected_configs: Future configs/v4_5/CONTROLLED_EXECUTABLE_FREEZE.json only; seeds88--99 remain inactive until their respective gates.
 authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
 ```
+
+## D-029 — Freeze v4.5 held-out executable
+
+```text
+date: 2026-08-21
+decision_id: D-029
+decision: Byte-freeze the accepted v4.5 configuration, controlled runtime, center engine, parameter-only solver pipeline, held-out runner, tests, semantic graph and engineering evidence; authorize only held-out seeds88--89.
+reason: Engineering_v2 passes 3/3 binding centers and 15/15 alpha numerical evaluations without using excluded mechanism outcomes for selection.
+development_evidence: docs/evidence/v4_5_controlled_engineering.json.
+affected_configs: configs/v4_5/CONTROLLED_EXECUTABLE_FREEZE.json. Confirmation seeds90--99 remain inactive.
+authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
+```
