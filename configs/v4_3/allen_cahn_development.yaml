@@ -52,6 +52,18 @@ center_engineering:
     maximum_relative_step: 0.1
     backtracking_factors: [1.0, 0.5, 0.25, 0.125, 0.0625]
     normalized_gradient_tolerance: 1.0e-7
+architecture_engineering:
+  activation: AFTER_RETAINED_WIDTH16_CENTER_FAILURES
+  fallback_order: [16, 12, 8]
+  width16_evidence:
+    - outputs/runs/v4_3_allen_cahn_development/seed_70
+    - outputs/runs/v4_3_allen_cahn_development/engineering/seed_70
+    - outputs/runs/v4_3_allen_cahn_development/engineering_v2/seed_70
+  screening_seed: 70
+  selection_binding_metrics: [center_status, state_rmse_validation_only]
+  state_rmse_max: 0.15
+  selection_forbidden_metrics: [D, E_SAEPS, E_raw, eta, I_GN, profile_curvature]
+  selected_width: null
 binding_nodes:
   - center_status
   - parameter_reference_status

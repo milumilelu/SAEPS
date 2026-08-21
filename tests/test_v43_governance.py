@@ -40,3 +40,7 @@ def test_allen_development_uses_only_reserved_development_seeds() -> None:
     assert development["scientific_gate"] == "NONE_DEVELOPMENT_ONLY"
     assert development["engineering_seeds"] == [70, 71, 72]
     assert development["heldout_development_seeds"] == [73, 74]
+    architecture = development["architecture_engineering"]
+    assert architecture["fallback_order"] == [16, 12, 8]
+    assert architecture["selected_width"] is None
+    assert "D" in architecture["selection_forbidden_metrics"]

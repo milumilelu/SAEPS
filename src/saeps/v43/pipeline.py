@@ -6,6 +6,7 @@ import hashlib
 import json
 import math
 import time
+import copy
 from pathlib import Path
 from typing import Any, Callable
 
@@ -100,6 +101,7 @@ def run_allen_development_seed(
     config_path: str | Path,
     output_root: str | Path,
     repo_root: str | Path,
+    width: int | None = None,
 ) -> dict[str, Any]:
     root = Path(repo_root).resolve()
     specification = load_config(config_path)
@@ -108,16 +110,25 @@ def run_allen_development_seed(
     if seed not in [int(value) for value in specification["development_seeds"]]:
         raise ValueError("seed is not authorized for Allen-Cahn development")
     sources = specification["protected_sources"]
-    runtime = _protected_config(root, sources["scalar_runtime"])
+    runtime = copy.deepcopy(_protected_config(root, sources["scalar_runtime"]))
     curvature = _protected_config(root, sources["curvature_protocol"])
     profile_protocol = _protected_config(root, sources["profile_protocol"])
     benchmark = str(specification["benchmark"])
+    architecture = specification["architecture_engineering"]
+    selected_width = int(runtime["network"]["hidden_width"] if width is None else width)
+    if selected_width not in [int(value) for value in architecture["fallback_order"]]:
+        raise ValueError("width is not an authorized Allen-Cahn architecture candidate")
+    if seed != int(architecture["screening_seed"]) and architecture["selected_width"] is None:
+        raise RuntimeError("non-screening engineering seeds require a selected width")
+    if architecture["selected_width"] is not None and selected_width != int(architecture["selected_width"]):
+        raise RuntimeError("requested width differs from selected Allen-Cahn width")
+    runtime["network"]["hidden_width"] = selected_width
     provenance = environment_provenance(root, runtime["dtype"], "cpu")
     if provenance["git_dirty"]:
         raise RuntimeError("formal development seed requires clean provenance")
 
     if seed in [int(value) for value in specification["engineering_seeds"]]:
-        development_role = str(specification["center_engineering"]["output_revision"])
+        development_role = f"architecture_w{selected_width}"
     elif seed in [int(value) for value in specification["heldout_development_seeds"]]:
         development_role = "heldout"
         freeze_path = root / "configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json"
@@ -129,6 +140,11 @@ def run_allen_development_seed(
     destination.mkdir(parents=True, exist_ok=False)
     digest = config_hash(specification)
     record = _initial_record(seed, digest, provenance)
+    record["architecture"] = {
+        "hidden_width": selected_width,
+        "state_parameters": 4 * selected_width + 1,
+        "role": "fallback_screening" if seed == int(architecture["screening_seed"]) else "selected_engineering",
+    }
     started = time.perf_counter()
     try:
         truth = solve_truth(runtime, benchmark)
