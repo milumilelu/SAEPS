@@ -362,10 +362,11 @@
 - [x] 固定后续实验顺序、seed namespace 与停止规则；
 - [x] 创建机器可读 v4.3 governance config 与 seed-isolation tests；
 - [x] 将旧 `FINAL_VALIDATION_REPORT.md` 标记为 v2 historical scope；
-- [ ] Allen--Cahn development seeds `70--74`；
+- [x] Allen--Cahn development seeds `70--74`；
 - [x] Allen--Cahn engineering seeds `70--72`：width 8 binding chain 3/3，profile bridge 1/3；
 - [x] 真实 raw schema→validator 集成测试通过，未使用 comparative quantities 选择配置；
 - [x] 在 commit `6490977` 冻结 Allen--Cahn config/runner/center/indicator/validator/tests/semantic graph；
+- [x] 冻结 executable 下 held-out seeds `73--74` binding chain 2/2 PASS，profile bridge 1/2；
 - [ ] Allen--Cahn executable/protocol lock；
 - [ ] Allen--Cahn confirmation seeds `75--84`；
 - [ ] controlled-mechanism closure seeds `85--99`；

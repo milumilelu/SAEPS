@@ -289,3 +289,16 @@ development_evidence: docs/evidence/v4_3_allen_engineering_validation.json.
 affected_configs: configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json. Confirmation seeds 75--84 remain inactive and unauthorized.
 authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md section 4.3 and Amendment 014.
 ```
+
+## D-023 — Accept frozen Allen--Cahn held-out development
+
+```text
+date: 2026-08-21
+decision_id: D-023
+decision: Accept held-out development seeds 73--74 under the frozen width-8 executable and permit drafting, but not execution, of a separate untouched confirmation lock for seeds 75--84.
+reason: Both held-out seeds pass every binding curvature node and directional-HVP agreement. Score failures remain nonbinding. Gamma-matched nonlinear profiles pass 1/2 and remain a separately reported unstable bridge. Frozen file hashes and raw record hashes validate.
+development_evidence: docs/evidence/v4_3_allen_heldout_validation.json and docs/evidence/V4_3_ALLEN_HELDOUT.md.
+forbidden_evidence_not_used: No D, E or eta quantity entered held-out acceptance.
+affected_configs: Future Allen-Cahn confirmation lock only; confirmation seeds remain inactive pending protocol/executable lock, tests and clean preflight.
+authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md sections 4.3 and 5.
+```
