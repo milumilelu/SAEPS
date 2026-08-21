@@ -368,6 +368,7 @@
 - [x] 在 commit `6490977` 冻结 Allen--Cahn config/runner/center/indicator/validator/tests/semantic graph；
 - [x] 冻结 executable 下 held-out seeds `73--74` binding chain 2/2 PASS，profile bridge 1/2；
 - [ ] Allen--Cahn executable/protocol lock；
+- [x] Allen--Cahn v4.4 protocol/runner/aggregator/preflight/tests/semantic graph lock candidate；
 - [ ] Allen--Cahn confirmation seeds `75--84`；
 - [ ] controlled-mechanism closure seeds `85--99`；
 - [ ] two-parameter exact geometry seeds `100--114`；

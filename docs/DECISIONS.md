@@ -302,3 +302,15 @@ forbidden_evidence_not_used: No D, E or eta quantity entered held-out acceptance
 affected_configs: Future Allen-Cahn confirmation lock only; confirmation seeds remain inactive pending protocol/executable lock, tests and clean preflight.
 authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md sections 4.3 and 5.
 ```
+
+## D-024 — Lock v4.4 Allen--Cahn external confirmation
+
+```text
+date: 2026-08-21
+decision_id: D-024
+decision: Lock untouched Allen-Cahn seeds 75--84, width-8 executable, exact finite-gamma primary D endpoint, 8/10 planned-win rule, exact sign test, nonbinding profile bridge and frozen indicator; do not yet authorize execution.
+reason: Frozen held-out development passes the binding curvature chain 2/2 and raw-schema integration is established. The 80% planned-denominator rule matches the v4.2 confirmation proportion and was specified before any seed 75--84 was run or inspected.
+development_evidence: docs/evidence/v4_3_allen_heldout_validation.json.
+affected_configs: configs/v4_4/locked_allen_cahn_confirmation.yaml and LOCK_RECORD.json only. All earlier results remain immutable.
+authorizing_protocol: Amendment 015 and docs/v4_4_ALLEN_CONFIRMATION_PROTOCOL.md.
+```
