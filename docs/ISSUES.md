@@ -419,3 +419,17 @@ affected_runs: sole permanent v4.5 confirmation cohort seeds90--99.
 protocol_impact: Scientific status is NOT_SUPPORTED. The mechanism may be claimed only conditional on a valid local state minimum; unconditional planned-denominator reproducibility is not established. No seed may be replaced or rerun.
 resolution_or_status: PERMANENTLY CLOSED. Continue the v4 program with this negative evidence retained and the final paper claim narrowed.
 ```
+
+## I-030 — v4.6 width-12 screening seed100 remains a high-dimensional saddle
+
+```text
+date: 2026-08-21
+issue_id: I-030
+phase: V4.6 two-parameter development
+classification: benchmark numerical failure
+description: Width-12 screening seed100 fails the exact state-local-minimum gate. All three enhanced starts pass the 1e-6 gradient gate after 160 damped-GN iterations, but retain 14--18 negative state-Hessian eigenvalues after 40 registered escape cycles.
+evidence: outputs/runs/v4_6_two_parameter/engineering/seed_100.
+affected_runs: v4.6 width-12 screening seed100 only.
+protocol_impact: No matrix comparison was formed. Development may test a precommitted smaller-architecture fallback using only center validity, validation-only state RMSE, solver/exact availability and coupling; D and comparative errors remain forbidden selection inputs.
+resolution_or_status: OPEN ARCHITECTURE DEVELOPMENT. Preserve width12, register fallback 12->8->6, and test width8 on screening seed100 before activating seeds101--104.
+```

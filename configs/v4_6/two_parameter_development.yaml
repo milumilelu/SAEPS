@@ -3,6 +3,7 @@ contract_id: SAEPS-TWO-PARAMETER-EXACT-GEOMETRY-v4.6
 phase: V4_6_TWO_PARAMETER_DEVELOPMENT
 status: DEVELOPMENT_ACTIVE
 confirmation_authorized: false
+output_revision: architecture_w8
 engineering_seeds: [100, 101, 102]
 heldout_development_seeds: [103, 104]
 inactive_confirmation_seeds: [105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
@@ -13,6 +14,13 @@ protected_sources:
 gamma_alpha: 1.0e-8
 generalized_eigen_tau_relative: 1.0e-10
 nontrivial_coupling_min: 0.1
+architecture_engineering:
+  fallback_order: [12, 8, 6]
+  screening_seed: 100
+  selected_width: 8
+  state_rmse_max_validation_only: 0.15
+  selection_allowed_metrics: [center_status, state_rmse_validation_only, solver_status, exact_status, coupling, runtime]
+  selection_forbidden_metrics: [D, E_raw, E_SAEPS, favorable_eigenvalues, figure_appearance]
 center_engineering:
   start_relative_radii: [0.0, 0.01, 0.03]
   perturbation_seed_offset: 46000

@@ -48,13 +48,20 @@ def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
     specification = load_config(root / "configs/v4_6/two_parameter_development.yaml")
     if seed not in specification["engineering_seeds"]:
         raise ValueError("only registered v4.6 engineering seeds are authorized")
-    destination = root / f"outputs/runs/v4_6_two_parameter/engineering/seed_{seed}"
+    revision = str(specification["output_revision"])
+    destination = root / f"outputs/runs/v4_6_two_parameter/{revision}/seed_{seed}"
     if destination.exists():
         raise RuntimeError("seed output exists; rerun forbidden")
     for relative, expected in specification["protected_sources"].items():
         if hashlib.sha256((root / relative).read_bytes()).hexdigest() != expected:
             raise RuntimeError(f"protected source mismatch: {relative}")
     runtime = load_config(root / specification["source_config"])
+    runtime["network"]["hidden_width"] = int(
+        specification["architecture_engineering"]["selected_width"]
+    )
+    runtime["network"]["architecture"] = (
+        f"two_channel_tanh_mlp_2x{runtime['network']['hidden_width']}x1"
+    )
     local = load_config(root / "configs/v3_4/curvature_validation.yaml")["local_minimum"]
     provenance = environment_provenance(root, runtime["dtype"], runtime["device"])
     started = time.perf_counter()
@@ -81,7 +88,12 @@ def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
     residual = linearization.residual()
     jt, jl = linearization.explicit_jacobians()
     theta_stationarity = _stationarity(jt, residual)
-    center_valid = final_center["local_minimum_gate"] == "PASS" and theta_stationarity <= 1.0e-4
+    center_valid = (
+        final_center["local_minimum_gate"] == "PASS"
+        and theta_stationarity <= 1.0e-4
+        and checkpoint.state_rmse
+        <= float(specification["architecture_engineering"]["state_rmse_max_validation_only"])
+    )
     record: dict[str, Any] = {
         "schema_version": 1, "phase": specification["phase"], "role": "engineering", "seed": seed,
         "status": "CHECKPOINT_INVALID", "binding_valid": False, "failure_reason": "center gate failed",
@@ -92,6 +104,7 @@ def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
         "solver": None, "exact_hessian": None, "generalized_eigen": None, "coupling": None,
         "E_raw": None, "E_SAEPS": None, "D": None,
         "selection_forbidden_metrics_not_used": specification["selection_forbidden_metrics"],
+        "architecture": runtime["network"],
     }
     if center_valid:
         lambda_max = float(torch.linalg.eigvalsh(jt.T @ jt).max().item())

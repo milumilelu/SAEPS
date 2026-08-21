@@ -11,3 +11,5 @@ The coupled reaction-diffusion benchmark and two log-parameter coordinates are i
 - Center: deterministic multistart GN plus exact first/second-order state-local-minimum gate.
 
 Development selection may use center validity, state RMSE marked validation-only, two-column solver validity, exact-reference validity, nontrivial coupling and cost. `D`, `E_raw`, `E_SAEPS`, favorable generalized eigenvalues and plot appearance cannot select settings.
+
+The inherited width-12 screening attempt remains a saddle despite passing the gradient gate. Architecture development therefore follows the committed fallback `12 -> 8 -> 6` on screening seed100. A smaller width may be selected only if the exact center, validation-only RMSE, solver, exact-reference and coupling gates pass; comparative errors remain excluded.
