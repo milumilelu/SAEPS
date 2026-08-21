@@ -383,6 +383,7 @@
   - [x] one-shot confirmation seeds `90--99`：6/10 valid、6/10 planned monotonic、median valid Spearman 1.0；`NOT_SUPPORTED` 永久关闭；
 - [ ] two-parameter exact geometry seeds `100--114`；
   - [x] 建立 Amendment 017、fresh seed isolation、matrix-primary exact-geometry development contract；
+  - [x] seed100 architecture fallback：width12/8 center FAIL，width6 complete binding chain PASS并锁定为 candidate；
   - [ ] engineering seeds `100--102`；
   - [ ] held-out seeds `103--104`；
   - [ ] untouched confirmation seeds `105--114`；

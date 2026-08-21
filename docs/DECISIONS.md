@@ -438,3 +438,15 @@ development_evidence: No v4.6 numerical result exists at this decision.
 affected_configs: configs/v4_6/two_parameter_development.yaml only; historical P6 and all confirmation results remain immutable.
 authorizing_protocol: Amendment 017 and docs/v4_6_TWO_PARAMETER_DEVELOPMENT.md.
 ```
+
+## D-035 — Select width 6 for two-parameter engineering
+
+```text
+date: 2026-08-21
+decision_id: D-035
+decision: Select width6 under the preregistered 12->8->6 fallback and run engineering seeds101--102.
+reason: Width12 and width8 fail the exact center gate on screening seed100. Width6 passes center, validation-only state RMSE 0.00433, three-RHS solver, exact finite-gamma reduction and nontrivial coupling 0.875. Comparative D/E values were not read or used.
+development_evidence: outputs/runs/v4_6_two_parameter/engineering/seed_100, architecture_w8/seed_100 and architecture_w6/seed_100.
+affected_configs: selected_width already recorded as 6 in configs/v4_6/two_parameter_development.yaml; held-out and confirmation remain inactive.
+authorizing_protocol: Amendment 017 and docs/v4_6_TWO_PARAMETER_DEVELOPMENT.md.
+```

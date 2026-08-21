@@ -431,5 +431,5 @@ description: Width-12 screening seed100 fails the exact state-local-minimum gate
 evidence: outputs/runs/v4_6_two_parameter/engineering/seed_100.
 affected_runs: v4.6 width-12 screening seed100 only.
 protocol_impact: No matrix comparison was formed. Development may test a precommitted smaller-architecture fallback using only center validity, validation-only state RMSE, solver/exact availability and coupling; D and comparative errors remain forbidden selection inputs.
-resolution_or_status: OPEN ARCHITECTURE DEVELOPMENT. Width8 also fails the exact center gate, although its best candidate reduces the negative-direction count to 3 and validation-only state RMSE is 0.00151. Preserve width12 and width8, then test the final preregistered width6 fallback on seed100 before activating seeds101--104.
+resolution_or_status: RESOLVED FOR SCREENING. Width8 also fails. Width6 passes the complete allowed selection chain with validation-only RMSE 0.00433 and coupling 0.875. Activate engineering seeds101--102 under width6; held-out remains inactive.
 ```
