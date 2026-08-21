@@ -352,3 +352,16 @@ development_evidence: No v4.5 numerical result exists at this decision.
 affected_configs: configs/v4_5/controlled_mechanism_development.yaml only; the P2 lock and all historical outputs remain immutable.
 authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
 ```
+
+## D-028 — Accept v4.5 engineering_v2 for executable freeze
+
+```text
+date: 2026-08-21
+decision_id: D-028
+decision: Accept engineering_v2 seeds85--87 and permit creation of an executable freeze for held-out development seeds88--89; confirmation remains inactive.
+reason: All three exact state-local-minimum gates and all fifteen parameter-curvature solver/explicit-agreement evaluations pass. The v1 2/3 center denominator is retained. The v2 iteration candidate was selected solely from first-order center convergence without negative curvature.
+development_evidence: docs/evidence/v4_5_controlled_engineering.json and immutable raw records under outputs/runs/v4_5_controlled_mechanism.
+forbidden_evidence_not_used: Eta, monotonicity, Spearman correlation and figure appearance were excluded from validation and decision inputs.
+affected_configs: Future configs/v4_5/CONTROLLED_EXECUTABLE_FREEZE.json only; seeds88--99 remain inactive until their respective gates.
+authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
+```

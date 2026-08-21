@@ -403,5 +403,5 @@ description: Under the first registered enhanced-center settings, seeds85 and 86
 evidence: outputs/runs/v4_5_controlled_mechanism/engineering/seed_85 through seed_87.
 affected_runs: v4.5 engineering v1 seeds85--87; denominator is 2/3 and the registered 3/3 gate fails.
 protocol_impact: Held-out seeds88--89 remain forbidden. Development selection explicitly permits center-validity engineering and forbids eta/monotonicity/Spearman. Since the failure is first-order convergence without detected negative curvature, register a 160-iteration GN candidate without changing any tolerance, then evaluate all three engineering seeds in a separate revision rather than selectively repeating seed87.
-resolution_or_status: OPEN ENGINEERING V2. Preserve v1 unchanged; commit config and output namespace before running engineering_v2 seeds85--87.
+resolution_or_status: RESOLVED FOR ENGINEERING. Engineering_v2 reran all three seeds under the committed 160-iteration candidate and passes 3/3 exact centers plus 15/15 alpha solver evaluations. The failed v1 denominator remains immutable. Held-out validation is still required.
 ```

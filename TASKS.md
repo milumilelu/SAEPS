@@ -375,7 +375,8 @@
 - [ ] controlled-mechanism closure seeds `85--99`；
   - [x] 建立 Amendment 016、v4.5 development contract 与机器可读 seed isolation；
   - [x] 冻结 P2 scientific objects；development 禁止使用 eta/monotonicity/Spearman 选择 center；
-  - [ ] engineering seeds `85--87`；
+  - [x] engineering v1 `85--87`：2/3 center PASS，失败分母保留；
+  - [x] engineering_v2 `85--87`：3/3 exact centers、15/15 alpha solver evaluations PASS；
   - [ ] executable freeze 后 held-out seeds `88--89`；
   - [ ] 独立 lock/preflight 后 one-shot confirmation seeds `90--99`；
 - [ ] two-parameter exact geometry seeds `100--114`；
