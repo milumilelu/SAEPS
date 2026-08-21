@@ -390,3 +390,15 @@ forbidden_evidence_not_used: Eta, monotonicity, Spearman correlation and figure 
 affected_configs: Future v4.5 confirmation lock only; seeds90--99 remain inactive pending lock, tests, clean preflight and one-shot authorization.
 authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
 ```
+
+## D-031 — Lock v4.5 controlled confirmation
+
+```text
+date: 2026-08-21
+decision_id: D-031
+decision: Lock untouched seeds90--99, five-alpha eta endpoint, all-center-valid rule, 8/10 planned monotonic rule and median Spearman >=0.9; do not yet authorize execution.
+reason: Frozen held-out development passes 2/2 centers and 10/10 alpha numerical evaluations. Scientific outcomes were excluded from engineering and held-out acceptance.
+development_evidence: docs/evidence/v4_5_controlled_heldout.json.
+affected_configs: configs/v4_5/locked_controlled_confirmation.yaml and CONTROLLED_CONFIRMATION_LOCK_RECORD.json. Execution remains disabled pending clean preflight.
+authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
+```
