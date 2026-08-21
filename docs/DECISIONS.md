@@ -414,3 +414,15 @@ development_evidence: docs/evidence/V4_5_CONTROLLED_PRECONFIRMATION_AUDIT.json; 
 affected_configs: configs/v4_5/CONFIRMATION_AUTHORIZATION.json only.
 authorizing_protocol: Amendment 016 and locked v4.5 confirmation protocol.
 ```
+
+## D-033 — Adjudicate v4.5 NOT_SUPPORTED and permanently close seeds90--99
+
+```text
+date: 2026-08-21
+decision_id: D-033
+decision: Adjudicate the controlled planned-denominator claim NOT_SUPPORTED and permanently close seeds90--99.
+reason: Six of ten planned centers are valid and monotonic with median Spearman 1.0, but the locked all-center-valid and 8/10 planned-monotonic conditions fail.
+scientific_scope: Retain strong conditional tangent-mechanism evidence; do not claim unconditional center availability or a passed controlled gate.
+affected_configs: No locked file changed. Seeds90--99 cannot be rerun or replaced.
+authorizing_protocol: Amendment 016 and locked v4.5 confirmation protocol.
+```

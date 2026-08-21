@@ -53,7 +53,7 @@
 
 - [x] v4.2 Burgers scalar exact-curvature confirmation 完成并永久关闭；
 - [x] Allen--Cahn 外部 scalar replication 完成独立 development、lock 与 untouched confirmation；
-- [ ] controlled tangent mechanism 在 fresh seeds 上完成计划分母验证，或保留阴性结果并收缩 claim；
+- [x] controlled tangent mechanism 在 fresh seeds 上完成计划分母验证，或保留阴性结果并收缩 claim；
 - [ ] two-parameter exact reduced geometry 完成独立 development 与 confirmation；
 - [ ] directional-HVP adequacy diagnostic 完成 explicit 数值一致性及 untouched 外部评价；
 - [ ] practical scalability 至少覆盖真实 residual 上的约 `10^2--10^5` state-parameter scale；

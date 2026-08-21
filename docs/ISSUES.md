@@ -405,3 +405,17 @@ affected_runs: v4.5 engineering v1 seeds85--87; denominator is 2/3 and the regis
 protocol_impact: Held-out seeds88--89 remain forbidden. Development selection explicitly permits center-validity engineering and forbids eta/monotonicity/Spearman. Since the failure is first-order convergence without detected negative curvature, register a 160-iteration GN candidate without changing any tolerance, then evaluate all three engineering seeds in a separate revision rather than selectively repeating seed87.
 resolution_or_status: RESOLVED FOR ENGINEERING. Engineering_v2 reran all three seeds under the committed 160-iteration candidate and passes 3/3 exact centers plus 15/15 alpha solver evaluations. The failed v1 denominator remains immutable. Held-out validation is still required.
 ```
+
+## I-029 — v4.5 controlled confirmation fails planned-denominator center availability
+
+```text
+date: 2026-08-21
+issue_id: I-029
+phase: V4.5 controlled-mechanism confirmation
+classification: scientific failure / benchmark numerical availability limitation
+description: Untouched seeds90--99 yield 6/10 binding-valid centers. All six valid seeds are monotonic with median Spearman 1.0, but four center-invalid seeds remain planned failures. The frozen 10/10 center and 8/10 planned-monotonic conditions both fail.
+evidence: outputs/runs/v4_5_controlled_confirmation and docs/evidence/v4_5_controlled_confirmation.json.
+affected_runs: sole permanent v4.5 confirmation cohort seeds90--99.
+protocol_impact: Scientific status is NOT_SUPPORTED. The mechanism may be claimed only conditional on a valid local state minimum; unconditional planned-denominator reproducibility is not established. No seed may be replaced or rerun.
+resolution_or_status: PERMANENTLY CLOSED. Continue the v4 program with this negative evidence retained and the final paper claim narrowed.
+```

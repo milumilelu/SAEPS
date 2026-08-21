@@ -380,7 +380,7 @@
   - [x] byte-freeze v4.5 config/runtime/center/solver/tests/semantic graph；仅授权 held-out `88--89`；
   - [x] executable freeze 后 held-out seeds `88--89`：2/2 centers、10/10 alpha numerical evaluations PASS；
   - [x] 独立 confirmation lock、clean preflight（71 tests）与 one-shot authorization；
-  - [ ] one-shot confirmation seeds `90--99`；
+  - [x] one-shot confirmation seeds `90--99`：6/10 valid、6/10 planned monotonic、median valid Spearman 1.0；`NOT_SUPPORTED` 永久关闭；
 - [ ] two-parameter exact geometry seeds `100--114`；
 - [ ] practical scalability checkpoints `120--124`；
 - [ ] v4-compatible robustness seeds `130--139`；
