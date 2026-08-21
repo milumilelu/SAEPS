@@ -38,3 +38,5 @@ def test_allen_development_uses_only_reserved_development_seeds() -> None:
     assert development["inactive_confirmation_seeds"] == branch["external_scalar"]["inactive_confirmation_seeds"]
     assert development["confirmation_authorized"] is False
     assert development["scientific_gate"] == "NONE_DEVELOPMENT_ONLY"
+    assert development["engineering_seeds"] == [70, 71, 72]
+    assert development["heldout_development_seeds"] == [73, 74]

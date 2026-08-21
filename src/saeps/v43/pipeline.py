@@ -19,11 +19,12 @@ from saeps.scalar import scalar_residual, solve_truth, train_scalar_checkpoint
 from saeps.v3.foundation import full_hessian_references
 from saeps.v31.pipeline import _mean_residual_objective
 from saeps.v34.profile import run_resolution_profile
-from saeps.v35.engineering import center_with_registered_rescue, scaled_augmented_lsqr_candidates
+from saeps.v35.engineering import scaled_augmented_lsqr_candidates
 from saeps.v35.second_order import second_order_reduced_decomposition
 from saeps.v36.pipeline import _center_specs, _relative
 from saeps.v41.numerics import binding_curvature_gate, explicit_curvature_reference, explicit_score_diagnostic
 from saeps.v43.indicator import directional_first_order_correction
+from saeps.v43.center import allen_center_candidates
 
 
 ResidualFunction = Callable[[torch.Tensor, torch.Tensor], torch.Tensor]
@@ -115,7 +116,16 @@ def run_allen_development_seed(
     if provenance["git_dirty"]:
         raise RuntimeError("formal development seed requires clean provenance")
 
-    destination = Path(output_root) / f"seed_{seed}"
+    if seed in [int(value) for value in specification["engineering_seeds"]]:
+        development_role = "engineering"
+    elif seed in [int(value) for value in specification["heldout_development_seeds"]]:
+        development_role = "heldout"
+        freeze_path = root / "configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json"
+        if not freeze_path.is_file():
+            raise RuntimeError("held-out Allen-Cahn development requires executable freeze")
+    else:
+        raise ValueError("seed has no Allen-Cahn development role")
+    destination = Path(output_root) / development_role / f"seed_{seed}"
     destination.mkdir(parents=True, exist_ok=False)
     digest = config_hash(specification)
     record = _initial_record(seed, digest, provenance)
@@ -128,8 +138,15 @@ def run_allen_development_seed(
         )
         parameter = checkpoint.log_parameter.detach().clone()
         objective = _mean_residual_objective(residual_function, parameter, checkpoint.theta, 0.0, False)
-        local, enhanced = _center_specs(curvature)
-        theta, center = center_with_registered_rescue(objective, checkpoint.theta, local, enhanced)
+        local, _ = _center_specs(curvature)
+        theta, center = allen_center_candidates(
+            lambda state: residual_function(state, parameter),
+            objective,
+            checkpoint.theta,
+            seed,
+            local,
+            specification["center_engineering"],
+        )
         record["training"] = {
             "seconds": checkpoint.elapsed_seconds,
             "stop_reason": checkpoint.stop_reason,
@@ -147,8 +164,8 @@ def run_allen_development_seed(
         linearization = ResidualLinearization(residual_function, theta, parameter)
         residual = linearization.residual()
         jacobian_theta, jacobian_parameter = linearization.explicit_jacobians()
-        selected = center["baseline"] if center["selected_method"] == "baseline_v3_4_exact_trust" else center["enhanced"]
-        g_theta = float(selected["final"]["normalized_objective_gradient"])
+        selected = center["candidates"][int(center["selected_candidate"])]
+        g_theta = float(selected["final_exact_diagnostics"]["normalized_objective_gradient"])
         s_theta = _stationarity(jacobian_theta, residual)
         s_lambda = _stationarity(jacobian_parameter, residual)
         center_pass = (
@@ -335,4 +352,3 @@ def run_allen_development_seed(
                 "scientific_gate": "NONE_DEVELOPMENT_ONLY",
             },
         )
-

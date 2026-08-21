@@ -349,3 +349,17 @@ affected_runs: no seed computation; aggregation only. Seeds 55--69 were not reru
 protocol_impact: A fail-closed recovery derived failure_stage only in memory from frozen independent statuses and invoked the byte-locked aggregator. No raw record, primary value, threshold, seed or scientific formula changed. Independent raw-to-aggregate reproduction passes and yields SUPPORTED under all four locked conditions.
 resolution_or_status: RESOLVED WITH RECORDED DEVIATION. V4.2 remains one-shot and permanently closed. Future runners must integration-test raw schema against the aggregator before lock.
 ```
+
+## I-025 — Allen--Cahn seed70 rejects direct reuse of the Burgers center policy
+
+```text
+date: 2026-08-21
+issue_id: I-025
+phase: V4.3 Allen-Cahn external-replication development
+classification: numerical failure
+description: The first real Allen-Cahn development attempt completed stable training but the byte-inherited Burgers baseline-then-enhanced center policy failed the exact second-order gate. Baseline used 51 cycles and enhanced rescue used 91 cycles; the final enhanced minimum state-Hessian eigenvalue was -3.0705e-6 versus tau 5.6283e-8, while the normalized objective gradient was 4.2850e-7.
+evidence: outputs/runs/v4_3_allen_cahn_development/seed_70.
+affected_runs: Allen-Cahn development seed70 initial frozen-policy attempt only.
+protocol_impact: Confirms the v4.0 warning that Burgers numerical settings cannot be assumed valid cross-PDE. The failed attempt is retained. Center engineering is restricted to seeds 70--72 and may use only exact center validity/loss, never D or SAEPS advantage; seeds 73--74 are held out until an executable freeze.
+resolution_or_status: OPEN DEVELOPMENT. Evaluate deterministic damped-GN/multistart center engineering without relaxing the exact first- or second-order thresholds.
+```
