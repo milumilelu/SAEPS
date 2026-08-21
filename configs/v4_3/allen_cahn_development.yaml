@@ -1,0 +1,46 @@
+schema_version: 1
+contract_id: SAEPS-ALLEN-CAHN-EXTERNAL-DEVELOPMENT-v4.3
+phase: V4_3_ALLEN_CAHN_EXTERNAL_DEVELOPMENT
+status: DEVELOPMENT_ACTIVE
+confirmation_authorized: false
+benchmark: Allen-Cahn
+development_seeds: [70, 71, 72, 73, 74]
+inactive_confirmation_seeds: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+protected_sources:
+  scalar_runtime:
+    path: configs/p4_screening.yaml
+    sha256: 9f0fb03f3165f4977f79bfe356973c3c4e5c3bec83c143a444fa695e01d1187c
+  curvature_protocol:
+    path: configs/v3_6/locked_scalar_confirmation.yaml
+    sha256: b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99
+  profile_protocol:
+    path: configs/v3_4/curvature_validation.yaml
+    sha256: 6d115c34c40e522acc5ad2734f081e690b0f7602b3f6de9a2811b0667752fd66
+engineering_selection:
+  allowed_metrics:
+    - forward_finite
+    - center_status
+    - parameter_reference_status
+    - curvature_solver_status
+    - exact_reference_status
+    - profile_status
+    - directional_indicator_agreement
+    - runtime_and_operation_counts
+  forbidden_metrics: [D, E_SAEPS, E_raw, eta, figure_appearance]
+binding_nodes:
+  - center_status
+  - parameter_reference_status
+  - curvature_solver_status
+  - exact_reference_status
+  - finite_primary_status
+nonbinding_nodes: [score_solver_status, profile_status, directional_indicator_status]
+directional_indicator:
+  explicit_relative_tolerance: 1.0e-6
+  threshold: 0.05
+  recalibration_forbidden: true
+profile:
+  role: secondary_bridge
+  failure_blocks_curvature: false
+  inherited_profile_definition: configs/v3_4/curvature_validation.yaml#profile
+scientific_gate: NONE_DEVELOPMENT_ONLY
+

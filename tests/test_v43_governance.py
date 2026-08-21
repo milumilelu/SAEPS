@@ -28,3 +28,13 @@ def test_v43_preserves_permanently_closed_confirmation_records() -> None:
     for relative_path in config["immutable_history"].values():
         assert (ROOT / relative_path).is_file()
 
+
+def test_allen_development_uses_only_reserved_development_seeds() -> None:
+    branch = yaml.safe_load((ROOT / "configs/v4_3/supported_branch.yaml").read_text(encoding="utf-8"))
+    development = yaml.safe_load(
+        (ROOT / "configs/v4_3/allen_cahn_development.yaml").read_text(encoding="utf-8")
+    )
+    assert development["development_seeds"] == branch["external_scalar"]["development_seeds"]
+    assert development["inactive_confirmation_seeds"] == branch["external_scalar"]["inactive_confirmation_seeds"]
+    assert development["confirmation_authorized"] is False
+    assert development["scientific_gate"] == "NONE_DEVELOPMENT_ONLY"
