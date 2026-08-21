@@ -3,6 +3,6 @@
   "binding_nodes": ["exact_state_local_minimum", "two_column_parameter_solver", "explicit_matrix_free_agreement", "exact_finite_gamma_reduction", "finite_matrix_geometry"],
   "development_selection_nodes": ["state_rmse_validation_only", "coupling", "runtime"],
   "development_excluded_nodes": ["D", "E_raw", "E_SAEPS", "favorable_eigenvalues", "figure_appearance"],
-  "heldout": {"seeds": [103, 104], "required_binding_valid": 2},
+  "heldout": {"seeds": [115, 116], "required_binding_valid": 2, "reason": "fresh recovery cohort after seed103 test-isolation contamination"},
   "confirmation_candidate": {"seeds": [105, 106, 107, 108, 109, 110, 111, 112, 113, 114], "minimum_valid_pairs": 8, "planned_strict_wins": 8, "positive_median_D": true, "exact_sign_test_alpha": 0.05}
 }

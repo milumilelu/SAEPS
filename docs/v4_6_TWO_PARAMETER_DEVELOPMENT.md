@@ -3,7 +3,7 @@
 The coupled reaction-diffusion benchmark and two log-parameter coordinates are inherited unchanged from the immutable P6 lock. Historical P6 remains `SG-3 FAIL` and cannot be reaggregated.
 
 - Engineering seeds: `100--102`.
-- Held-out development seeds: `103--104`, inactive until executable freeze.
+- Original held-out seeds `103--104` were invalidated before a freeze commit by I-031; seed103 is retained dirty-provenance evidence and seed104 is not run. Fresh recovery held-out seeds are `115--116` under Amendment 018.
 - Untouched confirmation seeds: `105--114`, inactive until independent lock and authorization.
 - Finite damping: inherited `gamma_alpha=1e-8`.
 - Gold standard: exact full-objective finite-gamma Schur reduction.

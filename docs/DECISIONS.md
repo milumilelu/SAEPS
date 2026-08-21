@@ -462,3 +462,15 @@ development_evidence: docs/evidence/v4_6_two_parameter_engineering.json.
 affected_configs: Future TWO_PARAMETER_EXECUTABLE_FREEZE.json only.
 authorizing_protocol: Amendment 017 and v4.6 development contract.
 ```
+
+## D-037 — Abort contaminated held-out freeze and authorize fresh recovery cohort
+
+```text
+date: 2026-08-21
+decision_id: D-037
+decision: Reject dirty-provenance seed103 as held-out evidence, do not run seed104, and authorize preparation of a byte freeze for fresh held-out seeds115--116.
+reason: The uncommitted freeze caused a test to execute seed103. This is an implementation-isolation failure independent of scientific outcomes; confirmation105--114 remains untouched.
+development_evidence: docs/evidence/v4_6_two_parameter_engineering.json.
+affected_configs: configs/v4_6/two_parameter_development.yaml and future TWO_PARAMETER_EXECUTABLE_FREEZE.json; seeds105--114 remain inactive.
+authorizing_protocol: Amendments 017--018 and v4.6 development contract.
+```

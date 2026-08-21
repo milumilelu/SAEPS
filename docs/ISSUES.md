@@ -433,3 +433,17 @@ affected_runs: v4.6 width-12 screening seed100 only.
 protocol_impact: No matrix comparison was formed. Development may test a precommitted smaller-architecture fallback using only center validity, validation-only state RMSE, solver/exact availability and coupling; D and comparative errors remain forbidden selection inputs.
 resolution_or_status: RESOLVED FOR SCREENING. Width8 also fails. Width6 passes the complete allowed selection chain with validation-only RMSE 0.00433 and coupling 0.875. Activate engineering seeds101--102 under width6; held-out remains inactive.
 ```
+
+## I-031 — v4.6 test invoked held-out seed103 before freeze commit
+
+```text
+date: 2026-08-21
+issue_id: I-031
+phase: V4.6 two-parameter held-out preparation
+classification: implementation failure
+description: A test expected run_v46_heldout_seed(103) to reject because the freeze was missing. In the combined command the newly created but uncommitted freeze existed, so the test performed the full real seed103 computation from a dirty worktree and then failed because no exception was raised.
+evidence: outputs/runs/v4_6_two_parameter/heldout/seed_103 with provenance.git_dirty=true and the retained pytest failure.
+affected_runs: seed103 contaminated attempt only. Seed104 was never started.
+protocol_impact: Seed103 cannot be held-out evidence; 103--104 cannot satisfy the registered 2/2 gate. No D/E or eigenspectrum was inspected. Confirmation105--114 remains untouched.
+resolution_or_status: RECOVERY AUTHORIZED by Amendment 018. Fix the test to use unauthorized seed105, retain seed103, skip seed104, and freeze fresh held-out seeds115--116 without changing numerical settings.
+```
