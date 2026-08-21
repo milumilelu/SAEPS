@@ -314,3 +314,15 @@ development_evidence: docs/evidence/v4_3_allen_heldout_validation.json.
 affected_configs: configs/v4_4/locked_allen_cahn_confirmation.yaml and LOCK_RECORD.json only. All earlier results remain immutable.
 authorizing_protocol: Amendment 015 and docs/v4_4_ALLEN_CONFIRMATION_PROTOCOL.md.
 ```
+
+## D-025 — Authorize one-shot v4.4 Allen--Cahn execution
+
+```text
+date: 2026-08-21
+decision_id: D-025
+decision: Authorize exactly one execution of locked Allen-Cahn seeds 75--84; prohibit rerun and protocol mutation.
+reason: The clean preflight passed locked config, exact seeds, source/executable hashes, zero-prior-run, real raw-schema compatibility, 64 tests, frozen held-out validation and permanent v3.6/v4.2 protection.
+development_evidence: docs/evidence/V4_4_PRE_CONFIRMATION_AUDIT.json; no seed 75--84 output existed at authorization.
+affected_configs: configs/v4_4/EXECUTION_AUTHORIZATION.json only. Locked config and executable remain byte-identical.
+authorizing_protocol: Amendment 015 and docs/v4_4_ALLEN_CONFIRMATION_PROTOCOL.md.
+```
