@@ -510,3 +510,15 @@ scope_limit: Function-preserving padded controlled-PINN checkpoint and gamma_alp
 development_evidence: docs/evidence/v4_7_scalability.json.
 authorizing_protocol: Amendment 019.
 ```
+
+## D-041 — Lock v4.8 paired descriptive robustness
+
+```text
+date: 2026-08-21
+decision_id: D-041
+decision: Freeze paired noise/sparsity seeds130--134 and paired architecture seeds135--139 for one-shot descriptive execution.
+reason: V4.2 core confirmation and V4.4 external replication are complete, so the master-program robustness node is due. Conditions and exact anchors are fixed before reading any fresh seed.
+scientific_scope: Descriptive curvature-only stress test; no positive-result threshold and no permission to recalibrate SAEPS.
+affected_configs: configs/v4_8/robustness.yaml.
+authorizing_protocol: Amendments 014 and 020.
+```

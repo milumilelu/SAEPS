@@ -1,0 +1,32 @@
+schema_version: 1
+contract_id: SAEPS-V4.8-PAIRED-ROBUSTNESS
+phase: V4_8_PAIRED_ROBUSTNESS
+protocol_locked: true
+execution_authorized: true
+descriptive_only: true
+source_v4_1_config: configs/v4_1/post_confirmation_development.yaml
+noise_sparsity:
+  seeds: [130, 131, 132, 133, 134]
+  noise_levels: [0.0, 0.01, 0.05]
+  observation_fractions: [1.0, 0.5, 0.2]
+  exact_anchor_cells:
+    - [0.0, 1.0]
+    - [0.01, 0.5]
+    - [0.05, 0.2]
+architecture:
+  seeds: [135, 136, 137, 138, 139]
+  widths: [8, 16, 32]
+  labels: [narrow, nominal, wide]
+execution:
+  one_shot_per_family_seed: true
+  paired_seed_required: true
+  replacement_forbidden: true
+  score_rhs_binding: false
+  fail_soft_record_all_computable: true
+  inherited_center_gamma_solver_gold_thresholds: true
+reporting:
+  planned_noise_sparsity_runs: 45
+  planned_architecture_runs: 15
+  retain_every_planned_run: true
+  report_failures_in_denominator: true
+  scientific_gate: DESCRIPTIVE_ONLY
