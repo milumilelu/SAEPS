@@ -475,3 +475,17 @@ affected_runs: no numerical run.
 protocol_impact: None. Correct key lookup from string to integer; all dimensions and solver settings remain unchanged.
 resolution_or_status: RESOLVED before first numerical checkpoint.
 ```
+
+## I-034 — v4.7 matrix-free application field mismatch stopped before output
+
+```text
+date: 2026-08-21
+issue_id: I-034
+phase: V4.7 scalability
+classification: implementation failure
+description: After checkpoint120 CG completed, the new reporter accessed applied.solves[0] although MatrixFreeApplication exposes applied.solve. The exception occurred before output creation.
+evidence: retained AttributeError traceback; no v4_7 checkpoint directory existed.
+affected_runs: checkpoint120 pre-output attempt only.
+protocol_impact: None. Correct the result-field access without changing computation or thresholds, then execute the registered checkpoint from a clean commit.
+resolution_or_status: RESOLVED before accepted raw output.
+```
