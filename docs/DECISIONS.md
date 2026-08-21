@@ -377,3 +377,16 @@ development_evidence: docs/evidence/v4_5_controlled_engineering.json.
 affected_configs: configs/v4_5/CONTROLLED_EXECUTABLE_FREEZE.json. Confirmation seeds90--99 remain inactive.
 authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
 ```
+
+## D-030 — Accept frozen v4.5 held-out development
+
+```text
+date: 2026-08-21
+decision_id: D-030
+decision: Accept held-out seeds88--89 and permit drafting, but not execution, of an untouched controlled-mechanism confirmation lock for seeds90--99.
+reason: Both held-out seeds pass the exact center gate and all ten alpha parameter-curvature solver/explicit-agreement evaluations under byte-frozen files.
+development_evidence: docs/evidence/v4_5_controlled_heldout.json.
+forbidden_evidence_not_used: Eta, monotonicity, Spearman correlation and figure appearance were excluded from held-out acceptance.
+affected_configs: Future v4.5 confirmation lock only; seeds90--99 remain inactive pending lock, tests, clean preflight and one-shot authorization.
+authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
+```

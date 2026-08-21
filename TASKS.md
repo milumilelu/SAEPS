@@ -378,7 +378,7 @@
   - [x] engineering v1 `85--87`：2/3 center PASS，失败分母保留；
   - [x] engineering_v2 `85--87`：3/3 exact centers、15/15 alpha solver evaluations PASS；
   - [x] byte-freeze v4.5 config/runtime/center/solver/tests/semantic graph；仅授权 held-out `88--89`；
-  - [ ] executable freeze 后 held-out seeds `88--89`；
+  - [x] executable freeze 后 held-out seeds `88--89`：2/2 centers、10/10 alpha numerical evaluations PASS；
   - [ ] 独立 lock/preflight 后 one-shot confirmation seeds `90--99`；
 - [ ] two-parameter exact geometry seeds `100--114`；
 - [ ] practical scalability checkpoints `120--124`；
