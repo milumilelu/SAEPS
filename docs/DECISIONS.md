@@ -264,3 +264,16 @@ forbidden_evidence_not_used: D, E_SAEPS, E_raw, eta, I_GN and profile curvature 
 affected_configs: configs/v4_3/allen_cahn_development.yaml selected_width only; confirmation remains unauthorized.
 authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md section 4 and Amendment 014.
 ```
+
+## D-021 — Accept Allen--Cahn engineering and prepare held-out freeze
+
+```text
+date: 2026-08-21
+decision_id: D-021
+decision: Accept width-8 Allen-Cahn engineering on seeds 70--72 and permit creation of an executable freeze for held-out development seeds 73--74; confirmation remains unauthorized.
+reason: All three selected-width records pass center, parameter-only reference, curvature solver, exact finite-gamma gold, finite-primary and directional-HVP agreement nodes. The actual runner-to-validator schema integration passes. Score failure is correctly nonbinding. The nonlinear-profile bridge passes only 1/3 and remains an explicit nonbinding limitation.
+development_evidence: docs/evidence/v4_3_allen_engineering_validation.json and docs/evidence/V4_3_ALLEN_ENGINEERING.md.
+forbidden_evidence_not_used: Comparative D/E/eta values were excluded from validation and decision inputs.
+affected_configs: Future configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json only; seeds 73--74 remain inactive until the freeze is committed.
+authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md section 4.3.
+```
