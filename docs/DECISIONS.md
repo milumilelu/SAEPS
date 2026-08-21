@@ -486,3 +486,15 @@ development_evidence: Amendment 018, I-031 and docs/evidence/v4_6_two_parameter_
 affected_configs: configs/v4_6/TWO_PARAMETER_EXECUTABLE_FREEZE.json; confirmation105--114 remains inactive.
 authorizing_protocol: Amendments 017--018.
 ```
+
+## D-039 — Stop v4.6 before confirmation
+
+```text
+date: 2026-08-21
+decision_id: D-039
+decision: Adjudicate the fresh held-out gate FAILED at 1/2 and permanently prohibit execution of confirmation seeds105--114 under v4.6.
+reason: Seed115 fails the exact center with 11 negative directions; seed116 passes. The preregistered 2/2 gate is not met.
+scientific_scope: Two-parameter exact matrix implementation is demonstrated on development records, but across-seed confirmation and comparative D are not tested.
+affected_configs: No frozen file changed. Seeds105--114 remain untouched and inactive.
+authorizing_protocol: Amendments 017--018 and v4.6 development contract.
+```

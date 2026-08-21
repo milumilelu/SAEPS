@@ -447,3 +447,17 @@ affected_runs: seed103 contaminated attempt only. Seed104 was never started.
 protocol_impact: Seed103 cannot be held-out evidence; 103--104 cannot satisfy the registered 2/2 gate. No D/E or eigenspectrum was inspected. Confirmation105--114 remains untouched.
 resolution_or_status: RECOVERY AUTHORIZED by Amendment 018. Fix the test to use unauthorized seed105, retain seed103, skip seed104, and freeze fresh held-out seeds115--116 without changing numerical settings.
 ```
+
+## I-032 — v4.6 fresh held-out exact-center availability passes only 1/2
+
+```text
+date: 2026-08-21
+issue_id: I-032
+phase: V4.6 two-parameter recovery held-out
+classification: benchmark numerical failure
+description: Under the byte-frozen width6 executable, fresh seed115 is CHECKPOINT_INVALID with 11 negative state-Hessian directions, while seed116 passes the complete center, solver, exact-reduction and coupling chain. The registered held-out gate requires 2/2.
+evidence: docs/evidence/v4_6_two_parameter_heldout.json and outputs/runs/v4_6_two_parameter/heldout/seed_115--116.
+affected_runs: fresh recovery held-out seeds115--116. Dirty seed103 remains separately excluded; seed104 was not run.
+protocol_impact: Held-out gate FAIL. Untouched confirmation seeds105--114 remain unrun and cannot be authorized. Two-parameter comparative hypothesis is not tested.
+resolution_or_status: PERMANENT DEVELOPMENT STOP for v4.6. Do not relax the center gate, replace seeds or run confirmation. Retain the one valid matrix record as development evidence only.
+```

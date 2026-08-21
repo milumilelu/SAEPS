@@ -387,8 +387,8 @@
   - [x] engineering seeds `100--102`：width6 complete binding 3/3，nontrivial coupling 3/3；
   - [x] seed103 被测试隔离 bug 污染并永久排除；seed104 未运行；
   - [x] byte-freeze unchanged width6 executable；仅授权 recovery held-out `115--116`；
-  - [ ] recovery held-out seeds `115--116`；
-  - [ ] untouched confirmation seeds `105--114`；
+  - [x] recovery held-out seeds `115--116`：1/2 binding PASS；held-out gate FAILED；
+  - [x] untouched confirmation seeds `105--114` 保持未运行并永久不授权；two-parameter comparative hypothesis 未检验；
 - [ ] practical scalability checkpoints `120--124`；
 - [ ] v4-compatible robustness seeds `130--139`；
 - [ ] final v4 evidence audit and current report.
