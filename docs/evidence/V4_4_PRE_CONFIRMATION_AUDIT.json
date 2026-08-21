@@ -1,0 +1,170 @@
+{
+  "checks": {
+    "absence_of_prior_run": {
+      "paths": [],
+      "status": "PASS"
+    },
+    "clean_source": {
+      "git_branch": "main",
+      "git_commit": "0b0b6c7a9e829b15f82214e5dff1dd300e2691d3",
+      "git_dirty": false,
+      "git_status_porcelain": "",
+      "status": "PASS"
+    },
+    "executable_hashes": {
+      "files": [
+        {
+          "actual": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+          "expected": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+          "path": "configs/v4_4/locked_allen_cahn_confirmation.yaml"
+        },
+        {
+          "actual": "b39878cceaa8d8ac4e1c375ef244daa5f2a46f0b3716252d36383ac200d89221",
+          "expected": "b39878cceaa8d8ac4e1c375ef244daa5f2a46f0b3716252d36383ac200d89221",
+          "path": "src/saeps/v44/pipeline.py"
+        },
+        {
+          "actual": "aa0d049ba5edecdd04874a8bd5a996bcefa500dfaf432af14fdf816093e1b999",
+          "expected": "aa0d049ba5edecdd04874a8bd5a996bcefa500dfaf432af14fdf816093e1b999",
+          "path": "src/saeps/v44/aggregation.py"
+        },
+        {
+          "actual": "3b08158a745bd21e153a0ae6cd25481f94cc6236c379cde9f0f1538baed9c20a",
+          "expected": "3b08158a745bd21e153a0ae6cd25481f94cc6236c379cde9f0f1538baed9c20a",
+          "path": "src/saeps/v44/execution.py"
+        },
+        {
+          "actual": "59ff7e8e76562a1d4af44022836b6fecdff7ae3bfada15e01e975e222094dce7",
+          "expected": "59ff7e8e76562a1d4af44022836b6fecdff7ae3bfada15e01e975e222094dce7",
+          "path": "src/saeps/v44/preflight.py"
+        },
+        {
+          "actual": "688dd9a98a82163e368fc8d61c431599a824c4b9434b2dbd86926b751fd8d5c4",
+          "expected": "688dd9a98a82163e368fc8d61c431599a824c4b9434b2dbd86926b751fd8d5c4",
+          "path": "src/saeps/v43/center.py"
+        },
+        {
+          "actual": "47cd191723c5bfcbb0c0b21069024b133a6383a9779f4d79190fec94b058dcbb",
+          "expected": "47cd191723c5bfcbb0c0b21069024b133a6383a9779f4d79190fec94b058dcbb",
+          "path": "src/saeps/v43/indicator.py"
+        },
+        {
+          "actual": "936dfa80c660abd7a10fb24cd5f2d346d92b3d7a591686a91186235e5af8703e",
+          "expected": "936dfa80c660abd7a10fb24cd5f2d346d92b3d7a591686a91186235e5af8703e",
+          "path": "src/saeps/v41/numerics.py"
+        },
+        {
+          "actual": "a615a9d486fef1e21b7d24798dc6317fdf1fc243237f056174b0998ff6d5265b",
+          "expected": "a615a9d486fef1e21b7d24798dc6317fdf1fc243237f056174b0998ff6d5265b",
+          "path": "scripts/42_run_v4_4_allen_confirmation.py"
+        },
+        {
+          "actual": "034652c1e35ec5b76fb4077c292dd666ede7a61b759aba125db1c447ef6241bc",
+          "expected": "034652c1e35ec5b76fb4077c292dd666ede7a61b759aba125db1c447ef6241bc",
+          "path": "scripts/43_preflight_v4_4_allen_confirmation.py"
+        },
+        {
+          "actual": "0cbdb39adcf33db9358d114f07e0f9cf71d51078cf2170892fed245f561f2526",
+          "expected": "0cbdb39adcf33db9358d114f07e0f9cf71d51078cf2170892fed245f561f2526",
+          "path": "tests/test_v44_aggregation.py"
+        },
+        {
+          "actual": "9269815d5a31ee4a0e9dd0af9e5122637ec648e4a78e410b46f53e08b2fa027b",
+          "expected": "9269815d5a31ee4a0e9dd0af9e5122637ec648e4a78e410b46f53e08b2fa027b",
+          "path": "tests/test_v44_lock_candidate.py"
+        },
+        {
+          "actual": "2376375ef5c35d42164b95a343b93e3620e083de8f148347579fa3f33025a898",
+          "expected": "2376375ef5c35d42164b95a343b93e3620e083de8f148347579fa3f33025a898",
+          "path": "docs/v4_4/ALLEN_SEMANTIC_GATE_GRAPH.json"
+        }
+      ],
+      "status": "PASS"
+    },
+    "locked_config": {
+      "sha256": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+      "status": "PASS"
+    },
+    "planned_seeds": {
+      "seeds": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "status": "PASS"
+    },
+    "raw_aggregator_schema": {
+      "source": "real held-out seed74",
+      "status": "PASS"
+    },
+    "source_hashes": {
+      "sources": [
+        {
+          "actual": "f58ae5936815d05d2049708fcdcc891ff5a2553334b6fec183255e5223996707",
+          "expected": "f58ae5936815d05d2049708fcdcc891ff5a2553334b6fec183255e5223996707",
+          "path": "configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json"
+        },
+        {
+          "actual": "1878803da66be6a8bcb22a125174f877f0b59af4a1fb88d7ef1d1c938a6097d4",
+          "expected": "1878803da66be6a8bcb22a125174f877f0b59af4a1fb88d7ef1d1c938a6097d4",
+          "path": "docs/evidence/v4_3_allen_heldout_validation.json"
+        }
+      ],
+      "status": "PASS"
+    },
+    "static_commands": {
+      "commands": {
+        "pytest": {
+          "command": [
+            "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stderr_tail": "",
+          "stdout_tail": "................................................................         [100%]\n============================== warnings summary ===============================\ntests/test_p1_core.py: 18 warnings\n  C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Lib\\site-packages\\torch\\jit\\_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n64 passed, 18 warnings in 3.75s\n"
+        },
+        "v4_2_result": {
+          "command": [
+            "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+            "scripts/38_validate_v4_2_confirmation.py"
+          ],
+          "exit_code": 0,
+          "stderr_tail": "",
+          "stdout_tail": "hema\",\n        \"recovery_environment\": {\n          \"device\": \"cpu\",\n          \"dtype\": \"float64\",\n          \"git_branch\": \"main\",\n          \"git_commit\": \"6a876235dc0e6564f501d47cd426b794038765a3\",\n          \"git_dirty\": true,\n          \"git_status_porcelain\": \"?? outputs/runs/v4_2_corrected_confirmation/\\n?? scripts/36_finalize_interrupted_v4_2_from_raw.py\",\n          \"machine\": \"AMD64\",\n          \"packages\": {\n            \"PyYAML\": \"6.0.3\",\n            \"numpy\": \"2.3.5\",\n            \"torch\": \"2.13.0\"\n          },\n          \"platform\": \"Windows-11-10.0.26100-SP0\",\n          \"processor\": \"Intel64 Family 6 Model 183 Stepping 1, GenuineIntel\",\n          \"python_executable\": \"C:\\\\Users\\\\RZF\\\\Desktop\\\\\\u535a\\u58eb\\u8bfe\\u9898\\u8d44\\u6599\\\\SAEPS\\\\.venv\\\\Scripts\\\\python.exe\",\n          \"python_version\": \"3.12.13\",\n          \"timestamp\": \"2026-08-20T07:51:43.159654+00:00\",\n          \"torch_cuda_available\": false\n        },\n        \"schema_adapter\": \"failure_stage derived in memory from independent node statuses; no raw or primary value changed\",\n        \"seed_computation_repeated\": false\n      },\n      \"status\": \"PASS\"\n    },\n    \"binding_graph\": {\n      \"status\": \"PASS\",\n      \"valid_binding_chains\": 12,\n      \"valid_with_nonbinding_score_failure\": 12\n    },\n    \"independent_raw_to_aggregate\": {\n      \"primary_conditions\": {\n        \"exact_sign_test\": true,\n        \"minimum_valid_pairs\": true,\n        \"planned_seed_wins\": true,\n        \"positive_median_D\": true\n      },\n      \"scientific_status\": \"SUPPORTED\",\n      \"status\": \"PASS\"\n    },\n    \"invalid_planned_seeds\": {\n      \"count_as_planned_nonwins\": true,\n      \"seeds\": [\n        57,\n        61,\n        63\n      ],\n      \"status\": \"PASS\"\n    },\n    \"locked_protocol_and_executable\": {\n      \"aggregator_file_sha256\": \"bdfebdb07dc89cc7b0ea414d838dd7a3400ca65da3565c9f9493744434179019\",\n      \"locked_config_sha256\": \"e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874\",\n      \"runner_commit\": \"4d1d3277124da2eae5a03e000c9f29a23e3da626\",\n      \"status\": \"PASS\"\n    },\n    \"permanent_result_record\": {\n      \"raw_records_sha256\": \"2c8166bcf973188cb3cfbd7f106a6a70b16e5b687e3b30de14ffffd9dee26b0e\",\n      \"result_commit\": \"7e538fdf3e6969e8ce09cd804b7b083ff3a907d2\",\n      \"status\": \"PASS\"\n    },\n    \"raw_manifest_and_completeness\": {\n      \"raw_records_sha256\": \"2c8166bcf973188cb3cfbd7f106a6a70b16e5b687e3b30de14ffffd9dee26b0e\",\n      \"seeds\": [\n        55,\n        56,\n        57,\n        58,\n        59,\n        60,\n        61,\n        62,\n        63,\n        64,\n        65,\n        66,\n        67,\n        68,\n        69\n      ],\n      \"status\": \"PASS\"\n    },\n    \"v3_6_unchanged\": {\n      \"scientific_status\": \"NOT_SUPPORTED\",\n      \"status\": \"PASS\"\n    }\n  },\n  \"phase\": \"V4_2_CONFIRMATION_RESULT_AUDIT\",\n  \"raw_records_sha256\": \"2c8166bcf973188cb3cfbd7f106a6a70b16e5b687e3b30de14ffffd9dee26b0e\",\n  \"rerun_permitted\": false,\n  \"schema_version\": 1,\n  \"scientific_status\": \"SUPPORTED\",\n  \"status\": \"PASSED\"\n}\n"
+        },
+        "v4_3_heldout": {
+          "command": [
+            "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+            "scripts/41_validate_v4_3_allen_heldout.py"
+          ],
+          "exit_code": 0,
+          "stderr_tail": "",
+          "stdout_tail": "{\n  \"schema_version\": 1,\n  \"phase\": \"V4_3_ALLEN_CAHN_HELDOUT_DEVELOPMENT_VALIDATION\",\n  \"status\": \"PASSED\",\n  \"scientific_gate\": \"NONE_DEVELOPMENT_ONLY\",\n  \"seeds\": [\n    73,\n    74\n  ],\n  \"record_hashes\": {\n    \"73\": \"250f2a260b42a96991422f6cee8cd5b94242c2f249e60b53303207d1a9d74f19\",\n    \"74\": \"8730f303a30e4c4681a36f297fe2714a653333fca4d03e3de71835be0ebd274b\"\n  },\n  \"binding_valid_count\": 2,\n  \"score_failure_nonbinding_count\": 2,\n  \"profile_bridge_pass_count\": 1,\n  \"directional_indicator_pass_count\": 2,\n  \"state_rmse\": [\n    0.02174152280381409,\n    0.023114469130718553\n  ],\n  \"freeze_basis_commit\": \"6490977c2ba50b42ab2039158e470e652843601c\",\n  \"frozen_file_count\": 11,\n  \"comparative_quantities_used_for_acceptance\": false,\n  \"confirmation_authorized\": false\n}\n"
+        }
+      },
+      "status": "PASS"
+    },
+    "v3_6_permanent_protection": {
+      "scientific_status": "NOT_SUPPORTED",
+      "status": "PASS"
+    },
+    "v4_2_permanent_protection": {
+      "scientific_status": "SUPPORTED",
+      "status": "PASS"
+    }
+  },
+  "confirmation_runs_observed": 0,
+  "execution_started": false,
+  "phase": "V4_4_PRE_CONFIRMATION_AUDIT",
+  "schema_version": 1,
+  "status": "PASSED"
+}
