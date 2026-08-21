@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "phase": "V4_5_CONTROLLED_MECHANISM",
+  "binding_nodes": {
+    "center": ["exact_local_minimum", "theta_stationarity", "objective_finite"],
+    "curvature": ["parameter_rhs_only", "verified_solver_residual", "explicit_matrix_free_agreement"],
+    "per_seed": ["center", "five_alpha_curvature_evaluations"]
+  },
+  "nonbinding_development_nodes": ["eta", "monotonicity", "spearman", "figure_appearance", "score_rhs"],
+  "heldout_gate": {
+    "planned_seeds": [88, 89],
+    "required_binding_valid": 2,
+    "required_alpha_passes": 10
+  },
+  "confirmation_candidate_gate": {
+    "planned_seeds": [90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
+    "all_centers_must_be_valid": true,
+    "monotonic_planned_seeds_required": 8,
+    "median_valid_seed_spearman_min": 0.9
+  }
+}

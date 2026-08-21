@@ -40,12 +40,28 @@ def _write(path: Path, value: object) -> None:
     )
 
 
-def run_v45_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
+def _run_v45_seed(root: Path, seed: int, role: str) -> dict[str, Any]:
     development_path = root / "configs/v4_5/controlled_mechanism_development.yaml"
     development = load_config(development_path)
-    if seed not in development["engineering_seeds"]:
-        raise ValueError("only registered v4.5 engineering seeds are authorized")
-    revision = str(development["output_revision"])
+    if role == "engineering":
+        allowed = development["engineering_seeds"]
+        revision = str(development["output_revision"])
+    elif role == "heldout_development":
+        allowed = development["heldout_development_seeds"]
+        revision = "heldout"
+        freeze_path = root / "configs/v4_5/CONTROLLED_EXECUTABLE_FREEZE.json"
+        if not freeze_path.is_file():
+            raise RuntimeError("held-out executable freeze is missing")
+        freeze = json.loads(freeze_path.read_text(encoding="utf-8"))
+        if freeze.get("heldout_authorized") is not True:
+            raise RuntimeError("held-out execution is not authorized")
+        for relative, expected in freeze["file_sha256"].items():
+            if _sha256(root / relative) != expected:
+                raise RuntimeError(f"held-out frozen file mismatch: {relative}")
+    else:
+        raise ValueError(f"unknown v4.5 role: {role}")
+    if seed not in allowed:
+        raise ValueError(f"seed {seed} is not authorized for role {role}")
     destination = root / f"outputs/runs/v4_5_controlled_mechanism/{revision}/seed_{seed}"
     if destination.exists():
         raise RuntimeError("seed output already exists; rerun forbidden")
@@ -188,7 +204,7 @@ def run_v45_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
     record = {
         "schema_version": 1,
         "phase": development["phase"],
-        "role": "engineering",
+        "role": role,
         "seed": seed,
         "status": "PASS" if binding_valid else ("CHECKPOINT_INVALID" if not center_valid else "SOLVER_FAILURE"),
         "binding_valid": binding_valid,
@@ -219,3 +235,11 @@ def run_v45_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
         },
     )
     return record
+
+
+def run_v45_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
+    return _run_v45_seed(root, seed, "engineering")
+
+
+def run_v45_heldout_seed(root: Path, seed: int) -> dict[str, Any]:
+    return _run_v45_seed(root, seed, "heldout_development")
