@@ -134,6 +134,10 @@ def run_allen_development_seed(
         freeze_path = root / "configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json"
         if not freeze_path.is_file():
             raise RuntimeError("held-out Allen-Cahn development requires executable freeze")
+        freeze = json.loads(freeze_path.read_text(encoding="utf-8"))
+        for relative_path, expected_hash in freeze["file_sha256"].items():
+            if _sha256(root / relative_path) != expected_hash:
+                raise RuntimeError(f"held-out executable freeze mismatch: {relative_path}")
     else:
         raise ValueError("seed has no Allen-Cahn development role")
     destination = Path(output_root) / development_role / f"seed_{seed}"
