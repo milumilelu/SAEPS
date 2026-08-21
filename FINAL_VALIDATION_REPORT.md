@@ -1,5 +1,7 @@
 # FINAL_VALIDATION_REPORT.md
 
+> **Historical scope notice:** This is the immutable-style final report for the completed v2 protocol and does not include later v3/v4 experiments. The current adjudicated state is v4.2 `SUPPORTED` for Burgers scalar exact-curvature comparison, with external replication, fresh controlled-mechanism closure, two-parameter exact geometry and scalability still outstanding. See `docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md`. This notice changes no v2 result or artifact.
+
 ## Repository status
 
 Protocol `SAEPS-JCP-EXEC-v2.0`; global lock active at `ad794ca2908c8935d0e21702fab7914ff944cce7`. Artifact build: `PASSED`. Repository validator: `PASSED`.

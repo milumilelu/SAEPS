@@ -1,0 +1,38 @@
+schema_version: 1
+contract_id: SAEPS-SUPPORTED-BRANCH-v4.3
+phase: V4_3_SUPPORTED_BRANCH
+status: DEVELOPMENT_ACTIVE
+confirmation_authorized: false
+immutable_history:
+  v3_6_result: configs/v3_6/CONFIRMATION_RESULT_RECORD.json
+  v4_2_result: configs/v4_2/CONFIRMATION_RESULT_RECORD.json
+external_scalar:
+  benchmark: Allen-Cahn
+  screening_forbidden: true
+  development_seeds: [70, 71, 72, 73, 74]
+  inactive_confirmation_seeds: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+  selection_forbidden_metrics: [D, E_SAEPS, E_raw, eta, figure_appearance]
+  primary_gold_standard: exact_finite_gamma_reduced_hessian
+  secondary_profile: gamma_matched_nonlinear_profile
+  gn_indicator:
+    role: secondary_nonbinding
+    definition_frozen: true
+    threshold: 0.05
+    recalibration_forbidden: true
+future_reserved_seeds:
+  controlled_development: [85, 86, 87, 88, 89]
+  controlled_confirmation: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+  multi_development: [100, 101, 102, 103, 104]
+  multi_confirmation: [105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  scalability: [120, 121, 122, 123, 124]
+  robustness_noise_sparsity: [130, 131, 132, 133, 134]
+  robustness_architecture: [135, 136, 137, 138, 139]
+candidate_external_confirmation_rule:
+  state: NOT_LOCKED_NOT_AUTHORIZED
+  planned_denominator: 10
+  minimum_valid_pairs: 8
+  planned_strict_wins_required: 8
+  median_D_positive: true
+  exact_one_sided_sign_test_alpha: 0.05
+  invalid_planned_seed_is_nonwin: true
+

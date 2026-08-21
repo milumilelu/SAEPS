@@ -2,6 +2,8 @@
 
 > 执行阶段、冲突裁决和验收接口以 `docs/EXECUTION_CONTRACT.md` 为最高优先级协议。
 
+> **当前研究状态（2026-08-21）：** 下方勾选项与 `FINAL_VALIDATION_REPORT.md` 记录的是已完成的 v2 历史协议，不是整个 v4 research program 的最终完成。v4.2 已独立确认 Burgers scalar-curvature comparative claim 为 `SUPPORTED`，但外部 scalar replication、fresh controlled-mechanism closure、two-parameter exact geometry 与 practical scalability 尚未完成。当前后续执行契约为 `docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md`；任何历史 lock 和结果保持不变。
+
 ## 顶层目标
 
 从零建立一个独立、可复现、可审计的 SAEPS 实验仓库，完成 Journal of Computational Physics 方法论文强度的最小实验闭环，并回答：
@@ -24,7 +26,7 @@
 
 核心 confirmation 使用 10 个锁定 seeds `[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]`。Scalar 主结论采用同一 checkpoint 内的 paired comparison，并同时报告 9/10 胜出、\(median(D)\) 和 paired bootstrap 95% CI；10 seeds 只用于支撑 across-seed reproducibility，不得被表述为跨所有问题的普适性证据。
 
-## Definition of Done
+## v2 Historical Definition of Done
 
 只有同时满足以下条件，Goal 才能标记为完成：
 
@@ -46,6 +48,17 @@
 - [x] 测试通过，`git status` 干净，阶段 commits、最终 commit 与全部结果可追溯。
 
 科学 gate 失败不妨碍 Goal 工程完成；缺失实验、违反协议、不可追溯结果或工程验收失败则不允许完成。
+
+## v4 Research Program Definition of Done
+
+- [x] v4.2 Burgers scalar exact-curvature confirmation 完成并永久关闭；
+- [ ] Allen--Cahn 外部 scalar replication 完成独立 development、lock 与 untouched confirmation；
+- [ ] controlled tangent mechanism 在 fresh seeds 上完成计划分母验证，或保留阴性结果并收缩 claim；
+- [ ] two-parameter exact reduced geometry 完成独立 development 与 confirmation；
+- [ ] directional-HVP adequacy diagnostic 完成 explicit 数值一致性及 untouched 外部评价；
+- [ ] practical scalability 至少覆盖真实 residual 上的约 `10^2--10^5` state-parameter scale；
+- [ ] v4-compatible noise/sparsity 与 architecture robustness 完成；
+- [ ] 当前总报告从全部不可变历史结果和新 raw outputs 自动生成。
 
 ## 最终科学结论规则
 

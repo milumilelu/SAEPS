@@ -350,3 +350,23 @@
 - [x] 记录并审计 post-seed `failure_stage` schema recovery；无 seed 或 primary quantity 重算；
 - [x] 记录 result commit / config hash / raw manifests hash / scientific status；**v4.2 永久关闭**；
 - [x] lock record 包含 runner/aggregator/test-suite/semantic-gate-graph hashes。
+
+## V4.3 — Supported-Branch Research Program
+
+**状态:** `IN_PROGRESS`
+**授权范围:** governance synchronization and Allen--Cahn development seeds `70--74` only
+**禁止:** seeds `75--139` remain reserved/inactive until their own gates and locks
+
+- [x] 建立 Amendment 014 与 v4.3 execution contract；
+- [x] 明确 v2、v3.6、v4.2 的历史状态与 claim 边界；
+- [x] 固定后续实验顺序、seed namespace 与停止规则；
+- [x] 创建机器可读 v4.3 governance config 与 seed-isolation tests；
+- [x] 将旧 `FINAL_VALIDATION_REPORT.md` 标记为 v2 historical scope；
+- [ ] Allen--Cahn development seeds `70--74`；
+- [ ] Allen--Cahn executable/protocol lock；
+- [ ] Allen--Cahn confirmation seeds `75--84`；
+- [ ] controlled-mechanism closure seeds `85--99`；
+- [ ] two-parameter exact geometry seeds `100--114`；
+- [ ] practical scalability checkpoints `120--124`；
+- [ ] v4-compatible robustness seeds `130--139`；
+- [ ] final v4 evidence audit and current report.

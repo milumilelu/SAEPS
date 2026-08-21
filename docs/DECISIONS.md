@@ -239,3 +239,15 @@ development_evidence: Not development; untouched confirmation evidence in docs/e
 affected_configs: No locked config or executable changed. A reporting-only schema adapter is disclosed in I-024; independent raw-to-aggregate validation passes.
 authorizing_protocol: docs/v4_2_CORRECTED_CONFIRMATION.md and Amendment 013.
 ```
+
+## D-019 — Open the v4.3 supported research branch
+
+```text
+date: 2026-08-21
+decision_id: D-019
+decision: Preserve all historical protocols and open the v4.0 SUPPORTED branch, beginning with fixed Allen-Cahn external-replication development seeds 70--74; reserve but do not activate later confirmation and extension seeds.
+reason: V4.2 passed all four frozen primary conditions on Burgers, but this result does not establish cross-PDE, nonlinear-profile, multi-parameter or practical-scale validity required by the master research program.
+development_evidence: No new development result. Decision is based only on permanently frozen v4.2 evidence and the four user-supplied task books.
+affected_configs: Future configs/v4_3 development files only. V2, v3.6, v4.1 and v4.2 locks/results remain immutable.
+authorizing_protocol: Amendment 014 and docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md.
+```
