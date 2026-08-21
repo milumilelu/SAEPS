@@ -365,6 +365,7 @@
 - [ ] Allen--Cahn development seeds `70--74`；
 - [x] Allen--Cahn engineering seeds `70--72`：width 8 binding chain 3/3，profile bridge 1/3；
 - [x] 真实 raw schema→validator 集成测试通过，未使用 comparative quantities 选择配置；
+- [x] 在 commit `6490977` 冻结 Allen--Cahn config/runner/center/indicator/validator/tests/semantic graph；
 - [ ] Allen--Cahn executable/protocol lock；
 - [ ] Allen--Cahn confirmation seeds `75--84`；
 - [ ] controlled-mechanism closure seeds `85--99`；

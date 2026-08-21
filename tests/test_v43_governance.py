@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import hashlib
 
 import yaml
 
@@ -55,3 +56,13 @@ def test_allen_semantic_graph_keeps_profile_and_score_nonbinding() -> None:
     assert "profile_status" in graph["nonbinding_nodes"]
     assert "score_solver_status" not in graph["curvature_gate"]["requires"]
     assert graph["fail_soft_recording"] is True
+
+
+def test_allen_executable_freeze_matches_all_declared_files() -> None:
+    freeze = json.loads(
+        (ROOT / "configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json").read_text(encoding="utf-8")
+    )
+    assert freeze["confirmation_authorized"] is False
+    for relative_path, expected in freeze["file_sha256"].items():
+        observed = hashlib.sha256((ROOT / relative_path).read_bytes()).hexdigest()
+        assert observed == expected

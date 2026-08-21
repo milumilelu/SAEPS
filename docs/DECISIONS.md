@@ -277,3 +277,15 @@ forbidden_evidence_not_used: Comparative D/E/eta values were excluded from valid
 affected_configs: Future configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json only; seeds 73--74 remain inactive until the freeze is committed.
 authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md section 4.3.
 ```
+
+## D-022 — Freeze Allen--Cahn executable for held-out development
+
+```text
+date: 2026-08-21
+decision_id: D-022
+decision: Freeze the width-8 Allen-Cahn development config, runner, center engine, directional indicator, validator, tests and semantic gate graph at commit 6490977, then activate held-out development seeds 73--74 only.
+reason: Engineering seeds 70--72 pass the complete binding curvature chain 3/3 and the real raw-schema integration test passes. Profile bridge instability remains nonbinding and is frozen rather than tuned away.
+development_evidence: docs/evidence/v4_3_allen_engineering_validation.json.
+affected_configs: configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json. Confirmation seeds 75--84 remain inactive and unauthorized.
+authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md section 4.3 and Amendment 014.
+```

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "contract_id": "SAEPS-ALLEN-CAHN-HELDOUT-DEVELOPMENT-FREEZE-v4.3",
+  "freeze_date": "2026-08-21",
+  "freeze_basis_commit": "6490977c2ba50b42ab2039158e470e652843601c",
+  "runner_commit": "6490977c2ba50b42ab2039158e470e652843601c",
+  "test_suite_commit": "6490977c2ba50b42ab2039158e470e652843601c",
+  "selected_benchmark": "Allen-Cahn",
+  "selected_hidden_width": 8,
+  "engineering_seeds": [70, 71, 72],
+  "heldout_development_seeds": [73, 74],
+  "confirmation_seeds_inactive": [75, 76, 77, 78, 79, 80, 81, 82, 83, 84],
+  "confirmation_authorized": false,
+  "selection_excluded_metrics": ["D", "E_SAEPS", "E_raw", "eta", "I_GN", "profile_curvature"],
+  "file_sha256": {
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "src/saeps/v43/pipeline.py": "79631f819526d9a700e29b59ef8d0316a3d693fe3d8414f2d93ae2cfa2494f20",
+    "src/saeps/v43/center.py": "688dd9a98a82163e368fc8d61c431599a824c4b9434b2dbd86926b751fd8d5c4",
+    "src/saeps/v43/indicator.py": "47cd191723c5bfcbb0c0b21069024b133a6383a9779f4d79190fec94b058dcbb",
+    "src/saeps/v43/validation.py": "dcc03c5f939ab5c0ba923dc6962420dc1631a4c3149f07b98ff25a94c4644369",
+    "scripts/39_run_v4_3_allen_development.py": "a38326be93e413b9c70999fc03cdc50bdcd370dfa2a46da7afd1c398d4f3ce57",
+    "scripts/40_validate_v4_3_allen_engineering.py": "99cf3a5985ff5fed19ec27bd9472cb7b80300a107f227e29629d3d1fd4ea6e77",
+    "tests/test_v43_center.py": "f320af6d77040653b4b002a21aba35d51dcc2cd00b6bae4fc6d69fa73a6b233c",
+    "tests/test_v43_indicator.py": "15ebf7c4d0c95f845e5d16607b2dc2f00a5ae0cb8d320df2ac18164181917323",
+    "tests/test_v43_validation.py": "f21771ba19cccb7101f19aa6c1b30e066b9ed1032cee8da38ebe1057525ddd10",
+    "docs/v4_3/ALLEN_SEMANTIC_GATE_GRAPH.json": "9d8173b07b95e85bb9059f481f3e08c7c5f2a5111205ee3654f4396b43480ac6"
+  },
+  "scientific_gate": "NONE_HELDOUT_DEVELOPMENT_ONLY"
+}
