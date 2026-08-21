@@ -384,7 +384,7 @@
 - [ ] two-parameter exact geometry seeds `100--114`；
   - [x] 建立 Amendment 017、fresh seed isolation、matrix-primary exact-geometry development contract；
   - [x] seed100 architecture fallback：width12/8 center FAIL，width6 complete binding chain PASS并锁定为 candidate；
-  - [ ] engineering seeds `100--102`；
+  - [x] engineering seeds `100--102`：width6 complete binding 3/3，nontrivial coupling 3/3；
   - [ ] held-out seeds `103--104`；
   - [ ] untouched confirmation seeds `105--114`；
 - [ ] practical scalability checkpoints `120--124`；

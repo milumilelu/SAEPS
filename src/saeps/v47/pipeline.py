@@ -44,11 +44,27 @@ def _generalized(curvature: torch.Tensor, raw: torch.Tensor, tau_relative: float
     return {"tau": tau, "eigenvalues": eigenvalues.tolist(), "eigenvectors_columns": vectors.tolist(), "metric_normalization": (vectors.T @ metric @ vectors).tolist()}
 
 
-def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
+def _run_v46_seed(root: Path, seed: int, role: str) -> dict[str, Any]:
     specification = load_config(root / "configs/v4_6/two_parameter_development.yaml")
-    if seed not in specification["engineering_seeds"]:
-        raise ValueError("only registered v4.6 engineering seeds are authorized")
-    revision = str(specification["output_revision"])
+    if role == "engineering":
+        allowed = specification["engineering_seeds"]
+        revision = str(specification["output_revision"])
+    elif role == "heldout_development":
+        allowed = specification["heldout_development_seeds"]
+        revision = "heldout"
+        freeze_path = root / "configs/v4_6/TWO_PARAMETER_EXECUTABLE_FREEZE.json"
+        if not freeze_path.is_file():
+            raise RuntimeError("v4.6 held-out freeze is missing")
+        freeze = json.loads(freeze_path.read_text(encoding="utf-8"))
+        if freeze.get("heldout_authorized") is not True:
+            raise RuntimeError("v4.6 held-out is not authorized")
+        for relative, expected in freeze["file_sha256"].items():
+            if hashlib.sha256((root / relative).read_bytes()).hexdigest() != expected:
+                raise RuntimeError(f"v4.6 frozen file mismatch: {relative}")
+    else:
+        raise ValueError(f"unknown role: {role}")
+    if seed not in allowed:
+        raise ValueError(f"seed {seed} not authorized for {role}")
     destination = root / f"outputs/runs/v4_6_two_parameter/{revision}/seed_{seed}"
     if destination.exists():
         raise RuntimeError("seed output exists; rerun forbidden")
@@ -95,7 +111,7 @@ def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
         <= float(specification["architecture_engineering"]["state_rmse_max_validation_only"])
     )
     record: dict[str, Any] = {
-        "schema_version": 1, "phase": specification["phase"], "role": "engineering", "seed": seed,
+        "schema_version": 1, "phase": specification["phase"], "role": role, "seed": seed,
         "status": "CHECKPOINT_INVALID", "binding_valid": False, "failure_reason": "center gate failed",
         "config_hash": config_hash(specification), "git_commit": provenance["git_commit"], "provenance": provenance,
         "training": checkpoint.__dict__ | {"theta": None, "coordinate": checkpoint.coordinate.tolist()},
@@ -136,3 +152,11 @@ def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
     _write(result_path, record)
     _write(destination / "manifest.json", {"schema_version": 1, "seed": seed, "status": record["status"], "binding_valid": record["binding_valid"], "result_path": "result.json", "result_sha256": hashlib.sha256(result_path.read_bytes()).hexdigest()})
     return record
+
+
+def run_v46_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
+    return _run_v46_seed(root, seed, "engineering")
+
+
+def run_v46_heldout_seed(root: Path, seed: int) -> dict[str, Any]:
+    return _run_v46_seed(root, seed, "heldout_development")

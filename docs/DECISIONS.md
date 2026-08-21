@@ -450,3 +450,15 @@ development_evidence: outputs/runs/v4_6_two_parameter/engineering/seed_100, arch
 affected_configs: selected_width already recorded as 6 in configs/v4_6/two_parameter_development.yaml; held-out and confirmation remain inactive.
 authorizing_protocol: Amendment 017 and docs/v4_6_TWO_PARAMETER_DEVELOPMENT.md.
 ```
+
+## D-036 — Accept v4.6 engineering and prepare held-out freeze
+
+```text
+date: 2026-08-21
+decision_id: D-036
+decision: Accept width6 engineering seeds100--102 and permit an executable freeze for held-out seeds103--104; confirmation remains inactive.
+reason: All three centers, polarization-LSQR solvers, explicit agreements and exact finite-gamma reductions pass; coupling is 0.824--0.875. D/E and favorable eigenspectra were excluded.
+development_evidence: docs/evidence/v4_6_two_parameter_engineering.json.
+affected_configs: Future TWO_PARAMETER_EXECUTABLE_FREEZE.json only.
+authorizing_protocol: Amendment 017 and v4.6 development contract.
+```
