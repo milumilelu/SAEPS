@@ -251,3 +251,16 @@ development_evidence: No new development result. Decision is based only on perma
 affected_configs: Future configs/v4_3 development files only. V2, v3.6, v4.1 and v4.2 locks/results remain immutable.
 authorizing_protocol: Amendment 014 and docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md.
 ```
+
+## D-020 — Select width 8 for Allen--Cahn engineering validation
+
+```text
+date: 2026-08-21
+decision_id: D-020
+decision: Select hidden width 8 as the Allen-Cahn engineering candidate and run it on engineering seeds 71--72 before any held-out freeze.
+reason: Under the preregistered fallback order 16 -> 12 -> 8, width16 and width12 failed the unchanged exact center gate on screening seed70. Width8 passed the exact center gate and its validation-only state RMSE 0.02050 passed the preregistered 0.15 feasibility threshold. Its complete numerical chain also passed.
+development_evidence: outputs/runs/v4_3_allen_cahn_development/seed_70; engineering/seed_70; engineering_v2/seed_70; architecture_w12/seed_70; architecture_w8/seed_70.
+forbidden_evidence_not_used: D, E_SAEPS, E_raw, eta, I_GN and profile curvature were not read or used for architecture selection.
+affected_configs: configs/v4_3/allen_cahn_development.yaml selected_width only; confirmation remains unauthorized.
+authorizing_protocol: docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md section 4 and Amendment 014.
+```
