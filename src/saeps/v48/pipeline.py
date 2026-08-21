@@ -29,7 +29,7 @@ def _widen(theta: torch.Tensor, base_width: int, target_width: int, seed: int) -
 
 def run_scalability_checkpoint(root: Path, seed: int) -> dict:
     specification = load_config(root / "configs/v4_7/scalability.yaml")
-    key = str(seed)
+    key = seed
     if key not in specification["checkpoints"]:
         raise ValueError("unregistered scalability checkpoint")
     destination = root / f"outputs/runs/v4_7_scalability/checkpoint_{seed}"

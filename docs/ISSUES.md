@@ -461,3 +461,17 @@ affected_runs: fresh recovery held-out seeds115--116. Dirty seed103 remains sepa
 protocol_impact: Held-out gate FAIL. Untouched confirmation seeds105--114 remain unrun and cannot be authorized. Two-parameter comparative hypothesis is not tested.
 resolution_or_status: PERMANENT DEVELOPMENT STOP for v4.6. Do not relax the center gate, replace seeds or run confirmation. Retain the one valid matrix record as development evidence only.
 ```
+
+## I-033 — v4.7 checkpoint map key-type mismatch stopped before computation
+
+```text
+date: 2026-08-21
+issue_id: I-033
+phase: V4.7 scalability
+classification: implementation failure
+description: The first checkpoint120 command treated YAML integer checkpoint keys as strings and rejected the registered checkpoint before training or output creation.
+evidence: ValueError at v48 pipeline configuration lookup; no v4_7 output existed.
+affected_runs: no numerical run.
+protocol_impact: None. Correct key lookup from string to integer; all dimensions and solver settings remain unchanged.
+resolution_or_status: RESOLVED before first numerical checkpoint.
+```
