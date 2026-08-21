@@ -31,6 +31,23 @@ immutable_scientific_objects:
   solver_relative_residual_max: 1.0e-8
 center_engineering:
   candidate_order: [inherited_baseline, deterministic_enhanced]
+  start_relative_radii: [0.0, 0.01, 0.03]
+  perturbation_seed_offset: 45000
+  multidirection_escape:
+    maximum_cycles: 40
+    maximum_negative_directions: 12
+    relative_radii: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+    minimum_actual_decrease: 1.0e-12
+  gauss_newton:
+    maximum_iterations: 80
+    initial_damping: 1.0e-6
+    minimum_damping: 1.0e-12
+    maximum_damping: 1.0e4
+    accepted_damping_factor: 0.3
+    rejected_damping_factor: 10.0
+    maximum_relative_step: 0.1
+    backtracking_factors: [1.0, 0.5, 0.25, 0.125, 0.0625]
+    normalized_gradient_tolerance: 1.0e-7
   selection_allowed_metrics:
     - exact_center_status
     - inherited_theta_stationarity
