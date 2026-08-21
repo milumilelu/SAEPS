@@ -1,0 +1,20 @@
+schema_version: 1
+contract_id: SAEPS-PRACTICAL-SCALABILITY-v4.7
+phase: V4_7_SCALABILITY_COST_ONLY
+scientific_claim_binding: false
+checkpoints:
+  120: {target_width: 25, state_parameters: 101}
+  121: {target_width: 250, state_parameters: 1001}
+  122: {target_width: 2500, state_parameters: 10001}
+  123: {target_width: 12500, state_parameters: 50001}
+  124: {target_width: 25000, state_parameters: 100001}
+base_width: 25
+source_config: configs/locked/controlled_geometry.yaml
+gamma_alpha: 1.0e-2
+power_iterations: 20
+cg_tolerance: 1.0e-10
+cg_acceptance: 1.0e-8
+cg_max_iterations: 500
+explicit_audit_max_parameters: 1001
+explicit_matrix_free_relative_tolerance: 1.0e-6
+reporting: [wall_time, cg_iterations, verified_residual, JVP_count, VJP_count, state_parameter_count, residual_count]
