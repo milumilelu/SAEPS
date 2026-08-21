@@ -8,7 +8,7 @@ from typing import Any, Callable
 
 import torch
 
-from saeps.v31.local_minimum import exact_state_diagnostics, optimize_state_local_minimum
+from saeps.v31.local_minimum import exact_state_diagnostics, _polish
 
 
 StateObjective = Callable[[torch.Tensor], torch.Tensor]
@@ -89,6 +89,98 @@ def exact_gauss_newton_refine(
     }
 
 
+def multidirection_saddle_escape(
+    objective: StateObjective,
+    theta0: torch.Tensor,
+    local_specification: dict[str, Any],
+    specification: dict[str, Any],
+) -> tuple[torch.Tensor, dict[str, Any]]:
+    """Retain the final candidate and probe every registered negative direction."""
+
+    current, initial_polish = _polish(
+        objective,
+        theta0,
+        local_specification["optimizer"],
+        local_specification["stopping"],
+    )
+    history: list[dict[str, Any]] = []
+    for cycle in range(int(specification["maximum_cycles"]) + 1):
+        diagnostics, _, eigenvalues, eigenvectors = exact_state_diagnostics(
+            objective, current, local_specification
+        )
+        row = dict(diagnostics)
+        row["cycle"] = cycle
+        if diagnostics["local_minimum_gate"] == "PASS":
+            history.append(row)
+            return current, {
+                "status": "PASS",
+                "initial_polish": initial_polish,
+                "cycles": history,
+                "final": diagnostics,
+            }
+        if cycle == int(specification["maximum_cycles"]):
+            history.append(row)
+            break
+        negative_indices = torch.nonzero(
+            eigenvalues < -float(diagnostics["hessian_tau"]), as_tuple=False
+        ).reshape(-1)
+        negative_indices = negative_indices[: int(specification["maximum_negative_directions"])]
+        center_loss = float(diagnostics["loss_mean"])
+        state_scale = max(float(torch.linalg.vector_norm(current).item()), 1.0)
+        best_loss = center_loss
+        best_state = current
+        best_descriptor = None
+        evaluated = 0
+        with torch.no_grad():
+            directions = [eigenvectors[:, int(index)] for index in negative_indices]
+            if len(directions) > 1:
+                combined = torch.stack(directions, dim=1).sum(dim=1)
+                directions.append(combined / torch.linalg.vector_norm(combined))
+            for direction_index, direction in enumerate(directions):
+                for radius_value in specification["relative_radii"]:
+                    radius = float(radius_value)
+                    for sign in (-1.0, 1.0):
+                        candidate = current + sign * radius * state_scale * direction
+                        loss = float(objective(candidate).item())
+                        evaluated += 1
+                        if math.isfinite(loss) and loss < best_loss:
+                            best_loss = loss
+                            best_state = candidate.detach().clone()
+                            best_descriptor = {
+                                "direction_index": direction_index,
+                                "relative_radius": radius,
+                                "sign": sign,
+                                "loss_mean": loss,
+                            }
+        row.update(
+            {
+                "negative_directions_probed": len(negative_indices),
+                "candidate_evaluations": evaluated,
+                "best_candidate": best_descriptor,
+                "actual_decrease": center_loss - best_loss,
+            }
+        )
+        history.append(row)
+        if best_descriptor is None or center_loss - best_loss <= float(
+            specification["minimum_actual_decrease"]
+        ):
+            break
+        current, polish = _polish(
+            objective,
+            best_state,
+            local_specification["polish_optimizer"],
+            local_specification["stopping"],
+        )
+        history[-1]["post_step_polish"] = polish
+    final, _, _, _ = exact_state_diagnostics(objective, current, local_specification)
+    return current, {
+        "status": "PASS" if final["local_minimum_gate"] == "PASS" else "CHECKPOINT_INVALID",
+        "initial_polish": initial_polish,
+        "cycles": history,
+        "final": final,
+    }
+
+
 def allen_center_candidates(
     residual_at_state: ResidualAtState,
     objective: StateObjective,
@@ -111,9 +203,9 @@ def allen_center_candidates(
         start = theta0.detach().clone() + radius * state_scale * direction
         refined, gn = exact_gauss_newton_refine(residual_at_state, start, specification["gauss_newton"])
         local = copy.deepcopy(local_specification)
-        local["maximum_escape_cycles"] = int(specification["post_gn_escape_cycles"])
-        state, audit = optimize_state_local_minimum(objective, refined, local)
-        final_state = state if state is not None else refined
+        final_state, audit = multidirection_saddle_escape(
+            objective, refined, local, specification["multidirection_escape"]
+        )
         diagnostics, _, _, _ = exact_state_diagnostics(objective, final_state, local_specification)
         passed = diagnostics["local_minimum_gate"] == "PASS"
         row = {
@@ -142,4 +234,3 @@ def allen_center_candidates(
         ),
         "status": "PASS" if best_state is not None else "CHECKPOINT_INVALID",
     }
-

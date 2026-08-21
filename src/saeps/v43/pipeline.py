@@ -117,7 +117,7 @@ def run_allen_development_seed(
         raise RuntimeError("formal development seed requires clean provenance")
 
     if seed in [int(value) for value in specification["engineering_seeds"]]:
-        development_role = "engineering"
+        development_role = str(specification["center_engineering"]["output_revision"])
     elif seed in [int(value) for value in specification["heldout_development_seeds"]]:
         development_role = "heldout"
         freeze_path = root / "configs/v4_3/ALLEN_EXECUTABLE_FREEZE.json"

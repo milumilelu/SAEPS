@@ -31,12 +31,17 @@ engineering_selection:
   forbidden_metrics: [D, E_SAEPS, E_raw, eta, figure_appearance]
 center_engineering:
   activation: AFTER_RETAINED_SEED70_FROZEN_POLICY_FAILURE
+  output_revision: engineering_v2
   initial_attempt_preserved: outputs/runs/v4_3_allen_cahn_development/seed_70
   engineering_seeds: [70, 71, 72]
   heldout_seeds_inactive_until_freeze: [73, 74]
   start_relative_radii: [0.0, 0.01, 0.03]
   perturbation_seed_offset: 43000
-  post_gn_escape_cycles: 20
+  multidirection_escape:
+    maximum_cycles: 40
+    maximum_negative_directions: 12
+    relative_radii: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+    minimum_actual_decrease: 1.0e-12
   gauss_newton:
     maximum_iterations: 80
     initial_damping: 1.0e-6
