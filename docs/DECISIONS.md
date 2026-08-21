@@ -426,3 +426,15 @@ scientific_scope: Retain strong conditional tangent-mechanism evidence; do not c
 affected_configs: No locked file changed. Seeds90--99 cannot be rerun or replaced.
 authorizing_protocol: Amendment 016 and locked v4.5 confirmation protocol.
 ```
+
+## D-034 — Open v4.6 two-parameter exact-geometry development
+
+```text
+date: 2026-08-21
+decision_id: D-034
+decision: Activate only engineering seeds100--102 for the inherited coupled reaction-diffusion benchmark; reserve 103--114 behind held-out and confirmation gates.
+reason: V4.5 is permanently adjudicated. The master program requires a genuinely coupled two-parameter matrix validation against exact finite-gamma reduced geometry.
+development_evidence: No v4.6 numerical result exists at this decision.
+affected_configs: configs/v4_6/two_parameter_development.yaml only; historical P6 and all confirmation results remain immutable.
+authorizing_protocol: Amendment 017 and docs/v4_6_TWO_PARAMETER_DEVELOPMENT.md.
+```
