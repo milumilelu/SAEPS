@@ -391,6 +391,6 @@
   - [x] untouched confirmation seeds `105--114` 保持未运行并永久不授权；two-parameter comparative hypothesis 未检验；
 - [ ] practical scalability checkpoints `120--124`；
   - [x] 建立 real-residual、function-preserving width expansion、matrix-free cost-only protocol；
-  - [ ] 运行 checkpoints `120--124`；
+  - [x] checkpoints `120--124` 全部 PASS，覆盖 101--100001 state parameters；
 - [ ] v4-compatible robustness seeds `130--139`；
 - [ ] final v4 evidence audit and current report.

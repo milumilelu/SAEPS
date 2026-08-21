@@ -498,3 +498,15 @@ scientific_scope: Two-parameter exact matrix implementation is demonstrated on d
 affected_configs: No frozen file changed. Seeds105--114 remain untouched and inactive.
 authorizing_protocol: Amendments 017--018 and v4.6 development contract.
 ```
+
+## D-040 — Accept v4.7 cost-only scalability evidence
+
+```text
+date: 2026-08-21
+decision_id: D-040
+decision: Accept the real-residual matrix-free cost audit across 101--100001 state parameters as engineering scalability evidence.
+reason: All five checkpoints pass verified residual gates; 101/1001 parameter explicit audits agree within 1e-6; 100001 parameters solve in 12 CG iterations and about 5.04 seconds on recorded CPU.
+scope_limit: Function-preserving padded controlled-PINN checkpoint and gamma_alpha=1e-2; this is cost-only and does not validate scientific curvature at scale.
+development_evidence: docs/evidence/v4_7_scalability.json.
+authorizing_protocol: Amendment 019.
+```

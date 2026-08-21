@@ -1,0 +1,80 @@
+{
+  "checks": {
+    "all_pass": true,
+    "covers_1e2_to_1e5": true,
+    "exact_checkpoints": true,
+    "hashes": true,
+    "small_explicit_audits": true
+  },
+  "phase": "V4_7_SCALABILITY",
+  "rows": [
+    {
+      "JVP_count": 44,
+      "VJP_count": 44,
+      "cg_iterations": 20,
+      "checkpoint": 120,
+      "elapsed_seconds": 3.7218635999888647,
+      "explicit_relative_error": 8.161412657336682e-13,
+      "residual_count": 213,
+      "solve_seconds": 0.20090699999127537,
+      "state_parameter_count": 101,
+      "status": "PASS",
+      "verified_relative_residual": 2.4481214166877312e-11
+    },
+    {
+      "JVP_count": 43,
+      "VJP_count": 43,
+      "cg_iterations": 19,
+      "checkpoint": 121,
+      "elapsed_seconds": 4.011102299991762,
+      "explicit_relative_error": 2.1981526297930415e-15,
+      "residual_count": 213,
+      "solve_seconds": 0.24017799997818656,
+      "state_parameter_count": 1001,
+      "status": "PASS",
+      "verified_relative_residual": 4.0381102350068475e-12
+    },
+    {
+      "JVP_count": 39,
+      "VJP_count": 39,
+      "cg_iterations": 15,
+      "checkpoint": 122,
+      "elapsed_seconds": 4.363374900014605,
+      "explicit_relative_error": null,
+      "residual_count": 213,
+      "solve_seconds": 0.49010009999619797,
+      "state_parameter_count": 10001,
+      "status": "PASS",
+      "verified_relative_residual": 6.729917933862157e-12
+    },
+    {
+      "JVP_count": 36,
+      "VJP_count": 36,
+      "cg_iterations": 12,
+      "checkpoint": 123,
+      "elapsed_seconds": 8.353620600013528,
+      "explicit_relative_error": null,
+      "residual_count": 213,
+      "solve_seconds": 2.0960511000012048,
+      "state_parameter_count": 50001,
+      "status": "PASS",
+      "verified_relative_residual": 3.46600191074904e-11
+    },
+    {
+      "JVP_count": 36,
+      "VJP_count": 36,
+      "cg_iterations": 12,
+      "checkpoint": 124,
+      "elapsed_seconds": 15.392326200002572,
+      "explicit_relative_error": null,
+      "residual_count": 213,
+      "solve_seconds": 5.036618499987526,
+      "state_parameter_count": 100001,
+      "status": "PASS",
+      "verified_relative_residual": 5.257814450862412e-12
+    }
+  ],
+  "schema_version": 1,
+  "scope_limit": "function-preserving padded controlled-PINN checkpoint; cost-only, not scientific curvature confirmation",
+  "status": "PASSED"
+}
