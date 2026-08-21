@@ -386,7 +386,7 @@
   - [x] seed100 architecture fallback：width12/8 center FAIL，width6 complete binding chain PASS并锁定为 candidate；
   - [x] engineering seeds `100--102`：width6 complete binding 3/3，nontrivial coupling 3/3；
   - [x] seed103 被测试隔离 bug 污染并永久排除；seed104 未运行；
-  - [ ] byte-freeze unchanged width6 executable；仅授权 recovery held-out `115--116`；
+  - [x] byte-freeze unchanged width6 executable；仅授权 recovery held-out `115--116`；
   - [ ] recovery held-out seeds `115--116`；
   - [ ] untouched confirmation seeds `105--114`；
 - [ ] practical scalability checkpoints `120--124`；

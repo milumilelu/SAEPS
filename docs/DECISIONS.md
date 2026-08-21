@@ -474,3 +474,15 @@ development_evidence: docs/evidence/v4_6_two_parameter_engineering.json.
 affected_configs: configs/v4_6/two_parameter_development.yaml and future TWO_PARAMETER_EXECUTABLE_FREEZE.json; seeds105--114 remain inactive.
 authorizing_protocol: Amendments 017--018 and v4.6 development contract.
 ```
+
+## D-038 — Freeze fresh v4.6 recovery held-out executable
+
+```text
+date: 2026-08-21
+decision_id: D-038
+decision: Byte-freeze unchanged width6 numerical settings after the test-isolation repair and authorize only fresh seeds115--116.
+reason: Seed103 is retained and excluded; seed104 was not run. The repaired test cannot invoke an authorized development seed. No scientific outcome or threshold changed.
+development_evidence: Amendment 018, I-031 and docs/evidence/v4_6_two_parameter_engineering.json.
+affected_configs: configs/v4_6/TWO_PARAMETER_EXECUTABLE_FREEZE.json; confirmation105--114 remains inactive.
+authorizing_protocol: Amendments 017--018.
+```
