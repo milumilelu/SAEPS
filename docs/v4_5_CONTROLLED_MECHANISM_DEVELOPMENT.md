@@ -27,4 +27,6 @@ Center engineering may use only exact state-local-minimum status, unchanged firs
 
 Engineering may freeze one deterministic center workflow only if all three engineering seeds have a valid center and all five alpha evaluations per seed pass parameter-curvature solver and explicit/matrix-free agreement. Held-out development must then pass the same binding chain on both seeds. Development eta values may be recorded fail-soft but cannot authorize or select the executable.
 
+Curvature solver development binds only the parameter RHS. Candidate order is standard CG followed, on failure, by the already established two-pass scaled-LSQR refinement. Score/residual RHS is excluded from this controlled eta experiment. Both candidates retain the unchanged `1e-8` verified residual and `1e-6` explicit-reference agreement gates; selecting a solver from eta behavior is forbidden.
+
 Only after held-out acceptance may a separate confirmation protocol be drafted. Confirmation success rules cannot be modified using seeds `90--99`.

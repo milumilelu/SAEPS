@@ -377,3 +377,17 @@ affected_runs: no seed computation; top-level manifest and failed-seed packaging
 protocol_impact: The existing summary was produced by the frozen aggregator before the exception. Recovery may only hash the existing raw files at their actual paths, generate missing packaging artifacts, and independently reproduce the aggregate. No raw record, scientific value, threshold, status rule, seed or locked executable may change.
 resolution_or_status: RESOLVED WITH RECORDED DEVIATION. Raw outputs were committed unchanged before recovery. The one-shot finalizer generated only the missing packaging artifacts from actual raw paths; independent frozen-aggregate reproduction and all raw hashes pass. Seeds 75--84 are permanently closed.
 ```
+
+## I-027 — v4.5 seed85 first attempt exposed non-fail-soft full-SAEPS CG failure
+
+```text
+date: 2026-08-21
+issue_id: I-027
+phase: V4.5 controlled-mechanism engineering
+classification: implementation failure / numerical failure
+description: The first seed85 development attempt completed center work but called the legacy full SAEPS routine, which binds both the parameter-curvature and residual-score solves. It raised CGConvergenceError at 271 iterations with relative residual 3.376e-8 before any raw record was written. Controlled eta requires only the parameter RHS, and v4.1 already established that score RHS must not bind curvature validity.
+evidence: retained terminal traceback from scripts/47_run_v4_5_controlled_engineering.py --seed 85 at commit 09f7a59; no output directory was created.
+affected_runs: seed85 initial engineering attempt only; no scientific record or metric was accepted.
+protocol_impact: No gamma, threshold, source, alpha or scientific rule changes. Before repeating seed85, the development runner must become parameter-RHS-only and fail-soft, with preregistered standard-CG then scaled-LSQR refinement candidates evaluated against the unchanged residual and explicit-reference gates.
+resolution_or_status: OPEN ENGINEERING. Commit the semantic repair and solver candidate order before any new seed85 attempt.
+```

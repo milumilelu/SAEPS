@@ -20,10 +20,11 @@ from saeps.controlled import (
     make_diagnostic_points,
     train_checkpoint,
 )
-from saeps.core import compute_matrix_free_saeps, explicit_tikhonov_operator
+from saeps.core import MatrixFreeEliminator, explicit_tikhonov_operator
 from saeps.provenance import environment_provenance
 from saeps.v31.local_minimum import exact_state_diagnostics
 from saeps.v43.center import allen_center_candidates
+from saeps.v35.engineering import scaled_augmented_lsqr_candidates
 
 
 def _sha256(path: Path) -> str:
@@ -116,35 +117,68 @@ def run_v45_engineering_seed(root: Path, seed: int) -> dict[str, Any]:
         row: dict[str, Any] = {"alpha": alpha, "status": "CHECKPOINT_INVALID"}
         if center_valid:
             linearization = ResidualLinearization(parameterized, selected, log_lambda)
-            matrix_free = compute_matrix_free_saeps(
-                linearization,
-                gamma,
-                float(controlled["gamma"]["cg_tolerance"]),
-                int(controlled["gamma"]["cg_max_iterations"]),
-            )
+            explicit_jtheta, jacobian_parameter = linearization.explicit_jacobians()
             explicit = explicit_tikhonov_operator(jacobian_theta, gamma)
             explicit_curvature = (
-                matrix_free.jacobian_parameter.T @ explicit @ matrix_free.jacobian_parameter
+                jacobian_parameter.T @ explicit @ jacobian_parameter
             )
-            relative_error = float(
-                (
-                    torch.linalg.matrix_norm(matrix_free.eliminated_curvature - explicit_curvature)
-                    / (torch.linalg.matrix_norm(explicit_curvature) + torch.finfo(selected.dtype).eps)
-                ).item()
-            )
-            maximum_residual = max(solve.relative_residual for solve in matrix_free.solves)
+            solver_spec = development["curvature_solver_engineering"]
+            solver_name = "standard_CG"
+            solver_audit: dict[str, Any]
+            try:
+                eliminator = MatrixFreeEliminator(
+                    linearization,
+                    gamma,
+                    float(solver_spec["standard_CG"]["tolerance"]),
+                    int(solver_spec["standard_CG"]["max_iterations"]),
+                )
+                applied = eliminator.apply(jacobian_parameter[:, 0])
+                fse = float(torch.dot(jacobian_parameter[:, 0], applied.value).item())
+                verified_residual = float(applied.solves[0].relative_residual)
+                iterations = int(applied.solves[0].iterations)
+                solver_audit = {
+                    "standard_CG": {
+                        "status": "PASS",
+                        "verified_relative_residual": verified_residual,
+                        "iterations": iterations,
+                    }
+                }
+            except Exception as error:
+                candidates = scaled_augmented_lsqr_candidates(
+                    linearization,
+                    jacobian_parameter[:, 0],
+                    gamma,
+                    float(solver_spec["scaled_LSQR_iterative_refinement"]["tolerance"]),
+                    int(solver_spec["scaled_LSQR_iterative_refinement"]["max_iterations_per_pass"]),
+                    int(solver_spec["scaled_LSQR_iterative_refinement"]["refinement_passes"]),
+                )
+                solved = candidates["scaled_LSQR_iterative_refinement"]
+                solver_name = "scaled_LSQR_iterative_refinement"
+                fse = float(solved["Fse"])
+                verified_residual = float(solved["verified_original_relative_normal_residual"])
+                iterations = int(solved["total_iterations"])
+                solver_audit = {
+                    "standard_CG": {"status": "SOLVER_FAILURE", "error": f"{type(error).__name__}: {error}"},
+                    "scaled_LSQR_iterative_refinement": candidates,
+                }
+            explicit_value = float(explicit_curvature[0, 0].item())
+            relative_error = abs(fse - explicit_value) / max(abs(explicit_value), 1.0e-30)
             passed = (
-                maximum_residual <= float(controlled["gamma"]["cg_acceptance"])
-                and relative_error < float(controlled["gamma"]["explicit_mf_relative_tolerance"])
+                verified_residual <= float(solver_spec["verified_normal_residual_acceptance"])
+                and relative_error < float(solver_spec["explicit_reference_relative_acceptance"])
+                and iterations
+                <= int(solver_spec["scaled_LSQR_iterative_refinement"]["maximum_total_iterations"])
             )
             row = {
                 "alpha": alpha,
                 "status": "PASS" if passed else "SOLVER_FAILURE",
-                "eta": float(matrix_free.eta[0].item()),
-                "Fraw": matrix_free.raw_curvature.tolist(),
-                "Fse": matrix_free.eliminated_curvature.tolist(),
-                "CG_iterations": [solve.iterations for solve in matrix_free.solves],
-                "CG_relative_residual": [solve.relative_residual for solve in matrix_free.solves],
+                "eta": fse / float(torch.dot(jacobian_parameter[:, 0], jacobian_parameter[:, 0]).item()),
+                "Fraw": float(torch.dot(jacobian_parameter[:, 0], jacobian_parameter[:, 0]).item()),
+                "Fse": fse,
+                "selected_solver": solver_name,
+                "solver_verified_relative_residual": verified_residual,
+                "solver_iterations": iterations,
+                "solver_audit": solver_audit,
                 "explicit_mf_relative_error": relative_error,
                 "JVP_count": dict(linearization.operation_counts),
             }

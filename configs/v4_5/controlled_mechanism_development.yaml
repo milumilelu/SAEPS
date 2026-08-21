@@ -29,6 +29,20 @@ immutable_scientific_objects:
   planned_monotonic_seed_gate: 8
   explicit_mf_relative_tolerance: 1.0e-6
   solver_relative_residual_max: 1.0e-8
+curvature_solver_engineering:
+  binding_rhs: parameter_column_only
+  score_rhs_role: excluded_not_computed
+  candidate_order: [standard_CG, scaled_LSQR_iterative_refinement]
+  standard_CG:
+    tolerance: 1.0e-10
+    max_iterations: 300
+  scaled_LSQR_iterative_refinement:
+    tolerance: 1.0e-10
+    max_iterations_per_pass: 500
+    refinement_passes: 2
+    maximum_total_iterations: 1500
+  verified_normal_residual_acceptance: 1.0e-8
+  explicit_reference_relative_acceptance: 1.0e-6
 center_engineering:
   candidate_order: [inherited_baseline, deterministic_enhanced]
   start_relative_radii: [0.0, 0.01, 0.03]
