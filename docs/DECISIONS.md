@@ -402,3 +402,15 @@ development_evidence: docs/evidence/v4_5_controlled_heldout.json.
 affected_configs: configs/v4_5/locked_controlled_confirmation.yaml and CONTROLLED_CONFIRMATION_LOCK_RECORD.json. Execution remains disabled pending clean preflight.
 authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
 ```
+
+## D-032 — Authorize one-shot v4.5 controlled confirmation
+
+```text
+date: 2026-08-21
+decision_id: D-032
+decision: Authorize exactly one execution of locked seeds90--99; prohibit replacement, selective rerun and protocol mutation.
+reason: Clean preflight passes all locked hashes, exact seed set, zero prior output, historical-result protection and 71 tests.
+development_evidence: docs/evidence/V4_5_CONTROLLED_PRECONFIRMATION_AUDIT.json; no seed90--99 output existed at authorization.
+affected_configs: configs/v4_5/CONFIRMATION_AUTHORIZATION.json only.
+authorizing_protocol: Amendment 016 and locked v4.5 confirmation protocol.
+```
