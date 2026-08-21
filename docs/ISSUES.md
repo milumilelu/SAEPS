@@ -489,3 +489,16 @@ affected_runs: checkpoint120 pre-output attempt only.
 protocol_impact: None. Correct the result-field access without changing computation or thresholds, then execute the registered checkpoint from a clean commit.
 resolution_or_status: RESOLVED before accepted raw output.
 ```
+
+## I-035 — Wide architecture has no valid frozen state center
+
+```text
+date: 2026-08-21
+issue_id: I-035
+phase: V4.8 paired architecture robustness
+classification: benchmark numerical failure
+description: All five preregistered width32 runs (seeds135--139) fail the inherited exact state-local-minimum center gate. Narrow is 5/5 valid and nominal is 4/5 valid.
+evidence: docs/evidence/v4_8_robustness.json and docs/evidence/V4_8_ROBUSTNESS_REPORT.md.
+protocol_impact: Wide-architecture SAEPS curvature is not tested. Do not describe this as a curvature-method failure or tune the center after observing these data.
+resolution_or_status: OPEN limitation retained for final V4 adjudication; V4.8 descriptive engineering execution remains PASSED.
+```

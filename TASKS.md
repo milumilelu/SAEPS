@@ -392,5 +392,5 @@
 - [ ] practical scalability checkpoints `120--124`；
   - [x] 建立 real-residual、function-preserving width expansion、matrix-free cost-only protocol；
   - [x] checkpoints `120--124` 全部 PASS，覆盖 101--100001 state parameters；
-- [ ] v4-compatible robustness seeds `130--139`（Amendment 020 已锁定；待 one-shot paired execution）；
+- [x] v4-compatible robustness seeds `130--139`：60/60 terminal records；noise/sparsity 43/45 binding-valid，architecture 9/15，wide 0/5 center-valid；
 - [ ] final v4 evidence audit and current report.

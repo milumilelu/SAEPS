@@ -522,3 +522,15 @@ scientific_scope: Descriptive curvature-only stress test; no positive-result thr
 affected_configs: configs/v4_8/robustness.yaml.
 authorizing_protocol: Amendments 014 and 020.
 ```
+
+## D-042 — Accept v4.8 with a wide-center scope limitation
+
+```text
+date: 2026-08-21
+decision_id: D-042
+decision: Accept all 60 planned robustness records as the completed descriptive stress test and retain the width32 0/5 center-valid result as a major limitation.
+reason: Integrity validation passes; noise/sparsity has 43/45 valid chains and exact anchors have 14/14 valid strict SAEPS wins, while wide architecture has no binding-valid center.
+scientific_scope: Supports scalar noise/sparsity robustness at tested cells and narrow/nominal architectures; wide-architecture curvature remains untested.
+development_evidence: docs/evidence/v4_8_robustness.json and docs/evidence/V4_8_ROBUSTNESS_REPORT.md.
+authorizing_protocol: Amendment 020.
+```
