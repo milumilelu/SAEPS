@@ -1,0 +1,20 @@
+schema_version: 1
+contract_id: SAEPS-CONTROLLED-MECHANISM-CONFIRMATION-v4.5
+phase: V4_5_CONTROLLED_MECHANISM_CONFIRMATION
+protocol_locked: true
+confirmation_authorized: false
+planned_seeds: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+alpha_values: [0.0, 0.25, 0.5, 0.75, 1.0]
+primary:
+  all_planned_centers_must_be_valid: true
+  monotonic_absolute_tolerance: 1.0e-8
+  monotonic_planned_seeds_required: 8
+  median_valid_seed_spearman_min: 0.9
+  invalid_planned_seed_is_failure: true
+  success_requires_all_conditions: true
+seed_policy:
+  one_shot_execution: true
+  replacement_forbidden: true
+  selective_rerun_forbidden: true
+  retain_every_planned_seed: true
+scientific_gate: LOCKED_PENDING_AUTHORIZATION
