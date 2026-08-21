@@ -373,6 +373,11 @@
 - [x] Allen--Cahn confirmation seeds `75--84`：9/10 planned strict wins，exact sign p `0.001953125`，`SUPPORTED`；seed81 center-invalid；
 - [x] v4.4 post-summary packaging path deviation recovered without seed rerun；raw hashes and frozen-aggregate reproduction PASS；
 - [ ] controlled-mechanism closure seeds `85--99`；
+  - [x] 建立 Amendment 016、v4.5 development contract 与机器可读 seed isolation；
+  - [x] 冻结 P2 scientific objects；development 禁止使用 eta/monotonicity/Spearman 选择 center；
+  - [ ] engineering seeds `85--87`；
+  - [ ] executable freeze 后 held-out seeds `88--89`；
+  - [ ] 独立 lock/preflight 后 one-shot confirmation seeds `90--99`；
 - [ ] two-parameter exact geometry seeds `100--114`；
 - [ ] practical scalability checkpoints `120--124`；
 - [ ] v4-compatible robustness seeds `130--139`；

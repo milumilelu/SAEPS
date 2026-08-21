@@ -52,7 +52,7 @@
 ## v4 Research Program Definition of Done
 
 - [x] v4.2 Burgers scalar exact-curvature confirmation 完成并永久关闭；
-- [ ] Allen--Cahn 外部 scalar replication 完成独立 development、lock 与 untouched confirmation；
+- [x] Allen--Cahn 外部 scalar replication 完成独立 development、lock 与 untouched confirmation；
 - [ ] controlled tangent mechanism 在 fresh seeds 上完成计划分母验证，或保留阴性结果并收缩 claim；
 - [ ] two-parameter exact reduced geometry 完成独立 development 与 confirmation；
 - [ ] directional-HVP adequacy diagnostic 完成 explicit 数值一致性及 untouched 外部评价；

@@ -340,3 +340,15 @@ development_evidence: Not development; untouched confirmation evidence in docs/e
 affected_configs: No locked config or executable changed. V3.6 and v4.2 remain permanently closed and unchanged.
 authorizing_protocol: Amendment 015 and docs/v4_4_ALLEN_CONFIRMATION_PROTOCOL.md.
 ```
+
+## D-027 — Open v4.5 controlled-mechanism development
+
+```text
+date: 2026-08-21
+decision_id: D-027
+decision: Activate only controlled-mechanism engineering seeds 85--87; reserve held-out seeds 88--89 and untouched confirmation seeds 90--99 behind their own gates.
+reason: V4.4 completed the preceding ordered external-replication node. Historical P2 failed because only 5/10 centers were valid, while every valid seed was monotonic. Fresh development may engineer center availability but may not change the controlled scientific objects or select using eta/monotonicity/Spearman.
+development_evidence: No v4.5 numerical result exists at this decision.
+affected_configs: configs/v4_5/controlled_mechanism_development.yaml only; the P2 lock and all historical outputs remain immutable.
+authorizing_protocol: Amendment 016 and docs/v4_5_CONTROLLED_MECHANISM_DEVELOPMENT.md.
+```

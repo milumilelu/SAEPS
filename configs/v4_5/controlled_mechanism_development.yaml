@@ -1,0 +1,57 @@
+schema_version: 1
+contract_id: SAEPS-CONTROLLED-MECHANISM-DEVELOPMENT-v4.5
+phase: V4_5_CONTROLLED_MECHANISM_DEVELOPMENT
+status: DEVELOPMENT_ACTIVE
+confirmation_authorized: false
+benchmark: controlled_manufactured_parabolic
+engineering_seeds: [85, 86, 87]
+heldout_development_seeds: [88, 89]
+inactive_confirmation_seeds: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+protected_sources:
+  p2_lock:
+    path: configs/locked/controlled_geometry.yaml
+    sha256: 32003edbcfbe03c6bf357ffce25051ba9b279263a15d2e80b4c762087ec0c30e
+  controlled_runtime:
+    path: src/saeps/controlled.py
+    sha256: 49f665ebeab7d0258025c0a32c9ed8ad9e7948d31ad69650c0570958efe253d6
+  enhanced_center:
+    path: src/saeps/v43/center.py
+    sha256: 688dd9a98a82163e368fc8d61c431599a824c4b9434b2dbd86926b751fd8d5c4
+  local_minimum_protocol:
+    path: configs/v3_4/curvature_validation.yaml
+    sha256: 6d115c34c40e522acc5ad2734f081e690b0f7602b3f6de9a2811b0667752fd66
+immutable_scientific_objects:
+  source_pair: [sin3x_sin2t, sin4x_constantt]
+  alpha_values: [0.0, 0.25, 0.5, 0.75, 1.0]
+  nominal_gamma_alpha: 1.0e-10
+  monotonic_absolute_tolerance: 1.0e-8
+  spearman_median_gate: 0.9
+  planned_monotonic_seed_gate: 8
+  explicit_mf_relative_tolerance: 1.0e-6
+  solver_relative_residual_max: 1.0e-8
+center_engineering:
+  candidate_order: [inherited_baseline, deterministic_enhanced]
+  selection_allowed_metrics:
+    - exact_center_status
+    - inherited_theta_stationarity
+    - state_rmse_validation_only
+    - finite_residuals
+    - solver_status
+    - runtime
+  selection_forbidden_metrics: [eta, monotonicity, spearman, figure_appearance]
+  threshold_relaxation_forbidden: true
+engineering_gate:
+  required_valid_centers: 3
+  required_valid_alpha_evaluations: 15
+heldout_gate:
+  required_valid_centers: 2
+  required_valid_alpha_evaluations: 10
+future_confirmation_rule:
+  state: NOT_LOCKED_NOT_AUTHORIZED
+  planned_denominator: 10
+  all_centers_must_be_valid: true
+  monotonic_planned_seeds_required: 8
+  median_valid_seed_spearman_min: 0.9
+  invalid_planned_seed_is_failure: true
+  replacement_and_selective_rerun_forbidden: true
+scientific_gate: NONE_DEVELOPMENT_ONLY
