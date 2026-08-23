@@ -2,9 +2,11 @@
 
 **状态：** `PLANNING_ONLY / NOT_AUTHORIZED_FOR_SCIENTIFIC_EXECUTION`
 
-**权威科学协议：** `V5_JCP_MINIMAL_PROTOCOL.md`
+**权威科学协议：** parent `V5_JCP_MINIMAL_PROTOCOL.md` + pre-execution `V5_PROTOCOL_AMENDMENT_001.md`（冲突时 amendment 优先）
 
-**协议 SHA-256：** `274b1179ace363cdd61897c05c43001a9435cbbf2f8d0caa58ef09a7dd796b52`
+**parent repository/source SHA-256：** `6abb0864cddb40fd63f29a24d97004c539727744d35b2ac9821888d0a90d0f12` / `274b1179ace363cdd61897c05c43001a9435cbbf2f8d0caa58ef09a7dd796b52`
+
+**effective/amendment SHA-256：** 见 `docs/v5/V5_PROTOCOL_FREEZE.md`
 
 **制定日期：** 2026-08-23
 
@@ -14,7 +16,7 @@ V5 只关闭四个 JCP 证据缺口：有限 `gamma`/有效秩依赖、exact red
 
 科学状态只允许 `SUPPORTED`、`PARTIALLY_SUPPORTED`、`NOT_SUPPORTED`、`INCONCLUSIVE`；工程状态单独使用 `PASSED`、`FAILED`、`BLOCKED`。正确执行的阴性科学结果属于实验完成。
 
-当前仓库**尚未准备好运行 V5 科学 seed**，原因见第 11 节。本文档只规定实现链与授权条件，不授权任何 V5 development、held-out、confirmation 或 production-scale run。
+本计划只规定实现链与授权条件。本轮完成V5.0仍不授权任何V5 development、held-out、confirmation或production-scale run；科学执行必须等待用户后续指令。
 
 ## 2. 历史证据与不可变边界
 
@@ -70,7 +72,7 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 
 - **问题：** SAEPS 的 state absorption 与 GN error 如何随有限 `gamma` 及 `J_theta` 有效秩变化；高 `gamma` 是否回到 raw 极限。
 - **类型：** descriptive sensitivity audit；无“SAEPS 必须赢”的 gate。
-- **依赖：** V5.0 `PASSED`；checkpoint 可实际加载；第 11.1 阻断已解决。
+- **依赖：** V5.0 `PASSED`；固定V5 reconstruction artifact已通过reload/hash gate。
 - **输入选择：**
   - Burgers：仅按既有 binding status 与 seed 顺序，从 v4.1 engineering pool 取首 3 个，即拟定 `45,46,47`；
   - Allen--Cahn：仅按既有 binding status 与 seed 顺序从 `70--74` 取首 3 个，即 `70,71,72`；
@@ -84,7 +86,7 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 - **聚合/报告：** `outputs/runs/v5/finite_gamma/...` → `docs/evidence/v5/V5_FINITE_GAMMA_AUDIT.{md,json}`；图表自动读取同一 aggregate。
 - **失败/停止：** checkpoint 不可加载则 `BLOCKED`；数值项失败为 terminal record，不允许换 checkpoint。
 - **测试：** gamma formula、direct Schur identity、high-gamma synthetic limit、selection blindness、7-level completeness、raw-to-summary reproduction。
-- **计算：** 0 次训练，6 checkpoints × 7 alpha = 42 小型分解/求解；预计 CPU 分钟级。若被迫重建 checkpoint，则不再满足“0 training”，必须先修订执行授权而非静默执行。
+- **计算：** 科学audit自身0次训练、6 checkpoints × 7 alpha = 42小型分解/求解；此前固定重建Burgers `45--47`与Allen `70--72`。这些是V5 engineering reconstruction，不称为历史checkpoint reuse。
 
 ## 6. V5.2 — Nonlinear Profile Bridge Resolution
 
@@ -92,7 +94,7 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 
 - **问题：** 有限 `gamma` exact reduced Hessian 是否等于独立重优化后的 nonlinear profile 局部曲率。
 - **类型：** engineering/development。
-- **依赖：** V5.0 `PASSED`；Allen old-development seeds only。
+- **依赖：** V5.0 `PASSED`；使用固定重建Allen seeds `70--74`的V5 artifacts，70--72与V5.1共享同一artifact。
 - **seeds：** `70--74`；严禁读取 `75--84`。
 - **目标函数：** `Phi_gamma(s)=min_theta[0.5||r(theta,q0+s)||² + gamma/2||theta-theta0||²]`。复用代码时保持 residual-sum scaling；现有 mean-scaled optimizer 的 profile curvature 必须乘 `m`，已有 V3/V3.4 实现与此一致。
 - **radius：** `h=[0.04,0.02,0.01,0.005]`；每个 `+/-h` 从同一 `theta0` 独立启动。continuation 可另存为非绑定 diagnostic，不能替代 primary independent starts。
@@ -107,15 +109,15 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 - **seeds：** `200--204`，固定 5 个，无替换；每 seed 新训练中心。
 - **执行：** center → exact finite-gamma → SAEPS/raw → 8 independent profile points → validation；fail-soft 保存此前可计算对象。
 - **原协议 seed-level `PROFILE_VALID`：** center valid；8/8 point optimization；exact valid；smallest two finite；finest-h profile-vs-exact error `<=10%`；last-two relative change `<=5%`。
-- **待裁决的 adjudication：** 见第 11.2。建议引入不改变数值阈值的 `PROFILE_EVALUABLE`：center、8/8 optimization、exact、smallest-two finite。随后：
+- **冻结adjudication：** `PROFILE_EVALUABLE`要求center、8/8 independent optimization、exact、smallest-two finite。随后：
   - evaluable `<4/5` → `INCONCLUSIVE`；
   - evaluable `>=4/5` 且 `PROFILE_VALID>=4/5` → `SUPPORTED`；
   - evaluable `>=4/5` 但 `PROFILE_VALID<4/5` → `NOT_SUPPORTED`，删除 nonlinear-profile-equivalence claim。
-  在用户裁决前不得锁定或运行。
+  该两层语义已由pre-execution Amendment 001裁决并由tests覆盖。
 - **聚合/报告：** planned denominator 始终为 5；输出 seed table、失败阶段、profile/exact差、两最细尺度变化；`V5_PROFILE_BRIDGE_REPORT.{md,json}`。
 - **停止：** 无 V5.2C rescue；阴性或 inconclusive 均终止此链。
 - **测试：** independent initialization、objective scaling、8-point completeness、threshold boundaries、planned-denominator、三种 adjudication path、raw→plot lineage。
-- **计算：** protocol nominal 为 5 次新训练 + 40 个 held-out reoptimizations；另有 70--74 engineering 的 optimizer trials。由于旧 theta 未保存，engineering 若需重训会额外增加最多 5 次训练，必须先获授权。
+- **计算：** 5次held-out新训练 + 40个held-out reoptimizations；70--74使用已授权且各至多一次的V5 reconstruction artifacts进行optimizer engineering。
 
 ## 7. V5.3 — Coupled Two-Parameter Exact Geometry Confirmation
 
@@ -123,8 +125,8 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 
 - **benchmark：** 完全继承 V4.6 coupled PDE、双参数化、residual、loss、width 6、finite gamma gold standard与coupling gate。
 - **矩阵：** `F_raw`、`F_se_GN`、exact finite-gamma `H_red`；均存完整 2×2 matrix、symmetry diagnostics、eigenvalues和solver statuses。
-- **coordinate stabilization：** `B=F_raw+tau I`；沿用 V4.6 `tau=1e-10*max(trace(F_raw)/2,1)`，保存 `tau`。以 `B^{-1/2}` 双边白化，使用 Frobenius norm：`E_SAEPS^(2)=||B^-1/2(F_se-H_red)B^-1/2||_F/(||B^-1/2 H_red B^-1/2||_F+epsilon)`，raw 同理，`D^(2)=E_raw^(2)-E_SAEPS^(2)`；拟沿用 repository numerical floor `epsilon=1e-30`，须在 V5.0 明文锁定。
-- **secondary：** generalized eigensystem、`B` normalization、exact directional curvature、eigengap和vectors。eigengap 解释阈值尚待第 11.3 裁决；不足时只报告特征值，不解释向量。
+- **coordinate stabilization：** `B=F_raw+tau I`；冻结V4.6 `tau=1e-10*max(trace(F_raw)/2,1)`，保存`tau`。以`B^{-1/2}`双边白化，使用Frobenius norm：`E_SAEPS^(2)=||B^-1/2(F_se-H_red)B^-1/2||_F/(||B^-1/2 H_red B^-1/2||_F+epsilon)`，raw同理，`D^(2)=E_raw^(2)-E_SAEPS^(2)`；numerical floor冻结为`epsilon=1e-30`。
+- **secondary：** generalized eigensystem、`B` normalization、exact directional curvature、vectors，以及`|eta2-eta1|/max(|eta1|,|eta2|,1e-30)`。不设eigengap阈值，orientation不进入adjudication；vectors只能与gap共同描述，near-degenerate时禁止实质物理解读或跨seed方向稳定性claim。
 
 ### 7.2 V5.3A Center-only development
 
@@ -156,7 +158,7 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 
 - **问题：** matrix-free solve 在固定 `n_theta` 层级下随真实 residual count `m` 的成本与数值有效性如何变化。
 - **类型：** cost-only engineering/descriptive audit；不产生 curvature efficacy claim。
-- **依赖：** V5.0；可加载或可合法确定性重建 V4.7 function-preserving base checkpoint。
+- **依赖：** V5.0；V5.4唯一base reconstruction通过reload/hash gate。source rule固定为V4.7登记表最小checkpoint ID/seed `120`，不读取任何runtime、iteration、solver或scientific result。
 - **grid：** `n_theta≈[10^3,10^4,10^5]`（现有精确值 `1001,10001,100001`）× `m=[213,853,3413]`；每 condition 3 independent timing repeats，共 27。
 - **建议固定 residual grids：** 复用 PDE residual定义并在 config 中显式列出 boundary/interior/initial grids，使总数精确为目标 `m`；freeze 前以真实 residual builder断言计数，不能靠padding synthetic rows。
 - **复用：** V4.7 function-preserving width expansion、matrix-free normal operator、power gamma、CG/JVP/VJP计数、provenance。
@@ -166,7 +168,7 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 - **端点：** 表格/曲线描述，不拟合或宣称过度解释的复杂度指数。
 - **产物：** `V5_RESIDUAL_DIMENSION_SCALABILITY.{md,json}`。
 - **测试：** 3×3×3 completeness、exact m counts、fresh initial guess、timer field separation、JVP/VJP accounting、small explicit cross-check。
-- **计算：** 0 次训练、27 timings；按 V4.7 单次约秒级基线，增大 m 后预计 CPU 数分钟到数小时，必须在 dry-run 后给 wall-time 上界。checkpoint 缺失问题见第 11.1。
+- **计算：** audit自身0次训练、27 timings；此前最多1次固定base reconstruction。按V4.7单次约秒级基线，增大m后预计CPU数分钟到数小时，必须在dry-run后给wall-time上界。
 
 ## 9. V5.5 — Baseline Consolidation
 
@@ -190,26 +192,21 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 - **总体 adjudication：** 按协议情形 A--D与各 phase terminal state生成 `SUPPORTED/PARTIALLY_SUPPORTED/NOT_SUPPORTED/INCONCLUSIVE`，不能以投稿偏好覆盖 phase结果。
 - **发布条件：** full tests + all V5 validators pass、无未解释 dirty files、commit可追溯。只有此时可宣布 V5完成。
 
-## 11. 执行前阻断与待裁决问题
+## 11. 已裁决的执行前问题
 
-### 11.1 `BLOCKED` — checkpoint 张量没有落盘
+### 11.1 `RESOLVED` — checkpoint张量没有落盘
 
-仓库搜索未发现 V4 scientific/scalability checkpoint 的 `.pt/.pth/.npy/.npz`；V4.6/V4.7 JSON明确将 `theta` 写为 `None`，其他结果也只保存指标。因此 V5.1/V5.4 的“0 new training、reuse checkpoint”当前不可执行。
+仓库搜索未发现V4 scientific/scalability checkpoint tensors。Amendment 001授权在V5路径按冻结source seed/config/training semantics作engineering reconstruction：Burgers `45--47`、Allen `70--74`、V5.4 base seed `120`，各最多一次，不重试或替换。
 
-必须在下列方案中裁决其一：
+所有artifact必须是reloadable `model_state.pt`并有manifest/hash/provenance。它们称为`V5_RECONSTRUCTED_ENGINEERING_CHECKPOINT`，不得宣称是历史checkpoint或与V4 tensor相同。validator拒绝缺失、越界、hash不符或无法reload的artifact。
 
-1. 提供原始 checkpoint tensor 及其 hash/provenance；或
-2. 明确授权按历史 frozen config确定性重建到**新 V5 路径**，承认这属于额外训练/重建且不保证跨环境 bit identity；重建选择不得读取 V5结果。
+### 11.2 `RESOLVED` — profile bridge阴性与不可评估分界
 
-不得把重训暗称为 checkpoint reuse，也不得写回 V4路径。
+采用Amendment 001的两层分类：evaluable少于4为`INCONCLUSIVE`；至少4 evaluable且至少4 valid为`SUPPORTED`；至少4 evaluable但不足4 valid为`NOT_SUPPORTED`。planned denominator固定5且无替换/rescue。
 
-### 11.2 `AMBIGUOUS` — profile bridge 阴性与不可评估分界
+### 11.3 `RESOLVED` — generalized eigenvector interpretation
 
-协议把 convergence/accuracy写入 `PROFILE_VALID`，又同时规定 `<4 PROFILE_VALID → INCONCLUSIVE` 以及“足够 valid profiles但系统不收敛 → NOT_SUPPORTED”。按单一 `PROFILE_VALID` 定义，后者无法触发。第 6.2 的两层 `PROFILE_EVALUABLE/PROFILE_VALID` 是建议裁决，不在确认前自动生效。
-
-### 11.3 `AMBIGUOUS` — generalized eigenvector eigengap threshold
-
-协议要求 eigengap足够时才解释 vectors，但未给阈值。该阈值只影响 secondary claim，不影响 primary `D^(2)`；仍须在 seed `210` 前以与 outcome无关的规则锁定，或明确规定 vectors永远只作描述不作方向解释。
+不引入binding eigengap threshold。保存dimensionless gap，但eigenvector orientation不进入任何scientific adjudication；禁止跨seed稳定方向claim，near-degenerate vectors不作实质物理解读。
 
 ### 11.4 Engineering clarifications proposed for freeze
 
@@ -226,24 +223,25 @@ V5.1、V5.2、V5.3、V5.4 在科学问题上相互独立，但每条链必须先
 | 阶段 | 新训练 | 主要额外计算 |
 |---|---:|---|
 | V5.0 | 0 | 静态检查/tests |
-| V5.1 | 0（checkpoint存在时） | 42 gamma evaluations |
-| V5.2A | 0--5（取决于checkpoint裁决） | optimizer工程、多尺度profiles |
+| V5 engineering reconstructions | 最多9 | Burgers 3 + Allen 5 + V5.4 base 1；固定source，各至多一次 |
+| V5.1 | 0 | 42 gamma evaluations，读取V5 reconstruction artifacts |
+| V5.2A | 0 | 读取Allen reconstruction artifacts；optimizer工程、多尺度profiles |
 | V5.2B | 5 | 40 primary point reoptimizations |
 | V5.3A/B | 5 | 双参数完整numerics |
 | V5.3C | 0或10 | 仅A/B全过后 |
 | V5.4 | 0 | 27 solver timings |
 | V5.5/V5.6 | 0 | aggregation/audit |
 
-协议名义 worst case 为 20 次新训练；在当前 checkpoint 缺失下，若授权重建 V5.2A，实际 worst case 为 25 次，另加 optimizer engineering。任何新增量必须在执行授权中显式记录。
+全V5保守授权ceiling为29次新训练/重建：最多9次engineering reconstruction、V5.2B 5次、V5.3最多15次。29不是target；不必要的重建禁止执行。
 
 ## 14. Formal execution authorization condition
 
 只有以下条件全部满足，才可将 `READY_FOR_V5_EXECUTION` 设为 `YES`：
 
-1. 第 11.1 checkpoint策略已裁决；
-2. 第 11.2 profile adjudication已裁决；
-3. 第 11.3 eigengap处理已冻结；
+1. Amendment 001已生效并裁决第11节全部问题；
+2. checkpoint reconstruction/persistence策略可机审；
+3. profile adjudication与non-binding eigenvector语义有tests；
 4. V5.0 governance artifacts、configs、schemas、tests与historical hash inventory完成并通过；
-5. 用户审查本计划并明确授权正式执行。
+5. 全部governance/tests/validators通过，历史证据不变且无V5 scientific output。
 
-当前：`READY_FOR_V5_EXECUTION = NO`。
+V5.0验证已经完成，`docs/evidence/v5/V5_0_GOVERNANCE_VALIDATION.json`记录全部checks通过，因此`READY_FOR_V5_EXECUTION = YES`。该值只表示治理上可进入下一阶段；本轮仍不授权科学执行，必须等待用户后续指令。

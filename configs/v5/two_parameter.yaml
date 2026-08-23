@@ -1,0 +1,31 @@
+schema_version: 1
+contract_id: SAEPS-V5-TWO-PARAMETER
+phase: V5_3_TWO_PARAMETER
+execution_authorized: false
+source_protocol: configs/v4_6/two_parameter_development.yaml
+development_seeds: [210, 211, 212]
+heldout_seeds: [213, 214]
+confirmation_seeds: [215, 216, 217, 218, 219, 220, 221, 222, 223, 224]
+confirmation_authorized: false
+development_gate_required_valid: 3
+heldout_gate_required_valid: 2
+planned_confirmation_denominator: 10
+minimum_confirmation_valid: 9
+minimum_planned_wins: 9
+median_D2_positive: true
+exact_one_sided_sign_test_alpha: 0.05
+invalid_planned_seed_is_nonwin: true
+replacement_forbidden: true
+coordinate_metric:
+  tau_relative: 1.0e-10
+  tau_definition: tau_relative_times_max_trace_Fraw_over_2_or_1
+  denominator_floor: 1.0e-30
+  norm: frobenius
+primary_endpoint: D2_equals_Eraw2_minus_ESAEPS2
+generalized_geometry:
+  role: secondary_nonbinding
+  relative_eigengap_definition: abs_eta2_minus_eta1_over_max_abs_eta1_abs_eta2_1e-30
+  eigengap_threshold: null
+  eigenvector_orientation_enters_adjudication: false
+  cross_seed_direction_claim_forbidden: true
+selection_forbidden_metrics: [D2, E_raw2, E_SAEPS2, favorable_eigenvalues, eigenvectors, figure_appearance]

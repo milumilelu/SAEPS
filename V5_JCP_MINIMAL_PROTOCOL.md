@@ -1,3 +1,7 @@
+> **V5 effective-protocol notice（2026-08-23，科学执行前）**
+>
+> 本文件在commit `126f125a91b4e0df654e8aa7dacb68fded68c3a8`中的LF-normalized版本（SHA-256 `6abb0864cddb40fd63f29a24d97004c539727744d35b2ac9821888d0a90d0f12`）是parent protocol；用户提供的pre-normalization source bytes SHA-256为`274b1179ace363cdd61897c05c43001a9435cbbf2f8d0caa58ef09a7dd796b52`。V5的唯一有效协议是该parent protocol与`docs/v5/V5_PROTOCOL_AMENDMENT_001.md`的有序组合；如二者冲突，pre-execution amendment优先。有效协议身份及全部哈希记录在`docs/v5/V5_PROTOCOL_FREEZE.md`与`configs/v5/V5_GOVERNANCE_FREEZE.json`。本通知不授权任何科学执行。
+
 基于仓库现在的 **V4 最终审计、Burgers/Allen–Cahn confirmation、controlled mechanism、two-parameter recovery、scalability 和 robustness**，我会把后续工作收缩得很明显。
 
 先给结论：**现在不需要再铺 PDE、不需要再扩 noise×sparsity、不需要再堆 scalar seeds。真正影响 JCP 投稿的只剩 3 个科学问题 + 1 个低成本数值问题：**

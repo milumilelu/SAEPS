@@ -1,0 +1,33 @@
+schema_version: 1
+contract_id: SAEPS-V5-SEED-REGISTRY
+replacement_forbidden: true
+historical_protected:
+  v3_6_scalar_confirmation: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+  v4_2_burgers_confirmation: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+  v4_4_allen_confirmation: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+  v4_5_controlled_confirmation: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+  v4_6_inactive_confirmation: [105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+reconstruction:
+  burgers:
+    seeds: [45, 46, 47]
+    source_config: configs/v4_1/post_confirmation_development.yaml
+    maximum_attempts_per_seed: 1
+  allen_cahn:
+    seeds: [70, 71, 72, 73, 74]
+    shared_between: [V5_1_FINITE_GAMMA, V5_2A_PROFILE_ENGINEERING]
+    source_config: configs/v4_3/allen_cahn_development.yaml
+    maximum_attempts_per_seed: 1
+  scalability_base:
+    seeds: [120]
+    deterministic_rule: minimum_registered_v4_7_checkpoint_id
+    source_config: configs/v4_7/scalability.yaml
+    runtime_config: configs/locked/controlled_geometry.yaml
+    maximum_attempts_per_seed: 1
+v5_scientific:
+  profile_heldout: [200, 201, 202, 203, 204]
+  two_parameter_development: [210, 211, 212]
+  two_parameter_heldout: [213, 214]
+  two_parameter_confirmation: [215, 216, 217, 218, 219, 220, 221, 222, 223, 224]
+planned_denominators:
+  profile_heldout: 5
+  two_parameter_confirmation: 10

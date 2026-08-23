@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "phase": "V5_0_GOVERNANCE",
+  "scientific_execution_authorized": false,
+  "nodes": {
+    "V5_0": {"requires": [], "authorizes": ["V5_1", "V5_2A", "V5_3A", "V5_4"]},
+    "V5_1": {"requires": ["V5_0", "checkpoint_artifact_gate"], "role": "descriptive"},
+    "V5_2A": {"requires": ["V5_0", "checkpoint_artifact_gate"], "authorizes": ["V5_2B_freeze"]},
+    "V5_2B": {"requires": ["V5_2B_freeze", "prior_output_absence"], "terminal": true},
+    "V5_3A": {"requires": ["V5_0"], "gate": "3_of_3_binding_valid", "authorizes": ["V5_3B_freeze"]},
+    "V5_3B": {"requires": ["V5_3B_freeze", "prior_output_absence"], "gate": "2_of_2_binding_valid", "authorizes": ["V5_3C_lock"]},
+    "V5_3C": {"requires": ["V5_3C_lock", "clean_preflight", "prior_output_absence", "one_shot_authorization"], "terminal": true},
+    "V5_4": {"requires": ["V5_0", "checkpoint_artifact_gate"], "role": "cost_only"},
+    "V5_5": {"requires": ["V5_2B_terminal"], "role": "descriptive"},
+    "V5_6": {"requires": ["all_authorized_branches_terminal"], "terminal": true}
+  },
+  "development_forbidden_inputs": ["D", "E_raw", "E_SAEPS", "D2", "E_raw2", "E_SAEPS2", "favorable_eigenvalues", "eigenvectors", "figure_appearance"],
+  "generalized_eigenvectors_binding": false,
+  "invalid_planned_seed_replacement_allowed": false,
+  "fail_soft_record_all_computable": true
+}

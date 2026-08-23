@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "required": ["schema_version", "phase", "role", "status", "binding_valid", "config_hash", "source_hashes", "provenance", "failure_stage", "failure_reason"],
+  "terminal_statuses": ["PASS", "CHECKPOINT_INVALID", "PROFILE_FAILURE", "SOLVER_FAILURE", "NUMERICAL_FAILURE"],
+  "provenance_required": ["git_commit", "git_dirty", "dtype", "device", "packages", "timestamp"],
+  "manual_paper_facing_values_forbidden": true
+}

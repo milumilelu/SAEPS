@@ -1,0 +1,29 @@
+schema_version: 1
+contract_id: SAEPS-V5-PROFILE-BRIDGE
+phase: V5_2_PROFILE_BRIDGE
+execution_authorized: false
+engineering_seeds: [70, 71, 72, 73, 74]
+heldout_seeds: [200, 201, 202, 203, 204]
+planned_denominator: 5
+replacement_forbidden: true
+profile_objective: 0.5_sum_residual_squared_plus_gamma_over_2_state_displacement_squared
+independent_start_from_common_theta0: true
+primary_continuation_forbidden: true
+h_values: [0.04, 0.02, 0.01, 0.005]
+profile_evaluable_requires:
+  - center_valid
+  - exact_finite_gamma_reference_valid
+  - all_8_independent_profile_points_pass
+  - two_smallest_curvatures_finite
+profile_valid_requires:
+  profile_evaluable: true
+  finest_profile_exact_relative_error_max: 0.10
+  last_two_curvature_relative_change_max: 0.05
+adjudication:
+  minimum_evaluable_for_scientific_decision: 4
+  minimum_profile_valid_for_supported: 4
+  insufficient_evaluable_status: INCONCLUSIVE
+  sufficient_evaluable_and_supported_count_status: SUPPORTED
+  sufficient_evaluable_but_insufficient_valid_status: NOT_SUPPORTED
+rescue_cohort_authorized: false
+selection_forbidden_metrics: [D, E_raw, E_SAEPS, figure_appearance]

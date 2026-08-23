@@ -394,3 +394,18 @@
   - [x] checkpoints `120--124` 全部 PASS，覆盖 101--100001 state parameters；
 - [x] v4-compatible robustness seeds `130--139`：60/60 terminal records；noise/sparsity 43/45 binding-valid，architecture 9/15，wide 0/5 center-valid；
 - [x] final v4 evidence audit and current report：80 tests PASS；all integrity validators PASS；V4.6 held-out retains expected scientific FAIL；
+
+## V5.0 — JCP Gap-Closure Governance Freeze
+
+**状态:** `PASSED` — governance only；`READY_FOR_V5_EXECUTION=YES`
+**科学执行:** `NOT_AUTHORIZED_IN_THIS_TASK`；V5.1及之后阶段未运行
+
+- [x] 记录pre-execution Amendment 001与唯一effective protocol identity；
+- [x] 裁决固定V5 engineering reconstruction policy，训练/重建总ceiling为29；
+- [x] 冻结`PROFILE_EVALUABLE/PROFILE_VALID`两层profile adjudication；
+- [x] 冻结generalized eigenvector/eigengap为secondary non-binding；
+- [x] 建立seed registry、semantic gate graph、phase config/schema skeletons；
+- [x] 建立历史441文件tree hash inventory与V5 output allowlist；
+- [x] 建立confirmation prior-output、protected cohort、checkpoint reload/hash与raw-lineage validators；
+- [x] 93 tests、V5 governance validator、historical immutability与repository validator全部PASS；
+- [x] 确认0个V5 scientific output；停止于V5.0，等待下一次明确授权。

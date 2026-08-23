@@ -1,0 +1,15 @@
+schema_version: 1
+contract_id: SAEPS-V5-FINITE-GAMMA-AUDIT
+phase: V5_1_FINITE_GAMMA
+execution_authorized: false
+phase_type: descriptive_audit
+checkpoint_sources:
+  burgers: [45, 46, 47]
+  allen_cahn: [70, 71, 72]
+checkpoint_role_required: V5_RECONSTRUCTED_ENGINEERING_CHECKPOINT
+selection_rule: first_binding_valid_historical_source_seeds_by_seed_only
+selection_forbidden_metrics: [D, E_raw, E_SAEPS, eta, favorable_eigenvalues, figure_appearance]
+alpha_values: [1.0e-10, 1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2, 1.0, 1.0e2]
+gamma_definition: alpha_times_lambda_max_JthetaT_Jtheta
+scientific_win_gate: none_descriptive_only
+nominal_gamma_recalibration_forbidden: true

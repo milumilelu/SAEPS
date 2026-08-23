@@ -1,0 +1,27 @@
+schema_version: 1
+contract_id: SAEPS-V5-GOVERNANCE-FREEZE
+phase: V5_0_GOVERNANCE
+scientific_execution_authorized: false
+effective_protocol:
+  parent_path: V5_JCP_MINIMAL_PROTOCOL.md
+  parent_original_commit: 126f125a91b4e0df654e8aa7dacb68fded68c3a8
+  parent_repository_sha256: 6abb0864cddb40fd63f29a24d97004c539727744d35b2ac9821888d0a90d0f12
+  parent_source_pre_normalization_sha256: 274b1179ace363cdd61897c05c43001a9435cbbf2f8d0caa58ef09a7dd796b52
+  amendment_path: docs/v5/V5_PROTOCOL_AMENDMENT_001.md
+  precedence: amendment_over_parent_on_conflict
+scientific_statuses: [SUPPORTED, PARTIALLY_SUPPORTED, NOT_SUPPORTED, INCONCLUSIVE]
+engineering_statuses: [PASSED, FAILED, BLOCKED]
+output_allowlist:
+  - outputs/runs/v5
+  - docs/evidence/v5
+  - paper_artifacts/v5
+historical_outputs_root: outputs/runs
+historical_excluded_prefix: outputs/runs/v5
+checkpoint_root: outputs/runs/v5/checkpoints
+reconstruction_training_ceiling: 9
+total_new_or_reconstructed_training_ceiling: 29
+checkpoint_artifact_role: V5_RECONSTRUCTED_ENGINEERING_CHECKPOINT
+confirmation_authorized: false
+confirmation_prior_output_required_absent: true
+raw_to_aggregate_hash_lineage_required: true
+manual_paper_values_forbidden: true

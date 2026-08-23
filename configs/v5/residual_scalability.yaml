@@ -1,0 +1,19 @@
+schema_version: 1
+contract_id: SAEPS-V5-RESIDUAL-DIMENSION-SCALABILITY
+phase: V5_4_RESIDUAL_SCALABILITY
+execution_authorized: false
+scientific_claim_binding: false
+base_reconstruction:
+  source_checkpoint_id: 120
+  source_seed: 120
+  deterministic_rule: minimum_registered_v4_7_checkpoint_id
+  source_config: configs/v4_7/scalability.yaml
+  runtime_config: configs/locked/controlled_geometry.yaml
+  maximum_attempts: 1
+state_parameter_counts: [1001, 10001, 100001]
+residual_counts: [213, 853, 3413]
+repeats_per_condition: 3
+total_timing_evaluations: 27
+initial_guess_each_repeat: zero
+synthetic_residual_padding_forbidden: true
+complexity_exponent_claim_forbidden: true

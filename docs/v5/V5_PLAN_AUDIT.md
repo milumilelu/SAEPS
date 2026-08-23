@@ -2,11 +2,11 @@
 
 **审计对象：** `docs/v5/V5_EXECUTION_PLAN.md`
 
-**权威协议：** `V5_JCP_MINIMAL_PROTOCOL.md`，SHA-256 `274b1179ace363cdd61897c05c43001a9435cbbf2f8d0caa58ef09a7dd796b52`
+**权威协议：** parent `V5_JCP_MINIMAL_PROTOCOL.md` + `V5_PROTOCOL_AMENDMENT_001.md`；哈希见`V5_PROTOCOL_FREEZE.md`
 
 **审计范围：** 规划一致性与非科学预检；未运行任何 V5 seed
 
-**结论：** `CONDITIONALLY_SATISFIED / NOT READY FOR EXECUTION`
+**结论：** `PASSED`
 
 ## 1. 审计方法
 
@@ -31,7 +31,7 @@
 
 | 要求 | 状态 | 计划中的落实/证据 |
 |---|---|---|
-| 0 new training、existing development checkpoints only | BLOCKED | Plan §11.1；仓库无可加载theta checkpoint，不能虚构reuse |
+| V5.1 audit自身0 new training；缺失历史tensor的输入政策 | SATISFIED | Amendment 001授权固定V5 engineering reconstruction；明确不得称为历史checkpoint reuse |
 | Burgers/Allen各首3个binding-valid，按seed且盲于结果 | SATISFIED | 拟定45--47与70--72；选择依据仅历史status |
 | 不读取scalar confirmation选择checkpoint | SATISFIED | Plan §5明令禁止55--69/75--84作为选择源 |
 | alpha 7-level family与gamma定义 | SATISFIED | 精确列出7 levels及`alpha*lambda_max` |
@@ -52,7 +52,7 @@
 | 每seed训练center并保存 frozen/reoptimized/exact/SAEPS/raw | SATISFIED | raw schema与execution chain覆盖 |
 | PROFILE_VALID全部条件 | SATISFIED | 六项条件及10%/5%阈值逐项保留 |
 | >=4/5 PROFILE_VALID为supported | SATISFIED | proposed adjudication保留该条件 |
-| <4 valid为INCONCLUSIVE vs systematic nonconvergence为NOT_SUPPORTED | AMBIGUOUS | 协议两条在单一valid定义下冲突；Plan §11.2要求裁决evaluable层 |
+| numerical availability与scientific nonconvergence分界 | SATISFIED | Amendment 001冻结`PROFILE_EVALUABLE/PROFILE_VALID`两层规则并新增三终态tests |
 | 禁止V5.2C rescue | SATISFIED | 明确停止 |
 
 ### V5.3 coupled two-parameter
@@ -68,7 +68,7 @@
 | Fraw/Fse/exact 2×2 primary | SATISFIED | raw矩阵及numerical statuses完整 |
 | B-whitened Frobenius errors及D2 | SATISFIED | Plan §7.1明确公式；修复原markdown排版但不改含义 |
 | tau/epsilon numerical convention | SATISFIED | 采用既有V4.6 tau与repository floor，要求V5.0明锁 |
-| generalized eigen secondary及gap约束 | AMBIGUOUS | 协议无“足够eigengap”阈值；Plan §11.3不猜测 |
+| generalized eigen secondary及gap约束 | SATISFIED | 不设binding threshold；gap明确定义，orientation完全不进入adjudication |
 | valid>=9、wins>=9/10、medianD2>0、exact p<=.05 | SATISFIED | 四项AND gate逐项保留 |
 | invalid planned seed为nonwin且不替换 | SATISFIED | planned denominator固定10 |
 | valid<9为INCONCLUSIVE；coverage足但比较失败为NOT_SUPPORTED | SATISFIED | Plan §7.4 |
@@ -78,7 +78,7 @@
 
 | 要求 | 状态 | 计划中的落实/证据 |
 |---|---|---|
-| 0 training，复用checkpoint | BLOCKED | V4.7 theta未保存；Plan §11.1要求提供或授权重建 |
+| audit自身0 training；base输入政策 | SATISFIED | 只允许V5重建一次固定source seed120；选择规则为V4.7最小registered ID且与性能无关 |
 | ntheta约1e3/1e4/1e5 × m=213/853/3413 | SATISFIED | 精确ntheta候选与3×3 grid |
 | 每condition 3 repeats，共27 | SATISFIED | completeness validator预注册 |
 | 保存time/iterations/JVP/VJP/residual/memory/status | SATISFIED | raw schema覆盖；memory仅可靠时 |
@@ -119,8 +119,8 @@
 | profile sum scaling可复用 | SATISFIED | current profile code以mean优化并乘m输出curvature |
 | solver engineering可复用 | SATISFIED | augmented scaled LSQR/LSMR、CG、JVP/VJP、exact refs已有测试 |
 | scalability construction可复用 | SATISFIED | function-preserving widths与cost counters已通过V4.7 |
-| historical checkpoint tensors可加载 | BLOCKED | 除P0 smoke外未发现`.pt/.pth/.npy/.npz`；V4.6/V4.7写`theta=None` |
-| 既有tests覆盖V5所有新语义 | NOT_APPLICABLE | 既有tests覆盖基础numerics/gate semantics；V5 cohort、profile adjudication、whitening、m-grid、freeze仍需新tests |
+| 下游checkpoint必须可加载 | SATISFIED | 新checkpoint schema、artifact hash、`torch.load(weights_only=True)` validator及缺失artifact regression test |
+| V5.0新增语义有回归测试 | SATISFIED | seed/path/history、checkpoint reload/hash、profile三终态、non-binding eigengap、prior-output与lineage均已覆盖 |
 | 当前V5 output为空 | SATISFIED | `outputs/runs/v5`不存在；未发现200--204、210--224 V5 records |
 
 ## 4. New tests required before execution
@@ -140,9 +140,10 @@
 
 本启动任务允许且只执行以下操作：完整读取协议/治理/代码/历史evidence；检查seed/output路径；检查checkpoint文件；计算协议hash；运行repository tests与validator。未创建或运行任何V5 scientific seed，未修改历史output。
 
-最终tests/validator结果在提交前写入本节：
+最终tests/validator结果：
 
-- full test suite：`PASSED` — 80 tests passed（18条来自TorchScript弃用的非阻断warning）
+- full test suite：`PASSED` — 93 tests passed（18条来自TorchScript弃用的非阻断warning）
+- V5 governance validator：`PASSED` — 13项governance checks全部通过，23个frozen files哈希一致
 - repository validator：`PASSED` — P9全部checks通过
 - historical output mutation：`NONE_OBSERVED`
 - V5 scientific output：`NONE`
@@ -150,10 +151,12 @@
 ## 6. Audit disposition
 
 - `SATISFIED`：计划覆盖所有可明确解释的binding requirements。
-- `BLOCKED`：V5.1/V5.4缺少可加载checkpoint tensors。
-- `AMBIGUOUS`：V5.2的`INCONCLUSIVE`与`NOT_SUPPORTED`分界；V5.3 secondary eigengap解释阈值。
-- `NOT_APPLICABLE`：现有tests不可能覆盖尚未实现的V5特有语义，因此已列出新增tests，而非宣称已覆盖。
+- 原`BLOCKED` checkpoint问题已由固定、可机审的V5 reconstruction policy解决。
+- 原两项`AMBIGUOUS`科学语义已由pre-execution Amendment 001解决，未观察任何V5 scientific result。
+- V5.1及以后尚未实现的numerical/E2E tests已逐阶段预注册，不以V5.0 unit tests替代。
 
-`V5_EXECUTION_PLAN.md` 对协议的规划审计结果为 **CONDITIONALLY SATISFIED**；只有上述BLOCKED/AMBIGUOUS项被裁决且V5.0实现/验证通过后，才能升级为 `PASSED`。
+`V5_EXECUTION_PLAN.md`对effective protocol的语义映射与V5.0实现均已`PASSED`。所有原BLOCKED/AMBIGUOUS项已在科学执行前透明裁决，无剩余执行前阻断。
 
-**READY_FOR_V5_EXECUTION: NO**
+**READY_FOR_V5_EXECUTION: YES**
+
+该值不构成本轮科学执行授权；V5.1及之后阶段仍须等待用户后续指令。
