@@ -558,3 +558,17 @@ affected_runs: development seeds73--74 only.
 protocol_impact: The preregistered held-out 10% exact-consistency and 5% last-two convergence thresholds remain unchanged. These development accuracy values are nonbinding for the predeclared entry gate, which requires 2/2 exact plus 8/8 point completion.
 resolution_or_status: RETAINED DEVELOPMENT WARNING. Execute held-out 200--204 once with the frozen optimizer; accept SUPPORTED, NOT_SUPPORTED or INCONCLUSIVE without rescue.
 ```
+
+## I-040 — V5.2B held-out nonlinear profile equivalence is not supported
+
+```text
+date: 2026-08-23
+issue_id: I-040
+phase: V5.2B fresh held-out profile bridge
+classification: scientific failure
+description: All five planned seeds are PROFILE_EVALUABLE with exact reference PASS and 8/8 independent profile points, but only seed204 satisfies both the 10% finest profile/exact and 5% last-two convergence thresholds. Seeds200--203 are invalid under the frozen scientific rule.
+evidence: docs/evidence/v5/V5_PROFILE_BRIDGE_REPORT.json and outputs/runs/v5/profile_bridge/seed_200--204.
+affected_runs: all five planned V5.2B seeds; valid count 1/5.
+protocol_impact: The preregistered outcome is NOT_SUPPORTED because evaluable>=4 and valid<4. This is not an engineering failure and does not alter the separate exact-Hessian comparative evidence. The nonlinear-profile-equivalence claim must be removed.
+resolution_or_status: PERMANENT V5.2 STOP. No V5.2C or rescue cohort is authorized; retain all results and continue independent V5 branches.
+```

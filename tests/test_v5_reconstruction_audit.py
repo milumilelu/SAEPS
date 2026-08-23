@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_actual_v5_reconstruction_inventory_is_complete_and_reloadable() -> None:
     audit = build_reconstruction_audit(ROOT)
     assert audit["attempted_count"] == 9
+    assert audit["total_v5_checkpoint_inventory_at_audit"] >= 9
     assert audit["pass_count"] == 9
     assert audit["retry_count"] == 0
     assert audit["replacement_count"] == 0

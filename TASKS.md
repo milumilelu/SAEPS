@@ -442,3 +442,15 @@
 - [x] 冻结后 validation seeds `73--74` 均 exact PASS 且8/8 profile points PASS；
 - [x] development profile/exact差与尺度收敛不足已保留，不修改 held-out 的10%/5%阈值；
 - [x] 授权一次性运行 fresh held-out seeds `200--204`。
+
+## V5.2B — Fresh Held-Out Nonlinear Profile Bridge
+
+**工程状态:** `PASSED` — 5/5 planned seeds terminal、5/5 evaluable
+**科学状态:** `NOT_SUPPORTED` — 1/5 PROFILE_VALID
+
+- [x] fresh seeds `200--204` 各训练一次，无重试、替换或 rescue；
+- [x] 保存5个 reloadable fresh checkpoint 及完整 provenance/hash；
+- [x] 每个seed完成 exact finite-gamma、raw、explicit/MF SAEPS 与8个独立profile点；
+- [x] 严格应用 Amendment 001 两层裁决：5 evaluable、1 valid；
+- [x] 结论为 `NOT_SUPPORTED`，不是availability-driven `INCONCLUSIVE`；
+- [x] 删除 nonlinear-profile-equivalence claim；禁止 V5.2C。

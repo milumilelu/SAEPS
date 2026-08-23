@@ -58,7 +58,7 @@ def build_reconstruction_audit(repo_root: str | Path) -> dict[str, Any]:
     historical_count, historical_digest = tree_digest(
         root, "outputs/runs", excluded_prefixes=["outputs/runs/v5"]
     )
-    if checkpoint_count != 9 or len(rows) != 9 or len(commits) != 1:
+    if checkpoint_count < 9 or len(rows) != 9 or len(commits) != 1:
         raise ValueError("V5 reconstruction inventory is incomplete or spans source commits")
     pass_count = sum(row["status"] == "PASS" and row["binding_valid"] for row in rows)
     return {
@@ -67,6 +67,7 @@ def build_reconstruction_audit(repo_root: str | Path) -> dict[str, Any]:
         "status": "PASSED" if pass_count == 9 else "COMPLETED_WITH_INVALIDS",
         "scientific_result": None,
         "attempted_count": 9,
+        "total_v5_checkpoint_inventory_at_audit": checkpoint_count,
         "pass_count": pass_count,
         "retry_count": 0,
         "replacement_count": 0,
