@@ -475,3 +475,15 @@
 - [x] held-out comparative quantities仅描述性保存，不进入授权；
 - [x] confirmation executable hash未改变；
 - [x] 仅依据2/2 `binding_valid`创建一次性 confirmation authorization。
+
+## V5.3C — Untouched Two-Parameter Confirmation
+
+**工程状态:** `PASSED` — 10/10 planned seeds terminal
+**科学状态:** `INCONCLUSIVE` — 8/10 valid，低于预注册9/10
+
+- [x] 一次性运行 untouched seeds `215--224`，无重试、替换或阈值变更；
+- [x] 8 seed binding-valid且8/8有效对均 D2>0；
+- [x] seeds `219`、`221` 为 `CHECKPOINT_INVALID`，保留为planned nonwins；
+- [x] valid median D2>0，one-sided exact sign test 8/8、p=0.00390625；
+- [x] valid与planned-win gate均为8/10<9/10，故严格裁决 `INCONCLUSIVE`；
+- [x] generalized eigenvectors/eigengap仅作为nonbinding secondary，不作跨seed方向解释。

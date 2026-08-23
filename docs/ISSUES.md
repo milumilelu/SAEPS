@@ -572,3 +572,17 @@ affected_runs: all five planned V5.2B seeds; valid count 1/5.
 protocol_impact: The preregistered outcome is NOT_SUPPORTED because evaluable>=4 and valid<4. This is not an engineering failure and does not alter the separate exact-Hessian comparative evidence. The nonlinear-profile-equivalence claim must be removed.
 resolution_or_status: PERMANENT V5.2 STOP. No V5.2C or rescue cohort is authorized; retain all results and continue independent V5 branches.
 ```
+
+## I-041 — V5.3C two-parameter confirmation is availability-limited
+
+```text
+date: 2026-08-23
+issue_id: I-041
+phase: V5.3C untouched two-parameter confirmation
+classification: benchmark numerical failure
+description: Seeds219 and221 fail the byte-frozen exact state-local-minimum center gate and are CHECKPOINT_INVALID. The remaining 8/10 seeds are binding-valid and all have D2>0, with valid-pair sign-test p=0.00390625.
+evidence: docs/evidence/v5/V5_TWO_PARAMETER_CONFIRMATION_REPORT.json and outputs/runs/v5/two_parameter/confirmation/seed_215--224.
+affected_runs: confirmation seeds219 and221; all 10 planned seeds remain in the denominator.
+protocol_impact: The preregistered minimum-valid and planned-win requirements are both 9/10. With only 8 valid/wins, the scientific status is INCONCLUSIVE despite uniformly positive D2 among valid seeds. Do not reclassify as SUPPORTED or NOT_SUPPORTED.
+resolution_or_status: PERMANENT CONFIRMATION TERMINAL. No replacement or rescue seeds; retain scalar claim and report strong but availability-limited two-parameter directional evidence.
+```
