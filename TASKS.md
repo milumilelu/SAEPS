@@ -490,11 +490,13 @@
 
 ## V5.4 — Residual-Dimension Scalability
 
-**状态:** `IN_PROGRESS` — executable frozen；27次真实残差计时待一次性运行
+**状态:** `PASSED` — 27/27真实残差计时PASS；cost-only evidence已聚合
 
 - [x] 固定 reconstructed scalability checkpoint `seed120`，不新增训练；
 - [x] 固定 `n_theta=[1001,10001,100001]`、`m=[213,853,3413]` 与每格3次零初值重复；
 - [x] 每个 residual count 均由真实 PDE/data/initial/boundary points 构造，禁止synthetic padding；
 - [x] 冻结 matrix-free CG、gamma、power iteration、记录字段与可执行文件hash；
 - [x] 明确该阶段仅为cost evidence，不拟合或声称complexity exponent；
-- [ ] 一次性完成27次计时、fail-soft保存、聚合与审计。
+- [x] 一次性完成27次计时、fail-soft保存、聚合与审计；
+- [x] 最大格 `n_theta=100001,m=3413` 三次均PASS，中位wall time `40.9669 s`，最大verified residual `7.819e-11`；
+- [x] CPU peak tensor memory不可可靠测量，明确记录为unavailable，未伪造估计值。
