@@ -500,3 +500,14 @@
 - [x] 一次性完成27次计时、fail-soft保存、聚合与审计；
 - [x] 最大格 `n_theta=100001,m=3413` 三次均PASS，中位wall time `40.9669 s`，最大verified residual `7.819e-11`；
 - [x] CPU peak tensor memory不可可靠测量，明确记录为unavailable，未伪造估计值。
+
+## V5.5 — Baseline Consolidation
+
+**工程状态:** `PASSED` — 无新增训练；5/5 held-out records统一聚合
+**科学状态:** `NOT_SUPPORTED` — 继承V5.2 profile bridge裁决，1/5 PROFILE_VALID
+
+- [x] 在seeds `200--204`同图比较 frozen、SAEPS-GN quadratic 与finite-gamma nonlinear reoptimization；
+- [x] 同表报告 `F_raw`、`F_se_GN`、`H_red_exact_gamma`、`H_profile_gamma`；
+- [x] 将mean profile objective乘以各record的`m`，统一到total-objective curvature单位；
+- [x] 无效seed的最细profile curvature只标为nonbinding diagnostic；
+- [x] 明确保留并展示 nonlinear-profile-equivalence claim删除决定。
