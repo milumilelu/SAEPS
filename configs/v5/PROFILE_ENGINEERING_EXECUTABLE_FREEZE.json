@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "contract_id": "SAEPS-V5.2A-PROFILE-ENGINEERING-EXECUTABLE-FREEZE",
+  "freeze_date": "2026-08-23",
+  "freeze_parent_commit": "da71e3d22c7d1ac098e372fb5754ce361267bdd7",
+  "candidate_execution_authorized": true,
+  "validation_execution_authorized": false,
+  "candidate_seeds": [70, 71, 72],
+  "validation_seeds": [73, 74],
+  "confirmation_seeds_forbidden": [75, 76, 77, 78, 79, 80, 81, 82, 83, 84],
+  "selection_forbidden_metrics": ["D", "E_raw", "E_SAEPS", "eta", "F_raw", "F_se_GN", "figure_appearance"],
+  "file_sha256": {
+    "configs/v5/profile_bridge.yaml": "e9d2b0bff9889043f8522e5f900f8dd27967fc87aa2a85d08741695e3b3aec91",
+    "configs/v5/profile_engineering_execution.yaml": "8de570f52f37dfff0c27b6360978dd0b251c0b9bcb693145acae126425acee2e",
+    "configs/v3_6/locked_scalar_confirmation.yaml": "b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99",
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "src/saeps/v5/profile_engineering.py": "db52e06d5e86452fc60a5adb128095506da08fab0b1a704fe0ecef254ecd08ad",
+    "scripts/65_run_v5_profile_candidates.py": "a96aeea44268a65fee8bc7a104ff44cd671578381b9936fff1af1b2ed652cb82",
+    "tests/test_v5_profile_engineering.py": "d304753733674fff41e348b220ec5cf37178c6357ebacb9ffbcc22bd1804072f"
+  }
+}

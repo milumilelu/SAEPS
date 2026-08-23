@@ -1,0 +1,29 @@
+schema_version: 1
+contract_id: SAEPS-V5.2A-PROFILE-ENGINEERING-EXECUTION
+phase: V5_2A_PROFILE_ENGINEERING
+candidate_seeds: [70, 71, 72]
+validation_seeds: [73, 74]
+benchmark: Allen-Cahn
+gamma_alpha: 1.0e-8
+h_values: [0.04, 0.02, 0.01, 0.005]
+independent_start_from_common_theta0: true
+continuation_forbidden: true
+candidate_order:
+  - independent_exact_trust_lbfgs
+  - independent_damped_gn_exact_trust
+candidates:
+  independent_exact_trust_lbfgs:
+    kind: optimize_state_local_minimum
+    normalized_gradient_tolerance: 1.0e-6
+  independent_damped_gn_exact_trust:
+    kind: damped_gauss_newton_then_multidirection_exact_gate
+    normalized_gradient_tolerance: 1.0e-7
+selection_rule:
+  ordered_criteria:
+    - maximize_seeds_with_8_of_8_point_pass_and_exact_pass
+    - maximize_total_passing_profile_points
+    - minimize_median_finest_profile_exact_relative_error
+    - minimize_median_last_two_curvature_relative_change
+    - candidate_order_tiebreak
+  forbidden_metrics: [D, E_raw, E_SAEPS, eta, F_raw, F_se_GN, figure_appearance]
+output_root: outputs/runs/v5/profile_engineering
