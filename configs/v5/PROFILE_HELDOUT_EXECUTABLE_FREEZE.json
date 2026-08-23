@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "contract_id": "SAEPS-V5.2B-PROFILE-HELDOUT-EXECUTABLE-FREEZE",
+  "freeze_date": "2026-08-23",
+  "freeze_parent_commit": "40514342169bea06eaa9fa067c9397d38229c025",
+  "execution_authorized": true,
+  "seeds": [200, 201, 202, 203, 204],
+  "planned_denominator": 5,
+  "maximum_training_attempts_per_seed": 1,
+  "replacement_forbidden": true,
+  "rescue_cohort_authorized": false,
+  "profile_evaluable_rule": "center+exact+8_independent_points+two_finest_finite",
+  "profile_valid_thresholds": {"finest_exact_relative_error_max": 0.10, "last_two_relative_change_max": 0.05},
+  "file_sha256": {
+    "configs/v5/profile_bridge.yaml": "e9d2b0bff9889043f8522e5f900f8dd27967fc87aa2a85d08741695e3b3aec91",
+    "configs/v5/PROFILE_OPTIMIZER_LOCK.json": "0289627fb30e03237886839727f25f63799586b9a9f25b586584784088b0a032",
+    "docs/evidence/v5/V5_PROFILE_DEVELOPMENT_AUDIT.json": "6657ef7ed53f1d18be3e5487dcf174c5b5b9adcacc69252b96ababbbcb64ac1b",
+    "configs/v3_6/locked_scalar_confirmation.yaml": "b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99",
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "src/saeps/v5/profile_heldout.py": "26b1a7fd036971795c8c7fa3753c4336bad175851531773701b9a9e2056ac329",
+    "scripts/69_run_v5_profile_heldout.py": "2466d4eef410e6036c5c1949028891a41e75716fa420241039840c31f7281e64",
+    "tests/test_v5_profile_heldout.py": "9abaae179df2512f87bbdf8b815eb1fb03d3acdd0e6d94b20d55afb2ba591fd3"
+  }
+}
