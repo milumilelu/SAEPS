@@ -511,3 +511,13 @@
 - [x] 将mean profile objective乘以各record的`m`，统一到total-objective curvature单位；
 - [x] 无效seed的最细profile curvature只标为nonbinding diagnostic；
 - [x] 明确保留并展示 nonlinear-profile-equivalence claim删除决定。
+
+## V5.6 — Final JCP Evidence Audit
+
+**状态:** `IN_PROGRESS` — post-execution validator已实现；最终产物待生成
+
+- [x] 实现phase-aware post-execution repository validator，替代已过期的V5.0空目录前置断言；
+- [x] 验证历史441文件immutability、所有executable hash、29个reloadable checkpoint与raw-to-aggregate lineage；
+- [x] 固定整体科学结论为 `PARTIALLY_SUPPORTED`，禁止full general JCP claim；
+- [x] 建立claim-to-evidence与retained failures机器表；
+- [ ] 生成最终报告、validation JSON、paper artifact manifest并完成全仓审计。

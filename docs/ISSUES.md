@@ -514,7 +514,7 @@ description: The immutable V5.0 startup test asserts that outputs/runs/v5 is emp
 evidence: tests/test_v5_governance.py::test_v5_governance_freeze_passes_without_scientific_output; docs/evidence/v5/V5_0_GOVERNANCE_VALIDATION.json; docs/evidence/v5/V5_RECONSTRUCTION_AUDIT.json.
 affected_runs: none. The nine fixed reconstructions all completed once and are 9/9 binding-valid.
 protocol_impact: None on scientific definitions, seeds, thresholds or outputs. The V5.0 frozen files and their pre-execution evidence remain unchanged. Post-startup validation must use phase-aware execution validators rather than reasserting the historical empty-output precondition.
-resolution_or_status: OPEN ENGINEERING LIFECYCLE FIX. Preserve the immutable V5.0 record; implement a post-startup repository validator before V5 final audit. Until then, report the single phase-bound test separately and require all other tests plus the reconstruction audit to pass.
+resolution_or_status: RESOLVED IN V5.6. The immutable test and V5.0 evidence remain byte-unchanged. Pytest now skips only that named historical pre-execution assertion after the explicit V5 execution authorization exists, while `scripts/validate_v5_repository.py` performs the binding post-execution checks for historical immutability, frozen executables, all 29 reloadable checkpoints, raw-to-aggregate lineage, terminal adjudications and final artifact rebuild.
 ```
 
 ## I-037 — V5.1 extreme-small-gamma numerical gates fail in four cells
