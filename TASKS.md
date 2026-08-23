@@ -454,3 +454,14 @@
 - [x] 严格应用 Amendment 001 两层裁决：5 evaluable、1 valid；
 - [x] 结论为 `NOT_SUPPORTED`，不是availability-driven `INCONCLUSIVE`；
 - [x] 删除 nonlinear-profile-equivalence claim；禁止 V5.2C。
+
+## V5.3A — Coupled Two-Parameter Center Development
+
+**状态:** `PASSED` — 3/3 binding-valid；held-out `213--214` authorized
+
+- [x] 使用 fresh seeds `210--212`，各训练一次；
+- [x] 固定 width6、PDE、parameterization、residual、gamma、solver、exact gold 与 coupling gate；
+- [x] 仅增强 optimizer duration、deterministic starts 与 negative-curvature escape；
+- [x] 3/3 center、solver、exact、nontrivial coupling 全链 PASS；
+- [x] development 未计算 D2/E2 或 generalized eigenvectors；
+- [x] 授权 byte-frozen held-out seeds `213--214`。
