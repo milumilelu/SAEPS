@@ -465,3 +465,13 @@
 - [x] 3/3 center、solver、exact、nontrivial coupling 全链 PASS；
 - [x] development 未计算 D2/E2 或 generalized eigenvectors；
 - [x] 授权 byte-frozen held-out seeds `213--214`。
+
+## V5.3B — Byte-Frozen Two-Parameter Held-Out
+
+**状态:** `PASSED` — 2/2 binding-valid；confirmation `215--224` authorized
+
+- [x] seeds `213--214` 各训练一次并运行开发前冻结的同一 executable；
+- [x] 2/2 center、solver、exact、coupling 全链 PASS；
+- [x] held-out comparative quantities仅描述性保存，不进入授权；
+- [x] confirmation executable hash未改变；
+- [x] 仅依据2/2 `binding_valid`创建一次性 confirmation authorization。
