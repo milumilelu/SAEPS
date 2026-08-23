@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "contract_id": "SAEPS-V5.3A-TWO-PARAMETER-DEVELOPMENT-EXECUTABLE-FREEZE",
+  "freeze_date": "2026-08-23",
+  "freeze_parent_commit": "bcb40f0806230733ce74cb8aa121ae19e453a87e",
+  "execution_authorized": true,
+  "seeds": [210, 211, 212],
+  "maximum_training_attempts_per_seed": 1,
+  "required_binding_valid": 3,
+  "heldout_authorized_before_results": false,
+  "selection_forbidden_metrics": ["D2", "E_raw2", "E_SAEPS2", "favorable_eigenvalues", "eigenvectors", "figure_appearance"],
+  "file_sha256": {
+    "configs/v5/two_parameter.yaml": "43cd9ddddb992426af460b2433297af76e18beaf72c675ed3da73f4d1d5b003c",
+    "configs/v5/two_parameter_development_execution.yaml": "96393833a8316e858813d7c32c8b9af248cdc394afc5b4f12e1d9eb5a62f3ee2",
+    "configs/v4_6/two_parameter_development.yaml": "cf607fa91ad3c992ad6ebd3a754a2b9317cf97513b3ed93eb79f2a97d1b49d11",
+    "configs/locked/multi.yaml": "b985ccee5cf2daf5c40a4226a3e4bf8aa7c47e7dbbb3e4792e04c47a7082b9bb",
+    "src/saeps/multi.py": "303d7d92ece94b04bcd5f81ec7fb61efc944c2b98f263f1797a60688814132e3",
+    "src/saeps/v5/two_parameter_development.py": "18b40ecb3fe0b5340ed562261c22e11f9f8df63b68950393f56f8ff4beb917c5",
+    "scripts/71_run_v5_two_parameter_development.py": "91d8871acd1687b8ee053e3952fd0ef4c3382e2fefd22424d28098e02955c084",
+    "tests/test_v5_two_parameter_development.py": "08334a929c0164e96ec25b01db63089b5107fae6c7d7ef93ad9d78efe2083293"
+  }
+}
