@@ -1,0 +1,26 @@
+schema_version: 1
+contract_id: SAEPS-V5-ENGINEERING-RECONSTRUCTION
+phase: V5_ENGINEERING_RECONSTRUCTION
+execution_authorized: true
+artifact_role: V5_RECONSTRUCTED_ENGINEERING_CHECKPOINT
+maximum_attempts_per_source_seed: 1
+replacement_forbidden: true
+scientific_outcome_selection_forbidden: true
+sources:
+  burgers:
+    seeds: [45, 46, 47]
+    source_protocol: configs/v4_1/post_confirmation_development.yaml
+    historical_binding_evidence: outputs/runs/v4_1_post_confirmation_development/engineering_integration/records
+  allen_cahn:
+    seeds: [70, 71, 72, 73, 74]
+    source_protocol: configs/v4_3/allen_cahn_development.yaml
+    selected_width: 8
+    historical_binding_evidence: outputs/runs/v4_3_allen_cahn_development
+  scalability_base:
+    seeds: [120]
+    source_protocol: configs/v4_7/scalability.yaml
+    runtime_config: configs/locked/controlled_geometry.yaml
+    base_width: 25
+    deterministic_source_rule: minimum_registered_v4_7_checkpoint_id
+selection_forbidden_metrics: [D, E_raw, E_SAEPS, eta, runtime, iterations, solver_performance, favorable_eigenvalues, figure_appearance]
+output_root: outputs/runs/v5/checkpoints
