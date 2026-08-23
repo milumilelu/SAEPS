@@ -409,3 +409,14 @@
 - [x] 建立confirmation prior-output、protected cohort、checkpoint reload/hash与raw-lineage validators；
 - [x] 93 tests、V5 governance validator、historical immutability与repository validator全部PASS；
 - [x] 确认0个V5 scientific output；停止于V5.0，等待下一次明确授权。
+
+## V5 Engineering Reconstruction — Fixed Checkpoint Inputs
+
+**状态:** `PASSED` — 9/9 binding-valid；0 retry；0 replacement
+
+- [x] 从同一干净、已提交源码快照一次性重建 Burgers seeds `45--47`；
+- [x] 一次性重建 Allen--Cahn seeds `70--74`；
+- [x] 按预注册最小 source-ID 规则重建 scalability base seed `120`；
+- [x] 每个 artifact 均保存 reloadable `model_state.pt`、manifest、hash 与完整 provenance；
+- [x] 逐个重载并验证全部9个模型，历史 `outputs/runs` 仍为441文件与冻结tree hash；
+- [x] 明确标记为 V5 engineering reconstruction，不主张历史 tensor reuse 或 tensor identity。

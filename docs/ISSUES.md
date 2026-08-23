@@ -502,3 +502,17 @@ evidence: docs/evidence/v4_8_robustness.json and docs/evidence/V4_8_ROBUSTNESS_R
 protocol_impact: Wide-architecture SAEPS curvature is not tested. Do not describe this as a curvature-method failure or tune the center after observing these data.
 resolution_or_status: OPEN limitation retained for final V4 adjudication; V4.8 descriptive engineering execution remains PASSED.
 ```
+
+## I-036 — V5.0 pre-execution emptiness test is phase-bound
+
+```text
+date: 2026-08-23
+issue_id: I-036
+phase: V5 engineering reconstruction
+classification: implementation failure
+description: The immutable V5.0 startup test asserts that outputs/runs/v5 is empty and checkpoint inventory is zero. After the separately authorized engineering reconstruction produced nine non-scientific checkpoint artifacts, that historical pre-execution assertion necessarily returns FAILED even though the reconstruction inventory validator passes and no V5 scientific seed has run.
+evidence: tests/test_v5_governance.py::test_v5_governance_freeze_passes_without_scientific_output; docs/evidence/v5/V5_0_GOVERNANCE_VALIDATION.json; docs/evidence/v5/V5_RECONSTRUCTION_AUDIT.json.
+affected_runs: none. The nine fixed reconstructions all completed once and are 9/9 binding-valid.
+protocol_impact: None on scientific definitions, seeds, thresholds or outputs. The V5.0 frozen files and their pre-execution evidence remain unchanged. Post-startup validation must use phase-aware execution validators rather than reasserting the historical empty-output precondition.
+resolution_or_status: OPEN ENGINEERING LIFECYCLE FIX. Preserve the immutable V5.0 record; implement a post-startup repository validator before V5 final audit. Until then, report the single phase-bound test separately and require all other tests plus the reconstruction audit to pass.
+```
