@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "contract_id": "SAEPS-V5.2A-PROFILE-VALIDATION-EXECUTABLE-FREEZE",
+  "freeze_date": "2026-08-23",
+  "freeze_parent_commit": "c13454b9aae2b2ac642f8cd3d71234a06e5f3dac",
+  "execution_authorized": true,
+  "seeds": [73, 74],
+  "heldout_entry_gate": "2_of_2_exact_reference_and_8_of_8_independent_profile_points_PASS",
+  "profile_exact_10_percent_binding_for_entry": false,
+  "last_two_5_percent_binding_for_entry": false,
+  "reason": "10% and 5% are held-out scientific bridge criteria; development validation gates only frozen optimizer executability.",
+  "file_sha256": {
+    "configs/v5/PROFILE_OPTIMIZER_LOCK.json": "0289627fb30e03237886839727f25f63799586b9a9f25b586584784088b0a032",
+    "configs/v5/profile_engineering_execution.yaml": "8de570f52f37dfff0c27b6360978dd0b251c0b9bcb693145acae126425acee2e",
+    "configs/v3_6/locked_scalar_confirmation.yaml": "b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99",
+    "src/saeps/v5/profile_validation.py": "e293ed46ca467d0e73eeff795a0c22a4e36965638bd743eb6b90e0fcdcd52e35",
+    "scripts/67_run_v5_profile_validation.py": "778ef3826aa0d754a68f40973fda3aff4bf7bebc59b6bb5c1c7bf4f02a643a21",
+    "tests/test_v5_profile_validation.py": "12718aa4faaa6aa75743292abb261506eac72a818148b2b8bf9801982b019c20"
+  }
+}
