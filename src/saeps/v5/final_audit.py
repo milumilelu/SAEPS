@@ -5,7 +5,6 @@ from __future__ import annotations
 import csv
 import io
 import json
-import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -144,7 +143,6 @@ def build_final_audit(repo_root: str | Path) -> dict[str, Any]:
         {"phase": "V5.3", "classification": "benchmark numerical availability", "planned": 10, "affected": 2, "decision": "INCONCLUSIVE; no replacements or rescue"},
         {"phase": "V5.4", "classification": "measurement limitation", "planned": 27, "affected": 27, "decision": "peak CPU tensor memory unavailable; all timing solves retained"},
     ]
-    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True, check=True).stdout.strip()
     return {
         "schema_version": 1,
         "phase": "V5_6_FINAL_JCP_EVIDENCE_AUDIT",
@@ -155,7 +153,6 @@ def build_final_audit(repo_root: str | Path) -> dict[str, Any]:
         "full_general_JCP_claim_ready": False,
         "new_training_or_reconstruction_count": 29,
         "training_ceiling": 29,
-        "audit_generation_parent_commit": head,
         "evidence_table": evidence,
         "claim_to_evidence": claims,
         "deviations_and_failures": failures,
