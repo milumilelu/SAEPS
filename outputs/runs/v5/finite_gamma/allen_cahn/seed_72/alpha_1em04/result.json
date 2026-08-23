@@ -1,0 +1,139 @@
+{
+  "E_SAEPS": 0.11945277148679911,
+  "E_raw": 8.719579137168216,
+  "F_raw": 117.0988716426971,
+  "F_se_GN_explicit": 13.486865485472668,
+  "F_se_GN_matrix_free": 13.486865485472672,
+  "H_red_exact_gamma": 12.047730667154553,
+  "alpha": 0.0001,
+  "benchmark": "Allen-Cahn",
+  "binding_valid": true,
+  "config_hash": "b399b77a5f631f85345d27fc0bb1b4b5fdbd94dd2e0faf32401a564b97f4e6ac",
+  "effective_rank": 12.40466144706038,
+  "effective_rank_definition": "sum_sigma2_over_sigma2_plus_gamma",
+  "elapsed_seconds": 18.481794000002992,
+  "eta": 0.11517502514136121,
+  "exact_reference": {
+    "condition_number": 10050.110316946699,
+    "failure_reason": null,
+    "full_hessian_symmetry_relative_error": 7.639065165594674e-17,
+    "maximum_state_eigenvalue": 132025.7910110721,
+    "minimum_state_eigenvalue": 13.136750428345803,
+    "nonpositive_eigenvalue_count": 0,
+    "positive_eigenvalue_tolerance": 1.3202579101107211e-05,
+    "reduced_hessian": [
+      [
+        12.047730667154553
+      ]
+    ],
+    "solve_relative_residual": 3.57669873883382e-15,
+    "status": "PASS"
+  },
+  "failure_reason": null,
+  "failure_stage": null,
+  "family": "allen_cahn",
+  "gamma": 13.136752407981556,
+  "gamma_definition": "alpha_times_lambda_max_JthetaT_Jtheta",
+  "lambda_max": 131367.52407981554,
+  "m": 368,
+  "matrix_free_solver": {
+    "explicit_relative_error": 2.6342026489604233e-16,
+    "iterations": 1068,
+    "passes": [
+      {
+        "Fse": 13.486865485472673,
+        "iterations": 500,
+        "pass_index": 1,
+        "scaled_normal_residual": 4.3944958955200584e-07,
+        "verified_original_relative_normal_residual": 1.9071156637639616e-15
+      },
+      {
+        "Fse": 13.486865485472672,
+        "iterations": 500,
+        "pass_index": 2,
+        "scaled_normal_residual": 0.036193217577300964,
+        "verified_original_relative_normal_residual": 2.7246472718042877e-15
+      }
+    ],
+    "setup_jvp_count": 33,
+    "status": "PASS",
+    "verified_original_relative_normal_residual": 2.7246472718042877e-15
+  },
+  "n_theta": 33,
+  "parameter_reference": {
+    "Fse_explicit": 13.486865485472668,
+    "binding": true,
+    "objective_projection_identity_relative_error": 1.0405100463393672e-14,
+    "parameter_reference_status": "PASS",
+    "relative_normal_residual": 7.710550669372033e-14,
+    "rhs": "J_lambda_only",
+    "singular_value_maximum": 362.46470287770575,
+    "singular_value_minimum": 3.6244658226299267
+  },
+  "phase": "V5_1_FINITE_GAMMA",
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "30bf9f3f5e40e24b6161065b72cc56635dd0fd5a",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-23T08:51:55.075745+00:00",
+    "torch_cuda_available": false
+  },
+  "role": "descriptive_finite_gamma_audit",
+  "schema_version": 1,
+  "seed": 72,
+  "singular_values_J_theta": [
+    362.44658100169124,
+    117.62535924460052,
+    93.90148320923996,
+    76.93517266684199,
+    35.2034214689304,
+    29.428374236441684,
+    15.611108584733403,
+    12.977043197668612,
+    8.02277596948082,
+    7.2523959576398696,
+    5.573226388094096,
+    4.800919861993685,
+    3.8243687561921025,
+    2.8592984981328855,
+    2.3865901641175387,
+    1.4243659346536275,
+    1.0849677812479759,
+    0.8335481866814383,
+    0.8041094535890273,
+    0.5329290702039413,
+    0.47269315173947696,
+    0.35226101697999895,
+    0.32830894677018735,
+    0.19330996789770336,
+    0.16658746403739777,
+    0.11194503184106348,
+    0.06200147113891542,
+    0.05141025629094584,
+    0.03673741601396565,
+    0.023184863515813878,
+    0.015043551083793245,
+    0.006818838041313481,
+    0.00030237537734292824
+  ],
+  "source_hashes": {
+    "checkpoint_manifest": "30511cfe3337aa6994c87d39d417baf6eb968ab43eee766223537cf7e8644972",
+    "configs/p4_screening.yaml": "9f0fb03f3165f4977f79bfe356973c3c4e5c3bec83c143a444fa695e01d1187c",
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "model_state": "50903b7a4f54aaf61a41fbcc1857c8a07577db097b4c77e413ab182333584084"
+  },
+  "status": "PASS"
+}

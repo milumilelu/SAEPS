@@ -420,3 +420,14 @@
 - [x] 每个 artifact 均保存 reloadable `model_state.pt`、manifest、hash 与完整 provenance；
 - [x] 逐个重载并验证全部9个模型，历史 `outputs/runs` 仍为441文件与冻结tree hash；
 - [x] 明确标记为 V5 engineering reconstruction，不主张历史 tensor reuse 或 tensor identity。
+
+## V5.1 — Finite-Gamma / Effective-Rank Audit
+
+**状态:** `PASSED` — descriptive engineering completion；无 scientific win gate
+
+- [x] 固定读取 Burgers `45--47` 与 Allen--Cahn `70--72` reconstruction artifacts；
+- [x] 完成6 checkpoints × 7预注册alpha，共42/42 terminal records；
+- [x] 保存 `F_raw`、explicit/MF `F_se_GN`、exact finite-gamma Hessian、errors、eta、singular spectrum与effective rank；
+- [x] 保留38 PASS、2 SOLVER_FAILURE与2 NUMERICAL_FAILURE，未替换checkpoint或gamma点；
+- [x] 自动聚合 high-gamma GN limit与small-gamma state-absorption趋势；
+- [x] 未重新校准 nominal gamma，未创建事后 scientific win gate。

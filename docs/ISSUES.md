@@ -516,3 +516,17 @@ affected_runs: none. The nine fixed reconstructions all completed once and are 9
 protocol_impact: None on scientific definitions, seeds, thresholds or outputs. The V5.0 frozen files and their pre-execution evidence remain unchanged. Post-startup validation must use phase-aware execution validators rather than reasserting the historical empty-output precondition.
 resolution_or_status: OPEN ENGINEERING LIFECYCLE FIX. Preserve the immutable V5.0 record; implement a post-startup repository validator before V5 final audit. Until then, report the single phase-bound test separately and require all other tests plus the reconstruction audit to pass.
 ```
+
+## I-037 — V5.1 extreme-small-gamma numerical gates fail in four cells
+
+```text
+date: 2026-08-23
+issue_id: I-037
+phase: V5.1 finite-gamma descriptive audit
+classification: numerical failure
+description: Four of 42 registered cells fail only at alpha=1e-10. Burgers seeds46--47 fail the frozen matrix-free solver gate; Burgers seed45 and Allen--Cahn seed72 fail the exact state-block positive-eigenvalue gate. All computable quantities and diagnostics are retained.
+evidence: outputs/runs/v5/finite_gamma and docs/evidence/v5/V5_FINITE_GAMMA_AUDIT.json.
+affected_runs: Burgers45--47 and Allen72 at alpha=1e-10 only.
+protocol_impact: None. V5.1 is descriptive and requires terminal records rather than universal numerical PASS. No alpha, threshold, checkpoint or nominal gamma was changed.
+resolution_or_status: RETAINED TERMINAL NUMERICAL LIMITATION. V5.1 engineering status PASSED with 42/42 terminal records and 38/42 numerical PASS.
+```

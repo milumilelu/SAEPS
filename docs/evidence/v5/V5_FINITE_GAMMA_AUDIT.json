@@ -1,0 +1,355 @@
+{
+  "alpha_summaries": [
+    {
+      "E_SAEPS_median_all_exact_computable": 0.2587670789561957,
+      "E_raw_median_all_exact_computable": 22.381842243666792,
+      "alpha": 1e-10,
+      "effective_rank_median": 41.15992921102162,
+      "eta_median_all_computable": 0.04562698634631446,
+      "pass_count": 2,
+      "terminal_count": 6
+    },
+    {
+      "E_SAEPS_median_all_exact_computable": 0.16299673884131713,
+      "E_raw_median_all_exact_computable": 22.68105487442387,
+      "alpha": 1e-08,
+      "effective_rank_median": 35.78266958072997,
+      "eta_median_all_computable": 0.048264937698404245,
+      "pass_count": 6,
+      "terminal_count": 6
+    },
+    {
+      "E_SAEPS_median_all_exact_computable": 0.13790000442060107,
+      "E_raw_median_all_exact_computable": 15.662217440317626,
+      "alpha": 1e-06,
+      "effective_rank_median": 27.045590448648184,
+      "eta_median_all_computable": 0.06533499768955714,
+      "pass_count": 6,
+      "terminal_count": 6
+    },
+    {
+      "E_SAEPS_median_all_exact_computable": 0.06018903585662204,
+      "E_raw_median_all_exact_computable": 6.5077688387180554,
+      "alpha": 0.0001,
+      "effective_rank_median": 16.33115041809349,
+      "eta_median_all_computable": 0.1300943145439991,
+      "pass_count": 6,
+      "terminal_count": 6
+    },
+    {
+      "E_SAEPS_median_all_exact_computable": 0.018494404591106548,
+      "E_raw_median_all_exact_computable": 0.746512710652403,
+      "alpha": 0.01,
+      "effective_rank_median": 6.574999102921417,
+      "eta_median_all_computable": 0.5798196634773216,
+      "pass_count": 6,
+      "terminal_count": 6
+    },
+    {
+      "E_SAEPS_median_all_exact_computable": 0.011628304784936302,
+      "E_raw_median_all_exact_computable": 0.03824592529180781,
+      "alpha": 1.0,
+      "effective_rank_median": 0.949495729266038,
+      "eta_median_all_computable": 0.9688034063045291,
+      "pass_count": 6,
+      "terminal_count": 6
+    },
+    {
+      "E_SAEPS_median_all_exact_computable": 0.011178912218072082,
+      "E_raw_median_all_exact_computable": 0.010915740485819368,
+      "alpha": 100.0,
+      "effective_rank_median": 0.015197661239986811,
+      "eta_median_all_computable": 0.9996371919236082,
+      "pass_count": 6,
+      "terminal_count": 6
+    }
+  ],
+  "checkpoint_summaries": [
+    {
+      "effective_rank_high_alpha": 0.014830386128546922,
+      "effective_rank_small_alpha": 52.80290882579605,
+      "eta_nondecreasing": true,
+      "family": "burgers",
+      "high_alpha_eta": 0.9987295804286626,
+      "high_alpha_relative_Fse_to_Fraw": 0.001270419571337393,
+      "seed": 45,
+      "small_alpha_eta": 0.029965923263676954
+    },
+    {
+      "effective_rank_high_alpha": 0.016005824929358863,
+      "effective_rank_small_alpha": 60.84355103772765,
+      "eta_nondecreasing": true,
+      "family": "burgers",
+      "high_alpha_eta": 0.9995216611186324,
+      "high_alpha_relative_Fse_to_Fraw": 0.0004783388813676281,
+      "seed": 46,
+      "small_alpha_eta": 0.03551568248543744
+    },
+    {
+      "effective_rank_high_alpha": 0.0155649363514267,
+      "effective_rank_small_alpha": 50.63221680507509,
+      "eta_nondecreasing": true,
+      "family": "burgers",
+      "high_alpha_eta": 0.9992165035503741,
+      "high_alpha_relative_Fse_to_Fraw": 0.0007834964496259418,
+      "seed": 47,
+      "small_alpha_eta": 0.042954204990206885
+    },
+    {
+      "effective_rank_high_alpha": 0.016140081173635634,
+      "effective_rank_small_alpha": 29.931682264996955,
+      "eta_nondecreasing": true,
+      "family": "allen_cahn",
+      "high_alpha_eta": 0.9997527227285842,
+      "high_alpha_relative_Fse_to_Fraw": 0.00024727727141582586,
+      "seed": 70,
+      "small_alpha_eta": 0.059859854780916405
+    },
+    {
+      "effective_rank_high_alpha": 0.012501101693738845,
+      "effective_rank_small_alpha": 30.240139210446518,
+      "eta_nondecreasing": true,
+      "family": "allen_cahn",
+      "high_alpha_eta": 0.9999054746228376,
+      "high_alpha_relative_Fse_to_Fraw": 9.452537716238416e-05,
+      "seed": 71,
+      "small_alpha_eta": 0.056256889552459874
+    },
+    {
+      "effective_rank_high_alpha": 0.012281432236082145,
+      "effective_rank_small_alpha": 31.68764161696815,
+      "eta_nondecreasing": true,
+      "family": "allen_cahn",
+      "high_alpha_eta": 0.9997628391756834,
+      "high_alpha_relative_Fse_to_Fraw": 0.0002371608243165535,
+      "seed": 72,
+      "small_alpha_eta": 0.04829976770242203
+    }
+  ],
+  "engineering_status": "PASSED",
+  "failure_count": 4,
+  "failures": [
+    {
+      "alpha": 1e-10,
+      "failure_reason": "exact finite-gamma reduction gate failed",
+      "failure_stage": "exact_reference",
+      "family": "burgers",
+      "seed": 45,
+      "status": "NUMERICAL_FAILURE"
+    },
+    {
+      "alpha": 1e-10,
+      "failure_reason": "frozen V5.1 solver gate failed",
+      "failure_stage": "curvature_solver",
+      "family": "burgers",
+      "seed": 46,
+      "status": "SOLVER_FAILURE"
+    },
+    {
+      "alpha": 1e-10,
+      "failure_reason": "frozen V5.1 solver gate failed",
+      "failure_stage": "curvature_solver",
+      "family": "burgers",
+      "seed": 47,
+      "status": "SOLVER_FAILURE"
+    },
+    {
+      "alpha": 1e-10,
+      "failure_reason": "exact finite-gamma reduction gate failed",
+      "failure_stage": "exact_reference",
+      "family": "allen_cahn",
+      "seed": 72,
+      "status": "NUMERICAL_FAILURE"
+    }
+  ],
+  "high_gamma_GN_limit": {
+    "all_checkpoint_eta_nondecreasing": true,
+    "alpha": 100.0,
+    "maximum_relative_Fse_to_Fraw": 0.001270419571337393,
+    "median_relative_Fse_to_Fraw": 0.000362808076391727
+  },
+  "nominal_gamma_recalibrated": false,
+  "pass_count": 38,
+  "phase": "V5_1_FINITE_GAMMA",
+  "phase_type": "descriptive_audit",
+  "planned_terminal_count": 42,
+  "schema_version": 1,
+  "scientific_status": null,
+  "scientific_win_gate": null,
+  "source_records": [
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1em10/result.json",
+      "sha256": "558de19eb37e7efc183b15dd6385a7d0d79c4ba4d0c5a0b2ca1e513faeaf59d6"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1em08/result.json",
+      "sha256": "312ad3a6f16e9bf7558bee683ea833f744c04a91dc5770f36e377af5d320b731"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1em06/result.json",
+      "sha256": "29edd57ac6dcadc54c937e09cbc5d9368716b4b2d36279352bbc9380d0575631"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1em04/result.json",
+      "sha256": "fe11a8256dc1235bebbef42f37426e574afd5a4d0f87d566d797947cad477624"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1em02/result.json",
+      "sha256": "2cdec795ce2db11b828cd273ed9b5f085e20e49357db3db9f65ee1f82f0cc642"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1ep00/result.json",
+      "sha256": "b1902db1211a8d50abe73803754a6642041d4a8a8c18f5a42d947692d1039c8d"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_45/alpha_1ep02/result.json",
+      "sha256": "d1bc7c2858a8aecde5afe86e752d5090f2ac4d195cc46dbae25b61d41ae6b622"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1em10/result.json",
+      "sha256": "ffbf4d97007170f9381a8941fbdd956634a17485409ef10465fde4bde9b6932e"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1em08/result.json",
+      "sha256": "f65b26d263e11529c25e7fc7645ee2cb08263d11d57778c96d1fc5b23caf9994"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1em06/result.json",
+      "sha256": "561b8fa7510366fca7bf49e652c8dc69ae883113b8b8d83633fafd7a40093d68"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1em04/result.json",
+      "sha256": "224c27502fc2cbae580f5fb1ebc3299ef9bb70d5e41e5a74a008a0491e508344"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1em02/result.json",
+      "sha256": "011a1b815c05b441cd76f4b82081f248d668a14688a77c4ec2205c20c30bbf02"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1ep00/result.json",
+      "sha256": "00995b950f499026f2aea601eabfe6f6843621dad8e6787ebf85227573e878b8"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_46/alpha_1ep02/result.json",
+      "sha256": "bdb725952f3fa0e98afea8b2f98902a8b600af80276166c10ac797dbfcdd4b28"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1em10/result.json",
+      "sha256": "a8ec629af35a1a351b91afad875a2499dc9e5f8234acd08b4819aef652175928"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1em08/result.json",
+      "sha256": "6a3775ad42e5b4dd2ead54862d446027771ace8ed02ee2e2310b40936deaa77d"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1em06/result.json",
+      "sha256": "a7f7f880d14bb464bf932adfa69c37fbdb3c09f98984514d25e3b1b646116b44"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1em04/result.json",
+      "sha256": "39a47e990a1af4c135fdac2ab191e3ca0d09658e7a38696dcaf02b582fbfac16"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1em02/result.json",
+      "sha256": "e3a15a39d9f1b7a7af69f99ffab1b6b5aebbb16676ac554fa47875d73fcc6c5d"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1ep00/result.json",
+      "sha256": "164e5a6efb3d48b530711009df6bac5cf75e9de35784014274ecbd119df1d3a7"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/burgers/seed_47/alpha_1ep02/result.json",
+      "sha256": "3db590aa30c647e405ddcd7ecf369e40c27f6f0dc15dbbc7dad381cb25e02688"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1em10/result.json",
+      "sha256": "7a0068822dd5737bdb6499076135e183b18897949444156f36be412ba91abfce"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1em08/result.json",
+      "sha256": "935f2e4228ea17f66bbe530dd341151949c6006e85fa4aa99c36fa363df83ed8"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1em06/result.json",
+      "sha256": "65c7843c4f8e5af454ea01134cf53bcb17210778db1a258db2e8b5f0547afba2"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1em04/result.json",
+      "sha256": "2232765d76e429b0d5a6b922a8a941253b00c29f617f030bf414d46b3ba7c976"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1em02/result.json",
+      "sha256": "24c01b4fc9a1cc68300388615dea0a6762e2c8fa2cf151da23973a91da402a57"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1ep00/result.json",
+      "sha256": "bec8ef233f9976cf772b8f1a80d9b019a26562f8359d4a2bb913203e1f7b2cd5"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_70/alpha_1ep02/result.json",
+      "sha256": "9c403eaec509b912690b43849618b491f87bef254141d9bc8d199592be45ecd4"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1em10/result.json",
+      "sha256": "fcce7a351c5d7ecfb32997892a95abc320fe8c4d8403622b6ddf81b0cf8bf263"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1em08/result.json",
+      "sha256": "8e0b4bb8d3ba57b698798e26245b150a2f2025eaa09f1db3a9aa5c75657af158"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1em06/result.json",
+      "sha256": "962770326f4c301195e2ffa2653d9a29eda0ecbc147a608343dda4dde167631f"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1em04/result.json",
+      "sha256": "875f35f2084124a50c104611e77db4d0c1fa2dfff815c003a4d7e99ca47af0a6"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1em02/result.json",
+      "sha256": "539d217c9662b1575976674f465e96277579920a1056feba772b874c9edd9fee"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1ep00/result.json",
+      "sha256": "3f03efe82d3e0ec77263b276b6f7622c565e431c452281cb0bc372aed8168a92"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_71/alpha_1ep02/result.json",
+      "sha256": "7875f8b2f3cd4a8d487471153a170be7ba427cd86c849baf91e684949453d34b"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1em10/result.json",
+      "sha256": "622e3d103c42300151b36cea0a910b75ca35ab0d4a4a1e446dfb66f3f7377d2d"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1em08/result.json",
+      "sha256": "dc324823be23432d4a166ed3b4aa3ab06e51bbfc43bbc0f9c526de42af072d04"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1em06/result.json",
+      "sha256": "42495e73346db966e121970d35014c0c76730ddcab92d223147253e943595b61"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1em04/result.json",
+      "sha256": "338255ee7e2eae0f474eb3c39266930b53818f6c4c19c255a6331e6a4c65779a"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1em02/result.json",
+      "sha256": "7323c7cb02c24f6478c77efd6e4b5aad62995ee3494c5cebf2c42db1e9ff992a"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1ep00/result.json",
+      "sha256": "1c84724b10ad050b6a5082911e66de423cbf85be88675dfb330a75f36662b089"
+    },
+    {
+      "path": "outputs/runs/v5/finite_gamma/allen_cahn/seed_72/alpha_1ep02/result.json",
+      "sha256": "efe0f89b7a25990f97a6ed3043be4c632b1066231f4d8cd42021c029bc30f3f8"
+    }
+  ],
+  "status_counts": {
+    "NUMERICAL_FAILURE": 2,
+    "PASS": 38,
+    "SOLVER_FAILURE": 2
+  },
+  "terminal_count": 42
+}
