@@ -514,10 +514,13 @@
 
 ## V5.6 — Final JCP Evidence Audit
 
-**状态:** `IN_PROGRESS` — post-execution validator已实现；最终产物待生成
+**状态:** `PASSED` — V5程序与最终证据审计全部完成
 
 - [x] 实现phase-aware post-execution repository validator，替代已过期的V5.0空目录前置断言；
 - [x] 验证历史441文件immutability、所有executable hash、29个reloadable checkpoint与raw-to-aggregate lineage；
 - [x] 固定整体科学结论为 `PARTIALLY_SUPPORTED`，禁止full general JCP claim；
 - [x] 建立claim-to-evidence与retained failures机器表；
-- [ ] 生成最终报告、validation JSON、paper artifact manifest并完成全仓审计。
+- [x] 生成 `V5_FINAL_JCP_AUDIT_REPORT.md`、audit/validation JSON与paper artifact manifest；
+- [x] 最终验证：85 frozen hashes、441 historical files、29 checkpoints、全部aggregate lineage与7 paper artifacts PASS；
+- [x] 最终科学裁决 `PARTIALLY_SUPPORTED`；paper readiness为 `CLAIM_NARROWING_REQUIRED`；
+- [x] 禁止后续V5 scientific execution；不补seed、不救援、不重新校准。

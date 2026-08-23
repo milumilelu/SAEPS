@@ -1,0 +1,175 @@
+{
+  "audit_generation_parent_commit": "444030de2960f0bf32934d75fafd10a22106b408",
+  "audit_status": "PASSED_WITH_SCIENTIFIC_LIMITATIONS",
+  "baseline_consolidation_status": "NOT_SUPPORTED",
+  "claim_to_evidence": [
+    {
+      "claim": "SAEPS-GN is closer than raw fixed-state curvature to exact finite-gamma scalar reduced curvature on Burgers and Allen-Cahn.",
+      "decision": "ALLOWED",
+      "evidence": [
+        "docs/evidence/v4_2_confirmation.json",
+        "docs/evidence/v4_4_allen_confirmation.json"
+      ]
+    },
+    {
+      "claim": "SAEPS-GN exactly recovers the reduced Hessian.",
+      "decision": "FORBIDDEN",
+      "evidence": [
+        "docs/evidence/v4_2_confirmation.json",
+        "docs/evidence/v4_4_allen_confirmation.json"
+      ]
+    },
+    {
+      "claim": "SAEPS predicts the nonlinear reoptimized reduced objective curvature.",
+      "decision": "FORBIDDEN",
+      "evidence": [
+        "docs/evidence/v5/V5_PROFILE_BRIDGE_REPORT.json",
+        "docs/evidence/v5/V5_BASELINE_CONSOLIDATION.json"
+      ]
+    },
+    {
+      "claim": "The full coupled multi-parameter comparative geometry is empirically supported.",
+      "decision": "FORBIDDEN",
+      "evidence": [
+        "docs/evidence/v5/V5_TWO_PARAMETER_CONFIRMATION_REPORT.json"
+      ]
+    },
+    {
+      "claim": "All valid V5 two-parameter seeds favor SAEPS over raw.",
+      "decision": "ALLOWED_WITH_PLANNED_DENOMINATOR_8_OF_10",
+      "evidence": [
+        "docs/evidence/v5/V5_TWO_PARAMETER_CONFIRMATION_REPORT.json"
+      ]
+    },
+    {
+      "claim": "Matrix-free execution is demonstrated to n_theta=100001 and real residual dimension m=3413.",
+      "decision": "ALLOWED_AS_COST_ONLY",
+      "evidence": [
+        "docs/evidence/v4_7_scalability.json",
+        "docs/evidence/v5/V5_RESIDUAL_SCALABILITY_REPORT.json"
+      ]
+    }
+  ],
+  "deviations_and_failures": [
+    {
+      "affected": 4,
+      "classification": "numerical",
+      "decision": "retained; descriptive audit complete",
+      "phase": "V5.1",
+      "planned": 42
+    },
+    {
+      "affected": 4,
+      "classification": "scientific",
+      "decision": "NOT_SUPPORTED; nonlinear-profile claim deleted",
+      "phase": "V5.2",
+      "planned": 5
+    },
+    {
+      "affected": 2,
+      "classification": "benchmark numerical availability",
+      "decision": "INCONCLUSIVE; no replacements or rescue",
+      "phase": "V5.3",
+      "planned": 10
+    },
+    {
+      "affected": 27,
+      "classification": "measurement limitation",
+      "decision": "peak CPU tensor memory unavailable; all timing solves retained",
+      "phase": "V5.4",
+      "planned": 27
+    }
+  ],
+  "evidence_table": [
+    {
+      "claim_role": "PRIMARY_SUPPORTED",
+      "evidence": "Burgers scalar comparative",
+      "result": "12/15 planned wins; 12/12 valid wins; median E_SAEPS=0.0750323; p=0.00024414062",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_role": "INDEPENDENT_REPLICATION_SUPPORTED",
+      "evidence": "Allen-Cahn scalar replication",
+      "result": "9/10 planned wins; 9/9 valid wins; median E_SAEPS=0.278567; p=0.001953125",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_role": "SECONDARY",
+      "evidence": "Noise/sparsity robustness",
+      "result": "52/60 binding-valid; 14/14 exact-anchor wins",
+      "status": "DESCRIPTIVE_WITH_EXACT_ANCHOR_SUPPORT"
+    },
+    {
+      "claim_role": "CONDITIONAL_ONLY",
+      "evidence": "Controlled tangent-overlap mechanism",
+      "result": "6/10 planned monotonic; 6/10 valid; valid median Spearman=1",
+      "status": "NOT_SUPPORTED"
+    },
+    {
+      "claim_role": "SENSITIVITY_AUDIT_NONBINDING",
+      "evidence": "Finite-gamma family",
+      "result": "42/42 terminal; 38/42 numerical PASS; no nominal-gamma recalibration",
+      "status": "DESCRIPTIVE_COMPLETE"
+    },
+    {
+      "claim_role": "CLAIM_DELETED",
+      "evidence": "Nonlinear profile bridge",
+      "result": "5/5 evaluable; 1/5 PROFILE_VALID",
+      "status": "NOT_SUPPORTED"
+    },
+    {
+      "claim_role": "DIRECTIONAL_EVIDENCE_NONBINDING",
+      "evidence": "Two-parameter comparative geometry",
+      "result": "8/10 valid; 8/10 planned wins; valid sign p=0.00390625",
+      "status": "INCONCLUSIVE"
+    },
+    {
+      "claim_role": "ENGINEERING_COST",
+      "evidence": "State-parameter scalability",
+      "result": "up to n_theta=100001; inherited function-preserving controlled checkpoint; cost-only",
+      "status": "PASSED"
+    },
+    {
+      "claim_role": "ENGINEERING_COST",
+      "evidence": "Residual-dimension scalability",
+      "result": "27/27 PASS; actual residuals m=213,853,3413; no exponent fit",
+      "status": "PASSED"
+    },
+    {
+      "claim_role": "LIMITATION",
+      "evidence": "Wide architecture",
+      "result": "0/5 width32 center-valid in inherited V4.8",
+      "status": "UNTESTED_DUE_INVALID_CENTERS"
+    }
+  ],
+  "full_general_JCP_claim_ready": false,
+  "further_scientific_execution_authorized": false,
+  "new_training_or_reconstruction_count": 29,
+  "paper_readiness": "CLAIM_NARROWING_REQUIRED",
+  "phase": "V5_6_FINAL_JCP_EVIDENCE_AUDIT",
+  "recommended_scope": "scalar-focused finite-gamma local reduced-curvature methods paper",
+  "required_paper_actions": [
+    "Lead with paired scalar comparative efficacy against exact finite-gamma reduced curvature.",
+    "Report Burgers and Allen-Cahn absolute SAEPS errors; do not claim exact Hessian recovery.",
+    "Delete nonlinear-profile-equivalence language and report V5.2 as NOT_SUPPORTED.",
+    "Present two-parameter results as availability-limited directional evidence, not confirmation.",
+    "Keep controlled mechanism, gamma family, robustness and scalability explicitly secondary or descriptive.",
+    "State that wide-architecture curvature remains untested because frozen centers were invalid."
+  ],
+  "schema_version": 1,
+  "scientific_conclusion": "PARTIALLY_SUPPORTED",
+  "source_sha256": {
+    "docs/evidence/v4_2_confirmation.json": "99184fce55c8847482f3adc4cf7d5db74b97f8a99f3171a95ab8cd3f101ea718",
+    "docs/evidence/v4_4_allen_confirmation.json": "4e0188bfbe3e204f6a6c8cf2cdbd16fa8f0c0223e5922e97e0c6c2d7e37470d6",
+    "docs/evidence/v4_5_controlled_confirmation.json": "09475d034f2764eebab634d95de8ca604147c98ab04d13092ed63c4f27fefa0f",
+    "docs/evidence/v4_7_scalability.json": "a4c5baa332b17d8131d69060814e3875a61915aa0fe7ba4d13a182248c434295",
+    "docs/evidence/v4_8_robustness.json": "56fb4dc8b5325c3b0a05feaec71e69140602d10316285fcba5be5b284104b212",
+    "docs/evidence/v4_final_audit.json": "9f29b1ff96d2567ae65843c61e2d9ea08647882a798534f641074f6098f4bf4e",
+    "docs/evidence/v5/V5_BASELINE_CONSOLIDATION.json": "5e320f06eb2cb6982a26671d0ed5597520fd24d72d04a38d527a07c74ba9af85",
+    "docs/evidence/v5/V5_FINITE_GAMMA_AUDIT.json": "79854e514da0a117413498af264b9bb37c6cd7bac76aa7e966c7f298b14a5b59",
+    "docs/evidence/v5/V5_PROFILE_BRIDGE_REPORT.json": "2b1e4c8ea227309a076caec6b8fb385a374d483448f530641365726e3bb8b2ea",
+    "docs/evidence/v5/V5_RESIDUAL_SCALABILITY_REPORT.json": "8914540a5dab6e584518b93ff124791c3cd8724c4619d8992249734c45813bb7",
+    "docs/evidence/v5/V5_TWO_PARAMETER_CONFIRMATION_REPORT.json": "73a5ffb112e7a9c630d9ae9e5579ce5ca718e5d7a46c53210dac5d7c810628c8"
+  },
+  "training_ceiling": 29
+}

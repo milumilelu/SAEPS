@@ -1,0 +1,45 @@
+{
+  "checks": {
+    "final_report_rebuild": {
+      "detail": "machine audit and Markdown report rebuild exactly from source aggregates",
+      "status": "PASS"
+    },
+    "frozen_protocol_and_executables": {
+      "detail": "85 frozen file hashes match",
+      "status": "PASS"
+    },
+    "historical_immutability": {
+      "detail": "441 protected pre-V5 files retain the frozen tree digest",
+      "status": "PASS"
+    },
+    "paper_artifact_manifest": {
+      "detail": "7 V5 paper artifacts match manifest hashes",
+      "status": "PASS"
+    },
+    "raw_to_aggregate_lineage": {
+      "detail": "source record counts: {'finite_gamma': 42, 'profile': 5, 'two_parameter': 10, 'residual_scalability': 27, 'baseline': 5}",
+      "status": "PASS"
+    },
+    "scientific_adjudications_preserved": {
+      "detail": "profile NOT_SUPPORTED; two-parameter INCONCLUSIVE; residual scaling 27/27 PASS",
+      "status": "PASS"
+    },
+    "seed_registry": {
+      "detail": "all registered cohorts remain exact and disjoint",
+      "status": "PASS"
+    },
+    "stopped_and_forbidden_cohorts": {
+      "detail": "inactive 105--114 and V5 rescue cohorts remain absent",
+      "status": "PASS"
+    },
+    "training_ceiling_and_checkpoint_lineage": {
+      "detail": "29/29 unique one-attempt reloadable checkpoints; no retry or replacement",
+      "status": "PASS"
+    }
+  },
+  "full_general_JCP_claim_ready": false,
+  "phase": "V5_FINAL_REPOSITORY_VALIDATION",
+  "schema_version": 1,
+  "scientific_conclusion": "PARTIALLY_SUPPORTED",
+  "status": "PASSED"
+}
