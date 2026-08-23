@@ -1,0 +1,678 @@
+{
+  "H_red_exact_gamma": 5.488791002421024,
+  "all_8_profile_points_pass": true,
+  "benchmark": "Allen-Cahn",
+  "binding_valid": true,
+  "candidate": "independent_exact_trust_lbfgs",
+  "center_loss_mean": 0.0009517186370603265,
+  "config_hash": "9107afc723df30f938b8baeb400e8cae19ccb4e9e55afe8cc51896cfb66eb4fc",
+  "continuation_used": false,
+  "curvatures": [
+    {
+      "curvature": 5.537513369674345,
+      "h": 0.04
+    },
+    {
+      "curvature": 5.537326548742836,
+      "h": 0.02
+    },
+    {
+      "curvature": 5.903363428745034,
+      "h": 0.01
+    },
+    {
+      "curvature": 6.4350435431034105,
+      "h": 0.005
+    }
+  ],
+  "diagnostic_set_hash": "b97811e0b81d7ef596f0cffb7f29847283650503307ae20011db9414a6ea596c",
+  "elapsed_seconds": 25.800078800002666,
+  "exact_reference": {
+    "condition_number": 99869053.75646944,
+    "failure_reason": null,
+    "full_hessian_symmetry_relative_error": 1.5148784023199814e-16,
+    "maximum_state_eigenvalue": 184198.14845295824,
+    "minimum_state_eigenvalue": 0.0018443966526620467,
+    "nonpositive_eigenvalue_count": 0,
+    "positive_eigenvalue_tolerance": 1.8419814845295826e-05,
+    "reduced_hessian": [
+      [
+        5.488791002421024
+      ]
+    ],
+    "solve_relative_residual": 2.373226872701284e-14,
+    "status": "PASS"
+  },
+  "failure_reason": null,
+  "failure_stage": null,
+  "finest_profile_exact_relative_error": 0.17239726203184058,
+  "gamma": 0.0018418417554270775,
+  "gamma_alpha": 1e-08,
+  "independent_start_from_common_theta0": true,
+  "lambda_max": 184184.17554270776,
+  "last_two_curvature_relative_change": 0.08262261331987271,
+  "m": 368,
+  "n_theta": 33,
+  "phase": "V5_2A_PROFILE_ENGINEERING",
+  "profile_points": [
+    {
+      "elapsed_seconds": 2.0658303999989585,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.3098999402786613e-16,
+        "hessian_tau": 5.032559738210318e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.001125983231692997,
+        "maximum_state_eigenvalue_mean_objective": 503.2559738210318,
+        "minimum_state_eigenvalue_mean_objective": 5.0212066498748234e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 3.983524721681225e-07
+      },
+      "h": 0.04,
+      "loss_mean": 0.001125983231692997,
+      "offset": -0.04,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.3098999402786613e-16,
+            "hessian_tau": 5.032559738210318e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.001125983231692997,
+            "maximum_state_eigenvalue_mean_objective": 503.2559738210318,
+            "minimum_state_eigenvalue_mean_objective": 5.0212066498748234e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 3.983524721681225e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 1.3098999402786613e-16,
+          "hessian_tau": 5.032559738210318e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.001125983231692997,
+          "maximum_state_eigenvalue_mean_objective": 503.2559738210318,
+          "minimum_state_eigenvalue_mean_objective": 5.0212066498748234e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 3.983524721681225e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 480,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.001125983231692997,
+          "normalized_gradient": 3.983524721681225e-07,
+          "outer_steps": 4,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 1.9125772999977926,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.214223211893287e-16,
+        "hessian_tau": 5.0073853683061396e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0008015301875131968,
+        "maximum_state_eigenvalue_mean_objective": 500.73853683061395,
+        "minimum_state_eigenvalue_mean_objective": 5.0017462426061644e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 3.2215858968071177e-07
+      },
+      "h": 0.04,
+      "loss_mean": 0.0008015301875131968,
+      "offset": 0.04,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.214223211893287e-16,
+            "hessian_tau": 5.0073853683061396e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0008015301875131968,
+            "maximum_state_eigenvalue_mean_objective": 500.73853683061395,
+            "minimum_state_eigenvalue_mean_objective": 5.0017462426061644e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 3.2215858968071177e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 1.214223211893287e-16,
+          "hessian_tau": 5.0073853683061396e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0008015301875131968,
+          "maximum_state_eigenvalue_mean_objective": 500.73853683061395,
+          "minimum_state_eigenvalue_mean_objective": 5.0017462426061644e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 3.2215858968071177e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 482,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.0008015301875131968,
+          "normalized_gradient": 3.2215858968071177e-07,
+          "outer_steps": 4,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 2.006754499998351,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.292455621722517e-16,
+        "hessian_tau": 5.020186636824597e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0010360534129163978,
+        "maximum_state_eigenvalue_mean_objective": 502.0186636824597,
+        "minimum_state_eigenvalue_mean_objective": 5.027474797270424e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 2.7984694384640205e-07
+      },
+      "h": 0.02,
+      "loss_mean": 0.0010360534129163978,
+      "offset": -0.02,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.292455621722517e-16,
+            "hessian_tau": 5.020186636824597e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0010360534129163978,
+            "maximum_state_eigenvalue_mean_objective": 502.0186636824597,
+            "minimum_state_eigenvalue_mean_objective": 5.027474797270424e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 2.7984694384640205e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 1.292455621722517e-16,
+          "hessian_tau": 5.020186636824597e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0010360534129163978,
+          "maximum_state_eigenvalue_mean_objective": 502.0186636824597,
+          "minimum_state_eigenvalue_mean_objective": 5.027474797270424e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 2.7984694384640205e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 489,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.0010360534129163978,
+          "normalized_gradient": 2.7984694384640205e-07,
+          "outer_steps": 4,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 1.995435599998018,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 7.332767375948769e-17,
+        "hessian_tau": 5.0022710644761894e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0008734026944094105,
+        "maximum_state_eigenvalue_mean_objective": 500.2271064476189,
+        "minimum_state_eigenvalue_mean_objective": 4.992152246015885e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 1.3714987465087425e-07
+      },
+      "h": 0.02,
+      "loss_mean": 0.0008734026944094105,
+      "offset": 0.02,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 7.332767375948769e-17,
+            "hessian_tau": 5.0022710644761894e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0008734026944094105,
+            "maximum_state_eigenvalue_mean_objective": 500.2271064476189,
+            "minimum_state_eigenvalue_mean_objective": 4.992152246015885e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.3714987465087425e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 7.332767375948769e-17,
+          "hessian_tau": 5.0022710644761894e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0008734026944094105,
+          "maximum_state_eigenvalue_mean_objective": 500.2271064476189,
+          "minimum_state_eigenvalue_mean_objective": 4.992152246015885e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 1.3714987465087425e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 489,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.0008734026944094105,
+          "normalized_gradient": 1.3714987465087425e-07,
+          "outer_steps": 4,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 5.579622500001278,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.0995806334892293e-16,
+        "hessian_tau": 5.007203242290548e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0009932677232611853,
+        "maximum_state_eigenvalue_mean_objective": 500.7203242290548,
+        "minimum_state_eigenvalue_mean_objective": 4.642727736481011e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 9.989250994767783e-07
+      },
+      "h": 0.01,
+      "loss_mean": 0.0009932677232611853,
+      "offset": -0.01,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.0995806334892293e-16,
+            "hessian_tau": 5.007203242290548e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0009932677232611853,
+            "maximum_state_eigenvalue_mean_objective": 500.7203242290548,
+            "minimum_state_eigenvalue_mean_objective": 4.642727736481011e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 9.989250994767783e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 1.0995806334892293e-16,
+          "hessian_tau": 5.007203242290548e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0009932677232611853,
+          "maximum_state_eigenvalue_mean_objective": 500.7203242290548,
+          "minimum_state_eigenvalue_mean_objective": 4.642727736481011e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 9.989250994767783e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 3000,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.0009932677232611853,
+          "normalized_gradient": 9.989250994767783e-07,
+          "outer_steps": 24,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 7.611083800002234,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 7.647828009711604e-17,
+        "hessian_tau": 5.0140745061093515e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0009117737257042356,
+        "maximum_state_eigenvalue_mean_objective": 501.40745061093514,
+        "minimum_state_eigenvalue_mean_objective": 5.004888824873184e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 4.6130044697951215e-08
+      },
+      "h": 0.01,
+      "loss_mean": 0.0009117737257042356,
+      "offset": 0.01,
+      "optimization": {
+        "cycles": [
+          {
+            "accepted_candidate": "shifted_newton_1.0",
+            "actual_decrease": 1.2374879255116957e-07,
+            "candidate_loss_mean": 0.0009117740189434742,
+            "cycle": 0,
+            "gradient_pass": false,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.204159153947118e-16,
+            "hessian_tau": 5.003228623011705e-08,
+            "local_minimum_gate": "FAIL",
+            "loss_mean": 0.0009118977677360254,
+            "maximum_state_eigenvalue_mean_objective": 500.32286230117046,
+            "minimum_state_eigenvalue_mean_objective": 5.028895490322178e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.0191507572754057e-06,
+            "post_step_polish": {
+              "closure_calls": 503,
+              "failure_reason": null,
+              "gradient_pass": true,
+              "loss_mean": 0.0009117737257042356,
+              "normalized_gradient": 4.6130044697951215e-08,
+              "outer_steps": 4,
+              "plateau_pass": true,
+              "status": "PASS"
+            },
+            "trust_relative_radius": 0.03
+          },
+          {
+            "cycle": 1,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 7.647828009711604e-17,
+            "hessian_tau": 5.0140745061093515e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0009117737257042356,
+            "maximum_state_eigenvalue_mean_objective": 501.40745061093514,
+            "minimum_state_eigenvalue_mean_objective": 5.004888824873184e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 4.6130044697951215e-08,
+            "trust_relative_radius": 0.045
+          }
+        ],
+        "escape_cycles_used": 1,
+        "failure_reason": null,
+        "final": {
+          "cycle": 1,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 7.647828009711604e-17,
+          "hessian_tau": 5.0140745061093515e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0009117737257042356,
+          "maximum_state_eigenvalue_mean_objective": 501.40745061093514,
+          "minimum_state_eigenvalue_mean_objective": 5.004888824873184e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 4.6130044697951215e-08,
+          "trust_relative_radius": 0.045
+        },
+        "initial_polish": {
+          "closure_calls": 3750,
+          "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+          "gradient_pass": false,
+          "loss_mean": 0.0009118977677360254,
+          "normalized_gradient": 1.0191507572754057e-06,
+          "outer_steps": 30,
+          "plateau_pass": true,
+          "status": "PROFILE_FAILURE"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 1.6712609999995038,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.190623865695824e-16,
+        "hessian_tau": 5.0060754998993313e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0009722833149719367,
+        "maximum_state_eigenvalue_mean_objective": 500.60754998993315,
+        "minimum_state_eigenvalue_mean_objective": 4.751143697052473e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 6.490798353783553e-07
+      },
+      "h": 0.005,
+      "loss_mean": 0.0009722833149719367,
+      "offset": -0.005,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.190623865695824e-16,
+            "hessian_tau": 5.0060754998993313e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0009722833149719367,
+            "maximum_state_eigenvalue_mean_objective": 500.60754998993315,
+            "minimum_state_eigenvalue_mean_objective": 4.751143697052473e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 6.490798353783553e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 1.190623865695824e-16,
+          "hessian_tau": 5.0060754998993313e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0009722833149719367,
+          "maximum_state_eigenvalue_mean_objective": 500.60754998993315,
+          "minimum_state_eigenvalue_mean_objective": 4.751143697052473e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 6.490798353783553e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 500,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.0009722833149719367,
+          "normalized_gradient": 6.490798353783553e-07,
+          "outer_steps": 4,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 1.6642457000016293,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-06,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.5750962349255245e-16,
+        "hessian_tau": 5.0044420455014283e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0009315911224328946,
+        "maximum_state_eigenvalue_mean_objective": 500.4442045501428,
+        "minimum_state_eigenvalue_mean_objective": 4.992311985829956e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 6.848469178716277e-07
+      },
+      "h": 0.005,
+      "loss_mean": 0.0009315911224328946,
+      "offset": 0.005,
+      "optimization": {
+        "cycles": [
+          {
+            "cycle": 0,
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-06,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.5750962349255245e-16,
+            "hessian_tau": 5.0044420455014283e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0009315911224328946,
+            "maximum_state_eigenvalue_mean_objective": 500.4442045501428,
+            "minimum_state_eigenvalue_mean_objective": 4.992311985829956e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 6.848469178716277e-07,
+            "trust_relative_radius": 0.03
+          }
+        ],
+        "escape_cycles_used": 0,
+        "failure_reason": null,
+        "final": {
+          "cycle": 0,
+          "gradient_pass": true,
+          "gradient_tolerance": 1e-06,
+          "hessian_pass": true,
+          "hessian_symmetry_relative_error": 1.5750962349255245e-16,
+          "hessian_tau": 5.0044420455014283e-08,
+          "local_minimum_gate": "PASS",
+          "loss_mean": 0.0009315911224328946,
+          "maximum_state_eigenvalue_mean_objective": 500.4442045501428,
+          "minimum_state_eigenvalue_mean_objective": 4.992311985829956e-06,
+          "negative_eigenvalue_count": 0,
+          "normalized_objective_gradient": 6.848469178716277e-07,
+          "trust_relative_radius": 0.03
+        },
+        "initial_polish": {
+          "closure_calls": 500,
+          "failure_reason": null,
+          "gradient_pass": true,
+          "loss_mean": 0.0009315911224328946,
+          "normalized_gradient": 6.848469178716277e-07,
+          "outer_steps": 4,
+          "plateau_pass": true,
+          "status": "PASS"
+        },
+        "negative_direction_probes": [],
+        "status": "PASS"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    }
+  ],
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "d76d2d57bea0f16b2c366285282f6485f4b4f035",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-23T09:14:06.797567+00:00",
+    "torch_cuda_available": false
+  },
+  "role": "optimizer_candidate_development",
+  "schema_version": 1,
+  "seed": 70,
+  "selection_forbidden_metrics_computed": false,
+  "source_hashes": {
+    "checkpoint_manifest": "a2036a34902d00f6d6988d9a87dd64485de209fe454561748c2bfd2d277114c7",
+    "configs/p4_screening.yaml": "9f0fb03f3165f4977f79bfe356973c3c4e5c3bec83c143a444fa695e01d1187c",
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "model_state": "92657ac54fca77c67e593578d2407c184b70a81b98a1a6e57444f8787b2b9766"
+  },
+  "status": "PASS"
+}

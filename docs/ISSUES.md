@@ -530,3 +530,17 @@ affected_runs: Burgers45--47 and Allen72 at alpha=1e-10 only.
 protocol_impact: None. V5.1 is descriptive and requires terminal records rather than universal numerical PASS. No alpha, threshold, checkpoint or nominal gamma was changed.
 resolution_or_status: RETAINED TERMINAL NUMERICAL LIMITATION. V5.1 engineering status PASSED with 42/42 terminal records and 38/42 numerical PASS.
 ```
+
+## I-038 — V5.2A damped-GN profile candidate fails point completion
+
+```text
+date: 2026-08-23
+issue_id: I-038
+phase: V5.2A profile optimizer engineering
+classification: numerical failure
+description: The independent damped-GN/exact-trust candidate completes only 1/3 candidate seeds and 17/24 profile points. The independent strict L-BFGS/exact-trust candidate completes 3/3 and 24/24, so it is selected by the first two frozen lexicographic criteria.
+evidence: outputs/runs/v5/profile_engineering/candidates and docs/evidence/v5/V5_PROFILE_OPTIMIZER_SELECTION.json.
+affected_runs: development seeds70--72 only; no held-out 200--204 data exist.
+protocol_impact: None. Selection did not compute or read D, E_raw, E_SAEPS, eta, F_raw, F_se_GN or plots. The selected candidate still has material development profile/exact discrepancy and must pass frozen validation on seeds73--74 before held-out execution.
+resolution_or_status: CANDIDATE REJECTED; all failed points retained. Freeze independent_exact_trust_lbfgs for validation seeds73--74.
+```

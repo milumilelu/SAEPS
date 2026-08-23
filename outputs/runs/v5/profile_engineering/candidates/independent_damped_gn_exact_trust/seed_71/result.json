@@ -1,0 +1,1494 @@
+{
+  "H_red_exact_gamma": 5.401643323634715,
+  "all_8_profile_points_pass": false,
+  "benchmark": "Allen-Cahn",
+  "binding_valid": false,
+  "candidate": "independent_damped_gn_exact_trust",
+  "center_loss_mean": 0.0008849052656708024,
+  "config_hash": "9107afc723df30f938b8baeb400e8cae19ccb4e9e55afe8cc51896cfb66eb4fc",
+  "continuation_used": false,
+  "curvatures": [
+    {
+      "curvature": null,
+      "h": 0.04
+    },
+    {
+      "curvature": null,
+      "h": 0.02
+    },
+    {
+      "curvature": null,
+      "h": 0.01
+    },
+    {
+      "curvature": null,
+      "h": 0.005
+    }
+  ],
+  "diagnostic_set_hash": "fd7407d4ae58e7b3f436ea0c1a3d074e3488b1af784effba831fc4e144ed6d4d",
+  "elapsed_seconds": 41.99700389999998,
+  "exact_reference": {
+    "condition_number": 99869659.31150562,
+    "failure_reason": null,
+    "full_hessian_symmetry_relative_error": 6.249857029232622e-17,
+    "maximum_state_eigenvalue": 181589.21498991613,
+    "minimum_state_eigenvalue": 0.001818262085219669,
+    "nonpositive_eigenvalue_count": 0,
+    "positive_eigenvalue_tolerance": 1.8158921498991613e-05,
+    "reduced_hessian": [
+      [
+        5.401643323634715
+      ]
+    ],
+    "solve_relative_residual": 2.9986201844357935e-14,
+    "status": "PASS"
+  },
+  "failure_reason": "one or more frozen numerical profile nodes failed",
+  "failure_stage": "profile_or_exact",
+  "finest_profile_exact_relative_error": null,
+  "gamma": 0.0018078137925064673,
+  "gamma_alpha": 1e-08,
+  "independent_start_from_common_theta0": true,
+  "lambda_max": 180781.3792506467,
+  "last_two_curvature_relative_change": null,
+  "m": 368,
+  "n_theta": 33,
+  "phase": "V5_2A_PROFILE_ENGINEERING",
+  "profile_points": [
+    {
+      "elapsed_seconds": 1.8569310999992013,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-07,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 7.315761969579522e-17,
+        "hessian_tau": 5.0400088880332006e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0010753400482474006,
+        "maximum_state_eigenvalue_mean_objective": 504.00088880332004,
+        "minimum_state_eigenvalue_mean_objective": 4.900637414833265e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 9.133747572668554e-08
+      },
+      "h": 0.04,
+      "loss_mean": 0.0010753400482474006,
+      "offset": -0.04,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "cycle": 0,
+              "gradient_pass": true,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 7.315761969579522e-17,
+              "hessian_tau": 5.0400088880332006e-08,
+              "local_minimum_gate": "PASS",
+              "loss_mean": 0.0010753400482474006,
+              "maximum_state_eigenvalue_mean_objective": 504.00088880332004,
+              "minimum_state_eigenvalue_mean_objective": 4.900637414833265e-06,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 9.133747572668554e-08
+            }
+          ],
+          "final": {
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 7.315761969579522e-17,
+            "hessian_tau": 5.0400088880332006e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0010753400482474006,
+            "maximum_state_eigenvalue_mean_objective": 504.00088880332004,
+            "minimum_state_eigenvalue_mean_objective": 4.900637414833265e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 9.133747572668554e-08
+          },
+          "initial_polish": {
+            "closure_calls": 500,
+            "failure_reason": null,
+            "gradient_pass": true,
+            "loss_mean": 0.0010753400482474006,
+            "normalized_gradient": 9.133747572668554e-08,
+            "outer_steps": 4,
+            "plateau_pass": true,
+            "status": "PASS"
+          },
+          "status": "PASS"
+        },
+        "failure_reason": null,
+        "gauss_newton": {
+          "accepted_steps": 12,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 0.00023578821553132327,
+              "candidate_loss_mean": 0.001076155967799194,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.0013119441833305172,
+              "normalized_gradient": 0.002306500191682559,
+              "step_norm": 0.18114076067061707
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 4.884262533976901e-07,
+              "candidate_loss_mean": 0.0010756675415457963,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.001076155967799194,
+              "normalized_gradient": 0.0009628339450976511,
+              "step_norm": 0.09269572832065806
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 2.3281875545294248e-07,
+              "candidate_loss_mean": 0.0010754347227903433,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0010756675415457963,
+              "normalized_gradient": 0.0005884091475399378,
+              "step_norm": 0.12187904287118288
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 8.279866944892536e-08,
+              "candidate_loss_mean": 0.0010753519241208944,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0010754347227903433,
+              "normalized_gradient": 0.00030673318795173404,
+              "step_norm": 0.036655913277878184
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 8.104923624602245e-09,
+              "candidate_loss_mean": 0.0010753438191972698,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.0010753519241208944,
+              "normalized_gradient": 4.962976884501888e-05,
+              "step_norm": 0.05129602268694287
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.343525356846704e-09,
+              "candidate_loss_mean": 0.001075341475671913,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0010753438191972698,
+              "normalized_gradient": 3.1824227527305975e-05,
+              "step_norm": 0.01599252362269504
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.4599257677338356e-09,
+              "candidate_loss_mean": 0.0010753400157461452,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.001075341475671913,
+              "normalized_gradient": 9.901885436801372e-06,
+              "step_norm": 0.02291565544195213
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 8.310274148513874e-11,
+              "candidate_loss_mean": 0.0010753399326434037,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.0010753400157461452,
+              "normalized_gradient": 6.140217352516435e-06,
+              "step_norm": 0.007054704134873044
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 2.819876524125242e-10,
+              "candidate_loss_mean": 0.0010753396506557513,
+              "damping": 6.560999999999998e-11,
+              "iteration": 8,
+              "loss_mean": 0.0010753399326434037,
+              "normalized_gradient": 1.4423779331284757e-06,
+              "step_norm": 0.010401305697857561
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 3.811740419829013e-11,
+              "candidate_loss_mean": 0.0010753396125383471,
+              "damping": 1.9682999999999994e-11,
+              "iteration": 9,
+              "loss_mean": 0.0010753396506557513,
+              "normalized_gradient": 1.0078258627472695e-06,
+              "step_norm": 0.0031580769176017486
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.1728402971034058e-11,
+              "candidate_loss_mean": 0.0010753396008099441,
+              "damping": 5.9048999999999976e-12,
+              "iteration": 10,
+              "loss_mean": 0.0010753396125383471,
+              "normalized_gradient": 5.539495957260646e-07,
+              "step_norm": 0.0010630864335965714
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 6.5314021552298485e-12,
+              "candidate_loss_mean": 0.001075339594278542,
+              "damping": 1.7714699999999991e-12,
+              "iteration": 11,
+              "loss_mean": 0.0010753396008099441,
+              "normalized_gradient": 9.429827442625354e-08,
+              "step_norm": 0.001432869329651497
+            }
+          ],
+          "iterations": 12,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 6.816258300001209,
+      "exact_diagnostics": null,
+      "h": 0.04,
+      "loss_mean": null,
+      "offset": 0.04,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "actual_decrease": 0.0,
+              "best_candidate": null,
+              "candidate_evaluations": 0,
+              "cycle": 0,
+              "gradient_pass": false,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 9.792339954746396e-17,
+              "hessian_tau": 4.8887999906748125e-08,
+              "local_minimum_gate": "FAIL",
+              "loss_mean": 0.0007179608807982833,
+              "maximum_state_eigenvalue_mean_objective": 488.8799990674812,
+              "minimum_state_eigenvalue_mean_objective": 4.945458405990908e-06,
+              "negative_directions_probed": 0,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 1.2175823101657828e-07
+            }
+          ],
+          "final": {
+            "gradient_pass": false,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 9.792339954746396e-17,
+            "hessian_tau": 4.8887999906748125e-08,
+            "local_minimum_gate": "FAIL",
+            "loss_mean": 0.0007179608807982833,
+            "maximum_state_eigenvalue_mean_objective": 488.8799990674812,
+            "minimum_state_eigenvalue_mean_objective": 4.945458405990908e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.2175823101657828e-07
+          },
+          "initial_polish": {
+            "closure_calls": 3750,
+            "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+            "gradient_pass": false,
+            "loss_mean": 0.0007179608807982833,
+            "normalized_gradient": 1.2175823101657828e-07,
+            "outer_steps": 30,
+            "plateau_pass": true,
+            "status": "PROFILE_FAILURE"
+          },
+          "status": "CHECKPOINT_INVALID"
+        },
+        "failure_reason": "profile point exact local-minimum gate failed",
+        "gauss_newton": {
+          "accepted_steps": 10,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 0.0002535333019116911,
+              "candidate_loss_mean": 0.0007206824740482849,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.000974215775959976,
+              "normalized_gradient": 0.00240102209051466,
+              "step_norm": 0.20466744165418593
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.6397380419127675e-06,
+              "candidate_loss_mean": 0.0007180427360063722,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.0007206824740482849,
+              "normalized_gradient": 0.00206878620370857,
+              "step_norm": 0.09140890264075768
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 4.695011109349858e-08,
+              "candidate_loss_mean": 0.0007179957858952787,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0007180427360063722,
+              "normalized_gradient": 0.0001112220021006869,
+              "step_norm": 0.12016533895051043
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.5235192519933343e-08,
+              "candidate_loss_mean": 0.0007179705507027587,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0007179957858952787,
+              "normalized_gradient": 7.261253684059857e-05,
+              "step_norm": 0.03594639575289522
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 8.507957602538543e-09,
+              "candidate_loss_mean": 0.0007179620427451562,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.0007179705507027587,
+              "normalized_gradient": 4.3952532446114205e-05,
+              "step_norm": 0.05118328502349805
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 7.005607828873203e-10,
+              "candidate_loss_mean": 0.0007179613421843733,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0007179620427451562,
+              "normalized_gradient": 2.590783595790985e-05,
+              "step_norm": 0.014414601607312966
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.3072639195102487e-09,
+              "candidate_loss_mean": 0.0007179600349204538,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.0007179613421843733,
+              "normalized_gradient": 6.4119583096369925e-06,
+              "step_norm": 0.021380333585157167
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.389027002142787e-10,
+              "candidate_loss_mean": 0.0007179598960177536,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.0007179600349204538,
+              "normalized_gradient": 4.0683320708625524e-06,
+              "step_norm": 0.005888047371611995
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.1793576275228044e-11,
+              "candidate_loss_mean": 0.0007179598742241773,
+              "damping": 6.560999999999998e-11,
+              "iteration": 8,
+              "loss_mean": 0.0007179598960177536,
+              "normalized_gradient": 2.2519302166063607e-06,
+              "step_norm": 0.0017256863824708971
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.7408215710959518e-11,
+              "candidate_loss_mean": 0.0007179598568159616,
+              "damping": 1.9682999999999994e-11,
+              "iteration": 9,
+              "loss_mean": 0.0007179598742241773,
+              "normalized_gradient": 6.420671635652338e-08,
+              "step_norm": 0.0023715254990074367
+            }
+          ],
+          "iterations": 10,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "CHECKPOINT_INVALID"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PROFILE_FAILURE"
+    },
+    {
+      "elapsed_seconds": 6.8183849999986705,
+      "exact_diagnostics": null,
+      "h": 0.02,
+      "loss_mean": null,
+      "offset": -0.02,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "actual_decrease": 0.0,
+              "best_candidate": null,
+              "candidate_evaluations": 0,
+              "cycle": 0,
+              "gradient_pass": false,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 7.29276237961079e-17,
+              "hessian_tau": 4.9964818852227283e-08,
+              "local_minimum_gate": "FAIL",
+              "loss_mean": 0.0009773996417812593,
+              "maximum_state_eigenvalue_mean_objective": 499.6481885222728,
+              "minimum_state_eigenvalue_mean_objective": 4.940274034018118e-06,
+              "negative_directions_probed": 0,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 1.0630395666363992e-07
+            }
+          ],
+          "final": {
+            "gradient_pass": false,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 7.29276237961079e-17,
+            "hessian_tau": 4.9964818852227283e-08,
+            "local_minimum_gate": "FAIL",
+            "loss_mean": 0.0009773996417812593,
+            "maximum_state_eigenvalue_mean_objective": 499.6481885222728,
+            "minimum_state_eigenvalue_mean_objective": 4.940274034018118e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.0630395666363992e-07
+          },
+          "initial_polish": {
+            "closure_calls": 3750,
+            "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+            "gradient_pass": false,
+            "loss_mean": 0.0009773996417812593,
+            "normalized_gradient": 1.0630395666363992e-07,
+            "outer_steps": 30,
+            "plateau_pass": true,
+            "status": "PROFILE_FAILURE"
+          },
+          "status": "CHECKPOINT_INVALID"
+        },
+        "failure_reason": "profile point exact local-minimum gate failed",
+        "gauss_newton": {
+          "accepted_steps": 10,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 6.027078755937044e-05,
+              "candidate_loss_mean": 0.0009774713511058,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.0010377421386651704,
+              "normalized_gradient": 0.0011646194334890753,
+              "step_norm": 0.10384688943766182
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 4.6355688704691894e-08,
+              "candidate_loss_mean": 0.0009774249954170953,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.0009774713511058,
+              "normalized_gradient": 0.0001754297720711762,
+              "step_norm": 0.04438117815770663
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.8885223674160526e-08,
+              "candidate_loss_mean": 0.0009774061101934211,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0009774249954170953,
+              "normalized_gradient": 0.00012079882153448319,
+              "step_norm": 0.058625194370685536
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 4.650234110325016e-09,
+              "candidate_loss_mean": 0.0009774014599593108,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0009774061101934211,
+              "normalized_gradient": 6.163819885436888e-05,
+              "step_norm": 0.017715465572170356
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.8627875615715578e-09,
+              "candidate_loss_mean": 0.0009773995971717492,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.0009774014599593108,
+              "normalized_gradient": 1.1879140484660183e-05,
+              "step_norm": 0.024902854010473693
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.3674211112382761e-10,
+              "candidate_loss_mean": 0.000977399460429638,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0009773995971717492,
+              "normalized_gradient": 6.689626838241983e-06,
+              "step_norm": 0.007602583980293241
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 3.345209580261216e-10,
+              "candidate_loss_mean": 0.00097739912590868,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.000977399460429638,
+              "normalized_gradient": 2.141046551287229e-06,
+              "step_norm": 0.011015863179418668
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 4.480639383824814e-11,
+              "candidate_loss_mean": 0.0009773990811022862,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.00097739912590868,
+              "normalized_gradient": 1.205174386622287e-06,
+              "step_norm": 0.0033090374480348045
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.501985905441594e-11,
+              "candidate_loss_mean": 0.0009773990660824272,
+              "damping": 6.560999999999998e-11,
+              "iteration": 8,
+              "loss_mean": 0.0009773990811022862,
+              "normalized_gradient": 6.770825903819194e-07,
+              "step_norm": 0.0011221983879177897
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 7.2349196945931116e-12,
+              "candidate_loss_mean": 0.0009773990588475075,
+              "damping": 1.9682999999999994e-11,
+              "iteration": 9,
+              "loss_mean": 0.0009773990660824272,
+              "normalized_gradient": 7.501588088773831e-08,
+              "step_norm": 0.0014649611538385993
+            }
+          ],
+          "iterations": 10,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "CHECKPOINT_INVALID"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PROFILE_FAILURE"
+    },
+    {
+      "elapsed_seconds": 6.85865229999763,
+      "exact_diagnostics": null,
+      "h": 0.02,
+      "loss_mean": null,
+      "offset": 0.02,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "actual_decrease": 0.0,
+              "best_candidate": null,
+              "candidate_evaluations": 0,
+              "cycle": 0,
+              "gradient_pass": false,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 1.2237789713237964e-16,
+              "hessian_tau": 4.92074459548112e-08,
+              "local_minimum_gate": "FAIL",
+              "loss_mean": 0.0007982582354916647,
+              "maximum_state_eigenvalue_mean_objective": 492.074459548112,
+              "minimum_state_eigenvalue_mean_objective": 4.946937678885916e-06,
+              "negative_directions_probed": 0,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 1.0552510479323957e-07
+            }
+          ],
+          "final": {
+            "gradient_pass": false,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.2237789713237964e-16,
+            "hessian_tau": 4.92074459548112e-08,
+            "local_minimum_gate": "FAIL",
+            "loss_mean": 0.0007982582354916647,
+            "maximum_state_eigenvalue_mean_objective": 492.074459548112,
+            "minimum_state_eigenvalue_mean_objective": 4.946937678885916e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.0552510479323957e-07
+          },
+          "initial_polish": {
+            "closure_calls": 3750,
+            "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+            "gradient_pass": false,
+            "loss_mean": 0.0007982582354916647,
+            "normalized_gradient": 1.0552510479323957e-07,
+            "outer_steps": 30,
+            "plateau_pass": true,
+            "status": "PROFILE_FAILURE"
+          },
+          "status": "CHECKPOINT_INVALID"
+        },
+        "failure_reason": "profile point exact local-minimum gate failed",
+        "gauss_newton": {
+          "accepted_steps": 10,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 6.249710533982953e-05,
+              "candidate_loss_mean": 0.0007985672657533397,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.0008610643710931692,
+              "normalized_gradient": 0.0011882365855391814,
+              "step_norm": 0.11646554889694799
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.9142321127302064e-07,
+              "candidate_loss_mean": 0.0007982758425420667,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.0007985672657533397,
+              "normalized_gradient": 0.0007263014557221616,
+              "step_norm": 0.04943338505550895
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.347115817311971e-08,
+              "candidate_loss_mean": 0.0007982623713838936,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0007982758425420667,
+              "normalized_gradient": 4.928917039116286e-05,
+              "step_norm": 0.06352867216026019
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.317447817846985e-09,
+              "candidate_loss_mean": 0.0007982600539360757,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0007982623713838936,
+              "normalized_gradient": 2.785492831314372e-05,
+              "step_norm": 0.01898768506249165
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 2.1637988616585863e-09,
+              "candidate_loss_mean": 0.0007982578901372141,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.0007982600539360757,
+              "normalized_gradient": 1.1794041556114404e-05,
+              "step_norm": 0.02714399101301034
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 8.897913764301102e-12,
+              "candidate_loss_mean": 0.0007982578812393003,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0007982578901372141,
+              "normalized_gradient": 6.699752972184061e-06,
+              "step_norm": 0.0078026341426651715
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 3.7174454031556337e-10,
+              "candidate_loss_mean": 0.00079825750949476,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.0007982578812393003,
+              "normalized_gradient": 1.8319211277710383e-06,
+              "step_norm": 0.011575081449902328
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 3.781317696027048e-11,
+              "candidate_loss_mean": 0.000798257471681583,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.00079825750949476,
+              "normalized_gradient": 1.099130938670383e-06,
+              "step_norm": 0.003263944310681915
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 5.744737910200193e-12,
+              "candidate_loss_mean": 0.0007982574659368451,
+              "damping": 6.560999999999998e-11,
+              "iteration": 8,
+              "loss_mean": 0.000798257471681583,
+              "normalized_gradient": 6.105003514730334e-07,
+              "step_norm": 0.000982203948930113
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 5.660025616596731e-12,
+              "candidate_loss_mean": 0.0007982574602768195,
+              "damping": 1.9682999999999994e-11,
+              "iteration": 9,
+              "loss_mean": 0.0007982574659368451,
+              "normalized_gradient": 2.2690831645181588e-08,
+              "step_norm": 0.0013597118098576662
+            }
+          ],
+          "iterations": 10,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "CHECKPOINT_INVALID"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PROFILE_FAILURE"
+    },
+    {
+      "elapsed_seconds": 3.9188892999991367,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-07,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.027508512113356e-16,
+        "hessian_tau": 4.97637378150155e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0009304396555988416,
+        "maximum_state_eigenvalue_mean_objective": 497.637378150155,
+        "minimum_state_eigenvalue_mean_objective": 4.9464950051218715e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 9.904778168559123e-08
+      },
+      "h": 0.01,
+      "loss_mean": 0.0009304396555988416,
+      "offset": -0.01,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "cycle": 0,
+              "gradient_pass": true,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 1.027508512113356e-16,
+              "hessian_tau": 4.97637378150155e-08,
+              "local_minimum_gate": "PASS",
+              "loss_mean": 0.0009304396555988416,
+              "maximum_state_eigenvalue_mean_objective": 497.637378150155,
+              "minimum_state_eigenvalue_mean_objective": 4.9464950051218715e-06,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 9.904778168559123e-08
+            }
+          ],
+          "final": {
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.027508512113356e-16,
+            "hessian_tau": 4.97637378150155e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0009304396555988416,
+            "maximum_state_eigenvalue_mean_objective": 497.637378150155,
+            "minimum_state_eigenvalue_mean_objective": 4.9464950051218715e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 9.904778168559123e-08
+          },
+          "initial_polish": {
+            "closure_calls": 1875,
+            "failure_reason": null,
+            "gradient_pass": true,
+            "loss_mean": 0.0009304396555988416,
+            "normalized_gradient": 9.904778168559123e-08,
+            "outer_steps": 15,
+            "plateau_pass": true,
+            "status": "PASS"
+          },
+          "status": "PASS"
+        },
+        "failure_reason": null,
+        "gauss_newton": {
+          "accepted_steps": 10,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.5220825207455787e-05,
+              "candidate_loss_mean": 0.000930463688704762,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.0009456845139122178,
+              "normalized_gradient": 0.0005852048478895877,
+              "step_norm": 0.07289339518877307
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.055394155754415e-08,
+              "candidate_loss_mean": 0.0009304431347632045,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.000930463688704762,
+              "normalized_gradient": 6.107664975662312e-05,
+              "step_norm": 0.02194970710067803
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 2.92925499655039e-09,
+              "candidate_loss_mean": 0.0009304402055082079,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0009304431347632045,
+              "normalized_gradient": 3.0373449317929267e-05,
+              "step_norm": 0.027349768626646825
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 4.699205918053811e-10,
+              "candidate_loss_mean": 0.0009304397355876161,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0009304402055082079,
+              "normalized_gradient": 1.5374086784276257e-05,
+              "step_norm": 0.008306382864106534
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 4.011900452691522e-10,
+              "candidate_loss_mean": 0.0009304393343975709,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.0009304397355876161,
+              "normalized_gradient": 2.7451882100554135e-06,
+              "step_norm": 0.011609843569048558
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.6614664613730235e-11,
+              "candidate_loss_mean": 0.0009304393177829062,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0009304393343975709,
+              "normalized_gradient": 1.4859064600911778e-06,
+              "step_norm": 0.003522006075633907
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 7.210465102595875e-11,
+              "candidate_loss_mean": 0.0009304392456782552,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.0009304393177829062,
+              "normalized_gradient": 4.777168131402101e-07,
+              "step_norm": 0.005094331982868123
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 9.085915179951609e-12,
+              "candidate_loss_mean": 0.00093043923659234,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.0009304392456782552,
+              "normalized_gradient": 2.629925672650671e-07,
+              "step_norm": 0.0015151560916638576
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.88838094067434e-12,
+              "candidate_loss_mean": 0.0009304392337039591,
+              "damping": 6.560999999999998e-11,
+              "iteration": 8,
+              "loss_mean": 0.00093043923659234,
+              "normalized_gradient": 1.4913558760034972e-07,
+              "step_norm": 0.000508274461147014
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.4717878608558332e-12,
+              "candidate_loss_mean": 0.0009304392322321712,
+              "damping": 1.9682999999999994e-11,
+              "iteration": 9,
+              "loss_mean": 0.0009304392337039591,
+              "normalized_gradient": 1.4103444520007964e-08,
+              "step_norm": 0.0006603934131476672
+            }
+          ],
+          "iterations": 10,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 6.774491799998941,
+      "exact_diagnostics": null,
+      "h": 0.01,
+      "loss_mean": null,
+      "offset": 0.01,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "actual_decrease": 0.0,
+              "best_candidate": null,
+              "candidate_evaluations": 0,
+              "cycle": 0,
+              "gradient_pass": false,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 6.770025266490457e-17,
+              "hessian_tau": 4.938398932755095e-08,
+              "local_minimum_gate": "FAIL",
+              "loss_mean": 0.0008408133168059906,
+              "maximum_state_eigenvalue_mean_objective": 493.8398932755095,
+              "minimum_state_eigenvalue_mean_objective": 4.947370256544342e-06,
+              "negative_directions_probed": 0,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 1.4734900942483113e-07
+            }
+          ],
+          "final": {
+            "gradient_pass": false,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 6.770025266490457e-17,
+            "hessian_tau": 4.938398932755095e-08,
+            "local_minimum_gate": "FAIL",
+            "loss_mean": 0.0008408133168059906,
+            "maximum_state_eigenvalue_mean_objective": 493.8398932755095,
+            "minimum_state_eigenvalue_mean_objective": 4.947370256544342e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.4734900942483113e-07
+          },
+          "initial_polish": {
+            "closure_calls": 3750,
+            "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+            "gradient_pass": false,
+            "loss_mean": 0.0008408133168059906,
+            "normalized_gradient": 1.4734900942483113e-07,
+            "outer_steps": 30,
+            "plateau_pass": true,
+            "status": "PROFILE_FAILURE"
+          },
+          "status": "CHECKPOINT_INVALID"
+        },
+        "failure_reason": "profile point exact local-minimum gate failed",
+        "gauss_newton": {
+          "accepted_steps": 8,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.54984345245862e-05,
+              "candidate_loss_mean": 0.0008408708676146848,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.000856369302139271,
+              "normalized_gradient": 0.000591110121278501,
+              "step_norm": 0.08052327689000081
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 5.4295062733452325e-08,
+              "candidate_loss_mean": 0.0008408165725519514,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.0008408708676146848,
+              "normalized_gradient": 0.00032123008691885947,
+              "step_norm": 0.028179178500824256
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 3.654701842157812e-09,
+              "candidate_loss_mean": 0.0008408129178501092,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0008408165725519514,
+              "normalized_gradient": 1.5590814253954733e-05,
+              "step_norm": 0.03389795721243506
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.4225491187732096e-10,
+              "candidate_loss_mean": 0.0008408126755951973,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0008408129178501092,
+              "normalized_gradient": 8.624933997715036e-06,
+              "step_norm": 0.010123431064715652
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 5.983056846183346e-10,
+              "candidate_loss_mean": 0.0008408120772895127,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.0008408126755951973,
+              "normalized_gradient": 3.186034299136057e-06,
+              "step_norm": 0.014519735150306598
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 7.333794715177339e-11,
+              "candidate_loss_mean": 0.0008408120039515656,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0008408120772895127,
+              "normalized_gradient": 1.8097398210162763e-06,
+              "step_norm": 0.004209271822670061
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.0140611075615544e-11,
+              "candidate_loss_mean": 0.0008408119838109545,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.0008408120039515656,
+              "normalized_gradient": 1.0234050352543148e-06,
+              "step_norm": 0.0013454708139504022
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.050480264840753e-11,
+              "candidate_loss_mean": 0.0008408119733061518,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.0008408119838109545,
+              "normalized_gradient": 5.234013694007196e-08,
+              "step_norm": 0.001772610268634803
+            }
+          ],
+          "iterations": 8,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "CHECKPOINT_INVALID"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PROFILE_FAILURE"
+    },
+    {
+      "elapsed_seconds": 1.775404799998796,
+      "exact_diagnostics": {
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-07,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 6.567182368595979e-17,
+        "hessian_tau": 4.966597739909108e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0009074855301549301,
+        "maximum_state_eigenvalue_mean_objective": 496.65977399091076,
+        "minimum_state_eigenvalue_mean_objective": 4.942179661031714e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 8.625254158693109e-08
+      },
+      "h": 0.005,
+      "loss_mean": 0.0009074855301549301,
+      "offset": -0.005,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "cycle": 0,
+              "gradient_pass": true,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 6.567182368595979e-17,
+              "hessian_tau": 4.966597739909108e-08,
+              "local_minimum_gate": "PASS",
+              "loss_mean": 0.0009074855301549301,
+              "maximum_state_eigenvalue_mean_objective": 496.65977399091076,
+              "minimum_state_eigenvalue_mean_objective": 4.942179661031714e-06,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 8.625254158693109e-08
+            }
+          ],
+          "final": {
+            "gradient_pass": true,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 6.567182368595979e-17,
+            "hessian_tau": 4.966597739909108e-08,
+            "local_minimum_gate": "PASS",
+            "loss_mean": 0.0009074855301549301,
+            "maximum_state_eigenvalue_mean_objective": 496.65977399091076,
+            "minimum_state_eigenvalue_mean_objective": 4.942179661031714e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 8.625254158693109e-08
+          },
+          "initial_polish": {
+            "closure_calls": 500,
+            "failure_reason": null,
+            "gradient_pass": true,
+            "loss_mean": 0.0009074855301549301,
+            "normalized_gradient": 8.625254158693109e-08,
+            "outer_steps": 4,
+            "plateau_pass": true,
+            "status": "PASS"
+          },
+          "status": "PASS"
+        },
+        "failure_reason": null,
+        "gauss_newton": {
+          "accepted_steps": 8,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 3.823666931054891e-06,
+              "candidate_loss_mean": 0.0009075016486053344,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.0009113253155363893,
+              "normalized_gradient": 0.000293332581244451,
+              "step_norm": 0.06365600232582846
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 1.5480548552901027e-08,
+              "candidate_loss_mean": 0.0009074861680567815,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.0009075016486053344,
+              "normalized_gradient": 6.126992989759236e-05,
+              "step_norm": 0.012759144163421299
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 5.317849156903989e-10,
+              "candidate_loss_mean": 0.0009074856362718658,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0009074861680567815,
+              "normalized_gradient": 1.0065667564350442e-05,
+              "step_norm": 0.011883352193068674
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 8.886967583273536e-11,
+              "candidate_loss_mean": 0.00090748554740219,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0009074856362718658,
+              "normalized_gradient": 5.052801778680409e-06,
+              "step_norm": 0.003668279542993855
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 7.677928562030423e-11,
+              "candidate_loss_mean": 0.0009074854706229043,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.00090748554740219,
+              "normalized_gradient": 5.990430756195594e-07,
+              "step_norm": 0.005000701443342071
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 5.025932794944232e-12,
+              "candidate_loss_mean": 0.0009074854655969715,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0009074854706229043,
+              "normalized_gradient": 3.1543691428117693e-07,
+              "step_norm": 0.0015327083835858816
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.3566688354324508e-11,
+              "candidate_loss_mean": 0.0009074854520302832,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.0009074854655969715,
+              "normalized_gradient": 1.0447609989918719e-07,
+              "step_norm": 0.0021820030987886223
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.8023125309893362e-12,
+              "candidate_loss_mean": 0.0009074854502279707,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.0009074854520302832,
+              "normalized_gradient": 5.663473409811246e-08,
+              "step_norm": 0.0006516204428707566
+            }
+          ],
+          "iterations": 8,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "PASS"
+      },
+      "sign": -1,
+      "start": "independent_common_theta0",
+      "status": "PASS"
+    },
+    {
+      "elapsed_seconds": 6.752070000002277,
+      "exact_diagnostics": null,
+      "h": 0.005,
+      "loss_mean": null,
+      "offset": 0.005,
+      "optimization": {
+        "exact_local_audit": {
+          "cycles": [
+            {
+              "actual_decrease": 0.0,
+              "best_candidate": null,
+              "candidate_evaluations": 0,
+              "cycle": 0,
+              "gradient_pass": false,
+              "gradient_tolerance": 1e-07,
+              "hessian_pass": true,
+              "hessian_symmetry_relative_error": 1.0261667299783112e-16,
+              "hessian_tau": 4.9473213781831885e-08,
+              "local_minimum_gate": "FAIL",
+              "loss_mean": 0.0008626655947586827,
+              "maximum_state_eigenvalue_mean_objective": 494.73213781831885,
+              "minimum_state_eigenvalue_mean_objective": 4.947951007448937e-06,
+              "negative_directions_probed": 0,
+              "negative_eigenvalue_count": 0,
+              "normalized_objective_gradient": 1.1105028135251587e-07
+            }
+          ],
+          "final": {
+            "gradient_pass": false,
+            "gradient_tolerance": 1e-07,
+            "hessian_pass": true,
+            "hessian_symmetry_relative_error": 1.0261667299783112e-16,
+            "hessian_tau": 4.9473213781831885e-08,
+            "local_minimum_gate": "FAIL",
+            "loss_mean": 0.0008626655947586827,
+            "maximum_state_eigenvalue_mean_objective": 494.73213781831885,
+            "minimum_state_eigenvalue_mean_objective": 4.947951007448937e-06,
+            "negative_eigenvalue_count": 0,
+            "normalized_objective_gradient": 1.1105028135251587e-07
+          },
+          "initial_polish": {
+            "closure_calls": 3750,
+            "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+            "gradient_pass": false,
+            "loss_mean": 0.0008626655947586827,
+            "normalized_gradient": 1.1105028135251587e-07,
+            "outer_steps": 30,
+            "plateau_pass": true,
+            "status": "PROFILE_FAILURE"
+          },
+          "status": "CHECKPOINT_INVALID"
+        },
+        "failure_reason": "profile point exact local-minimum gate failed",
+        "gauss_newton": {
+          "accepted_steps": 8,
+          "history": [
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 3.857879667868076e-06,
+              "candidate_loss_mean": 0.0008626878004662096,
+              "damping": 1e-06,
+              "iteration": 0,
+              "loss_mean": 0.0008665456801340777,
+              "normalized_gradient": 0.0002948107787718577,
+              "step_norm": 0.06789652475657099
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.1705430870082136e-08,
+              "candidate_loss_mean": 0.0008626660950353395,
+              "damping": 3e-07,
+              "iteration": 1,
+              "loss_mean": 0.0008626878004662096,
+              "normalized_gradient": 0.00018661209606029257,
+              "step_norm": 0.01812133706838043
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.096810074404167e-09,
+              "candidate_loss_mean": 0.0008626649982252651,
+              "damping": 9e-08,
+              "iteration": 2,
+              "loss_mean": 0.0008626660950353395,
+              "normalized_gradient": 5.380612912703458e-06,
+              "step_norm": 0.018827356092261636
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 2.6299566148989262e-11,
+              "candidate_loss_mean": 0.000862664971925699,
+              "damping": 2.6999999999999997e-08,
+              "iteration": 3,
+              "loss_mean": 0.0008626649982252651,
+              "normalized_gradient": 2.9923986532043658e-06,
+              "step_norm": 0.005612774824739348
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 1.8163224331686767e-10,
+              "candidate_loss_mean": 0.0008626647902934556,
+              "damping": 8.099999999999998e-09,
+              "iteration": 4,
+              "loss_mean": 0.000862664971925699,
+              "normalized_gradient": 8.844850032422584e-07,
+              "step_norm": 0.00808195370417947
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 2.0705585575091223e-11,
+              "candidate_loss_mean": 0.0008626647695878701,
+              "damping": 2.4299999999999993e-09,
+              "iteration": 5,
+              "loss_mean": 0.0008626647902934556,
+              "normalized_gradient": 5.155554443664543e-07,
+              "step_norm": 0.0023431357680511506
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 1.0,
+              "actual_decrease": 4.98670386667871e-12,
+              "candidate_loss_mean": 0.0008626647646011662,
+              "damping": 7.289999999999998e-10,
+              "iteration": 6,
+              "loss_mean": 0.0008626647695878701,
+              "normalized_gradient": 2.9020714699851396e-07,
+              "step_norm": 0.0007383514745896349
+            },
+            {
+              "accepted": true,
+              "accepted_factor": 0.5,
+              "actual_decrease": 3.2130768315083436e-12,
+              "candidate_loss_mean": 0.0008626647613880894,
+              "damping": 2.1869999999999993e-10,
+              "iteration": 7,
+              "loss_mean": 0.0008626647646011662,
+              "normalized_gradient": 1.5385131547243662e-08,
+              "step_norm": 0.0009977454008944042
+            }
+          ],
+          "iterations": 8,
+          "method": "explicit_damped_gauss_newton_backtracking"
+        },
+        "method": "damped_gauss_newton_then_multidirection_exact_gate",
+        "status": "CHECKPOINT_INVALID"
+      },
+      "sign": 1,
+      "start": "independent_common_theta0",
+      "status": "PROFILE_FAILURE"
+    }
+  ],
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "d76d2d57bea0f16b2c366285282f6485f4b4f035",
+    "git_dirty": false,
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-23T09:14:06.797567+00:00",
+    "torch_cuda_available": false
+  },
+  "role": "optimizer_candidate_development",
+  "schema_version": 1,
+  "seed": 71,
+  "selection_forbidden_metrics_computed": false,
+  "source_hashes": {
+    "checkpoint_manifest": "f937437ee699bacdc6137ac9327663fa1ca13b2e43b06eab2a228e9dc1353a87",
+    "configs/p4_screening.yaml": "9f0fb03f3165f4977f79bfe356973c3c4e5c3bec83c143a444fa695e01d1187c",
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "model_state": "408c7675ac688a97bc495c8eb0144006a0faa17f88cc5d3dc3c46d62942b0888"
+  },
+  "status": "PROFILE_FAILURE"
+}

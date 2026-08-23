@@ -1,0 +1,107 @@
+{
+  "candidate_summaries": [
+    {
+      "candidate": "independent_exact_trust_lbfgs",
+      "candidate_order": 0,
+      "complete_seed_count": 3,
+      "median_finest_profile_exact_relative_error": 0.19764607949092697,
+      "median_last_two_curvature_relative_change": 0.1776602717545554,
+      "passing_point_count": 24,
+      "selection_key": [
+        -3,
+        -24,
+        0.19764607949092697,
+        0.1776602717545554,
+        0
+      ]
+    },
+    {
+      "candidate": "independent_damped_gn_exact_trust",
+      "candidate_order": 1,
+      "complete_seed_count": 1,
+      "median_finest_profile_exact_relative_error": 5.077722062288529,
+      "median_last_two_curvature_relative_change": 0.9336536851212557,
+      "passing_point_count": 17,
+      "selection_key": [
+        -1,
+        -17,
+        5.077722062288529,
+        0.9336536851212557,
+        1
+      ]
+    }
+  ],
+  "contract_id": "SAEPS-V5.2A-FROZEN-PROFILE-OPTIMIZER",
+  "forbidden_metrics_read": false,
+  "freeze_date": "2026-08-23",
+  "heldout_scientific_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204
+  ],
+  "phase": "V5_2A_PROFILE_ENGINEERING_SELECTION",
+  "schema_version": 1,
+  "selected_candidate": "independent_exact_trust_lbfgs",
+  "selected_settings": {
+    "continuation_forbidden": true,
+    "h_values": [
+      0.04,
+      0.02,
+      0.01,
+      0.005
+    ],
+    "independent_start_from_common_theta0": true,
+    "kind": "optimize_state_local_minimum",
+    "normalized_gradient_tolerance": 1e-06
+  },
+  "selection_rule": {
+    "forbidden_metrics": [
+      "D",
+      "E_raw",
+      "E_SAEPS",
+      "eta",
+      "F_raw",
+      "F_se_GN",
+      "figure_appearance"
+    ],
+    "ordered_criteria": [
+      "maximize_seeds_with_8_of_8_point_pass_and_exact_pass",
+      "maximize_total_passing_profile_points",
+      "minimize_median_finest_profile_exact_relative_error",
+      "minimize_median_last_two_curvature_relative_change",
+      "candidate_order_tiebreak"
+    ]
+  },
+  "source_records": [
+    {
+      "path": "outputs/runs/v5/profile_engineering/candidates/independent_exact_trust_lbfgs/seed_70/result.json",
+      "sha256": "7e34ba370e56a239e4c487de4e43df860eb07c7be29bdf4f7de0ced0e94afdd0"
+    },
+    {
+      "path": "outputs/runs/v5/profile_engineering/candidates/independent_exact_trust_lbfgs/seed_71/result.json",
+      "sha256": "f29c30137ae3cb3278eeda9b253a299cf8b9043cbee17b2277bea0753c9a4d37"
+    },
+    {
+      "path": "outputs/runs/v5/profile_engineering/candidates/independent_exact_trust_lbfgs/seed_72/result.json",
+      "sha256": "1d29ff28026f0fd9db4fa20acf88600cc8314980288c7054ee70f95b08a62863"
+    },
+    {
+      "path": "outputs/runs/v5/profile_engineering/candidates/independent_damped_gn_exact_trust/seed_70/result.json",
+      "sha256": "d341e87d1e18d4299e151486c79feff2c427e6610edf6196313477e11f96b0fe"
+    },
+    {
+      "path": "outputs/runs/v5/profile_engineering/candidates/independent_damped_gn_exact_trust/seed_71/result.json",
+      "sha256": "f4f723a711a335f3e6e24326140d2bd56985d78c897fab3d09510f35a026a3ae"
+    },
+    {
+      "path": "outputs/runs/v5/profile_engineering/candidates/independent_damped_gn_exact_trust/seed_72/result.json",
+      "sha256": "f30b5d8bd8d872ed1eee7d430e91cf6d5b9001ac8aab619b6b249daea7385e14"
+    }
+  ],
+  "validation_seeds": [
+    73,
+    74
+  ]
+}
