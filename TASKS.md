@@ -487,3 +487,14 @@
 - [x] valid median D2>0，one-sided exact sign test 8/8、p=0.00390625；
 - [x] valid与planned-win gate均为8/10<9/10，故严格裁决 `INCONCLUSIVE`；
 - [x] generalized eigenvectors/eigengap仅作为nonbinding secondary，不作跨seed方向解释。
+
+## V5.4 — Residual-Dimension Scalability
+
+**状态:** `IN_PROGRESS` — executable frozen；27次真实残差计时待一次性运行
+
+- [x] 固定 reconstructed scalability checkpoint `seed120`，不新增训练；
+- [x] 固定 `n_theta=[1001,10001,100001]`、`m=[213,853,3413]` 与每格3次零初值重复；
+- [x] 每个 residual count 均由真实 PDE/data/initial/boundary points 构造，禁止synthetic padding；
+- [x] 冻结 matrix-free CG、gamma、power iteration、记录字段与可执行文件hash；
+- [x] 明确该阶段仅为cost evidence，不拟合或声称complexity exponent；
+- [ ] 一次性完成27次计时、fail-soft保存、聚合与审计。
