@@ -544,3 +544,17 @@ affected_runs: development seeds70--72 only; no held-out 200--204 data exist.
 protocol_impact: None. Selection did not compute or read D, E_raw, E_SAEPS, eta, F_raw, F_se_GN or plots. The selected candidate still has material development profile/exact discrepancy and must pass frozen validation on seeds73--74 before held-out execution.
 resolution_or_status: CANDIDATE REJECTED; all failed points retained. Freeze independent_exact_trust_lbfgs for validation seeds73--74.
 ```
+
+## I-039 — V5.2A profile curvature accuracy remains weak after optimizer validation
+
+```text
+date: 2026-08-23
+issue_id: I-039
+phase: V5.2A frozen optimizer validation
+classification: numerical failure
+description: Validation seeds73--74 both pass exact reference and 8/8 independent optimization points, but seed73 has 42% finest profile/exact error and 39% last-two change; seed74 has 9% error and 14% change. Thus optimizer executability is stable but development finite-difference curvature convergence is not.
+evidence: docs/evidence/v5/V5_PROFILE_DEVELOPMENT_AUDIT.json and outputs/runs/v5/profile_engineering/validation.
+affected_runs: development seeds73--74 only.
+protocol_impact: The preregistered held-out 10% exact-consistency and 5% last-two convergence thresholds remain unchanged. These development accuracy values are nonbinding for the predeclared entry gate, which requires 2/2 exact plus 8/8 point completion.
+resolution_or_status: RETAINED DEVELOPMENT WARNING. Execute held-out 200--204 once with the frozen optimizer; accept SUPPORTED, NOT_SUPPORTED or INCONCLUSIVE without rescue.
+```

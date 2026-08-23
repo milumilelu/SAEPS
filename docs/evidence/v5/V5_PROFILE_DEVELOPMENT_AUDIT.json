@@ -1,0 +1,67 @@
+{
+  "candidate_selection": [
+    {
+      "candidate": "independent_exact_trust_lbfgs",
+      "candidate_order": 0,
+      "complete_seed_count": 3,
+      "median_finest_profile_exact_relative_error": 0.19764607949092697,
+      "median_last_two_curvature_relative_change": 0.1776602717545554,
+      "passing_point_count": 24,
+      "selection_key": [
+        -3,
+        -24,
+        0.19764607949092697,
+        0.1776602717545554,
+        0
+      ]
+    },
+    {
+      "candidate": "independent_damped_gn_exact_trust",
+      "candidate_order": 1,
+      "complete_seed_count": 1,
+      "median_finest_profile_exact_relative_error": 5.077722062288529,
+      "median_last_two_curvature_relative_change": 0.9336536851212557,
+      "passing_point_count": 17,
+      "selection_key": [
+        -1,
+        -17,
+        5.077722062288529,
+        0.9336536851212557,
+        1
+      ]
+    }
+  ],
+  "development_accuracy_is_nonbinding": true,
+  "engineering_status": "PASSED",
+  "forbidden_metrics_read": false,
+  "heldout_accuracy_thresholds_changed": false,
+  "heldout_authorized": true,
+  "phase": "V5_2A_PROFILE_ENGINEERING",
+  "schema_version": 1,
+  "selected_candidate": "independent_exact_trust_lbfgs",
+  "validation_gate": "2_of_2_exact_reference_and_8_of_8_independent_profile_points_PASS",
+  "validation_records": [
+    {
+      "all_8_profile_points_pass": true,
+      "finest_profile_exact_relative_error": 0.42303347889814297,
+      "last_two_curvature_relative_change": 0.39198846765396506,
+      "seed": 73,
+      "source": {
+        "path": "outputs/runs/v5/profile_engineering/validation/seed_73/result.json",
+        "sha256": "3a6ac85f41b86526fec653563568f34dee9b5f08bcec57ca370d35f4ddfe5e2e"
+      },
+      "status": "PASS"
+    },
+    {
+      "all_8_profile_points_pass": true,
+      "finest_profile_exact_relative_error": 0.09007049842151629,
+      "last_two_curvature_relative_change": 0.138287097432509,
+      "seed": 74,
+      "source": {
+        "path": "outputs/runs/v5/profile_engineering/validation/seed_74/result.json",
+        "sha256": "183819c1d425846f2757d04d2faecee0b08ce01a513e8f1b8cf048a6dddb199f"
+      },
+      "status": "PASS"
+    }
+  ]
+}

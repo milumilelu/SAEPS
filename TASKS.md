@@ -431,3 +431,14 @@
 - [x] 保留38 PASS、2 SOLVER_FAILURE与2 NUMERICAL_FAILURE，未替换checkpoint或gamma点；
 - [x] 自动聚合 high-gamma GN limit与small-gamma state-absorption趋势；
 - [x] 未重新校准 nominal gamma，未创建事后 scientific win gate。
+
+## V5.2A — Nonlinear Profile Optimizer Engineering
+
+**状态:** `PASSED` — held-out `200--204` authorized；accuracy concern retained
+
+- [x] 仅使用 Allen development seeds `70--74`，从未读取 confirmation `75--84`；
+- [x] 两个预注册候选均以共同 `theta0` 独立启动，未使用顺序 continuation；
+- [x] 按冻结数值规则选择 `independent_exact_trust_lbfgs`，未计算或读取D/E/eta/Fraw/Fse；
+- [x] 冻结后 validation seeds `73--74` 均 exact PASS 且8/8 profile points PASS；
+- [x] development profile/exact差与尺度收敛不足已保留，不修改 held-out 的10%/5%阈值；
+- [x] 授权一次性运行 fresh held-out seeds `200--204`。
