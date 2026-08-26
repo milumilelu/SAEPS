@@ -6,10 +6,10 @@ on:
 
 jobs:
   publication-validation:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12.13"
           cache: pip
