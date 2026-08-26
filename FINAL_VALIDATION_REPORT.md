@@ -1,5 +1,7 @@
 # FINAL_VALIDATION_REPORT.md
 
+> **HISTORICAL v2 EVIDENCE — not the current paper-facing conclusion.** See [`V5_FINAL_JCP_AUDIT_REPORT.md`](V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The historical results below are preserved unchanged.
+
 > **Historical scope notice:** This is the immutable-style final report for the completed v2 protocol and does not include later v3/v4 experiments. The current adjudicated state is v4.2 `SUPPORTED` for Burgers scalar exact-curvature comparison, with external replication, fresh controlled-mechanism closure, two-parameter exact geometry and scalability still outstanding. See `docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md`. This notice changes no v2 result or artifact.
 
 ## Repository status

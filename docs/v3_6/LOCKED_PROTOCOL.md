@@ -1,5 +1,7 @@
 # v3.6 Scalar Confirmation — Locked Protocol
 
+> **HISTORICAL v3 PROTOCOL — not the current paper-facing evidence state.** See [`../../V5_FINAL_JCP_AUDIT_REPORT.md`](../../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **State:** `LOCKED_NOT_EXECUTED`  
 **Lock date:** 2026-08-20  
 **Execution authorization:** `false`

@@ -1,5 +1,7 @@
 # SAEPS v3.2 Gamma-Matched Primary Development Contract
 
+> **HISTORICAL v3 PROTOCOL — not the current paper-facing evidence state.** See [`../../V5_FINAL_JCP_AUDIT_REPORT.md`](../../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **Contract ID:** `SAEPS-GAMMA-PRIMARY-v3.2-development`  
 **Status:** `DEVELOPMENT_ONLY / NOT_LOCKED / NO_CONFIRMATION_AUTHORIZED`
 

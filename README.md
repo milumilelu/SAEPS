@@ -1,78 +1,62 @@
-# SAEPS Validation
+# SAEPS: State-Adapted Effective Parameter Signals
 
-This repository implements the preregistered JCP-level validation protocol in
-[`docs/EXECUTION_CONTRACT.md`](docs/EXECUTION_CONTRACT.md). Its purpose is to
-test whether SAEPS predicts the nonlinear state-reoptimized residual geometry
-of trained inverse PINNs more accurately than raw fixed-network sensitivity.
-A negative scientific result is a valid completion.
+> **Paper-facing evidence state: V5 final audit.** The repository-level scientific conclusion is `PARTIALLY_SUPPORTED`; historical v2–v4 protocol documents are preserved for provenance and are not the current paper-facing adjudication.
 
-## Protocol state
+[Current V5 scientific audit](V5_FINAL_JCP_AUDIT_REPORT.md) · [Machine-readable final repository validation](docs/evidence/v5_final_validation.json) · [Reproduction and validation](REPRODUCIBILITY.md) · [Historical protocols](docs/HISTORICAL_PROTOCOLS.md)
 
-- Active contract: `SAEPS-JCP-EXEC-v2.0`
-- Current phase: P9 complete; engineering protocol execution PASSED
-- Confirmation protocol: **LOCKED** at `ad794ca2908c8935d0e21702fab7914ff944cce7`
-- Scientific conclusion: **PARTIALLY_SUPPORTED**
-- Recommendation: **INVESTIGATE_NUMERICS**
-- Python: 3.12.13
-- Default numerical dtype: float64
+SAEPS studies **local finite-damping reduced parameter curvature** in inverse physics-informed neural networks (PINNs). At a fixed trained checkpoint, it asks whether eliminating local neural-state directions produces a parameter-curvature estimate closer than raw frozen-state curvature to the exact local finite-damping reduced Hessian.
 
-Do not run confirmation experiments until `docs/LOCKED_PROTOCOL.md` says
-`LOCKED` and its hashes have been verified.
+The supported paper claim is deliberately narrow: in scalar exact-reference comparisons for Burgers and Allen--Cahn, **SAEPS-GN is closer than raw frozen-state curvature to the exact local finite-damping reduced Hessian**. This is a local, checkpoint-dependent residual-space result. It is not a claim of exact Hessian recovery, global identifiability, posterior uncertainty, or general nonlinear-profile equivalence.
 
-## Clean setup
+## Evidence map
 
-On Windows PowerShell, use an installed Python 3.12.13 interpreter:
+| Evidence | V5 status | Permitted interpretation |
+|---|---|---|
+| Burgers scalar comparative | `SUPPORTED` | Primary scalar exact-reference evidence: 12/15 planned wins and 12/12 valid paired wins. |
+| Allen--Cahn scalar replication | `SUPPORTED` | Independent scalar replication: 9/10 planned wins and 9/9 valid paired wins. |
+| Noise/sparsity exact anchors | Secondary support | Descriptive robustness evidence; 14/14 exact-anchor pairs favor SAEPS. |
+| Finite-gamma sweep | Descriptive | Sensitivity evidence only; 42/42 terminal records and 38/42 numerical passes, with no nominal-gamma recalibration. |
+| Two-parameter geometry | `INCONCLUSIVE` | Availability-limited directional evidence: 8/10 valid and all 8/8 valid pairs favor SAEPS, but the preregistered 9/10 gate was not met. |
+| Nonlinear finite-displacement profile | `NOT_SUPPORTED` | Only 1/5 profiles passed the frozen validity rule. The nonlinear-profile-equivalence claim is not supported and must not be restored. |
+| Controlled tangent-overlap mechanism | `NOT_SUPPORTED` | The stronger cohort-level monotonic claim failed its planned-denominator gate; conditional valid-center behavior is not confirmation. |
+| Scalability | Engineering/cost only | Feasibility evidence, not scientific validation of curvature accuracy or generality. |
+| Width-32 architecture | Untested | Curvature comparison was not successfully tested because 0/5 frozen runs had valid stationary centers. |
+
+The complete adjudication, denominators, retained failures, and claim restrictions are in the [V5 final audit](V5_FINAL_JCP_AUDIT_REPORT.md). Machine-readable source data are under `outputs/runs/`, aggregate evidence under `docs/evidence/`, and paper artifacts under `paper_artifacts/`.
+
+## Validate the published evidence
+
+The audit path uses already frozen artifacts; ordinary reviewer verification does **not** require retraining or rerunning locked confirmation experiments.
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-lock.txt
 python -m pip install -e . --no-deps
-```
-
-The Codex desktop workspace used during bootstrap exposes Python at a bundled
-absolute path because this machine's `python.exe` is a Windows Store placeholder.
-That path is an execution convenience, not a repository dependency; clean users
-may use any CPython 3.12.13 installation.
-
-## P0 acceptance
-
-With the virtual environment active:
-
-```powershell
 pytest -q
-python scripts/00_smoke_test.py
-python scripts/01_validate_core.py
+python scripts/00_smoke_test.py --output-root "$env:TEMP/saeps-smoke"
+python scripts/01_validate_core.py --output-root "$env:TEMP/saeps-core"
+python scripts/validate_v5_repository.py
 ```
 
-The smoke test trains a real tiny PINN for the ODE \(u_t+u=0\), saves a
-checkpoint and structured metadata, reloads into a fresh model, and verifies
-prediction/residual equality against the pre-save values.
+The V5 validator checks frozen hashes, historical raw-output immutability, raw-to-aggregate lineage, checkpoint lineage, final artifact consistency, and preservation of the scientific adjudications. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for platform details, audit-only workflows, and the distinction between lightweight validation and prohibited confirmation reruns.
 
-## Scientific execution
+## Repository guide
 
-Follow `TASKS.md` phase by phase. Every paper-facing number must follow:
+- `docs/evidence/v5_final_audit.json`: machine-readable V5 scientific adjudication.
+- `docs/evidence/v5_final_validation.json`: machine-readable final repository validation record.
+- `V5_FINAL_JCP_AUDIT_REPORT.md`: human-readable current scientific audit.
+- `outputs/runs/`: retained raw records and manifests, including failed/invalid runs.
+- `paper_artifacts/v5/`: deterministic V5 figures/tables and their hash manifest.
+- `configs/v5/`: V5 governance, seed registry, freezes, and schemas.
+- `docs/HISTORICAL_PROTOCOLS.md`: navigation for historical v2–v4 protocols and evidence.
 
-```text
-raw run files -> aggregation -> paper_artifacts/data -> figures/tables/report
-```
+## Evidence and release provenance
 
-Never manually enter experimental results into paper artifacts.
+The frozen scientific evidence baseline is commit `cf76ffe85a78c994351e50b97d013d33a0f01f85`. Publication-facing documentation and CI commits do not alter that evidence. A suitable release tag is `v1.0-jcp-evidence`; release notes should state both the tagged publication commit and the frozen evidence commit above.
 
-## Final artifact build and audit
+## License and citation
 
-```powershell
-python scripts/09_build_paper_artifacts.py
-python scripts/validate_repository.py
-```
+Citation metadata are provided in [CITATION.cff](CITATION.cff). No DOI has been assigned in this repository; authors should add the Zenodo DOI only after publishing a release.
 
-The first command rebuilds Figures 1–6, Tables 1–3, supplementary artifacts and
-`FINAL_VALIDATION_REPORT.md` from accepted raw runs. The second command returns
-0 only when the engineering protocol is complete; negative scientific gates
-remain visible and do not count as engineering failure.
-
-The accepted v2 raw JSON records, manifests, aggregate data, figures and tables
-are versioned in `outputs/runs/` and `paper_artifacts/`. This permits a fresh
-clone to audit the exact raw-to-aggregate lineage without rerunning locked
-confirmation experiments. Failed development and confirmation records are
-retained; they must not be deleted or silently filtered.
+The current [LICENSE](LICENSE) is **all rights reserved**. It permits public inspection but does not grant permission to copy, modify, redistribute, or reuse the software or artifacts. Authors who want third parties to reproduce and reuse the code freely must explicitly choose an open-source license such as MIT or BSD-3-Clause; this release-preparation work does not change the license.
