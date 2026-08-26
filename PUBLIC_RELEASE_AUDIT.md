@@ -6,7 +6,7 @@
 - Frozen scientific evidence baseline: `cf76ffe85a78c994351e50b97d013d33a0f01f85`
 - Repository: `https://github.com/milumilelu/SAEPS`
 - Permitted scope: documentation, repository navigation, CI, and release metadata only
-- Publication-facing content commit: `TO_BE_RECORDED_AFTER_COMMIT`
+- Publication-facing content commit: `df617419d5aa0a36a5cf6ef676dc4881f137cd66`
 
 ## Publication-facing changes
 
