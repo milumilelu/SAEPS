@@ -1,5 +1,7 @@
 # SAEPS v3 Foundation Development Contract
 
+> **HISTORICAL v3 PROTOCOL — not the current paper-facing evidence state.** See [`../../V5_FINAL_JCP_AUDIT_REPORT.md`](../../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **Contract ID:** `SAEPS-FOUNDATION-v3.0-development`  
 **状态:** `DEVELOPMENT_ONLY / NOT_LOCKED / NO_CONFIRMATION_AUTHORIZED`  
 **v2 preservation:** v2 remains immutable at lock commit `ad794ca2908c8935d0e21702fab7914ff944cce7`.

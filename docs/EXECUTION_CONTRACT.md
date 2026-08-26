@@ -1,5 +1,7 @@
 # SAEPS JCP 级可执行实验契约 v2.0
 
+> **HISTORICAL v2 PROTOCOL — not the current paper-facing evidence state.** See [`../V5_FINAL_JCP_AUDIT_REPORT.md`](../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **Contract ID:** `SAEPS-JCP-EXEC-v2.0`  
 **状态:** `ACTIVE / PRE-IMPLEMENTATION`  
 **最新来源:** `SAEPS 新仓库实验任务书 v2.0.md`  
@@ -380,4 +382,3 @@ Confirmation 前，development 决策写入 `docs/DECISIONS.md`。Confirmation �
 - `git status` 干净，阶段 commits 和最终 commit 可追溯。
 
 科学结果为负不构成 Codex Goal 失败。
-

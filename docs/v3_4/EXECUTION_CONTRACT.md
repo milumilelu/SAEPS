@@ -1,5 +1,7 @@
 # SAEPS v3.4 Curvature-Validation Development Contract
 
+> **HISTORICAL v3 PROTOCOL — not the current paper-facing evidence state.** See [`../../V5_FINAL_JCP_AUDIT_REPORT.md`](../../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **Contract ID:** `SAEPS-CURVATURE-VALIDATION-v3.4-development`  
 **Status:** `DEVELOPMENT_ONLY / FROZEN_BEFORE SEEDS 21-24 / NO CONFIRMATION`
 
@@ -49,4 +51,3 @@ Every point records parent-relative weight distance and function-space distance 
 ## 6. Development decision
 
 Seed-20 readiness requires common-center, curvature-solver, exact-local-reference, local-GN, certified-window, and branch-audit engineering gates. Score and Jacobi-PCG remain nonbinding. Passing readiness activates only seeds 21--24 under these frozen rules. It never authorizes confirmation.
-

@@ -1,5 +1,7 @@
 # V4 Final Evidence Audit Report
 
+> **HISTORICAL v4 EVIDENCE — not the current paper-facing conclusion.** See [`V5_FINAL_JCP_AUDIT_REPORT.md`](V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The historical results below are preserved unchanged.
+
 ## Audit outcome
 
 `PASSED_WITH_SCIENTIFIC_LIMITATIONS`. Scientific conclusion: `PARTIALLY_SUPPORTED`.

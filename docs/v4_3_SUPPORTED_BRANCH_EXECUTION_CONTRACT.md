@@ -1,5 +1,7 @@
 # v4.3 — Supported-Branch Execution Contract
 
+> **HISTORICAL v4 PROTOCOL — not the current paper-facing evidence state.** See [`../V5_FINAL_JCP_AUDIT_REPORT.md`](../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 ## 1. Current adjudicated state
 
 - v2 remains a completed historical protocol with final status `PARTIALLY_SUPPORTED / INVESTIGATE_NUMERICS`.
@@ -88,4 +90,3 @@ These rules must be reviewed and frozen before any seed `75--84` is run. They ca
 - Indicator failure: remove the self-diagnostic claim without changing the comparative endpoint.
 - Two-parameter failure: restrict the method claim to scalar geometry; do not manufacture coupling.
 - Scalability failure: explicitly restrict the implementation to small-network diagnostics.
-

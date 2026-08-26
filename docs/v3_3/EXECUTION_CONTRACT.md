@@ -1,5 +1,7 @@
 # SAEPS v3.3 Numerical-Decomposition Development Contract
 
+> **HISTORICAL v3 PROTOCOL — not the current paper-facing evidence state.** See [`../../V5_FINAL_JCP_AUDIT_REPORT.md`](../../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **Contract ID:** `SAEPS-NUMERICAL-DECOMPOSITION-v3.3-development`  
 **Status:** `DEVELOPMENT_ONLY / NOT_LOCKED / NO_CONFIRMATION_AUTHORIZED`
 
@@ -53,4 +55,3 @@ NONBINDING_DIAGNOSTIC_ONLY
 ```
 
 It is not paper-facing and cannot authorize seed expansion. A separate `paper_facing_comparison` may be populated only if every registered center, profile, explicit, CG, PCG, LSQR, and exact-Hessian gate passes. Seed 20 passing would still require a new user-authorized amendment before seeds 21--24; confirmation remains forbidden.
-

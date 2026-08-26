@@ -1,5 +1,7 @@
 # SAEPS Master Research Program v4.0
 
+> **HISTORICAL v4 PROGRAM — not the current paper-facing evidence state.** See [`V5_FINAL_JCP_AUDIT_REPORT.md`](V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The program below remains preserved as executed history.
+
 **从 scalar one-shot confirmation 到论文级扩展验证**
 
 总体目标不是“把 SAEPS 做成阳性”，而是回答四个层次的问题：
