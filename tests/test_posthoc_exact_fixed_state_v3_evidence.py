@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import statistics
+import subprocess
 from pathlib import Path
 
 
@@ -24,6 +25,22 @@ def test_v3_raw_manifest_hashes_and_denominators_are_exact() -> None:
     assert len(manifest["records"]) == 25
     for row in manifest["records"]:
         assert digest(OUTPUT / row["path"]) == row["sha256"]
+
+
+def test_v3_artifact_hashes_match_canonical_committed_bytes() -> None:
+    manifest = json.loads((OUTPUT / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["artifacts"]["hash_basis"] == "SHA-256 of canonical committed Git blob bytes"
+    for name, expected in manifest["artifacts"].items():
+        if name == "hash_basis":
+            continue
+        relative = name if name.startswith("docs/") else f"outputs/posthoc/exact_fixed_state_v3/{name}"
+        committed = subprocess.run(
+            ["git", "show", f"e30f65df3b9321422439b5f28d99b157f14ae100:{relative}"],
+            cwd=ROOT,
+            capture_output=True,
+            check=True,
+        ).stdout
+        assert hashlib.sha256(committed).hexdigest() == expected
 
 
 def test_v3_statuses_reproduce_frozen_validity_without_replacements() -> None:
