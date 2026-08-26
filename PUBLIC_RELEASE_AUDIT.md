@@ -14,7 +14,7 @@
 - `REPRODUCIBILITY.md`: added pinned-environment setup, unit/smoke/core/profile validation, V5 repository validation, raw-to-aggregate audit instructions, CI scope, and Data/Code Availability guidance.
 - `docs/HISTORICAL_PROTOCOLS.md`: added a single navigation index for v2, v3, and v4 protocols and reports.
 - Historical protocol/report entry pages: added status banners linking to the V5 audit; their historical scientific results and protocol bodies were not rewritten.
-- `.github/workflows/ci.yml`: made V5 final repository validation a required CI step, installed the exact Python version with `uv`, redirected lightweight outputs to the runner temporary directory, and restored the frozen Windows CRLF representation in an ephemeral checkout before historical hash validation.
+- `.github/workflows/ci.yml`: made V5 final repository validation a required CI step, installed the exact Python version with `uv`, redirected lightweight outputs to the runner temporary directory, and restored the frozen Windows CRLF representation in an ephemeral checkout before historical/artifact hash validation.
 - `CITATION.cff`: added repository and software metadata, explicit author/paper placeholders, and the frozen scientific evidence commit; no DOI was invented.
 - `PUBLIC_RELEASE_AUDIT.md`: recorded the public-release scope, validation, unchanged scientific assets, release recommendation, and author actions.
 
