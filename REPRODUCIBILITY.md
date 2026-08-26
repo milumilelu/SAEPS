@@ -76,7 +76,9 @@ Do not invoke training/confirmation scripts merely to validate the publication p
 
 ## CI scope
 
-GitHub Actions installs the locked package, runs `pytest -q`, executes the lightweight smoke/core/profile validations, and runs the V5 final repository validator. CI does not retrain or rerun frozen confirmation experiments. The final validator already performs the deterministic report-rebuild equality and paper-artifact hash checks.
+GitHub Actions installs CPython 3.12.13 and the locked package, runs `pytest -q`, executes the lightweight smoke/core/profile validations, and runs the V5 final repository validator. CI does not retrain or rerun frozen confirmation experiments. The final validator already performs the deterministic report-rebuild equality and paper-artifact hash checks.
+
+The historical inventory was frozen from Windows-generated files whose recorded working-tree bytes include CRLF in early-phase JSON/CSV records, while Git stores those text blobs with LF normalization. A fresh CI checkout therefore restores CRLF only for the precisely identified historical early-phase JSON/CSV classes before hashing. This is an ephemeral checkout transformation: it does not modify, regenerate, recommit, or reinterpret any scientific record.
 
 ## Data and code availability
 

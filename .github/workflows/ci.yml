@@ -18,6 +18,28 @@ jobs:
       - run: uv venv --python 3.12.13
       - run: uv pip install --python .venv\Scripts\python.exe -r requirements-lock.txt
       - run: uv pip install --python .venv\Scripts\python.exe -e . --no-deps
+      - name: Restore frozen historical Windows line endings
+        shell: pwsh
+        run: |
+          $utf8 = [System.Text.UTF8Encoding]::new($false)
+          $legacyRoots = @(
+            "outputs/runs/p1",
+            "outputs/runs/p2_confirmation",
+            "outputs/runs/p2_development",
+            "outputs/runs/p3",
+            "outputs/runs/p4_screening",
+            "outputs/runs/p5_scalar"
+          )
+          $legacyFiles = foreach ($root in $legacyRoots) {
+            Get-ChildItem -LiteralPath $root -Recurse -File |
+              Where-Object { $_.Extension -in ".json", ".csv" }
+          }
+          $legacyFiles += Get-ChildItem -LiteralPath "outputs/runs" -Recurse -File -Filter "*.csv"
+          foreach ($file in $legacyFiles | Sort-Object FullName -Unique) {
+            $text = $utf8.GetString([System.IO.File]::ReadAllBytes($file.FullName))
+            $text = $text.Replace("`r`n", "`n").Replace("`n", "`r`n")
+            [System.IO.File]::WriteAllBytes($file.FullName, $utf8.GetBytes($text))
+          }
       - run: uv run --no-sync pytest -q
       - run: uv run --no-sync python scripts/00_smoke_test.py --output-root "$env:RUNNER_TEMP/saeps-smoke"
       - run: uv run --no-sync python scripts/01_validate_core.py --output-root "$env:RUNNER_TEMP/saeps-core"
