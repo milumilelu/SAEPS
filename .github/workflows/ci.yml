@@ -35,6 +35,8 @@ jobs:
               Where-Object { $_.Extension -in ".json", ".csv" }
           }
           $legacyFiles += Get-ChildItem -LiteralPath "outputs/runs" -Recurse -File -Filter "*.csv"
+          $legacyFiles += Get-ChildItem -LiteralPath "paper_artifacts/v5" -File |
+            Where-Object { $_.Name -ne "manifest.json" }
           foreach ($file in $legacyFiles | Sort-Object FullName -Unique) {
             $text = $utf8.GetString([System.IO.File]::ReadAllBytes($file.FullName))
             $text = $text.Replace("`r`n", "`n").Replace("`n", "`r`n")
