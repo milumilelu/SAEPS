@@ -5,17 +5,46 @@ on:
   pull_request:
 
 jobs:
-  p0:
-    runs-on: windows-latest
+  publication-validation:
+    runs-on: windows-2022
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
+          enable-cache: true
           python-version: "3.12.13"
-          cache: pip
-      - run: python -m pip install -r requirements-lock.txt
-      - run: python -m pip install -e . --no-deps
-      - run: pytest -q
-      - run: python scripts/00_smoke_test.py
-      - run: python scripts/01_validate_core.py
-      - run: python scripts/04_validate_profile.py
+      - run: uv python install 3.12.13
+      - run: uv venv --python 3.12.13
+      - run: uv pip install --python .venv\Scripts\python.exe -r requirements-lock.txt
+      - run: uv pip install --python .venv\Scripts\python.exe -e . --no-deps
+      - name: Restore frozen historical Windows line endings
+        shell: pwsh
+        run: |
+          $utf8 = [System.Text.UTF8Encoding]::new($false)
+          $legacyRoots = @(
+            "outputs/runs/p1",
+            "outputs/runs/p2_confirmation",
+            "outputs/runs/p2_development",
+            "outputs/runs/p3",
+            "outputs/runs/p4_screening",
+            "outputs/runs/p5_scalar"
+          )
+          $legacyFiles = foreach ($root in $legacyRoots) {
+            Get-ChildItem -LiteralPath $root -Recurse -File |
+              Where-Object { $_.Extension -in ".json", ".csv" }
+          }
+          $legacyFiles += Get-ChildItem -LiteralPath "outputs/runs" -Recurse -File -Filter "*.csv"
+          $legacyFiles += Get-ChildItem -LiteralPath "paper_artifacts/v5" -File |
+            Where-Object { $_.Name -ne "manifest.json" }
+          foreach ($file in $legacyFiles | Sort-Object FullName -Unique) {
+            $text = $utf8.GetString([System.IO.File]::ReadAllBytes($file.FullName))
+            $text = $text.Replace("`r`n", "`n").Replace("`n", "`r`n")
+            [System.IO.File]::WriteAllBytes($file.FullName, $utf8.GetBytes($text))
+          }
+      - run: uv run --no-sync pytest -q
+      - run: uv run --no-sync python scripts/00_smoke_test.py --output-root "$env:RUNNER_TEMP/saeps-smoke"
+      - run: uv run --no-sync python scripts/01_validate_core.py --output-root "$env:RUNNER_TEMP/saeps-core"
+      - run: uv run --no-sync python scripts/04_validate_profile.py --output-root "$env:RUNNER_TEMP/saeps-profile"
+      - name: Validate frozen V5 evidence and deterministic artifacts
+        run: uv run --no-sync python scripts/validate_v5_repository.py

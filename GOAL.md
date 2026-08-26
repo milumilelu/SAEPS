@@ -1,5 +1,7 @@
 # GOAL.md
 
+> **HISTORICAL PROGRAM DOCUMENT — not the current paper-facing conclusion.** See [`V5_FINAL_JCP_AUDIT_REPORT.md`](V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The historical definitions and status notes below are preserved for provenance.
+
 > 执行阶段、冲突裁决和验收接口以 `docs/EXECUTION_CONTRACT.md` 为最高优先级协议。
 
 > **当前研究状态（2026-08-21）：** 下方勾选项与 `FINAL_VALIDATION_REPORT.md` 记录的是已完成的 v2 历史协议，不是整个 v4 research program 的最终完成。v4.2 已独立确认 Burgers scalar-curvature comparative claim 为 `SUPPORTED`，但外部 scalar replication、fresh controlled-mechanism closure、two-parameter exact geometry 与 practical scalability 尚未完成。当前后续执行契约为 `docs/v4_3_SUPPORTED_BRANCH_EXECUTION_CONTRACT.md`；任何历史 lock 和结果保持不变。

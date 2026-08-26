@@ -1,5 +1,7 @@
 # SAEPS v3.5 Second-Order Diagnostic and Engineering Contract
 
+> **HISTORICAL v3 PROTOCOL — not the current paper-facing evidence state.** See [`../../V5_FINAL_JCP_AUDIT_REPORT.md`](../../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 **Contract ID:** `SAEPS-SECOND-ORDER-ENGINEERING-v3.5-development`  
 **Status:** `DEVELOPMENT_ONLY / TWO-STAGE FREEZE / NO CONFIRMATION`
 
@@ -61,4 +63,3 @@ and paired `D=E_raw-E_SAEPS`. The future untouched-confirmation primary hypothes
 ## 5. Decision
 
 Only after seeds 28--29 complete under the frozen engineering choice may v3.5 recommend a future confirmation lock. No development result directly activates seeds 30--44.
-

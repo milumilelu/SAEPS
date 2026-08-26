@@ -1,5 +1,7 @@
 # v4.4 Allen--Cahn External Confirmation
 
+> **HISTORICAL v4 PROTOCOL — not the current paper-facing evidence state.** See [`../V5_FINAL_JCP_AUDIT_REPORT.md`](../V5_FINAL_JCP_AUDIT_REPORT.md) for the V5 final audit. The protocol below remains preserved as executed history.
+
 ## Scope
 
 This is the first external-PDE confirmation after v4.2 Burgers support. It tests whether the comparative scalar-curvature result replicates on the previously retained Allen--Cahn benchmark. It is not a corrected or repeated Burgers experiment.
@@ -26,4 +28,3 @@ Insufficient valid pairs is `NOT_SUPPORTED` with the reason retained. Profile or
 ## Execution discipline
 
 The config, runner, aggregator, preflight, tests and semantic graph must be hash-locked before authorization. All seed records are fail-soft. After execution, the cohort is permanently closed regardless of outcome.
-
