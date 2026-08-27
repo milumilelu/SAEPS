@@ -1,0 +1,171 @@
+{
+  "analysis_classification": "POSTHOC_NONBINDING_MECHANISM_ANALYSIS",
+  "analysis_name": "SAEPS post-hoc exact fixed-state curvature decomposition v2",
+  "baseline_repo_commit": "cf76ffe85a78c994351e50b97d013d33a0f01f85",
+  "canary_sequence": {
+    "cohort": "burgers",
+    "seeds": [
+      55,
+      56,
+      57,
+      58,
+      59
+    ]
+  },
+  "current_execution_commit": "a94055d7b699f5fd060c5c77205e438c81c93fd7",
+  "environment": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "posthoc/exact-fixed-state-decomposition-v2",
+    "git_commit": "a94055d7b699f5fd060c5c77205e438c81c93fd7",
+    "git_status_porcelain": "",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.13",
+    "timestamp": "2026-08-26T09:30:48.460187+00:00",
+    "torch_cuda_available": false,
+    "torch_num_threads": 14
+  },
+  "git_status": "",
+  "original_invalid_seed_sets": {
+    "allen_cahn": [
+      81
+    ],
+    "burgers": [
+      57,
+      61,
+      63
+    ]
+  },
+  "original_valid_seed_sets": {
+    "allen_cahn": [
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      82,
+      83,
+      84
+    ],
+    "burgers": [
+      55,
+      56,
+      58,
+      59,
+      60,
+      62,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69
+    ]
+  },
+  "preflight_sha256": "130fe6446d185de498fa9c291d97ef27501ea6eba448d894517ea354f4b97973",
+  "primary_confirmation_claims_changed": false,
+  "protocol_sha256": "e021e7262a0b38ce12d283925828b6bdd3af0ce21e5eebfbf567e7323b1e9696",
+  "replacement_forbidden": true,
+  "rerun_after_scientific_result_forbidden": true,
+  "runner_sha256": "f8da94dd69148563e997ad530ef8950fdb0df65b593d8aa1fe860856b70dd328",
+  "schema_version": 2,
+  "source_frozen_evidence": {
+    "allen_cahn": {
+      "execution_claim_path": "outputs/runs/v4_4_allen_cahn_confirmation/execution_claim.json",
+      "execution_claim_sha256": "203553097de4bbd8e30b080a7fdebdeea39f628550417b1a9f9e1c918b7dec0f",
+      "frozen_config_path": "configs/v4_4/locked_allen_cahn_confirmation.yaml",
+      "frozen_config_sha256": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+      "frozen_lock_path": "configs/v4_4/LOCK_RECORD.json",
+      "frozen_lock_sha256": "f8a94c836206ad934519a06b7c9dfc781486000ce39ed9aecf73f709fa9fa36c",
+      "invalid": [
+        81
+      ],
+      "manifest_path": "outputs/runs/v4_4_allen_cahn_confirmation/manifest.json",
+      "manifest_sha256": "6b3c4e9af5a1ebadb65efb6b02332ca3d63411ec5f97473e4f2a277525851b4a",
+      "planned": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "raw_records_sha256": "de7f91b110da243c87a5b9d59846f49cbf53a22c8dc303e510d66ff2b94c657a",
+      "valid": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        82,
+        83,
+        84
+      ]
+    },
+    "burgers": {
+      "execution_claim_path": "outputs/runs/v4_2_corrected_confirmation/execution_claim.json",
+      "execution_claim_sha256": "2ea997f86b853966f4bb4f112fb3ba288f999c14f2fbab0b4a0a516da8444bea",
+      "frozen_config_path": "configs/v4_2/locked_corrected_confirmation.yaml",
+      "frozen_config_sha256": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+      "frozen_lock_path": "configs/v4_2/LOCK_RECORD.json",
+      "frozen_lock_sha256": "b88a966184b0ad8a2b98c8634fddb69b99cf123e037d3297e3a27444e919ca2f",
+      "invalid": [
+        57,
+        61,
+        63
+      ],
+      "manifest_path": "outputs/runs/v4_2_corrected_confirmation/manifest.json",
+      "manifest_sha256": "4ba37aabb411e45e588179ffc4fb0853faa485b19bea11ac8f525ee57e4cb323",
+      "planned": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "raw_records_sha256": "2c8166bcf973188cb3cfbd7f106a6a70b16e5b687e3b30de14ffffd9dee26b0e",
+      "valid": [
+        55,
+        56,
+        58,
+        59,
+        60,
+        62,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ]
+    }
+  },
+  "test_sha256": "a07914c0f1c2a4243700411819293f24d03ada719308959a6867b3b7080a6837",
+  "timestamp": "2026-08-26T09:30:48.648420+00:00",
+  "v1_abort_sha256": "22a5f4fa8d78c23a900f25887cf20b096dfac16849c5c6a07516050050b68d7c",
+  "v1_runner_dependency_sha256": "6a8fe3c77a7b3d027105c6fa38eb9b91b1468023e51cd2c635bf509bf7b0c1b5"
+}

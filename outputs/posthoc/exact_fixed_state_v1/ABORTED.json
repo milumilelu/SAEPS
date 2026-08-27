@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "analysis_name": "SAEPS post-hoc exact fixed-state curvature decomposition v1",
+  "analysis_classification": "POSTHOC_NONBINDING_MECHANISM_ANALYSIS",
+  "status": "ABORTED_RUNNER_BUG",
+  "aborted_at": "2026-08-26T09:25:58.2367479Z",
+  "execution_claim_commit": "609cd78ea896a882de36029bf1242d6673420d9e",
+  "completed_seed_records": [
+    {
+      "path": "burgers/seed_55.json",
+      "seed": 55,
+      "sha256": "d9dec84cf97167170585cf25928a11acc70e9f615c4a818e761aada6b1b270e1"
+    },
+    {
+      "path": "burgers/seed_56.json",
+      "seed": 56,
+      "sha256": "53ce2b17f1ccf2cc16ad1f35234a90030cd9f568d783fb3cd02699428e60145a"
+    }
+  ],
+  "interrupted_seed_record_written": false,
+  "rerun_under_v1_forbidden": true,
+  "primary_confirmation_claims_changed": false,
+  "bug": {
+    "classification": "runner definition mismatch affecting analysis_valid",
+    "description": "The exact-error identity combined the historical selected LSQR F_SAEPS value on its left side with the explicit Schur C_relax_GN value on its right side. The two implementations passed their direct consistency tolerance, but the mixed identity residual could fail after cancellation and incorrectly change analysis_valid.",
+    "first_observed_seed": 56,
+    "historical_LSQR_vs_explicit_relative_error": 2.8057872133826547e-11,
+    "scientific_values_reinterpreted": false
+  },
+  "required_next_action": "Use a separately frozen and authorized v2 protocol; do not modify or resume v1."
+}
+

@@ -1,0 +1,26 @@
+schema_version: 1
+analysis_classification: POSTHOC_NONBINDING_BASELINE_ANALYSIS
+input:
+  v3_commit: 39343bc32ae38ea2ad118011105cf4cb2c2f3241
+  evidence: docs/evidence/posthoc_exact_fixed_state_v3.json
+  evidence_sha256: 07365208304333671b5bf06ef82c4b31a30b62ec44150db98f6ff3697d09897d
+  raw_root: outputs/posthoc/exact_fixed_state_v3
+  expected_analysis_valid:
+    burgers: 12
+    allen_cahn: 9
+numerics:
+  dtype: float64
+  normalization_epsilon: 1.0e-8
+  pseudoinverse_rule: n_theta_times_float64_epsilon_times_lambda_max
+  tsvd_relative_cutoffs: [1.0e-8, 1.0e-10, 1.0e-12]
+  exact_positive_relative_tolerance: 1.0e-10
+  exact_positive_rule: relative_tolerance_times_max_absolute_eigenvalue_or_one
+  exact_solve_relative_residual_tolerance: 1.0e-10
+  historical_rule_source: configs/v3_6/locked_scalar_confirmation.yaml
+  historical_rule_source_sha256: b52b9a16a16d557bd7f9b13a6a59825295ccae1d72d415b3234dfa2344e31f99
+outputs:
+  raw_root: outputs/posthoc/variable_projection_v1
+  json: docs/evidence/posthoc_variable_projection_v1.json
+  csv: docs/evidence/posthoc_variable_projection_v1.csv
+  report: docs/evidence/POSTHOC_VARIABLE_PROJECTION_V1.md
+
