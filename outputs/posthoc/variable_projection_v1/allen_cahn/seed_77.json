@@ -1,0 +1,51 @@
+{
+  "Delta_VP_gamma": 0.3469166678729181,
+  "F_SAEPS_gamma": 6.4311434961229565,
+  "F_VP0": 6.0842268282500385,
+  "F_raw": 107.40255397801012,
+  "alpha": 1e-08,
+  "analysis_valid_v3": true,
+  "benchmark": "allen_cahn",
+  "effective_rank_gamma": 27.456577352693273,
+  "exact_gamma0": {
+    "maximum_eigenvalue": 150503.75131863152,
+    "minimum_eigenvalue": -5.1452651215039114e-06,
+    "positive_tolerance": 1.5050375131863152e-05,
+    "reason": "not_numerically_positive_definite",
+    "status": "NOT_CLASSICALLY_ADMISSIBLE"
+  },
+  "gamma": 0.0015039294431458965,
+  "gamma_over_lambda_max": 9.999999999999999e-09,
+  "lambda_max": 150392.94431458967,
+  "lambda_min": 1.6272405108759355e-07,
+  "lambda_min_resolved": 1.6272405108759355e-07,
+  "n_theta": 33,
+  "nullity": 0,
+  "numerical_rank": 33,
+  "rank_fraction": 1.0,
+  "relative_finite_vs_undamped": 0.0539432322638464,
+  "resolved_condition_number": 924220748619.5995,
+  "retained_fraction_VP0": 0.05664880957575496,
+  "retained_fraction_gamma": 0.05987886933712662,
+  "seed": 77,
+  "source": "outputs/posthoc/exact_fixed_state_v3/allen_cahn/seed_77.json",
+  "source_sha256": "3d707ba0ee110688bbe955d5044b6f1938261f589d2b58b75fe181ebc2807c83",
+  "tau_pinv": 1.1020000828268948e-09,
+  "tsvd": {
+    "1e-08": {
+      "F_TSVD": 6.40461188790016,
+      "rank": 28,
+      "relative_difference_to_default_VP0": 0.05265830288179578
+    },
+    "1e-10": {
+      "F_TSVD": 6.2616270048384735,
+      "rank": 31,
+      "relative_difference_to_default_VP0": 0.029157390298659425
+    },
+    "1e-12": {
+      "F_TSVD": 6.0842268282500385,
+      "rank": 33,
+      "relative_difference_to_default_VP0": 0.0
+    }
+  }
+}
