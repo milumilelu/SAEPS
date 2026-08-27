@@ -1,0 +1,319 @@
+{
+  "analysis_classification": "POSTHOC_NONBINDING_MECHANISM_ANALYSIS",
+  "checks": {
+    "F_SAEPS_schur": true,
+    "F_raw_equals_G_ll": true,
+    "H_red_exact_schur": true,
+    "float64": true,
+    "historical_full_hessian_gamma_scaling": true,
+    "historical_full_hessian_parameter_block": true,
+    "log_parameter_coordinate": true,
+    "mean_to_sum_scaling": true,
+    "solve_not_inverse": true
+  },
+  "environment": {
+    "checks": {
+      "PyYAML": true,
+      "cpu": true,
+      "float64": true,
+      "numpy": true,
+      "python": true,
+      "torch": true
+    },
+    "observed": {
+      "device": "cpu",
+      "dtype": "float64",
+      "git_branch": "posthoc/exact-fixed-state-decomposition-v1",
+      "git_commit": "cf76ffe85a78c994351e50b97d013d33a0f01f85",
+      "git_status_porcelain": "?? configs/posthoc_exact_fixed_state_v1.yaml\n?? outputs/posthoc/\n?? scripts/posthoc_exact_fixed_state_v1.py\n?? tests/test_posthoc_exact_fixed_state_v1.py",
+      "machine": "AMD64",
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "2.3.5",
+        "torch": "2.13.0"
+      },
+      "platform": "Windows-11-10.0.26100-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+      "python_version": "3.12.13",
+      "timestamp": "2026-08-26T09:15:36.719357+00:00",
+      "torch_cuda_available": false,
+      "torch_num_threads": 14
+    }
+  },
+  "frozen_manifests": {
+    "allen_cahn": {
+      "execution_claim_path": "outputs/runs/v4_4_allen_cahn_confirmation/execution_claim.json",
+      "execution_claim_sha256": "203553097de4bbd8e30b080a7fdebdeea39f628550417b1a9f9e1c918b7dec0f",
+      "frozen_config_path": "configs/v4_4/locked_allen_cahn_confirmation.yaml",
+      "frozen_config_sha256": "7aa976ebf230bca222e794f0b5e10f7f434a5b21770f33fee5807a1c460038de",
+      "frozen_lock_path": "configs/v4_4/LOCK_RECORD.json",
+      "frozen_lock_sha256": "f8a94c836206ad934519a06b7c9dfc781486000ce39ed9aecf73f709fa9fa36c",
+      "invalid": [
+        81
+      ],
+      "manifest_path": "outputs/runs/v4_4_allen_cahn_confirmation/manifest.json",
+      "manifest_sha256": "6b3c4e9af5a1ebadb65efb6b02332ca3d63411ec5f97473e4f2a277525851b4a",
+      "planned": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "raw_records_sha256": "de7f91b110da243c87a5b9d59846f49cbf53a22c8dc303e510d66ff2b94c657a",
+      "valid": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        82,
+        83,
+        84
+      ]
+    },
+    "burgers": {
+      "execution_claim_path": "outputs/runs/v4_2_corrected_confirmation/execution_claim.json",
+      "execution_claim_sha256": "2ea997f86b853966f4bb4f112fb3ba288f999c14f2fbab0b4a0a516da8444bea",
+      "frozen_config_path": "configs/v4_2/locked_corrected_confirmation.yaml",
+      "frozen_config_sha256": "e0531b39f0fe554c2278d8f44028ec3ea083151d41f63ef829727d6a7480c874",
+      "frozen_lock_path": "configs/v4_2/LOCK_RECORD.json",
+      "frozen_lock_sha256": "b88a966184b0ad8a2b98c8634fddb69b99cf123e037d3297e3a27444e919ca2f",
+      "invalid": [
+        57,
+        61,
+        63
+      ],
+      "manifest_path": "outputs/runs/v4_2_corrected_confirmation/manifest.json",
+      "manifest_sha256": "4ba37aabb411e45e588179ffc4fb0853faa485b19bea11ac8f525ee57e4cb323",
+      "planned": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "raw_records_sha256": "2c8166bcf973188cb3cfbd7f106a6a70b16e5b687e3b30de14ffffd9dee26b0e",
+      "valid": [
+        55,
+        56,
+        58,
+        59,
+        60,
+        62,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ]
+    }
+  },
+  "gamma": 0.07,
+  "historical_sources": {
+    "allen_cahn": {
+      "files": [
+        {
+          "path": "src/saeps/autodiff.py",
+          "sha256": "b184f72d2c27a159f0d96635b25774292d9d05e3f4620583860956afe088319f"
+        },
+        {
+          "path": "src/saeps/p4_screening.py",
+          "sha256": "8180b4f718ebc4304124e367665cba999d6480cb4f10c994eb5624fad433fc79"
+        },
+        {
+          "path": "src/saeps/p5_confirmation.py",
+          "sha256": "0bdc1774f7b675d22d0ff9df8945c47dc5e03c730696100f725585cd85bc72b6"
+        },
+        {
+          "path": "src/saeps/scalar.py",
+          "sha256": "b864f96ba0d533fb6e7ed26c3a4546d08bf63a426a332bb4053a3c706684cc1a"
+        },
+        {
+          "path": "src/saeps/v3/foundation.py",
+          "sha256": "67456e5e40c20c46d95689d67f9fa66babe70e00a817c309531a1e09b233400f"
+        },
+        {
+          "path": "src/saeps/v31/local_minimum.py",
+          "sha256": "b036fc7eebf6d403e52894fa75997bdd90cc5a0674e0a014236dbb8865d4a7ea"
+        },
+        {
+          "path": "src/saeps/v31/pipeline.py",
+          "sha256": "c5492e21046ee8c836e1fedb75449242a3a97e4717a977cfea9046534616fadf"
+        },
+        {
+          "path": "src/saeps/v34/profile.py",
+          "sha256": "ea0446488f58c1e042ea6ddb99b62a0fbaa0d056646fc3feca779c0a5e6bda1f"
+        },
+        {
+          "path": "src/saeps/v35/engineering.py",
+          "sha256": "01870054829c30329c393e241ba0be2507bc3cf91e52150b8df64f7b1aee8321"
+        },
+        {
+          "path": "src/saeps/v35/second_order.py",
+          "sha256": "01ac2da43d9be2b0544b6231718dff14c0cd72c6f257cb76508336cfd316cccf"
+        },
+        {
+          "path": "src/saeps/v36/pipeline.py",
+          "sha256": "4e193d1baa31e18843fa017e6dec753e7fb1f0a74f574045e377223b44c56623"
+        },
+        {
+          "path": "src/saeps/v41/numerics.py",
+          "sha256": "936dfa80c660abd7a10fb24cd5f2d346d92b3d7a591686a91186235e5af8703e"
+        },
+        {
+          "path": "src/saeps/v41/pipeline.py",
+          "sha256": "fc78e63c00e961cde01eb54a3ca25ad86313a350d257d5b79a7b0e7337a620bf"
+        },
+        {
+          "path": "src/saeps/v42/pipeline.py",
+          "sha256": "6675f7adea71ee513edb5b1217a0169793ef8e543a978ec7154f024f5b9956d5"
+        },
+        {
+          "path": "src/saeps/v43/center.py",
+          "sha256": "688dd9a98a82163e368fc8d61c431599a824c4b9434b2dbd86926b751fd8d5c4"
+        },
+        {
+          "path": "src/saeps/v44/pipeline.py",
+          "sha256": "b39878cceaa8d8ac4e1c375ef244daa5f2a46f0b3716252d36383ac200d89221"
+        }
+      ],
+      "historical_runner_commit": "01c9d39f2442af6c67c74a8ff79799b5f5a66cb7"
+    },
+    "burgers": {
+      "files": [
+        {
+          "path": "src/saeps/autodiff.py",
+          "sha256": "b184f72d2c27a159f0d96635b25774292d9d05e3f4620583860956afe088319f"
+        },
+        {
+          "path": "src/saeps/p4_screening.py",
+          "sha256": "8180b4f718ebc4304124e367665cba999d6480cb4f10c994eb5624fad433fc79"
+        },
+        {
+          "path": "src/saeps/p5_confirmation.py",
+          "sha256": "0bdc1774f7b675d22d0ff9df8945c47dc5e03c730696100f725585cd85bc72b6"
+        },
+        {
+          "path": "src/saeps/scalar.py",
+          "sha256": "b864f96ba0d533fb6e7ed26c3a4546d08bf63a426a332bb4053a3c706684cc1a"
+        },
+        {
+          "path": "src/saeps/v3/foundation.py",
+          "sha256": "67456e5e40c20c46d95689d67f9fa66babe70e00a817c309531a1e09b233400f"
+        },
+        {
+          "path": "src/saeps/v31/local_minimum.py",
+          "sha256": "b036fc7eebf6d403e52894fa75997bdd90cc5a0674e0a014236dbb8865d4a7ea"
+        },
+        {
+          "path": "src/saeps/v31/pipeline.py",
+          "sha256": "c5492e21046ee8c836e1fedb75449242a3a97e4717a977cfea9046534616fadf"
+        },
+        {
+          "path": "src/saeps/v34/profile.py",
+          "sha256": "ea0446488f58c1e042ea6ddb99b62a0fbaa0d056646fc3feca779c0a5e6bda1f"
+        },
+        {
+          "path": "src/saeps/v35/engineering.py",
+          "sha256": "01870054829c30329c393e241ba0be2507bc3cf91e52150b8df64f7b1aee8321"
+        },
+        {
+          "path": "src/saeps/v35/second_order.py",
+          "sha256": "01ac2da43d9be2b0544b6231718dff14c0cd72c6f257cb76508336cfd316cccf"
+        },
+        {
+          "path": "src/saeps/v36/pipeline.py",
+          "sha256": "4e193d1baa31e18843fa017e6dec753e7fb1f0a74f574045e377223b44c56623"
+        },
+        {
+          "path": "src/saeps/v41/numerics.py",
+          "sha256": "936dfa80c660abd7a10fb24cd5f2d346d92b3d7a591686a91186235e5af8703e"
+        },
+        {
+          "path": "src/saeps/v41/pipeline.py",
+          "sha256": "fc78e63c00e961cde01eb54a3ca25ad86313a350d257d5b79a7b0e7337a620bf"
+        },
+        {
+          "path": "src/saeps/v42/pipeline.py",
+          "sha256": "6675f7adea71ee513edb5b1217a0169793ef8e543a978ec7154f024f5b9956d5"
+        }
+      ],
+      "historical_runner_commit": "4d1d3277124da2eae5a03e000c9f29a23e3da626"
+    }
+  },
+  "pre_run_repository_validator": {
+    "checks": {
+      "bootstrap_lineage": {
+        "detail": "10,000-resample paired percentile bootstrap reproduces exactly",
+        "status": "PASS"
+      },
+      "cost_lineage": {
+        "detail": "times, paired ratio, CG/JVP/VJP lineage reproduce from raw records",
+        "status": "PASS"
+      },
+      "failed_run_reporting": {
+        "detail": "all 56 failed/invalid raw records are reported",
+        "status": "PASS"
+      },
+      "locked_hashes_and_mutation": {
+        "detail": "3 locked configs match recorded hashes and lock commit bytes",
+        "status": "PASS"
+      },
+      "paper_artifacts": {
+        "detail": "artifact manifest, 6 SVG figures and 3 CSV tables verified",
+        "status": "PASS"
+      },
+      "provenance_completeness": {
+        "detail": "P2 and P5-P8 formal summaries contain clean-commit environment provenance",
+        "status": "PASS"
+      },
+      "raw_manifests": {
+        "detail": "all accepted run manifests and raw SHA-256 hashes verified",
+        "status": "PASS"
+      },
+      "raw_to_aggregate_equality": {
+        "detail": "status counts and P5 paired median reproduce from raw records",
+        "status": "PASS"
+      },
+      "scientific_gate_and_final_mapping": {
+        "detail": "scientific FAIL/PARTIAL results retained without causing engineering failure",
+        "status": "PASS"
+      },
+      "seed_and_run_completeness": {
+        "detail": "P2=50, P5=10, P6=10, P7=55, P8=3",
+        "status": "PASS"
+      },
+      "unit_and_integration_tests": {
+        "detail": "........................................................................ [ 57%]",
+        "status": "PASS"
+      }
+    },
+    "phase": "P9",
+    "schema_version": 1,
+    "scientific_failure_is_engineering_failure": false,
+    "status": "PASSED"
+  },
+  "schema_version": 1,
+  "status": "PASSED",
+  "study_seeds_used": [],
+  "timestamp": "2026-08-26T09:15:41.407634+00:00"
+}

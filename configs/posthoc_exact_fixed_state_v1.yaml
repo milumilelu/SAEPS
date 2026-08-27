@@ -1,0 +1,58 @@
+schema_version: 1
+analysis_name: SAEPS post-hoc exact fixed-state curvature decomposition v1
+analysis_classification: POSTHOC_NONBINDING_MECHANISM_ANALYSIS
+baseline_repo_commit: cf76ffe85a78c994351e50b97d013d33a0f01f85
+primary_confirmation_claims_changed: false
+replacement_forbidden: true
+rerun_after_scientific_result_forbidden: true
+device: cpu
+dtype: float64
+expected_environment:
+  python: 3.12.13
+  torch: 2.13.0
+  numpy: 2.3.5
+  PyYAML: 6.0.3
+tolerances:
+  algebraic_relative: 1.0e-10
+  algebraic_absolute_floor: 1.0e-12
+  reproduction_relative: 1.0e-6
+  reproduction_absolute: 1.0e-10
+  denominator_floor: 1.0e-8
+  relaxation_denominator_small: 1.0e-8
+cohorts:
+  burgers:
+    benchmark: Burgers
+    planned_seeds: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+    expected_original_valid: [55, 56, 58, 59, 60, 62, 64, 65, 66, 67, 68, 69]
+    frozen_manifest: outputs/runs/v4_2_corrected_confirmation/manifest.json
+    frozen_execution_claim: outputs/runs/v4_2_corrected_confirmation/execution_claim.json
+    frozen_config: configs/v4_2/locked_corrected_confirmation.yaml
+    frozen_lock: configs/v4_2/LOCK_RECORD.json
+    historical_runner_commit: 4d1d3277124da2eae5a03e000c9f29a23e3da626
+  allen_cahn:
+    benchmark: Allen-Cahn
+    planned_seeds: [75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+    expected_original_valid: [75, 76, 77, 78, 79, 80, 82, 83, 84]
+    frozen_manifest: outputs/runs/v4_4_allen_cahn_confirmation/manifest.json
+    frozen_execution_claim: outputs/runs/v4_4_allen_cahn_confirmation/execution_claim.json
+    frozen_config: configs/v4_4/locked_allen_cahn_confirmation.yaml
+    frozen_lock: configs/v4_4/LOCK_RECORD.json
+    historical_runner_commit: 01c9d39f2442af6c67c74a8ff79799b5f5a66cb7
+historical_source_files:
+  - src/saeps/autodiff.py
+  - src/saeps/p4_screening.py
+  - src/saeps/p5_confirmation.py
+  - src/saeps/scalar.py
+  - src/saeps/v3/foundation.py
+  - src/saeps/v31/local_minimum.py
+  - src/saeps/v31/pipeline.py
+  - src/saeps/v34/profile.py
+  - src/saeps/v35/engineering.py
+  - src/saeps/v35/second_order.py
+  - src/saeps/v36/pipeline.py
+  - src/saeps/v41/numerics.py
+  - src/saeps/v41/pipeline.py
+  - src/saeps/v42/pipeline.py
+  - src/saeps/v43/center.py
+  - src/saeps/v44/pipeline.py
+
