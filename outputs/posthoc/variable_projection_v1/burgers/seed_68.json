@@ -1,0 +1,51 @@
+{
+  "Delta_VP_gamma": 9.134013633424843,
+  "F_SAEPS_gamma": 27.186690240649,
+  "F_VP0": 18.052676607224157,
+  "F_raw": 693.9658566270664,
+  "alpha": 1e-08,
+  "analysis_valid_v3": true,
+  "benchmark": "burgers",
+  "effective_rank_gamma": 46.32062644686432,
+  "exact_gamma0": {
+    "maximum_eigenvalue": 3093005.8610543227,
+    "minimum_eigenvalue": -0.00024267156136326392,
+    "positive_tolerance": 0.0003093005861054323,
+    "reason": "not_numerically_positive_definite",
+    "status": "NOT_CLASSICALLY_ADMISSIBLE"
+  },
+  "gamma": 0.030892473173789122,
+  "gamma_over_lambda_max": 9.999999999999999e-09,
+  "lambda_max": 3089247.3173789126,
+  "lambda_min": -2.940805791090943e-11,
+  "lambda_min_resolved": 1.3342336108976466e-07,
+  "n_theta": 65,
+  "nullity": 5,
+  "numerical_rank": 60,
+  "rank_fraction": 0.9230769230769231,
+  "relative_finite_vs_undamped": 0.33597372645266355,
+  "resolved_condition_number": 23153721298480.305,
+  "retained_fraction_VP0": 0.026013782140474343,
+  "retained_fraction_gamma": 0.03917583261629971,
+  "seed": 68,
+  "source": "outputs/posthoc/exact_fixed_state_v3/burgers/seed_68.json",
+  "source_sha256": "0e291feac3f34c20b92ff0882abd768a6a853ea2142399f119eb0f1bf39eeac2",
+  "tau_pinv": 4.4586795506702373e-08,
+  "tsvd": {
+    "1e-08": {
+      "F_TSVD": 24.087505229597923,
+      "rank": 47,
+      "relative_difference_to_default_VP0": 0.334289964326725
+    },
+    "1e-10": {
+      "F_TSVD": 19.85409893719907,
+      "rank": 54,
+      "relative_difference_to_default_VP0": 0.09978699381653826
+    },
+    "1e-12": {
+      "F_TSVD": 19.446572290237896,
+      "rank": 56,
+      "relative_difference_to_default_VP0": 0.07721268776752002
+    }
+  }
+}

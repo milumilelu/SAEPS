@@ -1,0 +1,163 @@
+{
+  "classification": "P2_EXISTING_EVIDENCE_PRESENTATION_AUDIT",
+  "damping": {
+    "effective_rank_decreases_toward_high_alpha": true,
+    "eta_nondecreasing_all_checkpoints": true,
+    "high_alpha_approaches_frozen_state": true,
+    "pass_count": 38,
+    "per_alpha": [
+      {
+        "alpha": 1e-10,
+        "effective_rank_median": 41.15992921102162,
+        "eta_median": 0.04562698634631446,
+        "planned": 6,
+        "valid": 2
+      },
+      {
+        "alpha": 1e-08,
+        "effective_rank_median": 35.78266958072997,
+        "eta_median": 0.048264937698404245,
+        "planned": 6,
+        "valid": 6
+      },
+      {
+        "alpha": 1e-06,
+        "effective_rank_median": 27.045590448648184,
+        "eta_median": 0.06533499768955714,
+        "planned": 6,
+        "valid": 6
+      },
+      {
+        "alpha": 0.0001,
+        "effective_rank_median": 16.33115041809349,
+        "eta_median": 0.1300943145439991,
+        "planned": 6,
+        "valid": 6
+      },
+      {
+        "alpha": 0.01,
+        "effective_rank_median": 6.574999102921417,
+        "eta_median": 0.5798196634773216,
+        "planned": 6,
+        "valid": 6
+      },
+      {
+        "alpha": 1.0,
+        "effective_rank_median": 0.949495729266038,
+        "eta_median": 0.9688034063045291,
+        "planned": 6,
+        "valid": 6
+      },
+      {
+        "alpha": 100.0,
+        "effective_rank_median": 0.015197661239986811,
+        "eta_median": 0.9996371919236082,
+        "planned": 6,
+        "valid": 6
+      }
+    ],
+    "planned_terminal_count": 42,
+    "smallest_alpha": {
+      "alpha": 1e-10,
+      "planned": 6,
+      "valid": 2
+    }
+  },
+  "frozen_p_values_replaced": false,
+  "paired_effect_sizes": {
+    "allen_cahn": {
+      "D": {
+        "IQR": 2.475106875002595,
+        "Q25": 19.157810936386536,
+        "Q75": 21.63291781138913,
+        "max": 24.71649886667989,
+        "median": 20.00649513947428,
+        "min": 16.092807668044106,
+        "n": 9
+      },
+      "frozen_one_sided_exact_binomial_sign_test_p": 0.001953125,
+      "frozen_p_verified": true,
+      "planned": 10,
+      "positive_D": 9,
+      "positive_D_over_planned": "9/10",
+      "positive_D_over_valid": "9/9",
+      "valid": 9
+    },
+    "burgers": {
+      "D": {
+        "IQR": 4.934386696256453,
+        "Q25": 24.81441898176605,
+        "Q75": 29.748805678022503,
+        "max": 38.63089578113575,
+        "median": 27.636319042759617,
+        "min": 19.89558958727207,
+        "n": 12
+      },
+      "frozen_one_sided_exact_binomial_sign_test_p": 0.000244140625,
+      "frozen_p_verified": true,
+      "planned": 15,
+      "positive_D": 12,
+      "positive_D_over_planned": "12/15",
+      "positive_D_over_valid": "12/12",
+      "valid": 12
+    }
+  },
+  "robustness": {
+    "SAEPS_favorable_anchors": 14,
+    "binding_valid_conditions": 52,
+    "exact_Hessian_anchors_planned": 15,
+    "exact_Hessian_anchors_valid": 14,
+    "planned_conditions": 60
+  },
+  "scaling": {
+    "JVP_count_range": [
+      14.0,
+      23.0
+    ],
+    "VJP_count_range": [
+      14.0,
+      23.0
+    ],
+    "dimension_combinations": 9,
+    "iterative_solve_seconds_range": [
+      0.3168281000034767,
+      41.429773099996964
+    ],
+    "largest_m": 3413,
+    "largest_n_theta": 100001,
+    "planned_solves": 27,
+    "repeats_per_combination": [
+      3
+    ],
+    "shared_condition_setup_seconds_range": [
+      0.3923006000040914,
+      62.83241139999882
+    ],
+    "timing_accounting": "iterative solve time includes JVP/VJP applications and excludes one-time shared condition setup",
+    "total_verified_solves": 27
+  },
+  "schema_version": 1,
+  "scientific_adjudications_changed": false,
+  "sources": {
+    "allen_cahn": {
+      "path": "docs/evidence/v4_4_allen_confirmation.json",
+      "sha256": "4e0188bfbe3e204f6a6c8cf2cdbd16fa8f0c0223e5922e97e0c6c2d7e37470d6"
+    },
+    "burgers": {
+      "path": "docs/evidence/v4_2_confirmation.json",
+      "sha256": "99184fce55c8847482f3adc4cf7d5db74b97f8a99f3171a95ab8cd3f101ea718"
+    },
+    "damping": {
+      "path": "docs/evidence/v5/V5_FINITE_GAMMA_AUDIT.json",
+      "sha256": "79854e514da0a117413498af264b9bb37c6cd7bac76aa7e966c7f298b14a5b59"
+    },
+    "robustness": {
+      "path": "docs/evidence/v4_8_robustness.json",
+      "sha256": "56fb4dc8b5325c3b0a05feaec71e69140602d10316285fcba5be5b284104b212"
+    },
+    "scaling": {
+      "path": "docs/evidence/v5/V5_RESIDUAL_SCALABILITY_REPORT.json",
+      "sha256": "8914540a5dab6e584518b93ff124791c3cd8724c4619d8992249734c45813bb7"
+    }
+  }
+}
