@@ -14,7 +14,7 @@ def test_cholesky_reconstruction_float64():
 
 def test_triangular_whitening_matches_linear_solve():
     raw,_,_=mats(); b=torch.tensor(raw,dtype=torch.float64); l=torch.linalg.cholesky(b); m=torch.tensor([[1.,2.],[3.,4.]],dtype=torch.float64)
-    expected=torch.linalg.solve(l,m)@torch.linalg.inv(l.T); assert torch.allclose(whiten(m,l),expected)
+    left=torch.linalg.solve(l,m); expected=torch.linalg.solve(l,left.T).T; assert torch.allclose(whiten(m,l),expected)
 
 def test_manual_metric_path():
     raw,fse,exact=mats(); z=metrics(raw,fse,exact,1e-10,1e-30); tau=1e-10*1.5; l=np.linalg.cholesky(raw+tau*np.eye(2)); w=lambda m:np.linalg.solve(l,np.linalg.solve(l,m).T).T; den=np.linalg.norm(w(exact))+1e-30
