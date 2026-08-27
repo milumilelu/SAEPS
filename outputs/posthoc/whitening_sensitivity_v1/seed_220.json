@@ -1,0 +1,88 @@
+{
+  "F_SAEPS": [
+    [
+      13.903705410537526,
+      -11.192305214914057
+    ],
+    [
+      -11.19230521481964,
+      13.957562143756775
+    ]
+  ],
+  "F_raw": [
+    [
+      163.2810543077569,
+      -147.28209621877784
+    ],
+    [
+      -147.28209621877784,
+      177.90883519452066
+    ]
+  ],
+  "H_red": [
+    [
+      13.70899028098458,
+      -11.1823793872924
+    ],
+    [
+      -11.182379387259516,
+      13.89879380063644
+    ]
+  ],
+  "epsilon": 1e-30,
+  "nominal_reproduction": {
+    "historical_E_SAEPS": 0.0385360054509923,
+    "historical_E_raw": 9.237280187956998,
+    "recomputed_E_SAEPS": 0.0385360054509923,
+    "recomputed_E_raw": 9.237280187956998,
+    "relative_error_SAEPS": 0.0,
+    "relative_error_raw": 0.0,
+    "status": "PASS"
+  },
+  "original_valid_status": true,
+  "results": {
+    "1e-10": {
+      "D": 9.198744182506005,
+      "E_SAEPS": 0.0385360054509923,
+      "E_raw": 9.237280187956998,
+      "cholesky_relative_reconstruction_error": 0.0,
+      "comparison_margin": 9.247280187956998e-10,
+      "condition_number_B2": 13.750100768096624,
+      "lambda_min_B2": 23.131359907341448,
+      "paired_direction": "SAEPS_BETTER",
+      "status": "PASS",
+      "tau": 1.705949447511388e-08,
+      "whitening_scale": 170.59494475113877
+    },
+    "1e-12": {
+      "D": 9.198744181272245,
+      "E_SAEPS": 0.03853600545868622,
+      "E_raw": 9.237280186730931,
+      "cholesky_relative_reconstruction_error": 8.912461040770115e-17,
+      "comparison_margin": 9.247280186730932e-10,
+      "condition_number_B2": 13.750100777405875,
+      "lambda_min_B2": 23.131359890452515,
+      "paired_direction": "SAEPS_BETTER",
+      "status": "PASS",
+      "tau": 1.7059494475113876e-10,
+      "whitening_scale": 170.59494475113877
+    },
+    "1e-8": {
+      "D": 9.198744305881801,
+      "E_SAEPS": 0.03853600468160128,
+      "E_raw": 9.237280310563403,
+      "cholesky_relative_reconstruction_error": 8.912460989765271e-17,
+      "comparison_margin": 9.247280310563403e-10,
+      "condition_number_B2": 13.7500998371736,
+      "lambda_min_B2": 23.1313615962314,
+      "paired_direction": "SAEPS_BETTER",
+      "status": "PASS",
+      "tau": 1.7059494475113876e-06,
+      "whitening_scale": 170.59494475113877
+    }
+  },
+  "seed": 220,
+  "source_record": "outputs/runs/v5/two_parameter/confirmation/seed_220/result.json",
+  "source_sha256": "1c9d182cef5f20a7cde7cfd9b7085ad8d7432b8aaeac0b6e24f1d0270cfb9f5e",
+  "whitening_scale": 170.59494475113877
+}

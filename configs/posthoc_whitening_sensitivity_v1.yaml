@@ -1,0 +1,33 @@
+schema_version: 1
+analysis_classification: POSTHOC_NONBINDING_WHITENING_SENSITIVITY
+source:
+  evidence_path: docs/evidence/v5/V5_TWO_PARAMETER_CONFIRMATION_REPORT.json
+  evidence_sha256: 73a5ffb112e7a9c630d9ae9e5579ce5ca718e5d7a46c53210dac5d7c810628c8
+  evidence_commit: db55ef9d1db5d2080f7ceee68ba1d094f4cce49c
+  execution_record_commit: ad81f587e6193d59e9cf7d06d271f847ba6819d2
+  metric_implementation: src/saeps/v5/two_parameter_frozen.py
+  metric_implementation_sha256: 6f7147448f1af758395c0229804b1ded26ee70e8774c5347749f9861156467f1
+  metric_config: configs/v5/two_parameter_frozen_execution.yaml
+  metric_config_sha256: 55bde9f7bb85f1e6b561fa3ac3c983b49c88929b123c1082ba55440e2f6c3614
+tau_relative_factors: [1.0e-8, 1.0e-10, 1.0e-12]
+nominal_tau_relative_factor: 1.0e-10
+planned_records: 10
+expected_valid_records: 8
+epsilon: 1.0e-30
+dtype: float64
+comparison_tolerance:
+  atol: 1.0e-12
+  rtol: 1.0e-10
+  formula: atol_plus_rtol_times_max_abs_pair_or_one
+nominal_reproduction_tolerance:
+  atol: 1.0e-12
+  rtol: 1.0e-10
+no_retraining: true
+no_replacement: true
+primary_claims_changed: false
+outputs:
+  raw_root: outputs/posthoc/whitening_sensitivity_v1
+  json: docs/evidence/posthoc_whitening_sensitivity_v1.json
+  csv: docs/evidence/posthoc_whitening_sensitivity_v1.csv
+  report: docs/evidence/POSTHOC_WHITENING_SENSITIVITY_V1.md
+
