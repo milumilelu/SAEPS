@@ -628,3 +628,36 @@ budgeted outputs, not converged response claims. The fixed indicator also has
 false early stops relative to the offline curvature target. All statuses,
 first-hit missing values and indicator/gap diagnostics are in the raw/aggregate
 records; no rescue or oracle-controlled stop was introduced.
+
+## I-V6-003 — Pre-execution and one-shot validators are stale after authorized execution
+
+Date: 2026-09-07. Classification: implementation failure (validator lifecycle,
+not scientific data). Two Phase 1.5 validators are single-shot by design and now
+fail on a re-invocation that is not a data error:
+
+- `scripts/v6/validate_phase15_protocol.py` asserts
+  `not output_root.exists()` ("Scientific outputs exist while execution
+  unauthorized"). This encodes the pre-execution state. After the separate
+  authorization record `configs/v6/development/phase15_execution_001.json` was
+  created and execution 20260907_001 completed, this assertion can no longer hold.
+- `scripts/v6/validate_phase15_results.py` writes with exclusive creation
+  (`open('x')`) and raises `FileExistsError` once
+  `RESULT_VALIDATION_V2.json` exists.
+
+Evidence: re-running both scripts at commit 38ada9e reproduces
+`AssertionError` and `FileExistsError` respectively. Independent re-verification
+found all 15 frozen implementation hashes in `phase15_execution_001.json` and all
+25 input inventory hashes unchanged, `tests/v6` 12/12 passing, and the retained
+`RESULT_VALIDATION_V2.json` reporting `PASSED` with
+`scientific_development_gate = NOT_SUPPORTED`.
+
+protocol_impact: None on scientific results. The DRAFT config
+`configs/v6/development/phase15.json`, the input inventory and the execution
+manifest are not modified, per protocol section 9.
+
+resolution_or_status: OPEN, deliberately not fixed. Editing either script would
+change hashes frozen in the execution manifest and break
+`all_frozen_implementation_hashes_unchanged`. Any future repair must be a new
+protocol version with a new execution record, retaining 20260907_001. The
+authoritative post-execution evidence remains `RESULT_VALIDATION_V2.json`;
+legacy P9 validator failures stay separate in `LEGACY_VALIDATION.json`.

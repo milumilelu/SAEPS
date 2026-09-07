@@ -16,6 +16,8 @@
 - [x] Independent source/code hashes, denominator, algebra, spectral bounds, cost counts and exact reaggregation pass.
 - [x] Evidence: `outputs/runs/v5/upgrade_pilot/phase15/20260907_001/findings/FINDINGS.md` and `RESULT_VALIDATION_V2.json`.
 - [x] Full repository validator actually run; remaining legacy failures reference pre-existing missing files, separately retained in `LEGACY_VALIDATION.json`.
+- [x] Independent re-verification: 15 frozen implementation hashes and 25 input hashes unchanged; `tests/v6` 12/12.
+- [x] Stale pre-execution/one-shot validator lifecycle recorded as `I-V6-003`; deliberately not repaired to preserve frozen hashes.
 - [ ] Compact matrix-free replay and all new training remain unstarted.
 - [ ] Legacy missing-file failures remain separate; remote synchronization withheld.
 
