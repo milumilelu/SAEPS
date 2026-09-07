@@ -1,0 +1,53 @@
+{
+  "execution_id": "20260907_001",
+  "authorization": "User: \u5f00\u59cb\u8fd0\u884c (2026-09-07)",
+  "scientific_execution_authorized": true,
+  "confirmation_authorized": false,
+  "scope": "historical_matrix_development_only",
+  "git_commit": "38c188add0981c9c0699ca36463146494da3fffb",
+  "files": {
+    "configs/v6/development/phase15.json": "6a021dccc4ebad08a6c00b282f5f6dbafe16c85bf97eca51ffdb1d0b153de79c",
+    "configs/v6/development/phase15_inputs.json": "8d8ff78a6e653969369dc63361132e7ebf178f9ccd7c38c6967d7d423fd82ed3",
+    "docs/v6/PHASE15_EXECUTION_PROTOCOL.md": "648e298338fa014d2d9276e16c9571ef1855405a1f7edd9e8482d7701d11ee46",
+    "src/saeps/v6/__init__.py": "563a0ab09db8e54b75abffb0b4135098c20b017755856944bdfdf17c3a58d4ad",
+    "src/saeps/v6/curvature.py": "67b0d3fa01eb24a69403626197922b359dd46ab4217d4ad3240f81cbb07e8fb6",
+    "src/saeps/v6/defect_response.py": "7708693631b71af52b0d87c35a718dc1c56f87f7b3659124d92b54a6fec6799f",
+    "src/saeps/v6/experiment.py": "a58e4934adb08a6366bad2f238b035eec680d56ba8405f73e944be5a9a7f45fe",
+    "src/saeps/v6/operators.py": "5975082bf6cb042e0ad9d9814035595aeaf9fe18f14a447e907533c07f342fe9",
+    "src/saeps/v6/pcg.py": "af683babee36570b1ee7648c27b5514960d02f65fca0fe987afec001aa5d738e",
+    "src/saeps/v6/preconditioners.py": "0fbf2f72fd9423c2032843177be0de7f9dd2e693c6634c3ee29067f9ab4f01ce",
+    "src/saeps/v6/stopping.py": "070d6ea1271869b87c6a377182ec5f0c12d0e617ee83ec0f56a7ea242913fe51",
+    "scripts/v6/build_phase15_report.py": "b6f18eac79afe5ab97459696ad0ca927a74efa4770b88c548326a97c205c3a37",
+    "scripts/v6/run_phase15.py": "31969d1bf43cacceb34effff809cfc4502852f28cf2f1861fae4d9c205a8e2ef",
+    "scripts/v6/validate_phase15_protocol.py": "0e7306e42582272faf5c96cc5f13cfefc7905ec1632c65641a17193c248ba0cb",
+    "tests/v6/test_phase15_numerics.py": "874161bfa4e2d145ba136e71c96f400a3ccd233f996ed06e2c77a5d3c02e6a58"
+  },
+  "timestamp": "2026-09-07T03:21:09.827082+00:00",
+  "environment": {
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "dtype": "float64",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "numpy_blas_config": "Build Dependencies:\n  blas:\n    detection method: pkgconfig\n    found: true\n    include directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-q7k2ejt3/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\n    lib directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-q7k2ejt3/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\n    name: scipy-openblas\n    openblas configuration: OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n      Haswell MAX_THREADS=24\n    pc file directory: D:/a/numpy-release/numpy-release/.openblas\n    version: 0.3.30\n  lapack:\n    detection method: pkgconfig\n    found: true\n    include directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-q7k2ejt3/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\n    lib directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-q7k2ejt3/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\n    name: scipy-openblas\n    openblas configuration: OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n      Haswell MAX_THREADS=24\n    pc file directory: D:/a/numpy-release/numpy-release/.openblas\n    version: 0.3.30\nCompilers:\n  c:\n    commands: cl\n    linker: link\n    name: msvc\n    version: 19.44.35219\n  c++:\n    commands: cl\n    linker: link\n    name: msvc\n    version: 19.44.35219\n  cython:\n    commands: cython\n    linker: cython\n    name: cython\n    version: 3.2.1\nMachine Information:\n  build:\n    cpu: x86_64\n    endian: little\n    family: x86_64\n    system: windows\n  host:\n    cpu: x86_64\n    endian: little\n    family: x86_64\n    system: windows\nPython Information:\n  path: C:\\Users\\runneradmin\\AppData\\Local\\Temp\\build-env-fls87aak\\Scripts\\python.exe\n  version: '3.12'\nSIMD Extensions:\n  baseline:\n  - SSE\n  - SSE2\n  - SSE3\n  found:\n  - SSSE3\n  - SSE41\n  - POPCNT\n  - SSE42\n  - AVX\n  - F16C\n  - FMA3\n  - AVX2\n  not found:\n  - AVX512F\n  - AVX512CD\n  - AVX512_SKX\n  - AVX512_CLX\n  - AVX512_CNL\n  - AVX512_ICL\n\n",
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1"
+    },
+    "JVP_actual": 0,
+    "VJP_actual": 0,
+    "HVP_actual": 0,
+    "peak_native_memory": null,
+    "peak_native_memory_reason": "not reliably measured; dense allocated bytes recorded separately"
+  },
+  "initial_dirty_files": " D FINAL_VALIDATION_REPORT.md\n D PUBLIC_RELEASE_REPORT.md\n D REPRODUCIBILITY.md\n D \"SAEPS Master Research Program v4.0.md\"\n D V4_FINAL_AUDIT_REPORT.md\n D V5_FINAL_JCP_AUDIT_REPORT.md\n D V5_JCP_MINIMAL_PROTOCOL.md\n?? exact_fixed_state_baseline.py\n?? paper/\n?? \"\\344\\273\\273\\345\\212\\241\\350\\257\\264\\346\\230\\216/\"\n",
+  "implementation_notes": "B trajectories reused as fixed/adaptive prefixes in C; prefix selection reads indicator only. Oracle runs after timed repeats. No candidate setup sharing across starts; same RNG. Native triangular systems solved with NumPy solve.",
+  "timing_repeats": {
+    "warmup_repeats": 1,
+    "measured_repeats": 5,
+    "threads": 1,
+    "include_oracle_in_method_time": false
+  }
+}
