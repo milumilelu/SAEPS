@@ -661,3 +661,28 @@ change hashes frozen in the execution manifest and break
 protocol version with a new execution record, retaining 20260907_001. The
 authoritative post-execution evidence remains `RESULT_VALIDATION_V2.json`;
 legacy P9 validator failures stay separate in `LEGACY_VALIDATION.json`.
+
+## I-V6-004 — Concurrent tooling removed the loose branch ref; commit recovered via reflog
+
+Date: 2026-09-07. Classification: implementation failure (environment/tooling,
+not scientific data). While committing the Phase 1.5 closure record, the loose
+ref `.git/refs/heads/codex/v6-phase15-protocol` was removed by a concurrent
+process also operating on this repository (`.git/opencode` and
+`refs/codex/turn-diffs/*` are present). Symptom: `git commit` reported
+"your current branch does not have any commits yet" and `git rev-parse HEAD`
+failed, although the commit object had already been created and the reflog
+updated. `git update-ref` and `git branch -f` both exited 0 without creating the
+file; writing the ref file directly did work.
+
+Evidence: `.git/logs/refs/heads/codex/v6-phase15-protocol` last entry
+`38ada9e -> 8ced956 commit: Record phase 1.5 closure ...`; `git cat-file -t
+8ced956` returns `commit`.
+
+protocol_impact: None on scientific results. No source, config, input hash,
+raw output or previously accepted result was modified or lost.
+
+resolution_or_status: RESOLVED. The ref was restored to `8ced956` and verified
+with `git rev-parse HEAD` and `git log`. Recovery procedure for recurrence:
+read `.git/logs/refs/heads/<branch>`, confirm the object with `git cat-file -t`,
+then write the SHA into the loose ref path; do not run destructive git commands.
+Multi-endpoint concurrent use of this workspace remains a hazard.
