@@ -10,7 +10,7 @@
 - [x] Implement numerical core, timed candidate runner and raw-derived report; 12 numerical/integration tests pass.
 - [ ] Freeze executable provenance and execute Phase 1.5A/B/C in order.
 - [x] Phase 1.5A `PASSED`: all 25 historical inputs terminal; spectral and signed-decomposition identities checked.
-- [ ] Phase 1.5B start/preconditioner trajectories.
+- [x] Phase 1.5B `PASSED`: all planned start/preconditioner trajectories terminal, raw hashes checked; strict-residual solver failures retained.
 - [ ] Phase 1.5C prefix stopping, gates and report.
 - [ ] Compact matrix-free replay and all new training remain unstarted.
 - [ ] Legacy missing-file failures remain separate; remote synchronization withheld.
