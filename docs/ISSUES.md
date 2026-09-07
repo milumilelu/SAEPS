@@ -606,3 +606,25 @@ every valid historical sample. All worsened rows are retained in
 gamma or checkpoint were changed to remove this outcome. The exact-GN control
 does not establish deployable efficiency. Stop at this requested layer; no
 large-network or confirmation execution follows from these results.
+# I-V6-001 — Phase 1.5 configured scalable candidates do not pass the entry gate
+
+Date: 2026-09-07. Classification: scientific failure (historical-development
+candidate-set limitation). All configured fixed-budget and adaptive scalable
+candidates fail at least one preregistered accuracy, worst-case, noninferiority
+or setup-budget requirement. Exact GN is a dense control and cannot be selected.
+Retain every unsuccessful/worsened checkpoint and sketch; do not enlarge rank,
+outer budgets, change gamma or adjust the stopping indicator. The method-selection
+outcome is NOT_SUPPORTED for this candidate set, not a revision of historical
+SAEPS confirmation and not an engineering execution failure.
+Evidence: `outputs/runs/v5/upgrade_pilot/phase15/20260907_001/report/summary.json`.
+Action: stop at Phase 1.5; no replay, medium-network, profile or Darcy execution.
+
+## I-V6-002 — Strict response tolerance and indicator limitations retained
+
+Classification: numerical failure for full PCG response termination; scientific
+failure for indicator accuracy. Some B trajectories reach n_theta before the
+fixed verified-residual tolerance. Their finite pre-breakdown C prefixes remain
+budgeted outputs, not converged response claims. The fixed indicator also has
+false early stops relative to the offline curvature target. All statuses,
+first-hit missing values and indicator/gap diagnostics are in the raw/aggregate
+records; no rescue or oracle-controlled stop was introduced.

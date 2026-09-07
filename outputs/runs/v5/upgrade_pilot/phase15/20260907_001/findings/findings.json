@@ -1,0 +1,137 @@
+{
+  "source_summary_sha256": "3537afe184bf31ad2b5a4d6c497ad555fbb232081704d371534ae03550a8203b",
+  "conditions": [
+    {
+      "candidate": "diagonal",
+      "rank": 0,
+      "records": 21,
+      "median_condition": 35432616.738824755,
+      "worst_condition": 139763793.2814536
+    },
+    {
+      "candidate": "nystrom",
+      "rank": 4,
+      "records": 105,
+      "median_condition": 4747304.634497507,
+      "worst_condition": 39940909.335716166
+    },
+    {
+      "candidate": "nystrom",
+      "rank": 8,
+      "records": 105,
+      "median_condition": 591690.7794827349,
+      "worst_condition": 11348942.69460065
+    },
+    {
+      "candidate": "nystrom",
+      "rank": 16,
+      "records": 105,
+      "median_condition": 24726.034588938892,
+      "worst_condition": 914143.5546662429
+    },
+    {
+      "candidate": "nystrom",
+      "rank": 24,
+      "records": 105,
+      "median_condition": 2254.987395003351,
+      "worst_condition": 66375.49365049276
+    },
+    {
+      "candidate": "nystrom",
+      "rank": 32,
+      "records": 105,
+      "median_condition": 217.59768810404665,
+      "worst_condition": 3984.3345588221887
+    },
+    {
+      "candidate": "recycled_ritz",
+      "rank": 4,
+      "records": 21,
+      "median_condition": 2255200.523260021,
+      "worst_condition": 16482064.982310181
+    },
+    {
+      "candidate": "recycled_ritz",
+      "rank": 8,
+      "records": 21,
+      "median_condition": 333164.8480606412,
+      "worst_condition": 4221801.925534962
+    },
+    {
+      "candidate": "recycled_ritz",
+      "rank": 16,
+      "records": 21,
+      "median_condition": 11028.166316865107,
+      "worst_condition": 188720.81226503622
+    },
+    {
+      "candidate": "recycled_ritz",
+      "rank": 24,
+      "records": 21,
+      "median_condition": 1195.9817283485916,
+      "worst_condition": 21640.36589108014
+    },
+    {
+      "candidate": "hybrid_defect",
+      "rank": 8,
+      "records": 21,
+      "median_condition": 18661210.76645027,
+      "worst_condition": 373219075.3001456
+    },
+    {
+      "candidate": "hybrid_defect",
+      "rank": 16,
+      "records": 21,
+      "median_condition": 116133.84930562493,
+      "worst_condition": 5451862.945860825
+    },
+    {
+      "candidate": "hybrid_defect",
+      "rank": 24,
+      "records": 21,
+      "median_condition": 5103.13377142787,
+      "worst_condition": 276925.2798607709
+    },
+    {
+      "candidate": "exact_gn",
+      "rank": -1,
+      "records": 21,
+      "median_condition": 2.2765237588252694,
+      "worst_condition": 5.35031224870868
+    }
+  ],
+  "exact_condition_median": 2.276523758921456,
+  "exact_condition_min": 1.6199588272285,
+  "exact_condition_max": 5.3503122479355465,
+  "median_90pct_energy_directions": 13.0,
+  "cancellation_59_67": [
+    {
+      "source": {
+        "path": "outputs/posthoc/exact_fixed_state_v3/burgers/seed_59.json",
+        "sha256": "c114a44f04d4fa224ac87315a478f79a22596d161a0c12579f998cf31be74b69",
+        "benchmark": "Burgers",
+        "seed": 59,
+        "analysis_valid": true,
+        "failure_reason": null
+      },
+      "chi": 0.1487858657884778,
+      "delta_fix": -2.083881873365385,
+      "delta_relax": -2.8123758139898882
+    },
+    {
+      "source": {
+        "path": "outputs/posthoc/exact_fixed_state_v3/burgers/seed_67.json",
+        "sha256": "8fd2dbdb2b09d82c1bc069362ba0d041e993f5d608416b7066e121e378517cae",
+        "benchmark": "Burgers",
+        "seed": 67,
+        "analysis_valid": true,
+        "failure_reason": null
+      },
+      "chi": 0.1574979104192554,
+      "delta_fix": -5.313488317427527,
+      "delta_relax": -3.867501589872518
+    }
+  ],
+  "interpretation": "No configured scalable candidate passed. Do not enlarge budgets or start subsequent layers.",
+  "script_sha256": "d279a32ff6d009539503f549a37516b9a26217c762f3d17d48f48484e98fb897"
+}

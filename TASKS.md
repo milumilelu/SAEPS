@@ -2,16 +2,20 @@
 
 ## Upgrade Phase 1.5 — Protocol preparation (2026-09-07)
 
-**协议准备状态:** `PASSED`; **实验状态:** `IN_PROGRESS` — authorized 2026-09-07.
+**协议准备状态:** `PASSED`; **实验状态:** `PASSED` — bounded historical Phase 1.5 completed.
+**开发候选门槛:** `NOT_SUPPORTED`; no candidate selected and no later layer started.
 
 - [x] Translate the supplied route into `docs/v6/PHASE15_EXECUTION_PROTOCOL.md`.
 - [x] Explicit candidate, seed, cost, stopping and gate configuration in `configs/v6/development/phase15.json`.
 - [x] Complete source inventory and static preflight; no new numerical results.
 - [x] Implement numerical core, timed candidate runner and raw-derived report; 12 numerical/integration tests pass.
-- [ ] Freeze executable provenance and execute Phase 1.5A/B/C in order.
+- [x] Freeze executable provenance and execute Phase 1.5A/B/C in order.
 - [x] Phase 1.5A `PASSED`: all 25 historical inputs terminal; spectral and signed-decomposition identities checked.
 - [x] Phase 1.5B `PASSED`: all planned start/preconditioner trajectories terminal, raw hashes checked; strict-residual solver failures retained.
-- [ ] Phase 1.5C prefix stopping, gates and report.
+- [x] Phase 1.5C `PASSED`: prefix stopping, all candidate gates and report generated from raw data.
+- [x] Independent source/code hashes, denominator, algebra, spectral bounds, cost counts and exact reaggregation pass.
+- [x] Evidence: `outputs/runs/v5/upgrade_pilot/phase15/20260907_001/findings/FINDINGS.md` and `RESULT_VALIDATION_V2.json`.
+- [x] Full repository validator actually run; remaining legacy failures reference pre-existing missing files, separately retained in `LEGACY_VALIDATION.json`.
 - [ ] Compact matrix-free replay and all new training remain unstarted.
 - [ ] Legacy missing-file failures remain separate; remote synchronization withheld.
 

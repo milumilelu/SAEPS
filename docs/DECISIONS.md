@@ -563,3 +563,13 @@ from `cd01a26`. Resolve approximate setup budget to 30 additional Gv, outer cap
 to 5, damaged spectral outlier thresholds to 0.1/0.5, and randomized gate to
 worst-sketch per checkpoint. These are explicit prospective development choices,
 not historical findings. See `docs/v6/PHASE15_EXECUTION_PROTOCOL.md`.
+# D-V6-002 — Execute and close Phase 1.5 under explicit user authorization
+
+2026-09-07: User instruction “开始运行” authorizes the prepared Phase 1.5 only.
+Preserve the original DRAFT config; freeze executable/source hashes in the new
+`configs/v6/development/phase15_execution_001.json`. Execute A, B, C sequentially
+with separate acceptance commits. Accept bounded engineering completion after
+independent raw-lineage, algebra, count and reaggregation checks. The automated
+candidate-set outcome is NOT_SUPPORTED, so do not proceed to subsequent layers.
+The original report-generation implementation and all numerical files remain
+byte-frozen; additional validator/findings scripts operate only on saved raw data.

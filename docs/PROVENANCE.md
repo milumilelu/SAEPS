@@ -95,3 +95,16 @@ record input and script SHA256. The derived audit also records the ZIP hash,
 audit script hash, base commit, environment and pre-existing worktree changes.
 All new numerical data are under `outputs/runs/v5/upgrade_pilot/`; no historical
 matrix or locked configuration is modified. See `docs/UPGRADE_MATRIX_PILOT.md`.
+# Phase 1.5 execution 001 — 2026-09-07
+
+Authorization: user's “开始运行”. Config and historical inputs remain unchanged.
+Execution freeze: `configs/v6/development/phase15_execution_001.json`; implementation
+commit `38c188a`; A acceptance `0bfdde7`; B acceptance `2eb3447`.
+Output root: `outputs/runs/v5/upgrade_pilot/phase15/20260907_001`.
+A/B/C per-file manifests record terminal status and raw hashes; B/C JSON is gzip
+compressed losslessly. Environment and run timestamp are in the shared execution
+record; each raw record references it. Raw rows include all measured time repeats
+and operator counts; oracle timing is separate and real JVP/VJP/HVP counts are zero.
+Derived reports, figures, independent validation and legacy failures are retained.
+No historical files or frozen algorithms were changed. No remote push while
+unrelated pre-existing user changes remain.

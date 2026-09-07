@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="630" viewBox="0 0 1050 630">
+<rect width="1050" height="630" fill="white"/>
+<text x="40" y="35" font-size="21">Historical matrix accuracy vs complete cold diagnostic time</text>
+<text x="40" y="60" font-size="13">All configured outputs; worst sketch per checkpoint; exact GN is a dense control</text>
+<path d="M100.0 100 V530" stroke="#ddd"/><text x="88.0" y="555" font-size="12">1e0</text>
+<path d="M860.0 100 V530" stroke="#ddd"/><text x="848.0" y="555" font-size="12">1e1</text>
+<path d="M100 530.0 H860" stroke="#ddd"/><text x="45" y="534.0" font-size="12">1e-7</text>
+<path d="M100 458.3333333333333 H860" stroke="#ddd"/><text x="45" y="462.3333333333333" font-size="12">1e-6</text>
+<path d="M100 386.66666666666663 H860" stroke="#ddd"/><text x="45" y="390.66666666666663" font-size="12">1e-5</text>
+<path d="M100 315.0 H860" stroke="#ddd"/><text x="45" y="319.0" font-size="12">1e-4</text>
+<path d="M100 243.33333333333331 H860" stroke="#ddd"/><text x="45" y="247.33333333333331" font-size="12">1e-3</text>
+<path d="M100 171.66666666666669 H860" stroke="#ddd"/><text x="45" y="175.66666666666669" font-size="12">1e-2</text>
+<path d="M100 100.0 H860" stroke="#ddd"/><text x="45" y="104.0" font-size="12">1e-1</text>
+<text x="320" y="595" font-size="15">Median cold time (milliseconds, logarithmic)</text>
+<text x="16" y="400" font-size="14" transform="rotate(-90 16 400)">Median relative curvature error</text>
+<polyline fill="none" stroke="#333" stroke-dasharray="5 4" points="494.95,163.64 509.51,248.07 528.53,303.34 542.52,476.46"/>
+<circle cx="494.950" cy="163.638" r="4" fill="#8e44ad" opacity="0.7"><title>exact_gn rank=-1 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="509.507" cy="248.070" r="4" fill="#8e44ad" opacity="0.7"><title>exact_gn rank=-1 fixed_1; median=0.000858833, worst=0.0218409; gate=False</title></circle>
+<circle cx="528.110" cy="163.638" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=4 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="528.525" cy="303.339" r="4" fill="#8e44ad" opacity="0.7"><title>exact_gn rank=-1 adaptive; median=0.000145451, worst=0.00110159; gate=False</title></circle>
+<circle cx="529.002" cy="163.638" r="4" fill="#666666" opacity="0.7"><title>diagonal rank=0 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="532.377" cy="163.864" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=4 fixed_1; median=0.0128492, worst=0.081423; gate=False</title></circle>
+<circle cx="534.127" cy="163.904" r="4" fill="#666666" opacity="0.7"><title>diagonal rank=0 fixed_1; median=0.0128327, worst=0.0811489; gate=False</title></circle>
+<circle cx="539.470" cy="164.399" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=4 fixed_3; median=0.0126303, worst=0.0792978; gate=False</title></circle>
+<circle cx="542.515" cy="476.463" r="4" fill="#8e44ad" opacity="0.7"><title>exact_gn rank=-1 fixed_3; median=5.58502e-07, worst=0.000586312; gate=False</title></circle>
+<circle cx="544.590" cy="167.368" r="4" fill="#666666" opacity="0.7"><title>diagonal rank=0 adaptive; median=0.011481, worst=0.0784418; gate=False</title></circle>
+<circle cx="545.079" cy="166.050" r="4" fill="#666666" opacity="0.7"><title>diagonal rank=0 fixed_3; median=0.0119778, worst=0.0800701; gate=False</title></circle>
+<circle cx="546.157" cy="166.935" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=4 fixed_5; median=0.0116418, worst=0.0784825; gate=False</title></circle>
+<circle cx="546.157" cy="166.935" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=4 adaptive; median=0.0116418, worst=0.0784825; gate=False</title></circle>
+<circle cx="555.139" cy="168.734" r="4" fill="#666666" opacity="0.7"><title>diagonal rank=0 fixed_5; median=0.010988, worst=0.0784418; gate=False</title></circle>
+<circle cx="576.689" cy="163.638" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=24 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="581.482" cy="176.772" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=24 fixed_1; median=0.00848728, worst=0.0723384; gate=False</title></circle>
+<circle cx="582.685" cy="163.638" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=8 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="584.583" cy="166.385" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=8 adaptive; median=0.0118496, worst=0.0820674; gate=False</title></circle>
+<circle cx="584.583" cy="163.638" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=8 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="584.986" cy="163.638" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=16 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="586.456" cy="164.730" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=8 fixed_1; median=0.0124965, worst=0.0806072; gate=False</title></circle>
+<circle cx="589.286" cy="180.912" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=24 fixed_3; median=0.00743, worst=0.06852; gate=False</title></circle>
+<circle cx="589.654" cy="163.638" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=16 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="589.848" cy="175.911" r="4" fill="#666666" opacity="0.7"><title>diagonal rank=0 fixed_10; median=0.00872509, worst=0.0769249; gate=False</title></circle>
+<circle cx="590.879" cy="164.896" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=8 fixed_1; median=0.0124303, worst=0.0811287; gate=False</title></circle>
+<circle cx="590.954" cy="174.729" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=16 fixed_1; median=0.00906283, worst=0.078043; gate=False</title></circle>
+<circle cx="592.724" cy="167.899" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=8 fixed_3; median=0.0112867, worst=0.0789026; gate=False</title></circle>
+<circle cx="596.390" cy="172.893" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=16 fixed_1; median=0.00961364, worst=0.0793192; gate=False</title></circle>
+<circle cx="596.911" cy="181.801" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=24 fixed_5; median=0.00722079, worst=0.0631622; gate=False</title></circle>
+<circle cx="596.911" cy="181.801" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=24 adaptive; median=0.00722079, worst=0.0631622; gate=False</title></circle>
+<circle cx="598.496" cy="174.027" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=8 fixed_5; median=0.00926972, worst=0.0781566; gate=False</title></circle>
+<circle cx="598.496" cy="174.027" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=8 adaptive; median=0.00926972, worst=0.0781566; gate=False</title></circle>
+<circle cx="601.038" cy="175.814" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=16 fixed_3; median=0.00875254, worst=0.0749217; gate=False</title></circle>
+<circle cx="602.243" cy="165.990" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=8 fixed_3; median=0.0120007, worst=0.0804147; gate=False</title></circle>
+<circle cx="606.902" cy="163.638" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=24 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="607.987" cy="166.385" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=8 fixed_5; median=0.0118496, worst=0.0803712; gate=False</title></circle>
+<circle cx="608.709" cy="174.781" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=16 fixed_3; median=0.00904775, worst=0.0744328; gate=False</title></circle>
+<circle cx="610.710" cy="177.167" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=16 fixed_5; median=0.00838019, worst=0.0742884; gate=False</title></circle>
+<circle cx="610.710" cy="177.167" r="4" fill="#d95f02" opacity="0.7"><title>hybrid_defect rank=16 adaptive; median=0.00838019, worst=0.0742884; gate=False</title></circle>
+<circle cx="612.734" cy="172.547" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=24 fixed_1; median=0.00972123, worst=0.0759033; gate=False</title></circle>
+<circle cx="619.342" cy="176.781" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=16 fixed_5; median=0.00848476, worst=0.072574; gate=False</title></circle>
+<circle cx="619.342" cy="176.781" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=16 adaptive; median=0.00848476, worst=0.072574; gate=False</title></circle>
+<circle cx="623.773" cy="178.910" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=24 fixed_3; median=0.00792375, worst=0.0697679; gate=False</title></circle>
+<circle cx="629.098" cy="163.638" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=4 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="630.570" cy="189.085" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=24 fixed_5; median=0.00571421, worst=0.0561129; gate=False</title></circle>
+<circle cx="630.570" cy="189.085" r="4" fill="#1b9e77" opacity="0.7"><title>recycled_ritz rank=24 adaptive; median=0.00571421, worst=0.0561129; gate=False</title></circle>
+<circle cx="634.639" cy="163.756" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=4 fixed_1; median=0.0128937, worst=0.0817503; gate=False</title></circle>
+<circle cx="639.129" cy="163.638" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=8 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="644.778" cy="163.867" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=8 fixed_1; median=0.012848, worst=0.0818108; gate=False</title></circle>
+<circle cx="644.803" cy="163.968" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=4 fixed_3; median=0.0128062, worst=0.0811209; gate=False</title></circle>
+<circle cx="652.114" cy="163.638" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=16 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="654.547" cy="167.311" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=8 fixed_3; median=0.0115022, worst=0.0794634; gate=False</title></circle>
+<circle cx="656.521" cy="166.766" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=4 fixed_5; median=0.0117054, worst=0.0791098; gate=False</title></circle>
+<circle cx="656.521" cy="166.766" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=4 adaptive; median=0.0117054, worst=0.0791098; gate=False</title></circle>
+<circle cx="657.602" cy="170.670" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=16 fixed_1; median=0.0103255, worst=0.0809819; gate=False</title></circle>
+<circle cx="662.790" cy="163.638" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=24 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="663.886" cy="172.802" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=8 fixed_5; median=0.0096419, worst=0.0786871; gate=False</title></circle>
+<circle cx="663.886" cy="172.802" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=8 adaptive; median=0.0096419, worst=0.0786871; gate=False</title></circle>
+<circle cx="664.125" cy="172.946" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=16 fixed_3; median=0.00959724, worst=0.0770214; gate=False</title></circle>
+<circle cx="667.814" cy="163.638" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=32 fixed_0; median=0.0129427, worst=0.0820674; gate=False</title></circle>
+<circle cx="668.027" cy="171.250" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=24 fixed_1; median=0.0101347, worst=0.0796944; gate=False</title></circle>
+<circle cx="668.682" cy="174.435" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=16 fixed_5; median=0.00914905, worst=0.0747295; gate=False</title></circle>
+<circle cx="668.682" cy="174.435" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=16 adaptive; median=0.00914905, worst=0.0747295; gate=False</title></circle>
+<circle cx="672.816" cy="172.545" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=32 fixed_1; median=0.00972188, worst=0.0783123; gate=False</title></circle>
+<circle cx="676.290" cy="182.738" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=24 adaptive; median=0.00700685, worst=0.0651461; gate=False</title></circle>
+<circle cx="676.439" cy="174.052" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=24 fixed_3; median=0.00926236, worst=0.0750503; gate=False</title></circle>
+<circle cx="680.780" cy="182.738" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=24 fixed_5; median=0.00700685, worst=0.0651461; gate=False</title></circle>
+<circle cx="681.364" cy="187.376" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=32 fixed_3; median=0.00603671, worst=0.0590764; gate=False</title></circle>
+<circle cx="683.653" cy="200.846" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=32 adaptive; median=0.00391602, worst=0.0444399; gate=False</title></circle>
+<circle cx="689.464" cy="200.846" r="4" fill="#2166ac" opacity="0.7"><title>nystrom rank=32 fixed_5; median=0.00391602, worst=0.0444399; gate=False</title></circle>
+<circle cx="885" cy="115" r="4" fill="#666666"/><text x="896" y="119" font-size="12">diagonal</text>
+<circle cx="885" cy="140" r="4" fill="#2166ac"/><text x="896" y="144" font-size="12">nystrom</text>
+<circle cx="885" cy="165" r="4" fill="#1b9e77"/><text x="896" y="169" font-size="12">recycled_ritz</text>
+<circle cx="885" cy="190" r="4" fill="#d95f02"/><text x="896" y="194" font-size="12">hybrid_defect</text>
+<circle cx="885" cy="215" r="4" fill="#8e44ad"/><text x="896" y="219" font-size="12">exact_gn</text>
+</svg>
