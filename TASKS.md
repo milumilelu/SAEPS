@@ -1,5 +1,18 @@
 # TASKS.md — SAEPS v2.0
 
+## Upgrade layer 1 — Historical matrix development (2026-09-07)
+
+**状态:** `PASSED` — bounded matrix pilot; prior scientific conclusions unchanged.
+
+- [x] User-authorized first layer only; separate upgrade namespace, no new training.
+- [x] Both supplied preconditioners and budgets executed with all historical records retained.
+- [x] Original SAEPS and exact Schur reproduced; algebra identities and overwrite protection checked.
+- [x] Per-checkpoint, worst-case, worsened and invalid records automatically reported.
+- [x] Evidence: `outputs/runs/v5/upgrade_pilot/audit/REPORT.md` and `audit.json`.
+- [x] Scope and reproduction: `docs/UPGRADE_MATRIX_PILOT.md`.
+- [ ] Equal-accuracy production cost remains untested; second-layer training not started.
+- [ ] Remote sync withheld because unrelated user changes exist in the initial worktree.
+
 > 最高执行协议：`docs/EXECUTION_CONTRACT.md`（`SAEPS-JCP-EXEC-v2.0`）。
 
 ## 状态规则

@@ -86,3 +86,12 @@ Run-level provenance schema is defined by the execution contract. Experimental p
 - Comparative D positive 8/8 valid development seeds
 - Confirmation 30–44 remains unseen and unauthorized
 - Evidence: `docs/evidence/V3_5_ACCEPTANCE.md`
+# Upgrade historical matrix pilot — 2026-09-07
+
+Source: user-supplied `SAEPS_upgrade_starter.zip`; its Python script is extracted
+unchanged into `scripts/upgrade_pilot/`. Source matrices are the complete
+`outputs/posthoc/exact_fixed_state_v3/*/seed_*.json` archive. Both run manifests
+record input and script SHA256. The derived audit also records the ZIP hash,
+audit script hash, base commit, environment and pre-existing worktree changes.
+All new numerical data are under `outputs/runs/v5/upgrade_pilot/`; no historical
+matrix or locked configuration is modified. See `docs/UPGRADE_MATRIX_PILOT.md`.

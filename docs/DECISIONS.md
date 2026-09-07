@@ -546,3 +546,11 @@ paper_scope: Not ready for a full JCP claim. A limited scalar finite-gamma curva
 validation_evidence: docs/evidence/v4_final_validation.json, docs/evidence/v4_final_audit.json and V4_FINAL_AUDIT_REPORT.md.
 authorizing_protocol: SAEPS Master Research Program v4.0 and Amendments 012--020.
 ```
+# D-UPGRADE-001 — First-layer historical matrix pilot
+
+2026-09-07: Execute the user's bounded historical-matrix request in a new
+development namespace. The attached proposal is context, not authorization for
+later layers. Preserve all historical locks and outcomes. Use the unmodified
+starter defaults and both suggested preconditioners. See
+`docs/UPGRADE_MATRIX_PILOT.md` and generated `outputs/runs/v5/upgrade_pilot/audit/REPORT.md`.
+No scientific support threshold or new confirmation is introduced.

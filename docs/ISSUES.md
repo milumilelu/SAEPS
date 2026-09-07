@@ -586,3 +586,23 @@ affected_runs: confirmation seeds219 and221; all 10 planned seeds remain in the 
 protocol_impact: The preregistered minimum-valid and planned-win requirements are both 9/10. With only 8 valid/wins, the scientific status is INCONCLUSIVE despite uniformly positive D2 among valid seeds. Do not reclassify as SUPPORTED or NOT_SUPPORTED.
 resolution_or_status: PERMANENT CONFIRMATION TERMINAL. No replacement or rescue seeds; retain scalar claim and report strong but availability-limited two-parameter directional evidence.
 ```
+## I-UPGRADE-002 — Existing deleted files block whole-repository acceptance
+
+Classification: implementation failure (pre-existing workspace incompleteness).
+The unified validator was actually run. After resolving the new-output storage
+collision without changing historical inventories, its remaining failures are
+missing `FINAL_VALIDATION_REPORT.md` and `V5_JCP_MINIMAL_PROTOCOL.md`, both already
+deleted at task start. The suite reports one failure; full output is preserved at
+`outputs/runs/v5/upgrade_pilot/audit/repository_validation.json`. Do not restore
+unrelated user deletions or claim full repository acceptance. Pilot-specific
+audits pass. Remote synchronization is withheld.
+
+## I-UPGRADE-001 — Correction can worsen individual historical samples
+
+Date: 2026-09-07. Classification: scientific failure (exploratory method limitation).
+The initial K(Z0) correction and diagonal-preconditioned extensions do not improve
+every valid historical sample. All worsened rows are retained in
+`outputs/runs/v5/upgrade_pilot/audit/audit.json` and its generated report. No thresholds,
+gamma or checkpoint were changed to remove this outcome. The exact-GN control
+does not establish deployable efficiency. Stop at this requested layer; no
+large-network or confirmation execution follows from these results.
