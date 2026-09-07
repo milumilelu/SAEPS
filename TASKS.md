@@ -2,12 +2,13 @@
 
 ## Upgrade Phase 1.5 — Protocol preparation (2026-09-07)
 
-**协议准备状态:** `PASSED`; **实验状态:** `NOT_STARTED`.
+**协议准备状态:** `PASSED`; **实验状态:** `IN_PROGRESS` — authorized 2026-09-07.
 
 - [x] Translate the supplied route into `docs/v6/PHASE15_EXECUTION_PROTOCOL.md`.
 - [x] Explicit candidate, seed, cost, stopping and gate configuration in `configs/v6/development/phase15.json`.
 - [x] Complete source inventory and static preflight; no new numerical results.
-- [ ] Implement and test Phase 1.5A/B/C; freeze executable provenance before scientific execution.
+- [x] Implement numerical core, timed candidate runner and raw-derived report; 12 numerical/integration tests pass.
+- [ ] Freeze executable provenance and execute Phase 1.5A/B/C in order.
 - [ ] Compact matrix-free replay and all new training remain unstarted.
 - [ ] Legacy missing-file failures remain separate; remote synchronization withheld.
 
