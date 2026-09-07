@@ -1,5 +1,16 @@
 # TASKS.md — SAEPS v2.0
 
+## Upgrade Phase 1.5 — Protocol preparation (2026-09-07)
+
+**协议准备状态:** `PASSED`; **实验状态:** `NOT_STARTED`.
+
+- [x] Translate the supplied route into `docs/v6/PHASE15_EXECUTION_PROTOCOL.md`.
+- [x] Explicit candidate, seed, cost, stopping and gate configuration in `configs/v6/development/phase15.json`.
+- [x] Complete source inventory and static preflight; no new numerical results.
+- [ ] Implement and test Phase 1.5A/B/C; freeze executable provenance before scientific execution.
+- [ ] Compact matrix-free replay and all new training remain unstarted.
+- [ ] Legacy missing-file failures remain separate; remote synchronization withheld.
+
 ## Upgrade layer 1 — Historical matrix development (2026-09-07)
 
 **状态:** `PASSED` — bounded matrix pilot; prior scientific conclusions unchanged.

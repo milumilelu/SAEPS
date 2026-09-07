@@ -554,3 +554,12 @@ later layers. Preserve all historical locks and outcomes. Use the unmodified
 starter defaults and both suggested preconditioners. See
 `docs/UPGRADE_MATRIX_PILOT.md` and generated `outputs/runs/v5/upgrade_pilot/audit/REPORT.md`.
 No scientific support threshold or new confirmation is introduced.
+# D-V6-001 — Phase 1.5 executable protocol preparation
+
+2026-09-07: Interpret the supplied next-step route as preparation of the detailed
+Phase 1.5 protocol and development configuration. Do not infer authorization for
+all later training/confirmation layers. Start branch `codex/v6-phase15-protocol`
+from `cd01a26`. Resolve approximate setup budget to 30 additional Gv, outer cap
+to 5, damaged spectral outlier thresholds to 0.1/0.5, and randomized gate to
+worst-sketch per checkpoint. These are explicit prospective development choices,
+not historical findings. See `docs/v6/PHASE15_EXECUTION_PROTOCOL.md`.
