@@ -18,8 +18,10 @@
 - [x] Full repository validator actually run; remaining legacy failures reference pre-existing missing files, separately retained in `LEGACY_VALIDATION.json`.
 - [x] Independent re-verification: 15 frozen implementation hashes and 25 input hashes unchanged; `tests/v6` 12/12.
 - [x] Stale pre-execution/one-shot validator lifecycle recorded as `I-V6-003`; deliberately not repaired to preserve frozen hashes.
+- [x] Branch `codex/v6-phase15-protocol` pushed to private remote at `c742d25` (8 commits); `main` fast-forwarded `d5a231d..cd01a26`.
+- [x] User deletions/untracked additions (`paper/`, `任务说明/`, `exact_fixed_state_baseline.py`, 7 deleted reports) remain local and uncommitted per protocol section 1.
 - [ ] Compact matrix-free replay and all new training remain unstarted.
-- [ ] Legacy missing-file failures remain separate; remote synchronization withheld.
+- [ ] Legacy P9 validator failures remain separate in `LEGACY_VALIDATION.json`; not resolved by this sync.
 
 ## Upgrade layer 1 — Historical matrix development (2026-09-07)
 
@@ -31,8 +33,8 @@
 - [x] Per-checkpoint, worst-case, worsened and invalid records automatically reported.
 - [x] Evidence: `outputs/runs/v5/upgrade_pilot/audit/REPORT.md` and `audit.json`.
 - [x] Scope and reproduction: `docs/UPGRADE_MATRIX_PILOT.md`.
+- [x] Remote sync performed: `main` fast-forwarded to `cd01a26`; unrelated user worktree changes intentionally left uncommitted.
 - [ ] Equal-accuracy production cost remains untested; second-layer training not started.
-- [ ] Remote sync withheld because unrelated user changes exist in the initial worktree.
 
 > 最高执行协议：`docs/EXECUTION_CONTRACT.md`（`SAEPS-JCP-EXEC-v2.0`）。
 
