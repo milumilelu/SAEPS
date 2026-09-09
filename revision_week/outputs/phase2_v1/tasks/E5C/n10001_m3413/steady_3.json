@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "failure_reason": null,
+  "F_SO": [
+    [
+      4.202788792882797
+    ]
+  ],
+  "F_GN": [
+    [
+      4.2032185749866375
+    ]
+  ],
+  "F_RAW": [
+    [
+      5.000000000000003
+    ]
+  ],
+  "solves": [
+    {
+      "iterations": 13,
+      "verified_relative_residual": 2.1136568003343287e-12,
+      "target_converged": true
+    }
+  ],
+  "GN_seconds": 15.581290100002661,
+  "SO_increment_seconds": 1.0054679999593645,
+  "GN_quadratic_diagnostic_seconds": 0.3554915999993682,
+  "total_seconds": 17.154984100023285,
+  "operation_counts": {
+    "residual": 1,
+    "jvp_parameter": 1,
+    "vjp_theta": 29,
+    "jvp_theta": 29
+  },
+  "HVP_count": 1,
+  "A_matvec_count": 28,
+  "explicit_jacobians": 0,
+  "explicit_hessians": 0,
+  "forbidden_entry_attempts": [],
+  "route": "true_MF_GN_plus_AD_HVP",
+  "CG_stability": "two_pass_A_conjugacy_reorthogonalization_true_residual_each_iteration",
+  "pass_label": "steady_3",
+  "n": 10001,
+  "m": 3413
+}
