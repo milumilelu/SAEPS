@@ -1,0 +1,1383 @@
+可以，而且我建议这次不要再按“想到什么补什么”的方式跑。现在仓库已经有足够多的结果，下一轮应该围绕几个**明确待决的科学问题**设计成一棵实验决策树。
+
+我重新对照了当前 V5 审计和这一轮 Phase1C。原论文现在最稳的是 scalar finite-\(\gamma\) reduced-curvature：Burgers 12/12 valid、Allen–Cahn 9/9 valid 都支持 SAEPS-GN；最明显的旧短板是 nonlinear profile 只有 1/5 valid、two-parameter 只有 8/10 availability、scalability 目前仍主要是 engineering/cost evidence。 这一轮又把情况推进成：SO 在 19/21 中改善，但 Allen–Cahn 的 finite-step profile 遇到 SPD 丢失，而新 ADAPT estimator 只有 1/21 通过。
+
+因此我建议下面这套 **Phase 2 实验计划**。
+
+---
+
+# 一、下一轮真正要回答的 5 个问题
+
+不要把目标写成“继续验证 SO”，而写成：
+
+1. **SO 的 19/21 是否能在完全新 seed 上复现？**
+2. **SO 为什么在某些中心失败，能否找到清楚的几何机制？**
+3. **准确的局部曲率在多大的参数位移范围内仍然有效？**
+4. **局部曲率失效究竟来自高阶非线性，还是 state-minimum branch/SPD 的丢失？**
+5. **SO 能否进入多参数和真正 matrix-free 场景？**
+
+第 1 个决定 SO 能不能进主文。
+
+第 3、4 个决定这项工作能不能从“多加一个 correction”升级成更有研究味道的故事。
+
+第 5 个决定它是不是一个真正值得长期发展的算法，而不只是 compact scalar benchmark 上的漂亮现象。
+
+---
+
+# 二、我建议的总体顺序
+
+我会分成六组，严格按下面的顺序做：
+
+| 实验 | 内容                                    |  成本 | 论文价值 |      优先级 |
+| -- | ------------------------------------- | --: | ---: | -------: |
+| E0 | 现有数据上的 SO 深度开发审查                      |  很低 |    高 |   **立即** |
+| E1 | fresh scalar SO 独立确认                  |   中 |   极高 |   **必须** |
+| E2 | locality radius + branch continuation |   中 |   极高 |   **必须** |
+| E3 | fresh safeguarded one-step            |   中 |    高 |   E2 后决定 |
+| E4 | two-parameter SO                      |   中 |   很高 | **强烈建议** |
+| E5 | 真正 matrix-free SO scalability         |   中 |    高 | **强烈建议** |
+| E6 | 新 error estimator kill-test           | 低→高 |  不确定 |       最后 |
+
+其中 **E0→E1→E2** 是核心链条。
+
+---
+
+# 三、E0：先别训练，利用现有数据做一次“SO 开发收尾”
+
+这是最应该马上做的。
+
+目前你已经有 21 个 valid exact matrix centers，而且这些中心已经用来开发 SO，所以它们现在应该明确当作 **development set**，榨干机制信息，然后永久停止在这批数据上调方法。
+
+## E0-A：把 SO 的两个失败拆成统一机制
+
+定义
+
+$$
+e_{\rm GN}=F_{\rm GN}-F_*,
+$$
+
+以及 SO correction
+
+$$
+c=F_{\rm SO}-F_{\rm GN}.
+$$
+
+那么 SO 比 GN 更好当且仅当
+
+$$
+|e_{\rm GN}+c|<|e_{\rm GN}|,
+$$
+
+等价于
+
+$$
+c(2e_{\rm GN}+c)<0.
+$$
+
+对于 scalar 情况，可以非常直观地分成：
+
+* **方向错误**：
+
+  $$
+  \operatorname{sign}(c)=\operatorname{sign}(e_{\rm GN})
+  $$
+* **方向正确且幅度合适**：
+
+  $$
+  \operatorname{sign}(c)\neq\operatorname{sign}(e_{\rm GN}),
+  \quad
+  |c|<2|e_{\rm GN}|
+  $$
+* **方向正确但 overshoot**：
+
+  $$
+  \operatorname{sign}(c)\neq\operatorname{sign}(e_{\rm GN}),
+  \quad
+  |c|>2|e_{\rm GN}|.
+  $$
+
+这正好把现有两个失败拆开：
+
+* Burgers 59：**correction direction 错**
+* Burgers 67：**direction 对，但 overshoot**
+
+这应该成为一个正式的 mechanism table/figure，而不是在 failure appendix 里一句“两个 seed 变差”。
+
+然后对 21 个中心计算：
+
+$$
+r_D=\frac{\|B-AZ_G\|}{\|B\|},
+$$
+
+$$
+\lambda_{\min}(A),\qquad
+\kappa(A),
+$$
+
+$$
+\|Z_G\|,
+$$
+
+以及 \(D\) 在弱特征方向上的能量占比。
+
+这里的目标不是训练 classifier，而是回答：
+
+> SO 失败更像是 GN state-response inaccurate，还是 full-Hessian correction 本身异常？
+
+---
+
+## E0-B：SO 对 gamma 的敏感性
+
+这件事非常重要，因为 SAEPS 本身就是 finite-\(\gamma\) 方法。
+
+当前 locked scalar protocol 本来就有
+
+$$
+10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2}
+$$
+
+这一套 alpha grid。
+
+不要重新发明一套 gamma。
+
+在能重建 exact matrix 的 development centers 上计算每个 finite-\(\gamma\) 下：
+
+$$
+E_{\rm GN}(\gamma),
+\quad
+E_{\rm SO}(\gamma),
+\quad
+R(\gamma)=E_{\rm GN}/E_{\rm SO}.
+$$
+
+重点看：
+
+* SO win rate 是否随 \(\gamma\) 稳定；
+* 19/21 是否只发生在 nominal gamma；
+* Burgers 59/67 是否在别的 gamma 消失；
+* Allen–Cahn 的巨大 41.8× improvement 是否稳定。
+
+如果 SO 只在非常窄的 damping 区间有效，那么 fresh confirmation 之前就应知道。
+
+---
+
+## E0-C：现有 noise/sparsity exact anchors 上补 SO
+
+V5 已经有 14/14 valid exact anchors 支持 SAEPS-GN。
+
+如果原始 state/matrix 足以重建，那么直接补：
+
+$$
+RAW,\quad GN,\quad SO,\quad EXACT.
+$$
+
+不用新增训练。
+
+这会回答一个非常有价值的问题：
+
+> SO 的增益是不是只存在于 clean/full-observation inverse problem？
+
+如果 14 个 exact anchors 中 SO 仍明显改善，这是一项非常便宜但很有用的 secondary robustness evidence。
+
+---
+
+# 四、E1：最重要的实验——20 个 fresh center 的 SO 独立确认
+
+这是我认为现在**无论如何都应该做**的。
+
+现有 21 个中心不能再承担 SO 的 confirmation，因为 SO 已经是在它们上面开发出来的。
+
+仓库过去的 confirmation 习惯本身就是每个 benchmark 10 个 locked seeds。Burgers locked scalar protocol 使用 10 个 confirmation seeds；two-parameter 也是 10 个。
+
+所以新实验保持这个传统：
+
+$$
+\boxed{10\ {\rm Burgers}+10\ {\rm Allen\text{-}Cahn}}
+$$
+
+### Seed
+
+不要我现在直接指定 seed。
+
+先写一个 repository-wide seed collision audit，选：
+
+> 从某个高编号区间开始，按升序取前 10 个从未出现在任何 training / development / confirmation / posthoc experiment 中的 seeds。
+
+例如 100–109、200–209 **只有在扫描确认从未使用后**才能冻结。
+
+避免以后审稿时又出现 seed provenance 问题。
+
+---
+
+## E1 的协议必须提前锁死
+
+在运行 fresh seed 之前固定：
+
+* benchmark；
+* network；
+* loss weights；
+* coordinate；
+* finite-\(\gamma\) selection；
+* training schedule；
+* state refinement；
+* stationarity gate；
+* SPD gate；
+* SO formula；
+* exact reference；
+* numerical resolvability rule；
+* invalid-center handling；
+* statistical endpoint。
+
+然后 SHA256。
+
+### 禁止
+
+fresh confirmation 之后：
+
+* 不换 seed；
+* 不调 gamma；
+* 不调 SO damping；
+* 不改 stationarity threshold；
+* 不增加失败 seed 的专属优化轮数；
+* 不根据结果重新定义 metric。
+
+---
+
+# 五、E1 到底比较什么
+
+每个 valid center 同时产生：
+
+$$
+F_{\rm RAW},
+\qquad
+F_{\rm GN},
+\qquad
+F_{\rm SO},
+\qquad
+F_*.
+$$
+
+定义：
+
+$$
+E_{\rm GN}
+=
+\frac{|F_{\rm GN}-F_*|}
+{\max(|F_*|,\epsilon)},
+$$
+
+$$
+E_{\rm SO}
+=
+\frac{|F_{\rm SO}-F_*|}
+{\max(|F_*|,\epsilon)}.
+$$
+
+最有用的 effect size 是：
+
+$$
+R=\frac{E_{\rm GN}}{E_{\rm SO}}.
+$$
+
+用
+
+$$
+\log R
+$$
+
+做 paired summary，比直接平均 improvement factor 稳定。
+
+### 我会把 primary gate 定成
+
+**planned denominator 20 个中心，不允许 invalid 被静默删掉。**
+
+建议：
+
+$$
+\boxed{\ge15/20\ {\rm planned\ centers\ favor\ SO}}
+$$
+
+同时：
+
+* 每个 PDE 至少有足够 binding-valid centers，例如 \(\ge8/10\)；
+* valid-pair median \(\log R>0\)；
+* bootstrap CI 报出来；
+* 任一 PDE 不能出现 majority reversal。
+
+为什么是 15/20？
+
+因为在公平 coin-flip null 下，20 次中达到至少 15 次正向已经是比较有意义的整体证据，而且不像要求 19/20 那样强行按 development 数据设 gate。
+
+最好不要把“median improvement > 5×”之类的数字设成 confirmation gate，那太像根据 7.84× 反推阈值。
+
+effect size 只报告，不事先要求漂亮。
+
+---
+
+# 六、E1 的 exact center 要比以前严格
+
+这一点非常重要。
+
+当前 V5 的 locked scalar checkpoint stationarity gate 本身相对宽松，例如 state/parameter 都是 0.02。
+
+这对 SAEPS 原始 confirmation 是既定协议，但现在如果要声称：
+
+> SO 更接近 exact local reduced Hessian，
+
+那么 exact-reference analysis 应该要求一个单独的严格 local state stationarity gate。
+
+比如预先固定：
+
+$$
+g_{\theta,\mathrm{norm}}\le10^{-8}
+$$
+
+并要求
+
+$$
+\lambda_{\min}(A)>\tau_{\rm numerical}.
+$$
+
+Phase1C 已经说明 stationarity 不能再当成形式检查：Allen–Cahn 的 six strict profile states 中 5 个 Newton 后进入 non-SPD。
+
+所以 fresh confirmation 的每条记录必须把：
+
+* initial gradient；
+* final gradient；
+* objective change；
+* Newton/TR iterations；
+* min eigenvalue；
+* SPD margin；
+* termination reason
+
+全部保存。
+
+失败就是失败，不 replacement。
+
+---
+
+# 七、E2：我认为最可能产生“真正新论文点”的实验
+
+## Locality-radius / branch-validity experiment
+
+这是我最推荐你补的第二个大实验。
+
+旧论文一直在问：
+
+> local curvature 能否解释 nonlinear reoptimized profile？
+
+V5 的答案是 1/5 valid，NOT_SUPPORTED。
+
+但现在 Phase1C 告诉我们：
+
+> 至少一部分 failure 与 state Hessian SPD 丢失有关。
+
+所以不要再做一次原来的七点大 offset profile。
+
+换问题：
+
+> **一个严格 stationary local minimum branch，从中心出发，到底能连续追踪多远？**
+
+---
+
+# 八、E2-A：做真正的 predictor/corrector continuation
+
+对 E1 的 fresh valid centers，从
+
+$$
+\delta\lambda=0
+$$
+
+分别向正负方向走。
+
+例如参数 coordinate 上：
+
+$$
+0,\pm0.005,\pm0.010,\ldots,\pm0.075.
+$$
+
+遇到困难时允许预先定义的 step halving：
+
+$$
+0.005\rightarrow0.0025\rightarrow0.00125
+$$
+
+直到固定 minimum step。
+
+但这个规则必须在运行前锁定。
+
+每一步都要求：
+
+$$
+\|\nabla_\theta J\|_{\rm norm}
+\le10^{-8}
+$$
+
+和
+
+$$
+\lambda_{\min}(H_{\theta\theta})>\tau.
+$$
+
+每一步记录：
+
+$$
+J(\lambda),
+\quad
+\|\nabla_\theta J\|,
+\quad
+\lambda_{\min},
+\quad
+\|H_{\theta\theta}^{-1}H_{\theta\lambda}\|,
+\quad
+\|\theta(\lambda)-\theta(0)\|.
+$$
+
+---
+
+## 注意一个非常重要的科学措辞
+
+如果 tracked branch 最后 \(\lambda_{\min}\to0\)，可以说：
+
+> **the tracked local-minimum branch loses positive definiteness / reaches a local stability boundary.**
+
+不要说：
+
+> “Allen–Cahn 没有 minimum。”
+
+因为可能还有其他局部 minimum branch。
+
+我们研究的是**由当前 checkpoint 连续延拓出来的局部分支**。
+
+---
+
+# 九、E2-B：定义一个非常有用的新量——validity radius
+
+对每个 root 定义：
+
+$$
+r_{\rm SPD}
+=
+\sup
+\{
+|\delta|:
+\text{stationary + SPD branch continuously valid}
+\}.
+$$
+
+于是你可以得到一个新的实验图：
+
+横轴：
+
+$$
+|\delta\lambda|
+$$
+
+纵轴：
+
+$$
+\text{fraction of roots whose branch remains valid}.
+$$
+
+分别画：
+
+* Burgers；
+* Allen–Cahn。
+
+如果结果类似：
+
+* Burgers 到 0.05 仍有大多数 branch；
+* Allen–Cahn 在 0.01–0.03 就大量 SPD collapse；
+
+那么这会把之前“profile 实验失败”转化成一个很清晰的科学现象：
+
+$$
+\boxed{
+\text{inverse geometry has a PDE-dependent local validity radius}
+}
+$$
+
+这个故事我觉得很有价值。
+
+---
+
+# 十、E2-C：再补一个“微小位移极限”实验
+
+这甚至可能比 one-step 更重要。
+
+用 strict continuation 获得真实 reoptimized objective：
+
+$$
+\Phi(\delta)
+=
+J(\theta^*(\lambda_0+\delta),\lambda_0+\delta).
+$$
+
+计算中心二阶差分：
+
+$$
+K_{\rm FD}(\delta)
+=
+\frac{
+\Phi(+\delta)-2\Phi(0)+\Phi(-\delta)
+}{\delta^2}.
+$$
+
+用一组 logarithmic displacement：
+
+$$
+10^{-4},
+2\times10^{-4},
+5\times10^{-4},
+10^{-3},
+2\times10^{-3},
+5\times10^{-3},
+10^{-2},
+2\times10^{-2},
+5\times10^{-2}.
+$$
+
+当然太小的时候会进浮点 cancellation，所以需要保存 numerical floor。
+
+然后比较：
+
+$$
+K_{\rm FD}(\delta)
+$$
+
+与
+
+$$
+F_*,
+\quad
+F_{\rm GN},
+\quad
+F_{\rm SO}.
+$$
+
+这能直接回答三个不同的问题。
+
+### 1. exact local Hessian 对不对？
+
+应当看到
+
+$$
+K_{\rm FD}(\delta)\rightarrow F_*
+$$
+
+当 \(\delta\to0\)。
+
+如果不收敛，说明 exact reference / state solve 还有数值问题，应该先停下来解决。
+
+### 2. SO 是否真的比 GN 更接近 local nonlinear curvature？
+
+比较小 \(\delta\) 区间即可。
+
+### 3. 局部二阶模型何时因为 higher-order nonlinearity 开始失效？
+
+即使 \(F_*\) 是完全 exact 的 local Hessian，也会在较大 \(\delta\) 时离开 \(K_{\rm FD}\)。
+
+这允许把两个误差完全拆开：
+
+$$
+\underbrace{|F_{\rm method}-F_*|}_{\text{curvature approximation error}}
+$$
+
+与
+
+$$
+\underbrace{|F_*-K_{\rm FD}(\delta)|}_{\text{finite-displacement nonlinearity}}.
+$$
+
+这可能是整篇工作里最漂亮的一张新图。
+
+---
+
+# 十一、甚至可以定义“locality radius”
+
+比如预注册 10% 阈值：
+
+$$
+r_{10\%}^{(M)}
+=
+\max\{
+|\delta|:
+|F_M-K_{\rm FD}(\delta)|/|K_{\rm FD}(\delta)|
+\le0.1
+\}.
+$$
+
+比较：
+
+$$
+r_{\rm RAW},
+\quad
+r_{\rm GN},
+\quad
+r_{\rm SO},
+\quad
+r_*.
+$$
+
+于是论文不再只说：
+
+> SO error 更小。
+
+而可以问：
+
+> **SO 是否扩大了局部二阶几何可以可靠描述 nonlinear reoptimization 的位移范围？**
+
+如果答案是肯定的，这个结果比单纯 19/21 更有价值。
+
+如果答案是否定的，同样很有科学意义：
+
+> curvature approximation 已经不是主要瓶颈，higher-order branch nonlinearity 才是。
+
+---
+
+# 十二、E3：fresh one-step，不要现在马上跑
+
+E3 要等 E2 结果。
+
+因为现在已经知道：
+
+> 准确 curvature 不保证 candidate 所在位置仍有 admissible local minimum。
+
+所以先搞清楚 validity radius，再谈 active update。
+
+如果 E2 表明有合理范围，例如大部分 roots 至少能稳定走到
+
+$$
+|\delta|\ge0.025,
+$$
+
+再启动 E3。
+
+---
+
+# 十三、E3 应该怎样做，才能比 Phase1C 更可信
+
+直接复用 Phase1C 的：
+
+* candidate generation；
+* fixed safety scaling / trust rule；
+* RAW；
+* SAEPS-GN；
+* SO；
+* EXACT-REDUCED-ORACLE；
+* acceptance definition。
+
+**一行规则都不要根据新结果调整。**
+
+Phase1C 现在只有 Burgers seed 55 的两侧：
+
+SO 比 GN 的 actual decrease 分别多约 0.0060 和 0.0124；但这只是一个 root 的两个 correlated observations。
+
+fresh 实验应该以 **root 为统计单位**。
+
+不能说：
+
+$$
+10\ roots\times2\ directions=20\ independent samples.
+$$
+
+正确做法是：
+
+每个 root 的正负方向先聚合，例如
+
+$$
+\bar\Delta_i
+=
+\frac12[
+(\Delta J_{\rm SO}-\Delta J_{\rm GN})_+
++
+(\Delta J_{\rm SO}-\Delta J_{\rm GN})_-
+].
+$$
+
+然后 across-root 做 paired inference。
+
+---
+
+# 十四、E3 不只看 objective decrease
+
+每个 candidate 至少报告四组指标：
+
+### 实际目标下降
+
+$$
+\Delta J_{\rm actual}.
+$$
+
+### 预测/实际一致性
+
+$$
+\rho
+=
+\frac{\Delta J_{\rm actual}}
+{\Delta J_{\rm predicted}}.
+$$
+
+这实际上比“谁下降得更多”更能说明 curvature 是否 actionable。
+
+### synthetic parameter error
+
+$$
+|\lambda_{\rm candidate}-\lambda_{\rm true}|.
+$$
+
+### admissibility
+
+* candidate strict stationarity；
+* SPD；
+* solver status。
+
+最终报告两种成功率：
+
+1. **conditional performance given admissibility**
+2. **overall planned-denominator success**
+
+这样不会再次发生：
+
+> “8 个能跑的都很好，所以算法很好”
+
+但另外 8 个根本进不去 profile 的问题。
+
+---
+
+# 十五、E4：two-parameter SO，我认为性价比非常高
+
+这是我非常建议补的实验。
+
+现有 V5 two-parameter 的情况其实很可惜：
+
+$$
+8/10\ \text{valid},
+$$
+
+而且：
+
+$$
+8/8\ \text{valid pairs favor SAEPS},
+$$
+
+只是 preregistered availability gate 没达到 9/10，所以最终定为 INCONCLUSIVE。
+
+现在 SO 的数学形式天然可以扩展到
+
+$$
+p=2.
+$$
+
+如果
+
+$$
+Z_G\in\mathbb{R}^{n_\theta\times p},
+$$
+
+则
+
+$$
+F_{\rm SO}
+=
+C-B^\top Z_G-Z_G^\top B+Z_G^\top AZ_G.
+$$
+
+它直接给出一个 \(2\times2\) curvature matrix。
+
+---
+
+# 十六、E4 分两阶段
+
+## E4-D：先在旧的 8 个 valid two-parameter centers 上开发
+
+不新增训练。
+
+比较：
+
+$$
+F_{\rm RAW},
+\quad
+F_{\rm GN},
+\quad
+F_{\rm SO},
+\quad
+F_*.
+$$
+
+不能只看 Frobenius error。
+
+我建议至少同时报告：
+
+### Matrix error
+
+$$
+\frac{\|F-F_*\|_F}{\|F_*\|_F}
+$$
+
+和 spectral norm error。
+
+### Eigenvalues
+
+特别是最弱 curvature：
+
+$$
+\lambda_{\min}(F).
+$$
+
+因为 inverse problem 最关心 weakly identifiable direction。
+
+### Eigenvector angle
+
+最弱 eigenvector 与 exact 的夹角：
+
+$$
+\angle(v_{\min},v_{\min}^*).
+$$
+
+### Signature/SPD
+
+是否正确判断正定性。
+
+### Condition number / anisotropy
+
+如果条件允许。
+
+---
+
+## 为什么这个实验很重要
+
+scalar 只是在问：
+
+> 曲率大小准不准？
+
+two-parameter 则开始问：
+
+> **不确定性椭圆和 weak parameter combination 的方向准不准？**
+
+这就从一个 scalar correction 更接近真正的 inverse geometry 方法。
+
+现有 two-parameter locked benchmark 本来就是 coupled reaction-diffusion，两个参数是 \(\log a,\log b\)。
+
+非常适合干这个。
+
+---
+
+# 十七、如果旧 8 个 two-parameter center 上 SO 有明显收益
+
+再开：
+
+$$
+\boxed{10\ fresh\ multi\text{-}parameter\ confirmation\ seeds}
+$$
+
+完全独立冻结。
+
+不要重新打开旧 V5 结果，也不要说“补跑两个 seed 就把 8/10 改成 10/10”。
+
+那会伤害仓库现在很好的审计可信度。
+
+应该把它写成：
+
+> **新的 SO multi-parameter confirmation phase。**
+
+旧 SAEPS V5 two-parameter 仍然是 `INCONCLUSIVE`。
+
+新 SO phase 单独有自己的 planned denominator。
+
+---
+
+# 十八、E5：如果 SO 要进主文，就必须补真正 matrix-free 的证据
+
+当前一个明显的漏洞是：
+
+Phase1B 的 HVP parity 很好，但文件明确标记的是：
+
+> `dense-assisted, not end-to-end matrix-free`
+
+而原 SAEPS 的主卖点之一是 matrix-free。
+
+所以如果主文把 SO 提升到主要方法之一，审稿人一定会问：
+
+> 你这个 full-Hessian directional correction 到 100k 参数还能做吗？
+
+---
+
+# 十九、E5 应该有三层
+
+## E5-A：小网络 explicit parity
+
+对已有 compact centers：
+
+$$
+{\rm HVP}_{AD}(v)
+$$
+
+与
+
+$$
+H_{\rm explicit}v
+$$
+
+比较。
+
+当前四个中心已经通过，可以扩展到若干 random directions，确认不是只对特殊 \(Z_G\) direction 成立。
+
+---
+
+## E5-B：真正 SO matrix-free parity
+
+不是只比较 HVP。
+
+最终要比较：
+
+$$
+F_{\rm SO}^{explicit}
+$$
+
+与
+
+$$
+F_{\rm SO}^{matrix-free}.
+$$
+
+例如要求：
+
+$$
+\frac{|F_{\rm SO}^{MF}-F_{\rm SO}^{explicit}|}
+{|F_{\rm SO}^{explicit}|}
+<10^{-6}.
+$$
+
+而且 metadata 必须证明：
+
+* `explicit_jacobians = 0`
+* `explicit_hessians = 0`
+
+至少在 matrix-free route 中。
+
+---
+
+## E5-C：规模实验
+
+利用现有 scalability infrastructure，例如：
+
+$$
+n_\theta\sim10^3,\ 10^4,\ 10^5.
+$$
+
+当前 V5 已经做到 SAEPS 的
+
+$$
+n_\theta=100001
+$$
+
+工程可行性，但只声称 cost，不声称大规模 curvature accuracy。
+
+新实验只需要回答：
+
+> directional SO 增量需要多少钱？
+
+报告：
+
+$$
+T_{\rm GN},
+\quad
+T_{\rm SO-increment},
+\quad
+T_{\rm total},
+$$
+
+operator counts：
+
+* JVP；
+* VJP；
+* HVP；
+
+以及 process RSS / available memory metric。
+
+不要在无 exact reference 的 100k 网络上声称 SO accuracy。
+
+只声称：
+
+> computational feasibility and incremental overhead.
+
+---
+
+# 二十、E6：SO-ADAPT 暂时只做一个 kill-test
+
+我不建议马上又投入大量时间救 estimator。
+
+但既然还能补多个实验，可以做一个非常便宜的 feasibility test。
+
+现有 fixed-8 estimator 的结果是：
+
+$$
+1/21
+$$
+
+通过，而且 median effectivity
+
+$$
+516.8.
+$$
+
+所以不要再微调 residual-norm/\(\mu\) 这一族。
+
+直接换问题：
+
+> 对我们真正关心的
+>
+> $$
+> D^\top A^{-1}D
+> $$
+>
+> Krylov/Lanczos inverse-quadratic-form estimate 到底有没有希望？
+
+---
+
+# 二十一、E6-D：只在 21 个 archived matrices 上测
+
+尝试：
+
+$$
+k=2,4,8,16
+$$
+
+个 Lanczos/CG steps。
+
+开发阶段可以暂时用 exact spectral endpoint 来做“oracle feasibility”。
+
+看：
+
+* coverage；
+* effectivity；
+* 上下界 gap；
+* k 与成本。
+
+我会设一个很严格的 GO 条件，例如：
+
+在
+
+$$
+k\le8
+$$
+
+时至少达到：
+
+* 所有 valid centers coverage；
+* median upper-bound effectivity \(\lesssim 2\sim3\)；
+* 90th percentile 不离谱。
+
+如果连**知道谱端点的 oracle 版本**都做不到：
+
+$$
+\boxed{\text{彻底停止 SO-ADAPT certificate}}
+$$
+
+不要再花时间。
+
+如果 oracle 版本极好，再研究如何获得 practical spectral bounds。
+
+这样风险很小。
+
+---
+
+# 二十二、我建议增加一个非常明确的 Phase 2 文件结构
+
+不要把这些又塞进现有 Day1/Phase1C。
+
+例如：
+
+```text
+revision_week/
+  protocols/
+    phase2_dev/
+    phase2_scalar_confirm/
+    phase2_locality/
+    phase2_one_step/
+    phase2_multi/
+    phase2_scalability/
+
+  outputs/
+    phase2_dev_v1/
+    phase2_scalar_confirm_v1/
+    phase2_locality_v1/
+    phase2_one_step_v1/
+    phase2_multi_v1/
+    phase2_scalability_v1/
+```
+
+每个正式 experiment 至少有：
+
+```text
+PROTOCOL.yaml
+PROTOCOL.sha256
+RUN_MANIFEST.json
+ALL_RUNS.csv
+SUMMARY.json
+FAILURES.json
+COST_LEDGER.json
+REPORT.md
+VALIDATION.json
+```
+
+另外新建：
+
+```text
+SEED_REGISTRY.json
+```
+
+把全仓库所有曾经使用的 seed/benchmark/purpose 列出来。
+
+---
+
+# 二十三、开发与确认一定重新严格分层
+
+我建议从现在开始明确：
+
+### 已经看过的所有数据
+
+包括：
+
+* original V5；
+* Day1；
+* Phase1B；
+* Phase1C；
+* 21 exact centers；
+* Burgers 55 one-step；
+
+全部标：
+
+$$
+\boxed{\text{DEVELOPMENT / RETROSPECTIVE}}
+$$
+
+### 后面 fresh 10+10
+
+才标：
+
+$$
+\boxed{\text{SO INDEPENDENT CONFIRMATION}}
+$$
+
+这是现在最重要的证据升级。
+
+仓库历史上其实已经明确要求 development/confirmation 分开、失败 seed 不替换。
+
+下一轮继续坚持这一点，会让论文可信度非常高。
+
+---
+
+# 二十四、实验之间要有明确的 Go/No-Go
+
+这可以避免又进入“实验一直跑下去”的状态。
+
+### Gate A：E0 结束
+
+如果 development 中：
+
+* SO 在 gamma sweep 极不稳定；
+* noise anchors 大量反转；
+* two-parameter 明显失败；
+
+那么 SO 只放 secondary extension。
+
+否则进入 E1。
+
+### Gate B：E1 fresh confirmation
+
+如果：
+
+$$
+\ge15/20
+$$
+
+planned centers favor SO，且无 PDE majority reversal：
+
+> **SO 可进入主文。**
+
+如果整体好但某 PDE 明显差：
+
+> 主文只能说 conditional / benchmark-dependent。
+
+如果 fresh 结果接近 50/50：
+
+> SO 降为 appendix，不再追加围绕 SO 的昂贵实验。
+
+---
+
+### Gate C：E2 locality
+
+如果
+
+$$
+K_{\rm FD}(\delta)\not\to F_*
+$$
+
+在数值可分辨的小 \(\delta\) 区域都不成立：
+
+> **停止一切 finite-step claim，先查 exact/state solver。**
+
+如果小 \(\delta\) 正确但大位移失效：
+
+> 得到“locality radius”结论。
+
+如果 Allen–Cahn 反复显示 \(\lambda_{\min}\to0\)：
+
+> 得到“tracked branch stability boundary”结论。
+
+---
+
+### Gate D：E3
+
+只有 E2 显示存在实际 admissible displacement range 才做。
+
+否则不要继续强行证明 active update。
+
+---
+
+### Gate E：E4
+
+旧 two-param development 如果明显支持 SO：
+
+> 跑 fresh multi-param confirmation。
+
+否则停在 exploratory appendix。
+
+---
+
+### Gate F：E6
+
+oracle Lanczos bound 都不实用：
+
+> 永久停止这一篇论文中的 certification 线。
+
+---
+
+# 二十五、如果时间有限，我会这样排
+
+## 第一批：马上跑，几乎无风险
+
+**1. 21 centers failure-mechanism decomposition**
+**2. gamma sweep**
+**3. noise/sparsity exact anchors SO**
+**4. 8 个旧 two-parameter valid centers 的 SO matrix experiment**
+**5. Lanczos estimator oracle kill-test**
+
+这些基本不需要新训练。
+
+我会把这一批叫：
+
+$$
+\boxed{\text{Phase 2A Development Closure}}
+$$
+
+---
+
+## 第二批：最重要的新实验
+
+$$
+\boxed{10\ Burgers+10\ Allen\text{-}Cahn\ fresh\ SO\ confirmation}
+$$
+
+这是 Phase 2B。
+
+**这批结果出来以前，论文里不要正式升级 SO claim。**
+
+---
+
+## 第三批：研究价值最高
+
+利用 fresh centers 做：
+
+* strict continuation；
+* SPD trajectory；
+* micro-displacement finite difference；
+* locality radius。
+
+这是 Phase 2C。
+
+我甚至认为如果结果漂亮，**E2C 的价值可能高于 E1 本身。**
+
+因为 E1 只是告诉你：
+
+> SO 更准。
+
+E2 告诉你：
+
+> **什么时候这种局部几何仍然代表真正的 reoptimized inverse objective，以及什么时候为什么失效。**
+
+这明显是更深的问题。
+
+---
+
+## 第四批
+
+根据前面结果决定：
+
+* safeguarded one-step；
+* fresh 2-parameter SO confirmation；
+* 100k matrix-free SO。
+
+---
+
+# 二十六、最终最理想的论文故事
+
+如果这些结果总体顺利，我不会把论文写成：
+
+> SAEPS + 一个新的二阶修正。
+
+而会写成三层：
+
+### Layer 1 — State adaptation matters
+
+已有 SAEPS-GN 证据：
+
+$$
+RAW\rightarrow SAEPS-GN.
+$$
+
+### Layer 2 — Directional second-order physics matters
+
+新 SO：
+
+$$
+SAEPS-GN\rightarrow SAEPS-SO.
+$$
+
+fresh confirmation 支持。
+
+### Layer 3 — Local accuracy has an actionability boundary
+
+即：
+
+$$
+\text{accurate local curvature}
+\not\Rightarrow
+\text{arbitrarily reliable finite update}.
+$$
+
+其边界由：
+
+* higher-order nonlinearity；
+* tracked state-branch stability；
+* SPD margin
+
+共同决定。
+
+这时论文的核心就不只是某个公式：
+
+> **如何从 trained inverse PINN 中提取“准确且知道适用范围”的 reduced inverse geometry。**
+
+我认为这比最初强行做一个 `SO-ADAPT certificate` 的故事更成熟，也更有后续一区发展的空间。
+
+---
+
+## 我给你的执行优先级
+
+如果现在让我直接替你排队，我会定成：
+
+**E0 mechanism + gamma + multi-parameter development → E1 fresh 10+10 SO confirmation → E2 continuation/locality-radius → E4 fresh two-parameter（若 development 阳性）→ E5 true matrix-free SO → E3 one-step（只有 locality 允许才跑）→ E6 estimator（只有 oracle kill-test 通过才继续）。**
+
+尤其不要先去大规模跑 one-step，也不要再优先修 SO-ADAPT。**目前最缺的不是更多阳性数字，而是“独立性、适用范围和失效机制”这三块证据。**

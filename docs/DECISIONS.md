@@ -575,3 +575,14 @@ Fixed exact Newton polishing tests numerical stationarity; a uniform fractional 
 avoids the previously shared clipping where possible; an 8-step residual-energy
 estimator tests practical tightness without changing the old SO-ADAPT endpoint.
 See `revision_week/PHASE1C_DEVELOPMENT.md`. No independent confirmation is authorized.
+
+## D-PHASE2-SPEC — Prospective automatic execution design
+
+The user's current request is to carefully write the full execution rules and
+clarify the decision tree. The attached proposal is archived, not treated as
+proof of historical facts or as a completed executable. All E0--E6 experiments
+are specified, with engineering/availability/scientific outcomes separated.
+E1 must run its full planned cohort once engineering lock passes even when E0
+scientific results are unfavorable. E2/E3 on E1 roots remain secondary analysis.
+Numerical execution is NOT_STARTED; no fresh seeds are frozen or trained here.
+See revision_week/protocols/phase2/PHASE2_EXECUTION_RULES.md and phase2_spec.json.

@@ -574,3 +574,13 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 - Original main checkout has unrelated changes; isolated SO worktree and historical results preserved. No confirmation execution or automatic push.
 - Completed results and numerical failures: `revision_week/outputs/phase1c_development_v1/FINAL_REPORT.md` and `CLOSEOUT.json`.
 - SO local-use evidence remains limited to the valid development root. The new fixed-budget energy estimator is not supported as an improvement. Independent freeze remains deferred.
+
+## Phase 2 execution specification — user-requested design
+
+**状态:** `PASSED` — specification and decision-logic delivery only.
+
+- Read and archived the user-provided Phase 2 proposal; audited available historical sources without new scientific runs.
+- Detailed rules: revision_week/protocols/phase2/PHASE2_EXECUTION_RULES.md.
+- Machine configuration, dependency graph and tested gates cover all requested experiment families and conditional stops.
+- Actual numerical execution remains NOT_STARTED: handler implementation, all-ref seed audit and executable lock are not complete.
+- E0-C has a documented current input gap; no implicit reconstruction training is authorized by this specification.

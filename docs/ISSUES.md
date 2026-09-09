@@ -690,3 +690,15 @@ iteration search or combination with the old bound was used to inflate success.
 Evidence: revision_week/outputs/phase1c_development_v1/ADAPT_ESTIMATOR.csv.
 Resolution: stop this bounded estimator experiment; retain research-only scope,
 and defer independent confirmation. No rigorous certificate or speedup claim.
+
+## I-PHASE2-SPEC-001 — Robustness anchor inputs are insufficient in inspected outputs
+
+Classification: implementation failure (input/provenance availability).
+The current v4_8 robustness noise/sparsity directory contains exact-curvature
+summaries but no saved state/full G/H tensors or pt/npz checkpoint files needed
+to compute SO at those exact historical states. This is not a negative result
+about SO. All-ref/cache inspection remains part of execution preflight. If no
+matching source exists, record every affected planned position as unavailable;
+do not silently retrain the seed or reverse-engineer blocks from scalar Schur
+summaries. Other independent nodes may proceed under their specified gates.
+Evidence: revision_week/protocols/phase2/SOURCE_AUDIT.json.
