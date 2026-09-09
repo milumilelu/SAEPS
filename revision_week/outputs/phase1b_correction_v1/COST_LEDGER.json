@@ -1,0 +1,77 @@
+{
+  "historical_successful_activity_measured_seconds": 442.608485499979,
+  "historical_measured_parts": {
+    "analysis_P1B_A_seconds": 0.0981877000303939,
+    "recovery_P1B_B_successful_replay_seconds": 421.04079759994056,
+    "hvp_P1B_C_seconds": 2.226525300065987,
+    "onestep_P1B_D_seconds": 17.495957499952056
+  },
+  "historical_recovery_full_wall_seconds": 422.78781499993056,
+  "historical_failed_compute_estimates": {
+    "note": "wall times estimated from the session timeline, not instrumented; development/debugging attempts, no results used from them",
+    "attempts": [
+      {
+        "kind": "recovery run 1 (missing torch.set_default_dtype(float64))",
+        "wall_seconds_estimate": "<660",
+        "outcome": "all 4 replays failed; environment bug"
+      },
+      {
+        "kind": "recovery run 2 (retain_graph bug in state export)",
+        "wall_seconds_estimate": "~600",
+        "outcome": "replays ran but export crashed; no results used"
+      },
+      {
+        "kind": "pilot run 1 (root-gate convention + offset formatting)",
+        "wall_seconds_estimate": "0.6",
+        "outcome": "placeholder rows only, no solves"
+      },
+      {
+        "kind": "pilot runs 2-4 (no_grad gradient, missing import)",
+        "wall_seconds_estimate": "<300",
+        "outcome": "crashed before any solve"
+      }
+    ]
+  },
+  "historical_recovery_budget_usage": "successful measured activity + failed replay estimates; exact cumulative total unavailable",
+  "original_recovery_attempt_rule": "VIOLATED: multiple executed replay rounds, including export failures; no retroactive success-only reinterpretation",
+  "original_freeze_timing": "UNVERIFIED: protocol first committed with results; supplied summaries do not prove pre-run byte freeze",
+  "new_training_attempts": 0,
+  "new_validation_process_seconds": 114.79320409998763,
+  "new_matrix_analysis_seconds": 0.23015059996396303,
+  "new_profile_solves": 24,
+  "new_budget_seconds": 1800,
+  "historical_failures_charged": true,
+  "stage1_cost_unchanged": {
+    "e0_wall_seconds": 1.4812168000498787,
+    "e0_cpu_seconds": 0.40625,
+    "historical_reconstruction_seconds": 3801.8915909999632,
+    "historical_original_training_total": null,
+    "new_training_seconds": 0,
+    "new_profile_seconds": 0,
+    "gn_solve_seconds": 0.001128900097683072,
+    "spectrum_seconds": 0.015298699960112572,
+    "reference_seconds": 0.0006612997967749834,
+    "adaptive_seconds": 0.0972487999824807,
+    "A_matvec_count": 3261,
+    "jvp_count": 0,
+    "vjp_count": 0,
+    "hvp_count": 0,
+    "audit_seconds": 8.153892899979837,
+    "test_seconds": 10.969645600067452,
+    "current_recorded_compute_seconds": 43.54764920009564,
+    "failed_audit_seconds": 1.7435761,
+    "failed_byte_repair_syntax_command_seconds": 0.5267703,
+    "validator_attempts": [
+      {
+        "seconds": 10.023151900037192,
+        "exit_code": 1
+      },
+      {
+        "seconds": 10.180077399942093,
+        "exit_code": 0
+      }
+    ],
+    "stage_audit_and_resume_seconds": 0.4693182000191882
+  },
+  "costs_scope": "process wall time includes all new successful/failed/timeout workers; Python AD primitive counts do not include hidden framework operations"
+}

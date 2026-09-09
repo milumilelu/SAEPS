@@ -1,0 +1,32 @@
+[
+  {
+    "claim": "SO pointwise increment over GN in actual update",
+    "status": "NOT_SUPPORTED",
+    "reason": "identical clipped trial coordinates"
+  },
+  {
+    "claim": "Strict low-cost error certification",
+    "status": "NOT_SUPPORTED",
+    "reason": "ordinary eigensolve; dense-assisted route"
+  },
+  {
+    "claim": "Original one-replay protocol compliant",
+    "status": "NOT_SUPPORTED",
+    "reason": "VIOLATED: multiple executed replay rounds, including export failures; no retroactive success-only reinterpretation"
+  },
+  {
+    "claim": "Supplemental real HVP parity",
+    "status": "SUPPORTED",
+    "evidence": "tasks/hvp_*/result.json"
+  },
+  {
+    "claim": "Numerically resolved local decrease on saved candidates",
+    "status": "NOT_SUPPORTED",
+    "evidence": "ONE_STEP_PRECISION_AUDIT.csv"
+  },
+  {
+    "claim": "Observed decrease exceeds precision-change estimate",
+    "status": "SUPPORTED",
+    "limitation": "does not imply strict stationary-profile gate or rigorous error certificate; separate from strict gate"
+  }
+]

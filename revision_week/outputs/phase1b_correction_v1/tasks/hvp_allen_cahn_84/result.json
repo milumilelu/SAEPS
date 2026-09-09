@@ -1,0 +1,73 @@
+{
+  "center": "allen_cahn_84",
+  "all_checks_pass": true,
+  "parity": {
+    "hvp_relative": 1.6809082470068877e-12,
+    "SO_relative": 3.5646450201995043e-12,
+    "D_relative": 2.5206367927382293e-12,
+    "adjoint_relative": 2.6040734464793664e-13,
+    "gradient_identity_relative": 2.862813104085636e-15,
+    "gn_residual": 2.5893017430365604e-14
+  },
+  "route": "explicit Jacobian GN + true AD directional HVP; dense-assisted, not end-to-end matrix-free",
+  "load_seconds": 0.008862199960276484,
+  "GN_jacobian_and_solve_seconds": 0.7862492999993265,
+  "HVP_calls": [
+    {
+      "label": "cold",
+      "seconds": 0.006199900060892105,
+      "hvp_count": 1
+    },
+    {
+      "label": "warmup",
+      "seconds": 0.005476900027133524,
+      "hvp_count": 1
+    },
+    {
+      "label": "steady1",
+      "seconds": 0.005672600003890693,
+      "hvp_count": 1
+    },
+    {
+      "label": "steady2",
+      "seconds": 0.005492200027219951,
+      "hvp_count": 1
+    },
+    {
+      "label": "steady3",
+      "seconds": 0.006453100009821355,
+      "hvp_count": 1
+    }
+  ],
+  "SO_increment_cold_seconds": 0.006199900060892105,
+  "SO_increment_steady_median_seconds": 0.005672600003890693,
+  "checkpoint_to_SO_cold_seconds": 0.8013114000204951,
+  "validation_hessian_seconds": 0.10037300002295524,
+  "validation_spectrum_seconds": 0.0005684999050572515,
+  "validation_other_seconds": 0.011230900068767369,
+  "hvp_count": 5,
+  "jvp_count": 1,
+  "vjp_count": 1,
+  "explicit_jacobians": 1,
+  "explicit_hessians": 1,
+  "implicit_internal_AD_operation_counts": null,
+  "mu": {
+    "mu_value": 0.0014511378855805003,
+    "lambda_min_A_numeric": 0.0014511725826970928,
+    "eigen_residual": 7.158440597629808e-11,
+    "orthogonality_error": 2.7661851123436566e-15,
+    "symmetry_error": 6.242878060668033e-17,
+    "numerical_margin": 3.4697116592432426e-08,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "numerical_bound_estimate",
+    "spd_status": "numerically_SPD"
+  },
+  "peak_native_memory": null,
+  "environment": {
+    "torch": "2.13.0+cpu",
+    "numpy": "2.3.5",
+    "device": "cpu",
+    "threads": 1,
+    "sync": "CPU synchronous perf_counter"
+  }
+}

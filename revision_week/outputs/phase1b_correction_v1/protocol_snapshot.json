@@ -1,0 +1,369 @@
+{
+  "config": {
+    "role": "supplemental_development_validation_after_review",
+    "historical_commit": "0c91c4f",
+    "training_attempts": 0,
+    "centers": [
+      "burgers_59",
+      "burgers_67",
+      "burgers_55",
+      "allen_cahn_84"
+    ],
+    "roots": [
+      "burgers_55",
+      "allen_cahn_84"
+    ],
+    "offsets": [
+      0.05,
+      -0.05
+    ],
+    "candidate_policy": "replay saved candidate coordinates; deduplicate exactly identical coordinates; no new step selection",
+    "max_profile_solves": 24,
+    "per_solve_process_seconds": 300,
+    "total_new_process_seconds": 1800,
+    "root_refinements": 0,
+    "strict_max_iter": 1200,
+    "strict_gradient_tolerance": 1e-12,
+    "strict_change_tolerance": 1e-18,
+    "profile_gate_mean_normalized": 1e-08,
+    "resolution_safety_factor": 10.0,
+    "operator_tolerance": 1e-08,
+    "bound_status": "numerical_bound_estimate",
+    "scope_note": "Extra verification solves are a separate corrective development activity; do not relabel the original one-shot protocol as compliant. No new seed or confirmation cohort."
+  },
+  "config_sha256": "ab119a89099489324a836a7a1c5fafa6b12c389ce1ba766416d289f7d09bac78",
+  "code_sha256": "1cf838f4a0cd98464d7a7dde77a0f16c17f9fa8e9468cb8e44a239c2b0cb6e6e",
+  "solver_sha256": "e138c6b90a138ab99d1c04b5c8d90ff04c493c616c7aa520b1d4c0b5000db27f",
+  "source_commit": "1d528afba6ffb3bd2b7c307eb67c4ddf78b5cf7f",
+  "historical_artifacts": [
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\ALL_RUNS.csv",
+      "sha256": "1b09030c7659e4c81f9d7a6f1241a4f2542e5bb9ce27f2ab7fbc7e342cbf6d3b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\artifact_hashes.json",
+      "sha256": "833d886bd18964be2fc7107444ad66931b674dab137e88baf7b0d52a18deb86e"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\artifact_manifest.csv",
+      "sha256": "ec4b99b2dc71bbe8f0487f7098928bacc86c779e59acc708ff53c63e37028db6"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\audit_cost.json",
+      "sha256": "bb0f65fc1cf8ec84a4efb979bee043fd1f02d0b203c0c1227448508737a67495"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\branch_inventory.json",
+      "sha256": "ca85b9fa55c88095c6204a7ebd2096e8bfd62f58503e500a7c934c6732b49294"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\COMPUTE_BUDGET_REPORT.md",
+      "sha256": "befbaecb046be53ce4fbdb3ed8155b74eced6d9b4a43485e2ea085edaf69c47e"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\costs.json",
+      "sha256": "134a7a28425f42dfcf53a535157c4eb328d0c76ea81a6448257d84b4a46e010f"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\cumulative_costs.json",
+      "sha256": "b5cadb762095c39b6f6e5680ed5870835ff049ea63e1d1a78c47b91f913549e4"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\environment.json",
+      "sha256": "0274d11c04c21e83078b70f7afff0abede93ebd67784e7290242531862ef4bf8"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\FAILURE_ANALYSIS.md",
+      "sha256": "de81861160e5116ff4efee3171505bb75ec9ab6397e1362d89c5f83b0337f1d1"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\FIRST_STAGE_REPORT.md",
+      "sha256": "1d2b23e1d1bd18d9f940926ddff6952fd030280dab465346e01b5efff8ae3e29"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\historical_refs.json",
+      "sha256": "cf652df6a4a6526937aea4d5e82c1d47f7b2a2f980e68ea91ba51d0641380a37"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\initial_workspace.json",
+      "sha256": "044b63b3c176ec928e65e28bc5466df41ce6b438f95599d64e1fe7a0ea726a9b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\METHOD_SUMMARY.csv",
+      "sha256": "8e9f9335695e0936946ed15e43999905b0247516bac0582303ce61a326c5395e"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\new_worktree_byte_restoration.json",
+      "sha256": "7b62bbff1d8a7cba287d5a582bdec706a5d27fb1a675c5db50554cbc1e981cde"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\PAPER_REVISION_NOTES.md",
+      "sha256": "3cb771d95af84e2b42a21f407fbbcce4fa7d7f4edfe00c5a380be9db7d05c1f1"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\pytest.log",
+      "sha256": "2be0eb2c97ed8b70fab7607ca328510d725675b848267c9a367f8796bad15e30"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_75.json",
+      "sha256": "dcde61aaf954ab7aa9e38080c35277d2f0db51c1b0897f8d5999b76c97d1a59c"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_76.json",
+      "sha256": "58fe5e02ce359c1c8b5e3a7ec2d8e25097120c98e561af1b5cb9e91df5b7471b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_77.json",
+      "sha256": "61e2bfc07ec7260c9b545d8aab88b22c0fc401cbcce424270c07d733c249e615"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_78.json",
+      "sha256": "2ffe1037294c99dc7e579a9f5ba67f7bb4ca306bdcce074d8ddec9f0eaf0b9aa"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_79.json",
+      "sha256": "ef1f41af9f8aaa6362bc5f4c905b3a049042c4c97de4ad9f62cb3e9dc5493462"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_80.json",
+      "sha256": "80749e1000172256107ae176e0d5e913d4d07159abb208f279cd933df09e271b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_81.json",
+      "sha256": "c9133d972e482329c3ce9fd7d19bb4ef2c6bd41759677d7e4868faf77bdd16a0"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_82.json",
+      "sha256": "3402a2efb54121e33057418db58e13966a4057d251a09197f2589e9b7f1f7fc1"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_83.json",
+      "sha256": "17623975cd0247e85a5d919e560cc4ebb0b705b6903d9e7e91720a218b1f4915"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\allen_cahn_84.json",
+      "sha256": "fcd3e7df7fd034af2917f3aa79d1352436148368fba3fd691426aab4da0f39d1"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_55.json",
+      "sha256": "5f0badb20c65fceb6b239b7e8979546a89c56a2e0d2b36c797a851a25e841d1d"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_56.json",
+      "sha256": "d64ffdc5bb3185e1ba98ae0ced349bc2ce7ab2a666ec012c3ce018367bb66dd6"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_57.json",
+      "sha256": "b9ea941166582f289ac42f038526379cf6d71d53203734a650986273f1667878"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_58.json",
+      "sha256": "51415b8f99a86f211b2ebc00100bea10b3e2b6cf265bdf16a58dcb96906a049f"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_59.json",
+      "sha256": "2010d1f5cf22427b9dd24739aba014f75b9d18cd70f10550cd3e5554d399aeec"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_60.json",
+      "sha256": "04ed7c142b475e3a9fa3d8e1c4a6fdb2e8e1bca501a72a8b9dd94580aa3c771b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_61.json",
+      "sha256": "9ffcc87ca90d0ed68d8cea51f437ee457d56040998609dcb5d627d6adcbce3d8"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_62.json",
+      "sha256": "99d2e4cd757702340af77d4b8305e5fe6bc02320dd3edaf8f4108a32c7bf4805"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_63.json",
+      "sha256": "64ab38d77e14d8a2cc02aa882ea66d2222907ed67f9b2336a8db010ba2346fac"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_64.json",
+      "sha256": "e806c8f5965eab78913587c883327f909b6f4cdf2411ff7ad5919e2821a35f0d"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_65.json",
+      "sha256": "018a49343c9212aad269da7addcb06ecb0333dcc6eb332b565ed4bf4aab29ef7"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_66.json",
+      "sha256": "01bdbda8033a6f114a448670778e7eeb1282840434b4ff45a767221c74b67f9f"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_67.json",
+      "sha256": "79cbc15edcb6721b3b38db326ad382746c21b6a31e2004c6d4fb51ba21020eab"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_68.json",
+      "sha256": "165419a347a56aa28dbf6a832dd56683c63d955a34d23add68445572992ac313"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\raw\\burgers_69.json",
+      "sha256": "0ea840a535c2910b7b4ba610c0c837e3c30d65fc889de6ce844d18a6133756ee"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\REPO_AUDIT.md",
+      "sha256": "34904f619d12a268d55f4aeabfd82ccf4ad55843d7bf7eb3ccd25638fbbfc894"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\repository_validator.log",
+      "sha256": "85f0b81570ba871229d5090f87d95bfaace27a062dd9192a08cfccf41665032a"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\repository_validator_attempts\\1.json",
+      "sha256": "5dc00709ff4dd1b79dd62ddf02f1d262c0dc9613043e02f2279c86d1d311e4a0"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\repository_validator_attempts\\1.log",
+      "sha256": "aea31d53d56f33d7740ba60921c9749a265ba2006ff7001fe2a77d8030bcf3d4"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\repository_validator_cost.json",
+      "sha256": "daa58dbb297ccd4948ed749755b1a061af404b721e2ff1d75d1df57cebeba9af"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\RESULTS_SUMMARY.md",
+      "sha256": "0986f953fb8cc89231002962cb3e8a70d5cead8720d515690ba4f5909def1795"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\resume_check.log",
+      "sha256": "b30719e858e13a1724e36a5e0d08fb7c8341f07cdcc5d62bc15c987e367eda36"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\RESUME_COMMANDS.md",
+      "sha256": "41a1f5d5bccccaf7f899d2e6d159f9d325e74334d08c98cfc7d6b4a7cc9da543"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\source_plan.md",
+      "sha256": "ab864244958f35cb0dcbde02cda698a31cf48879b0a218560d02f917d5e7af18"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\STAGE_VALIDATION.json",
+      "sha256": "7947f99a7678ab27fce9282c1420032515888b9f056799ee4a221460fe3b42e3"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\summary.json",
+      "sha256": "0db6c45a2f6901a125bbb7cf803efa1a7e40d939529bc78b1de9ebecbed8b437"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\TEST_REPORT.md",
+      "sha256": "9df47df316abd9e8428b6d87d310c0c31e4c802975b72199978fc1fd90fa0b24"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day1\\test_result.json",
+      "sha256": "a31b360aeacb7578a62ffa153f7136e83c97872ad0309a7053d1ff443472e716"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\ADAPT_FAILURE_SPLIT.csv",
+      "sha256": "02436c0c89df81f06ffc88e15e47d662bc4e9a7f8b58dad2e227c169e6081011"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\ADAPT_FAILURE_SPLIT.md",
+      "sha256": "ec76c36fc84ea684e1d2c91545e00e1665f7026cc855a1a1f19def6d86c33ad6"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\CLAIM_LEDGER.md",
+      "sha256": "50ea65594079b50f782ffac15ef2ec79c2c9caf73fade641b5db7501ddcce8d3"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\HVP_COST.csv",
+      "sha256": "eff78df1956929edc963ca760eebd8947bfc165410662d22c669d68fba72c060"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\HVP_PARITY.csv",
+      "sha256": "dbae28c74ca6ad2e1656d9c60d49605d325d1a0c6c6b026e5660414048f91a65"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\ONE_STEP_PILOT.csv",
+      "sha256": "537febb4b8d1fe166291eb180ab94e3e067403c1230d451b28cd45f0366954fe"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\ONE_STEP_PILOT.md",
+      "sha256": "fdbe902da6a36d7875de045a23a37dcfe889375b27f2660bcaed3ece90529fa9"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\p1b_a_summary.json",
+      "sha256": "ba81972558f51db90329fd6f05920af225bef327a8241c8db98c3385f89af5fd"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\p1b_b_cost.json",
+      "sha256": "3a8ccd6aee306a8252bfcbb374f01d02639ec59dbf63990f6f2f333eeb4bdeac"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\p1b_c_summary.json",
+      "sha256": "f1b95ec1f790a19cfadc1bf3d40e7b7465446761ba7537017572a45f19acb865"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\p1b_cost_ledger.json",
+      "sha256": "5b7f30adb72bc9eda87621fa288c25e688351dfb8ceb937c2cb685dc8275009b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\p1b_d_summary.json",
+      "sha256": "d77a4ff09b4d4276bb97c7c5f759c7285fa0abd39ec69a93525b3987119f7064"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\PHASE1B_MANIFEST.csv",
+      "sha256": "5168ae4138fa1e0a4852477a8870037157416cbccdb2acfa9f2229b98476c7af"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\PHASE1B_PROTOCOL.yaml",
+      "sha256": "443d7b3a150d6c03353360de348670f50ecadd42888ba0dee63f621b544fe3bc"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\PHASE1B_REPORT.md",
+      "sha256": "9d952b65df925b706e3bcfecf0a946739cf9e1cdccd80bd235af7bdcbcd746e0"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\allen_cahn_84\\provenance.json",
+      "sha256": "5953a0261aa048b6b794d07c857c02b668d2152958431e0d79fdbc71919dc49a"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\allen_cahn_84\\state_checkpoint.npz",
+      "sha256": "f49ec8962261c28d0b4abddf9f805610e926b185e8a37723b5f22df8f0e0fb16"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\burgers_55\\provenance.json",
+      "sha256": "96f9c3e7c067612c862760e0deb3e34f74ddec17cd96a3464a63562455a178af"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\burgers_55\\state_checkpoint.npz",
+      "sha256": "6782503f5e1c6ca37f380133e3990c3ddce3cf903a2bd42d0a21fe79ff73188e"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\burgers_59\\provenance.json",
+      "sha256": "d81be33cdc3d2dfd177933ed1cc0e2268e10727381adc6202ec9b355fa78c879"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\burgers_59\\state_checkpoint.npz",
+      "sha256": "4664434e7ebd8b889cfb8b07e1b945683096275ecc999e8ded3ce2a0ef90d17e"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\burgers_67\\provenance.json",
+      "sha256": "3037573f1cb4b09d4304097781ff4ec9d6a10194a3b2812d237b74e1a51611c3"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\recovery\\burgers_67\\state_checkpoint.npz",
+      "sha256": "85a55cac3e988573d9263acee625b7968a43d1f541723d75de6c005e9790463f"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\RECOVERY_MANIFEST.csv",
+      "sha256": "f305a9c1a5cd21d410e3c6a8a0086ec5345e2594bd50dc4418faf24be5e9a048"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\RECOVERY_REPORT.md",
+      "sha256": "ac93d4a0bb8b1af8bb0f26a78fdcae006704acd9f4e94630b5624866b714926b"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\SO_FAILURE_ANALYSIS.md",
+      "sha256": "da7673222ccb9899b7c4ef1e0f57b85c4a27729a176f6cea7844fc6285a032c4"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\revision_week\\outputs\\day2\\SO_SIGNED_ERROR_DECOMPOSITION.csv",
+      "sha256": "d7585964da2faf5e7c6c0e27d21ff15b5a9efcd4afacf5a42376e7579e8a118c"
+    }
+  ],
+  "created_unix": 1788940544.3881536
+}

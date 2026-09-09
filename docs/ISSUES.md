@@ -16,6 +16,15 @@ on existing saved states. New run: phase1b_correction_v1; no training/new seeds.
 The retired legacy entry points reject execution. Only bounded corrective workers
 may run; original historical compliance is not reclassified as a success.
 
+Correction outcome: engineering validation PASSED, no new training. Original
+matrices and state tensors match; true HVP passes with corrected cost accounting.
+The initial and terminal ADAPT spectra are now separated. Supplemental precision
+checks retain positive observed objective margins, but do not meet the separately
+fixed stricter gradient gate; do not relax it or call this an engineering failure.
+Report/claim authority: revision_week/outputs/phase1b_correction_v1/FINAL_CORRECTION_REPORT.md.
+One aggregation-only attempt failed JSON serialization of numpy.int64; explicit
+boolean conversion resolved it, and its measured command cost remains in the ledger.
+
 ## I-SO-WEEK1-003 — Git newline checkout versus frozen byte inventory
 
 Date: 2026-09-09. Classification: implementation failure, resolved.

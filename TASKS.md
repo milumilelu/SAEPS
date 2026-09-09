@@ -2,11 +2,16 @@
 
 ## Phase 1B review corrections
 
-Status: `IN_PROGRESS`. User authorized implementation after review.
+Status: `PASSED` (engineering correction). User authorized implementation after review.
 Historical day2 is retained; prior claim of complete protocol compliance is withdrawn.
 No further recovery training. Supplemental validation has a new config/run ID,
 24 solve cap, hard subprocess limits and no automatic retries. Regression tests:
-40 passed (13 new plus 27 directional-core tests). Numerical results pending.
+40 passed (13 new plus 27 directional-core tests). Unified validator PASSED.
+All corrective numerical tasks completed without training/replacement/retry.
+Corrective results: revision_week/outputs/phase1b_correction_v1/FINAL_REVIEW_VALIDATION.json.
+Scientific interpretation remains limited: observed descent exceeds numerical
+precision estimates but the stricter stationary-profile gate is not passed.
+Original replay deviations and uncertain failure costs remain; no independent freeze.
 
 ## 2026-09-09 — SO first-stage retrospective extension
 
