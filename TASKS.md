@@ -563,3 +563,12 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 - [x] 最终验证：85 frozen hashes、441 historical files、29 checkpoints、全部aggregate lineage与7 paper artifacts PASS；
 - [x] 最终科学裁决 `PARTIALLY_SUPPORTED`；paper readiness为 `CLAIM_NARROWING_REQUIRED`；
 - [x] 禁止后续V5 scientific execution；不补seed、不救援、不重新校准。
+
+## Phase 1C — bounded user-authorized development
+
+**状态:** `IN_PROGRESS`
+
+- Authorization: user requested stationarity diagnosis, distinguishable curvature steps and improved SO-ADAPT estimation.
+- Prospective protocol: `revision_week/PHASE1C_DEVELOPMENT.md`; config/code committed before measurements.
+- Initial regression verification: 45 tests passed; fixed 2 saved roots, 12 prior strict states, 16 new candidates and 25 historical matrix records. No training or new seeds.
+- Original main checkout has unrelated changes; isolated SO worktree and historical results preserved. No confirmation execution or automatic push.

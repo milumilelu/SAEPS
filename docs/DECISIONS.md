@@ -566,3 +566,12 @@ later layers. Preserve all historical locks and outcomes. Use the unmodified
 starter defaults and both suggested preconditioners. See
 `docs/UPGRADE_MATRIX_PILOT.md` and generated `outputs/runs/v5/upgrade_pilot/audit/REPORT.md`.
 No scientific support threshold or new confirmation is introduced.
+
+## D-P1C — Prospective bounded follow-up
+
+The user explicitly authorized the three proposed development checks. The new namespace
+`revision_week/outputs/phase1c_development_v1` keeps all historical protocols unchanged.
+Fixed exact Newton polishing tests numerical stationarity; a uniform fractional step
+avoids the previously shared clipping where possible; an 8-step residual-energy
+estimator tests practical tightness without changing the old SO-ADAPT endpoint.
+See `revision_week/PHASE1C_DEVELOPMENT.md`. No independent confirmation is authorized.
