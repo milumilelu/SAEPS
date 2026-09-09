@@ -1,0 +1,257 @@
+{
+  "center": "allen_cahn_84",
+  "load_seconds": 0.010370099917054176,
+  "source": {
+    "run_id": "day2",
+    "experiment_id": "P1B_B",
+    "center_id": "allen_cahn_84",
+    "pde": "allen_cahn",
+    "seed": 84,
+    "role": "control",
+    "parent_historical_center_id": "allen_cahn_84",
+    "checkpoint_npz_sha256": "f49ec8962261c28d0b4abddf9f805610e926b185e8a37723b5f22df8f0e0fb16",
+    "packing_order": "theta = [wx(W), wt(W), hidden_bias(W), output_weights(W), output_bias(1)]; n=4W+1",
+    "architecture": {
+      "kind": "one-hidden-layer tanh scalar PINN",
+      "width": 8,
+      "activation": "tanh",
+      "dtype": "float64",
+      "n_state": 33,
+      "n_parameter": 1
+    },
+    "parameterization": "log physical parameter; physical = exp(log_parameter)",
+    "data_recipe": {
+      "points_seed_rule": "manual_seed(seed+40000), torch.rand/randn float64",
+      "runtime_config": {
+        "schema_version": 1,
+        "phase": "P4_SCREENING",
+        "development_seeds": [
+          0,
+          1,
+          2
+        ],
+        "candidates": [
+          "Allen-Cahn",
+          "Burgers"
+        ],
+        "selection_order": [
+          "hard_numerical_gates",
+          "stationarity_passing_count",
+          "classical_curvature_clarity",
+          "reoptimization_failure_rate",
+          "alphabetical_name"
+        ],
+        "forbidden_selection_metrics": [
+          "eta",
+          "saeps_advantage",
+          "figure_appearance",
+          "expected_regime"
+        ],
+        "dtype": "float64",
+        "domain": {
+          "x": [
+            0.0,
+            1.0
+          ],
+          "t": [
+            0.0,
+            0.4
+          ]
+        },
+        "forward_solver": {
+          "method": "periodic_second_order_fd_rk4",
+          "spatial_points": 128,
+          "time_steps": 2000
+        },
+        "benchmarks": {
+          "Burgers": {
+            "equation": "u_t + u*u_x = mu*u_xx",
+            "coordinate": "log_mu",
+            "truth_parameter": 0.05,
+            "initial_parameter": 0.08,
+            "initial_condition": "sin(2*pi*x)"
+          },
+          "Allen-Cahn": {
+            "equation": "u_t = diffusion*u_xx + rho*(u-u^3)",
+            "coordinate": "log_rho",
+            "truth_parameter": 2.0,
+            "initial_parameter": 1.4,
+            "fixed_diffusion": 0.01,
+            "initial_condition": "0.5*sin(2*pi*x)"
+          }
+        },
+        "network": {
+          "architecture": "tanh_mlp_2x16x1",
+          "hidden_width": 8
+        },
+        "points": {
+          "pde": 96,
+          "data": 128,
+          "initial": 48,
+          "boundary_times": 48
+        },
+        "loss_weights": {
+          "pde": 5.0,
+          "data": 10.0,
+          "initial": 10.0,
+          "boundary": 2.0
+        },
+        "optimizer": {
+          "adam_epochs": 1600,
+          "adam_learning_rate": 0.003,
+          "lbfgs_max_iterations": 300,
+          "lbfgs_tolerance_grad": 1e-10,
+          "lbfgs_tolerance_change": 1e-12
+        },
+        "stationarity_gates": {
+          "theta": 0.02,
+          "parameter": 0.02
+        },
+        "profile": {
+          "offsets": [
+            -0.075,
+            -0.05,
+            -0.025,
+            0.0,
+            0.025,
+            0.05,
+            0.075
+          ],
+          "optimizer_source": "configs/p3_profile.yaml",
+          "optimizer_amendment": {
+            "adam_warmup_epochs": 500,
+            "adam_learning_rate": 0.001,
+            "outer_steps_max": 15,
+            "inner_iterations": 50
+          },
+          "stopping_amendment": {
+            "relative_loss_change": 0.002,
+            "normalized_gradient": 0.005
+          },
+          "fit_quality_amendment": {
+            "minimum_r_squared": 0.99,
+            "maximum_normalized_rmse": 0.03
+          }
+        },
+        "gamma": {
+          "alpha_grid": [
+            1e-12,
+            1e-10,
+            1e-08,
+            1e-06,
+            0.0001,
+            0.01
+          ],
+          "cg_tolerance": 1e-10,
+          "cg_acceptance": 1e-08,
+          "cg_max_iterations": 500,
+          "explicit_mf_relative_tolerance": 1e-06,
+          "plateau_relative_tolerance": 0.05
+        },
+        "hard_gates": {
+          "forward_finite": true,
+          "state_rmse_max": 0.15,
+          "minimum_valid_checkpoints": 1,
+          "maximum_profile_failure_fraction": 0.5,
+          "classical_minimum_inside_interval": true,
+          "classical_curvature_positive": true
+        }
+      },
+      "runtime_config_note": "embedded copy; also hashed from disk chain below"
+    },
+    "gamma_construction": "gamma = alpha * lambda_max(G_tt); alpha from curvature protocol config; gamma added once to the state block; fixed per center",
+    "loss_definitions": {
+      "center_training_objective": "0.5*mean(rbar^2) (Adam/LBFGS + center rescue)",
+      "archived_curvature_objective": "0.5*sum(rbar^2) (day1/v3 derivatives)",
+      "both_gradients_exported": true
+    },
+    "optimizer_state": {
+      "adam_epochs": 1600,
+      "lbfgs_config": {
+        "max_iter": 300,
+        "tolerance_grad": 1e-10,
+        "tolerance_change": 1e-12
+      },
+      "rng_state_at_export": "torch RNG state saved in npz (replay export time, NOT the historical training-time state)",
+      "historical_training_rng_state": "NOT AVAILABLE (not archived in any historical record)"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "torch": "2.13.0+cpu",
+      "numpy": "2.3.5",
+      "device": "cpu",
+      "torch_threads": 1,
+      "git_commit": "278176227336a41431197af735db35c575d6cadb",
+      "saeps_import_path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS-so-week1\\src\\saeps\\__init__.py"
+    },
+    "hashes": {
+      "day1_parent_record": "fcd3e7df7fd034af2917f3aa79d1352436148368fba3fd691426aab4da0f39d1",
+      "v3_center_archive": "b9c36ff5592c8bb1eb194728081363b05ba980b4020556db4b2041b03b85990c",
+      "saeps_scalar_module": "b864f96ba0d533fb6e7ed26c3a4546d08bf63a426a332bb4053a3c706684cc1a",
+      "worktree_vs_import_note": "imported saeps package files sha256-compared against worktree git blob at runtime (see code_identity check)"
+    },
+    "reproduction": {
+      "F_raw": {
+        "replay": 120.46614457030421,
+        "original": 120.46614457030424,
+        "relative_error": 2.35931095261516e-16,
+        "passed": true
+      },
+      "F_SAEPS": {
+        "replay": 6.723721684095949,
+        "original": 6.723721684092213,
+        "relative_error": 5.555968269919682e-13,
+        "passed": true
+      },
+      "H_red_exact": {
+        "replay": 5.258796172018222,
+        "original": 5.2587961720189895,
+        "relative_error": 1.459243008321976e-13,
+        "passed": true
+      }
+    },
+    "matrix_comparison": {
+      "F_raw": {
+        "replay": 120.46614457030421,
+        "day1": 120.46614457030421,
+        "relative_error": 0.0
+      },
+      "F_G_reference": {
+        "replay": 6.723721684095949,
+        "day1": 6.723721684095949,
+        "relative_error": 0.0
+      },
+      "Q_G_actual": {
+        "replay": 6.723721684090478,
+        "day1": 6.723721684090478,
+        "relative_error": 0.0
+      },
+      "F_SO": {
+        "replay": 5.5433832456181165,
+        "day1": 5.54338324561823,
+        "relative_error": 2.0508565380443405e-14
+      },
+      "F_star": {
+        "replay": 5.258796172018222,
+        "day1": 5.258796172018222,
+        "relative_error": 0.0
+      },
+      "gamma": {
+        "replay": 0.0014540494347827445,
+        "day1": 0.0014540494347827445,
+        "relative_error": 0.0
+      }
+    },
+    "stationarity": {
+      "G_theta": 7.889853933246748e-07,
+      "S_theta": 1.4275151682329862e-05,
+      "S_lambda": 0.1889105180262127
+    },
+    "center_gate_pass": true,
+    "rebuilt_data_identity_max_abs_diff": 0.0,
+    "loss_mean_at_center": 0.0006160051807887527,
+    "loss_sum_at_center": 0.22668990653026097
+  },
+  "state_sha256": "e106ecaca77c7ce7dabf354a1909ea9372bc3a3c590b6191e3aa72cc53024fa3",
+  "contains_dense_derivatives": false
+}

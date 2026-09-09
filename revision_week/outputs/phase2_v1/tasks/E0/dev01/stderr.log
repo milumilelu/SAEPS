@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS-so-week1\revision_week\phase2\workers.py", line 132, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS-so-week1\revision_week\phase2\workers.py", line 115, in main
+    {'scalar_history':historical.scalar,'multi_history':historical.multi,'lanczos_history':historical.lanczos,'lanczos_practical':lambda d,c:historical.lanczos(d,c,True)}[kind](dest,cfg)
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS-so-week1\revision_week\phase2\historical.py", line 28, in scalar
+    g,h,source=load_archive(old);n=old['n_state'];r=matrices(g,h,n,old['gamma']);write(dest/'raw'/f'{old["center_id"]}_nominal.json',r)
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS-so-week1\revision_week\phase2\historical.py", line 16, in load_archive
+    g=np.block([[gg['G_tt'],gg['G_tl']],[np.array(gg['G_tl']).T,gg['G_ll']]])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS\.venv\Lib\site-packages\numpy\_core\shape_base.py", line 930, in block
+    arrays, list_ndim, result_ndim, final_size = _block_setup(arrays)
+                                                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS\.venv\Lib\site-packages\numpy\_core\shape_base.py", line 961, in _block_setup
+    bottom_index, arr_ndim, final_size = _block_check_depths_match(arrays)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS\.venv\Lib\site-packages\numpy\_core\shape_base.py", line 606, in _block_check_depths_match
+    for index, ndim, size in idxs_ndims:
+                             ^^^^^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS\.venv\Lib\site-packages\numpy\_core\shape_base.py", line 602, in <genexpr>
+    idxs_ndims = (_block_check_depths_match(arr, parent_index + [i])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RZF\Desktop\博士课题资料\SAEPS\.venv\Lib\site-packages\numpy\_core\shape_base.py", line 611, in _block_check_depths_match
+    raise ValueError(
+ValueError: List depths are mismatched. First element was at depth 2, but there is an element at depth 4 (arrays[1][1][0][0])
