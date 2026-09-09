@@ -71,7 +71,8 @@ class Counters:
         self.hit_cap = False
 
 
-def profile_solve(residual, theta_c, lam_value, gamma, theta_init, gate_norm, cap_s=INNER_SOLVE_CAP_S):
+def profile_solve(residual, theta_c, lam_value, gamma, theta_init, gate_norm, cap_s=INNER_SOLVE_CAP_S,
+                  max_iter=300, tolerance_grad=1e-10, tolerance_change=1e-16):
     """Shared candidate/start solver: LBFGS on theta for L_gamma at fixed lambda."""
     cnt = Counters()
     theta = theta_init.detach().clone().requires_grad_(True)
@@ -81,11 +82,13 @@ def profile_solve(residual, theta_c, lam_value, gamma, theta_init, gate_norm, ca
         r = residual(th, lam)
         return 0.5 * torch.sum(r.square()) + 0.5 * gamma * torch.sum((th - theta_c) ** 2)
 
-    opt = torch.optim.LBFGS([theta], max_iter=300, tolerance_grad=1e-10,
-                            tolerance_change=1e-16, history_size=100, line_search_fn='strong_wolfe')
+    opt = torch.optim.LBFGS([theta], max_iter=max_iter, tolerance_grad=tolerance_grad,
+                            tolerance_change=tolerance_change, history_size=100, line_search_fn='strong_wolfe')
     t0 = time.perf_counter()
 
     def closure():
+        if time.perf_counter() - t0 >= cap_s:
+            raise TimeoutError('budget_exhausted inside LBFGS')
         cnt.objective_evals += 1
         opt.zero_grad(set_to_none=True)
         loss = anchored(theta)
@@ -93,24 +96,34 @@ def profile_solve(residual, theta_c, lam_value, gamma, theta_init, gate_norm, ca
         cnt.gradient_evals += 1
         return loss
 
-    opt.step(closure)
+    try:
+        opt.step(closure)
+    except TimeoutError:
+        cnt.hit_cap = True
     cnt.solve_seconds = time.perf_counter() - t0
-    cnt.hit_cap = cnt.solve_seconds > cap_s
+    cnt.hit_cap = cnt.hit_cap or cnt.solve_seconds >= cap_s
     with torch.no_grad():
         r = residual(theta, lam)
         m_count = float(r.numel())
         cnt.final_loss = float(anchored(theta).item())
         cnt.theta = theta.detach().clone()
+    cnt.objective_evals += 2  # final objective and gradient objective
     g = torch.autograd.grad(anchored(theta), theta)[0]
+    cnt.gradient_evals += 1
     cnt.final_grad_norm = float(torch.linalg.vector_norm(g))
     # stationarity gates use the historical mean-form convention:
     # normalized gradient of 0.5*mean(r^2) = sum-gradient / m_count
     cnt.final_grad_normalized = (cnt.final_grad_norm / m_count) / max(float(torch.linalg.vector_norm(theta.detach())), 1.0)
-    cnt.converged = bool(cnt.final_grad_normalized <= gate_norm)
+    cnt.converged = bool(not cnt.hit_cap and np.isfinite(cnt.final_loss)
+                         and cnt.final_grad_normalized <= gate_norm)
+    cnt.optimizer_iterations = int(opt.state[theta].get('n_iter',0))
+    cnt.optimizer_evals = int(opt.state[theta].get('func_evals',0))
+    cnt.solve_seconds = time.perf_counter() - t0
     return cnt
 
 
 def main() -> int:
+    raise RuntimeError('Archived day2 runner retired: use p1b_correct.py; never overwrite historical output')
     started = time.perf_counter()
     torch.set_default_dtype(torch.float64)
     torch.set_num_threads(1)
@@ -313,7 +326,7 @@ def main() -> int:
                     row['candidate_state_valid'] = bool(cand.converged and not cand.hit_cap)
                     row['trial_lambda'] = lam_t
                     row['phi_noise_estimate'] = phi_noise
-                    if cand.converged and pred > 0 and (actual >= ARMIJO_C1 * pred):
+                    if cand.converged and not cand.hit_cap and pred > 0 and (actual >= ARMIJO_C1 * pred):
                         accepted = True
                         break
                 row['step_accepted'] = accepted

@@ -1,5 +1,21 @@
 # ISSUES.md
 
+## I-P1B-CORRECTION — Retained review findings and corrective authorization
+
+Classification: implementation failure and historical protocol deviation.
+Original Phase 1B used deterministic repeat evaluation as an optimization-error
+estimate, incorrect state-SPD qualification, non-enforced time caps, incomplete
+cost segments, initial-defect interpretation of terminal ADAPT, and hardcoded
+success reports. The recovery ledger records multiple executed replay rounds;
+these violate the one-replay rule even when export fails. Exact failure costs
+are unavailable and must remain estimates, never disappear from budget accounting.
+The original pre-run protocol freeze is not independently proven by Git history.
+All day1/day2 numerical outputs remain immutable; no retrospective amendment.
+User's post-review “交给你了” authorizes repair and necessary supplemental verification
+on existing saved states. New run: phase1b_correction_v1; no training/new seeds.
+The retired legacy entry points reject execution. Only bounded corrective workers
+may run; original historical compliance is not reclassified as a success.
+
 ## I-SO-WEEK1-003 — Git newline checkout versus frozen byte inventory
 
 Date: 2026-09-09. Classification: implementation failure, resolved.

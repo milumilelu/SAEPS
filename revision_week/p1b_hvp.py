@@ -61,6 +61,7 @@ def rebuild_residual(benchmark: str, seed: int, runtime: dict, points, truth):
 
 
 def main() -> int:
+    raise RuntimeError('Archived HVP reporter retired: use p1b_correct.py for corrected timing and validation')
     started = time.perf_counter()
     torch.set_default_dtype(torch.float64)
     torch.set_num_threads(1)

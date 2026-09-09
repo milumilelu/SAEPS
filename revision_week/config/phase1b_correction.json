@@ -1,0 +1,21 @@
+{
+  "role": "supplemental_development_validation_after_review",
+  "historical_commit": "0c91c4f",
+  "training_attempts": 0,
+  "centers": ["burgers_59", "burgers_67", "burgers_55", "allen_cahn_84"],
+  "roots": ["burgers_55", "allen_cahn_84"],
+  "offsets": [0.05, -0.05],
+  "candidate_policy": "replay saved candidate coordinates; deduplicate exactly identical coordinates; no new step selection",
+  "max_profile_solves": 24,
+  "per_solve_process_seconds": 300,
+  "total_new_process_seconds": 1800,
+  "root_refinements": 0,
+  "strict_max_iter": 1200,
+  "strict_gradient_tolerance": 1e-12,
+  "strict_change_tolerance": 1e-18,
+  "profile_gate_mean_normalized": 1e-8,
+  "resolution_safety_factor": 10.0,
+  "operator_tolerance": 1e-8,
+  "bound_status": "numerical_bound_estimate",
+  "scope_note": "Extra verification solves are a separate corrective development activity; do not relabel the original one-shot protocol as compliant. No new seed or confirmation cohort."
+}

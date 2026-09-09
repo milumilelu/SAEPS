@@ -29,6 +29,7 @@ def fmt(x, sig=4):
 
 
 def main() -> int:
+    raise RuntimeError('Hardcoded historical reporter retired: use p1b_correct.py report; original day2 reports remain evidence')
     t0 = time.perf_counter()
     a = json.loads((OUT / 'p1b_a_summary.json').read_text(encoding='utf-8'))
     b_cost = json.loads((OUT / 'p1b_b_cost.json').read_text(encoding='utf-8'))

@@ -272,6 +272,7 @@ def _git(*args) -> str:
 
 
 def main() -> int:
+    raise RuntimeError('Recovery cohort permanently closed: repeated training is forbidden; reuse saved checkpoints with p1b_correct.py')
     started = time.perf_counter()
     torch.set_default_dtype(torch.float64)
     torch.set_num_threads(1)

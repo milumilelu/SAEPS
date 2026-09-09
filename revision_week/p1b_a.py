@@ -176,6 +176,7 @@ def analyze_center(rec: dict, center_path: Path, eig_cost: list) -> dict:
 
 
 def main() -> int:
+    raise RuntimeError('Archived analysis is immutable: use p1b_correct.py for terminal-defect analysis')
     started = time.perf_counter()
     cpu0 = time.process_time()
     OUT.mkdir(parents=True, exist_ok=True)

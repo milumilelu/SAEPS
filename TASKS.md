@@ -1,5 +1,13 @@
 # TASKS.md — SAEPS v2.0
 
+## Phase 1B review corrections
+
+Status: `IN_PROGRESS`. User authorized implementation after review.
+Historical day2 is retained; prior claim of complete protocol compliance is withdrawn.
+No further recovery training. Supplemental validation has a new config/run ID,
+24 solve cap, hard subprocess limits and no automatic retries. Regression tests:
+40 passed (13 new plus 27 directional-core tests). Numerical results pending.
+
 ## 2026-09-09 — SO first-stage retrospective extension
 
 Status: `PASSED`; isolated branch `codex/saeps-so-week1`.
