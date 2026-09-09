@@ -1,0 +1,24 @@
+{
+  "status": "PASSED_NO_NEW_FAILURE",
+  "before_status": "FAILED",
+  "after_status": "FAILED",
+  "before_exit": 1,
+  "after_exit": 1,
+  "before_failed_checks": [
+    "scientific_gate_and_final_mapping",
+    "unit_and_integration_tests"
+  ],
+  "after_failed_checks": [
+    "scientific_gate_and_final_mapping",
+    "unit_and_integration_tests"
+  ],
+  "all_check_statuses_identical": true,
+  "tests_before_after": "147 passed, 1 failed, 1 skipped",
+  "failed_test": [
+    "FAILED tests/test_v5_final_audit.py::test_v5_post_execution_validator_passes_core_checks"
+  ],
+  "known_missing_files": [
+    "FINAL_VALIDATION_REPORT.md",
+    "V5_JCP_MINIMAL_PROTOCOL.md"
+  ]
+}

@@ -1,0 +1,51 @@
+Pending human approval; require clean worktrees and passing validator before Stage B.
+ D FINAL_VALIDATION_REPORT.md
+ D PUBLIC_RELEASE_REPORT.md
+ D REPRODUCIBILITY.md
+ D "SAEPS Master Research Program v4.0.md"
+ D V4_FINAL_AUDIT_REPORT.md
+ D V5_FINAL_JCP_AUDIT_REPORT.md
+ D V5_JCP_MINIMAL_PROTOCOL.md
+?? .workbuddy/
+?? CODEX_SAEPS_7DAY_EXPERIMENT_PLAN.md
+?? docs/provenance/
+?? exact_fixed_state_baseline.py
+?? paper/
+?? scripts/cleanup_branches_after_approval.sh
+?? sic/
+?? "\344\273\273\345\212\241\350\257\264\346\230\216/"
+worktree C:/Users/RZF/Desktop/博士课题资料/SAEPS
+HEAD 0b400e318267504ebae6dc9467652ad8645f0059
+branch refs/heads/main
+
+worktree C:/Users/RZF/Desktop/博士课题资料/SAEPS-so-week1
+HEAD 0b400e318267504ebae6dc9467652ad8645f0059
+branch refs/heads/codex/saeps-so-week1
+
+DRY_RUN: git tag -a archive/public-jcp-local-3b02212 3b02212a4fbf7abbe41d7cacae7ac924e829f232 -m Preserve\ historical\ DAG\ and\ evidence\ before\ approved\ branch\ cleanup
+DRY_RUN: git push origin refs/tags/archive/public-jcp-local-3b02212
+VERIFY remote annotated tag archive/public-jcp-local-3b02212 and peeled SHA 3b02212a4fbf7abbe41d7cacae7ac924e829f232 before deleting its source branch.
+DRY_RUN: git tag -a archive/public-jcp-origin-0b610fb 0b610fb1f8a898d2954099eff2345de1095c9e37 -m Preserve\ historical\ DAG\ and\ evidence\ before\ approved\ branch\ cleanup
+DRY_RUN: git push origin refs/tags/archive/public-jcp-origin-0b610fb
+VERIFY remote annotated tag archive/public-jcp-origin-0b610fb and peeled SHA 0b610fb1f8a898d2954099eff2345de1095c9e37 before deleting its source branch.
+DRY_RUN: git tag -a archive/v6-phase15-71b84e3 71b84e3ca28b00bac5a0d9924213415ad66954cd -m Preserve\ historical\ DAG\ and\ evidence\ before\ approved\ branch\ cleanup
+DRY_RUN: git push origin refs/tags/archive/v6-phase15-71b84e3
+VERIFY remote annotated tag archive/v6-phase15-71b84e3 and peeled SHA 71b84e3ca28b00bac5a0d9924213415ad66954cd before deleting its source branch.
+DRY_RUN: git push origin --delete codex/public-jcp-release
+DRY_RUN: git push origin --delete codex/v6-phase15-protocol
+DRY_RUN: git push origin --delete posthoc/exact-fixed-state-decomposition-v1
+DRY_RUN: git push origin --delete posthoc/exact-fixed-state-decomposition-v2
+DRY_RUN: git push origin --delete posthoc/exact-fixed-state-decomposition-v3
+DRY_RUN: git push origin --delete posthoc/variable-projection-baseline-v1
+DRY_RUN: git push origin --delete posthoc/whitening-sensitivity-v1
+DRY_RUN: git push origin --delete release/jcp-submission-v1
+DRY_RUN: git push origin --delete release/public-release-report-v1
+DRY_RUN: git branch -d codex/public-jcp-release
+DRY_RUN: git branch -d codex/v6-phase15-protocol
+DRY_RUN: git branch -d posthoc/exact-fixed-state-decomposition-v1
+DRY_RUN: git branch -d posthoc/exact-fixed-state-decomposition-v2
+DRY_RUN: git branch -d posthoc/exact-fixed-state-decomposition-v3
+DRY_RUN: git branch -d posthoc/variable-projection-baseline-v1
+DRY_RUN: git branch -d posthoc/whitening-sensitivity-v1
+DRY_RUN: git branch -d release/jcp-submission-v1
+DRY_RUN: git branch -d release/public-release-report-v1

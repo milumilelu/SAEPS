@@ -1,0 +1,252 @@
+* 0b400e3 (HEAD -> main, origin/main, origin/codex/saeps-so-week1, origin/HEAD, codex/saeps-so-week1) Complete corrective Phase 1B audit and retain unresolved profile gates
+* 1d528af Repair Phase 1B validation gates and freeze bounded corrective audit
+* 0c91c4f P1B-D + finalize: one-step pilot (16/16 accepted; RAW vs GN-family curvature discrimination real; GN/SO/ORACLE trust-radius-indistinguishable) + RECOVERY_REPORT + PHASE1B_REPORT + CLAIM_LEDGER + cost ledger
+* 1251c51 P1B-C: real AD HVP verified on 4 recovered historical centers (vs explicit H@v <=8.7e-12, adjoint <=2.2e-13, Hll-Gll=g_lambda <=5e-14; target 1e-8)
+* 2142c41 P1B-B: 4/4 predetermined centers recovered via fixed-flow replay (historical_center_replayed; frozen repro <=1.15e-11, matrix level <=8.6e-14, data identity bitwise 0.0); full state checkpoints exported
+* 2781762 P1B-A: signed error decomposition, improvement-factor definition verified, SO-ADAPT bound-vs-truth quadrant split (9 Q1 / 12 Q2 / 0 Q3 / 0 Q4; truth 21/21 pass)
+* acf848f Complete historical E0 SO audit with retained failures and measured costs
+* da5e67b Add isolated SO development audit and tested directional curvature core
+| * 71b84e3 (tag: archive/v6-phase15-71b84e3, codex/v6-phase15-protocol) Record remote synchronization of phase 1.5 branch and main
+| * c742d25 Document concurrent branch-ref loss and reflog recovery (I-V6-004)
+| * 8ced956 Record phase 1.5 closure and stale validator lifecycle issue
+| * 38ada9e Complete phase 1.5 candidate gates and retain negative development outcome
+| * 2eb3447 Accept phase 1.5B paired-start and preconditioner trajectories
+| * 0bfdde7 Accept phase 1.5A spectral and cancellation audit
+| * 38c188a Implement and test phase 1.5 numerical development pipeline
+| * 6fea4bd Specify phase 1.5 historical method-development protocol
+|/  
+* cd01a26 Run historical matrix curvature correction development pilot
+*   d5a231d (tag: jcp-submission-v1) Record SAEPS public release audit (#6)
+|\  
+| * 49c692c Record SAEPS public release audit
+|/  
+*   080168b Prepare public JCP submission snapshot (#5)
+|\  
+| * deedbbe Fetch full provenance history in publication CI
+| * e08c775 Fix Windows publication CI test invocation
+| * 6dd7a57 Prepare SAEPS for public JCP submission
+| *   c4c2528 Merge post-hoc whitening sensitivity v1
+| |\  
+| * \   78bffb0 Merge post-hoc variable-projection baseline v1
+| |\ \  
+| * | | 8b987e7 Merge post-hoc exact fixed-state decomposition v3
+|/| | | 
+| | | * 0428a1f Audit post-hoc whitening sensitivity analysis
+| | | * cb3bf39 Add whitening stabilizer sensitivity evidence
+| | | * 17d48bf Freeze post-hoc whitening sensitivity protocol
+| |_|/  
+|/| |   
+| | * c868127 Add paper-facing submission statistics audit
+| | * 96fa19a Add post-hoc variable-projection baseline evidence
+| | * 2b700c2 Freeze post-hoc variable-projection baseline protocol
+| |/  
+| * 39343bc Audit post-hoc exact curvature decomposition
+| * e30f65d Add post-hoc exact curvature decomposition evidence
+| * 32708fc Record post-hoc exact-curvature v3 canary evidence
+| * 538b866 Freeze post-hoc exact-curvature decomposition v3 protocol
+| * 7a60b6a Add end-to-end post-hoc exact-curvature v3 preflight
+| * ead14d9 Record aborted post-hoc exact-curvature v2 canary
+| * d971290 Freeze post-hoc exact-curvature decomposition v2 protocol
+| * a94055d Add corrected post-hoc exact-curvature v2 preflight
+| * 56c3f87 Record aborted post-hoc exact-curvature v1 run
+| * 609cd78 Freeze post-hoc exact-curvature decomposition protocol
+| * 86ec40a Add post-hoc exact-curvature preflight
+|/  
+| * 0b610fb (tag: archive/public-jcp-origin-0b610fb) Restore manifested artifact bytes in CI audit
+| | * 3b02212 (tag: archive/public-jcp-local-3b02212, codex/public-jcp-release) Restore manifested artifact bytes in CI audit
+| * | b0886f6 Restore historical byte representation in CI audit
+| | * 18d771c Restore historical byte representation in CI audit
+| * | b28c187 Install pinned Python with uv in publication CI
+| | * 3b9c521 Install pinned Python with uv in publication CI
+| * | da028fa Pin publication CI to supported Windows runner
+| | * 63956be Pin publication CI to supported Windows runner
+| | * d2e92bf Align release audit with published branch metadata
+| * | e2cebbe Record SAEPS public release audit
+| | * 6b116b9 Record SAEPS public release audit
+| * | df61741 Prepare SAEPS repository for public JCP release
+|/ /  
+| * f939b61 Prepare SAEPS repository for public JCP release
+|/  
+* cf76ffe Make V5 final audit rebuild deterministic
+* 28a29c5 Complete V5 final JCP evidence audit
+* 444030d Add V5.6 final evidence validator
+* 981f91f Consolidate V5.5 adaptation baselines
+* 77d7130 Complete V5.4 residual scalability audit
+* b7d5271 Freeze V5.4 residual scalability execution
+* db55ef9 data: adjudicate V5.3 two-parameter confirmation
+* ad81f58 data: pass V5.3B held-out gate
+* 5535568 feat: freeze V5.3 held-out and confirmation executable
+* aefd30b data: pass V5.3A center development
+* dfe8e32 feat: freeze V5.3A center development
+* bcb40f0 data: adjudicate V5.2 profile bridge
+* 42fd379 feat: freeze V5.2B held-out profile bridge
+* 4051434 data: complete V5.2A profile development
+* 08c16d7 feat: freeze V5.2A profile validation
+* c13454b data: select V5.2A profile optimizer
+* d76d2d5 feat: freeze V5.2A profile optimizer candidates
+* da71e3d data: complete V5.1 finite-gamma audit
+* 30bf9f3 feat: freeze V5.1 finite-gamma audit
+* 9b4722f data: complete V5 checkpoint reconstruction
+* 68f7f9e feat: freeze V5 checkpoint reconstruction
+* 796e755 feat: freeze V5 governance protocol
+* 126f125 docs: preregister V5 JCP execution plan
+* f2d745b Close final v4 evidence audit
+* c9a405b Build current v4 evidence audit
+* 15f605a Accept v4.8 paired robustness audit
+* d31fe6b Record v4.8 architecture seed 139
+* b2694fe Record v4.8 architecture seed 138
+* 153cd05 Record v4.8 architecture seed 137
+* 0d1af6a Record v4.8 architecture seed 136
+* 07b4110 Record v4.8 architecture seed 135
+* 8a338e0 Record v4.8 noise robustness seed 134
+* b1292ca Record v4.8 noise robustness seed 133
+* 40a59d8 Record v4.8 noise robustness seed 132
+* 682972f Record v4.8 noise robustness seed 131
+* 8ae23ef Record v4.8 noise robustness seed 130
+* 1758332 Lock v4.8 paired robustness
+* 9b4fc45 Accept practical scalability audit
+* 6d7d3a7 Record scalability checkpoint 124
+* 2891b5e Record scalability checkpoint 123
+* 79378e4 Record scalability checkpoint 122
+* 638db82 Record scalability checkpoint 121
+* b795c38 Record scalability checkpoint 120
+* 0771945 Fix scalability solver result reporting
+* 36c563a Fix scalability checkpoint schema lookup
+* bb10d64 Open practical scalability audit
+* 8300418 Stop two-parameter stage at heldout gate
+* 9f991cd Record two-parameter heldout seed 116
+* 5088f7d Preserve failed two-parameter heldout seed 115
+* 33483ed Freeze fresh two-parameter recovery heldout
+* 6767603 Preserve contaminated heldout attempt and recover isolation
+* 03f1253 Accept two-parameter engineering
+* d5e2958 Record two-parameter engineering seed 102
+* f78ab38 Record two-parameter engineering seed 101
+* a201218 Select width 6 for two-parameter engineering
+* 5881be8 Record width-6 two-parameter screening pass
+* 7923206 Advance two-parameter fallback to width 6
+* ac23759 Preserve failed width-8 two-parameter screening
+* 5d2c553 Register two-parameter architecture fallback
+* ac8ec3d Preserve failed two-parameter engineering seed 100
+* 00865f1 Open two-parameter exact geometry development
+* 4d70452 Adjudicate controlled confirmation as not supported
+* c947f7d Preserve one-shot controlled confirmation outputs
+* 9dd4b35 Authorize one-shot controlled confirmation
+* 609cf90 Record controlled confirmation preflight
+* 2feaafe Record controlled confirmation lock
+* f226e6f Lock controlled confirmation candidate
+* a2f0236 Accept controlled heldout development
+* 6ffe36f Record controlled heldout seed 89
+* 43101d8 Record controlled heldout seed 88
+* c48038e Freeze controlled heldout executable
+* 65d8e30 Prepare frozen controlled heldout runner
+* f3b1036 Accept controlled engineering v2
+* 4fcc136 Record controlled v2 engineering seed 87
+* c782a85 Record controlled v2 engineering seed 86
+* 3fee740 Record controlled v2 engineering seed 85
+* 66b4e34 Register controlled center engineering v2
+* c96338f Preserve failed controlled engineering seed 87
+* 5a58524 Record controlled engineering seed 86
+* 602b4c8 Record controlled engineering seed 85
+* 2dc991f Separate controlled curvature solver semantics
+* 09f7a59 Implement controlled-mechanism engineering runner
+* 3b80a22 Open controlled-mechanism development
+* a5e7faa Adjudicate Allen-Cahn confirmation as supported
+* d19ba98 Preserve one-shot Allen-Cahn confirmation outputs
+* e19ace0 Authorize one-shot Allen-Cahn confirmation
+* 8b5c362 Record clean v4.4 Allen-Cahn preflight
+* 0b0b6c7 Lock v4.4 Allen-Cahn external confirmation
+* 01c9d39 Create Allen-Cahn confirmation executable lock candidate
+* 4149d7e Accept frozen Allen-Cahn held-out development
+* dae33f5 Validate frozen Allen-Cahn held-out development
+* 24a064d Record frozen Allen-Cahn held-out seed 74
+* cf470cb Record frozen Allen-Cahn held-out seed 73
+* bad32b7 Freeze Allen-Cahn executable for held-out development
+* 6490977 Freeze Allen-Cahn semantic gate graph candidate
+* 61b3a72 Accept Allen-Cahn engineering development
+* ef81992 Validate Allen-Cahn runner schema on real development data
+* c8913b6 Record Allen-Cahn engineering seed 72
+* 3e4715a Record Allen-Cahn engineering seed 71
+* 5fe99ca Select Allen-Cahn width 8 for engineering validation
+* 2cf1659 Record Allen-Cahn width 8 full-chain development pass
+* 1f61793 Record Allen-Cahn width 12 center screening failure
+* 1a84edd Register Allen-Cahn architecture fallback screening
+* 90a1d8b Record multidirection Allen-Cahn seed 70 center failure
+* 716df30 Probe full negative state subspace for Allen-Cahn centers
+* e47d931 Record first Allen-Cahn center engineering attempt
+* 2e47084 Add Allen-Cahn center engineering split
+* f66c630 Record Allen-Cahn development seed 70 center failure
+* 2b22009 Implement Allen-Cahn external development pipeline
+* f43f2d0 Open v4.3 supported research branch
+* 3aaf2e3 Record permanent v4.2 SUPPORTED result
+* 7e538fd Freeze v4.2 SUPPORTED confirmation evidence
+* 6a87623 Authorize audited v4.2 one-shot confirmation
+* 050a728 Record immutable v4.2 executable lock
+* 4d1d327 Lock v4.2 corrected confirmation executable
+* 15e6ac6 Accept frozen v4.1 held-out development
+* 12c6fba Freeze v4.1 executable for held-out development
+* 09a31c6 Validate v4.1 engineering integration
+* 1f4c160 Open v4.1 execution-semantic development
+* 4d3c4ef Record permanent v3.6 confirmation result
+* 911fb02 Freeze v3.6 NOT_SUPPORTED confirmation evidence
+* 9bd462a Authorize audited v3.6 one-shot execution
+* 5a4f50f Implement v3.6 one-shot confirmation pipeline
+* f45b80c Record v3.6 immutable lock evidence
+* 4eb28f5 Lock v3.6 scalar confirmation protocol
+* 9d6ccb7 Record v3.5 GitHub publication
+* 76de328 Accept v3.5 development evidence
+* 1616d07 Freeze v3.5 engineering selection
+* 8308f32 Record v3.5 second-order decomposition
+* 8ce1d38 Implement v3.5 second-order engineering
+* 5d1746e Record v3.4 GitHub publication
+* 871cc1b Accept v3.4 development evaluation
+* ad5a5f6 Record clean v3.4 seed24 evaluation
+* cd5419a Record clean v3.4 seed23 evaluation
+* 4ad1da3 Record clean v3.4 seed22 evaluation
+* 2391295 Retain initial v3.4 evaluation attempts
+* ee03b15 Accept v3.4 seed20 protocol gate
+* 37e057c Implement v3.4 curvature validation
+* 629ba1f Accept v3.3 numerical decomposition result
+* b0c317c Implement v3.3 numerical decomposition
+* 9f102ae Accept v3.2 gamma primary seed20 result
+* 681e635 Implement v3.2 gamma primary development
+* 49b3195 Accept v3.1 seed20 serial gate result
+* 0cbde58 Retain first v3.1 saddle escape attempt
+* 23791d1 Implement v3.1 state minimum development gate
+* 1d3f6a9 Record fresh clone acceptance
+* 0b82d08 Write deterministic LF CSV artifacts
+* b7258b4 Make artifact rebuild deterministic across clones
+* 8dc6e89 Read historical raw hashes portably
+* 2c827a7 Make raw audit hashes newline portable
+* ccc71f6 Accept v3 foundation engineering run
+* 6309a62 Preserve negative v3 curvature diagnostics
+* 1aded31 Retain failed v3 base refinement attempt
+* edaa45c Implement isolated v3 foundation diagnostics
+* a355914 Version immutable v2 raw audit snapshot
+* d96efe9 Complete P9 audit and final validation report
+* e693de4 Ignore generated paper artifact manifest
+* 16b290f Implement P9 artifact build and repository audit
+* 6df6ce3 Record P8 computational cost evidence
+* af533f5 Add P8 artifact-only operation aggregation
+* 45d28c5 Implement auditable P8 cost benchmark
+* 2dc79e6 Record P7 descriptive robustness evidence
+* 8333411 Implement locked P7 robustness experiments
+* 7e32908 P6: record locked multi confirmation outcome
+* 59fb24a P5: record locked scalar confirmation outcome
+* 90ca1a4 P4: activate global locked protocol
+* ad794ca P4: commit global confirmation lock contents
+* 66c58f4 P4: stage multi confirmation lock and pipeline
+* 33654f7 P4: stage locked protocols and multi development
+* ab69a7c P5: implement locked scalar confirmation pipeline
+* 296a4bb P4: implement auditable scalar screening
+* b36433f P4: add scalar screening reference solvers
+* e3054d2 P3: record passing profile acceptance
+* 4959f30 P3: implement nonlinear profile engine
+* 0c10404 P2: record controlled confirmation outcome
+* 7bc466a P2: lock controlled geometry protocol
+* bc2fe29 P2: separate gamma plateau and solver gates
+* db1d108 P2: tighten controlled checkpoint development
+* be1e6d9 P2: implement controlled geometry protocol
+* a56beb5 P1: record passing acceptance evidence
+* c4becc7 P1: implement and verify SAEPS numerical core
+* 5181d15 P0: record passing acceptance evidence
+* 6c88a86 P0: bootstrap reproducible SAEPS repository

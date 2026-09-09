@@ -1,0 +1,52 @@
+{
+  "checks": {
+    "bootstrap_lineage": {
+      "detail": "10,000-resample paired percentile bootstrap reproduces exactly",
+      "status": "PASS"
+    },
+    "cost_lineage": {
+      "detail": "times, paired ratio, CG/JVP/VJP lineage reproduce from raw records",
+      "status": "PASS"
+    },
+    "failed_run_reporting": {
+      "detail": "all 56 failed/invalid raw records are reported",
+      "status": "PASS"
+    },
+    "locked_hashes_and_mutation": {
+      "detail": "3 locked configs match recorded hashes and lock commit bytes",
+      "status": "PASS"
+    },
+    "paper_artifacts": {
+      "detail": "artifact manifest, 6 SVG figures and 3 CSV tables verified",
+      "status": "PASS"
+    },
+    "provenance_completeness": {
+      "detail": "P2 and P5-P8 formal summaries contain clean-commit environment provenance",
+      "status": "PASS"
+    },
+    "raw_manifests": {
+      "detail": "all accepted run manifests and raw SHA-256 hashes verified",
+      "status": "PASS"
+    },
+    "raw_to_aggregate_equality": {
+      "detail": "status counts and P5 paired median reproduce from raw records",
+      "status": "PASS"
+    },
+    "scientific_gate_and_final_mapping": {
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\RZF\\\\Desktop\\\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\\\SAEPS\\\\FINAL_VALIDATION_REPORT.md'",
+      "status": "FAIL"
+    },
+    "seed_and_run_completeness": {
+      "detail": "P2=50, P5=10, P6=10, P7=55, P8=3",
+      "status": "PASS"
+    },
+    "unit_and_integration_tests": {
+      "detail": "AssertionError: ........................................................................ [ 48%]\n.....................................F................s................. [ 96%]\n.....                                                                    [100%]\n================================== FAILURES ===================================\n_____________ test_v5_post_execution_validator_passes_core_checks _____________\n\n    def test_v5_post_execution_validator_passes_core_checks() -> None:\n>       result = validate_v5_repository(ROOT, require_final=False)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests\\test_v5_final_audit.py:22: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsrc\\saeps\\v5\\final_validation.py:50: in validate_v5_repository\n    if sha256_file(root / relative) != expected:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\saeps\\v5\\governance.py:23: in sha256_file\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n                          ^^^^^^^^^^^^^^^^^\n..\\..\\..\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py:1019: in read_bytes\n    with self.open(mode='rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = WindowsPath('C:/Users/RZF/Desktop/\u535a\u58eb\u8bfe\u9898\u8d44\u6599/SAEPS/V5_JCP_MINIMAL_PROTOCOL.md')\nmode = 'rb', buffering = -1, encoding = None, errors = None, newline = None\n\n    def open(self, mode='r', buffering=-1, encoding=None,\n             errors=None, newline=None):\n        \"\"\"\n        Open the file pointed to by this path and return a file object, as\n        the built-in open() function does.\n        \"\"\"\n        if \"b\" not in mode:\n            encoding = io.text_encoding(encoding)\n>       return io.open(self, mode, buffering, encoding, errors, newline)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\RZF\\\\Desktop\\\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\\\SAEPS\\\\V5_JCP_MINIMAL_PROTOCOL.md'\n\n..\\..\\..\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\pathlib.py:1013: FileNotFoundError\n============================== warnings summary ===============================\ntests/test_p1_core.py: 18 warnings\n  C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Lib\\site-packages\\torch\\jit\\_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_v5_governance.py: immutable V5.0 empty-output assertion is historical after authorized execution; post-execution validator is binding\nFAILED tests/test_v5_final_audit.py::test_v5_post_execution_validator_passes_core_checks\n1 failed, 147 passed, 1 skipped, 18 warnings in 6.76s\n",
+      "status": "FAIL"
+    }
+  },
+  "phase": "P9",
+  "schema_version": 1,
+  "scientific_failure_is_engineering_failure": false,
+  "status": "FAILED"
+}

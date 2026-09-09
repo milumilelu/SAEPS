@@ -563,3 +563,23 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 - [x] 最终验证：85 frozen hashes、441 historical files、29 checkpoints、全部aggregate lineage与7 paper artifacts PASS；
 - [x] 最终科学裁决 `PARTIALLY_SUPPORTED`；paper readiness为 `CLAIM_NARROWING_REQUIRED`；
 - [x] 禁止后续V5 scientific execution；不补seed、不救援、不重新校准。
+
+## Branch cleanup Stage A — 2026-09-09
+
+**状态:** `PASSED` — Git audit and dry-run only; Stage B not authorized.
+
+- [x] Audited 11 local / 11 remote branches, 1 annotated tag, 2 worktrees; full DAG and per-ref differences saved in `docs/provenance/`.
+- [x] Protected SO worktree, da5e67b/acf848f and five paper provenance commits; refs unchanged.
+- [x] Generated classifications, draft history and verified print-only cleanup script; no tags/branches changed, no push.
+- [x] Ran repository validator: exit 1; 147 passed / 1 failed / 1 skipped; pre-existing missing files remain (I-UPGRADE-002). Commit/sync withheld due to unrelated changes and failed repository validation.
+
+## Branch cleanup Stage B — 2026-09-09
+
+**状态:** `PASSED` — authorized cleanup complete; no new validator failure.
+
+- [x] Created/pushed and verified three annotated archive tags before deleting branches.
+- [x] Deleted seven merged remote branches, verified, then deleted two archived remote branches.
+- [x] Local -d deleted seven; retained public-jcp and V6 after refusal.
+- [x] Verified two remote heads, four tags, two protected worktrees and seven required provenance SHAs.
+- [x] Unified validator unchanged: 147 passed / 1 failed / 1 skipped; known missing files untouched.
+- [x] Recorded BRANCH_HISTORY.md and ordered machine logs; local cleanup-only commit, no branch-code push.
