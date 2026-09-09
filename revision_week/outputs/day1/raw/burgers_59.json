@@ -1,0 +1,817 @@
+{
+  "run_id": "day1",
+  "experiment_id": "E0",
+  "center_id": "burgers_59",
+  "pde": "burgers",
+  "seed": 59,
+  "source_commit": "da5e67bc43ce47c0a79b666fa46dc982d14d3f1f",
+  "source_ref": "codex/saeps-so-week1",
+  "input_path": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_59.json",
+  "input_sha256": "c114a44f04d4fa224ac87315a478f79a22596d161a0c12579f998cf31be74b69",
+  "protocol_hash": "636db57594ef71587b36b9099cbe40d033e9d7ec03bb91ff0a6289c6b1565402",
+  "code_hash": "298f7465d57dad8dd347d48fa4ab4e5c3592eafb8cdae0340db373f90706d32a",
+  "status": "PASS",
+  "failure_reason": null,
+  "jvp_count": 0,
+  "vjp_count": 0,
+  "hvp_count": 0,
+  "new_training_seconds": 0,
+  "peak_memory": null,
+  "peak_memory_reason": "native peak memory not measured",
+  "local_profile_valid": null,
+  "local_profile_reason": "no original tensors/profile replay; inherited numerical gate recorded separately",
+  "state_gradient": null,
+  "parameter_gradient": null,
+  "gradient_reason": "absolute gradients not archived",
+  "dtype": "float64",
+  "device": "cpu",
+  "historical_valid": true,
+  "historical_analysis_valid": true,
+  "historical_failure_reason": null,
+  "historical_reconstruction_seconds": 261.1677656999964,
+  "state_grad_normalized": 9.960126628683424e-07,
+  "S_theta": 4.25606795932608e-06,
+  "S_lambda": 0.034281766753029456,
+  "n_state": 65,
+  "n_parameter": 1,
+  "gamma": 0.00985693597277944,
+  "parameterization": "log",
+  "gamma_anchor_id": "burgers_59",
+  "F_raw": 892.3362112979551,
+  "F_G_reference": 34.27643643208762,
+  "Q_G_actual": 34.27643643222814,
+  "F_SO": 35.55894517795252,
+  "F_star": 33.54794249145027,
+  "GN_normal_residual": 2.5970260855013483e-14,
+  "D_norm": 89.92948246893475,
+  "algebra_identity_error": 1.519916678195635e-11,
+  "formula_identity_error": 1.4060754782480711e-11,
+  "gn_identity_error": 3.95166196764233e-12,
+  "original_reproduction_error": 9.002525682461224e-12,
+  "reproduction": {
+    "F_raw": {
+      "value": 892.3362112979551,
+      "original": 892.3362112979552,
+      "absolute_error": 1.1368683772161603e-13,
+      "relative_error": 1.2740359102568738e-16,
+      "passed": true
+    },
+    "F_SAEPS": {
+      "value": 34.27643643208762,
+      "original": 34.276436432396196,
+      "absolute_error": 3.085744992858963e-10,
+      "relative_error": 9.002525682461224e-12,
+      "passed": true
+    },
+    "H_red_exact": {
+      "value": 33.54794249145027,
+      "original": 33.54794249118072,
+      "absolute_error": 2.695514922379516e-10,
+      "relative_error": 8.034814424425966e-12,
+      "passed": true
+    }
+  },
+  "algebraic_schur_valid": true,
+  "gn_solve_seconds": 5.579995922744274e-05,
+  "reference_seconds": 3.899994771927595e-05,
+  "spectrum_seconds": 0.0007834000280126929,
+  "mu_value": 0.009764627076034838,
+  "lambda_min_A_numeric": 0.009765085779472021,
+  "eigen_residual": 9.698925549792104e-10,
+  "orthogonality_error": 2.7964062048626628e-15,
+  "symmetry_error": 0.0,
+  "numerical_margin": 4.587034371832505e-07,
+  "mu_source": "dense_eigh_with_numerical_margin",
+  "bound_status": "numerical_bound_estimate",
+  "spd_status": "numerically_SPD",
+  "U_absolute": 828225.3642823695,
+  "U_relative_if_available": null,
+  "relative_status": "no_finite_relative_guarantee",
+  "absolute_error_raw": 858.7882688065048,
+  "relative_error_raw": 25.598835719042366,
+  "absolute_error_GN": 0.7284939406373496,
+  "relative_error_GN": 0.02171501100569303,
+  "absolute_error_SO": 2.011002686502252,
+  "relative_error_SO": 0.05994414371061106,
+  "SO_improved": false,
+  "SO_improvement_factor": 0.362254086246112,
+  "bound_effectivity": 411846.9705890381,
+  "effectivity_status": "resolved",
+  "adaptive_seconds": 0.0055346000008285046,
+  "adaptive": {
+    "status": "tolerance_not_met",
+    "trace": [
+      {
+        "iteration": 0,
+        "defect_norm": 89.92948246893475,
+        "U_absolute": 828225.3642823695,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 1,
+        "defect_norm": 63.69908812876277,
+        "U_absolute": 415538.0227878156,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 2,
+        "defect_norm": 41.36329182491117,
+        "U_absolute": 175216.30854616564,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 3,
+        "defect_norm": 33.41372534179207,
+        "U_absolute": 114338.93302048046,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 4,
+        "defect_norm": 26.73583146362016,
+        "U_absolute": 73203.4801211646,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 5,
+        "defect_norm": 47.750355748399684,
+        "U_absolute": 233505.7402954722,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 6,
+        "defect_norm": 28.86193820369281,
+        "U_absolute": 85309.09274745666,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 7,
+        "defect_norm": 19.038394271465037,
+        "U_absolute": 37119.74390966075,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 8,
+        "defect_norm": 29.29051290953188,
+        "U_absolute": 87861.43493478285,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 9,
+        "defect_norm": 30.78837086932186,
+        "U_absolute": 97077.3152323841,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 10,
+        "defect_norm": 17.039795504095252,
+        "U_absolute": 29735.352774915216,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 11,
+        "defect_norm": 26.52590606767674,
+        "U_absolute": 72058.42959820776,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 12,
+        "defect_norm": 11.655575867488153,
+        "U_absolute": 13912.7124615125,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 13,
+        "defect_norm": 10.984235148578641,
+        "U_absolute": 12356.173037615343,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 14,
+        "defect_norm": 13.76797165493731,
+        "U_absolute": 19412.624979440727,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 15,
+        "defect_norm": 9.196409509726248,
+        "U_absolute": 8661.257333436912,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 16,
+        "defect_norm": 31.278543427291147,
+        "U_absolute": 100192.99982628929,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 17,
+        "defect_norm": 9.815004817552024,
+        "U_absolute": 9865.642468313117,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 18,
+        "defect_norm": 9.78099489021836,
+        "U_absolute": 9797.39014071246,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 19,
+        "defect_norm": 17.53231006143349,
+        "U_absolute": 31479.122929808986,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 20,
+        "defect_norm": 9.130469425738971,
+        "U_absolute": 8537.496750793138,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 21,
+        "defect_norm": 57.819637700226735,
+        "U_absolute": 342369.5014416291,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 22,
+        "defect_norm": 8.151527367426203,
+        "U_absolute": 6804.908974453219,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 23,
+        "defect_norm": 10.084997346353592,
+        "U_absolute": 10415.878730850585,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 24,
+        "defect_norm": 11.245950007440054,
+        "U_absolute": 12951.994027527953,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 25,
+        "defect_norm": 31.94946377568308,
+        "U_absolute": 104537.34972213527,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 26,
+        "defect_norm": 8.129400950393611,
+        "U_absolute": 6768.016770907426,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 27,
+        "defect_norm": 57.41683220113936,
+        "U_absolute": 337615.824377442,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 28,
+        "defect_norm": 30.902570983003585,
+        "U_absolute": 97798.80848735532,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 29,
+        "defect_norm": 7.703455638329499,
+        "U_absolute": 6077.367656708123,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 30,
+        "defect_norm": 42.32046493481831,
+        "U_absolute": 183419.37058660042,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 31,
+        "defect_norm": 8.690147215489993,
+        "U_absolute": 7733.90095073192,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 32,
+        "defect_norm": 13.099890295360066,
+        "U_absolute": 17574.36555581742,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 33,
+        "defect_norm": 5.0918506390776,
+        "U_absolute": 2655.1902831299126,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 34,
+        "defect_norm": 27.481826376265406,
+        "U_absolute": 77345.58371704703,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 35,
+        "defect_norm": 36.31878372929862,
+        "U_absolute": 135084.93886191503,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 36,
+        "defect_norm": 4.7140922737091815,
+        "U_absolute": 2275.83355636646,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 37,
+        "defect_norm": 12.895913487814802,
+        "U_absolute": 17031.329859320722,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 38,
+        "defect_norm": 23.767001990375373,
+        "U_absolute": 57848.638684508405,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 39,
+        "defect_norm": 10.102680706104424,
+        "U_absolute": 10452.437830420473,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 40,
+        "defect_norm": 3.045945655848006,
+        "U_absolute": 950.1422702716063,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 41,
+        "defect_norm": 5.793458938072224,
+        "U_absolute": 3437.321897269884,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 42,
+        "defect_norm": 14.72316215053814,
+        "U_absolute": 22199.670506931863,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 43,
+        "defect_norm": 11.120748762487727,
+        "U_absolute": 12665.210056193146,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 44,
+        "defect_norm": 51.47477406938099,
+        "U_absolute": 271352.130999126,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 45,
+        "defect_norm": 2.9186933629820038,
+        "U_absolute": 872.4112944387479,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 46,
+        "defect_norm": 7.498579430806133,
+        "U_absolute": 5758.40664904756,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 47,
+        "defect_norm": 13.123053735279722,
+        "U_absolute": 17636.57106390702,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 48,
+        "defect_norm": 80.63623020721806,
+        "U_absolute": 665893.4920299939,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 49,
+        "defect_norm": 25.945526050370866,
+        "U_absolute": 68939.68574413087,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 50,
+        "defect_norm": 16.078247608176518,
+        "U_absolute": 26474.13404904021,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 51,
+        "defect_norm": 6.547061299506358,
+        "U_absolute": 4389.723368411511,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 52,
+        "defect_norm": 7.933936762201985,
+        "U_absolute": 6446.467648632559,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 53,
+        "defect_norm": 3.9480309070409505,
+        "U_absolute": 1596.266597953892,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 54,
+        "defect_norm": 2.591593783251141,
+        "U_absolute": 687.8253808452965,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 55,
+        "defect_norm": 10.311180119564133,
+        "U_absolute": 10888.325240708378,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 56,
+        "defect_norm": 6.744248402513936,
+        "U_absolute": 4658.128381210232,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 57,
+        "defect_norm": 18.15044330952295,
+        "U_absolute": 33737.95944964884,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 58,
+        "defect_norm": 5.013299314588679,
+        "U_absolute": 2573.8996299550686,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 59,
+        "defect_norm": 8.117507860263458,
+        "U_absolute": 6748.228411422022,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 60,
+        "defect_norm": 1.822729726226662,
+        "U_absolute": 340.24275878638457,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 61,
+        "defect_norm": 6.330777559754762,
+        "U_absolute": 4104.482864425929,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 62,
+        "defect_norm": 23.64708567051116,
+        "U_absolute": 57266.36115790758,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 63,
+        "defect_norm": 33.38286231187357,
+        "U_absolute": 114127.80922976577,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 64,
+        "defect_norm": 10.14719409808726,
+        "U_absolute": 10544.749662479539,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 65,
+        "defect_norm": 2.089310742188648,
+        "U_absolute": 447.0441465336003,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 66,
+        "defect_norm": 4.0068888968221765,
+        "U_absolute": 1644.2162620711604,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 67,
+        "defect_norm": 11.166583212569634,
+        "U_absolute": 12769.825173280087,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 68,
+        "defect_norm": 23.478149956141813,
+        "U_absolute": 56451.05758477357,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 69,
+        "defect_norm": 3.489896340907854,
+        "U_absolute": 1247.2956084696436,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 70,
+        "defect_norm": 2.9574907632771033,
+        "U_absolute": 895.7589006482788,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 71,
+        "defect_norm": 7.6894337212637,
+        "U_absolute": 6055.26360538875,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 72,
+        "defect_norm": 1.016652789819459,
+        "U_absolute": 105.84970496050941,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 73,
+        "defect_norm": 1.6944926763354766,
+        "U_absolute": 294.0517244331393,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 74,
+        "defect_norm": 39.712971585811594,
+        "U_absolute": 161513.60414430764,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 75,
+        "defect_norm": 12.295218214088925,
+        "U_absolute": 15481.63485967466,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 76,
+        "defect_norm": 9.105727861623532,
+        "U_absolute": 8491.28996369377,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 77,
+        "defect_norm": 4.4392929757666115,
+        "U_absolute": 2018.2360238885233,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 78,
+        "defect_norm": 11.883286443307666,
+        "U_absolute": 14461.637458769448,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 79,
+        "defect_norm": 2.1246097473826735,
+        "U_absolute": 462.27741658993006,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 80,
+        "defect_norm": 11.462601686796363,
+        "U_absolute": 13455.837730108313,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 81,
+        "defect_norm": 16.4119278470142,
+        "U_absolute": 27584.399645600897,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 82,
+        "defect_norm": 13.11006234272023,
+        "U_absolute": 17601.669095160625,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 83,
+        "defect_norm": 14.331888927812019,
+        "U_absolute": 21035.420875750395,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 84,
+        "defect_norm": 11.596045993622127,
+        "U_absolute": 13770.9593657932,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 85,
+        "defect_norm": 2.0257730508099887,
+        "U_absolute": 420.26760688688154,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 86,
+        "defect_norm": 2.133416417504584,
+        "U_absolute": 466.1177098763639,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 87,
+        "defect_norm": 19.434904625877728,
+        "U_absolute": 38682.02184023847,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 88,
+        "defect_norm": 10.498043660594702,
+        "U_absolute": 11286.546822687835,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 89,
+        "defect_norm": 6.3393332132722975,
+        "U_absolute": 4115.584269216785,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 90,
+        "defect_norm": 54.63278334591527,
+        "U_absolute": 305668.7155464561,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 91,
+        "defect_norm": 14.144486524297196,
+        "U_absolute": 20488.903209324286,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 92,
+        "defect_norm": 19.886913281093133,
+        "U_absolute": 40502.245172307856,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 93,
+        "defect_norm": 5.705309687826193,
+        "U_absolute": 3333.5178476904366,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 94,
+        "defect_norm": 6.619170754908068,
+        "U_absolute": 4486.952869932003,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 95,
+        "defect_norm": 1.5339715185096614,
+        "U_absolute": 240.9788516526078,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 96,
+        "defect_norm": 28.28354975547479,
+        "U_absolute": 81924.19234665344,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 97,
+        "defect_norm": 4.4237794310169125,
+        "U_absolute": 2004.1548235178602,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 98,
+        "defect_norm": 81.9073566586427,
+        "U_absolute": 687052.8718164195,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 99,
+        "defect_norm": 13.492292405971408,
+        "U_absolute": 18643.00120739032,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      },
+      {
+        "iteration": 100,
+        "defect_norm": 1.9682449391991343,
+        "U_absolute": 396.7369271265737,
+        "U_relative_if_available": null,
+        "relative_status": "no_finite_relative_guarantee"
+      }
+    ],
+    "A_matvec_count": 201
+  },
+  "adaptive_absolute_error": 0.535287589145014,
+  "total_seconds": 0.06504340004175901,
+  "cpu_seconds": 0.03125
+}

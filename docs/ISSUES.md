@@ -1,5 +1,29 @@
 # ISSUES.md
 
+## I-SO-WEEK1-003 — Git newline checkout versus frozen byte inventory
+
+Date: 2026-09-09. Classification: implementation failure, resolved.
+First unified validator found historical tree byte mismatch in the new worktree.
+Read-only comparison found exactly 441 files and 85 newline-only differences.
+The original workspace passes the frozen inventory. Restore its verified bytes
+only into the new worktree and refresh the Git index; no historical blob changes
+are staged. Inventory and unified validator then pass. Both validator attempts
+and per-file before/after hashes remain in revision_week/outputs/day1.
+The original workspace and its user deletions are untouched.
+
+## I-SO-WEEK1-004 — Directional SO is not uniformly better; loose bounds retained
+
+Date: 2026-09-09. Classification: scientific failure (pointwise/efficiency limitation).
+E0 retains worsening SO centers and all old invalid records, generated in
+revision_week/outputs/day1/FAILURE_ANALYSIS.md. Numerical eigenvalue error bounds
+are too loose for initial relative-error guarantees. Bounded diagonal-PCG
+refinement has tolerance-not-met outcomes; no scalable cost advantage established.
+Stop at requested first stage. The aggregate SO development allocation gate passes,
+which permits bounded follow-up development, not new confirmation or changed locks.
+E0 uses 100 PCG iterations, including up to 201 charged A products per RHS. This is
+a dense E0 diagnostic budget, not the draft E1 100-product budget. No efficiency
+claim is made by conflating them. All outcomes and costs preserved.
+
 ## I-SO-WEEK1-001 — Original tensor artifact gap
 
 Date: 2026-09-09. Classification: implementation failure (historical artifact gap).

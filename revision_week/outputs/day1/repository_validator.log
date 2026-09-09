@@ -1,0 +1,52 @@
+{
+  "checks": {
+    "bootstrap_lineage": {
+      "detail": "10,000-resample paired percentile bootstrap reproduces exactly",
+      "status": "PASS"
+    },
+    "cost_lineage": {
+      "detail": "times, paired ratio, CG/JVP/VJP lineage reproduce from raw records",
+      "status": "PASS"
+    },
+    "failed_run_reporting": {
+      "detail": "all 56 failed/invalid raw records are reported",
+      "status": "PASS"
+    },
+    "locked_hashes_and_mutation": {
+      "detail": "3 locked configs match recorded hashes and lock commit bytes",
+      "status": "PASS"
+    },
+    "paper_artifacts": {
+      "detail": "artifact manifest, 6 SVG figures and 3 CSV tables verified",
+      "status": "PASS"
+    },
+    "provenance_completeness": {
+      "detail": "P2 and P5-P8 formal summaries contain clean-commit environment provenance",
+      "status": "PASS"
+    },
+    "raw_manifests": {
+      "detail": "all accepted run manifests and raw SHA-256 hashes verified",
+      "status": "PASS"
+    },
+    "raw_to_aggregate_equality": {
+      "detail": "status counts and P5 paired median reproduce from raw records",
+      "status": "PASS"
+    },
+    "scientific_gate_and_final_mapping": {
+      "detail": "scientific FAIL/PARTIAL results retained without causing engineering failure",
+      "status": "PASS"
+    },
+    "seed_and_run_completeness": {
+      "detail": "P2=50, P5=10, P6=10, P7=55, P8=3",
+      "status": "PASS"
+    },
+    "unit_and_integration_tests": {
+      "detail": "AssertionError: ........................................................................ [ 48%]\n.....................................F...........F....s............F.... [ 96%]\n.....                                                                    [100%]\n================================== FAILURES ===================================\n_____________ test_v5_post_execution_validator_passes_core_checks _____________\n\n    def test_v5_post_execution_validator_passes_core_checks() -> None:\n>       result = validate_v5_repository(ROOT, require_final=False)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests\\test_v5_final_audit.py:22: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsrc\\saeps\\v5\\final_validation.py:42: in validate_v5_repository\n    validate_historical_inventory(root, inventory)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nrepo_root = WindowsPath('C:/Users/RZF/Desktop/\u535a\u58eb\u8bfe\u9898\u8d44\u6599/SAEPS-so-week1')\ninventory = {'schema_version': 1, 'created_before_v5_scientific_execution': True, 'digest_algorithm': 'sha256(sorted(relative_path + TAB + file_sha256 + LF))', 'historical_excluded_prefix': 'outputs/runs/v5', ...}\n\n    def validate_historical_inventory(repo_root: Path, inventory: dict[str, Any]) -> None:\n        if inventory.get(\"historical_excluded_prefix\") != \"outputs/runs/v5\":\n            raise ValueError(\"historical inventory must exclude only the V5 output prefix\")\n        for row in inventory[\"tree_digests\"]:\n            observed_count, observed_digest = tree_digest(\n                repo_root,\n                row[\"path\"],\n                excluded_prefixes=[\"outputs/runs/v5\"],\n            )\n            if observed_count != row[\"file_count\"] or observed_digest != row[\"sha256\"]:\n>               raise ValueError(f\"historical tree changed: {row['path']}\")\nE               ValueError: historical tree changed: outputs/runs\n\nsrc\\saeps\\v5\\governance.py:64: ValueError\n____________ test_seed_registry_and_historical_inventory_are_exact ____________\n\n    def test_seed_registry_and_historical_inventory_are_exact() -> None:\n        registry = load_config(ROOT / \"configs/v5/seed_registry.yaml\")\n        validate_seed_registry(registry)\n        inventory = json.loads(\n            (ROOT / \"configs/v5/HISTORICAL_HASH_INVENTORY.json\").read_text(encoding=\"utf-8\")\n        )\n>       validate_historical_inventory(ROOT, inventory)\n\ntests\\test_v5_governance.py:70: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nrepo_root = WindowsPath('C:/Users/RZF/Desktop/\u535a\u58eb\u8bfe\u9898\u8d44\u6599/SAEPS-so-week1')\ninventory = {'schema_version': 1, 'created_before_v5_scientific_execution': True, 'digest_algorithm': 'sha256(sorted(relative_path + TAB + file_sha256 + LF))', 'historical_excluded_prefix': 'outputs/runs/v5', ...}\n\n    def validate_historical_inventory(repo_root: Path, inventory: dict[str, Any]) -> None:\n        if inventory.get(\"historical_excluded_prefix\") != \"outputs/runs/v5\":\n            raise ValueError(\"historical inventory must exclude only the V5 output prefix\")\n        for row in inventory[\"tree_digests\"]:\n            observed_count, observed_digest = tree_digest(\n                repo_root,\n                row[\"path\"],\n                excluded_prefixes=[\"outputs/runs/v5\"],\n            )\n            if observed_count != row[\"file_count\"] or observed_digest != row[\"sha256\"]:\n>               raise ValueError(f\"historical tree changed: {row['path']}\")\nE               ValueError: historical tree changed: outputs/runs\n\nsrc\\saeps\\v5\\governance.py:64: ValueError\n_____ test_actual_v5_reconstruction_inventory_is_complete_and_reloadable ______\n\n    def test_actual_v5_reconstruction_inventory_is_complete_and_reloadable() -> None:\n>       audit = build_reconstruction_audit(ROOT)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests\\test_v5_reconstruction_audit.py:10: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsrc\\saeps\\v5\\reconstruction_audit.py:30: in build_reconstruction_audit\n    validate_historical_inventory(root, inventory)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nrepo_root = WindowsPath('C:/Users/RZF/Desktop/\u535a\u58eb\u8bfe\u9898\u8d44\u6599/SAEPS-so-week1')\ninventory = {'schema_version': 1, 'created_before_v5_scientific_execution': True, 'digest_algorithm': 'sha256(sorted(relative_path + TAB + file_sha256 + LF))', 'historical_excluded_prefix': 'outputs/runs/v5', ...}\n\n    def validate_historical_inventory(repo_root: Path, inventory: dict[str, Any]) -> None:\n        if inventory.get(\"historical_excluded_prefix\") != \"outputs/runs/v5\":\n            raise ValueError(\"historical inventory must exclude only the V5 output prefix\")\n        for row in inventory[\"tree_digests\"]:\n            observed_count, observed_digest = tree_digest(\n                repo_root,\n                row[\"path\"],\n                excluded_prefixes=[\"outputs/runs/v5\"],\n            )\n            if observed_count != row[\"file_count\"] or observed_digest != row[\"sha256\"]:\n>               raise ValueError(f\"historical tree changed: {row['path']}\")\nE               ValueError: historical tree changed: outputs/runs\n\nsrc\\saeps\\v5\\governance.py:64: ValueError\n============================== warnings summary ===============================\ntests/test_p1_core.py: 18 warnings\n  C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Lib\\site-packages\\torch\\jit\\_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_v5_governance.py: immutable V5.0 empty-output assertion is historical after authorized execution; post-execution validator is binding\nFAILED tests/test_v5_final_audit.py::test_v5_post_execution_validator_passes_core_checks\nFAILED tests/test_v5_governance.py::test_seed_registry_and_historical_inventory_are_exact\nFAILED tests/test_v5_reconstruction_audit.py::test_actual_v5_reconstruction_inventory_is_complete_and_reloadable\n3 failed, 145 passed, 1 skipped, 18 warnings in 7.40s\n",
+      "status": "FAIL"
+    }
+  },
+  "phase": "P9",
+  "schema_version": 1,
+  "scientific_failure_is_engineering_failure": false,
+  "status": "FAILED"
+}

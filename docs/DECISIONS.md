@@ -1,5 +1,17 @@
 # DECISIONS.md
 
+## D-SO-WEEK1 — First-stage retrospective extension only
+
+2026-09-09: Explicit user authorization defines a new development namespace and
+overrides automatic push. Preserve all user changes and historical results in
+the original workspace; use separate codex/saeps-so-week1 worktree. Do not reopen
+closed V2/V4/V5 or V6 cohorts. Reuse the V3 matrix archive, not its training runner.
+The aggregate SO resource-allocation rule is evaluated automatically in
+revision_week/outputs/day1/METHOD_SUMMARY.csv. It permits bounded E1 development;
+no independent protocol/seed freeze until remaining development checks complete.
+Do not claim SO-ADAPT efficiency or original-center HVP replay. Missing tensors,
+loose bounds and all negative centers remain visible in the first-stage report.
+
 所有影响实验设计的决定按以下模板追加，禁止覆盖历史记录。
 
 ```text
