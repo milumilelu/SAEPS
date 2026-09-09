@@ -1,0 +1,125 @@
+# PHASE1B_PROTOCOL.yaml — frozen BEFORE the P1B-D one-step pilot run.
+# Per CODEX_SAEPS_PHASE1B_FOLLOWUP.md section 5.3: missing definitions are
+# completed and frozen here, before execution, never adjusted after results.
+schema_version: 1
+protocol_name: SAEPS Phase 1B follow-up
+parent_task_book: CODEX_SAEPS_PHASE1B_FOLLOWUP.md
+parent_task_book_sha256: sha256_recorded_in_run_summaries
+inherited_plan: CODEX_SAEPS_7DAY_EXPERIMENT_PLAN.md (section 13 protected step)
+run_id: day2
+phase_scope: development verification only; not independent confirmation
+forbidden: [E2, E3, new algorithm families, seed replacement, damping/tolerance/center changes after results]
+
+hardware_and_timing:
+  device: cpu
+  dtype: float64
+  torch_threads: 1
+  env_threads: {OMP_NUM_THREADS: 1, MKL_NUM_THREADS: 1, OPENBLAS_NUM_THREADS: 1}
+  timing_clock: time.perf_counter (wall); time.process_time (cpu) recorded separately
+  python: 3.12.14
+  torch: 2.13.0+cpu
+  numpy: 2.3.5
+
+hard_budgets:
+  recovery_centers: 4            # burgers_59, burgers_67, burgers_55 (control), allen_cahn_84 (control)
+  recovery_per_center_minutes: 30
+  recovery_cumulative_hours: 2
+  one_step_comparisons: 16       # 2 root centers x 2 offsets x 4 methods
+  candidate_inner_solves_max: 32 # per method <= 2 candidate evaluations
+  common_start_solves: 4         # one per root x offset
+  root_refinements_max: 2        # only if a root fails qualification; each once, fixed budget
+  inner_solve_minutes_max: 5
+  actual_use_cumulative_hours: 2
+  on_budget_exhaustion: stop and report budget_exhausted; no automatic extension
+
+fixed_centers:
+  failure_cases: [burgers_59, burgers_67]
+  control_selection_rule: >
+    per-PDE historical median of GN relative error over historically valid centers;
+    closest wins; Burgers control excludes 59/67; exact-arithmetic ties broken by
+    lowest historical ID (burgers_55 vs burgers_62 equidistant by construction).
+  controls: [burgers_55, allen_cahn_84]
+  one_step_roots: [burgers_55, allen_cahn_84]   # predetermined controls; no replacement even if 59/67 recover better
+
+anchored_objective:
+  definition: L_gamma(theta, lambda) = 0.5*sum(rbar(theta,lambda)^2) + 0.5*gamma*||theta-theta_c||^2
+  ell_form: 0.5*sum (same form as archived curvature blocks; NOT the mean training form)
+  gamma: archived per-center gamma = alpha*lambda_max(G_tt); fixed for the whole experiment
+  anchor_theta_c: replayed root state; never moves
+  gamma_differentiation: gamma is a fixed constant; no re-differentiation at offsets/candidates
+  coordinate: log physical parameter; Delta = 0.05 (inherited)
+
+methods:
+  curvature_source: dense blocks of the recovered root checkpoint (development/verification side;
+    identical quantity family as the day1 audit; production objective/gradient/candidate
+    solves use the real torch residual)
+  curvature_mapping:
+    RAW: G_ll                                  # raw unreduced GN lambda block (day1 'raw')
+    SAEPS-GN: F_G = G_ll - G_tl^T (G_tt+gamma I)^{-1} G_tl   # GN Schur (day1 'GN')
+    SO: F_SO = complete H-quadratic at Z_G (day1 'SO')
+    EXACT-REDUCED-ORACLE: F_* = H_ll - H_tl^T (H_tt+gamma I)^{-1} H_tl  # exact reduced; reference only
+  SO-ADAPT: excluded this phase
+
+protected_step_frozen_definitions:
+  experiment_flow: >
+    root (theta_c, lambda_c) -> per offset sign s in {+1,-1}: common start solve at
+    lambda_s = lambda_c + s*Delta -> ALL method quantities (gradient, curvatures, GN
+    response) are evaluated AT the common start (theta_s, lambda_s) -> the method's
+    one protected step moves from the start. The +- branches are therefore genuinely
+    different trial points. gamma and the anchor theta_c never move or change.
+  gradient: g_lambda = dL_gamma/dlambda at the common start (anchor does not touch lambda)
+  curvature_evaluation_point: common start (theta_s, lambda_s); blocks rebuilt fresh
+    from the real residual via v1.curvature_blocks (never loaded from historical records)
+  unified_shift_beta: beta = 1e-6 * max(sym(F_raw_at_start), 1e-8)  # common RAW scale, identical for all methods
+  newton_step: delta_lambda_raw = -g_lambda_start / (sym(F_m_at_start) + beta)
+  raw_step_reported: signed value and |delta_lambda_raw|
+  trust_radius: 0.1 on ||delta_lambda|| (inherited); clipped_step after clipping; trust_radius_active flag
+  trial_coefficients: [1.0, 0.5]  # at most two candidate evaluations per method
+  armijo_c1: 1.0e-4
+  armijo_rule: >
+    predicted_decrease(alpha) = -(alpha*g_lambda*d + 0.5*alpha^2*F_m*d^2) with d = clipped signed step,
+    Phi_before = L_gamma(theta_s, lambda_s);
+    accept iff candidate state solve converged AND predicted_decrease > 0 AND
+    actual_profile_decrease >= c1 * predicted_decrease(alpha);
+    if both coefficients rejected -> step_rejected (no further line search)
+  predicted_decrease_definition: quadratic model of the anchored objective in lambda only
+  common_offset_branches: lambda_s = lambda_c +- Delta (Delta=0.05) per root; ONE shared start solve per branch
+  start_solve: >
+    state profile solve at fixed lambda_s, initialized from the root GN predictor
+    theta_c - Z_G_root*(sign*Delta), shared by all methods; anchored state-gradient gate
+    (mean-form convention) inherited from the curvature protocol center gates;
+    common-start failure is shared by all methods of that branch (start_valid=False, candidates skipped)
+  candidate_state_solve:
+    initialization: theta_s - Z_G_start*(coef*clipped_step)   # GN response AT the start; uniform for all methods (Z_G never method-specific)
+    solver: torch.optim.LBFGS on theta at fixed lambda_t, strong_wolfe, history 100,
+            max_iter 300, tolerance_grad 1e-10, tolerance_change 1e-16, wall cap 300 s
+    identical for all methods; SO changes curvature only, never Z_G
+  branch_consistency: both branches of a root share gamma, theta_c, weights, data, collocation, solver, tolerances
+  objective_eval_noise_check: Phi at identical inputs evaluated twice; noise reported; decreases below noise flagged not_resolvable
+
+metrics_per_comparison:
+  [root_id, offset_id, method, start_valid, raw_step, shift_beta, clipped_step,
+   trust_radius_active, trial_coefficient, predicted_decrease, actual_profile_decrease,
+   actual_predicted_ratio_if_resolved, parameter_error_before, parameter_error_after,
+   step_accepted, candidate_state_valid, branch_consistency_status, objective_evals,
+   gradient_evals, HVP_count, curvature_cost, candidate_solve_cost, total_cost, failure_reason]
+
+truth_parameter:
+  source: runtime config benchmarks.<Burgers|Allen-Cahn>.truth_parameter
+  role: synthetic post-hoc evaluation only; never used for algorithm tuning or stopping
+
+root_qualification:
+  state_stationarity: normalized anchored state gradient at root < curvature-protocol center gate (inherited)
+  gate_convention: >
+    historical center gates are defined on the MEAN objective (0.5*mean(rbar^2)):
+    normalized gradient = ||grad_theta L||_sum / m_residual_count / max(||theta||, 1).
+    The optimization objective and all curvatures consistently use the SUM form
+    (0.5*sum, same as archived blocks); only the gate numbers follow the mean-form
+    convention (sum-gradient divided by the residual count).
+  positive_definiteness: moved curvature sym(F_m)+beta > 0 for all four methods at the root
+  if_failed: report position failure; no center replacement; both roots failing stops the task
+
+reporting:
+  objective decrease and true parameter error reported separately; no joint-improvement claim
+  if all methods clipped to the same step: report "缺少曲率区分度"; no radius tuning
+  all failures, rejections and budget exhaustion retained
