@@ -27,6 +27,25 @@
       "timeout_seconds": 600
     },
     {
+      "node": "E0",
+      "task": "verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 3.7237701000412926,
+      "sampled_peak_rss_bytes": 212541440,
+      "os_peak_working_set_bytes": 212619264,
+      "memory_limit_bytes": 10649665536,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 600,
+      "observed_process_ids": [
+        9064,
+        24572
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
       "node": "E4D",
       "task": "dev01",
       "exit_code": 0,
@@ -40,6 +59,25 @@
       "timeout_seconds": 600
     },
     {
+      "node": "E4D",
+      "task": "verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 3.476448299945332,
+      "sampled_peak_rss_bytes": 341794816,
+      "os_peak_working_set_bytes": 346132480,
+      "memory_limit_bytes": 10641591500,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 600,
+      "observed_process_ids": [
+        17992,
+        20728
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
       "node": "E5AB",
       "task": "allen_cahn_84_compact_explicit_dev01",
       "exit_code": 0,
@@ -51,6 +89,25 @@
       "memory_limit_bytes": 10347416780,
       "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
       "timeout_seconds": 120
+    },
+    {
+      "node": "E5AB",
+      "task": "allen_cahn_84_compact_explicit_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 2.4463879999238998,
+      "sampled_peak_rss_bytes": 326045696,
+      "os_peak_working_set_bytes": 331759616,
+      "memory_limit_bytes": 10621524377,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        21124,
+        27008
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
     },
     {
       "node": "E5AB",
@@ -93,6 +150,25 @@
     },
     {
       "node": "E5AB",
+      "task": "allen_cahn_84_compact_mf_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 3.2059134000446647,
+      "sampled_peak_rss_bytes": 296300544,
+      "os_peak_working_set_bytes": 296378368,
+      "memory_limit_bytes": 10620502016,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        11496,
+        25856
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "allen_cahn_84_export",
       "exit_code": 0,
       "status": "PASS",
@@ -106,6 +182,25 @@
     },
     {
       "node": "E5AB",
+      "task": "allen_cahn_84_export_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 1.4434746999759227,
+      "sampled_peak_rss_bytes": 211972096,
+      "os_peak_working_set_bytes": 214810624,
+      "memory_limit_bytes": 10644026163,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 60,
+      "observed_process_ids": [
+        8876,
+        25524
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "burgers_55_compact_explicit_dev01",
       "exit_code": 0,
       "status": "PASS",
@@ -116,6 +211,25 @@
       "memory_limit_bytes": 10441385574,
       "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
       "timeout_seconds": 120
+    },
+    {
+      "node": "E5AB",
+      "task": "burgers_55_compact_explicit_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 2.4366169000277296,
+      "sampled_peak_rss_bytes": 338993152,
+      "os_peak_working_set_bytes": 342597632,
+      "memory_limit_bytes": 10611392512,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        46912,
+        48088
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
     },
     {
       "node": "E5AB",
@@ -158,6 +272,25 @@
     },
     {
       "node": "E5AB",
+      "task": "burgers_55_compact_mf_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 3.5173871000297368,
+      "sampled_peak_rss_bytes": 296284160,
+      "os_peak_working_set_bytes": 296366080,
+      "memory_limit_bytes": 10627144089,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        11968,
+        35636
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "burgers_55_export",
       "exit_code": 0,
       "status": "PASS",
@@ -171,6 +304,25 @@
     },
     {
       "node": "E5AB",
+      "task": "burgers_55_export_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 1.3866293000755832,
+      "sampled_peak_rss_bytes": 211324928,
+      "os_peak_working_set_bytes": 215179264,
+      "memory_limit_bytes": 10602374758,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 60,
+      "observed_process_ids": [
+        19328,
+        39932
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "burgers_59_compact_explicit_dev01",
       "exit_code": 0,
       "status": "PASS",
@@ -181,6 +333,25 @@
       "memory_limit_bytes": 10460056780,
       "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
       "timeout_seconds": 120
+    },
+    {
+      "node": "E5AB",
+      "task": "burgers_59_compact_explicit_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 2.5929726000176743,
+      "sampled_peak_rss_bytes": 343441408,
+      "os_peak_working_set_bytes": 343859200,
+      "memory_limit_bytes": 10620629811,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        7232,
+        41564
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
     },
     {
       "node": "E5AB",
@@ -223,6 +394,25 @@
     },
     {
       "node": "E5AB",
+      "task": "burgers_59_compact_mf_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 3.721576299984008,
+      "sampled_peak_rss_bytes": 295813120,
+      "os_peak_working_set_bytes": 295899136,
+      "memory_limit_bytes": 10602781081,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        23688,
+        37764
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "burgers_59_export",
       "exit_code": 0,
       "status": "PASS",
@@ -236,6 +426,25 @@
     },
     {
       "node": "E5AB",
+      "task": "burgers_59_export_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 1.3801479999674484,
+      "sampled_peak_rss_bytes": 212201472,
+      "os_peak_working_set_bytes": 214499328,
+      "memory_limit_bytes": 10644078592,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 60,
+      "observed_process_ids": [
+        1744,
+        16076
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "burgers_67_compact_explicit_dev01",
       "exit_code": 0,
       "status": "PASS",
@@ -246,6 +455,25 @@
       "memory_limit_bytes": 10474235494,
       "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
       "timeout_seconds": 120
+    },
+    {
+      "node": "E5AB",
+      "task": "burgers_67_compact_explicit_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 2.49472129996866,
+      "sampled_peak_rss_bytes": 339202048,
+      "os_peak_working_set_bytes": 343158784,
+      "memory_limit_bytes": 10616651776,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        12524,
+        16404
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
     },
     {
       "node": "E5AB",
@@ -288,6 +516,25 @@
     },
     {
       "node": "E5AB",
+      "task": "burgers_67_compact_mf_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 3.5128862999845296,
+      "sampled_peak_rss_bytes": 296648704,
+      "os_peak_working_set_bytes": 296730624,
+      "memory_limit_bytes": 10619607449,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 120,
+      "observed_process_ids": [
+        10156,
+        34736
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "E5AB",
       "task": "burgers_67_export",
       "exit_code": 0,
       "status": "PASS",
@@ -298,6 +545,25 @@
       "memory_limit_bytes": 10501731123,
       "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
       "timeout_seconds": 60
+    },
+    {
+      "node": "E5AB",
+      "task": "burgers_67_export_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 1.3610007000388578,
+      "sampled_peak_rss_bytes": 211001344,
+      "os_peak_working_set_bytes": 215089152,
+      "memory_limit_bytes": 10618358988,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 60,
+      "observed_process_ids": [
+        19336,
+        39296
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
     },
     {
       "node": "E6D",
@@ -339,6 +605,25 @@
       "timeout_seconds": 600
     },
     {
+      "node": "E6D",
+      "task": "verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 1.6498849999625236,
+      "sampled_peak_rss_bytes": 212631552,
+      "os_peak_working_set_bytes": 212733952,
+      "memory_limit_bytes": 10639769600,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 600,
+      "observed_process_ids": [
+        35624,
+        44056
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
       "node": "PREFLIGHT",
       "task": "allen_cahn_84_solver_dev01",
       "exit_code": 0,
@@ -353,6 +638,25 @@
     },
     {
       "node": "PREFLIGHT",
+      "task": "allen_cahn_84_solver_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 7.40139279991854,
+      "sampled_peak_rss_bytes": 309604352,
+      "os_peak_working_set_bytes": 316522496,
+      "memory_limit_bytes": 10622196121,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 600,
+      "observed_process_ids": [
+        31592,
+        49724
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
+    },
+    {
+      "node": "PREFLIGHT",
       "task": "burgers_55_solver_dev01",
       "exit_code": 0,
       "status": "PASS",
@@ -363,13 +667,47 @@
       "memory_limit_bytes": 9420508364,
       "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
       "timeout_seconds": 600
+    },
+    {
+      "node": "PREFLIGHT",
+      "task": "burgers_55_solver_verified01",
+      "exit_code": 0,
+      "status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 2.9432149999774992,
+      "sampled_peak_rss_bytes": 325959680,
+      "os_peak_working_set_bytes": 326049792,
+      "memory_limit_bytes": 10616350310,
+      "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+      "timeout_seconds": 600,
+      "observed_process_ids": [
+        5668,
+        22488
+      ],
+      "process_tree_kill_enforced": true,
+      "timing_kind": "measured"
     }
   ],
-  "worker_seconds": 103.21065969963092,
+  "worker_seconds": 151.90508549951483,
+  "estimated_interruption_upper_bound_seconds": 0,
   "preflight_seed_scan_seconds": 49.508069599978626,
   "preflight_source_review_seconds": 0.6521504999836907,
-  "measured_activity_seconds": 153.37087979959324,
-  "accounting": "Measured process wall sums, including startup, failed development, warmups and reference work; engineering shell/tests and human reasoning not included. Per-row shared trajectory times are not summed twice.",
+  "measured_activity_seconds": 241.38797829963733,
+  "instrumented_engineering_command_seconds": 39.32267270016018,
+  "accounting": "Measured process walls including startup, failed development, warmups and reference work; recorded engineering commands are separate. Early uninstrumented shell/test commands, dependency network wait, and model reasoning are not included. Shared trajectory fields are not summed twice.",
   "estimated_seconds": null,
-  "historical_costs": "Separate unchanged Phase1C CLOSEOUT; not charged to Phase2 budgets."
+  "historical_costs": {
+    "audit_seconds": 1.7084076999453828,
+    "new_accounted_seconds": 35.99997909999976,
+    "prefreeze_test_command_seconds": 3.8343419,
+    "historical_phase1_seconds": 43.54764920009564,
+    "historical_reconstruction_seconds": 3801.8915909999632,
+    "historical_phase1b_success_seconds": 442.608485499979,
+    "previous_corrective_seconds": 133.40117250007089,
+    "cumulative_accounted_excluding_historical_reconstruction_and_estimated_failures": 655.5572863001453,
+    "matrix_estimator_seconds": 0.0020358003675937653,
+    "matrix_spectrum_seconds": 0.012530899839475751,
+    "matrix_oracle_seconds": 0.0007284997263923287
+  },
+  "cumulative_accounted_excluding_historical_reconstruction_and_estimated_failures": 896.9452645997826
 }

@@ -702,3 +702,10 @@ matching source exists, record every affected planned position as unavailable;
 do not silently retrain the seed or reverse-engineer blocks from scalar Schur
 summaries. Other independent nodes may proceed under their specified gates.
 Evidence: revision_week/protocols/phase2/SOURCE_AUDIT.json.
+
+
+### Phase2 pre-lock engineering diagnostics
+
+Classification: implementation failure / numerical failure, resolved before fresh execution. NumPy block input lists were normalized to arrays; prior failed E0/E6 attempts remain archived. Plain CG lost conjugacy on compact Burgers centers; deterministic two-pass A-conjugacy restoration and true residual verification passed the unchanged tolerances and iteration budget. Exact stationary solver points require two saved zero-displacement plateau revalidations; no positive-step manufacture. E6 oracle k=8 effectivity fails its predeclared scientific gate; E6-P is a protocol stop, not an engineering error.
+
+Phase2 manifests use the explicitly authorized revision_week/outputs/phase2_v1/run_manifests namespace. The legacy outputs/runs tree is itself immutable under V5; the initial newly added manifests were moved, without changing historical files or weakening the old validator. Initial debug attempts had uncommitted-code hashes; final development acceptance is repeated under a committed executable and separately identified. User explicitly authorized continued pushes to the currently PUBLIC milumilelu/SAEPS repository in this session.

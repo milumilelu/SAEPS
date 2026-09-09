@@ -584,3 +584,11 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 - Machine configuration, dependency graph and tested gates cover all requested experiment families and conditional stops.
 - Actual numerical execution remains NOT_STARTED: handler implementation, all-ref seed audit and executable lock are not complete.
 - E0-C has a documented current input gap; no implicit reconstruction training is authorized by this specification.
+
+
+## Phase 2 actual execution
+
+**状态:** `IN_PROGRESS` — development engineering passed; fresh execution awaits immutable lock.
+
+- Real development data, failures and costs: revision_week/outputs/phase2_v1/DEVELOPMENT_REPORT.md.
+- New source modules implement the whole conditional DAG; historical results and unrelated original worktree edits preserved.
