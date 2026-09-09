@@ -1,0 +1,17 @@
+{
+  "node": {
+    "id": "E5C",
+    "depends_on": [
+      "E4C",
+      "E5AB"
+    ],
+    "budget_seconds": 10800,
+    "handler": "scalability",
+    "condition": "E5AB_engineering_pass_independent_of_E4C_stop",
+    "planned": {
+      "cells": 9,
+      "passes": 45
+    }
+  },
+  "lock_sha256": "50a53e8410518a2fd3d6d5a1c600ad53e9996c907b668ae974f9d8feee14e257"
+}

@@ -600,3 +600,6 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 
 - Generated scientific findings and retained failures: revision_week/outputs/phase2_v1/final/PHASE2_REPORT.md.
 - New scalar and multi conclusions remain separate; all historical conclusions are unchanged.
+
+### Phase 2 reporting audit — PASSED
+E5C denominator 45 preserved: 40 complete, 1 interrupted, 4 unstarted. Original derived report archived; immutable source hashes and 149 manifests verified. See final/REPORTING_CORRECTION.json and AUDIT_CLOSEOUT.py. No numerical reruns.
