@@ -1,5 +1,5 @@
 """Read-only numerical audit and generated closeout of the fixed Phase 1C run."""
-import json, sys, time
+import hashlib, json, sys, time
 import numpy as np
 import torch
 from p1c_development import OUT, PREVIOUS, ROOT, read, write, sha, load_center, numerical_mu, norm, bounded_command
@@ -84,7 +84,9 @@ def main():
         '结论：SO 局部一步用途为 PARTIALLY_SUPPORTED（仅 Burgers 开发中心）；SO-ADAPT 新估计方案 NOT_SUPPORTED。独立协议冻结继续暂缓，尤其不能绕过 Allen–Cahn 的局部有效性失败。',
         '历史修正报告与全部失败保留，不把此次开发结果混入原 confirmation。']
     (OUT/'FINAL_REPORT.md').write_text('\n\n'.join(lines),encoding='utf-8')
-    manifest=[dict(path=str(p.relative_to(ROOT)),sha256=sha(p)) for p in sorted(OUT.rglob('*')) if p.is_file() and p.name!='MANIFEST.json']
+    manifest=[dict(path=str(p.relative_to(ROOT)),sha256=sha(p),
+        sha256_canonical_lf=hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() if p.suffix in {'.json','.csv','.md'} else None)
+        for p in sorted(OUT.rglob('*')) if p.is_file() and p.name!='MANIFEST.json']
     write(OUT/'MANIFEST.json',manifest)
     print(json.dumps(dict(engineering='PASSED',new_seconds=new_cost,files=len(manifest)),ensure_ascii=False))
 
