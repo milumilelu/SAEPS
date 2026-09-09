@@ -1,0 +1,47 @@
+{
+  "group": "multi",
+  "seed": 1031,
+  "status": "CHECKPOINT_INVALID",
+  "binding_valid": false,
+  "failure_reason": "trial_budget_exhausted",
+  "state_gradient": 9.973519192626125e-05,
+  "unanchored_state_SPD": {
+    "mu_value": null,
+    "lambda_min_A_numeric": -0.12440446740478474,
+    "eigen_residual": 6.926572318771833e-11,
+    "orthogonality_error": 4.601591293348256e-15,
+    "symmetry_error": 4.139301352677114e-17,
+    "numerical_margin": 5.102744693199139e-08,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "indicator_only",
+    "spd_status": "not_SPD"
+  },
+  "anchored_state_SPD": {
+    "mu_value": null,
+    "lambda_min_A_numeric": -0.12298854649385628,
+    "eigen_residual": 5.167894542159915e-11,
+    "orthogonality_error": 3.5353090387948485e-15,
+    "symmetry_error": 4.1393013112841687e-17,
+    "numerical_margin": 5.085888327355891e-08,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "indicator_only",
+    "spd_status": "not_SPD"
+  },
+  "reload_bitwise": true,
+  "metrics": null,
+  "gamma": 0.0014159209100033088,
+  "checkpoint_sha256": "cc02f9d293f7ca8696e5a8c70c1807594a974eb98c6e2bdf05f5bbc9b2cafd79",
+  "training_seconds": 6.452918600058183,
+  "root_lbfgs_seconds": 5.498782999929972,
+  "root_corrector_seconds": 9.615752000012435,
+  "curvature_seconds": 0.11121959995944053,
+  "counts": {
+    "objective": 1481,
+    "gradient": 1481,
+    "hessian": 162
+  },
+  "explicit_JVP_VJP_counts": 0,
+  "explicit_jacobians": 1,
+  "explicit_hessians": 163,
+  "CG_iterations": 0
+}
