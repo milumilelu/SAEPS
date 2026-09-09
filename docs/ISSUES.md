@@ -670,3 +670,23 @@ every valid historical sample. All worsened rows are retained in
 gamma or checkpoint were changed to remove this outcome. The exact-GN control
 does not establish deployable efficiency. Stop at this requested layer; no
 large-network or confirmation execution follows from these results.
+
+## I-P1C-001 — Allen-Cahn bounded Newton follow-up fails local state validity
+
+Classification: numerical failure. The fixed prospective Newton procedure reaches
+negative state-Hessian eigenvalues or its iteration limit on the saved Allen-Cahn
+states. Its common starts remain invalid; corresponding candidate comparisons
+retain PROFILE_FAILURE without a replacement root or further rescue.
+Evidence: revision_week/outputs/phase1c_development_v1/CLOSEOUT.json and FINAL_REPORT.md.
+The failure concerns this solver and local path, not proof that no valid minimizer exists.
+
+## I-P1C-002 — Fixed short residual-energy estimator does not improve certification practicality
+
+Classification: scientific failure. The fixed extra PCG work does not provide a
+consistently tighter numerical upper estimate. Original SO-ADAPT terminal states,
+original stopping and all unavailable history remain intact. Oracle interval
+checks pass, while new estimator pass counts deteriorate. No after-the-fact
+iteration search or combination with the old bound was used to inflate success.
+Evidence: revision_week/outputs/phase1c_development_v1/ADAPT_ESTIMATOR.csv.
+Resolution: stop this bounded estimator experiment; retain research-only scope,
+and defer independent confirmation. No rigorous certificate or speedup claim.

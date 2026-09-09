@@ -566,9 +566,11 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 
 ## Phase 1C — bounded user-authorized development
 
-**状态:** `IN_PROGRESS`
+**状态:** `PASSED` — bounded execution and engineering validation complete; scientific limitations retained.
 
 - Authorization: user requested stationarity diagnosis, distinguishable curvature steps and improved SO-ADAPT estimation.
 - Prospective protocol: `revision_week/PHASE1C_DEVELOPMENT.md`; config/code committed before measurements.
 - Initial regression verification: 45 tests passed; fixed 2 saved roots, 12 prior strict states, 16 new candidates and 25 historical matrix records. No training or new seeds.
 - Original main checkout has unrelated changes; isolated SO worktree and historical results preserved. No confirmation execution or automatic push.
+- Completed results and numerical failures: `revision_week/outputs/phase1c_development_v1/FINAL_REPORT.md` and `CLOSEOUT.json`.
+- SO local-use evidence remains limited to the valid development root. The new fixed-budget energy estimator is not supported as an improvement. Independent freeze remains deferred.

@@ -1,0 +1,70 @@
+{
+  "lbfgs": {
+    "objective_evals": 313,
+    "gradient_evals": 312,
+    "solve_seconds": 1.0338266999460757,
+    "converged": false,
+    "hit_cap": false,
+    "final_loss": 1.9516814217602538,
+    "final_grad_norm": 0.11751907666093794,
+    "final_grad_normalized": 4.917044489231404e-06,
+    "optimizer_iterations": 300,
+    "optimizer_evals": 311
+  },
+  "newton": {
+    "status": "PASS",
+    "failure_reason": null,
+    "termination": "target_reached",
+    "trace": [
+      {
+        "iteration": 0,
+        "loss": 1.9516814217602538,
+        "gradient_sum": 0.11751907666093794,
+        "gradient_mean_normalized": 4.917044489231404e-06,
+        "gradient_energy": 2.279270898642633e-06,
+        "mu": 0.06470033576878526,
+        "alpha": 1.0,
+        "objective_change": -2.2645674475629818e-06,
+        "roundoff_floor": 2.7735061134993854e-14
+      },
+      {
+        "iteration": 1,
+        "loss": 1.9516791571928063,
+        "gradient_sum": 0.35959756239672847,
+        "gradient_mean_normalized": 1.5045591749277977e-05,
+        "gradient_energy": 1.3006128681407402e-08,
+        "mu": 0.06442372256785367,
+        "alpha": 1.0,
+        "objective_change": -1.3005764021301047e-08,
+        "roundoff_floor": 2.7735028953554864e-14
+      },
+      {
+        "iteration": 2,
+        "loss": 1.9516791441870422,
+        "gradient_sum": 5.321122750179097e-06,
+        "gradient_mean_normalized": 2.2263621221594085e-10,
+        "gradient_energy": 8.656516896918135e-15,
+        "mu": 0.06467144252415896,
+        "alpha": 1.0,
+        "objective_change": -3.1530333899354446e-14,
+        "roundoff_floor": 2.773502876873184e-14
+      },
+      {
+        "iteration": 3,
+        "loss": 1.9516791441870107,
+        "gradient_sum": 1.3356726065698265e-10,
+        "gradient_mean_normalized": 5.588465135222259e-15,
+        "gradient_energy": 1.4012273799075578e-25,
+        "mu": 0.06467143843642204
+      }
+    ],
+    "loss": 1.9516791441870107,
+    "gradient": 5.588465135222259e-15,
+    "energy": 1.4012273799075578e-25,
+    "SPD": true,
+    "objective_evals": 11,
+    "gradient_evals": 4,
+    "explicit_hessians": 4,
+    "seconds": 0.17498489993158728
+  }
+}
