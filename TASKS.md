@@ -1,5 +1,14 @@
 # TASKS.md — SAEPS v2.0
 
+## 2026-09-09 — SO first-stage retrospective extension
+
+Status: `IN_PROGRESS`; isolated branch `codex/saeps-so-week1`.
+User authorizes audit, directional quadratic/identities, synthetic tests and E0.
+Historical terminal programs/locks unchanged; no push or new confirmation.
+- Audit: PASSED; revision_week/outputs/day1/REPO_AUDIT.md and artifact_manifest.csv.
+- Core: PASSED, 27 real tests; revision_week/outputs/day1/pytest.log.
+- E0: NOT_STARTED; 25 old planned records, 21 matrices, no replacement.
+
 ## Upgrade layer 1 — Historical matrix development (2026-09-07)
 
 **状态:** `PASSED` — bounded matrix pilot; prior scientific conclusions unchanged.

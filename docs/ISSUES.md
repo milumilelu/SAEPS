@@ -1,5 +1,20 @@
 # ISSUES.md
 
+## I-SO-WEEK1-001 — Original tensor artifact gap
+
+Date: 2026-09-09. Classification: implementation failure (historical artifact gap).
+V3 serialized 21 matrix centers but no original theta/data/absolute gradients.
+The 29 V5 model files are other cohorts. Matrix E0 is possible; original-center
+HVP/T3/profile replay is unavailable without separate costed reconstruction.
+No retraining or seed substitution. Preserve all historical decisions.
+
+## I-SO-WEEK1-002 — Null blocks in failed historical records
+
+Date: 2026-09-09. Classification: implementation failure, resolved before E0.
+First audit exited on GN_blocks=null; dictionary-type checking fixes inventory
+without dropping failures. Failed audit tool wall time 1.7435761 seconds, no E0
+computation or historical mutation. Corrected audit PASSED.
+
 问题不得删除，按以下模板追加：
 
 ```text

@@ -1,0 +1,15 @@
+project: saeps_so_week1
+mode: retrospective_development
+historical_identity_tolerance: 1.0e-8
+synthetic_identity_tolerance: 1.0e-10
+operator_parity_tolerance: 1.0e-8
+denominator_floor: 1.0e-8
+adaptive_tolerance: 0.10
+adaptive_matvec_iterations: 100
+adaptive_preconditioner: diagonal_A
+mu_source: dense_eigh_with_numerical_margin
+strict_certificate: false
+new_training_authorized: false
+source_archive: outputs/posthoc/exact_fixed_state_v3
+seed_replacement: false
+auto_push: false
