@@ -592,3 +592,11 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 
 - Real development data, failures and costs: revision_week/outputs/phase2_v1/DEVELOPMENT_REPORT.md.
 - New source modules implement the whole conditional DAG; historical results and unrelated original worktree edits preserved.
+
+
+## Phase 2 closeout
+
+**状态:** `PASSED` — conditional workflow complete, not all numerical experiments executed.
+
+- Generated scientific findings and retained failures: revision_week/outputs/phase2_v1/final/PHASE2_REPORT.md.
+- New scalar and multi conclusions remain separate; all historical conclusions are unchanged.
