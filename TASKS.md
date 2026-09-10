@@ -603,3 +603,42 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 
 ### Phase 2 reporting audit — PASSED
 E5C denominator 45 preserved: 40 complete, 1 interrupted, 4 unstarted. Original derived report archived; immutable source hashes and 149 manifests verified. See final/REPORTING_CORRECTION.json and AUDIT_CLOSEOUT.py. No numerical reruns.
+
+## Phase 4 solver refinement (development only) — PASSED engineering, decision recorded
+
+Status: round 1 complete per the user-provided Phase 4 execution rules, on branch
+codex/phase4-solver-refinement (local commits only; no push). Environment locked
+(scipy 1.15.3/numpy 2.3.5/torch 2.13.0, CPU, float64, 1 thread), 3598 historical
+files SHA256-audited with historical_changed=[] across the whole phase. Frozen
+protocol committed before numerical tasks (fee620e; v2 ddb3778 diagnostic fix;
+v3 final). 20/20 unit tests pass including synthetic negative-curvature and
+reduced-curvature regression tests; real-payload smoke before freeze; repository
+validator PASSED. Attempt-1 outputs retained (I-PHASE4-001); attempt-2 log
+preserved; final run reproduced attempt-2 terminal states exactly.
+
+Round 1 (12 planned positions, none replaced, all terminal):
+- Route R raw objective: 0/6 REFERENCE_CAPABLE. Binding 1e-8 gate reached on
+  burgers_1006 (1.41e-08, wall exhausted), burgers_1007 (3.35e-09, K10 polish
+  budget exhausted), allen_cahn_1017 (9.41e-09, K10 polish budget exhausted);
+  allen_cahn_1016 reached 2.82e-12 with K10 vs K8 curvature drift 0.957 > 0.05
+  (CURVATURE_UNSTABLE); multi_1026/1027 wall-exhausted. Raw total loss decreased
+  on all six centers, but no raw state satisfied all binding checks.
+- Route P proximal (nominal alpha=1e-8, gamma_i=alpha*lambda_max at theta0,
+  frozen per center): 4/6 REFERENCE_CAPABLE with K8/K10 curvature stable
+  (burgers_1006, burgers_1007, allen_cahn_1016, multi_1027); allen_cahn_1017 and
+  multi_1026 PHYSICAL_FIT_FAIL via the frozen +10% boundary-block gate (raw
+  total loss still decreased). Raw and proximal gradients recorded separately;
+  RAW_LOCAL_MINIMUM label retained (true only on raw-H-SPD states).
+Decision (frozen Section 12 tree, mechanical): branch B
+PROXIMAL_ROUTE_PROMISING (Route P >= 4/6, Route R < 4/6, fit gates ok, >=3
+problem coverage). Old 0/30 unchanged. New method-definition obligations apply
+before any future use (explicit/AD/matrix-free parity etc.).
+Alpha grid (Section 13 condition 1; 6 centers x 5 alphas = 30 planned positions,
+all in denominator, none hidden): capable counts 5/4/6/6/6 for
+1e-10/1e-8/1e-6/1e-4/1e-2; smallest feasible alpha selected = 1e-10 per frozen
+tie-break. No alpha choice used SO-win, parameter-error or figure feedback.
+Forbidden claims remain: no SO superiority, no confirmation, no global
+identifiability from this phase. New confirmation seeds remain forbidden until
+the solver reachability gate is passed and the Route P method-definition
+revalidation is completed.
+Evidence: revision_week/outputs/phase4_solver_refinement_v1/{final,tasks,tasks_grid,preflight}
