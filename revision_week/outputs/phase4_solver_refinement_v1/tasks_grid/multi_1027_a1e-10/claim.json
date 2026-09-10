@@ -1,0 +1,204 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-10,
+  "terminal_status": "PASS",
+  "failure_reason": null,
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "STABLE",
+    "physical_fit_preserved": true,
+    "REFERENCE_CAPABLE": true,
+    "raw_local_minimum": true
+  },
+  "scientific_binding_valid": true,
+  "solver_abort": null,
+  "gamma_solve": 1.2429861661545018e-05,
+  "nominal_alpha": 1e-10,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 1.9371150768157502e-13,
+  "loss_raw_before": 0.0337862825719839,
+  "loss_raw_after": 0.011380939093198168,
+  "physical_fit": {
+    "raw_total_before": 0.0337862825719839,
+    "raw_total_after": 0.011380939093198168,
+    "raw_total_relative": -0.6631491177240252,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde_u": {
+        "before": 0.09889276565255613,
+        "after": 0.0558125672880254,
+        "relative": -0.4356253774506226,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "pde_v": {
+        "before": 0.19085393261545164,
+        "after": 0.08949123553652705,
+        "relative": -0.531100908898527,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data_u": {
+        "before": 0.0786916808131479,
+        "after": 0.06501211301398072,
+        "relative": -0.17383753476621105,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data_v": {
+        "before": 0.050075904440555555,
+        "after": 0.04425392187801751,
+        "relative": -0.11626315345835132,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial_u": {
+        "before": 0.07889018139010551,
+        "after": 0.04518846883087284,
+        "relative": -0.42719780795762724,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial_v": {
+        "before": 0.030362263324631135,
+        "after": 0.025454199807284545,
+        "relative": -0.16165012024531664,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary_u": {
+        "before": 0.06826658764078218,
+        "after": 0.04996452292015963,
+        "relative": -0.26809696153157314,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary_v": {
+        "before": 0.029355252919375026,
+        "after": 0.016334083610244212,
+        "relative": -0.4435720361495027,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": true,
+    "K10_saved": true,
+    "K12_saved": true,
+    "drift_pass": true,
+    "lambda_min_H_raw_at_final": 4.866032987682162e-06,
+    "H_raw_spd_status": "numerically_SPD",
+    "lambda_min_A_fd_at_final": 4.8423362380563986e-05,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 1.7295899605625378e-05,
+    "H_prox_spd_status": "numerically_SPD",
+    "relative_theta_displacement": 0.5431194403388172,
+    "proximal_term": 0.0007912906312785514
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied."
+      },
+      "seconds": 23.46102500311099,
+      "nfev_used": 430,
+      "njev_used": 350,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 430,
+        "njev_cum": 350,
+        "seconds": 23.450344432145357,
+        "normalized_gradient": 1.9371150768157502e-13,
+        "loss": 0.01217222972447672,
+        "scipy_status": 3,
+        "scipy_success": true,
+        "scipy_message": "`xtol` termination condition is satisfied.",
+        "scipy_cost": 0.012172229724476721,
+        "scipy_optimality": 1.3718138523017343e-09
+      }
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied."
+      },
+      "seconds": 0.09447550703771412,
+      "nfev_used": 16,
+      "njev_used": 1,
+      "last_gate": {
+        "stage": "K10",
+        "nfev_cum": 16,
+        "njev_cum": 1,
+        "seconds": 0.08563166088424623,
+        "normalized_gradient": 1.9371150768157502e-13,
+        "loss": 0.01217222972447672,
+        "scipy_status": 3,
+        "scipy_success": true,
+        "scipy_message": "`xtol` termination condition is satisfied.",
+        "scipy_cost": 0.012172229724476721,
+        "scipy_optimality": 1.3718138523017343e-09
+      }
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied."
+      },
+      "seconds": 0.10182528593577445,
+      "nfev_used": 16,
+      "njev_used": 1,
+      "last_gate": {
+        "stage": "K12",
+        "nfev_cum": 16,
+        "njev_cum": 1,
+        "seconds": 0.09173057205043733,
+        "normalized_gradient": 1.9371150768157502e-13,
+        "loss": 0.01217222972447672,
+        "scipy_status": 3,
+        "scipy_success": true,
+        "scipy_message": "`xtol` termination condition is satisfied.",
+        "scipy_cost": 0.012172229724476721,
+        "scipy_optimality": 1.3718138523017343e-09
+      }
+    }
+  },
+  "theta_final_sha256": "3288d92e6df866cf58069bdb08c4355091adc33c56c6fcf6fa313a5ca3bd68ef",
+  "theta_final_state": "K12",
+  "source_checkpoint_sha256": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E4C/multi_1027",
+  "source_hashes": {
+    "lbfgs_state.pt": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+    "state.pt": "da99573af3356cd531756da3128dc6c80f2653351ee89c1ef862d3d59f923252"
+  },
+  "historical_gamma_context_only": 0.001254515848967744,
+  "seconds_total": 25.656762819970027,
+  "nfev_total": 462,
+  "njev_total": 352,
+  "counts": {
+    "objective": 3,
+    "gradient": 3,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

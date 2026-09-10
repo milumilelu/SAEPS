@@ -1,0 +1,47 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "burgers_1007",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-06,
+  "raw_total_before": 2.727924326289347,
+  "raw_total_after": 2.236241072442958,
+  "raw_total_relative": -0.18024079667752366,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde": {
+      "before": 1.4195894848574986,
+      "after": 1.2567507342675428,
+      "relative": -0.11470833809839179,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data": {
+      "before": 1.1754700056356875,
+      "after": 1.1178531208115636,
+      "relative": -0.049016040007728634,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial": {
+      "before": 1.0437151575786963,
+      "after": 0.9697508941178519,
+      "relative": -0.07086633064947845,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary": {
+      "before": 0.9846538898272985,
+      "after": 0.8384791830769462,
+      "relative": -0.14845288101790802,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}

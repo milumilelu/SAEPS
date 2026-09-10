@@ -1,0 +1,561 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "kind": "alpha_grid",
+  "started_unix": 1789032480.6143544,
+  "finished_unix": 1789032742.7841566,
+  "head_commit": "ddb37780d1e1415e95dcbf6e4d61ee5c93f61a96",
+  "planned_positions": [
+    [
+      "burgers_1006",
+      1e-10
+    ],
+    [
+      "burgers_1007",
+      1e-10
+    ],
+    [
+      "allen_cahn_1016",
+      1e-10
+    ],
+    [
+      "allen_cahn_1017",
+      1e-10
+    ],
+    [
+      "multi_1026",
+      1e-10
+    ],
+    [
+      "multi_1027",
+      1e-10
+    ],
+    [
+      "burgers_1006",
+      1e-08
+    ],
+    [
+      "burgers_1007",
+      1e-08
+    ],
+    [
+      "allen_cahn_1016",
+      1e-08
+    ],
+    [
+      "allen_cahn_1017",
+      1e-08
+    ],
+    [
+      "multi_1026",
+      1e-08
+    ],
+    [
+      "multi_1027",
+      1e-08
+    ],
+    [
+      "burgers_1006",
+      1e-06
+    ],
+    [
+      "burgers_1007",
+      1e-06
+    ],
+    [
+      "allen_cahn_1016",
+      1e-06
+    ],
+    [
+      "allen_cahn_1017",
+      1e-06
+    ],
+    [
+      "multi_1026",
+      1e-06
+    ],
+    [
+      "multi_1027",
+      1e-06
+    ],
+    [
+      "burgers_1006",
+      0.0001
+    ],
+    [
+      "burgers_1007",
+      0.0001
+    ],
+    [
+      "allen_cahn_1016",
+      0.0001
+    ],
+    [
+      "allen_cahn_1017",
+      0.0001
+    ],
+    [
+      "multi_1026",
+      0.0001
+    ],
+    [
+      "multi_1027",
+      0.0001
+    ],
+    [
+      "burgers_1006",
+      0.01
+    ],
+    [
+      "burgers_1007",
+      0.01
+    ],
+    [
+      "allen_cahn_1016",
+      0.01
+    ],
+    [
+      "allen_cahn_1017",
+      0.01
+    ],
+    [
+      "multi_1026",
+      0.01
+    ],
+    [
+      "multi_1027",
+      0.01
+    ]
+  ],
+  "alphas": [
+    1e-10,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "concurrency_limit": 6,
+  "concurrency_used": 6,
+  "concurrency_lowered": false,
+  "rows": [
+    {
+      "center": "burgers_1006",
+      "alpha": 1e-10,
+      "task_dir": "tasks_grid/burgers_1006_a1e-10",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 262.14637593599036,
+      "sampled_peak_rss_bytes": 861855744,
+      "achieved_normalized_gradient": 7.771384545028965e-09,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "alpha": 1e-10,
+      "task_dir": "tasks_grid/burgers_1007_a1e-10",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 20.817637654952705,
+      "sampled_peak_rss_bytes": 907227136,
+      "achieved_normalized_gradient": 4.4712381334104535e-11,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "alpha": 1e-10,
+      "task_dir": "tasks_grid/allen_cahn_1016_a1e-10",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 10.525195923168212,
+      "sampled_peak_rss_bytes": 782716928,
+      "achieved_normalized_gradient": 2.4401998615164624e-12,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "alpha": 1e-10,
+      "task_dir": "tasks_grid/allen_cahn_1017_a1e-10",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 24.844849950866774,
+      "sampled_peak_rss_bytes": 793149440,
+      "achieved_normalized_gradient": 1.291048235912059e-11,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "alpha": 1e-10,
+      "task_dir": "tasks_grid/multi_1026_a1e-10",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 18.72757385787554,
+      "sampled_peak_rss_bytes": 822112256,
+      "achieved_normalized_gradient": 1.2101331303406278e-12,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "alpha": 1e-10,
+      "task_dir": "tasks_grid/multi_1027_a1e-10",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 27.865923173027113,
+      "sampled_peak_rss_bytes": 829882368,
+      "achieved_normalized_gradient": 1.9371150768157502e-13,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1006",
+      "alpha": 1e-08,
+      "task_dir": "tasks_grid/burgers_1006_a1e-08",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 33.95978413685225,
+      "sampled_peak_rss_bytes": 863674368,
+      "achieved_normalized_gradient": 9.146385614761781e-12,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "alpha": 1e-08,
+      "task_dir": "tasks_grid/burgers_1007_a1e-08",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 14.770248945103958,
+      "sampled_peak_rss_bytes": 864825344,
+      "achieved_normalized_gradient": 8.435558045029162e-12,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "alpha": 1e-08,
+      "task_dir": "tasks_grid/allen_cahn_1016_a1e-08",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 7.461887879064307,
+      "sampled_peak_rss_bytes": 791060480,
+      "achieved_normalized_gradient": 2.5446561550354785e-12,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "alpha": 1e-08,
+      "task_dir": "tasks_grid/allen_cahn_1017_a1e-08",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PHYSICAL_FIT_FAIL",
+      "failure_reason": "frozen physical-fit gate violated",
+      "wall_seconds": 7.833751238882542,
+      "sampled_peak_rss_bytes": 831488000,
+      "achieved_normalized_gradient": 2.0925334278698054e-11,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "alpha": 1e-08,
+      "task_dir": "tasks_grid/multi_1026_a1e-08",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PHYSICAL_FIT_FAIL",
+      "failure_reason": "frozen physical-fit gate violated",
+      "wall_seconds": 14.090396584942937,
+      "sampled_peak_rss_bytes": 826466304,
+      "achieved_normalized_gradient": 2.546247764617206e-12,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "alpha": 1e-08,
+      "task_dir": "tasks_grid/multi_1027_a1e-08",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 12.405381900956854,
+      "sampled_peak_rss_bytes": 828325888,
+      "achieved_normalized_gradient": 3.162267587020761e-13,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1006",
+      "alpha": 1e-06,
+      "task_dir": "tasks_grid/burgers_1006_a1e-06",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 6.033512284979224,
+      "sampled_peak_rss_bytes": 839516160,
+      "achieved_normalized_gradient": 4.3255208879950536e-11,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "alpha": 1e-06,
+      "task_dir": "tasks_grid/burgers_1007_a1e-06",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 9.73271997901611,
+      "sampled_peak_rss_bytes": 846319616,
+      "achieved_normalized_gradient": 2.0815200269298698e-11,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "alpha": 1e-06,
+      "task_dir": "tasks_grid/allen_cahn_1016_a1e-06",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.702132013160735,
+      "sampled_peak_rss_bytes": 775405568,
+      "achieved_normalized_gradient": 1.0835635895655579e-11,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "alpha": 1e-06,
+      "task_dir": "tasks_grid/allen_cahn_1017_a1e-06",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.287144839996472,
+      "sampled_peak_rss_bytes": 783224832,
+      "achieved_normalized_gradient": 1.453932168585783e-12,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "alpha": 1e-06,
+      "task_dir": "tasks_grid/multi_1026_a1e-06",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 5.389817788032815,
+      "sampled_peak_rss_bytes": 812392448,
+      "achieved_normalized_gradient": 4.834152995969995e-12,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "alpha": 1e-06,
+      "task_dir": "tasks_grid/multi_1027_a1e-06",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.945249736076221,
+      "sampled_peak_rss_bytes": 809160704,
+      "achieved_normalized_gradient": 2.1952145421097643e-13,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1006",
+      "alpha": 0.0001,
+      "task_dir": "tasks_grid/burgers_1006_a1e-04",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.783513373928145,
+      "sampled_peak_rss_bytes": 832786432,
+      "achieved_normalized_gradient": 5.22071005563667e-12,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "alpha": 0.0001,
+      "task_dir": "tasks_grid/burgers_1007_a1e-04",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.444553133100271,
+      "sampled_peak_rss_bytes": 965550080,
+      "achieved_normalized_gradient": 2.1388532487995656e-12,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "alpha": 0.0001,
+      "task_dir": "tasks_grid/allen_cahn_1016_a1e-04",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.440290587954223,
+      "sampled_peak_rss_bytes": 776962048,
+      "achieved_normalized_gradient": 2.239326445358095e-12,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "alpha": 0.0001,
+      "task_dir": "tasks_grid/allen_cahn_1017_a1e-04",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.450938598951325,
+      "sampled_peak_rss_bytes": 780738560,
+      "achieved_normalized_gradient": 6.149007150088581e-14,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "alpha": 0.0001,
+      "task_dir": "tasks_grid/multi_1026_a1e-04",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 6.392569937044755,
+      "sampled_peak_rss_bytes": 817541120,
+      "achieved_normalized_gradient": 2.8791439099413105e-15,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "alpha": 0.0001,
+      "task_dir": "tasks_grid/multi_1027_a1e-04",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 6.37842748593539,
+      "sampled_peak_rss_bytes": 818483200,
+      "achieved_normalized_gradient": 1.1796601214459552e-13,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1006",
+      "alpha": 0.01,
+      "task_dir": "tasks_grid/burgers_1006_a1e-02",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.627484828000888,
+      "sampled_peak_rss_bytes": 922853376,
+      "achieved_normalized_gradient": 7.126213375099847e-12,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "alpha": 0.01,
+      "task_dir": "tasks_grid/burgers_1007_a1e-02",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.079511029878631,
+      "sampled_peak_rss_bytes": 840007680,
+      "achieved_normalized_gradient": 7.718343408805938e-11,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "alpha": 0.01,
+      "task_dir": "tasks_grid/allen_cahn_1016_a1e-02",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.054144366178662,
+      "sampled_peak_rss_bytes": 774557696,
+      "achieved_normalized_gradient": 1.0180806253353945e-11,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "alpha": 0.01,
+      "task_dir": "tasks_grid/allen_cahn_1017_a1e-02",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.008985179942101,
+      "sampled_peak_rss_bytes": 770899968,
+      "achieved_normalized_gradient": 3.983820422994923e-12,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "alpha": 0.01,
+      "task_dir": "tasks_grid/multi_1026_a1e-02",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.412233724026009,
+      "sampled_peak_rss_bytes": 806150144,
+      "achieved_normalized_gradient": 2.7765125299434417e-14,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "alpha": 0.01,
+      "task_dir": "tasks_grid/multi_1027_a1e-02",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 4.669566496042535,
+      "sampled_peak_rss_bytes": 805720064,
+      "achieved_normalized_gradient": 5.958387794771882e-14,
+      "smoke": false
+    }
+  ]
+}

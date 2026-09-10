@@ -732,3 +732,15 @@ from any denominator; the full 12-position run is repeated under the corrected
 code. Binding quantities (joint Hessian K checkpoints, theta-block stability
 matrices, gradients, losses) were computed by unaffected code paths and remain
 valid, but no attempt-1 result is promoted.
+
+Addendum to I-PHASE4-001: after the attempt-1 outputs were moved to
+revision_week/outputs/phase4_solver_refinement_v1_attempt1_fee620e, the
+protocol-v2 twelve-task run (attempt 2) completed 12/12 with terminal states
+identical to the final run (see ATTEMPT2_RUN_LOG.txt). A residual route-string
+comparison in state_diagnostics recorded the non-binding proximal_term
+diagnostic as 0 for proximal tasks. The final run (attempt 3) overwrote the
+attempt-2 task directories in place to keep every recorded artifact consistent
+with the corrected code; attempt-2 terminal statuses, failure reasons and all
+binding quantities were reproduced exactly by attempt 3, and its per-task
+summary is preserved in ATTEMPT2_RUN_LOG.txt. No gate, seed, center, budget or
+scientific design changed across attempts 1-3.

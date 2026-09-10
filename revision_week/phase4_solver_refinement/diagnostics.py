@@ -120,7 +120,7 @@ def state_diagnostics(residual, theta, coordinate, gamma, anchor, route, alpha):
     diagnostics = dict(
         route=route, m=m, n=n, p=int(coordinate.numel()),
         loss_raw_sum=loss_raw_sum, loss_raw_mean=loss_raw_sum / m,
-        proximal_term=0.5 * gamma * displacement ** 2 if route == 'P' else 0.0,
+        proximal_term=0.5 * gamma * displacement ** 2 if route == 'proximal' else 0.0,
         proximal_gradient_norm=float(np.linalg.norm(proximal_shift.numpy())),
         route_gradient_sum_norm=float(np.linalg.norm(route_gradient)),
         raw_gradient_sum_norm=float(np.linalg.norm(raw_gradient)),
@@ -131,7 +131,6 @@ def state_diagnostics(residual, theta, coordinate, gamma, anchor, route, alpha):
         relative_theta_displacement=displacement / scale,
     )
     try:
-        A_target = H_raw + gamma_analysis * np.eye(n) if route == 'R' else H_prox
         A_inverse_g = np.linalg.solve(A_target, route_gradient)
         diagnostics['eta_state'] = float(np.linalg.norm(A_inverse_g) / scale)
         diagnostics['eta_E'] = float(route_gradient @ A_inverse_g)

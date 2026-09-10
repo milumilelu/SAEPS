@@ -1,0 +1,75 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1026",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 0.0001,
+  "raw_total_before": 0.2100469926312832,
+  "raw_total_after": 0.20998218969807,
+  "raw_total_relative": -0.00030851635817970985,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.2455641876942907,
+      "after": 0.24511726589577548,
+      "relative": -0.0018199795447029917,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.27873341272040103,
+      "after": 0.2779031158297289,
+      "relative": -0.0029788208115007386,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.31655523064422303,
+      "after": 0.318339396411213,
+      "relative": 0.005636191079070188,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.31388874824553886,
+      "after": 0.3141350345079498,
+      "relative": 0.0007846291521678052,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.17794351598270922,
+      "after": 0.1758233930674649,
+      "relative": -0.011914583701101754,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.2040898824631946,
+      "after": 0.20389250365655923,
+      "relative": -0.0009671170577059977,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.07960163999265255,
+      "after": 0.07975011506824965,
+      "relative": 0.0018652263396936508,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.0609388480431862,
+      "after": 0.061521320733437426,
+      "relative": 0.009558314752494787,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}

@@ -1,0 +1,38 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1017",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 0.0001,
+  "stage": "K8",
+  "target": 1e-08,
+  "state_theta_sha256": "61a3e7f608efbe4efe37e543ce7f691cd8f14af6ac1af7bfd9372ee9e815e941",
+  "loss_raw_sum": 0.5117936929525532,
+  "normalized_gradient_route": 6.101934939525653e-12,
+  "gamma_analysis": 15.246607355872303,
+  "seconds": 0.3751169331371784,
+  "K_norms": {
+    "fro": 161414.3788191734,
+    "spectral": 152981.64179215362
+  },
+  "K_eigen": {
+    "lambda_min": 10.379855110893642,
+    "spd_status": "numerically_SPD",
+    "margin": 3.761768025183695e-08,
+    "mu_value": 10.379855073275962
+  },
+  "F_reduced": {
+    "A_damping": "gamma_solve",
+    "A_lambda_min": 15.243926861911673,
+    "F_star": [
+      [
+        13.490292126341402
+      ]
+    ],
+    "F_star_min": 13.490292126341402,
+    "F_star_max": 13.490292126341402,
+    "status": "computed"
+  }
+}

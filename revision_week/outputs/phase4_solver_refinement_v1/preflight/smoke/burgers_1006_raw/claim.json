@@ -1,0 +1,145 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "burgers_1006",
+  "route": "raw",
+  "smoke": true,
+  "smoke_override": {
+    "wall_seconds": 90.0,
+    "wall_caps": [
+      40.0,
+      30.0,
+      20.0
+    ],
+    "nfev_total": 6000
+  },
+  "terminal_status": "RESOURCE_LIMIT",
+  "failure_reason": "wall_budget_exhausted",
+  "labels": {
+    "reference_gradient_pass": false,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "UNRESOLVED",
+    "physical_fit_preserved": true,
+    "REFERENCE_CAPABLE": false,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": false,
+  "solver_abort": null,
+  "gamma_solve": 0.0,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 2.777090141565195e-07,
+  "loss_raw_before": 5.6209031810293055,
+  "loss_raw_after": 2.2323682323958383,
+  "physical_fit": {
+    "raw_total_before": 5.6209031810293055,
+    "raw_total_after": 2.2323682323958383,
+    "raw_total_relative": -0.6028452793974216,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde": {
+        "before": 1.7459161658282025,
+        "after": 1.3355774767682127,
+        "relative": -0.23502771615917725,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data": {
+        "before": 1.5647457424857902,
+        "after": 1.1933527346453614,
+        "relative": -0.23735038719480747,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial": {
+        "before": 2.263324387831954,
+        "after": 1.0579484589629213,
+        "relative": -0.5325687892329328,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary": {
+        "before": 0.7889971994728903,
+        "after": 0.3709765184395755,
+        "relative": -0.5298126296425185,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": false,
+    "K10_saved": false,
+    "K12_saved": false,
+    "drift_pass": null,
+    "lambda_min_H_raw_at_final": -1.450710606240225e-06,
+    "H_raw_spd_status": "not_SPD",
+    "lambda_min_A_fd_at_final": 0.0062316270869947924,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": -1.450710606240225e-06,
+    "H_prox_spd_status": "not_SPD",
+    "relative_theta_displacement": 0.6628999116568628,
+    "proximal_term": 0.0
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": false,
+      "termination": "wall_budget_exhausted",
+      "scipy_stop": null,
+      "seconds": 42.22035771491937,
+      "nfev_used": 1500,
+      "njev_used": 1315,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 1500,
+        "njev_cum": 1315,
+        "seconds": 42.21491983300075,
+        "normalized_gradient": 2.777090141565195e-07,
+        "loss": 2.2323682323958383,
+        "scipy_status": 0,
+        "scipy_success": false,
+        "scipy_message": "The maximum number of function evaluations is exceeded.",
+        "scipy_cost": 2.232368232395838,
+        "scipy_optimality": 0.0024825914878888744
+      }
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": false,
+      "termination": "not_attempted",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": false,
+      "termination": "not_attempted",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0
+    }
+  },
+  "theta_final_sha256": "42650465e53e64311088d2c0f57655b41ab3cf45d86ad249328289731d019b87",
+  "theta_final_state": "stage_end",
+  "source_checkpoint_sha256": "d06b39d4b09cb638475f5b0a9e1293b063c1baf318b9998afd924f0f4c30fdf9",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E1/burgers_1006",
+  "source_hashes": {
+    "lbfgs_state.pt": "d06b39d4b09cb638475f5b0a9e1293b063c1baf318b9998afd924f0f4c30fdf9",
+    "state.pt": "5fd0e186a6b3fcc270925868891a22afe75899c037a4fd027fe391d816839a2d"
+  },
+  "historical_gamma_context_only": 0.0030188459217496463,
+  "seconds_total": 43.532700412906706,
+  "nfev_total": 1500,
+  "njev_total": 1315,
+  "counts": {
+    "objective": 3,
+    "gradient": 3,
+    "hessian": 0
+  },
+  "deadline_seconds": 90.0
+}

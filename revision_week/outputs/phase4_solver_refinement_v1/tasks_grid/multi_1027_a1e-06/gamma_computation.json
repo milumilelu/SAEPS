@@ -1,0 +1,18 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "proximal",
+  "nominal_alpha": 1e-06,
+  "lambda_max_state_block": 124298.61661545018,
+  "gamma": 0.12429861661545018,
+  "gamma_rule": "gamma_i = alpha * lambda_max(J_theta(theta0)^T J_theta(theta0)) evaluated once at the archived theta0, fixed lambda0, before any Route P solve",
+  "frozen_before_solve": true,
+  "frozen_at_state": "theta0",
+  "source_checkpoint_sha256": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+  "source_hashes": {
+    "lbfgs_state.pt": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+    "state.pt": "da99573af3356cd531756da3128dc6c80f2653351ee89c1ef862d3d59f923252"
+  },
+  "historical_gamma_context_only": 0.001254515848967744,
+  "note": "historical state.pt gamma is recorded as context only and is never used by Phase 4 objectives"
+}

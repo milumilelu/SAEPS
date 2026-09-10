@@ -1,0 +1,176 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1017",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 0.0001,
+  "terminal_status": "PASS",
+  "failure_reason": null,
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "STABLE",
+    "physical_fit_preserved": true,
+    "REFERENCE_CAPABLE": true,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": true,
+  "solver_abort": null,
+  "gamma_solve": 15.24568117711934,
+  "nominal_alpha": 0.0001,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 6.149007150088581e-14,
+  "loss_raw_before": 0.512007861070059,
+  "loss_raw_after": 0.5117936929409077,
+  "physical_fit": {
+    "raw_total_before": 0.512007861070059,
+    "raw_total_after": 0.5117936929409077,
+    "raw_total_relative": -0.00041829070495855196,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde": {
+        "before": 0.6849114544900269,
+        "after": 0.6852749777595025,
+        "relative": 0.000530759512185869,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data": {
+        "before": 0.6604925487257809,
+        "after": 0.6594274299733954,
+        "relative": -0.0016126128212048498,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial": {
+        "before": 0.2948544606254708,
+        "after": 0.2957026411140771,
+        "relative": 0.002876607282138667,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary": {
+        "before": 0.17810800592746728,
+        "after": 0.17804775588411856,
+        "relative": -0.000338278130929507,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": true,
+    "K10_saved": true,
+    "K12_saved": true,
+    "drift_pass": true,
+    "lambda_min_H_raw_at_final": -0.001754314932545218,
+    "H_raw_spd_status": "not_SPD",
+    "lambda_min_A_fd_at_final": 15.244853040949083,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 15.24392686218456,
+    "H_prox_spd_status": "numerically_SPD",
+    "relative_theta_displacement": 0.00023250295512327603,
+    "proximal_term": 8.845180591048884e-05
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied."
+      },
+      "seconds": 0.3751169331371784,
+      "nfev_used": 13,
+      "njev_used": 5,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 13,
+        "njev_cum": 5,
+        "seconds": 0.3688784991391003,
+        "normalized_gradient": 6.101934939525653e-12,
+        "loss": 0.5118821447468211,
+        "scipy_status": 3,
+        "scipy_success": true,
+        "scipy_message": "`xtol` termination condition is satisfied.",
+        "scipy_cost": 0.5118821447468211,
+        "scipy_optimality": 1.4274433488524474e-08
+      }
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 0.049886977998539805,
+      "nfev_used": 3,
+      "njev_used": 2,
+      "last_gate": {
+        "stage": "K10",
+        "nfev_cum": 3,
+        "njev_cum": 2,
+        "seconds": 0.044137150049209595,
+        "normalized_gradient": 1.7987107313414357e-12,
+        "loss": 0.5118821447468209,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.511882144746821,
+        "scipy_optimality": 4.366336334160614e-09
+      }
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 0.05801854096353054,
+      "nfev_used": 2,
+      "njev_used": 2,
+      "last_gate": {
+        "stage": "K12",
+        "nfev_cum": 2,
+        "njev_cum": 2,
+        "seconds": 0.05255294404923916,
+        "normalized_gradient": 6.149007150088581e-14,
+        "loss": 0.5118821447468181,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.5118821447468183,
+        "scipy_optimality": 1.1742628484162632e-10
+      }
+    }
+  },
+  "theta_final_sha256": "264d27d4b9898868d3ade194e61b86d50fb453e1cf37b03315ac7820408522dd",
+  "theta_final_state": "K12",
+  "source_checkpoint_sha256": "6efad8214c4f01f04503bb4b684e1e139e02103631682bd9426b8544be2d823c",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E1/allen_cahn_1017",
+  "source_hashes": {
+    "lbfgs_state.pt": "6efad8214c4f01f04503bb4b684e1e139e02103631682bd9426b8544be2d823c",
+    "state.pt": "ebbe28939775344b4f3710f8797292053dfb8a7043f7fc22dfd88c98f7c2216d"
+  },
+  "historical_gamma_context_only": 0.0015326537053608818,
+  "seconds_total": 2.03937232401222,
+  "nfev_total": 18,
+  "njev_total": 9,
+  "counts": {
+    "objective": 3,
+    "gradient": 3,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

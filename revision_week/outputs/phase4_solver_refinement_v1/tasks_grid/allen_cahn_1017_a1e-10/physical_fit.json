@@ -1,0 +1,47 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1017",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-10,
+  "raw_total_before": 0.512007861070059,
+  "raw_total_after": 0.22032696446780214,
+  "raw_total_relative": -0.5696805044998042,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde": {
+      "before": 0.6849114544900269,
+      "after": 0.24769080493094037,
+      "relative": -0.638360837291929,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data": {
+      "before": 0.6604925487257809,
+      "after": 0.5261735623725735,
+      "relative": -0.20336184959593404,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial": {
+      "before": 0.2948544606254708,
+      "after": 0.3151566625728478,
+      "relative": 0.06885499342390881,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary": {
+      "before": 0.17810800592746728,
+      "after": 0.055864607618480534,
+      "relative": -0.686344208237159,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}

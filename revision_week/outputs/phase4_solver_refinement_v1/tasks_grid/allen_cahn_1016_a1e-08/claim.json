@@ -1,0 +1,176 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1016",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-08,
+  "terminal_status": "PASS",
+  "failure_reason": null,
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "STABLE",
+    "physical_fit_preserved": true,
+    "REFERENCE_CAPABLE": true,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": true,
+  "solver_abort": null,
+  "gamma_solve": 0.0006727446620497364,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 2.5446561550354785e-12,
+  "loss_raw_before": 0.34931144801428404,
+  "loss_raw_after": 0.32637894608295687,
+  "physical_fit": {
+    "raw_total_before": 0.34931144801428404,
+    "raw_total_after": 0.32637894608295687,
+    "raw_total_relative": -0.06565058792573389,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde": {
+        "before": 0.41615665234763827,
+        "after": 0.36433844052576203,
+        "relative": -0.12451612038293135,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data": {
+        "before": 0.6086687241909725,
+        "after": 0.601312799582651,
+        "relative": -0.012085267923202029,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial": {
+        "before": 0.3841502710285836,
+        "after": 0.39113658334547674,
+        "relative": 0.01818640475818715,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary": {
+        "before": 0.08595051015424333,
+        "after": 0.0738273875202889,
+        "relative": -0.14104771003916977,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": true,
+    "K10_saved": true,
+    "K12_saved": false,
+    "drift_pass": true,
+    "lambda_min_H_raw_at_final": -0.0001226543965032439,
+    "H_raw_spd_status": "not_SPD",
+    "lambda_min_A_fd_at_final": 0.0005896443664206925,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 0.0005500902658316101,
+    "H_prox_spd_status": "numerically_SPD",
+    "relative_theta_displacement": 0.18364600512730572,
+    "proximal_term": 0.0034122739447991265
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 3.195538226980716,
+      "nfev_used": 138,
+      "njev_used": 113,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 138,
+        "njev_cum": 113,
+        "seconds": 3.1870334981940687,
+        "normalized_gradient": 3.71461055055436e-12,
+        "loss": 0.32979122002775674,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.3297912200277568,
+        "scipy_optimality": 1.260288333567415e-08
+      }
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 0.07321862294338644,
+      "nfev_used": 3,
+      "njev_used": 2,
+      "last_gate": {
+        "stage": "K10",
+        "nfev_cum": 3,
+        "njev_cum": 2,
+        "seconds": 0.06534034293144941,
+        "normalized_gradient": 2.5446561550354785e-12,
+        "loss": 0.329791220027756,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.329791220027756,
+        "scipy_optimality": 1.09814614874886e-08
+      }
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": false,
+      "termination": "scipy_stop_status_2",
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 0.047700566006824374,
+      "nfev_used": 4,
+      "njev_used": 2,
+      "last_gate": {
+        "stage": "K12",
+        "nfev_cum": 4,
+        "njev_cum": 2,
+        "seconds": 0.04174315999262035,
+        "normalized_gradient": 1.928182927076019e-12,
+        "loss": 0.3297912200277558,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.32979122002775574,
+        "scipy_optimality": 5.816779560677363e-09
+      }
+    }
+  },
+  "theta_final_sha256": "96b95b00488ffef7e9aa69688088698e45db57c21623b61962df22f398e9a19f",
+  "theta_final_state": "K10",
+  "source_checkpoint_sha256": "9292d7b5390545efd629be5e1415acc157944dd2374194c0727b94df344049ff",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E1/allen_cahn_1016",
+  "source_hashes": {
+    "lbfgs_state.pt": "9292d7b5390545efd629be5e1415acc157944dd2374194c0727b94df344049ff",
+    "state.pt": "7d1084f199c659092f522b5d86843ed6fa0d6631df7de4497d6a0328a3364f75"
+  },
+  "historical_gamma_context_only": 0.0007167875702799587,
+  "seconds_total": 5.276455904124305,
+  "nfev_total": 145,
+  "njev_total": 117,
+  "counts": {
+    "objective": 3,
+    "gradient": 3,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

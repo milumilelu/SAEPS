@@ -25,12 +25,19 @@ import least_squares_solver as solver
 import diagnostics
 
 
-def run(center, route, dest, smoke=None):
+def run(center, route, dest, smoke=None, alpha_override=None):
     started = time.perf_counter()
     dest = Path(dest)
     dest.mkdir(parents=True, exist_ok=True)
     protocol = read(Path(__file__).with_name('protocol.json'))
     alpha = float(protocol['routes']['P']['nominal_alpha'])
+    alpha_source = 'protocol_nominal'
+    if alpha_override is not None:
+        alpha = float(alpha_override)
+        alpha_source = 'alpha_grid'
+    record = dict(scope=SCOPE, center=center, route=route, smoke=bool(smoke),
+                  smoke_override=smoke, alpha_source=alpha_source,
+                  alpha_override=alpha_override)
     gates = protocol['gates']['physical_fit']
     stage_spec = protocol['stages']
     if smoke is None:
@@ -43,8 +50,6 @@ def run(center, route, dest, smoke=None):
         nfev_pool_total = int(smoke.get('nfev_total', stage_spec['nfev_pool_total']))
     chunk = int(protocol['solver']['chunk_nfev'])
     tol = float(protocol['solver']['ftol'])
-    record = dict(scope=SCOPE, center=center, route=route, smoke=bool(smoke),
-                  smoke_override=smoke)
     deadline = Deadline(wall_total)
 
     def claim_now(status, failure_reason):
@@ -228,13 +233,18 @@ def run(center, route, dest, smoke=None):
 
 
 def main(argv):
-    smoke = None
+    alpha_override = None
     args = list(argv)
+    if '--alpha' in args:
+        index = args.index('--alpha')
+        alpha_override = float(args[index + 1])
+        del args[index:index + 2]
+    smoke = None
     if '--smoke' in args:
         index = args.index('--smoke')
         smoke = json.loads(args[index + 1])
         del args[index:index + 2]
-    run(args[0], args[1], args[2], smoke=smoke)
+    run(args[0], args[1], args[2], smoke=smoke, alpha_override=alpha_override)
 
 
 if __name__ == '__main__':

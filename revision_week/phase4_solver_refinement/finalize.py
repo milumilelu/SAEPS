@@ -175,6 +175,8 @@ def build_report(protocol, rows, decision, recomputes, changed, totals):
     p_capable_count = decision['counts']['route_p_reference_capable']
     r_count = decision['counts']['route_r_total']
     p_count = decision['counts']['route_p_total']
+    r_rows = [row for row in official if row['route'] == 'raw']
+    p_rows = [row for row in official if row['route'] == 'proximal']
     r_failed = [row for row in official if row['route'] == 'raw' and row['terminal_status'] != 'PASS']
     attribution = {}
     for row in r_failed:
@@ -242,7 +244,82 @@ def build_validation(protocol, rows, decision, recomputes, changed):
                 objective_recomputation=recomputes)
 
 
+def finalize_grid():
+    """Frozen alpha-grid aggregation: all 30 planned positions, mechanical selection."""
+    protocol = read(Path(__file__).with_name('protocol.json'))
+    final = OUT / 'final'
+    final.mkdir(parents=True, exist_ok=True)
+    centers = protocol['centers']['list']
+    alphas = [float(v) for v in protocol['alpha_grid']['values']]
+    rows = []
+    for alpha in alphas:
+        for center in centers:
+            task_dir = OUT / 'tasks_grid' / f'{center}_a{alpha:.0e}'
+            claim_path = task_dir / 'claim.json'
+            claim = read(claim_path) if claim_path.exists() else None
+            rows.append(dict(center=center, alpha=alpha,
+                             task_dir=str(task_dir.relative_to(OUT)),
+                             terminal_status=claim['terminal_status'] if claim else None,
+                             failure_reason=claim['failure_reason'] if claim else 'claim.json missing after worker exit',
+                             achieved_normalized_gradient=(claim.get('achieved_normalized_gradient') if claim else None),
+                             gamma=claim.get('gamma_solve') if claim else None,
+                             labels=claim.get('labels') if claim else None,
+                             nfev_total=claim.get('nfev_total') if claim else None,
+                             seconds_total=claim.get('seconds_total') if claim else None))
+    csvout(final / 'GRID_RESULTS.csv', rows)
+    write(final / 'GRID_RESULTS.json', dict(scope=SCOPE, rows=rows))
+
+    def passes(row):
+        labels = row['labels'] or {}
+        return (bool(labels.get('reference_gradient_pass')) and
+                bool(labels.get('finite_damped_or_proximal_stability_pass')) and
+                labels.get('curvature_stability') == 'STABLE' and
+                bool(labels.get('physical_fit_preserved')))
+
+    per_alpha = {}
+    for alpha in alphas:
+        alpha_rows = [row for row in rows if row['alpha'] == alpha]
+        capable = [row for row in alpha_rows if row['terminal_status'] == 'PASS' and passes(row)]
+        per_alpha[str(alpha)] = dict(
+            reference_capable=len(capable), total=len(alpha_rows),
+            problem_coverage=len({problem_of(row['center']) for row in capable}),
+            fit_fail=sum(1 for row in alpha_rows if row['terminal_status'] == 'PHYSICAL_FIT_FAIL'),
+            resource_limit=sum(1 for row in alpha_rows if row['terminal_status'] == 'RESOURCE_LIMIT'))
+    feasible = [alpha for alpha in alphas
+                if per_alpha[str(alpha)]['reference_capable'] >= 4
+                and per_alpha[str(alpha)]['problem_coverage'] >= 2]
+    selected = min(feasible) if feasible else None
+    decision = dict(scope=SCOPE,
+                    rule='alpha_grid selection_rule: primary gates per task; tie-break smallest alpha',
+                    per_alpha=per_alpha, feasible_alphas=feasible,
+                    selected_alpha=selected,
+                    selection_note=('smallest feasible alpha selected per the frozen rule'
+                                    if feasible else
+                                    'no alpha reached 4/6 REFERENCE_CAPABLE with >=2 problem coverage; the nominal result stands and mechanism diagnostics apply'))
+    write(final / 'GRID_DECISION.json', decision)
+    path = final / 'REFINEMENT_REPORT.md'
+    if path.exists():
+        existing = path.read_text(encoding='utf-8')
+        if '## 7. Alpha grid' in existing:
+            existing = existing.split('## 7. Alpha grid')[0].rstrip() + '\n'
+    else:
+        existing = ''
+    with path.open('w', encoding='utf-8', newline='\n') as handle:
+        handle.write(existing)
+        handle.write('\n## 7. Alpha grid (Section 13)\n\n')
+        handle.write(f'- Planned denominator: {len(rows)} positions (6 centers x {len(alphas)} alphas); all entered the denominator, none hidden.\n')
+        handle.write(f"- Per-alpha REFERENCE_CAPABLE counts: {json.dumps({f'{k}': v['reference_capable'] for k, v in per_alpha.items()})}.\n")
+        handle.write(f'- Feasible alphas (>=4/6 capable, >=2 problems): {feasible or "none"}.\n')
+        handle.write(f'- Selected alpha (smallest feasible): {selected}.\n')
+        handle.write('- Selection used only the frozen rule: no SO-win, parameter-error or figure feedback; per-center manual override is forbidden.\n')
+    print('grid finalize complete; selected alpha:', selected)
+
+
 def main():
+    mode = sys.argv[1] if len(sys.argv) > 1 else ''
+    if mode == 'grid':
+        finalize_grid()
+        return
     protocol = read(Path(__file__).with_name('protocol.json'))
     final = OUT / 'final'
     final.mkdir(parents=True, exist_ok=True)

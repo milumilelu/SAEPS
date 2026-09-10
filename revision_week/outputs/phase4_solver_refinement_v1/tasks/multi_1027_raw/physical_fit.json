@@ -1,0 +1,75 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "raw",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "raw_total_before": 0.0337862825719839,
+  "raw_total_after": 0.009123034998358325,
+  "raw_total_relative": -0.729978135981042,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.09889276565255613,
+      "after": 0.057476587221645184,
+      "relative": -0.41879886923599696,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.19085393261545164,
+      "after": 0.06251402066510713,
+      "relative": -0.6724509691342563,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.0786916808131479,
+      "after": 0.058258480960700035,
+      "relative": -0.25966149968210944,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.050075904440555555,
+      "after": 0.04718148593858129,
+      "relative": -0.05780062355958422,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.07889018139010551,
+      "after": 0.04695367200007862,
+      "relative": -0.4048223597319856,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.030362263324631135,
+      "after": 0.03139350949022107,
+      "relative": 0.033964732950370904,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.06826658764078218,
+      "after": 0.04081308384407983,
+      "relative": -0.40215140005477207,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.029355252919375026,
+      "after": 0.023631723463674297,
+      "relative": -0.19497462588452408,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}

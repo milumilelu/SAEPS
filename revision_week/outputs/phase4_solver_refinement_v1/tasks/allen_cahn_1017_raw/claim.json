@@ -1,0 +1,153 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1017",
+  "route": "raw",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+  "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "UNRESOLVED",
+    "physical_fit_preserved": true,
+    "REFERENCE_CAPABLE": false,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": false,
+  "solver_abort": null,
+  "gamma_solve": 0.0,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 9.410422099469647e-09,
+  "loss_raw_before": 0.512007861070059,
+  "loss_raw_after": 0.27616887123371164,
+  "physical_fit": {
+    "raw_total_before": 0.512007861070059,
+    "raw_total_after": 0.27616887123371164,
+    "raw_total_relative": -0.46061595488682755,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde": {
+        "before": 0.6849114544900269,
+        "after": 0.37508629151783757,
+        "relative": -0.4523579813727597,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data": {
+        "before": 0.6604925487257809,
+        "after": 0.5461080851526784,
+        "relative": -0.17318055108081457,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial": {
+        "before": 0.2948544606254708,
+        "after": 0.32738253644639786,
+        "relative": 0.11031909014340724,
+        "relative_max": 0.1,
+        "within": false
+      },
+      "boundary": {
+        "before": 0.17810800592746728,
+        "after": 0.07895980334079404,
+        "relative": -0.5566745979237473,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": true,
+    "K10_saved": false,
+    "K12_saved": false,
+    "drift_pass": null,
+    "lambda_min_H_raw_at_final": 7.206322148131478e-08,
+    "H_raw_spd_status": "spd_unresolved",
+    "lambda_min_A_fd_at_final": 0.009827182256917848,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 7.206322148131478e-08,
+    "H_prox_spd_status": "spd_unresolved",
+    "relative_theta_displacement": 0.7380759138173002,
+    "proximal_term": 0.0
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": null,
+      "seconds": 176.7622432971839,
+      "nfev_used": 8000,
+      "njev_used": 7684,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 8000,
+        "njev_cum": 7684,
+        "seconds": 176.7563934130594,
+        "normalized_gradient": 9.410422099469647e-09,
+        "loss": 0.27616887123371164,
+        "scipy_status": 0,
+        "scipy_success": false,
+        "scipy_message": "The maximum number of function evaluations is exceeded.",
+        "scipy_cost": 0.27616887123371164,
+        "scipy_optimality": 6.904039977410209e-05
+      }
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": false,
+      "termination": "wall_budget_exhausted",
+      "scipy_stop": null,
+      "seconds": 204.98563262308016,
+      "nfev_used": 10000,
+      "njev_used": 9673,
+      "last_gate": {
+        "stage": "K10",
+        "nfev_cum": 10000,
+        "njev_cum": 9673,
+        "seconds": 204.98001922713593,
+        "normalized_gradient": 7.830156405966373e-09,
+        "loss": 0.2761507140859329,
+        "scipy_status": 0,
+        "scipy_success": false,
+        "scipy_message": "The maximum number of function evaluations is exceeded.",
+        "scipy_cost": 0.2761507140859329,
+        "scipy_optimality": 8.559385807424547e-05
+      }
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": false,
+      "termination": "not_attempted",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0
+    }
+  },
+  "theta_final_sha256": "09e7aadc9229c9b4284af8542918f380e90bc61e62158b551ee1b26e53b4357c",
+  "theta_final_state": "K8",
+  "source_checkpoint_sha256": "6efad8214c4f01f04503bb4b684e1e139e02103631682bd9426b8544be2d823c",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E1/allen_cahn_1017",
+  "source_hashes": {
+    "lbfgs_state.pt": "6efad8214c4f01f04503bb4b684e1e139e02103631682bd9426b8544be2d823c",
+    "state.pt": "ebbe28939775344b4f3710f8797292053dfb8a7043f7fc22dfd88c98f7c2216d"
+  },
+  "historical_gamma_context_only": 0.0015326537053608818,
+  "seconds_total": 383.1703787399456,
+  "nfev_total": 18000,
+  "njev_total": 17357,
+  "counts": {
+    "objective": 36,
+    "gradient": 36,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

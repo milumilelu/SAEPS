@@ -1,0 +1,20 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "rule_source": "Section 12 decision tree",
+  "counts": {
+    "route_r_total": 6,
+    "route_p_total": 6,
+    "route_r_reference_capable": 0,
+    "route_p_reference_capable": 4
+  },
+  "conditions": {
+    "route_r_fit_ok": true,
+    "route_r_problem_coverage": 0,
+    "route_p_problem_coverage": 3,
+    "route_r_resource_limit_rows": 3,
+    "route_p_resource_limit_rows": 0
+  },
+  "branch": "B",
+  "decision_value": "PROXIMAL_ROUTE_PROMISING",
+  "next_action": "start the frozen alpha_grid; Route P is a new method definition requiring reimplementation and revalidation of proximal refinement, Hessian, HVP, reduced curvature, perturbed proximal re-optimization and explicit/AD/matrix-free parity; the historical 0/30 stands unchanged"
+}

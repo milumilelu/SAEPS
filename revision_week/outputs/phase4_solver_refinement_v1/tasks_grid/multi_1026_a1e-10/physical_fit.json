@@ -1,0 +1,75 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1026",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-10,
+  "raw_total_before": 0.2100469926312832,
+  "raw_total_after": 0.1440995323968448,
+  "raw_total_relative": -0.3139652675256468,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.2455641876942907,
+      "after": 0.1432165879080192,
+      "relative": -0.4167855286524382,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.27873341272040103,
+      "after": 0.12918278271925807,
+      "relative": -0.5365364293485618,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.31655523064422303,
+      "after": 0.30969870573357877,
+      "relative": -0.02165980608404578,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.31388874824553886,
+      "after": 0.29595129095670586,
+      "relative": -0.057145907233353464,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.17794351598270922,
+      "after": 0.17351000357643911,
+      "relative": -0.024915279333363887,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.2040898824631946,
+      "after": 0.1780043219658516,
+      "relative": -0.1278140796717214,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.07960163999265255,
+      "after": 0.07157269908384171,
+      "relative": -0.10086401372574641,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.0609388480431862,
+      "after": 0.024197442113248552,
+      "relative": -0.6029225544910155,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}

@@ -1,0 +1,75 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1026",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-06,
+  "raw_total_before": 0.2100469926312832,
+  "raw_total_after": 0.2084158743467383,
+  "raw_total_relative": -0.007765492207775475,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.2455641876942907,
+      "after": 0.2428058603063542,
+      "relative": -0.011232612596468699,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.27873341272040103,
+      "after": 0.2725177920246875,
+      "relative": -0.022299517790314007,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.31655523064422303,
+      "after": 0.3180987203857702,
+      "relative": 0.004875893974034176,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.31388874824553886,
+      "after": 0.31428808637815153,
+      "relative": 0.0012722282491638994,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.17794351598270922,
+      "after": 0.17702496341866922,
+      "relative": -0.0051620457141537774,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.2040898824631946,
+      "after": 0.20435525855264056,
+      "relative": 0.001300290275260558,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.07960163999265255,
+      "after": 0.07963769362264264,
+      "relative": 0.0004529257185332341,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.0609388480431862,
+      "after": 0.0648555869375989,
+      "relative": 0.06427326771318313,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}

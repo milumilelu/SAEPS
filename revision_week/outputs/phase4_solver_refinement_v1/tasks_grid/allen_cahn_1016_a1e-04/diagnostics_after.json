@@ -1,0 +1,50 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1016",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 0.0001,
+  "state": "K10",
+  "m": 368,
+  "n": 33,
+  "p": 1,
+  "loss_raw_sum": 0.34911352104906035,
+  "loss_raw_mean": 0.0009486780463289683,
+  "proximal_term": 7.338378044811854e-05,
+  "proximal_gradient_norm": 0.03142245903092295,
+  "route_gradient_sum_norm": 1.4337168710574593e-08,
+  "raw_gradient_sum_norm": 0.03142246104111826,
+  "normalized_gradient_route": 2.239326445358095e-12,
+  "lambda_max_state_block": 67343.4522243517,
+  "gamma_analysis": 6.73434522243517,
+  "H_raw": {
+    "gamma": 6.73434522243517,
+    "H_raw_norm_2": 67692.82066524886,
+    "lambda_min_H_raw": -0.000294626924722787,
+    "H_raw_spd": "not_SPD",
+    "H_raw_margin": 1.6091433031265816e-08,
+    "lambda_min_A_fd": 6.73405059551966,
+    "A_fd_spd": "numerically_SPD",
+    "A_fd_margin": 1.606131156824863e-08,
+    "stability_pass": true
+  },
+  "H_prox": {
+    "gamma_solve": 6.727446620497364,
+    "lambda_min_H_prox": 6.727151993573192,
+    "H_prox_spd": "numerically_SPD",
+    "H_prox_margin": 1.609306663114598e-08,
+    "proximal_stability_pass": true
+  },
+  "hessian_identity": {
+    "hessian_identity_residual_fro": 1.5870970501457632e-12,
+    "hessian_identity_residual_max": 7.212008767965017e-13
+  },
+  "theta_norm": 17.397953596199777,
+  "theta_displacement": 0.004670785337067434,
+  "relative_theta_displacement": 0.0002684675132187771,
+  "eta_state": 3.075047179064874e-11,
+  "eta_E": 3.4901471041944075e-18,
+  "eta_status": "computed"
+}

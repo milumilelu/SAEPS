@@ -1,0 +1,49 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1026",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 0.01,
+  "stage": "K12",
+  "target": 1e-12,
+  "state_theta_sha256": "0865c37f1a159766beb7262603f46ff1df154428943a0d6ddf9d7954b438b1e1",
+  "loss_raw_sum": 0.21003481828257115,
+  "normalized_gradient_route": 2.7765125299434417e-14,
+  "gamma_analysis": 3658.944137382156,
+  "seconds": 0.0803049539681524,
+  "K_norms": {
+    "fro": 384979.1718752992,
+    "spectral": 369776.0594352003
+  },
+  "K_eigen": {
+    "lambda_min": 31.721002942999835,
+    "spd_status": "numerically_SPD",
+    "margin": 1.3823623560426568e-07,
+    "mu_value": 31.7210028047636
+  },
+  "F_reduced": {
+    "A_damping": "gamma_solve",
+    "A_lambda_min": 3658.8986591503185,
+    "F_star": [
+      [
+        107.6947298996713,
+        -48.60282927785029
+      ],
+      [
+        -48.60282927785029,
+        62.87873464593349
+      ]
+    ],
+    "F_star_min": 31.767078205743775,
+    "F_star_max": 138.806386339861,
+    "status": "computed"
+  },
+  "K_drift_vs_previous": {
+    "fro_relative": 0.0,
+    "spectral_relative": 0.0,
+    "gate": 0.05,
+    "stability_pass": true
+  }
+}

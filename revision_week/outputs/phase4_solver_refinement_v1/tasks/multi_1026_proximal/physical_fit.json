@@ -1,0 +1,75 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1026",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "raw_total_before": 0.2100469926312832,
+  "raw_total_after": 0.18391602038237845,
+  "raw_total_relative": -0.1244053624456081,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.2455641876942907,
+      "after": 0.20805252219707518,
+      "relative": -0.15275706872988654,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.27873341272040103,
+      "after": 0.22647084011723181,
+      "relative": -0.18750020707274906,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.31655523064422303,
+      "after": 0.3152274298735532,
+      "relative": -0.004194531134322557,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.31388874824553886,
+      "after": 0.3038533634777841,
+      "relative": -0.03197115163842899,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.17794351598270922,
+      "after": 0.17727194954942763,
+      "relative": -0.0037740427324525036,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.2040898824631946,
+      "after": 0.1963367509543327,
+      "relative": -0.03798880873117307,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.07960163999265255,
+      "after": 0.07497503608745532,
+      "relative": -0.058121967155755565,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.0609388480431862,
+      "after": 0.07724783750154905,
+      "relative": 0.2676287783911665,
+      "relative_max": 0.1,
+      "within": false
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": false
+}

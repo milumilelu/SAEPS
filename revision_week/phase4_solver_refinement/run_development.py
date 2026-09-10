@@ -248,6 +248,63 @@ def tasks_run():
               f"terminal={row['terminal_status']} reason={row['failure_reason']}")
 
 
+def grid():
+    """The frozen alpha grid: 6 centers x 5 alpha = 30 proximal tasks, all in the denominator."""
+    protocol = read(Path(__file__).with_name('protocol.json'))
+    centers = protocol['centers']['list']
+    alphas = [float(v) for v in protocol['alpha_grid']['values']]
+    resources = protocol['resources']
+    per_task = int(resources['memory_bytes_per_worker'])
+    available = psutil.virtual_memory().available
+    requested = int(resources['max_concurrent_workers'])
+    concurrency = max(1, min(requested, available // per_task))
+    lowered = concurrency < requested
+    planned = [(center, alpha) for alpha in alphas for center in centers]
+    destination = OUT / 'tasks_grid'
+    destination.mkdir(parents=True, exist_ok=True)
+    started_unix = time.time()
+
+    def run_one(item):
+        center, alpha = item
+        task_dir = destination / f'{center}_a{alpha:.0e}'
+        command = [str(WORKER), center, 'proximal', str(task_dir), '--alpha', repr(alpha)]
+        try:
+            process = bounded_process(command, task_dir,
+                                      seconds=int(resources['wall_seconds_per_task']) + int(resources['runtime_max_sec_grace']),
+                                      memory_bytes=per_task)
+        except Exception as error:
+            process = dict(scope=SCOPE, status='LAUNCH_FAILURE', failure_reason=repr(error),
+                           wall_seconds=0.0, sampled_peak_rss_bytes=None, exit_code=None)
+        return center, alpha, process
+
+    with ThreadPoolExecutor(max_workers=concurrency) as pool:
+        outcomes = list(pool.map(run_one, planned))
+    rows = []
+    for center, alpha, process in outcomes:
+        task_dir = destination / f'{center}_a{alpha:.0e}'
+        claim_path = task_dir / 'claim.json'
+        claim = read(claim_path) if claim_path.exists() else None
+        rows.append(dict(center=center, alpha=alpha,
+                         task_dir=str(task_dir.relative_to(OUT)),
+                         process_status=process['status'],
+                         process_failure_reason=process['failure_reason'],
+                         exit_code=process['exit_code'],
+                         terminal_status=claim['terminal_status'] if claim else None,
+                         failure_reason=claim['failure_reason'] if claim else 'claim.json missing after worker exit',
+                         wall_seconds=process['wall_seconds'],
+                         sampled_peak_rss_bytes=process['sampled_peak_rss_bytes'],
+                         achieved_normalized_gradient=(claim.get('achieved_normalized_gradient') if claim else None),
+                         smoke=bool(claim.get('smoke')) if claim else None))
+    manifest = dict(scope=SCOPE, kind='alpha_grid', started_unix=started_unix,
+                    finished_unix=time.time(), head_commit=git_head(),
+                    planned_positions=planned, alphas=alphas,
+                    concurrency_limit=requested, concurrency_used=concurrency,
+                    concurrency_lowered=lowered, rows=rows)
+    write(OUT / 'GRID_RUN_MANIFEST.json', manifest)
+    for row in rows:
+        print(f"{row['task_dir']}: {row['terminal_status']} {row['failure_reason']}")
+
+
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else ''
     if mode == 'preflight':
@@ -256,8 +313,10 @@ def main():
         smoke()
     elif mode == 'tasks':
         tasks_run()
+    elif mode == 'grid':
+        grid()
     else:
-        raise SystemExit('usage: run_development.py preflight|smoke|tasks')
+        raise SystemExit('usage: run_development.py preflight|smoke|tasks|grid')
 
 
 if __name__ == '__main__':

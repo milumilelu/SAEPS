@@ -1,0 +1,176 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "burgers_1006",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "terminal_status": "PASS",
+  "failure_reason": null,
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "STABLE",
+    "physical_fit_preserved": true,
+    "REFERENCE_CAPABLE": true,
+    "raw_local_minimum": true
+  },
+  "scientific_binding_valid": true,
+  "solver_abort": null,
+  "gamma_solve": 0.0033033373654233118,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 9.146385614761781e-12,
+  "loss_raw_before": 5.6209031810293055,
+  "loss_raw_after": 1.437459253547477,
+  "physical_fit": {
+    "raw_total_before": 5.6209031810293055,
+    "raw_total_after": 1.437459253547477,
+    "raw_total_relative": -0.7442654307943003,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde": {
+        "before": 1.7459161658282025,
+        "after": 1.1737322560124432,
+        "relative": -0.3277270243639304,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data": {
+        "before": 1.5647457424857902,
+        "after": 0.9820443749107025,
+        "relative": -0.37239364310357237,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial": {
+        "before": 2.263324387831954,
+        "after": 0.675619665816445,
+        "relative": -0.7014923404489875,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary": {
+        "before": 0.7889971994728903,
+        "after": 0.2764019015115799,
+        "relative": -0.6496794897418683,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": true,
+    "K10_saved": true,
+    "K12_saved": false,
+    "drift_pass": true,
+    "lambda_min_H_raw_at_final": 0.00025075282241138864,
+    "H_raw_spd_status": "numerically_SPD",
+    "lambda_min_A_fd_at_final": 0.004554934289224448,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 0.0035540901891980455,
+    "H_prox_spd_status": "numerically_SPD",
+    "relative_theta_displacement": 0.5898383140990404,
+    "proximal_term": 0.5963779149085583
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 29.21497220895253,
+      "nfev_used": 671,
+      "njev_used": 551,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 671,
+        "njev_cum": 551,
+        "seconds": 29.20839879103005,
+        "normalized_gradient": 4.786915240570011e-12,
+        "loss": 2.033837168456078,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 2.0338371684560776,
+        "scipy_optimality": 3.093917839026156e-08
+      }
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied."
+      },
+      "seconds": 0.11818027985282242,
+      "nfev_used": 17,
+      "njev_used": 2,
+      "last_gate": {
+        "stage": "K10",
+        "nfev_cum": 17,
+        "njev_cum": 2,
+        "seconds": 0.11272968305274844,
+        "normalized_gradient": 9.146385614761781e-12,
+        "loss": 2.0338371684560355,
+        "scipy_status": 3,
+        "scipy_success": true,
+        "scipy_message": "`xtol` termination condition is satisfied.",
+        "scipy_cost": 2.0338371684560355,
+        "scipy_optimality": 7.11674987647834e-08
+      }
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": false,
+      "termination": "scipy_stop_status_3",
+      "scipy_stop": {
+        "status": 3,
+        "message": "`xtol` termination condition is satisfied."
+      },
+      "seconds": 0.07096841908060014,
+      "nfev_used": 16,
+      "njev_used": 1,
+      "last_gate": {
+        "stage": "K12",
+        "nfev_cum": 16,
+        "njev_cum": 1,
+        "seconds": 0.06569257820956409,
+        "normalized_gradient": 9.146385614761781e-12,
+        "loss": 2.0338371684560355,
+        "scipy_status": 3,
+        "scipy_success": true,
+        "scipy_message": "`xtol` termination condition is satisfied.",
+        "scipy_cost": 2.0338371684560355,
+        "scipy_optimality": 7.11674987647834e-08
+      }
+    }
+  },
+  "theta_final_sha256": "a2a29cecaa37dae28b6e7e462bd70e896eb1e278f91fcdf0446b100d853f0f6c",
+  "theta_final_state": "K10",
+  "source_checkpoint_sha256": "d06b39d4b09cb638475f5b0a9e1293b063c1baf318b9998afd924f0f4c30fdf9",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E1/burgers_1006",
+  "source_hashes": {
+    "lbfgs_state.pt": "d06b39d4b09cb638475f5b0a9e1293b063c1baf318b9998afd924f0f4c30fdf9",
+    "state.pt": "5fd0e186a6b3fcc270925868891a22afe75899c037a4fd027fe391d816839a2d"
+  },
+  "historical_gamma_context_only": 0.0030188459217496463,
+  "seconds_total": 31.09411393594928,
+  "nfev_total": 704,
+  "njev_total": 554,
+  "counts": {
+    "objective": 4,
+    "gradient": 4,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

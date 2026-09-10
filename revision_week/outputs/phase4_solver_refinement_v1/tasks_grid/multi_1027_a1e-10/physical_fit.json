@@ -1,0 +1,75 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "alpha_grid",
+  "alpha_override": 1e-10,
+  "raw_total_before": 0.0337862825719839,
+  "raw_total_after": 0.011380939093198168,
+  "raw_total_relative": -0.6631491177240252,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.09889276565255613,
+      "after": 0.0558125672880254,
+      "relative": -0.4356253774506226,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.19085393261545164,
+      "after": 0.08949123553652705,
+      "relative": -0.531100908898527,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.0786916808131479,
+      "after": 0.06501211301398072,
+      "relative": -0.17383753476621105,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.050075904440555555,
+      "after": 0.04425392187801751,
+      "relative": -0.11626315345835132,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.07889018139010551,
+      "after": 0.04518846883087284,
+      "relative": -0.42719780795762724,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.030362263324631135,
+      "after": 0.025454199807284545,
+      "relative": -0.16165012024531664,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.06826658764078218,
+      "after": 0.04996452292015963,
+      "relative": -0.26809696153157314,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.029355252919375026,
+      "after": 0.016334083610244212,
+      "relative": -0.4435720361495027,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "fit_pass": true
+}
