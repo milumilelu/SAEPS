@@ -10,7 +10,7 @@ ceiling and a kill-on-close process tree, mirroring the Phase 3 platform
 adapter. Historical inputs are never modified.
 """
 from __future__ import annotations
-import os, signal, subprocess, sys, time, uuid
+import contextlib, os, signal, subprocess, sys, time, uuid
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -24,6 +24,42 @@ import psutil
 from common import environment, read, write
 
 WORKER = Path(__file__).with_name('worker.py')
+
+
+def code_hashes():
+    hashes = {path.name: sha256_file(path) for path in sorted(Path(__file__).parent.glob('*.py'))}
+    hashes.update({path.name: sha256_file(path)
+                   for path in sorted((Path(__file__).parent / 'tests').glob('*.py'))})
+    hashes['protocol.json'] = sha256_file(Path(__file__).with_name('protocol.json'))
+    return hashes
+
+
+@contextlib.contextmanager
+def single_runner():
+    """Exclusive run lock: a second controller may never touch the same outputs."""
+    OUT.mkdir(parents=True, exist_ok=True)
+    import fcntl
+    with (OUT / 'runner.lock').open('a') as handle:
+        try:
+            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise RuntimeError('another Phase 4 runner holds the lock') from error
+        try:
+            yield
+        finally:
+            fcntl.flock(handle, fcntl.LOCK_UN)
+
+
+def refuse_existing(destination, planned, naming):
+    """No silent overwrite: existing task directories with claims block the run."""
+    existing = []
+    for item in planned:
+        task_dir = destination / naming(item)
+        if (task_dir / 'claim.json').exists():
+            existing.append(str(task_dir))
+    if existing:
+        raise RuntimeError('refusing to overwrite existing results; '
+                           'archive or choose a new output namespace: ' + ', '.join(existing[:5]))
 
 
 def bounded_process(command, dest, seconds, memory_bytes):
@@ -206,6 +242,7 @@ def tasks_run():
     planned = [(center, route) for center in centers for route in ('raw', 'proximal')]
     destination = OUT / 'tasks'
     destination.mkdir(parents=True, exist_ok=True)
+    refuse_existing(destination, planned, lambda item: f'{item[0]}_{item[1]}')
     started_unix = time.time()
 
     def run_one(item):
@@ -238,7 +275,9 @@ def tasks_run():
                          nfev_total=claim.get('nfev_total') if claim else None,
                          smoke=bool(claim.get('smoke')) if claim else None))
     manifest = dict(scope=SCOPE, started_unix=started_unix, finished_unix=time.time(),
-                    head_commit=git_head(), planned_positions=planned,
+                    head_commit=git_head(), code_hashes=code_hashes(),
+                    protocol_sha256=sha256_file(Path(__file__).with_name('protocol.json')),
+                    planned_positions=planned,
                     concurrency_limit=requested, concurrency_used=concurrency,
                     concurrency_lowered=lowered, lowering_note='scheduler lowered concurrency for memory feasibility; per-task limits unchanged' if lowered else None,
                     rows=rows)
@@ -249,8 +288,17 @@ def tasks_run():
 
 
 def grid():
-    """The frozen alpha grid: 6 centers x 5 alpha = 30 proximal tasks, all in the denominator."""
+    """The frozen alpha grid: 6 centers x 5 alpha = 30 proximal tasks, all in the denominator.
+
+    Refuses to start unless the frozen round-1 decision authorises branch B.
+    """
     protocol = read(Path(__file__).with_name('protocol.json'))
+    decision_path = OUT / 'final' / 'REFINEMENT_DECISION.json'
+    if not decision_path.exists():
+        raise RuntimeError('alpha grid requires the round-1 decision; run finalize.py first')
+    decision = read(decision_path)
+    if decision.get('branch') != 'B':
+        raise RuntimeError(f"alpha grid requires branch B authorisation; recorded branch is {decision.get('branch')!r}")
     centers = protocol['centers']['list']
     alphas = [float(v) for v in protocol['alpha_grid']['values']]
     resources = protocol['resources']
@@ -262,6 +310,7 @@ def grid():
     planned = [(center, alpha) for alpha in alphas for center in centers]
     destination = OUT / 'tasks_grid'
     destination.mkdir(parents=True, exist_ok=True)
+    refuse_existing(destination, planned, lambda item: f'{item[0]}_a{item[1]:.0e}')
     started_unix = time.time()
 
     def run_one(item):
@@ -297,6 +346,9 @@ def grid():
                          smoke=bool(claim.get('smoke')) if claim else None))
     manifest = dict(scope=SCOPE, kind='alpha_grid', started_unix=started_unix,
                     finished_unix=time.time(), head_commit=git_head(),
+                    code_hashes=code_hashes(),
+                    protocol_sha256=sha256_file(Path(__file__).with_name('protocol.json')),
+                    authorising_decision=str(decision_path.relative_to(ROOT)),
                     planned_positions=planned, alphas=alphas,
                     concurrency_limit=requested, concurrency_used=concurrency,
                     concurrency_lowered=lowered, rows=rows)
@@ -312,9 +364,11 @@ def main():
     elif mode == 'smoke':
         smoke()
     elif mode == 'tasks':
-        tasks_run()
+        with single_runner():
+            tasks_run()
     elif mode == 'grid':
-        grid()
+        with single_runner():
+            grid()
     else:
         raise SystemExit('usage: run_development.py preflight|smoke|tasks|grid')
 

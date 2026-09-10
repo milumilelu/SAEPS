@@ -1,8 +1,9 @@
 {
   "scope": "PHASE4_SOLVER_REFINEMENT",
   "phase": "phase4_solver_refinement",
-  "version": 2,
-  "version_note": "v2 corrects only the reduced-curvature diagnostic block extraction (F_star B/C blocks of the joint Hessian); no solver, gate, seed, budget or scientific design changed. Attempt 1 (freeze commit fee620e) outputs are retained under revision_week/outputs/phase4_solver_refinement_v1_attempt1_fee620e; recorded in docs/ISSUES.md as I-PHASE4-001.",
+  "version": 3,
+  "output_namespace": "revision_week/outputs/phase4_solver_refinement_v2",
+  "version_note": "v3 responds to the independent review PHASE4_REVIEW_20260910 and rewrites no earlier result. v1/v2 outputs under revision_week/outputs/phase4_solver_refinement_v1 (and the retained attempt-1 directory) stay untouched; this version runs into a new namespace. Corrections, all pre-declared before the v3 numerical run: (1) milestone separability - a K8/K10 pair is admissible only if the two solvers states differ and both come from genuine continued refinement; identical states are recorded as milestone_not_separable and curvature stability is UNRESOLVED, never STABLE; (2) milestone chunk reduced to 50 nfev so a crossing is captured close to its threshold; (3) the binding verdict is evaluated at the deepest separable milestone (K10 preferred) and K12 is diagnostics-only, so it can never overturn a passed K10 state; (4) RAW_LOCAL_MINIMUM additionally requires raw objective stationarity, and raw Hessian positive definiteness is recorded separately as raw_hessian_spd; (5) the training-block fit gate is binding for both routes; (6) the stage wall cap and the task wall budget are enforced inside every residual/Jacobian evaluation, and the hard kill is the task budget plus a declared output-flush grace only; (7) a run lock and a no-overwrite guard; per-task code and protocol SHA256 are recorded; (8) validation reads evidence and is exercised by synthetic negative controls. The round-1 alpha selection of v1/v2 is withdrawn and re-derived mechanically under this version.",
   "development_only": true,
   "round": 1,
   "baseline_commit": "71fd3b025824f59146851f2ebfb5068e8cc9addb",
@@ -57,9 +58,11 @@
     "ftol": 1e-14,
     "xtol": 1e-14,
     "gtol": 1e-14,
-    "chunk_nfev": 500,
+    "chunk_nfev": 50,
+    "milestone_chunk_note": "50 nfev chunks with repository gate checks between them; the crossing of a milestone target is captured close to its threshold instead of at the end of a long chunk",
     "staging": "scipy 1.15.3 least_squares has no callback; each stage runs bounded max_nfev chunks with repository-side gate checks between chunks",
     "stopping_policy": "only frozen protocol gates or recorded budgets; no silent retries, no mid-protocol tolerance changes",
+    "stage_deadline_enforcement": "the stage wall cap is enforced inside every residual/Jacobian evaluation through a composite deadline, so a chunk can never overrun the stage or task budget; an overrun aborts mid-chunk and the last completed iterate is recorded",
     "lm_note": "method='lm' is allowed as a development-attachment route only; it never replaces the TRF main route and never triggers a protocol edit"
   },
   "stages": {
@@ -67,7 +70,10 @@
     "polish_targets": [1e-10, 1e-12],
     "wall_caps_seconds": [300, 200, 100],
     "nfev_pool_total": 24000,
-    "note": "one shared nfev pool of 24000 across all stages; a stage that exhausts the pool leaves later stages not_attempted and recorded as such"
+    "note": "one shared nfev pool of 24000 across all stages; a stage that exhausts the pool leaves later stages not_attempted and recorded as such",
+    "overshoot_policy": "if the previous milestone state already satisfies this stage's target, the stage is NOT re-run on the identical state; the pair is recorded as milestone_not_separable, curvature stability is UNRESOLVED and no stability claim is made. Manufacturing evidence by re-solving an already converged state is forbidden.",
+    "milestone_separability": "a milestone pair is admissible only when the two recorded solver states differ (SHA256) and both were reached by continued refinement from the previous milestone; non-admissible pairs never set K8_saved/K10_saved and therefore never yield REFERENCE_CAPABLE",
+    "binding_state_rule": "the terminal status, diagnostics_after and physical-fit verdict are evaluated at the deepest admissible milestone (K10 when available, else K8, else the last solver state); the 1e-12 state is a non-binding diagnostic and never changes a passed 1e-8 + stable-K10 conclusion"
   },
   "gates": {
     "normalized_gradient": "||grad_theta L_sum|| / (m * max(||theta||, 1)) where L_sum is the sum-of-squares objective of the route",
@@ -84,7 +90,8 @@
       "any_training_block_relative_increase_max": 0.1,
       "validation_relative_increase_max": 0.1,
       "validation_status_when_absent": "UNAVAILABLE",
-      "fabrication_forbidden": true
+      "fabrication_forbidden": true,
+      "block_gate_scope": "binding for BOTH routes (consistent treatment); a training block above the frozen +10% makes the task PHYSICAL_FIT_FAIL regardless of the raw total moving down"
     },
     "route_R_loss_anomaly": "Route R raw total loss relative increase > 0.05 is an anomaly -> NUMERICAL_FAILURE"
   },
@@ -104,7 +111,9 @@
       "curvature_stability_pass",
       "physical_fit_preserved"
     ],
-    "RAW_LOCAL_MINIMUM": "REFERENCE_CAPABLE and H_raw theta-block numerically SPD; the only label allowed for an 'original objective is a strict local minimum' claim"
+    "curvature_stability_pass_requirement": "an admissible K8/K10 milestone pair (distinct states, genuine continued refinement) with both relative drift metrics <= 0.05; non-separable pairs and unreached polish states are UNRESOLVED, never STABLE",
+    "RAW_LOCAL_MINIMUM": "REFERENCE_CAPABLE and the raw theta-block Hessian resolvably SPD (raw_hessian_spd) and RAW OBJECTIVE stationarity (normalized raw gradient <= binding gate); a proximal stationary point is never a raw local minimum",
+    "raw_hessian_spd": "separate diagnostic flag recording only the raw theta-block positive definiteness"
   },
   "terminal_statuses": [
     "PASS",
@@ -134,11 +143,14 @@
     "threads_per_worker": 1,
     "max_concurrent_workers": 6,
     "wall_seconds_per_task": 600,
-    "runtime_max_sec_grace": 120,
+    "runtime_max_sec_grace": 60,
+    "hard_kill_note": "the worker deadline is the task budget (600s), enforced inside every evaluation; the systemd RuntimeMaxSec is task budget + a declared 60s output-flush grace and is a kill-on-hang backstop, not a solver budget",
     "max_nfev": 24000,
     "memory_bytes_per_worker": 4294967296,
     "retries": 0,
     "replacement_centers": false,
+    "no_overwrite": "an existing task directory with claim.json blocks the run; results are never silently overwritten",
+    "run_lock": "an exclusive lock under the output namespace prevents concurrent controllers",
     "scheduler_note": "concurrency is an upper bound; if host memory cannot hold 6x4GiB the scheduler lowers concurrency, never the per-task limit"
   },
   "environment_lock": {
@@ -182,6 +194,34 @@
       "Route P nominal alpha already successful on >= 4/6 centers and a milder alpha is to be evaluated",
       "or Route P nominal alpha close to success with predefined diagnostics indicating the limiter is lambda_min near zero, not physical-fit or numerical failure"
     ]
+  },
+  "cost_ledger": {
+    "scopes": ["tasks", "tasks_grid", "preflight/smoke"],
+    "retained_namespaces": [
+      "revision_week/outputs/phase4_solver_refinement_v1",
+      "revision_week/outputs/phase4_solver_refinement_v1_attempt1_fee620e"
+    ],
+    "unknown_attempts": [
+      {
+        "attempt": "attempt2_protocol_v2_tasks_overwritten",
+        "reason": "the protocol-v2 twelve-task outputs were overwritten in place by the attempt-3 re-run before the overwrite hazard was fixed; only the terminal-status log survived, so its numeric artifacts and cost are unrecoverable and are never reported as zero"
+      }
+    ],
+    "unknown_marking": "an overwritten or lost attempt is recorded as UNKNOWN with a reason, never as zero"
+  },
+  "validation": {
+    "method": "evidence-based assertions over saved artifacts, not self-declaration",
+    "assertions": [
+      "every planned position has a terminal status and a process record",
+      "no process failure coexists with a terminal claim",
+      "a STABLE curvature label requires an admissible (distinct-state) K8/K10 pair",
+      "a raw_local_minimum label requires raw objective stationarity",
+      "raw and proximal objectives recompute from theta_final within tolerance",
+      "lambda_max and the gamma rule recompute from the archived theta0",
+      "protocol and per-task code hashes match the frozen values",
+      "every cost scope is listed and lost attempts are marked UNKNOWN"
+    ],
+    "negative_controls": "tests/test_validation_negatives.py exercises identical K8/K10 states, a wrong raw-local-minimum label, a tampered gamma, a missing process record and a failed process with a terminal claim; each must make the audit fail"
   },
   "forbidden_paths": [
     "revision_week/phase2/numerics.py",

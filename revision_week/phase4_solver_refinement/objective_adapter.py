@@ -42,8 +42,17 @@ from numerics import Objective
 from core import numerical_mu, sym
 
 SCOPE = 'PHASE4_SOLVER_REFINEMENT'
-OUT = ROOT / 'revision_week/outputs/phase4_solver_refinement_v1'
 TASK_ROOT = ROOT / 'revision_week/outputs/phase2_v1/tasks'
+PROTOCOL_PATH = Path(__file__).with_name('protocol.json')
+
+
+def output_namespace():
+    """Protocol-declared output namespace; a corrected version never rewrites old results."""
+    document = read(PROTOCOL_PATH) if PROTOCOL_PATH.exists() else {}
+    return ROOT / document.get('output_namespace', 'revision_week/outputs/phase4_solver_refinement_v1')
+
+
+OUT = output_namespace()
 
 
 class SolverAbort(RuntimeError):

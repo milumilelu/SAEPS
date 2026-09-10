@@ -229,25 +229,44 @@ def physical_fit(before_diag, after_diag, blocks_before, blocks_after, gates, ro
                                 reason='training-block layout unavailable at before or after state')
     record['validation_status'] = 'UNAVAILABLE'
     record['validation_reason'] = 'historical payload carries no validation data; not fabricated'
-    fit_pass = not anomaly
-    if route == 'proximal':
-        fit_pass = fit_pass and relative <= gates['raw_total_loss_relative_increase_max']
-        if isinstance(record['blocks'], dict) and 'status' not in record['blocks']:
-            fit_pass = fit_pass and all(item['within'] for item in record['blocks'].values())
+    record['block_gate_binding_for_both_routes'] = True
+    fit_pass = (not anomaly) and relative <= gates['raw_total_loss_relative_increase_max']
+    if isinstance(record['blocks'], dict) and 'status' not in record['blocks']:
+        fit_pass = fit_pass and all(item['within'] for item in record['blocks'].values())
     record['fit_pass'] = bool(fit_pass)
     return record
 
 
-def decide_terminal(route, stage1, diag_after, curvature, fit, solver_abort=None):
-    """Terminal status and labels from the frozen decision precedence."""
+def decide_terminal(route, stage1, diag_after, curvature, fit, solver_abort=None,
+                    binding_gradient=1e-8):
+    """Terminal status and labels from the frozen decision precedence.
+
+    RAW_LOCAL_MINIMUM requires BOTH a resolvably positive raw Hessian AND raw
+    objective stationarity (normalized raw gradient below the binding gate). A
+    proximal stationary point generally has a non-zero raw gradient and is
+    therefore never labelled a raw local minimum; raw Hessian positive
+    definiteness is recorded separately as raw_hessian_spd.
+    """
     gradient_pass = bool(stage1['target_reached'])
     stability = (diag_after['H_prox']['proximal_stability_pass'] if route == 'proximal'
                  else diag_after['H_raw']['stability_pass'])
-    raw_local_minimum = bool(diag_after['H_raw']['H_raw_spd'] == 'numerically_SPD')
+    m = diag_after.get('m')
+    theta_norm = diag_after.get('theta_norm')
+    raw_gradient_norm = diag_after.get('raw_gradient_sum_norm')
+    if m and theta_norm is not None and raw_gradient_norm is not None:
+        raw_normalized = float(raw_gradient_norm / (m * max(theta_norm, 1.0)))
+        raw_stationary = bool(raw_normalized <= binding_gradient)
+    else:
+        raw_normalized = None
+        raw_stationary = False
+    raw_spd = bool(diag_after['H_raw']['H_raw_spd'] == 'numerically_SPD')
     labels = dict(reference_gradient_pass=gradient_pass,
                   finite_damped_or_proximal_stability_pass=bool(stability),
                   curvature_stability=None,
                   physical_fit_preserved=bool(fit['fit_pass']),
+                  raw_gradient_pass=raw_stationary,
+                  raw_normalized_gradient=raw_normalized,
+                  raw_hessian_spd=raw_spd,
                   REFERENCE_CAPABLE=False,
                   raw_local_minimum=False)
     if curvature['K10_saved'] and curvature.get('drift_pass'):
@@ -274,7 +293,7 @@ def decide_terminal(route, stage1, diag_after, curvature, fit, solver_abort=None
         else:
             result.update(status='PASS', failure_reason=None)
             labels['REFERENCE_CAPABLE'] = True
-            labels['raw_local_minimum'] = bool(raw_local_minimum)
+            labels['raw_local_minimum'] = bool(raw_spd and raw_stationary)
             result['scientific_binding_valid'] = True
     else:
         termination = str(stage1['termination'])

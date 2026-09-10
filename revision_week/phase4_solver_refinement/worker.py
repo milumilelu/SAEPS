@@ -51,6 +51,12 @@ def run(center, route, dest, smoke=None, alpha_override=None):
     chunk = int(protocol['solver']['chunk_nfev'])
     tol = float(protocol['solver']['ftol'])
     deadline = Deadline(wall_total)
+    code_hashes = {path.name: sha256_file(path) for path in sorted(Path(__file__).parent.glob('*.py'))}
+    protocol_path = Path(__file__).with_name('protocol.json')
+    code_hashes['protocol.json'] = sha256_file(protocol_path)
+    record['protocol_sha256'] = code_hashes['protocol.json']
+    write(dest / 'code_hashes.json',
+          dict(scope=SCOPE, center=center, route=route, code_hashes=code_hashes))
 
     def claim_now(status, failure_reason):
         write(dest / 'claim.json', {**record, 'terminal_status': status,
@@ -108,11 +114,34 @@ def run(center, route, dest, smoke=None, alpha_override=None):
     reached = []
     trajectory = []
     for index, (name, target, wall_cap) in enumerate(zip(names, targets, wall_caps)):
-        if index > 0 and not stages[names[index - 1]]['target_reached']:
+        previous = names[index - 1] if index > 0 else None
+        if index > 0 and not stages[previous]['target_reached']:
             stages[name] = dict(target=target, target_reached=False,
                                 termination='not_attempted', seconds=0.0,
                                 nfev_used=0, njev_used=0)
             continue
+        if index > 0:
+            # Pre-declared overshoot policy (protocol v3): an identical state is
+            # never re-run to manufacture a milestone. If the previous milestone
+            # state already satisfies this target, the pair is not separable at
+            # the declared resolution and no stability claim is made.
+            previous_gate = stages[previous].get('last_gate') or {}
+            previous_value = previous_gate.get('normalized_gradient')
+            if previous_value is not None and float(previous_value) <= float(target):
+                stages[name] = dict(target=target, target_reached=True,
+                                    termination='milestone_not_separable', seconds=0.0,
+                                    nfev_used=0, njev_used=0, last_gate=previous_gate,
+                                    milestone_overshoot=True,
+                                    gate_at_start=float(previous_value))
+                write(dest / f'curvature_{name}.json',
+                      {**record, 'stage': name, 'target': target, 'reached': True,
+                       'milestone_overshoot': True, 'separable_from_previous': False,
+                       'state_theta_sha256': checkpoints[previous][0]['state_theta_sha256'],
+                       'normalized_gradient_route': float(previous_value),
+                       'evidence': ('previous milestone state already satisfies this target; '
+                                    'the pair is not separable at the declared resolution; '
+                                    'curvature stability is UNRESOLVED')})
+                continue
         offset = nfev_pool_total - pool_remaining
         stage = solver.solve_stage(ev, x, target, obj, name, deadline, wall_cap,
                                    pool_remaining, chunk, tol)
@@ -120,36 +149,48 @@ def run(center, route, dest, smoke=None, alpha_override=None):
         stages[name] = dict(target=target, target_reached=stage['target_reached'],
                             termination=stage['termination'], scipy_stop=stage['scipy_stop'],
                             seconds=stage['seconds'], nfev_used=int(stage['nfev_used']),
-                            njev_used=int(stage['njev_used']), last_gate=stage['last_gate'])
+                            njev_used=int(stage['njev_used']), last_gate=stage['last_gate'],
+                            stage_wall_cap=stage['stage_wall_cap'])
         for row in stage['rows']:
             entry = {**row, 'nfev_task_cum': offset + row['nfev_cum']}
             trajectory.append(entry)
             with (dest / 'trajectory.jsonl').open('a', encoding='utf-8') as handle:
                 handle.write(json.dumps(entry, ensure_ascii=False, allow_nan=False) + '\n')
         x = stage['x'].astype(np.float64).copy()
-        if stage['target_reached']:
-            state_theta = torch.from_numpy(stage['x'].copy())
-            diag_check, matrices_check = diagnostics.state_diagnostics(
-                residual, state_theta, coordinate0, gamma, theta0, route, alpha)
-            prev_K = checkpoints[names[index - 1]][1] if index > 0 and names[index - 1] in checkpoints else None
-            record_K, K_matrix = diagnostics.curvature_record(
-                center, route, name, state_theta, matrices_check, diag_check, prev_K,
-                stage['seconds'], target)
-            write(dest / f'curvature_{name}.json', {**record, **record_K})
-            checkpoints[name] = (record_K, K_matrix, diag_check)
-            reached.append((name, stage['x'].copy(), diag_check))
-        else:
+        if not stage['target_reached']:
             if name == 'K8':
                 write(dest / 'curvature_K8.json', {**record, 'reached': False,
                                                    'termination': stage['termination']})
-    if trajectory:
-        pass
+            continue
+        state_theta = torch.from_numpy(stage['x'].copy())
+        diag_check, matrices_check = diagnostics.state_diagnostics(
+            residual, state_theta, coordinate0, gamma, theta0, route, alpha)
+        prev_K = (checkpoints[previous][1] if (previous in checkpoints) else None)
+        record_K, K_matrix = diagnostics.curvature_record(
+            center, route, name, state_theta, matrices_check, diag_check, prev_K,
+            stage['seconds'], target)
+        next_target = targets[index + 1] if index + 1 < len(targets) else None
+        gate_value = float(stage['last_gate']['normalized_gradient'])
+        record_K['milestone_overshoot'] = bool(next_target is not None and gate_value <= float(next_target))
+        separable = bool(prev_K is not None and
+                         record_K['state_theta_sha256'] != checkpoints[previous][0]['state_theta_sha256'])
+        record_K['separable_from_previous'] = separable if prev_K is not None else True
+        write(dest / f'curvature_{name}.json', {**record, **record_K})
+        if name in ('K8', 'K10'):
+            checkpoints[name] = (record_K, K_matrix, diag_check, separable)
+        reached.append((name, stage['x'].copy(), diag_check))
 
-    if reached:
-        final_name, final_x, diag_after = reached[-1]
+    reached = {entry[0]: (entry[1], entry[2]) for entry in reached}
+    binding_name = None
+    for candidate in ('K10', 'K8'):
+        if candidate in checkpoints and checkpoints[candidate][3] and candidate in reached:
+            binding_name = candidate
+            break
+    if binding_name is not None:
+        final_name = binding_name
+        final_x, diag_after = reached[binding_name]
     else:
-        final_name, final_x = 'stage_end', x
-        diag_after = None
+        final_name, final_x, diag_after = 'stage_end', x, None
     final_theta = torch.from_numpy(final_x.copy())
     save_payload(dest / 'theta_final.pt', dict(payload, theta=final_theta))
     if diag_after is None:
@@ -161,12 +202,21 @@ def run(center, route, dest, smoke=None, alpha_override=None):
     fit = diagnostics.physical_fit(diag_before, diag_after, blocks_before, blocks_after, gates, route)
     write(dest / 'physical_fit.json', {**record, **fit})
 
-    curvature_summary = dict(K8_saved='K8' in checkpoints,
-                             K10_saved='K10' in checkpoints,
-                             K12_saved='K12' in checkpoints,
-                             drift_pass=(checkpoints['K10'][0].get('K_drift_vs_previous', {}).get('stability_pass')
-                                         if 'K10' in checkpoints else None),
-                             lambda_min_H_raw_at_final=diag_after['H_raw']['lambda_min_H_raw'],
+    k8 = checkpoints.get('K8')
+    k10 = checkpoints.get('K10')
+    k12_reached = bool(stages.get('K12', {}).get('target_reached'))
+    curvature_summary = dict(
+        K8_saved=bool(k8 and k8[3]),
+        K10_saved=bool(k10 and k10[3]),
+        K12_saved=k12_reached,
+        K8_reached=bool(k8), K10_reached=bool(k10), K12_milestone_reached=k12_reached,
+        milestone_separable=dict(K8=bool(k8 and k8[3]), K10=bool(k10 and k10[3])),
+        milestone_not_separable=[name for name in ('K8', 'K10', 'K12')
+                                 if stages.get(name, {}).get('termination') == 'milestone_not_separable'],
+        binding_state=final_name,
+        drift_pass=(k10[0].get('K_drift_vs_previous', {}).get('stability_pass')
+                    if (k10 and k10[3]) else None),
+        lambda_min_H_raw_at_final=diag_after['H_raw']['lambda_min_H_raw'],
                              H_raw_spd_status=diag_after['H_raw']['H_raw_spd'],
                              lambda_min_A_fd_at_final=diag_after['H_raw']['lambda_min_A_fd'],
                              A_fd_spd_status=diag_after['H_raw']['A_fd_spd'],

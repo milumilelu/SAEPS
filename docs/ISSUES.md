@@ -744,3 +744,23 @@ with the corrected code; attempt-2 terminal statuses, failure reasons and all
 binding quantities were reproduced exactly by attempt 3, and its per-task
 summary is preserved in ATTEMPT2_RUN_LOG.txt. No gate, seed, center, budget or
 scientific design changed across attempts 1-3.
+
+## I-PHASE4-002 — Independent review required changes before any Phase 4 closure claim
+
+Classification: implementation failure (validation, milestone capture, resource
+budgets) with a withdrawn claim, corrected under protocol v3. The independent
+review (revision_week/reviews/PHASE4_REVIEW_20260910.md) confirmed: selected
+alpha=1e-10 rested on non-separable K8/K10 pairs; attempt-2 numeric artifacts
+were overwritten and the executed code had not been committed; the
+raw_local_minimum label omitted raw objective stationarity; VALIDATION was
+partly self-declared; the cost ledger omitted surviving scopes; stage wall caps
+and the hard task cap were not enforced as declared; joint-K wording could be
+read as reduced-curvature stability. Withdrawn without rewriting any earlier
+artifact: the alpha=1e-10 selection, the raw-local-minimum statements and the
+v1/v2 engineering-closure claim. Protocol v3 pre-declares milestone
+separability, enforces the stage/task deadline inside every evaluation, adds a
+run lock and no-overwrite guard, records per-task code and protocol hashes,
+makes validation evidence-based, and is exercised by synthetic negative
+controls. Corrected results run into a new namespace
+(revision_week/outputs/phase4_solver_refinement_v2). No confirmation seed, no
+centre replacement and no push.
