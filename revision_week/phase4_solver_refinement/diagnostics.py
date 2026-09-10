@@ -165,7 +165,7 @@ def residual_blocks(residual, theta, coordinate, payload):
 def reduced_curvature(matrices, n, route, gamma_analysis):
     """F_star reduced Schur curvature of the route analysis objective."""
     h_route = matrices['H_route_joint']
-    B = sym(h_route[:n, n:])
+    B = h_route[:n, n:]
     C = sym(h_route[n:, n:])
     A = matrices['H_raw'] + gamma_analysis * np.eye(n) if route == 'raw' else matrices['H_prox']
     record = dict(A_damping='gamma_analysis' if route == 'raw' else 'gamma_solve',

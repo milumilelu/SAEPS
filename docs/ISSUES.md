@@ -714,3 +714,21 @@ Phase2 manifests use the explicitly authorized revision_week/outputs/phase2_v1/r
 
 Classification: implementation failure (derived reporting only, corrected).
 The frozen finalizer represented all five missing E5C pass outputs as solver failures. Process/setup evidence establishes an interrupted cold pass followed by four unstarted passes. Section 16 requires null numerical statuses for those unstarted positions. AUDIT_CLOSEOUT.py corrects only derived artifacts, archives their prior versions, and verifies frozen executable/configuration hashes. No numerical worker, seed or raw record changed. E1/E4C availability-limited PARTIALLY_SUPPORTED labels are explicitly not independent support for SO. Revision-week 85 tests and repository validator passed after correction.
+
+## I-PHASE4-001 — Reduced-curvature diagnostic crashed on multi-parameter centers
+
+Classification: implementation failure (secondary diagnostics only, corrected
+before acceptance). The Phase 4 finalize-time curvature record applied the
+symmetrizer to the non-square theta/lambda off-diagonal block of the joint
+Hessian. For scalar-parameter centers NumPy silently broadcast the block into a
+wrong square matrix, so recorded F_star values in attempt-1 curvature files are
+invalid; for the two-parameter multi centers it raised and interrupted two
+proximal workers before their claims were written. The fix extracts the blocks
+without symmetrizing the off-diagonal block. No solver algorithm, tolerance,
+gate, seed, center, budget or scientific design changed; protocol version
+bumped to 2 with this record. Attempt-1 outputs are retained under
+revision_week/outputs/phase4_solver_refinement_v1_attempt1_fee620e and excluded
+from any denominator; the full 12-position run is repeated under the corrected
+code. Binding quantities (joint Hessian K checkpoints, theta-block stability
+matrices, gradients, losses) were computed by unaffected code paths and remain
+valid, but no attempt-1 result is promoted.
