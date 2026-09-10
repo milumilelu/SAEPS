@@ -1,0 +1,189 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "burgers_1007",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+  "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "UNRESOLVED",
+    "physical_fit_preserved": true,
+    "raw_gradient_pass": false,
+    "raw_normalized_gradient": 2.912896745608171e-06,
+    "raw_hessian_spd": true,
+    "REFERENCE_CAPABLE": false,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": false,
+  "solver_abort": null,
+  "gamma_solve": 0.0030215376754142995,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 7.489263748157742e-12,
+  "loss_raw_before": 2.727924326289347,
+  "loss_raw_after": 0.9971419274316352,
+  "physical_fit": {
+    "raw_total_before": 2.727924326289347,
+    "raw_total_after": 0.9971419274316352,
+    "raw_total_relative": -0.6344686258991666,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde": {
+        "before": 1.4195894848574986,
+        "after": 0.7442648931868807,
+        "relative": -0.47571822620143484,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data": {
+        "before": 1.1754700056356875,
+        "after": 0.9574812644822397,
+        "relative": -0.18544815274598242,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial": {
+        "before": 1.0437151575786963,
+        "after": 0.6474338350282671,
+        "relative": -0.37968340276839324,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary": {
+        "before": 0.9846538898272985,
+        "after": 0.32312951127817696,
+        "relative": -0.6718344236319915,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "block_gate_binding_for_both_routes": true,
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": false,
+    "K10_saved": false,
+    "K12_saved": false,
+    "K8_reached": true,
+    "K10_reached": false,
+    "K12_milestone_reached": false,
+    "milestone_separable": {
+      "K8": false,
+      "K10": false
+    },
+    "milestone_not_separable": [
+      "K10"
+    ],
+    "binding_state": "stage_end",
+    "drift_pass": null,
+    "lambda_min_H_raw_at_final": 0.00048549420050474177,
+    "H_raw_spd_status": "numerically_SPD",
+    "lambda_min_A_fd_at_final": 0.004900609400414829,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 0.0035070318761355104,
+    "H_prox_spd_status": "numerically_SPD",
+    "relative_theta_displacement": 0.35476844525862594,
+    "proximal_term": 0.14138395542640622
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": null,
+      "seconds": 13.326153785921633,
+      "nfev_used": 300,
+      "njev_used": 213,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 300,
+        "njev_cum": 213,
+        "seconds": 13.319430643925443,
+        "normalized_gradient": 2.899702051588789e-11,
+        "loss": 1.1385258828580485,
+        "scipy_status": 0,
+        "scipy_success": false,
+        "scipy_message": "The maximum number of function evaluations is exceeded.",
+        "scipy_cost": 1.1385258828580487,
+        "scipy_optimality": 1.3023156327190803e-07
+      },
+      "stage_wall_cap": 300.0
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": true,
+      "termination": "milestone_not_separable",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 300,
+        "njev_cum": 213,
+        "seconds": 13.319430643925443,
+        "normalized_gradient": 2.899702051588789e-11,
+        "loss": 1.1385258828580485,
+        "scipy_status": 0,
+        "scipy_success": false,
+        "scipy_message": "The maximum number of function evaluations is exceeded.",
+        "scipy_cost": 1.1385258828580487,
+        "scipy_optimality": 1.3023156327190803e-07
+      },
+      "milestone_overshoot": true,
+      "gate_at_start": 2.899702051588789e-11
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": false,
+      "termination": "scipy_stop_status_2",
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 0.14727780898101628,
+      "nfev_used": 7,
+      "njev_used": 2,
+      "last_gate": {
+        "stage": "K12",
+        "nfev_cum": 7,
+        "njev_cum": 2,
+        "seconds": 0.13891145796515048,
+        "normalized_gradient": 7.489263748157742e-12,
+        "loss": 1.1385258828580413,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 1.1385258828580413,
+        "scipy_optimality": 2.7919317491806664e-08
+      },
+      "stage_wall_cap": 100.0
+    }
+  },
+  "theta_final_sha256": "0f10a13d2867415ffdc4129594a25dd97fe8be4c937f13ffed1481df86c8e7ae",
+  "theta_final_state": "stage_end",
+  "source_checkpoint_sha256": "52478691f536f8a3f086013b122d32238da1a477f1627e0c96ccf8e216a3d69d",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E1/burgers_1007",
+  "source_hashes": {
+    "lbfgs_state.pt": "52478691f536f8a3f086013b122d32238da1a477f1627e0c96ccf8e216a3d69d",
+    "state.pt": "2880122f0feff51b2cbb43c99a7bd533a2574a284a58efea20b8cb2003e4fbe7"
+  },
+  "historical_gamma_context_only": 0.0029628765758037265,
+  "seconds_total": 15.711349526187405,
+  "nfev_total": 307,
+  "njev_total": 215,
+  "counts": {
+    "objective": 7,
+    "gradient": 7,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

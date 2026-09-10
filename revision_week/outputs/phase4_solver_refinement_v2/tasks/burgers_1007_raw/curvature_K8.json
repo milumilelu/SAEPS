@@ -1,0 +1,41 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "burgers_1007",
+  "route": "raw",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "stage": "K8",
+  "target": 1e-08,
+  "state_theta_sha256": "0d28143ba7cad7110f4f8c135761b2ee6ef9cc9c6f7e63d32725c4d75394d3b6",
+  "loss_raw_sum": 0.9170898529010192,
+  "normalized_gradient_route": 3.0708829558729565e-09,
+  "gamma_analysis": 0.06969730743708799,
+  "seconds": 140.1502475119196,
+  "K_norms": {
+    "fro": 8339954.816627753,
+    "spectral": 7007097.318486803
+  },
+  "K_eigen": {
+    "lambda_min": 2.0693555061760891e-07,
+    "spd_status": "spd_unresolved",
+    "margin": 3.314724533788446e-06,
+    "mu_value": null
+  },
+  "F_reduced": {
+    "A_damping": "gamma_analysis",
+    "A_lambda_min": 0.06969751445046801,
+    "F_star": [
+      [
+        44.05500400131291
+      ]
+    ],
+    "F_star_min": 44.05500400131291,
+    "F_star_max": 44.05500400131291,
+    "status": "computed"
+  },
+  "milestone_overshoot": false,
+  "separable_from_previous": true
+}

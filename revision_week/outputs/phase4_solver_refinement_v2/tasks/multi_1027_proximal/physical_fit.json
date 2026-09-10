@@ -1,0 +1,77 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "raw_total_before": 0.0337862825719839,
+  "raw_total_after": 0.020917681861551865,
+  "raw_total_relative": -0.38088240939246965,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde_u": {
+      "before": 0.09889276565255613,
+      "after": 0.08926629830597851,
+      "relative": -0.09734248287077603,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "pde_v": {
+      "before": 0.19085393261545164,
+      "after": 0.12746803375974108,
+      "relative": -0.3321173317577151,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_u": {
+      "before": 0.0786916808131479,
+      "after": 0.07304708102716428,
+      "relative": -0.07173057847609865,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data_v": {
+      "before": 0.050075904440555555,
+      "after": 0.04841747678727483,
+      "relative": -0.03311827658049437,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_u": {
+      "before": 0.07889018139010551,
+      "after": 0.06670750668162422,
+      "relative": -0.15442574086930996,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial_v": {
+      "before": 0.030362263324631135,
+      "after": 0.024106787485948817,
+      "relative": -0.20602798189974247,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_u": {
+      "before": 0.06826658764078218,
+      "after": 0.06412427699488721,
+      "relative": -0.06067844884369719,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary_v": {
+      "before": 0.029355252919375026,
+      "after": 0.028208375060489246,
+      "relative": -0.03906891424290261,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "block_gate_binding_for_both_routes": true,
+  "fit_pass": true
+}

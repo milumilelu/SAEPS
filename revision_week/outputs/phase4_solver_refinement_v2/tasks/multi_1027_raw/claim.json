@@ -1,0 +1,182 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "raw",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "terminal_status": "RESOURCE_LIMIT",
+  "failure_reason": "wall_budget_exhausted",
+  "labels": {
+    "reference_gradient_pass": false,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "UNRESOLVED",
+    "physical_fit_preserved": true,
+    "raw_gradient_pass": false,
+    "raw_normalized_gradient": 3.563760051288636e-06,
+    "raw_hessian_spd": false,
+    "REFERENCE_CAPABLE": false,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": false,
+  "solver_abort": null,
+  "gamma_solve": 0.0,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 3.563760051288636e-06,
+  "loss_raw_before": 0.0337862825719839,
+  "loss_raw_after": 0.009140169973284647,
+  "physical_fit": {
+    "raw_total_before": 0.0337862825719839,
+    "raw_total_after": 0.009140169973284647,
+    "raw_total_relative": -0.7294709782347047,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde_u": {
+        "before": 0.09889276565255613,
+        "after": 0.05730514693080549,
+        "relative": -0.4205324671357869,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "pde_v": {
+        "before": 0.19085393261545164,
+        "after": 0.06320158734068412,
+        "relative": -0.6688483885316215,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data_u": {
+        "before": 0.0786916808131479,
+        "after": 0.058447763922776244,
+        "relative": -0.25725612518609814,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data_v": {
+        "before": 0.050075904440555555,
+        "after": 0.047040647307570994,
+        "relative": -0.06061312655046848,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial_u": {
+        "before": 0.07889018139010551,
+        "after": 0.04684984572952567,
+        "relative": -0.4061384458243668,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial_v": {
+        "before": 0.030362263324631135,
+        "after": 0.030969956943777088,
+        "relative": 0.020014766773100417,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary_u": {
+        "before": 0.06826658764078218,
+        "after": 0.04106765752577345,
+        "relative": -0.3984222890724979,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary_v": {
+        "before": 0.029355252919375026,
+        "after": 0.02307503109649294,
+        "relative": -0.21393860376985607,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "block_gate_binding_for_both_routes": true,
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": false,
+    "K10_saved": false,
+    "K12_saved": false,
+    "K8_reached": false,
+    "K10_reached": false,
+    "K12_milestone_reached": false,
+    "milestone_separable": {
+      "K8": false,
+      "K10": false
+    },
+    "milestone_not_separable": [],
+    "binding_state": "stage_end",
+    "drift_pass": null,
+    "lambda_min_H_raw_at_final": -0.0001168574715475756,
+    "H_raw_spd_status": "not_SPD",
+    "lambda_min_A_fd_at_final": 2.403180977375265,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": -0.0001168574715475756,
+    "H_prox_spd_status": "not_SPD",
+    "relative_theta_displacement": 0.976436360482785,
+    "proximal_term": 0.0
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": false,
+      "termination": "wall_budget_exhausted",
+      "scipy_stop": null,
+      "seconds": 300.03775204415433,
+      "nfev_used": 6750,
+      "njev_used": 4487,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 6750,
+        "njev_cum": 4487,
+        "seconds": 299.6736637360882,
+        "normalized_gradient": 3.454271764396193e-06,
+        "loss": 0.009140242123968504,
+        "scipy_status": 0,
+        "scipy_success": false,
+        "scipy_message": "The maximum number of function evaluations is exceeded.",
+        "scipy_cost": 0.009140242123968504,
+        "scipy_optimality": 0.5233626246191965
+      },
+      "stage_wall_cap": 300.0
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": false,
+      "termination": "not_attempted",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": false,
+      "termination": "not_attempted",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0
+    }
+  },
+  "theta_final_sha256": "e6f1e2ab8555246e58a147f829541c9ef8bf1de6b967630607fcbfc7e7332754",
+  "theta_final_state": "stage_end",
+  "source_checkpoint_sha256": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E4C/multi_1027",
+  "source_hashes": {
+    "lbfgs_state.pt": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+    "state.pt": "da99573af3356cd531756da3128dc6c80f2653351ee89c1ef862d3d59f923252"
+  },
+  "historical_gamma_context_only": 0.001254515848967744,
+  "seconds_total": 301.72563946200535,
+  "nfev_total": 6764,
+  "njev_total": 4493,
+  "counts": {
+    "objective": 135,
+    "gradient": 135,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

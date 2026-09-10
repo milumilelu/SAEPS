@@ -1,0 +1,20 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "rule_source": "Section 12 decision tree",
+  "counts": {
+    "route_r_total": 6,
+    "route_p_total": 6,
+    "route_r_reference_capable": 0,
+    "route_p_reference_capable": 2
+  },
+  "conditions": {
+    "route_r_fit_ok": false,
+    "route_r_problem_coverage": 0,
+    "route_p_problem_coverage": 2,
+    "route_r_resource_limit_rows": 3,
+    "route_p_resource_limit_rows": 0
+  },
+  "branch": "D",
+  "decision_value": "SOLVER_REFINEMENT_NOT_SUFFICIENT",
+  "next_action": "stop new seeds, longer iteration budgets, further generic optimizer trials, SO confirmation, locality and one-step; switch to mechanism diagnostics covering residual block scaling, Jacobian singular values, effective rank, parameter scaling, network null directions, Hessian negative-curvature directions, the residual-weighted second-order term, the double-precision numerical floor and fixed-lambda local identifiability"
+}

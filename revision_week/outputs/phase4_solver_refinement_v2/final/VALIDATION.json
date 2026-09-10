@@ -1,0 +1,298 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "checklist": {
+    "planned_positions_all_have_terminal_status": true,
+    "no_process_failure_with_terminal_claim": true,
+    "stable_curvature_labels_supported_by_admissible_milestones": true,
+    "raw_local_minimum_requires_raw_stationarity": true,
+    "unified_objective_recomputation_ok": true,
+    "evidence_audit_clean": true,
+    "historical_hashes_unchanged": true,
+    "refinement_decision_generated": true,
+    "cost_accounting_lists_all_scopes_with_unknown_marked": true,
+    "scipy_numpy_torch_versions_locked": true
+  },
+  "all_pass": true,
+  "audits": {
+    "official_tasks": {
+      "task_root": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase4_solver_refinement_v2/tasks",
+      "audited": 12,
+      "violations": []
+    }
+  },
+  "costs": {
+    "scope": "PHASE4_SOLVER_REFINEMENT",
+    "scopes": [
+      {
+        "scope": "official_tasks",
+        "path": "revision_week/outputs/phase4_solver_refinement_v2/tasks",
+        "processes": 12,
+        "measured_wall_seconds": 1648.839956574142,
+        "status": "measured"
+      },
+      {
+        "scope": "alpha_grid",
+        "path": "revision_week/outputs/phase4_solver_refinement_v2/tasks_grid",
+        "processes": 0,
+        "measured_wall_seconds": 0.0,
+        "status": "measured"
+      },
+      {
+        "scope": "smoke",
+        "path": "revision_week/outputs/phase4_solver_refinement_v2/preflight/smoke",
+        "processes": 0,
+        "measured_wall_seconds": 0.0,
+        "status": "measured"
+      },
+      {
+        "scope": "retained:phase4_solver_refinement_v1",
+        "path": "revision_week/outputs/phase4_solver_refinement_v1",
+        "processes": 44,
+        "measured_wall_seconds": 2513.884266118286,
+        "status": "measured"
+      },
+      {
+        "scope": "retained:phase4_solver_refinement_v1_attempt1_fee620e",
+        "path": "revision_week/outputs/phase4_solver_refinement_v1_attempt1_fee620e",
+        "processes": 12,
+        "measured_wall_seconds": 1861.8181348145008,
+        "status": "measured"
+      },
+      {
+        "scope": "retained:phase4_solver_refinement_v2_attempt1_8d2147b",
+        "path": "revision_week/outputs/phase4_solver_refinement_v2_attempt1_8d2147b",
+        "processes": 12,
+        "measured_wall_seconds": 1611.277263713535,
+        "status": "measured"
+      },
+      {
+        "scope": "attempt2_protocol_v2_tasks_overwritten",
+        "path": null,
+        "processes": null,
+        "measured_wall_seconds": "UNKNOWN",
+        "status": "UNKNOWN",
+        "reason": "the protocol-v2 twelve-task outputs were overwritten in place by the attempt-3 re-run before the overwrite hazard was fixed; only the terminal-status log survived, so its numeric artifacts and cost are unrecoverable and are never reported as zero"
+      }
+    ],
+    "measured_wall_seconds_total": 7635.819621220464,
+    "unknown_scopes": [
+      "attempt2_protocol_v2_tasks_overwritten"
+    ],
+    "accounting_rule": "lost or overwritten attempts are recorded as UNKNOWN with a reason, never as zero",
+    "official_totals": {
+      "process_wall_seconds": 1648.839956574142,
+      "nfev_total": 49149,
+      "njev_total": 37666
+    },
+    "tasks": [
+      {
+        "center": "burgers_1006",
+        "route": "raw",
+        "smoke": false,
+        "nfev_total": 8562,
+        "njev_total": 6475,
+        "task_seconds_total": 301.5601921239868,
+        "process_wall_seconds": 303.8406463940628,
+        "sampled_peak_rss_bytes": 841674752
+      },
+      {
+        "center": "burgers_1006",
+        "route": "proximal",
+        "smoke": false,
+        "nfev_total": 516,
+        "njev_total": 416,
+        "task_seconds_total": 20.647229126887396,
+        "process_wall_seconds": 22.93806303315796,
+        "sampled_peak_rss_bytes": 959283200
+      },
+      {
+        "center": "burgers_1007",
+        "route": "raw",
+        "smoke": false,
+        "nfev_total": 9066,
+        "njev_total": 7468,
+        "task_seconds_total": 341.8249188370537,
+        "process_wall_seconds": 343.97268811706454,
+        "sampled_peak_rss_bytes": 872599552
+      },
+      {
+        "center": "burgers_1007",
+        "route": "proximal",
+        "smoke": false,
+        "nfev_total": 307,
+        "njev_total": 215,
+        "task_seconds_total": 15.711349526187405,
+        "process_wall_seconds": 18.40895707299933,
+        "sampled_peak_rss_bytes": 849207296
+      },
+      {
+        "center": "allen_cahn_1016",
+        "route": "raw",
+        "smoke": false,
+        "nfev_total": 3342,
+        "njev_total": 2673,
+        "task_seconds_total": 65.00880922493525,
+        "process_wall_seconds": 67.37180574401282,
+        "sampled_peak_rss_bytes": 783302656
+      },
+      {
+        "center": "allen_cahn_1016",
+        "route": "proximal",
+        "smoke": false,
+        "nfev_total": 132,
+        "njev_total": 102,
+        "task_seconds_total": 4.5404325041454285,
+        "process_wall_seconds": 6.760601806920022,
+        "sampled_peak_rss_bytes": 782548992
+      },
+      {
+        "center": "allen_cahn_1017",
+        "route": "raw",
+        "smoke": false,
+        "nfev_total": 12009,
+        "njev_total": 9759,
+        "task_seconds_total": 240.80172000383027,
+        "process_wall_seconds": 243.20734170312062,
+        "sampled_peak_rss_bytes": 789651456
+      },
+      {
+        "center": "allen_cahn_1017",
+        "route": "proximal",
+        "smoke": false,
+        "nfev_total": 162,
+        "njev_total": 132,
+        "task_seconds_total": 5.859471054980531,
+        "process_wall_seconds": 8.708166543161497,
+        "sampled_peak_rss_bytes": 789733376
+      },
+      {
+        "center": "multi_1026",
+        "route": "raw",
+        "smoke": false,
+        "nfev_total": 8036,
+        "njev_total": 5729,
+        "task_seconds_total": 301.81614582194015,
+        "process_wall_seconds": 303.9890598608181,
+        "sampled_peak_rss_bytes": 819003392
+      },
+      {
+        "center": "multi_1026",
+        "route": "proximal",
+        "smoke": false,
+        "nfev_total": 129,
+        "njev_total": 107,
+        "task_seconds_total": 10.573568480089307,
+        "process_wall_seconds": 13.033885454991832,
+        "sampled_peak_rss_bytes": 813637632
+      },
+      {
+        "center": "multi_1027",
+        "route": "raw",
+        "smoke": false,
+        "nfev_total": 6764,
+        "njev_total": 4493,
+        "task_seconds_total": 301.72563946200535,
+        "process_wall_seconds": 303.7902246939484,
+        "sampled_peak_rss_bytes": 824463360
+      },
+      {
+        "center": "multi_1027",
+        "route": "proximal",
+        "smoke": false,
+        "nfev_total": 124,
+        "njev_total": 97,
+        "task_seconds_total": 10.217312747146934,
+        "process_wall_seconds": 12.81851614988409,
+        "sampled_peak_rss_bytes": 826454016
+      }
+    ]
+  },
+  "objective_recomputation": [
+    {
+      "center": "burgers_1006",
+      "route": "raw",
+      "recomputed": 0.9512853143023362,
+      "claimed": 0.9512853143023362,
+      "within_tolerance": true
+    },
+    {
+      "center": "burgers_1006",
+      "route": "proximal",
+      "recomputed": 3.6354666359154453,
+      "claimed": 3.6354666359154453,
+      "within_tolerance": true
+    },
+    {
+      "center": "burgers_1007",
+      "route": "raw",
+      "recomputed": 0.9170220224826231,
+      "claimed": 0.9170220224826231,
+      "within_tolerance": true
+    },
+    {
+      "center": "burgers_1007",
+      "route": "proximal",
+      "recomputed": 0.9971419274316352,
+      "claimed": 0.9971419274316352,
+      "within_tolerance": true
+    },
+    {
+      "center": "allen_cahn_1016",
+      "route": "raw",
+      "recomputed": 0.28985442799509153,
+      "claimed": 0.28985442799509153,
+      "within_tolerance": true
+    },
+    {
+      "center": "allen_cahn_1016",
+      "route": "proximal",
+      "recomputed": 0.32637894771201886,
+      "claimed": 0.32637894771201886,
+      "within_tolerance": true
+    },
+    {
+      "center": "allen_cahn_1017",
+      "route": "raw",
+      "recomputed": 0.2761374177636866,
+      "claimed": 0.2761374177636866,
+      "within_tolerance": true
+    },
+    {
+      "center": "allen_cahn_1017",
+      "route": "proximal",
+      "recomputed": 0.33987658769829143,
+      "claimed": 0.33987658769829143,
+      "within_tolerance": true
+    },
+    {
+      "center": "multi_1026",
+      "route": "raw",
+      "recomputed": 0.1338106281806086,
+      "claimed": 0.1338106281806086,
+      "within_tolerance": true
+    },
+    {
+      "center": "multi_1026",
+      "route": "proximal",
+      "recomputed": 0.1839160198015117,
+      "claimed": 0.1839160198015117,
+      "within_tolerance": true
+    },
+    {
+      "center": "multi_1027",
+      "route": "raw",
+      "recomputed": 0.009140169973284647,
+      "claimed": 0.009140169973284647,
+      "within_tolerance": true
+    },
+    {
+      "center": "multi_1027",
+      "route": "proximal",
+      "recomputed": 0.020917681861551865,
+      "claimed": 0.020917681861551865,
+      "within_tolerance": true
+    }
+  ],
+  "head_commit": "95c9df96d993849f519fcd9bff64c4cb1005c9c1",
+  "note": "every checklist entry asserts over saved artifacts, not self-declaration; the same audit function is exercised by the synthetic negative controls in tests/test_validation_negatives.py; a scientific FAIL never returns an engineering failure"
+}

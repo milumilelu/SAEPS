@@ -642,3 +642,34 @@ identifiability from this phase. New confirmation seeds remain forbidden until
 the solver reachability gate is passed and the Route P method-definition
 revalidation is completed.
 Evidence: revision_week/outputs/phase4_solver_refinement_v1/{final,tasks,tasks_grid,preflight}
+
+## Phase 4 correction (supersedes the record above) — corrected outcome: branch D
+
+The Phase 4 record above was produced under protocol v1/v2 and is superseded.
+An independent review (revision_week/reviews/PHASE4_REVIEW_20260910.md) showed
+that the alpha=1e-10 selection rested on non-separable K8/K10 pairs, that the
+raw-local-minimum labels omitted raw objective stationarity, that the executed
+code had not been committed before the run, and that acceptance was partly
+self-declared. Those claims are withdrawn (docs/ISSUES.md I-PHASE4-002/
+I-PHASE4-003); no earlier file was rewritten.
+
+Corrected run: protocol v4 in revision_week/outputs/phase4_solver_refinement_v2.
+- Route R raw: 0/6 REFERENCE_CAPABLE (3 stage-1 wall-budget exhaustions, 2
+  curvature-stability unresolved, 1 curvature unstable with binding gate
+  reached).
+- Route P proximal at nominal alpha=1e-8: 2/6 REFERENCE_CAPABLE; the other four
+  are CURVATURE_STABILITY_UNRESOLVED because the 1e-8 -> 1e-10 milestone pair
+  is not separable at the declared resolution (the solver crosses both
+  thresholds inside one 50-nfev chunk), so no stability claim is made for them.
+- Frozen decision tree: branch D, SOLVER_REFINEMENT_NOT_SUFFICIENT. No alpha
+  grid was started (the grid is gated on branch B) and no alpha is selected.
+- Validation is evidence-based (VALIDATION.json, EVIDENCE_AUDIT.json with 0
+  violations over 12 directories, 8 synthetic negative controls in
+  tests/test_validation_negatives.py); measured cost across all surviving
+  scopes 7635.8 s with the overwritten attempt-2 scope marked UNKNOWN.
+- Direction now: mechanism diagnostics (residual block scaling, Jacobian
+  singular values, effective rank, parameter scaling, network null directions,
+  negative-curvature directions, residual-weighted second-order term,
+  double-precision floor, fixed-lambda local identifiability). Route P remains a
+  promising development branch only; no confirmation seed, no centre
+  replacement, no push.

@@ -1,0 +1,235 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "started_unix": 1789034873.5696008,
+  "finished_unix": 1789035217.56403,
+  "head_commit": "95c9df96d993849f519fcd9bff64c4cb1005c9c1",
+  "code_hashes": {
+    "__init__.py": "27e4c097d70546fdbecc8b6f4bf7af49c61a47dfc0e5d3ca6dcb0e9fc51791f8",
+    "diagnostics.py": "19e1c601fd9088b88e0f81c29c44dbf4b08c3cde0e37958358ee28aa9925b83f",
+    "finalize.py": "4bdbf7571f207bdec5e81c65a3803893394a2c936f68699104848ea52d10d2f0",
+    "least_squares_solver.py": "c2eb68ef8b52f1def01142b7e70730f0cd01e2f3d445f1c989788f55d75c8012",
+    "objective_adapter.py": "c136748fb82e705b0d641d1faf4259067be2cae79a8249c2d1ed6ed859769013",
+    "run_development.py": "5df10fcb8de7f7a265dd7b35f865a0b2d1ec9548a0592b3b1a8239bf3c663789",
+    "worker.py": "87641dc99b014f7d34e41ac1ecc0737a4c7f3e7f779933e3d364ef30d5e07040",
+    "test_curvature_consistency.py": "48059f057ac12b52271e2de0c7a66efd5123cdc897d3d3ed0c2e999b9fbace55",
+    "test_least_squares_solver.py": "bc02e43aa113855e6b0e28cdd36c02dda6b596641a8a6bf6168797b44a162709",
+    "test_negative_curvature.py": "2db6d442df1470efff6375a2686a727ac0f2d7c2f39ceb6aadb0170606b189de",
+    "test_objective_adapter.py": "a8b07375157d666f2c6af81ab28de8459ad37a7d2e5ec55a5f1ae196771729f7",
+    "test_proximal_objective.py": "2ffda57565cded1b65788a00bc99bb2aad4ee108f398b4ba571fcbef6983c3a9",
+    "test_validation_negatives.py": "480bf243a7ee58bf09622977d15388f8fd93d8749b604be0a1a60bbd5464310a",
+    "protocol.json": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198"
+  },
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "planned_positions": [
+    [
+      "burgers_1006",
+      "raw"
+    ],
+    [
+      "burgers_1006",
+      "proximal"
+    ],
+    [
+      "burgers_1007",
+      "raw"
+    ],
+    [
+      "burgers_1007",
+      "proximal"
+    ],
+    [
+      "allen_cahn_1016",
+      "raw"
+    ],
+    [
+      "allen_cahn_1016",
+      "proximal"
+    ],
+    [
+      "allen_cahn_1017",
+      "raw"
+    ],
+    [
+      "allen_cahn_1017",
+      "proximal"
+    ],
+    [
+      "multi_1026",
+      "raw"
+    ],
+    [
+      "multi_1026",
+      "proximal"
+    ],
+    [
+      "multi_1027",
+      "raw"
+    ],
+    [
+      "multi_1027",
+      "proximal"
+    ]
+  ],
+  "concurrency_limit": 6,
+  "concurrency_used": 6,
+  "concurrency_lowered": false,
+  "lowering_note": null,
+  "rows": [
+    {
+      "center": "burgers_1006",
+      "route": "raw",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "RESOURCE_LIMIT",
+      "failure_reason": "wall_budget_exhausted",
+      "wall_seconds": 303.8406463940628,
+      "sampled_peak_rss_bytes": 841674752,
+      "nfev_total": 8562,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1006",
+      "route": "proximal",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 22.93806303315796,
+      "sampled_peak_rss_bytes": 959283200,
+      "nfev_total": 516,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "route": "raw",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 343.97268811706454,
+      "sampled_peak_rss_bytes": 872599552,
+      "nfev_total": 9066,
+      "smoke": false
+    },
+    {
+      "center": "burgers_1007",
+      "route": "proximal",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 18.40895707299933,
+      "sampled_peak_rss_bytes": 849207296,
+      "nfev_total": 307,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "route": "raw",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_UNSTABLE",
+      "failure_reason": "K10 vs K8 relative drift exceeds 0.05",
+      "wall_seconds": 67.37180574401282,
+      "sampled_peak_rss_bytes": 783302656,
+      "nfev_total": 3342,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1016",
+      "route": "proximal",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "PASS",
+      "failure_reason": null,
+      "wall_seconds": 6.760601806920022,
+      "sampled_peak_rss_bytes": 782548992,
+      "nfev_total": 132,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "route": "raw",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 243.20734170312062,
+      "sampled_peak_rss_bytes": 789651456,
+      "nfev_total": 12009,
+      "smoke": false
+    },
+    {
+      "center": "allen_cahn_1017",
+      "route": "proximal",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 8.708166543161497,
+      "sampled_peak_rss_bytes": 789733376,
+      "nfev_total": 162,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "route": "raw",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "RESOURCE_LIMIT",
+      "failure_reason": "wall_budget_exhausted",
+      "wall_seconds": 303.9890598608181,
+      "sampled_peak_rss_bytes": 819003392,
+      "nfev_total": 8036,
+      "smoke": false
+    },
+    {
+      "center": "multi_1026",
+      "route": "proximal",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 13.033885454991832,
+      "sampled_peak_rss_bytes": 813637632,
+      "nfev_total": 129,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "route": "raw",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "RESOURCE_LIMIT",
+      "failure_reason": "wall_budget_exhausted",
+      "wall_seconds": 303.7902246939484,
+      "sampled_peak_rss_bytes": 824463360,
+      "nfev_total": 6764,
+      "smoke": false
+    },
+    {
+      "center": "multi_1027",
+      "route": "proximal",
+      "process_status": "PASS",
+      "process_failure_reason": null,
+      "exit_code": 0,
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "wall_seconds": 12.81851614988409,
+      "sampled_peak_rss_bytes": 826454016,
+      "nfev_total": 124,
+      "smoke": false
+    }
+  ]
+}

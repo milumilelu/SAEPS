@@ -1,0 +1,218 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "multi_1027",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+  "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+  "labels": {
+    "reference_gradient_pass": true,
+    "finite_damped_or_proximal_stability_pass": true,
+    "curvature_stability": "UNRESOLVED",
+    "physical_fit_preserved": true,
+    "raw_gradient_pass": false,
+    "raw_normalized_gradient": 3.4749216997096427e-07,
+    "raw_hessian_spd": false,
+    "REFERENCE_CAPABLE": false,
+    "raw_local_minimum": false
+  },
+  "scientific_binding_valid": false,
+  "solver_abort": null,
+  "gamma_solve": 0.0012429861661545018,
+  "nominal_alpha": 1e-08,
+  "binding_gradient_target": 1e-08,
+  "achieved_normalized_gradient": 6.440556955681529e-13,
+  "loss_raw_before": 0.0337862825719839,
+  "loss_raw_after": 0.020917681861551865,
+  "physical_fit": {
+    "raw_total_before": 0.0337862825719839,
+    "raw_total_after": 0.020917681861551865,
+    "raw_total_relative": -0.38088240939246965,
+    "raw_total_relative_max": 0.05,
+    "raw_total_anomaly_R": false,
+    "blocks": {
+      "pde_u": {
+        "before": 0.09889276565255613,
+        "after": 0.08926629830597851,
+        "relative": -0.09734248287077603,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "pde_v": {
+        "before": 0.19085393261545164,
+        "after": 0.12746803375974108,
+        "relative": -0.3321173317577151,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data_u": {
+        "before": 0.0786916808131479,
+        "after": 0.07304708102716428,
+        "relative": -0.07173057847609865,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "data_v": {
+        "before": 0.050075904440555555,
+        "after": 0.04841747678727483,
+        "relative": -0.03311827658049437,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial_u": {
+        "before": 0.07889018139010551,
+        "after": 0.06670750668162422,
+        "relative": -0.15442574086930996,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "initial_v": {
+        "before": 0.030362263324631135,
+        "after": 0.024106787485948817,
+        "relative": -0.20602798189974247,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary_u": {
+        "before": 0.06826658764078218,
+        "after": 0.06412427699488721,
+        "relative": -0.06067844884369719,
+        "relative_max": 0.1,
+        "within": true
+      },
+      "boundary_v": {
+        "before": 0.029355252919375026,
+        "after": 0.028208375060489246,
+        "relative": -0.03906891424290261,
+        "relative_max": 0.1,
+        "within": true
+      }
+    },
+    "validation_status": "UNAVAILABLE",
+    "validation_reason": "historical payload carries no validation data; not fabricated",
+    "block_gate_binding_for_both_routes": true,
+    "fit_pass": true
+  },
+  "curvature": {
+    "K8_saved": false,
+    "K10_saved": false,
+    "K12_saved": true,
+    "K8_reached": true,
+    "K10_reached": false,
+    "K12_milestone_reached": true,
+    "milestone_separable": {
+      "K8": false,
+      "K10": false
+    },
+    "milestone_not_separable": [
+      "K10",
+      "K12"
+    ],
+    "binding_state": "stage_end",
+    "drift_pass": null,
+    "lambda_min_H_raw_at_final": -0.0003395061070869467,
+    "H_raw_spd_status": "not_SPD",
+    "lambda_min_A_fd_at_final": 0.000994038094241318,
+    "A_fd_spd_status": "numerically_SPD",
+    "lambda_min_H_prox_at_final": 0.0009034800570456137,
+    "H_prox_spd_status": "numerically_SPD",
+    "relative_theta_displacement": 0.20575791401202953,
+    "proximal_term": 0.00501793510722233
+  },
+  "stages": {
+    "K8": {
+      "target": 1e-08,
+      "target_reached": true,
+      "termination": null,
+      "scipy_stop": {
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "seconds": 8.18392601585947,
+      "nfev_used": 124,
+      "njev_used": 97,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 124,
+        "njev_cum": 97,
+        "seconds": 8.173634489998221,
+        "normalized_gradient": 6.440556955681529e-13,
+        "loss": 0.025935616968774194,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.025935616968774194,
+        "scipy_optimality": 3.4678600713700797e-09
+      },
+      "stage_wall_cap": 300.0
+    },
+    "K10": {
+      "target": 1e-10,
+      "target_reached": true,
+      "termination": "milestone_not_separable",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 124,
+        "njev_cum": 97,
+        "seconds": 8.173634489998221,
+        "normalized_gradient": 6.440556955681529e-13,
+        "loss": 0.025935616968774194,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.025935616968774194,
+        "scipy_optimality": 3.4678600713700797e-09
+      },
+      "milestone_overshoot": true,
+      "gate_at_start": 6.440556955681529e-13
+    },
+    "K12": {
+      "target": 1e-12,
+      "target_reached": true,
+      "termination": "milestone_not_separable",
+      "seconds": 0.0,
+      "nfev_used": 0,
+      "njev_used": 0,
+      "last_gate": {
+        "stage": "K8",
+        "nfev_cum": 124,
+        "njev_cum": 97,
+        "seconds": 8.173634489998221,
+        "normalized_gradient": 6.440556955681529e-13,
+        "loss": 0.025935616968774194,
+        "scipy_status": 2,
+        "scipy_success": true,
+        "scipy_message": "`ftol` termination condition is satisfied.",
+        "scipy_cost": 0.025935616968774194,
+        "scipy_optimality": 3.4678600713700797e-09
+      },
+      "milestone_overshoot": true,
+      "gate_at_start": 6.440556955681529e-13
+    }
+  },
+  "theta_final_sha256": "59cea863a046b4745e2e31924fd4af83c1036027dfcfbc686c04382da5c231e4",
+  "theta_final_state": "stage_end",
+  "source_checkpoint_sha256": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+  "source_state_dir": "/mnt/sda/ubuntu/RZW/SAEPS/repo/revision_week/outputs/phase2_v1/tasks/E4C/multi_1027",
+  "source_hashes": {
+    "lbfgs_state.pt": "fa9d575061a7c850aabac9d21ce09057aa6b0d326d9aee746184c9ce9079abc4",
+    "state.pt": "da99573af3356cd531756da3128dc6c80f2653351ee89c1ef862d3d59f923252"
+  },
+  "historical_gamma_context_only": 0.001254515848967744,
+  "seconds_total": 10.217312747146934,
+  "nfev_total": 124,
+  "njev_total": 97,
+  "counts": {
+    "objective": 3,
+    "gradient": 3,
+    "hessian": 0
+  },
+  "deadline_seconds": 600.0
+}

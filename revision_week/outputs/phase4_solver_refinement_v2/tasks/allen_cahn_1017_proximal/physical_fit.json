@@ -1,0 +1,49 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "allen_cahn_1017",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "raw_total_before": 0.512007861070059,
+  "raw_total_after": 0.33987658769829143,
+  "raw_total_relative": -0.33618873157928825,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde": {
+      "before": 0.6849114544900269,
+      "after": 0.4034195358450909,
+      "relative": -0.41099023355439424,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data": {
+      "before": 0.6604925487257809,
+      "after": 0.604198060058464,
+      "relative": -0.08523107304680418,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial": {
+      "before": 0.2948544606254708,
+      "after": 0.31691575803876476,
+      "relative": 0.07482097223998443,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary": {
+      "before": 0.17810800592746728,
+      "after": 0.22696907283464424,
+      "relative": 0.27433391695528353,
+      "relative_max": 0.1,
+      "within": false
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "block_gate_binding_for_both_routes": true,
+  "fit_pass": false
+}

@@ -1,0 +1,49 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "center": "burgers_1007",
+  "route": "proximal",
+  "smoke": false,
+  "smoke_override": null,
+  "alpha_source": "protocol_nominal",
+  "alpha_override": null,
+  "protocol_sha256": "c536eb220e048ac634bd5ff41b9f2437af0f08ef86afa9f9b9c5b321f3d86198",
+  "raw_total_before": 2.727924326289347,
+  "raw_total_after": 0.9971419274316352,
+  "raw_total_relative": -0.6344686258991666,
+  "raw_total_relative_max": 0.05,
+  "raw_total_anomaly_R": false,
+  "blocks": {
+    "pde": {
+      "before": 1.4195894848574986,
+      "after": 0.7442648931868807,
+      "relative": -0.47571822620143484,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "data": {
+      "before": 1.1754700056356875,
+      "after": 0.9574812644822397,
+      "relative": -0.18544815274598242,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "initial": {
+      "before": 1.0437151575786963,
+      "after": 0.6474338350282671,
+      "relative": -0.37968340276839324,
+      "relative_max": 0.1,
+      "within": true
+    },
+    "boundary": {
+      "before": 0.9846538898272985,
+      "after": 0.32312951127817696,
+      "relative": -0.6718344236319915,
+      "relative_max": 0.1,
+      "within": true
+    }
+  },
+  "validation_status": "UNAVAILABLE",
+  "validation_reason": "historical payload carries no validation data; not fabricated",
+  "block_gate_binding_for_both_routes": true,
+  "fit_pass": true
+}

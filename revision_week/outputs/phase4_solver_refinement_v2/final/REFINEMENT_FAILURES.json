@@ -1,0 +1,86 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "count": 10,
+  "rows": [
+    {
+      "center": "burgers_1006",
+      "route": "raw",
+      "terminal_status": "RESOURCE_LIMIT",
+      "failure_reason": "wall_budget_exhausted",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "burgers_1007",
+      "route": "raw",
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "burgers_1007",
+      "route": "proximal",
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "allen_cahn_1016",
+      "route": "raw",
+      "terminal_status": "CURVATURE_UNSTABLE",
+      "failure_reason": "K10 vs K8 relative drift exceeds 0.05",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "allen_cahn_1017",
+      "route": "raw",
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "allen_cahn_1017",
+      "route": "proximal",
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "multi_1026",
+      "route": "raw",
+      "terminal_status": "RESOURCE_LIMIT",
+      "failure_reason": "wall_budget_exhausted",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "multi_1026",
+      "route": "proximal",
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "multi_1027",
+      "route": "raw",
+      "terminal_status": "RESOURCE_LIMIT",
+      "failure_reason": "wall_budget_exhausted",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    },
+    {
+      "center": "multi_1027",
+      "route": "proximal",
+      "terminal_status": "CURVATURE_STABILITY_UNRESOLVED",
+      "failure_reason": "1e-10 polish state not reached within the frozen stage budget",
+      "process_status": "PASS",
+      "process_failure_reason": null
+    }
+  ]
+}
