@@ -1,0 +1,227 @@
+{
+  "scope": "PHASE4_SOLVER_REFINEMENT",
+  "phase": "phase4_solver_refinement",
+  "development_only": true,
+  "round": 1,
+  "baseline_commit": "71fd3b025824f59146851f2ebfb5068e8cc9addb",
+  "baseline_branch_at_freeze": "codex/saeps-linux-preflight",
+  "authority": "任务说明/SAEPS_PHASE4_SOLVER_REFINEMENT_EXECUTION_RULES.md",
+  "purpose": [
+    "answer whether the raw physical objective itself can reach a high-quality stationary point",
+    "answer whether the current solver failed because it did not exploit the residual-sum-of-squares structure",
+    "if raw refinement is genuinely hard, answer whether a fixed-reference proximal objective yields repeatable stable analysis states without materially breaking the physical fit"
+  ],
+  "not_this_phase": [
+    "no new confirmation seeds before the solver reachability gate passes",
+    "no E2 locality, no E3 one-step, no SO-ADAPT resume",
+    "no claim that Route P success implies Route R success",
+    "no SO-vs-GN comparison, no parameter-error feedback into solver or alpha choice"
+  ],
+  "centers": {
+    "list": [
+      "burgers_1006",
+      "burgers_1007",
+      "allen_cahn_1016",
+      "allen_cahn_1017",
+      "multi_1026",
+      "multi_1027"
+    ],
+    "selection_rationale": "fixed subset of previously failed fresh Phase-2 centers, two per problem, selected before any Phase-4 SO/GN comparison, not selected by SO performance",
+    "replacement_allowed": false,
+    "phase3_outcome_context": "routes A/B/C on these centers failed reachability in phase3_reachability_v1 (A: iteration_budget_exhausted with gradients 1e-6..1e-7; B/C: budget_exhausted); recorded as context only, never used to steer Phase 4"
+  },
+  "routes": {
+    "R": {
+      "name": "raw",
+      "objective": "L(theta; lambda0) = 0.5 * ||r(theta; lambda0)||^2",
+      "gamma": 0.0,
+      "note": "residual definition, training points, weights and fixed physical parameters all from the historical payload; no reweighting"
+    },
+    "P": {
+      "name": "proximal",
+      "objective": "L_gamma(theta; theta0, lambda0) = L(theta, lambda0) + gamma/2 * ||theta - theta0||^2",
+      "nominal_alpha": 1e-08,
+      "gamma_rule": "gamma_i = alpha * lambda_max(J_theta(theta0)^T J_theta(theta0)) evaluated once at the archived theta0, fixed lambda0, before any Route P solve",
+      "gamma_frozen": "alpha, lambda_max, gamma and hashes recorded in gamma_computation.json before solving; never recomputed or drifted afterwards",
+      "anchor_rule": "theta0 is the archived network state and is never updated by the solve, curvature, HVP or perturbation branches"
+    }
+  },
+  "solver": {
+    "implementation": "scipy.optimize.least_squares",
+    "method": "trf",
+    "tr_solver": "exact",
+    "x_scale": "jac",
+    "loss": "linear",
+    "ftol": 1e-14,
+    "xtol": 1e-14,
+    "gtol": 1e-14,
+    "chunk_nfev": 500,
+    "staging": "scipy 1.15.3 least_squares has no callback; each stage runs bounded max_nfev chunks with repository-side gate checks between chunks",
+    "stopping_policy": "only frozen protocol gates or recorded budgets; no silent retries, no mid-protocol tolerance changes",
+    "lm_note": "method='lm' is allowed as a development-attachment route only; it never replaces the TRF main route and never triggers a protocol edit"
+  },
+  "stages": {
+    "binding_target": 1e-08,
+    "polish_targets": [1e-10, 1e-12],
+    "wall_caps_seconds": [300, 200, 100],
+    "nfev_pool_total": 24000,
+    "note": "one shared nfev pool of 24000 across all stages; a stage that exhausts the pool leaves later stages not_attempted and recorded as such"
+  },
+  "gates": {
+    "normalized_gradient": "||grad_theta L_sum|| / (m * max(||theta||, 1)) where L_sum is the sum-of-squares objective of the route",
+    "binding_gradient": 1e-08,
+    "stability_floor": "lambda_min(A_target) > max(curvature_floor=0.0, eigenvalue numerical error bound) with the bound taken from the project's numerical_mu margin (eigen residual + orthogonality + asymmetry + 32*d*eps scale)",
+    "curvature_stability": {
+      "metric_f": "||K10 - K8||_F / max(||K10||_F, 1) <= 0.05",
+      "metric_spectral": "||K10 - K8||_2 / max(||K10||_2, 1) <= 0.05",
+      "unresolved_if": "1e-10 polish state not reached within the stage budget",
+      "k12": "additional diagnostic only; never overrides a passed 1e-8 + stable-K10 state"
+    },
+    "physical_fit": {
+      "raw_total_loss_relative_increase_max": 0.05,
+      "any_training_block_relative_increase_max": 0.1,
+      "validation_relative_increase_max": 0.1,
+      "validation_status_when_absent": "UNAVAILABLE",
+      "fabrication_forbidden": true
+    },
+    "route_R_loss_anomaly": "Route R raw total loss relative increase > 0.05 is an anomaly -> NUMERICAL_FAILURE"
+  },
+  "curvature_definition": {
+    "K": "joint (theta, lambda) Hessian of the route's analysis objective at the checkpoint state; analysis objective is raw L for Route R and proximal L_gamma with the frozen gamma_solve for Route P",
+    "binding_metric": "relative Frobenius and spectral changes between K10 and K8",
+    "secondary_non_binding": [
+      "F_star reduced Schur curvature and its eigenvalues",
+      "lambda_min_H_raw, lambda_min_A_fd, lambda_min_H_prox",
+      "eta_state and eta_E Newton-state displacement diagnostics"
+    ]
+  },
+  "labels": {
+    "REFERENCE_CAPABLE": [
+      "reference_gradient_pass",
+      "finite_damped_or_proximal_stability_pass",
+      "curvature_stability_pass",
+      "physical_fit_preserved"
+    ],
+    "RAW_LOCAL_MINIMUM": "REFERENCE_CAPABLE and H_raw theta-block numerically SPD; the only label allowed for an 'original objective is a strict local minimum' claim"
+  },
+  "terminal_statuses": [
+    "PASS",
+    "STATIONARITY_FAIL",
+    "STABILITY_FAIL",
+    "CURVATURE_STABILITY_UNRESOLVED",
+    "CURVATURE_UNSTABLE",
+    "PHYSICAL_FIT_FAIL",
+    "RESOURCE_LIMIT",
+    "NUMERICAL_FAILURE",
+    "MISSING_INPUT"
+  ],
+  "decision_precedence": [
+    "MISSING_INPUT: required payload files absent",
+    "NUMERICAL_FAILURE: non-finite residual/gradient/Hessian at any recorded state, or Route R raw loss anomaly",
+    "RESOURCE_LIMIT: binding 1e-8 gate not reached because nfev pool or task wall budget exhausted",
+    "STATIONARITY_FAIL: scipy terminated on its own frozen criteria while the binding gate remained unmet (gradient stagnation)",
+    "STABILITY_FAIL: gate reached but the route stability matrix is not resolvably positive",
+    "CURVATURE_STABILITY_UNRESOLVED: gate + stability ok but the 1e-10 polish state not reached",
+    "CURVATURE_UNSTABLE: K10 reached but relative curvature drift > 0.05",
+    "PHYSICAL_FIT_FAIL: gate + stability + curvature ok but a frozen physical-fit gate violated (Route P)",
+    "PASS: all binding checks passed; REFERENCE_CAPABLE label recorded, RAW_LOCAL_MINIMUM if additionally raw-SPD"
+  ],
+  "resources": {
+    "device": "cpu",
+    "dtype": "float64",
+    "threads_per_worker": 1,
+    "max_concurrent_workers": 6,
+    "wall_seconds_per_task": 600,
+    "runtime_max_sec_grace": 120,
+    "max_nfev": 24000,
+    "memory_bytes_per_worker": 4294967296,
+    "retries": 0,
+    "replacement_centers": false,
+    "scheduler_note": "concurrency is an upper bound; if host memory cannot hold 6x4GiB the scheduler lowers concurrency, never the per-task limit"
+  },
+  "environment_lock": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "scipy_env_policy": "record python/numpy/scipy/torch/BLAS versions before the first numerical task; do not upgrade scipy mid-phase; if missing, install and lock, and keep installation outside timed solve sections",
+  "scipy_success_not_binding": "scipy_success != scientific_binding_valid; scipy only returns a candidate state and the repository's own diagnostics decide usability",
+  "diagnostics_saved": [
+    "raw total loss (sum) before/after and mean",
+    "PDE / data / initial / boundary training-block residual norms (weighted blocks as defined by the payload)",
+    "validation metric or UNAVAILABLE",
+    "state/output RMSE only if present in the payload",
+    "normalized gradient (route objective), raw gradient norm and proximal gradient norm separately for Route P",
+    "lambda_min_H_raw, lambda_min_A_fd, lambda_min_H_prox (Route P) and numerical floors",
+    "eta_state, eta_E, theta_displacement, relative_theta_displacement, proximal_term (diagnostics only, never promoted to gates after seeing results)"
+  ],
+  "alpha_grid": {
+    "status": "deferred; may start only after the 12 minimal contrast tasks complete and per Section 13 conditions",
+    "values": [1e-10, 1e-8, 1e-6, 1e-4, 1e-2],
+    "planned_positions": 30,
+    "all_positions_enter_denominator": true,
+    "selection_rule": {
+      "primary": [
+        "target_gradient_pass",
+        "finite_damped_or_proximal_stability_pass",
+        "curvature_stability_pass",
+        "physical_fit_preserved"
+      ],
+      "tie_break": "smallest_alpha",
+      "forbidden": [
+        "selecting_alpha_by_SO_win",
+        "selecting_alpha_by_parameter_error",
+        "selecting_alpha_by_figure_appearance",
+        "per_center_manual_override"
+      ]
+    },
+    "grid_start_conditions": [
+      "Route P nominal alpha already successful on >= 4/6 centers and a milder alpha is to be evaluated",
+      "or Route P nominal alpha close to success with predefined diagnostics indicating the limiter is lambda_min near zero, not physical-fit or numerical failure"
+    ]
+  },
+  "forbidden_paths": [
+    "revision_week/phase2/numerics.py",
+    "revision_week/phase3_reachability/",
+    "revision_week/outputs/phase1*",
+    "revision_week/outputs/phase2*",
+    "revision_week/outputs/phase3*",
+    "outputs/",
+    "configs/locked/"
+  ],
+  "historical_hash_audit": {
+    "paths": [
+      "revision_week/phase2",
+      "revision_week/phase3_reachability",
+      "revision_week/protocols",
+      "revision_week/core.py",
+      "configs/locked",
+      "revision_week/outputs/phase1b_correction_v1",
+      "revision_week/outputs/phase1c_development_v1",
+      "revision_week/outputs/phase2_v1",
+      "revision_week/outputs/phase3_preflight_v1",
+      "revision_week/outputs/phase3_preflight_v1_1",
+      "revision_week/outputs/phase3_reachability_v1",
+      "outputs"
+    ],
+    "excluded_suffixes": [".pyc"],
+    "excluded_dir_names": ["__pycache__"],
+    "acceptance": "historical_changed == []"
+  },
+  "git_policy": {
+    "branch": "codex/phase4-solver-refinement",
+    "branch_from": "71fd3b025824f59146851f2ebfb5068e8cc9addb",
+    "code_and_protocol_frozen_commit_before_tasks": true,
+    "push_policy": "local commits only; push/merge requires explicit user authorization",
+    "new_protocol_version_on_solver_code_change": true,
+    "no_replacement_centers": true,
+    "no_silent_retry": true
+  },
+  "paper_facing_claims_forbidden": [
+    "SO independently confirmed",
+    "SO generally superior",
+    "proximal method improves parameter recovery",
+    "global identifiability established"
+  ]
+}
