@@ -111,6 +111,7 @@ def run(center, route, dest, smoke=None, alpha_override=None):
     pool_remaining = nfev_pool_total
     stages = {}
     checkpoints = {}
+    milestone_hash = {}
     reached = []
     trajectory = []
     for index, (name, target, wall_cap) in enumerate(zip(names, targets, wall_caps)):
@@ -128,15 +129,17 @@ def run(center, route, dest, smoke=None, alpha_override=None):
             previous_gate = stages[previous].get('last_gate') or {}
             previous_value = previous_gate.get('normalized_gradient')
             if previous_value is not None and float(previous_value) <= float(target):
+                inherited = milestone_hash.get(previous)
                 stages[name] = dict(target=target, target_reached=True,
                                     termination='milestone_not_separable', seconds=0.0,
                                     nfev_used=0, njev_used=0, last_gate=previous_gate,
                                     milestone_overshoot=True,
                                     gate_at_start=float(previous_value))
+                milestone_hash[name] = inherited
                 write(dest / f'curvature_{name}.json',
                       {**record, 'stage': name, 'target': target, 'reached': True,
                        'milestone_overshoot': True, 'separable_from_previous': False,
-                       'state_theta_sha256': checkpoints[previous][0]['state_theta_sha256'],
+                       'state_theta_sha256': inherited,
                        'normalized_gradient_route': float(previous_value),
                        'evidence': ('previous milestone state already satisfies this target; '
                                     'the pair is not separable at the declared resolution; '
@@ -176,6 +179,7 @@ def run(center, route, dest, smoke=None, alpha_override=None):
                          record_K['state_theta_sha256'] != checkpoints[previous][0]['state_theta_sha256'])
         record_K['separable_from_previous'] = separable if prev_K is not None else True
         write(dest / f'curvature_{name}.json', {**record, **record_K})
+        milestone_hash[name] = record_K['state_theta_sha256']
         if name in ('K8', 'K10'):
             checkpoints[name] = (record_K, K_matrix, diag_check, separable)
         reached.append((name, stage['x'].copy(), diag_check))

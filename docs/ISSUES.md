@@ -764,3 +764,17 @@ makes validation evidence-based, and is exercised by synthetic negative
 controls. Corrected results run into a new namespace
 (revision_week/outputs/phase4_solver_refinement_v2). No confirmation seed, no
 centre replacement and no push.
+
+## I-PHASE4-003 — Protocol-v3 not-separable K12 branch crashed two workers
+
+Classification: implementation failure (corrected before acceptance). The v3
+milestone bookkeeping recorded the not-separable K12 case against a K10
+checkpoint that is itself not registered when the K10 pair is not separable,
+raising KeyError and killing multi_1026_proximal and multi_1027_proximal before
+their claims were written. Milestone state hashes are now tracked for every
+reached milestone and looked up safely, so the path cannot raise. The whole v3
+attempt is retained under
+revision_week/outputs/phase4_solver_refinement_v2_attempt1_8d2147b and is
+excluded from every denominator; protocol v4 repeats all twelve planned
+positions under one frozen code hash. No gate, seed, centre, budget or
+scientific design changed.
