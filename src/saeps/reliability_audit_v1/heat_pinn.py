@@ -287,7 +287,14 @@ class HeatPINNRun:
                 "execution_status": "PASS" if self.compute_status == "PASS" else "NUMERICAL_FAILURE",
                 "fit_status": self.fit_status,
                 "profile_status": self.profile_status,
-                "failure_reason": None if self.compute_status == "PASS" else "diagnostic unavailable",
+                "numerical_status": "PASS" if self.compute_status == "PASS" else "FAIL",
+                "fit_qualified": self.fit_status == "PASS",
+                "profile_eligible": self.profile_status == "PASS",
+                "failure_reason": (
+                    None
+                    if self.compute_status == "PASS" and self.fit_status == "PASS"
+                    else ("FIT_QUALIFIED_GATE_FAILED" if self.compute_status == "PASS" else "DIAGNOSTIC_UNAVAILABLE")
+                ),
                 "physical_truth": {"k": self.config.k_true, "C": self.config.C_true, "a": self.config.amplitude_true},
                 "nuisance_parameters": ["a"] if "a" not in self.config.unknown_parameters else [],
                 "observation_type": self.observation.observation_type,
