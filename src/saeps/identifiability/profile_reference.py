@@ -256,6 +256,10 @@ def profile_heat_observation(
     *,
     parameter_grid: np.ndarray | None = None,
     reference_k: float = DEFAULT_K,
+    known_C: float = DEFAULT_C,
+    known_amplitude: float = DEFAULT_AMPLITUDE,
+    reference_C: float | None = None,
+    reference_amplitude: float | None = None,
     nuisance_log_bounds: tuple[float, float] = DEFAULT_LOG_NUISANCE_BOUNDS,
 ) -> dict[str, Any]:
     """Compute an independent profile over ``k`` for one B1--B6 dataset.
@@ -266,6 +270,13 @@ def profile_heat_observation(
     misreported as a confidence interval.
     """
 
+    reference_k = float(reference_k)
+    known_C = float(known_C)
+    known_amplitude = float(known_amplitude)
+    reference_C = known_C if reference_C is None else float(reference_C)
+    reference_amplitude = known_amplitude if reference_amplitude is None else float(reference_amplitude)
+    if reference_k <= 0 or known_C <= 0 or reference_C <= 0 or known_amplitude <= 0 or reference_amplitude <= 0:
+        raise ValueError("reference and known positive parameters must be valid")
     if parameter_grid is None:
         parameter_grid = frozen_profile_grid(reference_k)
     grid = np.asarray(parameter_grid, dtype=np.float64).reshape(-1)
@@ -282,12 +293,12 @@ def profile_heat_observation(
         nuisance: dict[str, float] = {}
         boundary = False
         if data.benchmark in {"B4", "B5"}:
-            basis = heat_temperature_np(data.x_temperature, data.t_temperature, k_value, DEFAULT_C, 1.0)
+            basis = heat_temperature_np(data.x_temperature, data.t_temperature, k_value, known_C, 1.0)
             weights = 1.0 / data.sigma_temperature**2
             numerator = float(np.sum(weights * basis * data.y_temperature))
             denominator = float(np.sum(weights * basis * basis))
             amplitude = numerator / denominator if denominator > 0 else np.nan
-            a_lower, a_upper = np.exp(low), np.exp(high)
+            a_lower, a_upper = reference_amplitude * np.exp(low), reference_amplitude * np.exp(high)
             clipped = float(np.clip(amplitude, a_lower, a_upper))
             boundary = bool(clipped != amplitude or clipped in (a_lower, a_upper))
             amplitude = clipped
@@ -295,14 +306,14 @@ def profile_heat_observation(
             nuisance["a"] = amplitude
         elif data.benchmark in {"B3", "B6"}:
             def objective_log_C(log_c: float) -> float:
-                return _objective(data, k=k_value, C=float(np.exp(log_c)), amplitude=DEFAULT_AMPLITUDE)
+                return _objective(data, k=k_value, C=reference_C * float(np.exp(log_c)), amplitude=known_amplitude)
             log_c, _ = _golden_minimize(objective_log_C, low, high)
-            C_value = float(np.exp(log_c))
-            amplitude = DEFAULT_AMPLITUDE
+            C_value = reference_C * float(np.exp(log_c))
+            amplitude = known_amplitude
             nuisance["C"] = C_value
             boundary = bool(abs(log_c - low) < 1.0e-8 or abs(log_c - high) < 1.0e-8)
         else:
-            C_value, amplitude = DEFAULT_C, DEFAULT_AMPLITUDE
+            C_value, amplitude = known_C, known_amplitude
         value = _objective(data, k=k_value, C=C_value, amplitude=amplitude)
         rows.append({
             "scan_parameter": "k",
@@ -332,6 +343,10 @@ def profile_heat_observation(
         "benchmark": data.benchmark,
         "grid_rule": "31 log-spaced values in [reference/3, 3*reference]",
         "reference_k": float(reference_k),
+        "known_C": known_C,
+        "known_amplitude": known_amplitude,
+        "reference_C": reference_C,
+        "reference_amplitude": reference_amplitude,
         "nuisance_log_bounds": [low, high],
         "observations": data.to_jsonable(),
         "points": rows,
