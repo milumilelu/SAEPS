@@ -84,7 +84,7 @@ class HeatPINNConfig:
             raise ValueError("physical truth must be positive (except nonzero amplitude)")
         if self.noise_sigma < 0 or self.epochs < 1 or self.width < 1 or self.depth < 1:
             raise ValueError("invalid training configuration")
-        if self.learning_rate <= 0 or min(self.weight_pde, self.weight_data, self.weight_ic, self.weight_bc) <= 0:
+        if self.learning_rate <= 0 or self.gamma_alpha <= 0 or min(self.weight_pde, self.weight_data, self.weight_ic, self.weight_bc) <= 0:
             raise ValueError("learning rate and residual weights must be positive")
         if self.lbfgs_max_iter < 1:
             raise ValueError("lbfgs_max_iter must be positive")
