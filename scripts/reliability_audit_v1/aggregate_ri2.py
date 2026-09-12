@@ -72,7 +72,13 @@ def aggregate_ri2(run_plan_path: Path, records_dir: Path | None = None) -> dict[
     unknown: list[str] = []
     orphan_records: list[dict[str, Any]] = []
     if records_dir is not None and records_dir.is_dir():
-        for path in sorted(records_dir.glob("*.json")):
+        # Accept one index/list file plus per-run manifest.json files in case
+        # directories. Aggregates are excluded so prior summaries cannot be
+        # mistaken for run records.
+        candidates = list(records_dir.glob("*.json")) + list(records_dir.rglob("manifest.json"))
+        for path in sorted(set(candidates)):
+            if path.name in {"summary.json", "run_plan.json"}:
+                continue
             for row in _read_records_file(path):
                 run_id = row.get("run_id")
                 if not run_id:
