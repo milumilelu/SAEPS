@@ -89,6 +89,17 @@ The review package searched through 2026-09-12 and distinguishes formal publicat
 | E-PINNs (Jacob et al., 2026) | Epistemic PINN wrapper and empirical uncertainty | Depends on pretrained PINN representation | Coverage, width and cost | Parameter calibration and identifiability still need separate validation. [Publisher](https://link.springer.com/article/10.1007/s44379-026-00086-8) |
 | Static-snapshot identifiability limits (Gu et al., 2026) | Information limits from observation structure | Shows observation-induced non-identifiability | Diagnostic boundary cases | Supports explicit observation assumptions; preprint. [arXiv](https://arxiv.org/abs/2607.01749) |
 
+### A1–A6 coverage audit
+
+| Review theme | Sources represented in the supplied package | What is covered | Remaining gap before a submission claim |
+|---|---|---|---|
+| A1 PINN optimisation and conditioning | Rathore et al.; Wang et al.; PirateNets; PINNacle | Loss conditioning, second-order tools, architecture and benchmark failure modes | No new optimiser comparison in RI-2; centre validity remains separate from identifiability. |
+| A2 inverse-PINN estimation | Kharazmi et al.; FIM-guided PINNs; weak-form identification | Joint state/parameter estimation, coupled coefficients and sparse/noisy settings | No independent confirmation across PDE families. |
+| A3 structural/practical identifiability | Raue et al.; classical sensitivity/FIM; weak-form practical identifiability; static-snapshot limits | Profiles, rank, combinations, noise scale and observation-induced limits | No claim of exhaustive systematic review; parameter-subset/sloppy-model evidence remains scoped. |
+| A4 state compensation and reduced geometry | Variable projection; Schur/reduced Hessian; PDE-constrained optimisation | Nuisance elimination, tangent/adjoint geometry and reduced curvature | PINN-reoptimised profile bridge is still unimplemented. |
+| A5 uncertainty calibration | Flores et al.; E-PINNs; profile likelihood | Predictive bundles and empirical UQ versus physical-parameter coverage | No repeated-data intervals or bootstrap calibration in this project. |
+| A6 observation design | PINNACLE point selection; analytic B3→B6 reference | Sensor/point selection distinction and flux intervention mechanism | No PINN retraining with new measurements; intervention evidence is physical-reference only. |
+
 The defensible gap is therefore narrow: a reliability-aware bridge that audits neural-state interference, finite damping and representation dependence against independent physical FIM/profile truth, returns combinations or abstention, and tests whether the diagnosis improves an observation design. “PINN + FIM” or “Schur complement” alone is not novel enough.
 
 ## Revised hypotheses
@@ -104,5 +115,5 @@ Failure of H1–H2 removes broad reliability claims. Failure of H3 narrows the c
 
 ## Audit conclusion
 
-SAEPS is a meaningful local operator with a reusable matrix-free implementation. The central scientific risk is interpretation: finite-γ curvature can be positive when an unanchored physical profile is flat, and local rank is not structural or global identifiability. The next defensible work is to validate PINN-reoptimised profiles and matched independent-data decisions. The current evidence supports the bounded historical finite-damping comparisons, the analytic heat identifiability references and the physical B3→B6 intervention; it does not support a broad SAEPS reliability claim.
+SAEPS is a meaningful local operator with a reusable matrix-free implementation. The central scientific risk is interpretation: finite-γ curvature can be positive when an unanchored physical profile is flat, and local rank is not structural or global identifiability. The next defensible work is to validate PINN-reoptimised profiles and matched independent-data decisions. The current evidence supports the bounded historical finite-damping comparisons, the analytic heat identifiability references and the analytic physical-model B3→B6 observation-design reference; it does not support a broad SAEPS reliability claim.
 

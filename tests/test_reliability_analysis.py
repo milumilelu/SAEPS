@@ -40,6 +40,7 @@ def test_rank_deficiency_abstains_even_when_finite_gamma_is_positive():
     manifest = {
         "execution_status": "PASS",
         "fit_status": "PASS",
+        "benchmark": "B3",
         "unknown_parameters": ["k", "C"],
         "_I_obs_matrix": np.array([[1.0, 1.0], [1.0, 1.0]]),
     }
@@ -47,6 +48,7 @@ def test_rank_deficiency_abstains_even_when_finite_gamma_is_positive():
     assert decision["decision"] == "WEAK_OR_CONFOUNDED"
     assert decision["accepted"] is False
     assert decision["reason"] == "independent_observation_rank_deficient"
+    assert decision["identified_subspace"]["named_combinations"]["identifiable"] == ["log(k)-log(C)"]
 
 
 def test_target_error_and_denominator_preserving_selective_curve():

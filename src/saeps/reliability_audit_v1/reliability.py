@@ -178,11 +178,11 @@ def gamma_path_from_jacobians(
     }
 
 
-def _fim_rank_and_values(fim: Any, relative_tolerance: float) -> tuple[int, np.ndarray]:
-    values, _ = _eigh(_as_matrix(fim, "I_obs"))
+def _fim_rank_and_values(fim: Any, relative_tolerance: float) -> tuple[int, np.ndarray, np.ndarray]:
+    values, vectors = _eigh(_as_matrix(fim, "I_obs"))
     scale = max(float(np.max(np.abs(values), initial=0.0)), np.finfo(np.float64).eps)
     rank = int(np.count_nonzero(values > _rank_cutoff(scale, relative_tolerance)))
-    return rank, values
+    return rank, values, vectors
 
 
 def classify_record(
@@ -202,9 +202,21 @@ def classify_record(
     if path_result is None:
         return {"decision": "UNRESOLVED_NUMERICAL", "accepted": False, "selective_candidate": False, "reason": "gamma_path_unavailable", "confidence_score": 0.0}
     try:
-        obs_rank, obs_values = _fim_rank_and_values(manifest["_I_obs_matrix"], relative_tolerance)
+        obs_rank, obs_values, obs_vectors = _fim_rank_and_values(manifest["_I_obs_matrix"], relative_tolerance)
     except (KeyError, ValueError):
         return {"decision": "UNRESOLVED_NUMERICAL", "accepted": False, "selective_candidate": False, "reason": "observation_fim_unavailable", "confidence_score": 0.0}
+    benchmark = str(manifest.get("benchmark", "")).upper()
+    named = {
+        "B3": {"identifiable": ["log(k)-log(C)"], "null": ["log(k)+log(C)"]},
+        "B4": {"identifiable": ["log(a)-pi^2*t_star*k/C"], "null": ["state/amplitude compensation tangent"]},
+    }.get(benchmark, {})
+    subspace = {
+        "coordinate_system": manifest.get("coordinate_system", "log-parameter coordinates"),
+        "rank": obs_rank,
+        "eigenvectors_descending": obs_vectors[:, :obs_rank].tolist() if obs_rank else [],
+        "named_combinations": named,
+        "interpretation": "Independent observation-FIM supported directions; parameter combinations are reported as subspaces, not individual confidence scores.",
+    }
     min_information = float(np.min(obs_values)) if obs_values.size else 0.0
     gamma_score = float(path_result.get("gamma_stability_score", 0.0))
     information_score = float(min(1.0, max(0.0, min_information / information_floor)))
@@ -214,7 +226,7 @@ def classify_record(
     # still abstained from the declared reliable set below.
     selective_candidate = bool(obs_rank >= n_unknown)
     if obs_rank < n_unknown:
-        decision, accepted, reason = "WEAK_OR_CONFOUNDED", False, "independent_observation_rank_deficient"
+        return {"decision": "WEAK_OR_CONFOUNDED", "accepted": False, "selective_candidate": False, "reason": "independent_observation_rank_deficient", "confidence_score": 0.0, "observation_rank": obs_rank, "observation_eigenvalues": obs_values.tolist(), "identified_subspace": subspace, "n_unknown": n_unknown}
     elif min_information < information_floor:
         decision, accepted, reason = "WEAK_OR_CONFOUNDED", False, "independent_information_below_floor"
     elif int(path_result.get("F0_rank", 0)) < n_unknown:
@@ -228,6 +240,7 @@ def classify_record(
         "reason": reason,
         "observation_rank": obs_rank,
         "observation_eigenvalues": obs_values.tolist(),
+        "identified_subspace": subspace,
         "minimum_observation_information": min_information,
         "information_floor": information_floor,
         "confidence_score": confidence_score,
@@ -280,7 +293,11 @@ def selective_metrics(
         evaluated = [row for row in selected if row["error"] is not None]
         false_reliable = sum(float(row["error"]) > error_tolerance for row in evaluated)
         curves.append({"threshold": threshold, "accepted": len(selected), "evaluated": len(evaluated), "planned_denominator": total, "coverage": (len(selected) / total if total else None), "risk": (false_reliable / len(evaluated) if evaluated else None), "false_reliable_count": false_reliable, "error_tolerance": error_tolerance})
-    return {"planned_denominator": total, "rows": rows, "risk_coverage": curves, "error_tolerance": error_tolerance}
+    # Explicitly retain the all-abstain operating point.  Its undefined risk
+    # is represented as null; coverage is zero, so universal abstention cannot
+    # be mistaken for a useful zero-risk method.
+    curves.append({"threshold": "ALL_ABSTAIN", "accepted": 0, "evaluated": 0, "planned_denominator": total, "coverage": 0.0 if total else None, "risk": None, "false_reliable_count": 0, "error_tolerance": error_tolerance})
+    return {"planned_denominator": total, "rows": rows, "risk_coverage": curves, "all_abstain": curves[-1], "error_tolerance": error_tolerance}
 
 
 __all__ = [

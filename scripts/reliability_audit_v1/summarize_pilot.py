@@ -46,6 +46,11 @@ def summarize(runs_dir: Path, analysis_path: Path | None = None) -> dict:
     benchmark_summary = {}
     for benchmark, group in sorted(by_benchmark.items()):
         errors = [float(r["target_log_error"]) for r in group if r.get("target_log_error") is not None]
+        by_data: dict[int, list[float]] = {}
+        for record in group:
+            if record.get("target_log_error") is not None:
+                by_data.setdefault(int(record.get("data_seed", -1)), []).append(float(record["target_log_error"]))
+        data_means = [sum(values) / len(values) for values in by_data.values() if values]
         estimates = {}
         for name in ("k", "C", "a"):
             values = [float(r["parameter_estimates"][name]) for r in group if name in (r.get("parameter_estimates") or {})]
@@ -58,6 +63,7 @@ def summarize(runs_dir: Path, analysis_path: Path | None = None) -> dict:
             "profile_eligible": sum(r.get("profile_status") == "PASS" for r in group),
             "decision_counts": {label: sum((r.get("decision_record") or {}).get("decision") == label for r in group) for label in ("SUPPORTED_COMBINATION", "WEAK_OR_CONFOUNDED", "UNRESOLVED_NUMERICAL", "INVALID_CHECKPOINT")},
             "target_log_error": {"count": len(errors), "mean": (sum(errors)/len(errors) if errors else None), "rmse": ((sum(e*e for e in errors)/len(errors))**0.5 if errors else None), "max": (max(errors) if errors else None)},
+            "data_realization_level": {"n_data_realizations": len(data_means), "mean_of_data_means": (sum(data_means)/len(data_means) if data_means else None), "rmse_of_data_means": ((sum(e*e for e in data_means)/len(data_means))**0.5 if data_means else None), "optimizer_repeats_nested": True},
             "parameter_estimates": estimates,
         }
     metrics = selective_metrics(records) if analysis_rows else None

@@ -9,12 +9,14 @@ from pathlib import Path
 import sys
 
 import numpy as np
+import torch
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
-from saeps.reliability_audit_v1.physical_solver import heat_fd_temperature, refinement_difference
+from saeps.reliability_audit_v1.physical_solver import heat_fd_temperature, refinement_difference, finite_difference_sensitivity
+from saeps.identifiability import heat_temperature_sensitivities
 from saeps.identifiability.profile_reference import heat_temperature_np
 
 
@@ -23,11 +25,15 @@ def build(output: Path, *, noise_scale: float = 0.01) -> dict:
     t = np.tile(np.asarray([0.02, 0.08, 0.2, 0.4]), 3)
     truth = heat_temperature_np(x, t, 0.6, 1.2, 1.0)
     rows = []
+    sensitivity_rows = []
+    analytic_sensitivity = heat_temperature_sensitivities(torch.as_tensor(x), torch.as_tensor(t), 0.6, 1.2, 1.0).numpy()
     for n in (32, 64, 128):
         numerical = heat_fd_temperature(x, t, k=0.6, C=1.2, amplitude=1.0, interior_count=n).values
         rows.append({"interior_count": n, "spacing": 1.0/(n+1), "max_abs_error_to_closed_form": float(np.max(np.abs(numerical-truth))), "max_abs_value": float(np.max(np.abs(numerical)))})
+        fd_jac = finite_difference_sensitivity(x, t, k=0.6, C=1.2, amplitude=1.0, interior_count=n)
+        sensitivity_rows.append({"interior_count": n, "frobenius_error_to_analytic_sensitivity": float(np.linalg.norm(fd_jac-analytic_sensitivity)), "max_abs_error_to_analytic_sensitivity": float(np.max(np.abs(fd_jac-analytic_sensitivity)))})
     discrepancy = refinement_difference(x, t, k=0.6, C=1.2, coarse_count=64, fine_count=128)
-    report = {"schema_version":1,"protocol_id":"reliability_audit_v1","reference_kind":"independent_finite_difference_heat_solver","coordinates":{"x":x.tolist(),"t":t.tolist()},"truth_used_only_for_convergence_check":{"k":0.6,"C":1.2,"a":1.0},"declared_noise_scale":float(noise_scale),"refinement_rows":rows,"final_two_level_difference":discrepancy,"refinement_gate_pass":bool(discrepancy < noise_scale),"solver":"symmetric finite-difference Dirichlet Laplacian with eigen decomposition","no_pinn_objective_used":True}
+    report = {"schema_version":1,"protocol_id":"reliability_audit_v1","reference_kind":"independent_finite_difference_heat_solver","coordinates":{"x":x.tolist(),"t":t.tolist()},"truth_used_only_for_convergence_check":{"k":0.6,"C":1.2,"a":1.0},"declared_noise_scale":float(noise_scale),"refinement_rows":rows,"sensitivity_refinement_rows":sensitivity_rows,"final_two_level_difference":discrepancy,"refinement_gate_pass":bool(discrepancy < noise_scale),"solver":"symmetric finite-difference Dirichlet Laplacian with eigen decomposition","no_pinn_objective_used":True}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     return report

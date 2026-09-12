@@ -58,6 +58,23 @@
       "max_abs_value": 0.8616172858699086
     }
   ],
+  "sensitivity_refinement_rows": [
+    {
+      "interior_count": 32,
+      "frobenius_error_to_analytic_sensitivity": 0.001454501762050188,
+      "max_abs_error_to_analytic_sensitivity": 0.0005642011843878247
+    },
+    {
+      "interior_count": 64,
+      "frobenius_error_to_analytic_sensitivity": 0.00038073629466265317,
+      "max_abs_error_to_analytic_sensitivity": 0.00019994337990103528
+    },
+    {
+      "interior_count": 128,
+      "frobenius_error_to_analytic_sensitivity": 0.00012685770306225235,
+      "max_abs_error_to_analytic_sensitivity": 5.7089975807000926e-05
+    }
+  ],
   "final_two_level_difference": 0.00015798093922381184,
   "refinement_gate_pass": true,
   "solver": "symmetric finite-difference Dirichlet Laplacian with eigen decomposition",
