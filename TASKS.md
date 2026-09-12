@@ -1,5 +1,24 @@
 # TASKS.md — SAEPS v2.0
 
+## 2026-09-12 — Reliability-aware identifiability audit (RI-0–RI-3)
+
+Status: `PASSED` (engineering pilot); scientific status: `PROTOCOL_STOP` after bounded development evidence.
+The audit preserves historical SAEPS outputs and keeps RI-2 attempts versioned (`v3`, `v5`, `v6`).
+
+- [x] Read-only repository/math/literature audit and independent counterexample checks.
+- [x] Analytic B1–B6 rank/FIM/profile references, independent physical solver and refinement check.
+- [x] Corrected v6 heat-PINN pilot with explicit noise streams, terminal statuses and provenance fields.
+- [x] Fixed gamma-path, identifiable-subspace and abstaining selective analysis; denominator-preserving summaries.
+- [x] Bounded representation/weight audit and analytic bootstrap/intervention references.
+- [x] D1–D7 audit, protocol, machine-readable specs, pilot report and paper strategy artifacts.
+- [ ] PINN-reoptimised profiles, repeated-data PINN calibration, matched RAW-vs-SAEPS risk, B5/B6 PINN intervention and confirmation remain unexecuted because G2/G3/G4/G5 were not passed.
+
+Evidence: `docs/reliability_audit_v1/IDENTIFIABILITY_RESEARCH_AUDIT.md`,
+`docs/reliability_audit_v1/IDENTIFIABILITY_PILOT_REPORT.md`,
+`docs/reliability_audit_v1/FAILURE_AUDIT.md`, and
+`outputs/reliability_audit_v1/pilot/ri2_full_v6/`.
+
+
 ## Phase 1B review corrections
 
 Status: `PASSED` (engineering correction). User authorized implementation after review.
