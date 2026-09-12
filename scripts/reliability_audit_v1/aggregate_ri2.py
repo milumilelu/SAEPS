@@ -99,7 +99,9 @@ def aggregate_ri2(run_plan_path: Path, records_dir: Path | None = None) -> dict[
     benchmark_counts: defaultdict[str, Counter[str]] = defaultdict(Counter)
     for run_id, planned_row in planned_by_id.items():
         actual = observed.get(run_id, {})
-        status = actual.get("execution_status")
+        status = actual.get("terminal_status")
+        if status is None:
+            status = actual.get("execution_status")
         if status is None:
             status = actual.get("status")
         if status is None:

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "protocol_id": "reliability_audit_v1",
+  "audit": "representation_and_weight_robustness_development",
+  "benchmark": "B3",
+  "data_seed": 10,
+  "noise_seed": 10010,
+  "optimizer_seed": 100,
+  "cases": [
+    {
+      "case": "width8",
+      "config_sha256": "ef3f447bab65f2ce5b17fec66f66903e9bc84776d64bfcb38ccf7049d54996e2",
+      "fit_status": "PASS",
+      "compute_status": "PASS",
+      "gradient_norm": 1.4514615100508988e-05,
+      "train_loss": 8.017800124462599e-05,
+      "F_gamma": [
+        [
+          3.360928897612319e-21,
+          -2.5206404251844707e-23
+        ],
+        [
+          -2.5206404251844707e-23,
+          9.889547219182767e-25
+        ]
+      ],
+      "F_gamma_eigenvalues": [
+        7.99865907378012e-25,
+        3.361117986426859e-21
+      ]
+    },
+    {
+      "case": "width16",
+      "config_sha256": "c85d4f49d3a0117e7f2b7d0fdbb52b8ff319b1dd69ec7344aee048a97a331336",
+      "fit_status": "PASS",
+      "compute_status": "PASS",
+      "gradient_norm": 1.3211449161271916e-05,
+      "train_loss": 1.0582128423343314e-05,
+      "F_gamma": [
+        [
+          3.915368741860189e-06,
+          -3.6774001084018613e-07
+        ],
+        [
+          -3.6774001084018624e-07,
+          9.57377211978417e-08
+        ]
+      ],
+      "F_gamma_eigenvalues": [
+        6.065529099993412e-08,
+        3.950451172058097e-06
+      ]
+    },
+    {
+      "case": "width32",
+      "config_sha256": "d02c646f608d1d9e0f8c264666f0385090e7e468c997e7446e8d00c3e410270d",
+      "fit_status": "PASS",
+      "compute_status": "PASS",
+      "gradient_norm": 9.08588226188603e-05,
+      "train_loss": 5.996114196222385e-06,
+      "F_gamma": [
+        [
+          7.304081780211896e-07,
+          9.237891190353299e-08
+        ],
+        [
+          9.237891190353299e-08,
+          3.647806776725354e-08
+        ]
+      ],
+      "F_gamma_eigenvalues": [
+        2.4390741139496708e-08,
+        7.424955046489464e-07
+      ]
+    },
+    {
+      "case": "data_weight5",
+      "config_sha256": "52974d0fb59c75a84a7b85c3a06e6c7e6941529d9ddbb2235b29cb67b4b5970f",
+      "fit_status": "PASS",
+      "compute_status": "PASS",
+      "gradient_norm": 3.1098460665898846e-05,
+      "train_loss": 6.004601702073873e-06,
+      "F_gamma": [
+        [
+          0.00011128184807957332,
+          -2.3433152127164592e-05
+        ],
+        [
+          -2.34331521271646e-05,
+          1.4178930363239511e-05
+        ]
+      ],
+      "F_gamma_eigenvalues": [
+        8.81975227589155e-06,
+        0.00011664102616692129
+      ]
+    },
+    {
+      "case": "data_weight10",
+      "config_sha256": "c85d4f49d3a0117e7f2b7d0fdbb52b8ff319b1dd69ec7344aee048a97a331336",
+      "fit_status": "PASS",
+      "compute_status": "PASS",
+      "gradient_norm": 1.3211449161271916e-05,
+      "train_loss": 1.0582128423343314e-05,
+      "F_gamma": [
+        [
+          3.915368741860189e-06,
+          -3.6774001084018613e-07
+        ],
+        [
+          -3.6774001084018624e-07,
+          9.57377211978417e-08
+        ]
+      ],
+      "F_gamma_eigenvalues": [
+        6.065529099993412e-08,
+        3.950451172058097e-06
+      ]
+    },
+    {
+      "case": "data_weight20",
+      "config_sha256": "2bc878b68e579f09e8857bb181ebe1ab1ff7381127db6095a9051eacf773386f",
+      "fit_status": "PASS",
+      "compute_status": "PASS",
+      "gradient_norm": 0.00013215761806323816,
+      "train_loss": 9.604288180286137e-05,
+      "F_gamma": [
+        [
+          0.00016545609505626459,
+          -1.245404062065852e-05
+        ],
+        [
+          -1.2454040620658528e-05,
+          1.7329502278581187e-05
+        ]
+      ],
+      "F_gamma_eigenvalues": [
+        1.6289702860642564e-05,
+        0.0001664958944742032
+      ]
+    }
+  ],
+  "truth_used_for_evaluation_only": true,
+  "interpretation": "Small development audit; no invariance or confirmation claim."
+}

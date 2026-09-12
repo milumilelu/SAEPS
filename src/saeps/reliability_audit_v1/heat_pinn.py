@@ -311,11 +311,20 @@ class HeatPINNRun:
                 "statuses": self.statuses,
                 "status_labels": self.status_labels,
                 "execution_status": "PASS" if self.compute_status == "PASS" else "NUMERICAL_FAILURE",
+                "terminal_status": (
+                    "NUMERICAL_FAILURE" if self.compute_status != "PASS"
+                    else ("CHECKPOINT_INVALID" if self.fit_status != "PASS" else "PASS")
+                ),
                 "fit_status": self.fit_status,
                 "profile_status": self.profile_status,
                 "numerical_status": "PASS" if self.compute_status == "PASS" else "FAIL",
                 "fit_qualified": self.fit_status == "PASS",
                 "profile_eligible": self.profile_status == "PASS",
+                "decision_status": None,
+                "failure_category": (
+                    None if self.compute_status == "PASS" and self.fit_status == "PASS"
+                    else ("training_or_center_gate" if self.compute_status == "PASS" else "diagnostic_solver")
+                ),
                 "failure_reason": (
                     None
                     if self.compute_status == "PASS" and self.fit_status == "PASS"
@@ -344,6 +353,14 @@ class HeatPINNRun:
                 "jvp_count": 0,
                 "vjp_count": 0,
                 "hvp_count": 0,
+                "diagnostic_seconds": None,
+                "reference_seconds": None,
+                "memory_bytes": None,
+                "linear_iterations": None,
+                "subspace_error": None,
+                "parameter_error": None,
+                "combination_error": None,
+                "profile_paths": None,
                 "adam_epochs": self.config.epochs,
                 "lbfgs_max_iter": self.config.lbfgs_max_iter if self.config.use_lbfgs else 0,
             }
