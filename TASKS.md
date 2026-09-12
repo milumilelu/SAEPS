@@ -1,5 +1,28 @@
 # TASKS.md — SAEPS v2.0
 
+## 2026-09-12 — Active experimental design proposal (AED-v1.0-DRAFT)
+
+Status: `NOT_STARTED` (proposal-only; no execution authorization). This is an
+isolated future branch for state-adaptation-aware active experimental design.
+It does not modify the v2/v4/v5 protocol, locked configurations, historical
+outputs, or `PROTOCOL_STOP`.
+
+- [x] Read and provenance-hash the supplied task package.
+- [x] Register the isolated task tree in `docs/ACTIVE_EXPERIMENT_DESIGN_TASK_TREE.md`.
+- [x] Write executable governance and scientific boundaries in
+  `docs/ACTIVE_EXPERIMENT_DESIGN_EXECUTION_RULES.md`.
+- [ ] Obtain separate protocol authorization and assign new AED development
+  seeds/config namespace.
+- [ ] Implement and validate the low-rank candidate update on actual tiny
+  residuals, including white-noise and correlated-noise paths.
+- [ ] Run the bounded B1/B3/B4 development ranking and one real add-measurement
+  re-estimation per selected nuisance scenario.
+- [ ] Lock any follow-on AED protocol only after the development gate passes.
+
+Evidence: the two AED planning documents above and the package hash recorded in
+`docs/PROVENANCE.md`. The package's precomputed algebra JSON is not a PINN or
+active-selection validation result.
+
 ## 2026-09-12 — RI-v6 P0 correction layer
 
 Status: `PASSED` (deterministic engineering correction); scientific status:

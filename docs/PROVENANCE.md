@@ -95,3 +95,16 @@ record input and script SHA256. The derived audit also records the ZIP hash,
 audit script hash, base commit, environment and pre-existing worktree changes.
 All new numerical data are under `outputs/runs/v5/upgrade_pilot/`; no historical
 matrix or locked configuration is modified. See `docs/UPGRADE_MATRIX_PILOT.md`.
+
+## Active experimental design proposal — 2026-09-12
+
+- Source package: `任务说明/SAEPS_主动实验设计转向方案包.zip`
+- ZIP SHA256: `FA5C43A0FB2E1BB1A5DDF75D32C1303B5E9E36B4AEB89EF43D4E97CF6096F71E`
+- Scope: proposal-only; no PINN training, active-selection validation, or
+  confirmation execution is authorized by this entry.
+- Isolation plan: `docs/ACTIVE_EXPERIMENT_DESIGN_TASK_TREE.md` and
+  `docs/ACTIVE_EXPERIMENT_DESIGN_EXECUTION_RULES.md`; future data must use an
+  `active_design_v1` namespace and must not alter locked protocol artifacts.
+- Attached `acquisition_identity_checks.json` is recorded as supplied algebraic
+  reference evidence only. The bundled script was not rerun in the current
+  environment because its dependency closure was not active.
