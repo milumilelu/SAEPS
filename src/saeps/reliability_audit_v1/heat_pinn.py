@@ -100,7 +100,12 @@ class HeatPINNConfig:
         return UNKNOWN_BY_BENCHMARK[self.benchmark]
 
     def as_hash(self) -> str:
-        payload = json.dumps(asdict(self), sort_keys=True, separators=(",", ":"), default=str)
+        # Artifact location is operational metadata, not part of the locked
+        # scientific configuration; excluding it keeps hashes stable across
+        # run directories.
+        values = asdict(self)
+        values.pop("output_dir", None)
+        payload = json.dumps(values, sort_keys=True, separators=(",", ":"), default=str)
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
