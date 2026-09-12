@@ -16,9 +16,9 @@ from saeps.reliability_audit_v1 import HeatPINNConfig, run_heat_pinn
 
 def _cases(all_cases: bool) -> list[HeatPINNConfig]:
     if not all_cases:
-        return [HeatPINNConfig(benchmark="B1", data_seed=10, optimizer_seed=100)]
+        return [HeatPINNConfig(benchmark="B1", data_seed=10, noise_seed=10010, optimizer_seed=100)]
     return [
-        HeatPINNConfig(benchmark=benchmark, data_seed=data_seed, optimizer_seed=optimizer_seed)
+        HeatPINNConfig(benchmark=benchmark, data_seed=data_seed, noise_seed=10000 + data_seed, optimizer_seed=optimizer_seed)
         for benchmark in ("B1", "B2", "B3", "B4")
         for data_seed in (10, 11, 12)
         for optimizer_seed in (100, 101)

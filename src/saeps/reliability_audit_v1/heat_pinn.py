@@ -49,6 +49,10 @@ class HeatPINNConfig:
     amplitude_true: float = 1.0
     noise_sigma: float = 0.01
     data_seed: int = 10
+    # A separate RNG stream is required even when the pilot uses one noise
+    # realisation per data case.  ``None`` preserves the legacy pilot files;
+    # all new protocol runs set this explicitly.
+    noise_seed: int | None = None
     optimizer_seed: int = 100
     dtype: str = "float64"
     width: int = 16
@@ -99,6 +103,10 @@ class HeatPINNConfig:
     def unknown_parameters(self) -> tuple[str, ...]:
         return UNKNOWN_BY_BENCHMARK[self.benchmark]
 
+    @property
+    def effective_noise_seed(self) -> int:
+        return int(self.data_seed if self.noise_seed is None else self.noise_seed)
+
     def as_hash(self) -> str:
         # Artifact location is operational metadata, not part of the locked
         # scientific configuration; excluding it keeps hashes stable across
@@ -138,7 +146,7 @@ def generate_heat_observations(config: HeatPINNConfig) -> HeatObservation:
     """Generate deterministic temperature observations from the analytic solution."""
     x, t = _observation_coordinates(config)
     clean = heat_temperature(x, t, config.k_true, config.C_true, config.amplitude_true)
-    generator = torch.Generator(device=x.device).manual_seed(int(config.data_seed))
+    generator = torch.Generator(device=x.device).manual_seed(config.effective_noise_seed)
     noise = torch.randn(clean.shape, dtype=clean.dtype, generator=generator) * config.noise_sigma
     return HeatObservation(config.benchmark, x, t, clean + noise, clean, config.data_seed, config.noise_sigma)
 
@@ -278,9 +286,11 @@ class HeatPINNRun:
                 "protocol_id": "reliability_audit_v1",
                 "benchmark": self.config.benchmark,
                 "data_seed": self.config.data_seed,
+                "noise_seed": self.config.effective_noise_seed,
                 "optimizer_seed": self.config.optimizer_seed,
                 "noise_sigma": self.config.noise_sigma,
                 "unknown_parameters": list(self.config.unknown_parameters),
+                "physical_parameters": [name for name in self.config.unknown_parameters if name in {"k", "C"}],
                 "parameter_estimates": self.parameter_estimates,
                 "statuses": self.statuses,
                 "status_labels": self.status_labels,
@@ -296,7 +306,7 @@ class HeatPINNRun:
                     else ("FIT_QUALIFIED_GATE_FAILED" if self.compute_status == "PASS" else "DIAGNOSTIC_UNAVAILABLE")
                 ),
                 "physical_truth": {"k": self.config.k_true, "C": self.config.C_true, "a": self.config.amplitude_true},
-                "nuisance_parameters": ["a"] if "a" not in self.config.unknown_parameters else [],
+                "nuisance_parameters": ["a"] if self.config.benchmark == "B4" or "a" not in self.config.unknown_parameters else [],
                 "observation_type": self.observation.observation_type,
                 "observation_covariance": {"kind": "homoscedastic", "sigma": self.config.noise_sigma},
                 "residual_weights": {"pde": self.config.weight_pde, "data": self.config.weight_data, "ic": self.config.weight_ic, "bc": self.config.weight_bc},
@@ -307,6 +317,7 @@ class HeatPINNRun:
                 "train_loss": self.train_loss,
                 "gradient_norm": self.gradient_norm,
                 "gamma": self.gamma,
+                "gamma_alpha": self.config.gamma_alpha,
                 "F_raw_shape": None if self.F_raw is None else list(self.F_raw.shape),
                 "F_gamma_shape": None if self.F_gamma is None else list(self.F_gamma.shape),
                 "I_obs_shape": list(self.I_obs.shape),
@@ -317,6 +328,8 @@ class HeatPINNRun:
                 "jvp_count": 0,
                 "vjp_count": 0,
                 "hvp_count": 0,
+                "adam_epochs": self.config.epochs,
+                "lbfgs_max_iter": self.config.lbfgs_max_iter if self.config.use_lbfgs else 0,
             }
         )
         return result
@@ -455,7 +468,7 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
     fim = observation_fim(Jobs, sigma=max(config.noise_sigma, 1.0e-12))
     run = HeatPINNRun(config, observation, model, log_parameters, residual, Jw, Jp, raw, finite_gamma, fim, gamma, final_loss, grad_norm, compute_status, fit_status, profile_status)
     source_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-    run.manifest.update({"config_sha256": config.as_hash(), "source_sha256": source_hash, "git_commit": _git_revision(), "elapsed_training_seconds": elapsed, "profile_implemented": False})
+    run.manifest.update({"config_sha256": config.as_hash(), "source_sha256": source_hash, "code_sha256": source_hash, "git_commit": _git_revision(), "elapsed_training_seconds": elapsed, "profile_implemented": False, "coordinate_system": "log(k),log(C),log(a)", "residual_normalization": "weighted residual blocks; mean-square objective", "solver_iterations": {"adam": config.epochs, "lbfgs": config.lbfgs_max_iter if config.use_lbfgs else 0}})
     if config.output_dir:
         run.save(config.output_dir)
     return run

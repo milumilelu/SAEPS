@@ -2,16 +2,143 @@
   "protocol_id": "reliability_audit_v1",
   "status": "DEVELOPMENT_ONLY",
   "source": "SAEPS_补充实验任务说明.md",
-  "physical_model": {"equation": "C*T_t=k*T_xx", "domain": [0,1], "boundary": "T(0,t)=T(1,t)=0", "initial": "a*sin(pi*x)", "truth": {"k":0.6,"C":1.2,"a":1.0}, "alpha": 0.5},
+  "physical_model": {
+    "equation": "C*T_t=k*T_xx",
+    "domain": [
+      0,
+      1
+    ],
+    "boundary": "T(0,t)=T(1,t)=0",
+    "initial": "a*sin(pi*x)",
+    "truth": {
+      "k": 0.6,
+      "C": 1.2,
+      "a": 1.0
+    },
+    "alpha": 0.5
+  },
   "benchmarks": [
-    {"id":"B1","unknown_physical":["k"],"nuisance":[],"observations":"temperature","times":[0.02,0.08,0.2,0.4],"expected_identifiable":"k"},
-    {"id":"B2","unknown_physical":["k"],"nuisance":[],"observations":"temperature","times":[1e-5,4e-5,7e-5,1e-4],"noise_rho":0.01,"expected_identifiable":"k_weak"},
-    {"id":"B3","unknown_physical":["k","C"],"nuisance":[],"observations":"temperature","times":[0.02,0.08,0.2,0.4],"expected_identifiable":"k/C","expected_null_direction":"log(k)+log(C)"},
-    {"id":"B4","unknown_physical":["k"],"nuisance":["a","neural_state"],"observations":"single_temperature_snapshot","time":0.2,"expected_identifiable":"confounded_with_a"},
-    {"id":"B5","unknown_physical":["k"],"nuisance":["a","neural_state"],"observations":"two_temperature_snapshots","times":[0.2,0.4],"expected_identifiable":"k_and_a"},
-    {"id":"B6","unknown_physical":["k","C"],"nuisance":[],"observations":["temperature","calibrated_heat_flux"],"times":[0.02,0.08,0.2,0.4],"expected_identifiable":"k_and_C"}
+    {
+      "id": "B1",
+      "unknown_physical": [
+        "k"
+      ],
+      "nuisance": [],
+      "observations": "temperature",
+      "times": [
+        0.02,
+        0.08,
+        0.2,
+        0.4
+      ],
+      "expected_identifiable": "k"
+    },
+    {
+      "id": "B2",
+      "unknown_physical": [
+        "k"
+      ],
+      "nuisance": [],
+      "observations": "temperature",
+      "times": [
+        1e-05,
+        4e-05,
+        7e-05,
+        0.0001
+      ],
+      "noise_rho": 0.01,
+      "expected_identifiable": "k_weak"
+    },
+    {
+      "id": "B3",
+      "unknown_physical": [
+        "k",
+        "C"
+      ],
+      "nuisance": [],
+      "observations": "temperature",
+      "times": [
+        0.02,
+        0.08,
+        0.2,
+        0.4
+      ],
+      "expected_identifiable": "k/C",
+      "expected_null_direction": "log(k)+log(C)"
+    },
+    {
+      "id": "B4",
+      "unknown_physical": [
+        "k"
+      ],
+      "nuisance": [
+        "a",
+        "neural_state"
+      ],
+      "observations": "single_temperature_snapshot",
+      "time": 0.2,
+      "expected_identifiable": "confounded_with_a"
+    },
+    {
+      "id": "B5",
+      "unknown_physical": [
+        "k"
+      ],
+      "nuisance": [
+        "a",
+        "neural_state"
+      ],
+      "observations": "two_temperature_snapshots",
+      "times": [
+        0.2,
+        0.4
+      ],
+      "expected_identifiable": "k_and_a"
+    },
+    {
+      "id": "B6",
+      "unknown_physical": [
+        "k",
+        "C"
+      ],
+      "nuisance": [],
+      "observations": [
+        "temperature",
+        "calibrated_heat_flux"
+      ],
+      "times": [
+        0.02,
+        0.08,
+        0.2,
+        0.4
+      ],
+      "expected_identifiable": "k_and_C"
+    }
   ],
-  "seeds": {"pilot_data_seeds":[0,1,2],"pilot_optimizer_seeds":[0,1],"confirmation_data_seeds":"TBD_AFTER_PILOT"},
-  "gamma_alpha_grid":[1e-12,1e-10,1e-8,1e-6,1e-4,1e-2],
-  "status_note":"Definitions and expected rank only; no PINN training or confirmation results are claimed."
+  "seeds": {
+    "pilot_data_seeds": [
+      10,
+      11,
+      12
+    ],
+    "pilot_optimizer_seeds": [
+      100,
+      101
+    ],
+    "confirmation_data_seeds": "TBD_AFTER_PILOT",
+    "pilot_noise_seeds": [
+      10010,
+      10011,
+      10012
+    ]
+  },
+  "gamma_alpha_grid": [
+    1e-12,
+    1e-10,
+    1e-08,
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "status_note": "Definitions and expected rank are frozen for the development pilot; RI-2 records are in outputs/reliability_audit_v1/pilot/ri2_full_v3 and the corrected separate-noise rerun is versioned separately."
 }
