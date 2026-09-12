@@ -1,0 +1,99 @@
+{
+  "benchmarks": [
+    "B1",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "data_seed": 10,
+  "noise_rho": 0.01,
+  "profile_grid": [
+    0.19999999999999998,
+    0.21519792494506915,
+    0.23155073450331806,
+    0.24914618792310345,
+    0.26807871324513055,
+    0.2884499140614816,
+    0.31036911478307194,
+    0.33395394734177536,
+    0.35933098247582473,
+    0.38663640898635254,
+    0.4160167646103808,
+    0.4476297224325762,
+    0.4816449370561384,
+    0.5182449550738971,
+    0.5576261947257664,
+    0.6,
+    0.6455937748352074,
+    0.6946522035099544,
+    0.7474385637693103,
+    0.8042361397353917,
+    0.8653497421844449,
+    0.9311073443492158,
+    1.001861842025326,
+    1.0779929474274743,
+    1.1599092269590576,
+    1.2480502938311424,
+    1.3428891672977286,
+    1.444934811168415,
+    1.5547348652216917,
+    1.6728785841772988,
+    1.8000000000000003
+  ],
+  "protocol_id": "reliability_audit_v1",
+  "reference_kind": "independent_analytic_heat_profiles",
+  "rows": [
+    {
+      "benchmark": "B1",
+      "flat_profile": false,
+      "grid_size": 31,
+      "minimum_scan_value": 0.6,
+      "objective_span_half_chi2": 3978.83034351381,
+      "path": "B1_ANALYTIC_PROFILE.json",
+      "profile_status": "PASS"
+    },
+    {
+      "benchmark": "B3",
+      "flat_profile": true,
+      "grid_size": 31,
+      "minimum_scan_value": 0.5576261947257664,
+      "objective_span_half_chi2": 1.6431300764452317e-14,
+      "path": "B3_ANALYTIC_PROFILE.json",
+      "profile_status": "FLAT"
+    },
+    {
+      "benchmark": "B4",
+      "flat_profile": true,
+      "grid_size": 31,
+      "minimum_scan_value": 0.4816449370561384,
+      "objective_span_half_chi2": 8.965050923848139e-15,
+      "path": "B4_ANALYTIC_PROFILE.json",
+      "profile_status": "FLAT"
+    },
+    {
+      "benchmark": "B5",
+      "flat_profile": false,
+      "grid_size": 31,
+      "minimum_scan_value": 0.6,
+      "objective_span_half_chi2": 1081.8201506254495,
+      "path": "B5_ANALYTIC_PROFILE.json",
+      "profile_status": "PASS"
+    },
+    {
+      "benchmark": "B6",
+      "flat_profile": false,
+      "grid_size": 31,
+      "minimum_scan_value": 0.6,
+      "objective_span_half_chi2": 16538.066929803816,
+      "path": "B6_ANALYTIC_PROFILE.json",
+      "profile_status": "PASS"
+    }
+  ],
+  "schema_version": 1,
+  "truth_used_only_for_data_generation": {
+    "C": 1.2,
+    "a": 1.0,
+    "k": 0.6
+  }
+}

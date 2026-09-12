@@ -12,6 +12,17 @@ from typing import Any
 
 import torch
 
+from .profile_reference import (
+    HeatAnalyticObservations,
+    default_observation_design,
+    frozen_profile_grid,
+    generate_analytic_observations,
+    heat_flux_np,
+    heat_temperature_np,
+    profile_heat_observation,
+    write_profile_json,
+)
+
 
 def finite_gamma_reduced_curvature(
     jacobian_state: torch.Tensor,
@@ -270,4 +281,12 @@ __all__ = [
     "heat_flux_sensitivities",
     "numerical_rank",
     "observation_fim",
+    "HeatAnalyticObservations",
+    "default_observation_design",
+    "frozen_profile_grid",
+    "generate_analytic_observations",
+    "heat_flux_np",
+    "heat_temperature_np",
+    "profile_heat_observation",
+    "write_profile_json",
 ]
