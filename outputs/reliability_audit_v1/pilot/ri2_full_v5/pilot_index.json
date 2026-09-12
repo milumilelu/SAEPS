@@ -1,0 +1,2606 @@
+[
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B1",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "d7a7fbcb3fce758a3b467982e50484aa61ee76763346e09046ff41d2326ecf44",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "3f8ff6b954549c7262ec7d7e2c0aba2f84229f8a59e2bdc02db6088924853ef5",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.37383590001263656,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.32004773968725575,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.015234687262274324,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "k": 0.4914893436139837
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B1-d10-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 0.0034570464609956623,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B1",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "317b732f97742f5e57584bb8555f775b465b740e8201ba0c9706324aa2f790d7",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "51d67975bc80769464adae39a248078afb8a51ff4b4668a587f75f5155be88e4",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.4213889999955427,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.3374628256035081,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.026974857307891318,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "k": 0.5156570906518687
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data10_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B1-d10-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 0.002258834830941553,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B1",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "a25e819317bbcde2246d0d288306141545ff1fd578ded847d677dcffd580e3e8",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "683333f8bc5f9150378ab6cd0021616cba3cf0b76dea3d38ab9577ea70843291",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.5521773000073154,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.30785570985367394,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.018851299318148163,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "k": 0.4777607526249391
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B1-d11-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 0.003910116680808864,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B1",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "85c99fc1b568d0cfc650ccfab03d86e2b52fae0b85c61678c2dc4096bfd111c6",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "3f36cb92d0ddddfa91ded1f75bc3a2669c26aa82021672c1e17ab9c00594ad4d",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.47848660001182,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.24217091568644356,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.02427698188846905,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "k": 0.4696147873390977
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data11_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B1-d11-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 0.0046271170873787605,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B1",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "3b01547a1c98226c05d128dad2548b4998ee5bb55ec7514489dc22910e662ae4",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "23457a5c4b41875635552e2e06a99ab5f39824753f9c67680f2dcc23c78262bf",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.7481214000144973,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.39300797706770974,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.013929266221270808,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "k": 0.5353698534899886
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B1-d12-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 0.0029931581044666984,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B1",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "2d27f395d0738af0ba85afcbf3538da91f2669c9171cc1438b6ff179107bab7d",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "a7daedefd7ec23bce8e0cde9616f3205bc62dc3ab21fd5778c508202c246b3cb",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.6529931999975815,
+    "execution_status": "PASS",
+    "failure_reason": "FIT_QUALIFIED_GATE_FAILED",
+    "fit_qualified": false,
+    "fit_status": "FAIL",
+    "gamma": 0.2576050368971762,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.04084500974224527,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "k": 0.4484564662040408
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B1_data12_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B1-d12-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "NOT_FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "FAIL",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 0.006521191226858717,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B2",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "991865377b32482a4ce0ee92b8796f7516dc84d99c6cd3536a54ac23046e33ad",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "36581b95a5a4f67f238ec604e0c10da203d11c1c49b44ee0d467744a201ba6f2",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.4380123000009917,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002339025403869209,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 8.235801180953732e-06,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "k": 0.005079632089319302
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B2-d10-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 3.711882160442822e-05,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B2",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "d9ee7ac097d4d4fb95bfe959ef171fbdb78ae003632c53f05c7daa8baa2dc334",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "501c0f4192dc79a1b45ba8ec7e46997847ebeee50c27edaeec1c3c0d64d67f43",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.49363919999450445,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0035732354093629816,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 5.729106277108705e-06,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "k": 0.0030802202283214506
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data10_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B2-d10-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 3.676037152887935e-05,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B2",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "1254d89966effb3820a3321d5b541cce990c7144280dc580f6ac972f1ad98cfe",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "7a93861d601fe4fa934beab0ec81d36068489e3c9b189f4acbfd1a528afd99c5",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.48740049998741597,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0024262460752939715,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 4.56325821225035e-06,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "k": 0.0013038059104598877
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B2-d11-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 3.833689432313343e-05,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B2",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "ff59ff617976eceaa2ddb46585b2db09b3ebac55ed3808cb903b1ab2c54b347e",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "498e667cb4dc2f2b122eb41ae88c2a5df493b60604ca433a3ec6ae74abe23dda",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.548643499991158,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002875768046718105,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 1.0291082900648835e-05,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "k": 0.0030597629470298965
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data11_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B2-d11-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 3.834636275490658e-05,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B2",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "c71ac777ebedf4bc597ae9c30ae6f4579ae954c604480b19cf044cdb33ef211c",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "3777b19294e2000ca4778bf7e2886b7b33b7af83c931075869d6dbc22c0ecec4",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.44489850001991726,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.00168185710013835,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 1.746049208691804e-05,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "k": 0.0012734561580117275
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B2-d12-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 5.702128254248309e-05,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      1,
+      1
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B2",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "86f3efdf70bb00b7010660325d1a6ee132a8fa1c8ce63dad22428be10e930fee",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "fbb653e371bbb2b84ca56d01cbb74f421bbb97fa12b0ac452de6c5dbe0d0fb04",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.6306670999911148,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002325895298821963,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 5.358773722469684e-07,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      1
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "k": 0.0025210367403473446
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B2_data12_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B2-d12-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 5.6942606189594396e-05,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 2,
+    "F_gamma_shape": [
+      2,
+      2
+    ],
+    "F_raw_rank": 2,
+    "F_raw_shape": [
+      2,
+      2
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B3",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "1621624e50e31a3ffef9cb657b8970f3a5e08ae7798f145d6aba62e007ec42d7",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "c85d4f49d3a0117e7f2b7d0fdbb52b8ff319b1dd69ec7344aee048a97a331336",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.5390687999897636,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.011298495333221003,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 1.3211449161271916e-05,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      2
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "C": 3.727104862382949e-05,
+      "k": 0.00011037098146088381
+    },
+    "physical_parameters": [
+      "k",
+      "C"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B3-d10-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 1.0582128423343314e-05,
+    "unknown_parameters": [
+      "k",
+      "C"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 2,
+    "F_gamma_shape": [
+      2,
+      2
+    ],
+    "F_raw_rank": 2,
+    "F_raw_shape": [
+      2,
+      2
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B3",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "5f8abbf3702594c5dc3658c40b5c31db335a9654c40f6d388c4d4862f171051e",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "7d9cc50699b2d2f988e4c768b29673a3784b30d4a02b986ca2e4708ffaf20f8f",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.6354609999980312,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0022841551548960027,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.00044363541949667866,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      2
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "C": 5.6996624492356056e-05,
+      "k": 2.3014520891200307e-05
+    },
+    "physical_parameters": [
+      "k",
+      "C"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data10_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B3-d10-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 2.4147265470867553e-05,
+    "unknown_parameters": [
+      "k",
+      "C"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 2,
+    "F_gamma_shape": [
+      2,
+      2
+    ],
+    "F_raw_rank": 2,
+    "F_raw_shape": [
+      2,
+      2
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B3",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "268b03d7593af225eb47313fb35eecde6ca64b0fddbab85cfba6db9000dd301b",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "330c839de93c7b3d033fccba721d205a97f457f01a59949ff92edee8d0a56e8f",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.5529149000067264,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0020115575882802524,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.00015111728654541295,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      2
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "C": 0.00012250866412075222,
+      "k": 0.00014263106079134895
+    },
+    "physical_parameters": [
+      "k",
+      "C"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B3-d11-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 9.480295831766069e-05,
+    "unknown_parameters": [
+      "k",
+      "C"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 2,
+    "F_gamma_shape": [
+      2,
+      2
+    ],
+    "F_raw_rank": 2,
+    "F_raw_shape": [
+      2,
+      2
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B3",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "c820f796e63d9afa5552c15ae1bb6e404fd46220a5d47a733937e32f3fa29f91",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "f5fcd82f41ddca469ff408b0082630005323f4c80f604234c4afee74acec9bb5",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.4892346999840811,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.005331789315705725,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.0003597293935435427,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      2
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "C": 0.00010177026122279023,
+      "k": 5.6664213873605497e-05
+    },
+    "physical_parameters": [
+      "k",
+      "C"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data11_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B3-d11-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 5.736119165075864e-05,
+    "unknown_parameters": [
+      "k",
+      "C"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 2,
+    "F_gamma_shape": [
+      2,
+      2
+    ],
+    "F_raw_rank": 2,
+    "F_raw_shape": [
+      2,
+      2
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B3",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "66485d8a6681dc340b3a384e7dbda2d52ce67315d7dd14448e118f8b6c994ebf",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "23a552cbae3cb1b3339625721aba877dade2621d24dccd7be21fd17a9883a716",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.6059888000017963,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002043255788032751,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.0007145522910815695,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      2
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "C": 0.0001919683766125816,
+      "k": 0.00018821178432725983
+    },
+    "physical_parameters": [
+      "k",
+      "C"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B3-d12-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 5.0741250041296676e-05,
+    "unknown_parameters": [
+      "k",
+      "C"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 2,
+    "F_gamma_shape": [
+      2,
+      2
+    ],
+    "F_raw_rank": 2,
+    "F_raw_shape": [
+      2,
+      2
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B3",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "187dac2103766e09034e8f880642e1b3db765dd27d162e6159ae782d64c0ade0",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "91b7e436a87a1d32adb83854f56f322a032e0ec93107118c5a6e964b3c984dab",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.7766216999734752,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0024254039127429915,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 0.0004672682186992353,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      92,
+      2
+    ],
+    "jacobian_state_shape": [
+      92,
+      337
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "C": 0.000433386642201571,
+      "k": 0.00015763686555374885
+    },
+    "physical_parameters": [
+      "k",
+      "C"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B3_data12_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B3-d12-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 1.7768199449323224e-05,
+    "unknown_parameters": [
+      "k",
+      "C"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B4",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "7ac9230563d105e174e139ad872b991b6ec0eaeabec1c8803f8b0972d26122ba",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "00919add8c276cd99d37d643447caa3fc4dd2d816b591982de6119ec86a9a702",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.5104572000273038,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002625680482795411,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 1.5727742508795602e-05,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      83,
+      1
+    ],
+    "jacobian_state_shape": [
+      83,
+      338
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [
+      "a"
+    ],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "a": 0.3727986777428852,
+      "k": 0.0012156757146598604
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B4-d10-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 4.2112626132564425e-07,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B4",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "ea9413a597fec276f5c47f517b1371f00c3f1e6b39bb944de46714989469d56c",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "951b5f0fb984c5037053180fc61622cc39621d7fd7f0d107429f74838f305b3d",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 10,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.43348279999918304,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0028338871982243542,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 1.304233934651088e-06,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      83,
+      1
+    ],
+    "jacobian_state_shape": [
+      83,
+      338
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10010,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [
+      "a"
+    ],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "a": 0.37877694983422616,
+      "k": 0.011122946306343627
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data10_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B4-d10-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 4.510727844882396e-07,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B4",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "4d9fe61ae4f6d4d691e5099f47718a8b95b215e34e0c2319b1ff6c7299c6775c",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "63222edb43ee0659d9f1f42b2f8f0013be6c79e50174d6b8a732e441c35efcce",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.5411350000067614,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.0028451780847548323,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 3.069624029566724e-05,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      83,
+      1
+    ],
+    "jacobian_state_shape": [
+      83,
+      338
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [
+      "a"
+    ],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "a": 0.382672234516652,
+      "k": 0.006934000985083641
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B4-d11-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 6.809783400780434e-06,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B4",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "ed15312bd9907f678b9581cffaab37b16fc2b528133bce9ea806b20585cd4d31",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "f64bf0bb3f5b0a2ea11d6c1e816de928d35bf2f6274f9cf9afba70152aeddfbe",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 11,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.4833541999978479,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.00295509231879202,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 5.5412210093171044e-06,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      83,
+      1
+    ],
+    "jacobian_state_shape": [
+      83,
+      338
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10011,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [
+      "a"
+    ],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "a": 0.38411552705654667,
+      "k": 0.009341782068139032
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data11_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B4-d11-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 6.891206385464232e-06,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B4",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt100\\checkpoint.pt",
+    "checkpoint_sha256": "9fde784a2f43bef411608d894f64086a26ceb4e621853c12e8089786082e4e94",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "2520d1cc0726a2cdbad7213a0d90131621a5c59a69c8a170f92fadeb9035138b",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.4377542000147514,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002100243158564872,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 3.2174446599143253e-06,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      83,
+      1
+    ],
+    "jacobian_state_shape": [
+      83,
+      338
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [
+      "a"
+    ],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 100,
+    "parameter_estimates": {
+      "a": 0.3670753636889871,
+      "k": 0.0018994134599327594
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt100\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt100\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt100\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B4-d12-o100",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 7.537947407532952e-06,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  },
+  {
+    "F_gamma_rank": 1,
+    "F_gamma_shape": [
+      1,
+      1
+    ],
+    "F_raw_rank": 1,
+    "F_raw_shape": [
+      1,
+      1
+    ],
+    "I_obs_shape": [
+      2,
+      2
+    ],
+    "adam_epochs": 100,
+    "benchmark": "B4",
+    "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt101\\checkpoint.pt",
+    "checkpoint_sha256": "66128764d75129db17f05cd3296c2ea367182cf2b0febd170bff63f2ae196a72",
+    "code_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "config_sha256": "c6f12f7d653b6beab645646519e3869beb772a1bb3e98e49b78502217cb34161",
+    "coordinate_system": "log(k),log(C),log(a)",
+    "data_seed": 12,
+    "dtype": "float64",
+    "elapsed_training_seconds": 0.4781720999744721,
+    "execution_status": "PASS",
+    "failure_reason": null,
+    "fit_qualified": true,
+    "fit_status": "PASS",
+    "gamma": 0.002488514526004549,
+    "gamma_alpha": 0.0001,
+    "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+    "git_commit": "270365e38896f61556b42c12e757f028af1a3720",
+    "gradient_norm": 1.1662525742732069e-05,
+    "hardware": "Windows-11-10.0.26100-SP0",
+    "hvp_count": 0,
+    "jacobian_parameter_shape": [
+      83,
+      1
+    ],
+    "jacobian_state_shape": [
+      83,
+      338
+    ],
+    "jvp_count": 0,
+    "lbfgs_max_iter": 60,
+    "noise_seed": 10012,
+    "noise_sigma": 0.01,
+    "nuisance_parameters": [
+      "a"
+    ],
+    "numerical_status": "PASS",
+    "observation_covariance": {
+      "kind": "homoscedastic",
+      "sigma": 0.01
+    },
+    "observation_type": "temperature",
+    "optimizer_seed": 101,
+    "parameter_estimates": {
+      "a": 0.3669636613103219,
+      "k": 0.001926913819463155
+    },
+    "physical_parameters": [
+      "k"
+    ],
+    "physical_truth": {
+      "C": 1.2,
+      "a": 1.0,
+      "k": 0.6
+    },
+    "profile_eligible": false,
+    "profile_implemented": false,
+    "profile_status": "NOT_ELIGIBLE",
+    "protocol_id": "reliability_audit_v1",
+    "rank_tolerance": 1e-10,
+    "raw_paths": {
+      "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt101\\F_gamma.npy",
+      "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt101\\F_raw.npy",
+      "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5\\B4_data12_opt101\\I_obs.npy"
+    },
+    "residual_normalization": "weighted residual blocks; mean-square objective",
+    "residual_weights": {
+      "bc": 2.0,
+      "data": 10.0,
+      "ic": 10.0,
+      "pde": 1.0
+    },
+    "run_id": "ri2-B4-d12-o101",
+    "schema_version": 1,
+    "solver_iterations": {
+      "adam": 100,
+      "lbfgs": 60
+    },
+    "source_sha256": "e87e5df7807d0864a6e300a570a8e1aabea03dae8823627131705fd40ed59a19",
+    "status_labels": {
+      "COMPUTABLE": "COMPUTABLE",
+      "FIT_QUALIFIED": "FIT_QUALIFIED",
+      "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+    },
+    "statuses": {
+      "COMPUTABLE": "PASS",
+      "FIT_QUALIFIED": "PASS",
+      "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+    },
+    "train_loss": 7.4714368069513875e-06,
+    "unknown_parameters": [
+      "k"
+    ],
+    "vjp_count": 0
+  }
+]

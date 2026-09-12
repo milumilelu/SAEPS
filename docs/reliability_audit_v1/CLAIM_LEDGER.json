@@ -8,25 +8,37 @@
     },
     {
       "status": "SUPPORTED",
-      "limitation": "Analytic closed-form observation map under declared BC/IC.",
+      "limitation": "Analytic closed-form observation map under declared BC/IC; rank is local to the declared design.",
       "id": "heat_identifiability_ranks",
       "evidence": "outputs/reliability_audit_v1/pilot/ri1/REFERENCE_RANK_REPORT.json"
     },
     {
+      "status": "SUPPORTED",
+      "limitation": "Independent analytic profiles are physical-reference checks, not PINN-reoptimised profiles; B3/B4 are flat and B2 is practically shallow.",
+      "id": "analytic_profiles_b1_b6",
+      "evidence": "outputs/reliability_audit_v1/pilot/ri1/profiles/PROFILE_INDEX.json"
+    },
+    {
+      "status": "SUPPORTED",
+      "limitation": "Finite-difference reference passes the declared 64-to-128 refinement check; it is a small heat benchmark only.",
+      "id": "independent_physical_reference",
+      "evidence": "outputs/reliability_audit_v1/pilot/ri1/PHYSICAL_REFERENCE_REPORT.json"
+    },
+    {
       "status": "INCONCLUSIVE",
-      "limitation": "Pilot computed local matrices but had no nonlinear profiles or matched risk comparison; B1 availability gate failed.",
+      "limitation": "Corrected pilot has 23/24 fit-qualified cases, but no PINN profiles or matched independent-data RAW-versus-SAEPS risk advantage; fixed decision layer abstains/flags weak cases.",
       "id": "saeps_reliability_improvement",
-      "evidence": "outputs/reliability_audit_v1/pilot/ri2_full_v3/PILOT_RESULTS.json"
+      "evidence": "outputs/reliability_audit_v1/pilot/ri2_full_v5/PILOT_RESULTS.json; outputs/reliability_audit_v1/pilot/ri2_full_v5/reliability_analysis/RI2_RELIABILITY_ANALYSIS.json"
     },
     {
       "status": "NOT_TESTED",
-      "limitation": "No repeated-data PINN estimates.",
+      "limitation": "No repeated-data interval construction or bootstrap calibration.",
       "id": "uncertainty_calibration",
       "evidence": "experiments/reliability_audit_v1/run_plan.json"
     },
     {
       "status": "NOT_TESTED",
-      "limitation": "Requires RI-4 support first.",
+      "limitation": "No PINN B5/B6 measurement intervention with re-estimation and profile contraction.",
       "id": "observation_design_benefit",
       "evidence": "experiments/reliability_audit_v1/run_plan.json"
     }

@@ -35,6 +35,14 @@ UNKNOWN_BY_BENCHMARK = {
     "B1": ("k",),
     "B2": ("k",),
     "B3": ("k", "C"),
+    # The initial-condition amplitude is a nuisance coordinate in B4.  It is
+    # optimized jointly but belongs to the eliminated state block.
+    "B4": ("k",),
+}
+TRAINABLE_BY_BENCHMARK = {
+    "B1": ("k",),
+    "B2": ("k",),
+    "B3": ("k", "C"),
     "B4": ("k", "a"),
 }
 
@@ -102,6 +110,14 @@ class HeatPINNConfig:
     @property
     def unknown_parameters(self) -> tuple[str, ...]:
         return UNKNOWN_BY_BENCHMARK[self.benchmark]
+
+    @property
+    def trainable_parameters(self) -> tuple[str, ...]:
+        return TRAINABLE_BY_BENCHMARK[self.benchmark]
+
+    @property
+    def nuisance_parameter_names(self) -> tuple[str, ...]:
+        return tuple(name for name in self.trainable_parameters if name not in self.unknown_parameters)
 
     @property
     def effective_noise_seed(self) -> int:
@@ -306,7 +322,7 @@ class HeatPINNRun:
                     else ("FIT_QUALIFIED_GATE_FAILED" if self.compute_status == "PASS" else "DIAGNOSTIC_UNAVAILABLE")
                 ),
                 "physical_truth": {"k": self.config.k_true, "C": self.config.C_true, "a": self.config.amplitude_true},
-                "nuisance_parameters": ["a"] if self.config.benchmark == "B4" or "a" not in self.config.unknown_parameters else [],
+                "nuisance_parameters": list(self.config.nuisance_parameter_names),
                 "observation_type": self.observation.observation_type,
                 "observation_covariance": {"kind": "homoscedastic", "sigma": self.config.noise_sigma},
                 "residual_weights": {"pde": self.config.weight_pde, "data": self.config.weight_data, "ic": self.config.weight_ic, "bc": self.config.weight_bc},
@@ -379,8 +395,9 @@ def _jacobians(
     # evaluation and keep the state/physical blocks explicit for auditability.
     residual = weighted_residual(model, config, observation, log_parameters, create_graph=True)
     state_parameters = tuple(model.parameters())
+    nuisance_parameters = tuple(log_parameters[name] for name in config.nuisance_parameter_names)
+    state_parameters = state_parameters + nuisance_parameters
     physical_parameters = tuple(log_parameters[name] for name in config.unknown_parameters)
-    state_size = sum(p.numel() for p in state_parameters)
     Jw_rows: list[torch.Tensor] = []
     Jp_rows: list[torch.Tensor] = []
     for value in residual:
@@ -403,7 +420,7 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
     # The truth is used only for deterministic data generation and the separate
     # analytic reference FIM.
     initial = {"k": np.log(0.5), "C": np.log(1.0), "a": np.log(1.0)}
-    log_parameters = {name: nn.Parameter(torch.tensor(initial[name], dtype=config.torch_dtype)) for name in config.unknown_parameters}
+    log_parameters = {name: nn.Parameter(torch.tensor(initial[name], dtype=config.torch_dtype)) for name in config.trainable_parameters}
     optimizer = torch.optim.Adam(list(model.parameters()) + list(log_parameters.values()), lr=config.learning_rate)
     start = time.perf_counter()
     for _ in range(config.epochs):

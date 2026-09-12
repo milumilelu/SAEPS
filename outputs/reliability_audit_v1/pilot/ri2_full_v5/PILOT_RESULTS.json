@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "protocol_id": "reliability_audit_v1",
+  "phase": "RI-2",
+  "scope": "development only",
+  "source_runs_dir": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v5",
+  "planned_denominator": 24,
+  "computed": 24,
+  "fit_qualified": 23,
+  "profile_eligible": 0,
+  "by_benchmark": {
+    "B1": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 5,
+      "profile_eligible": 0,
+      "decision_counts": {
+        "SUPPORTED_COMBINATION": 0,
+        "WEAK_OR_CONFOUNDED": 5,
+        "UNRESOLVED_NUMERICAL": 0,
+        "INVALID_CHECKPOINT": 1
+      },
+      "target_log_error": {
+        "count": 6,
+        "mean": 0.20481723339510136,
+        "rmse": 0.21308013379869048,
+        "max": 0.2911180437483031
+      },
+      "parameter_estimates": {
+        "k": {
+          "median": 0.4914893436139837,
+          "mean": 0.4897247156539864,
+          "count": 6
+        }
+      }
+    },
+    "B2": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 6,
+      "profile_eligible": 0,
+      "decision_counts": {
+        "SUPPORTED_COMBINATION": 0,
+        "WEAK_OR_CONFOUNDED": 6,
+        "UNRESOLVED_NUMERICAL": 0,
+        "INVALID_CHECKPOINT": 0
+      },
+      "target_log_error": {
+        "count": 6,
+        "mean": 5.513551355474006,
+        "rmse": 5.535565064535391,
+        "max": 6.1551950667461455
+      },
+      "parameter_estimates": {
+        "k": {
+          "median": 0.0030597629470298965,
+          "mean": 0.0027196523455816014,
+          "count": 6
+        }
+      }
+    },
+    "B3": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 6,
+      "profile_eligible": 0,
+      "decision_counts": {
+        "SUPPORTED_COMBINATION": 0,
+        "WEAK_OR_CONFOUNDED": 6,
+        "UNRESOLVED_NUMERICAL": 0,
+        "INVALID_CHECKPOINT": 0
+      },
+      "target_log_error": {
+        "count": 6,
+        "mean": 0.6561448856517186,
+        "rmse": 0.8651008083801518,
+        "max": 1.7787775818017248
+      },
+      "parameter_estimates": {
+        "k": {
+          "median": 0.00014263106079134895,
+          "mean": 0.00011308823781634122,
+          "count": 6
+        },
+        "C": {
+          "median": 0.00012250866412075222,
+          "mean": 0.00015731693621231344,
+          "count": 6
+        }
+      }
+    },
+    "B4": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 6,
+      "profile_eligible": 0,
+      "decision_counts": {
+        "SUPPORTED_COMBINATION": 0,
+        "WEAK_OR_CONFOUNDED": 6,
+        "UNRESOLVED_NUMERICAL": 0,
+        "INVALID_CHECKPOINT": 0
+      },
+      "target_log_error": {
+        "count": 6,
+        "mean": 0.01178558509935466,
+        "rmse": 0.013766360402408306,
+        "max": 0.018701657409715078
+      },
+      "parameter_estimates": {
+        "k": {
+          "median": 0.006934000985083641,
+          "mean": 0.00540678872560368,
+          "count": 6
+        },
+        "a": {
+          "median": 0.37877694983422616,
+          "mean": 0.3754004023582698,
+          "count": 6
+        }
+      }
+    }
+  },
+  "selective_metrics": {
+    "planned_denominator": 24,
+    "rows": [
+      {
+        "run_id": "ri2-B1-d10-o100",
+        "score": 1.0,
+        "eligible": true,
+        "error": 0.19948939721903777,
+        "benchmark": "B1"
+      },
+      {
+        "run_id": "ri2-B1-d10-o101",
+        "score": 1.0,
+        "eligible": true,
+        "error": 0.15148766364806085,
+        "benchmark": "B1"
+      },
+      {
+        "run_id": "ri2-B1-d11-o100",
+        "score": 1.0,
+        "eligible": true,
+        "error": 0.22781956554644459,
+        "benchmark": "B1"
+      },
+      {
+        "run_id": "ri2-B1-d11-o101",
+        "score": 1.0,
+        "eligible": true,
+        "error": 0.245016897975084,
+        "benchmark": "B1"
+      },
+      {
+        "run_id": "ri2-B1-d12-o100",
+        "score": 1.0,
+        "eligible": true,
+        "error": 0.11397183223367789,
+        "benchmark": "B1"
+      },
+      {
+        "run_id": "ri2-B1-d12-o101",
+        "score": 0.0,
+        "eligible": false,
+        "error": 0.2911180437483031,
+        "benchmark": "B1"
+      },
+      {
+        "run_id": "ri2-B2-d10-o100",
+        "score": 0.007692490155788892,
+        "eligible": true,
+        "error": 4.7716908196107966,
+        "benchmark": "B2"
+      },
+      {
+        "run_id": "ri2-B2-d10-o101",
+        "score": 0.007692490155788892,
+        "eligible": true,
+        "error": 5.27192855808509,
+        "benchmark": "B2"
+      },
+      {
+        "run_id": "ri2-B2-d11-o100",
+        "score": 0.007692490155788892,
+        "eligible": true,
+        "error": 6.131642044461572,
+        "benchmark": "B2"
+      },
+      {
+        "run_id": "ri2-B2-d11-o101",
+        "score": 0.007692490155788892,
+        "eligible": true,
+        "error": 5.278592210543564,
+        "benchmark": "B2"
+      },
+      {
+        "run_id": "ri2-B2-d12-o100",
+        "score": 0.007692490155788892,
+        "eligible": true,
+        "error": 6.1551950667461455,
+        "benchmark": "B2"
+      },
+      {
+        "run_id": "ri2-B2-d12-o101",
+        "score": 0.007692490155788892,
+        "eligible": true,
+        "error": 5.472259433396867,
+        "benchmark": "B2"
+      },
+      {
+        "run_id": "ri2-B3-d10-o100",
+        "score": 0.0,
+        "eligible": false,
+        "error": 1.7787775818017248,
+        "benchmark": "B3"
+      },
+      {
+        "run_id": "ri2-B3-d10-o101",
+        "score": 0.0,
+        "eligible": false,
+        "error": 0.21371950627710867,
+        "benchmark": "B3"
+      },
+      {
+        "run_id": "ri2-B3-d11-o100",
+        "score": 0.0,
+        "eligible": false,
+        "error": 0.8452267274324184,
+        "benchmark": "B3"
+      },
+      {
+        "run_id": "ri2-B3-d11-o101",
+        "score": 0.0,
+        "eligible": false,
+        "error": 0.10757211142569445,
+        "benchmark": "B3"
+      },
+      {
+        "run_id": "ri2-B3-d12-o100",
+        "score": 0.0,
+        "eligible": false,
+        "error": 0.6733843684103941,
+        "benchmark": "B3"
+      },
+      {
+        "run_id": "ri2-B3-d12-o101",
+        "score": 0.0,
+        "eligible": false,
+        "error": 0.3181890185629711,
+        "benchmark": "B3"
+      },
+      {
+        "run_id": "ri2-B4-d10-o100",
+        "score": 0.0,
+        "eligible": true,
+        "error": 0.0017560092923637471,
+        "benchmark": "B4"
+      },
+      {
+        "run_id": "ri2-B4-d10-o101",
+        "score": 0.0,
+        "eligible": true,
+        "error": 0.002143843206199647,
+        "benchmark": "B4"
+      },
+      {
+        "run_id": "ri2-B4-d11-o100",
+        "score": 0.0,
+        "eligible": true,
+        "error": 0.014978024923049227,
+        "benchmark": "B4"
+      },
+      {
+        "run_id": "ri2-B4-d11-o101",
+        "score": 0.0,
+        "eligible": true,
+        "error": 0.014781904608528018,
+        "benchmark": "B4"
+      },
+      {
+        "run_id": "ri2-B4-d12-o100",
+        "score": 0.0,
+        "eligible": true,
+        "error": 0.018352071156272243,
+        "benchmark": "B4"
+      },
+      {
+        "run_id": "ri2-B4-d12-o101",
+        "score": 0.0,
+        "eligible": true,
+        "error": 0.018701657409715078,
+        "benchmark": "B4"
+      }
+    ],
+    "risk_coverage": [
+      {
+        "threshold": 0.0,
+        "accepted": 17,
+        "evaluated": 17,
+        "planned_denominator": 24,
+        "coverage": 0.7083333333333334,
+        "risk": 0.6470588235294118,
+        "false_reliable_count": 11,
+        "error_tolerance": 0.09531017980432493
+      },
+      {
+        "threshold": 0.25,
+        "accepted": 5,
+        "evaluated": 5,
+        "planned_denominator": 24,
+        "coverage": 0.20833333333333334,
+        "risk": 1.0,
+        "false_reliable_count": 5,
+        "error_tolerance": 0.09531017980432493
+      },
+      {
+        "threshold": 0.5,
+        "accepted": 5,
+        "evaluated": 5,
+        "planned_denominator": 24,
+        "coverage": 0.20833333333333334,
+        "risk": 1.0,
+        "false_reliable_count": 5,
+        "error_tolerance": 0.09531017980432493
+      },
+      {
+        "threshold": 0.75,
+        "accepted": 5,
+        "evaluated": 5,
+        "planned_denominator": 24,
+        "coverage": 0.20833333333333334,
+        "risk": 1.0,
+        "false_reliable_count": 5,
+        "error_tolerance": 0.09531017980432493
+      },
+      {
+        "threshold": 1.0,
+        "accepted": 5,
+        "evaluated": 5,
+        "planned_denominator": 24,
+        "coverage": 0.20833333333333334,
+        "risk": 1.0,
+        "false_reliable_count": 5,
+        "error_tolerance": 0.09531017980432493
+      }
+    ],
+    "error_tolerance": 0.09531017980432493
+  },
+  "truth_used_only_for_evaluation": true
+}

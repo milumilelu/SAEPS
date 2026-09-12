@@ -1,19 +1,19 @@
 # Identifiability Pilot Report (RI-2)
 
-**Status: COMPLETED AS DEVELOPMENT PILOT; CONFIRMATION STOPPED.** The 24 predeclared heat-equation PINN cases (B1–B4 × three data seeds × two optimizer seeds, noise σ=0.01) were executed once under the new namespace. All 24 produced computable `F_raw`, finite-γ `F_gamma`, and independent observation-FIM artifacts. No seed was retried or replaced.
+**Status: DEVELOPMENT PILOTS COMPLETED; CONFIRMATION NOT AUTHORIZED.** Two versioned 24-case pilots are retained. `ri2_full_v3` is the original single-stream pilot (20/24 fit-qualified; B1 2/6). `ri2_full_v5` is the corrected development version with an explicit separate noise RNG stream and B4 initial amplitude treated as a nuisance coordinate in the eliminated state block. No case was silently replaced.
 
-The machine-readable aggregate is `outputs/reliability_audit_v1/pilot/ri2_full_v3/PILOT_RESULTS.json`. Fit-qualified counts are:
+The corrected machine-readable aggregate is `outputs/reliability_audit_v1/pilot/ri2_full_v5/PILOT_RESULTS.json`. It contains 24/24 computable cases and 23/24 fit-qualified cases:
 
 | benchmark | planned | computable | fit-qualified | profile-eligible |
 |---|---:|---:|---:|---:|
-| B1 strong scalar | 6 | 6 | 2 | 0 |
+| B1 strong scalar | 6 | 6 | 5 | 0 |
 | B2 early-time weak | 6 | 6 | 6 | 0 |
 | B3 k/C confounding | 6 | 6 | 6 | 0 |
 | B4 state/amplitude compensation | 6 | 6 | 6 | 0 |
-| **total** | **24** | **24** | **20** | **0** |
+| **total** | **24** | **24** | **23** | **0** |
 
-The frozen development availability rule requires at least 5/6 fit-qualified cases for each benchmark. B1 reaches only 2/6, so the rule fails and no confirmation cohort or intervention study is authorized. This is an engineering/availability stop, not evidence that SAEPS succeeds or fails as a reliability diagnostic.
+The corrected pilot passes the predeclared 5/6 availability rule. Independent analytic profiles now cover all B1–B6 with 31 scan points: B1/B2/B5/B6 are informative, while B3 and B4 are flat under their known confounding structures. The independent finite-difference physical reference also passes its refinement gate (64-to-128 discrepancy approximately 1.58e-4, below the declared 0.01 noise scale).
 
-The pilot also shows why fit qualification and identifiability must remain separate. The B3 fits are numerically qualified while the median estimates collapse near the lower search bound (`k≈1.22e−4`, `C≈1.67e−4`), despite the analytic reference proving that temperature-only data identify only `k/C`. B2 retains structural rank one but has a much smaller analytic sensitivity singular value than B1. These observations are descriptive development evidence; they are not confirmation statistics or calibrated uncertainty results.
+A separate fixed six-point gamma-path and abstaining decision analysis is stored in `outputs/reliability_audit_v1/pilot/ri2_full_v5/reliability_analysis/RI2_RELIABILITY_ANALYSIS.json`. It uses no parameter-error tuning. The current fixed rule labels all fit-qualified B2–B4 cases weak/confounded and does not establish a reliable-declaration advantage over RAW; the risk/coverage curve is descriptive and has high false-reliable risk at its non-abstaining candidates. Therefore G2 is not met and confirmation remains stopped.
 
-Profiles were intentionally not implemented in this pilot (`PROFILE_ELIGIBLE=0/24`), so no nonlinear profile claim is made. The current decision is `PROTOCOL_STOP_PENDING_PROFILE_AND_B1_AVAILABILITY`: implement an independently validated profile engine and improve or replace the declared training representation in a new development version before any confirmation. Historical SAEPS outputs remain untouched.
+The pilot does not implement PINN-reoptimised nonlinear profiles, repeated-data intervals, bootstrap calibration, B5/B6 PINN intervention, or a matched RAW-versus-SAEPS risk study. No claim is made that finite-γ curvature is observation information, that SO is superior, or that individual B3 coefficients are separately identifiable. The next defensible development step is to validate a profile-capable checkpoint workflow and only then decide whether a new confirmation protocol is scientifically justified. Historical SAEPS outputs remain untouched.

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "protocol_id": "reliability_audit_v1",
+  "reference_kind": "independent_finite_difference_heat_solver",
+  "coordinates": {
+    "x": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.4,
+      0.4,
+      0.4,
+      0.4,
+      0.7,
+      0.7,
+      0.7,
+      0.7
+    ],
+    "t": [
+      0.02,
+      0.08,
+      0.2,
+      0.4,
+      0.02,
+      0.08,
+      0.2,
+      0.4,
+      0.02,
+      0.08,
+      0.2,
+      0.4
+    ]
+  },
+  "truth_used_only_for_convergence_check": {
+    "k": 0.6,
+    "C": 1.2,
+    "a": 1.0
+  },
+  "declared_noise_scale": 0.01,
+  "refinement_rows": [
+    {
+      "interior_count": 32,
+      "spacing": 0.030303030303030304,
+      "max_abs_error_to_closed_form": 0.0005642011831867855,
+      "max_abs_value": 0.8611101746559343
+    },
+    {
+      "interior_count": 64,
+      "spacing": 0.015384615384615385,
+      "max_abs_error_to_closed_form": 0.00019994337836026777,
+      "max_abs_value": 0.8616909299196999
+    },
+    {
+      "interior_count": 128,
+      "spacing": 0.007751937984496124,
+      "max_abs_error_to_closed_form": 5.7089969212498204e-05,
+      "max_abs_value": 0.8616172858699086
+    }
+  ],
+  "final_two_level_difference": 0.00015798093922381184,
+  "refinement_gate_pass": true,
+  "solver": "symmetric finite-difference Dirichlet Laplacian with eigen decomposition",
+  "no_pinn_objective_used": true
+}

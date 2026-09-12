@@ -47,6 +47,8 @@ Before PINN training, verify analytic Jacobian rank, singular values, null direc
 4. **Repeated data (R4):** independently generate observations and re-estimate parameters. The data realisation, not network initialisation, is the primary statistical unit.
 5. **Bootstrap (R5, optional pilot; required for interval claims):** resample observations and refit. Initialisation ensembles are not bootstrap replicates.
 
+The development reference artifacts currently available are `outputs/reliability_audit_v1/pilot/ri1/PHYSICAL_REFERENCE_REPORT.json` (R2 refinement), `outputs/reliability_audit_v1/pilot/ri1/profiles/PROFILE_INDEX.json` plus `PROFILE_CURVES.csv`/`PROFILE_CURVES.svg` (R3 analytic profiles), and `outputs/reliability_audit_v1/pilot/ri1/OBSERVATION_INTERVENTION_REFERENCE.json` (physical-model B3→B6 intervention). These do not substitute for PINN-reoptimised profiles or confirmation.
+
 ## Development and confirmation split
 
 Development is for implementation, tolerances, gamma scale, thresholds and failure codes only. Freeze code/configuration hashes, designs, seeds, budgets, gates and exclusion rules before confirmation.
