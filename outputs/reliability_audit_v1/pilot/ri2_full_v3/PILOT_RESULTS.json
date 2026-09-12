@@ -1,0 +1,52 @@
+{
+  "protocol_id": "reliability_audit_v1",
+  "phase": "RI-2",
+  "planned": 24,
+  "computed": 24,
+  "fit_qualified": 20,
+  "profile_eligible": 0,
+  "by_benchmark": {
+    "B1": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 2,
+      "profile_eligible": 0,
+      "median_estimates": {
+        "k": 0.5275400795999314
+      }
+    },
+    "B2": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 6,
+      "profile_eligible": 0,
+      "median_estimates": {
+        "k": 0.002241449650700765
+      }
+    },
+    "B3": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 6,
+      "profile_eligible": 0,
+      "median_estimates": {
+        "k": 0.00012197883067961756,
+        "C": 0.00016728366898873228
+      }
+    },
+    "B4": {
+      "planned": 6,
+      "computable": 6,
+      "fit_qualified": 6,
+      "profile_eligible": 0,
+      "median_estimates": {
+        "k": 0.006215843546287814,
+        "a": 0.37105695295490215
+      }
+    }
+  },
+  "gate_rule": "at least 5/6 fit-qualified per benchmark",
+  "gate_pass": false,
+  "source": "pilot_index.json",
+  "scope": "development only"
+}\n

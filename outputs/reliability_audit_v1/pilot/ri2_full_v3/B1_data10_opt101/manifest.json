@@ -1,0 +1,95 @@
+{
+  "F_gamma_rank": 1,
+  "F_gamma_shape": [
+    1,
+    1
+  ],
+  "F_raw_rank": 1,
+  "F_raw_shape": [
+    1,
+    1
+  ],
+  "I_obs_shape": [
+    1,
+    1
+  ],
+  "benchmark": "B1",
+  "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v3\\B1_data10_opt101\\checkpoint.pt",
+  "checkpoint_sha256": "746fe68c4198548bbef3c151d4f704f07419b74a0c688542806be716336e294f",
+  "config_sha256": "eb540e3a5eb3dd214e1bda4b30f7df4e9ba678d77dbac276414d9aee23c52aa3",
+  "data_seed": 10,
+  "dtype": "float64",
+  "elapsed_training_seconds": 0.8037339999864344,
+  "execution_status": "PASS",
+  "failure_reason": "FIT_QUALIFIED_GATE_FAILED",
+  "fit_qualified": false,
+  "fit_status": "FAIL",
+  "gamma": 0.35987952708534715,
+  "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+  "git_commit": "a477477ce5f73662afe42a71e43c5fca74efdb83",
+  "gradient_norm": 0.0823221315882457,
+  "hardware": "Windows-11-10.0.26100-SP0",
+  "hvp_count": 0,
+  "jacobian_parameter_shape": [
+    92,
+    1
+  ],
+  "jacobian_state_shape": [
+    92,
+    337
+  ],
+  "jvp_count": 0,
+  "noise_sigma": 0.01,
+  "nuisance_parameters": [
+    "a"
+  ],
+  "numerical_status": "PASS",
+  "observation_covariance": {
+    "kind": "homoscedastic",
+    "sigma": 0.01
+  },
+  "observation_type": "temperature",
+  "optimizer_seed": 101,
+  "parameter_estimates": {
+    "k": 0.5641379734003764
+  },
+  "physical_truth": {
+    "C": 1.2,
+    "a": 1.0,
+    "k": 0.6
+  },
+  "profile_eligible": false,
+  "profile_implemented": false,
+  "profile_status": "NOT_ELIGIBLE",
+  "protocol_id": "reliability_audit_v1",
+  "rank_tolerance": 1e-10,
+  "raw_paths": {
+    "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v3\\B1_data10_opt101\\F_gamma.npy",
+    "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v3\\B1_data10_opt101\\F_raw.npy",
+    "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v3\\B1_data10_opt101\\I_obs.npy"
+  },
+  "residual_weights": {
+    "bc": 2.0,
+    "data": 10.0,
+    "ic": 10.0,
+    "pde": 1.0
+  },
+  "run_id": "ri2-B1-d10-o101",
+  "schema_version": 1,
+  "source_sha256": "e6ca2b3ad0785e45314846180bbc0e59f3d439f32b44efc79cba351dc93faf23",
+  "status_labels": {
+    "COMPUTABLE": "COMPUTABLE",
+    "FIT_QUALIFIED": "NOT_FIT_QUALIFIED",
+    "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+  },
+  "statuses": {
+    "COMPUTABLE": "PASS",
+    "FIT_QUALIFIED": "FAIL",
+    "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+  },
+  "train_loss": 0.00233780334178474,
+  "unknown_parameters": [
+    "k"
+  ],
+  "vjp_count": 0
+}
