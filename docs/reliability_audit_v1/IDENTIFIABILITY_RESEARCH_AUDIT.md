@@ -100,6 +100,23 @@ The review package searched through 2026-09-12 and distinguishes formal publicat
 | A5 uncertainty calibration | Flores et al.; E-PINNs; profile likelihood | Predictive bundles and empirical UQ versus physical-parameter coverage | No repeated-data intervals or bootstrap calibration in this project. |
 | A6 observation design | PINNACLE point selection; analytic B3→B6 reference | Sensor/point selection distinction and flux intervention mechanism | No PINN retraining with new measurements; intervention evidence is physical-reference only. |
 
+Additional foundational and neighboring references
+
+| Method/literature | Mathematical object and target | State adaptation / combinations | Uncertainty or design | Main limitation and relation to SAEPS |
+|---|---|---|---|---|
+| Bellman & Åström (1970) | Structural identifiability from input-output maps | Structural uniqueness, not neural-state elimination | No finite-noise interval by itself | Establishes why local curvature cannot be called structural identifiability. [DOI](https://doi.org/10.1016/0025-5564(70)90132-x) |
+| Walter & Pronzato (1997) | Identifiability and parameter estimation theory | Sensitivity and experiment structure | Design criteria | Classical foundation; SAEPS must state its observation assumptions. [Book record](https://books.google.com/books/about/Identification_of_Parametric_Models_from.html?id=SS_LcQAACAAJ) |
+| Gutenkunst et al. (2007) | Sloppy sensitivity spectra and practical parameter directions | Coupled combinations visible in FIM eigenspaces | Experimental design implications | Supports subspace reporting; sloppy spectra are not uncertainty calibration. [PLOS](https://doi.org/10.1371/journal.pcbi.0030189) |
+| Fröhlich et al. (2014) | Profile likelihood for nonlinear parameter identifiability | Explicit nuisance re-optimisation | Profile-based intervals | Direct R3 precedent; expensive and boundary-sensitive. [PLOS](https://doi.org/10.1371/journal.pcbi.1004015) |
+| Raissi et al. (2019) | PINN residual optimisation for forward/inverse PDEs | Joint state/parameter training | No inherent calibration | Foundational PINN objective; does not make residual curvature a data FIM. [JCP](https://doi.org/10.1016/j.jcp.2018.10.045) |
+| Karniadakis et al. (2021) | Scientific ML/PINN taxonomy and failure considerations | Representation and physics constraints | Broad UQ/design context | Places inverse PINNs in a wider scientific-ML setting; not a parameter reliability test. [Nature Reviews Physics](https://doi.org/10.1038/s42254-021-00314-5) |
+| Yang et al. (2021), B-PINNs | Bayesian posterior over PINN states and coefficients | Joint posterior can expose coupling | Bayesian intervals and posterior checks | Requires likelihood/prior and sampling assumptions absent from current SAEPS. [JCP](https://doi.org/10.1016/j.jcp.2020.109913) |
+| Krishnapriyan et al. (2021) | Empirical PINN failure modes and curriculum effects | Training path/representation dependence | Reliability of optimisation | Motivates separate centre-validity gates. [NeurIPS](https://proceedings.neurips.cc/paper_files/paper/2021/hash/df438e5206f31600e6ae4af72f2725f-Abstract.html) |
+| Wang et al. (2021), PINN NTK analysis | Neural tangent kernel and training conditioning | Parameterisation affects optimisation geometry | Training dynamics, not physical intervals | Useful for representation audits; not an identifiability reference. [arXiv](https://arxiv.org/abs/2007.14527) |
+| Efron & Tibshirani (1993) | Nonparametric bootstrap sampling distribution | Resamples observations, not nuisance states | Empirical interval calibration | Supplies R5 language; bootstrap does not repair structural confounding. [Book](https://doi.org/10.1007/978-1-4899-4541-9) |
+| Pukelsheim (1993) | Optimal design and information criteria | Designs target parameter subspaces | A-/D-/E-optimality | Supports B3→B6 observation-design reasoning; design gain needs re-estimation evidence. [Book](https://doi.org/10.1137/1.9780898719109.fm) |
+| Angelopoulos & Bates (2023) | Conformal predictive sets with finite-sample coverage | Predictive outputs, not nuisance elimination | Marginal/conditional coverage | Coverage of predicted fields is distinct from physical-parameter identifiability. [Foundations and Trends](https://arxiv.org/abs/2107.07511) |
+
 The defensible gap is therefore narrow: a reliability-aware bridge that audits neural-state interference, finite damping and representation dependence against independent physical FIM/profile truth, returns combinations or abstention, and tests whether the diagnosis improves an observation design. “PINN + FIM” or “Schur complement” alone is not novel enough.
 
 ## Revised hypotheses
