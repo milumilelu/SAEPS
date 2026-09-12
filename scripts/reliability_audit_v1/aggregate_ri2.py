@@ -80,7 +80,7 @@ def aggregate_ri2(run_plan_path: Path, records_dir: Path | None = None) -> dict[
             # The runner's pilot_index duplicates these per-run manifests.
             candidates = [path for path in candidates if path.name != "pilot_index.json"]
         for path in sorted(set(candidates)):
-            if path.name in {"summary.json", "run_plan.json"}:
+            if path.name in {"summary.json", "run_plan.json", "PILOT_RESULTS.json"}:
                 continue
             for row in _read_records_file(path):
                 run_id = row.get("run_id")
