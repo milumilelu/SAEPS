@@ -1,0 +1,166 @@
+{
+  "audit_date": "2026-09-12",
+  "repository_commit_under_review": "71fd3b025824f59146851f2ebfb5068e8cc9addb",
+  "execution_scope": "Independent NumPy algebra and analytic PDE checks; no repository tests or PINN training rerun.",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  },
+  "number_of_checks": 7,
+  "all_passed": true,
+  "checks": {
+    "flat_profile_positive_damped_curvature": {
+      "passed": true,
+      "rows": [
+        {
+          "gamma": 1e-06,
+          "finite_damping_curvature": 9.99998999939855e-07,
+          "exact_anchored_curvature": 9.99999000001e-07,
+          "unanchored_profile_curvature": 0.0
+        },
+        {
+          "gamma": 0.01,
+          "finite_damping_curvature": 0.00990099009900991,
+          "exact_anchored_curvature": 0.009900990099009901,
+          "unanchored_profile_curvature": 0.0
+        },
+        {
+          "gamma": 1.0,
+          "finite_damping_curvature": 0.5,
+          "exact_anchored_curvature": 0.5,
+          "unanchored_profile_curvature": 0.0
+        },
+        {
+          "gamma": 100.0,
+          "finite_damping_curvature": 0.9900990099009901,
+          "exact_anchored_curvature": 0.9900990099009901,
+          "unanchored_profile_curvature": 0.0
+        }
+      ]
+    },
+    "state_coordinate_dependence": {
+      "passed": true,
+      "rows": [
+        {
+          "coordinate_scale_c": 0.1,
+          "fixed_gamma_F": 0.5,
+          "covariant_metric_F": 0.00990099009900991
+        },
+        {
+          "coordinate_scale_c": 1.0,
+          "fixed_gamma_F": 0.00990099009900991,
+          "covariant_metric_F": 0.00990099009900991
+        },
+        {
+          "coordinate_scale_c": 10.0,
+          "fixed_gamma_F": 9.999000099991662e-05,
+          "covariant_metric_F": 0.00990099009900991
+        }
+      ]
+    },
+    "diagonal_retention_does_not_imply_joint_identifiability": {
+      "passed": true,
+      "F": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "eta": [
+        1.0,
+        1.0
+      ],
+      "rank": 1,
+      "null_direction": [
+        1.0,
+        -1.0
+      ]
+    },
+    "finite_damping_kernel_identity": {
+      "passed": true,
+      "undamped_F_frobenius_norm": 9.612518671696825e-16,
+      "rows": [
+        {
+          "gamma": 0.01,
+          "rank_B": 2,
+          "rank_F_gamma": 2,
+          "eigenvalues_F_gamma": [
+            0.0014028079413484001,
+            0.04907629454810868
+          ]
+        },
+        {
+          "gamma": 1.0,
+          "rank_B": 2,
+          "rank_F_gamma": 2,
+          "eigenvalues_F_gamma": [
+            0.11075901294184298,
+            3.066933985782738
+          ]
+        },
+        {
+          "gamma": 10.0,
+          "rank_B": 2,
+          "rank_F_gamma": 2,
+          "eigenvalues_F_gamma": [
+            0.38697512111486887,
+            7.6155161471381145
+          ]
+        }
+      ]
+    },
+    "normalized_collocation_duplication": {
+      "passed": true,
+      "F_difference_norm": 4.824043605111779e-15
+    },
+    "heat_temperature_scale_symmetry_and_flux_intervention": {
+      "passed": true,
+      "k": 0.6,
+      "C": 1.2,
+      "alpha": 0.5,
+      "temperature_max_difference_under_common_scaling": 0.0,
+      "temperature_sensitivity_rank": 1,
+      "temperature_plus_flux_sensitivity_rank": 2,
+      "temperature_singular_values": [
+        84.41797717704317,
+        5.756054031998179e-15
+      ],
+      "temperature_plus_flux_singular_values": [
+        88.02578649149694,
+        27.046453282001032
+      ],
+      "temperature_log_parameter_null_direction": [
+        0.7071067811865475,
+        0.7071067811865475
+      ],
+      "temperature_sigma": 0.01,
+      "flux_sigma": 0.05,
+      "scope": "Analytic observation-map check, not trained PINN results; known temperature BC/IC, no source.",
+      "unknown_initial_amplitude_subcase": {
+        "single_snapshot_joint_sensitivity_rank": 1,
+        "two_snapshot_joint_sensitivity_rank": 2,
+        "alternative_k": 1.2,
+        "compensating_initial_amplitude": 2.6830667234590573,
+        "interpretation": "C known; initial amplitude is a profiled nuisance. One temperature snapshot cannot identify k; two distinct nondegenerate times can."
+      }
+    },
+    "local_information_does_not_rule_out_global_aliases": {
+      "passed": true,
+      "parameter_domain": "real numbers",
+      "forward_map": "p**2",
+      "parameter_pair": [
+        2.0,
+        -2.0
+      ],
+      "same_output": 4.0,
+      "local_GN_curvatures": [
+        16.0,
+        16.0
+      ]
+    }
+  }
+}

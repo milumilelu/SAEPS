@@ -1,0 +1,36 @@
+{
+  "claims": [
+    {
+      "status": "SUPPORTED",
+      "limitation": "Independent algebra/reference only; no PINN result.",
+      "id": "analytic_counterexamples",
+      "evidence": "outputs/reliability_audit_v1/pilot/ri0/ANALYTIC_TEST_REPORT.json"
+    },
+    {
+      "status": "SUPPORTED",
+      "limitation": "Analytic closed-form observation map under declared BC/IC.",
+      "id": "heat_identifiability_ranks",
+      "evidence": "outputs/reliability_audit_v1/pilot/ri1/REFERENCE_RANK_REPORT.json"
+    },
+    {
+      "status": "NOT_TESTED",
+      "limitation": "RI-2 PINN pilot not executed.",
+      "id": "saeps_reliability_improvement",
+      "evidence": "experiments/reliability_audit_v1/run_plan.json"
+    },
+    {
+      "status": "NOT_TESTED",
+      "limitation": "No repeated-data PINN estimates.",
+      "id": "uncertainty_calibration",
+      "evidence": "experiments/reliability_audit_v1/run_plan.json"
+    },
+    {
+      "status": "NOT_TESTED",
+      "limitation": "Requires RI-4 support first.",
+      "id": "observation_design_benefit",
+      "evidence": "experiments/reliability_audit_v1/run_plan.json"
+    }
+  ],
+  "protocol_id": "reliability_audit_v1",
+  "historical_scope": "V5/Phase2 evidence remains immutable and separately audited."
+}

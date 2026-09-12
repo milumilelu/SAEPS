@@ -1,0 +1,91 @@
+{
+  "protocol_id": "reliability_audit_v1",
+  "reference_kind": "analytic_heat_observation_map",
+  "truth": {
+    "k": 0.6,
+    "C": 1.2,
+    "a": 1.0
+  },
+  "rows": [
+    {
+      "benchmark": "B1",
+      "rank": 1,
+      "shape": [
+        12,
+        1
+      ],
+      "singular_values": [
+        1.2370371739018144
+      ]
+    },
+    {
+      "benchmark": "B2",
+      "rank": 1,
+      "shape": [
+        12,
+        1
+      ],
+      "singular_values": [
+        0.002268953714539176
+      ]
+    },
+    {
+      "benchmark": "B3",
+      "rank": 1,
+      "shape": [
+        12,
+        2
+      ],
+      "singular_values": [
+        1.3830496057693429,
+        2.1026105602153143e-16
+      ]
+    },
+    {
+      "benchmark": "B4",
+      "rank": 1,
+      "shape": [
+        4,
+        2
+      ],
+      "singular_values": [
+        1.0762204701838594,
+        6.786591370675708e-17
+      ]
+    },
+    {
+      "benchmark": "B5",
+      "rank": 2,
+      "shape": [
+        8,
+        2
+      ],
+      "singular_values": [
+        1.2842560957875675,
+        0.14920554327758315
+      ]
+    },
+    {
+      "benchmark": "B6",
+      "rank": 2,
+      "shape": [
+        24,
+        2
+      ],
+      "singular_values": [
+        3.2766519706141333,
+        1.0790586621311709
+      ]
+    }
+  ],
+  "expected_rank": {
+    "B1": 1,
+    "B2": 1,
+    "B3": 1,
+    "B4": 1,
+    "B5": 2,
+    "B6": 2
+  },
+  "noise_reproducible": true,
+  "scope": "Independent analytic/torch reference; no PINN training or confirmation claim."
+}
