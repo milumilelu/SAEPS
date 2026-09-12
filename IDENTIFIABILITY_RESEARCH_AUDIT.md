@@ -15,7 +15,7 @@ The review package records the following immutable context:
 | Historical scalar evidence | V5 Burgers: 12/15 valid and 12/12 paired comparisons favorable; Allen–Cahn: 9/10 valid and 9/9 favorable. These support a bounded comparison to the declared finite-damping reference. |
 | Historical limitations | V5 nonlinear profile bridge: 1/5 `PROFILE_VALID`; two-parameter confirmation: 8/10 valid, below its planned availability requirement; SO independent Phase-2 roots: 0/30 valid. These are retained negative/limited evidence, not discarded samples. |
 | Independent checks in package | Seven checks passed, including finite-damping positive curvature for a flat unanchored profile, state-coordinate dependence, rank-one physical confounding (k/C), state-amplitude compensation, normalized collocation duplication, and a global (p^2) alias. They are analytic checks, not PINN results. |
-| Proposed work | `experiments/reliability_audit_v1/`, `src/saeps/reliability_audit/`, and new outputs are planned by the supplied task specification and are not present as completed experiments. |
+| New reliability namespace | RI-0/RI-1 references and the RI-2 development pilot are present under `experiments/reliability_audit_v1/`, `src/saeps/reliability_audit_v1/` and `outputs/reliability_audit_v1/`; confirmation remains unauthorized after the B1 availability gate failed. |
 
 The old `outputs/runs/`, `outputs/posthoc/`, `docs/evidence/`, `paper_artifacts/`, locked configurations, and revision-week records remain historical evidence. Any later implementation must preserve their hashes and denominators.
 
