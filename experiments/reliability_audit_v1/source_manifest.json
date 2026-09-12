@@ -1,7 +1,7 @@
 {
   "protocol_id": "reliability_audit_v1",
   "audit_date": "2026-09-12",
-  "git_head": "f04b7e83885782aaacd068a946aea44ec42a14a3",
+  "git_head": "03e283323d9e4daade0a5b8d611f7ed48d96f274",
   "files": [
     {
       "path": "src/saeps/core.py",
@@ -9,15 +9,75 @@
     },
     {
       "path": "src/saeps/identifiability/__init__.py",
-      "sha256": "BBC2933417267DDA1A719A60A397EC1BBAFCFEE6DB0D0C73554F705634871267"
+      "sha256": "6B53F33328DC80C7434A5FA30365E4D3F6249A5DEF27C5DC78BD70F2275F7291"
+    },
+    {
+      "path": "src/saeps/reliability_audit_v1/__init__.py",
+      "sha256": "ED4D6151FA19E049853DD501BD234FFC48B532D9A3F94947248DC3894A0D7F0C"
+    },
+    {
+      "path": "src/saeps/reliability_audit_v1/heat_pinn.py",
+      "sha256": "7657475827A69AE92581B225C886C09A9AEB7E1307FC8E22E9EBC8983994F26D"
     },
     {
       "path": "configs/identifiability/counterexamples.yaml",
-      "sha256": "6B932E0DE04EFAC02CA0B4DDBB37740A0F67396CB20493DFCC978E7F56B75D21"
+      "sha256": "689B615C9C8C5E34D13C4061AA8A52A535F624012C888002A29BBD668419FF6C"
+    },
+    {
+      "path": "scripts/reliability_audit_v1/run_heat_pinn_pilot.py",
+      "sha256": "E166B355357661620974C069608AA88CE68BC6882AAB39413C1E512CEED5A813"
+    },
+    {
+      "path": "scripts/reliability_audit_v1/aggregate_ri2.py",
+      "sha256": "7E086039EFB7AC2AE42E54FDDD27FD48DF67A926A94EDFA3F7786C70A101EFB0"
+    },
+    {
+      "path": "scripts/reliability_audit_v1/build_ri1_reference.py",
+      "sha256": "E626B90EAFED2ECA8AED7D61BFD4E51E617DCFAE2643B5DF89595C466CA79A22"
     },
     {
       "path": "outputs/reliability_audit_v1/pilot/ri0/ANALYTIC_TEST_REPORT.json",
       "sha256": "3B8730E2693D6252F0118782B818F761E853EDAFA9161A1D80546A7D10CEA98D"
+    },
+    {
+      "path": "outputs/reliability_audit_v1/pilot/ri1/REFERENCE_RANK_REPORT.json",
+      "sha256": "3CE7652C1BCC5344CC3C5F60FB5D09A8BD57FCEFD7FB31C4FD5255842ED051DD"
+    },
+    {
+      "path": "outputs/reliability_audit_v1/pilot/ri2_full_v3/PILOT_RESULTS.json",
+      "sha256": "C0EBE66D5C5CC71BC997AA7864EAC1DFFA1EA842395BF1C796082D566F17D794"
+    },
+    {
+      "path": "outputs/reliability_audit_v1/pilot/ri2_full_v3/summary.json",
+      "sha256": "C366BFDF899E3A70A6A810B8FF2A5CD467DCC387C5FB956D4126DF126156E16B"
+    },
+    {
+      "path": "experiments/reliability_audit_v1/benchmark_registry.json",
+      "sha256": "4D507F32990C4F311A3025618EED206F8BF4E1A1E7ECE1EE67AEA5BD8374BF47"
+    },
+    {
+      "path": "experiments/reliability_audit_v1/run_plan.json",
+      "sha256": "86C506E836AB7CB7F12192FD10CE7775D10A9870B0B84292E858D2EB9A98154B"
+    },
+    {
+      "path": "experiments/reliability_audit_v1/protocol_source.md",
+      "sha256": "8404BE75996163A667579D92A7BA13CE108A2FDF1847DA824A51D8B309852E3B"
+    },
+    {
+      "path": "docs/reliability_audit_v1/IDENTIFIABILITY_RESEARCH_AUDIT.md",
+      "sha256": "8118E70048EE465B7F09476A9DB690C6FFAA6C624260CB82742C46D764B0A070"
+    },
+    {
+      "path": "docs/reliability_audit_v1/IDENTIFIABILITY_EXPERIMENT_PROTOCOL.md",
+      "sha256": "D79DFBBF4814394AFA72948C4672DE475ACFDDCAFEBEA6BF920B6F9F093FBF5E"
+    },
+    {
+      "path": "docs/reliability_audit_v1/IDENTIFIABILITY_PILOT_REPORT.md",
+      "sha256": "D5608C01E8988A54AB68E79B66C3DD8AB8911409BF035FE79F7BF355126B1CA9"
+    },
+    {
+      "path": "docs/reliability_audit_v1/CLAIM_LEDGER.json",
+      "sha256": "6095DD9235A85C0DBB8631D047AD5B16039EE55FAC1CA3EBC40F0D81B46000DC"
     },
     {
       "path": "tmp/reliability_package/SAEPS_研究价值评估与文献报告.md",
@@ -28,5 +88,5 @@
       "sha256": "8404BE75996163A667579D92A7BA13CE108A2FDF1847DA824A51D8B309852E3B"
     }
   ],
-  "note": "Historical outputs are read-only; RI-2 PINN pilot not yet executed."
+  "note": "RI-0/RI-1 references and the single-pass RI-2 development pilot are recorded; confirmation was not authorized after the B1 availability gate failed. Historical outputs remain read-only."
 }
