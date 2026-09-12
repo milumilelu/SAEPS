@@ -33,6 +33,15 @@ def _read_json(path: Path) -> dict[str, Any]:
     return value
 
 
+def _read_records_file(path: Path) -> list[dict[str, Any]]:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(value, dict):
+        return [value]
+    if isinstance(value, list) and all(isinstance(item, dict) for item in value):
+        return list(value)
+    raise ValueError(f"records file must contain an object or object list: {path}")
+
+
 def aggregate_ri2(run_plan_path: Path, records_dir: Path | None = None) -> dict[str, Any]:
     """Return denominator-preserving RI-2 status counts.
 
@@ -64,17 +73,17 @@ def aggregate_ri2(run_plan_path: Path, records_dir: Path | None = None) -> dict[
     orphan_records: list[dict[str, Any]] = []
     if records_dir is not None and records_dir.is_dir():
         for path in sorted(records_dir.glob("*.json")):
-            row = _read_json(path)
-            run_id = row.get("run_id")
-            if not run_id:
-                raise ValueError(f"record lacks run_id: {path}")
-            run_id = str(run_id)
-            if run_id in observed:
-                raise ValueError(f"duplicate observed run_id: {run_id}")
-            if run_id not in planned_by_id:
-                unknown.append(run_id)
-                orphan_records.append(row)
-            observed[run_id] = row
+            for row in _read_records_file(path):
+                run_id = row.get("run_id")
+                if not run_id:
+                    raise ValueError(f"record lacks run_id: {path}")
+                run_id = str(run_id)
+                if run_id in observed:
+                    raise ValueError(f"duplicate observed run_id: {run_id}")
+                if run_id not in planned_by_id:
+                    unknown.append(run_id)
+                    orphan_records.append(row)
+                observed[run_id] = row
 
     rows: list[dict[str, Any]] = []
     status_counts: Counter[str] = Counter()

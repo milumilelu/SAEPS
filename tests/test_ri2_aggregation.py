@@ -48,3 +48,15 @@ def test_ri2_aggregation_preserves_missing_and_failed_runs(tmp_path: Path) -> No
     assert summary["records"][1]["failure_reason"] == "diverged"
     assert summary["unknown_observed_run_ids"] == ["unexpected"]
     assert summary["orphan_records"][0]["status"] == "NUMERICAL_FAILURE"
+
+
+def test_ri2_aggregation_accepts_a_records_json_list(tmp_path: Path) -> None:
+    plan_path = tmp_path / "run_plan.json"
+    plan_path.write_text(
+        json.dumps({"planned_runs": 1, "records": [{"run_id": "r0", "benchmark": "B1"}]}),
+        encoding="utf-8",
+    )
+    records = tmp_path / "records"
+    records.mkdir()
+    (records / "records.json").write_text(json.dumps([{"run_id": "r0", "status": "PASS"}]), encoding="utf-8")
+    assert aggregate_ri2(plan_path, records)["status_counts"] == {"PASS": 1}
