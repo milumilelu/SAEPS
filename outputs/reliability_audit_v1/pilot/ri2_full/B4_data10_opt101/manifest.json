@@ -1,0 +1,64 @@
+{
+  "F_gamma_shape": [
+    2,
+    2
+  ],
+  "F_raw_shape": [
+    2,
+    2
+  ],
+  "I_obs_shape": [
+    2,
+    2
+  ],
+  "benchmark": "B4",
+  "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full\\B4_data10_opt101\\checkpoint.pt",
+  "checkpoint_sha256": "e2dc9ac6cee28623bce2e8be528e65c7482ea21ed0842ce70330b29f95530a5a",
+  "config_sha256": "525f40b0da8e702f015584e6fae7f2b6db50f786286923700269db63c26d0b81",
+  "data_seed": 10,
+  "dtype": "float64",
+  "elapsed_training_seconds": 0.7074295000056736,
+  "execution_status": "PASS",
+  "failure_reason": null,
+  "fit_status": "PASS",
+  "gamma": 0.002861551504737087,
+  "git_commit": "7cfaabe79e51d45ff6d4f57bd1301fc00fc2ab1e",
+  "gradient_norm": 4.335462945593518e-06,
+  "hardware": "Windows-11-10.0.26100-SP0",
+  "hvp_count": 0,
+  "jacobian_parameter_shape": [
+    83,
+    2
+  ],
+  "jacobian_state_shape": [
+    83,
+    337
+  ],
+  "jvp_count": 0,
+  "noise_sigma": 0.01,
+  "optimizer_seed": 101,
+  "parameter_estimates": {
+    "a": 0.3690055338989257,
+    "k": 0.007249082985689983
+  },
+  "profile_implemented": false,
+  "profile_status": "NOT_ELIGIBLE",
+  "protocol_id": "reliability_audit_v1",
+  "schema_version": 1,
+  "status_labels": {
+    "COMPUTABLE": "COMPUTABLE",
+    "FIT_QUALIFIED": "FIT_QUALIFIED",
+    "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+  },
+  "statuses": {
+    "COMPUTABLE": "PASS",
+    "FIT_QUALIFIED": "PASS",
+    "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+  },
+  "train_loss": 1.251570975695276e-06,
+  "unknown_parameters": [
+    "k",
+    "a"
+  ],
+  "vjp_count": 0
+}

@@ -1,0 +1,91 @@
+{
+  "F_gamma_rank": 2,
+  "F_gamma_shape": [
+    2,
+    2
+  ],
+  "F_raw_rank": 2,
+  "F_raw_shape": [
+    2,
+    2
+  ],
+  "I_obs_shape": [
+    2,
+    2
+  ],
+  "benchmark": "B4",
+  "checkpoint_path": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v2\\B4_data10_opt100\\checkpoint.pt",
+  "checkpoint_sha256": "19996f9db2e55c8dd2b0371cf80fda758c175db3a35f7c873cef213777435550",
+  "config_sha256": "5de037916114ebaf3cbfa5ec8bf1736ec36bb4bb4697d3d34b1a4de6d3f8a97d",
+  "data_seed": 10,
+  "dtype": "float64",
+  "elapsed_training_seconds": 0.730766400025459,
+  "execution_status": "PASS",
+  "failure_reason": null,
+  "fit_status": "PASS",
+  "gamma": 0.002690958805992052,
+  "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
+  "git_commit": "eccddeebe195cd8d71ff8d841c49528934ceec40",
+  "gradient_norm": 9.154156625865366e-06,
+  "hardware": "Windows-11-10.0.26100-SP0",
+  "hvp_count": 0,
+  "jacobian_parameter_shape": [
+    83,
+    2
+  ],
+  "jacobian_state_shape": [
+    83,
+    337
+  ],
+  "jvp_count": 0,
+  "noise_sigma": 0.01,
+  "nuisance_parameters": [],
+  "observation_covariance": {
+    "kind": "homoscedastic",
+    "sigma": 0.01
+  },
+  "observation_type": "temperature",
+  "optimizer_seed": 100,
+  "parameter_estimates": {
+    "a": 0.367438555759568,
+    "k": 0.004563570704597238
+  },
+  "physical_truth": {
+    "C": 1.2,
+    "a": 1.0,
+    "k": 0.6
+  },
+  "profile_implemented": false,
+  "profile_status": "NOT_ELIGIBLE",
+  "protocol_id": "reliability_audit_v1",
+  "rank_tolerance": 1e-10,
+  "raw_paths": {
+    "F_gamma": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v2\\B4_data10_opt100\\F_gamma.npy",
+    "F_raw": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v2\\B4_data10_opt100\\F_raw.npy",
+    "I_obs": "outputs\\reliability_audit_v1\\pilot\\ri2_full_v2\\B4_data10_opt100\\I_obs.npy"
+  },
+  "residual_weights": {
+    "bc": 2.0,
+    "data": 10.0,
+    "ic": 10.0,
+    "pde": 1.0
+  },
+  "run_id": "ri2-B4-d10-o100",
+  "schema_version": 1,
+  "status_labels": {
+    "COMPUTABLE": "COMPUTABLE",
+    "FIT_QUALIFIED": "FIT_QUALIFIED",
+    "PROFILE_ELIGIBLE": "NOT_PROFILE_ELIGIBLE"
+  },
+  "statuses": {
+    "COMPUTABLE": "PASS",
+    "FIT_QUALIFIED": "PASS",
+    "PROFILE_ELIGIBLE": "NOT_ELIGIBLE"
+  },
+  "train_loss": 1.400345067925414e-06,
+  "unknown_parameters": [
+    "k",
+    "a"
+  ],
+  "vjp_count": 0
+}
