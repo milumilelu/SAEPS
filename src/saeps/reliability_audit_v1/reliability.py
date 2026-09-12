@@ -105,13 +105,19 @@ def gamma_path_from_jacobians(
     else:
         u_active = np.zeros((jw.shape[0], 0), dtype=np.float64)
         s2 = np.zeros((0,), dtype=np.float64)
-    jp_proj = jp.copy()
+    # Form the zero-damping residual-space projection explicitly.  Computing
+    # ``Jp.T@Jp - (U.T@Jp).T@(U.T@Jp)`` can lose all meaningful digits when the
+    # state tangent spans the parameter columns (the common case in this
+    # audit).  The projected columns are the definition of F0 and make a
+    # near-zero result an auditable numerical observation rather than a
+    # subtraction artefact.
     if state_rank:
-        jp_proj = u_active.T @ jp
-    f0 = jp.T @ jp
-    if state_rank:
-        f0 = f0 - jp_proj.T @ jp_proj
-    f0 = _sym(f0)
+        jp_coordinates = u_active.T @ jp
+        jp_proj = jp - u_active @ (u_active.T @ jp)
+    else:
+        jp_coordinates = np.zeros((0, jp.shape[1]), dtype=np.float64)
+        jp_proj = jp.copy()
+    f0 = _sym(jp_proj.T @ jp_proj)
     f0_values, f0_vectors = _eigh(f0)
     f0_scale = max(float(np.max(np.abs(f0_values), initial=0.0)), np.finfo(np.float64).eps)
     f0_rank = int(np.count_nonzero(f0_values > _rank_cutoff(f0_scale, relative_tolerance)))
@@ -120,6 +126,8 @@ def gamma_path_from_jacobians(
     fraw_scale = max(float(np.max(np.abs(fraw_values), initial=0.0)), np.finfo(np.float64).eps)
     fraw_rank = int(np.count_nonzero(fraw_values > _rank_cutoff(fraw_scale, relative_tolerance)))
     p0 = _projector(f0_vectors, f0_rank)
+    projection_residual_norm = float(np.linalg.norm(jp_proj, ord="fro"))
+    nonzero_residual_rows = int(np.count_nonzero(np.linalg.norm(jw, axis=1) > _rank_cutoff(float(np.linalg.norm(jw, ord=2)), relative_tolerance))) if jw.size else 0
 
     path: list[dict[str, Any]] = []
     for alpha in grid:
@@ -128,7 +136,7 @@ def gamma_path_from_jacobians(
         retained = jp.copy()
         if state_rank:
             coefficients = s2 / (s2 + gamma)
-            retained = jp - u_active @ (coefficients[:, None] * jp_proj)
+            retained = jp - u_active @ (coefficients[:, None] * jp_coordinates)
         f_gamma = _sym(jp.T @ retained)
         eigenvalues, eigenvectors = _eigh(f_gamma)
         scale = max(float(np.max(np.abs(eigenvalues), initial=0.0)), np.finfo(np.float64).eps)
@@ -161,6 +169,9 @@ def gamma_path_from_jacobians(
         gamma_stability = float(min(normalized_floor))
     else:
         gamma_stability = 0.0
+    gamma_curvatures = [float(np.asarray(row["F_gamma"], dtype=np.float64)[0, 0]) if np.asarray(row["F_gamma"]).size == 1 else None for row in path]
+    finite_curvatures = [v for v in gamma_curvatures if v is not None and np.isfinite(v)]
+    cross_gamma_ratio = (float(max(abs(v) for v in finite_curvatures) / max(min(abs(v) for v in finite_curvatures), np.finfo(np.float64).tiny)) if finite_curvatures else None)
     return {
         "gamma_alpha_grid": list(grid),
         "gamma_scale": state_scale,
@@ -173,8 +184,12 @@ def gamma_path_from_jacobians(
         "F0": f0.tolist(),
         "F0_eigenvalues": f0_values.tolist(),
         "F0_rank": f0_rank,
+        "F0_projection_residual_norm": projection_residual_norm,
+        "effective_nonzero_residual_rows": nonzero_residual_rows,
         "gamma_path": path,
         "gamma_stability_score": gamma_stability,
+        "gamma_cross_scale_ratio": cross_gamma_ratio,
+        "gamma_stability_interpretation": "within-spectrum condition only; cross-gamma magnitude reported separately",
     }
 
 
@@ -250,6 +265,37 @@ def classify_record(
     }
 
 
+def classify_saeps_only(
+    path_result: Mapping[str, Any] | None,
+    *,
+    n_unknown: int,
+) -> dict[str, Any]:
+    """Truth/FIM-independent decision gate for deployable SAEPS inputs.
+
+    This deliberately uses only Jacobian-derived diagnostics.  Observation
+    FIMs and target errors belong to separately named plug-in/reference
+    evaluators and cannot enter this decision path.
+    """
+
+    if int(n_unknown) < 1:
+        raise ValueError("n_unknown must be positive")
+    if path_result is None:
+        return {"decision": "UNRESOLVED_NUMERICAL", "accepted": False, "reason": "gamma_path_unavailable", "confidence_score": 0.0}
+    rank = int(path_result.get("F0_rank", 0))
+    gamma_path = path_result.get("gamma_path") or []
+    finite = all(np.all(np.isfinite(np.asarray(row.get("eigenvalues", []), dtype=np.float64))) for row in gamma_path)
+    accepted = bool(rank >= int(n_unknown) and finite)
+    return {
+        "decision": "SUPPORTED_COMBINATION" if accepted else "WEAK_OR_CONFOUNDED",
+        "accepted": accepted,
+        "selective_candidate": accepted,
+        "reason": "F0_rank_and_finite_gamma_gate" if accepted else "zero_damping_state_elimination_rank_deficient",
+        "F0_rank": rank,
+        "n_unknown": int(n_unknown),
+        "confidence_score": 1.0 if accepted else 0.0,
+    }
+
+
 def target_log_error(manifest: Mapping[str, Any]) -> float | None:
     """Return the predeclared identifiable target error for one pilot record."""
     estimates = manifest.get("parameter_estimates") or {}
@@ -302,5 +348,5 @@ def selective_metrics(
 
 __all__ = [
     "GAMMA_ALPHA_GRID", "DEFAULT_RANK_TOLERANCE", "DEFAULT_INFORMATION_FLOOR", "DEFAULT_ERROR_TOLERANCE",
-    "effective_rank", "gamma_path_from_jacobians", "classify_record", "target_log_error", "selective_metrics",
+    "effective_rank", "gamma_path_from_jacobians", "classify_record", "classify_saeps_only", "target_log_error", "selective_metrics",
 ]

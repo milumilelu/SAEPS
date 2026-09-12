@@ -1,5 +1,21 @@
 # TASKS.md — SAEPS v2.0
 
+## 2026-09-12 — RI-v6 P0 correction layer
+
+Status: `PASSED` (deterministic engineering correction); scientific status:
+`INCONCLUSIVE`. The historical reliability audit and its `PROTOCOL_STOP` remain
+unchanged. No 160/320 confirmation or new PINN campaign was started.
+
+- [x] Added fail-closed `SAEPS_ONLY`, explicit physical-FIM plug-in, oracle-reference and FIM-assisted input interfaces.
+- [x] Removed LBFGS closure parameter mutation; boundary iterates are recorded separately from interior fit qualification.
+- [x] Added scale-consistent heat residual and normalized collocation option without changing legacy defaults.
+- [x] Formed F0 from explicit projected parameter columns and separated cross-gamma magnitude from within-spectrum conditioning.
+- [x] Added written one-percent-noise reference threshold and deterministic correction audit.
+- [x] Added regression tests in `tests/test_reliability_corrections.py` (6 tests).
+- [ ] P1 twelve-fit development and P2 profile discrimination remain `NOT_STARTED` pending this layer's future authorization.
+
+Evidence: `outputs/ri_v6_correction_audit_v1/RI_V6_CORRECTION_AUDIT.json`.
+
 ## 2026-09-12 — Reliability-aware identifiability audit (RI-0–RI-3)
 
 Status: `PASSED` (engineering pilot); scientific status: `PROTOCOL_STOP` after bounded development evidence.

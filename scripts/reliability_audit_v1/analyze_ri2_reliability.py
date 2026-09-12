@@ -33,6 +33,7 @@ from saeps.reliability_audit_v1.reliability import (  # noqa: E402
     DEFAULT_INFORMATION_FLOOR,
     DEFAULT_RANK_TOLERANCE,
     classify_record,
+    classify_saeps_only,
     gamma_path_from_jacobians,
     selective_metrics,
 )
@@ -110,7 +111,7 @@ def _manifest_records(runs_dir: Path) -> list[tuple[Path, dict[str, Any]]]:
     return records
 
 
-def analyze(runs_dir: Path, output_dir: Path) -> dict[str, Any]:
+def analyze(runs_dir: Path, output_dir: Path, *, decision_mode: str = "SAEPS_ONLY") -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     cache_dir = output_dir / "derived_jacobians"
     rows: list[dict[str, Any]] = []
@@ -119,19 +120,21 @@ def analyze(runs_dir: Path, output_dir: Path) -> dict[str, Any]:
         row = dict(manifest)
         run_id = str(manifest["run_id"])
         try:
-            iobs_path = run_dir / "I_obs.npy"
-            if not iobs_path.is_file():
-                raise FileNotFoundError(f"I_obs unavailable: {iobs_path}")
-            iobs = np.load(iobs_path)
             jw, jp, paths = _load_jacobians(manifest, run_dir, cache_dir)
             path_result = gamma_path_from_jacobians(jw, jp, gamma_alpha_grid=GAMMA_ALPHA_GRID, relative_tolerance=DEFAULT_RANK_TOLERANCE)
             row["gamma_path_artifact"] = path_result
             row["derived_jacobian_paths"] = paths
-            # Decision receives the raw independent FIM through a private
-            # transient field that is removed from serialized output.
-            decision_input = dict(row)
-            decision_input["_I_obs_matrix"] = iobs
-            decision = classify_record(decision_input, path_result, relative_tolerance=DEFAULT_RANK_TOLERANCE, information_floor=DEFAULT_INFORMATION_FLOOR)
+            if decision_mode == "SAEPS_ONLY":
+                decision = classify_saeps_only(path_result, n_unknown=len(manifest.get("unknown_parameters") or []))
+            elif decision_mode == "LEGACY_ORACLE_ASSISTED":
+                iobs_path = run_dir / "I_obs.npy"
+                if not iobs_path.is_file():
+                    raise FileNotFoundError(f"I_obs unavailable: {iobs_path}")
+                decision_input = dict(row)
+                decision_input["_I_obs_matrix"] = np.load(iobs_path)
+                decision = classify_record(decision_input, path_result, relative_tolerance=DEFAULT_RANK_TOLERANCE, information_floor=DEFAULT_INFORMATION_FLOOR)
+            else:
+                raise ValueError(f"unknown decision_mode: {decision_mode}")
             row["decision_record"] = decision
         except Exception as exc:  # preserve every planned record as unresolved
             row["gamma_path_artifact"] = None
@@ -154,7 +157,8 @@ def analyze(runs_dir: Path, output_dir: Path) -> dict[str, Any]:
         "gamma_scale_definition": "gamma_alpha * lambda_max(J_state.T @ J_state)",
         "rank_tolerance": DEFAULT_RANK_TOLERANCE,
         "information_floor": DEFAULT_INFORMATION_FLOOR,
-        "decision_uses_truth": False,
+        "decision_mode": decision_mode,
+        "decision_uses_truth": decision_mode != "SAEPS_ONLY",
         "truth_used_only_for_evaluation": True,
         "planned_denominator": len(rows),
         "records": rows,
@@ -173,8 +177,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runs-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--decision-mode", choices=("SAEPS_ONLY", "LEGACY_ORACLE_ASSISTED"), default="SAEPS_ONLY")
     args = parser.parse_args()
-    result = analyze(args.runs_dir, args.output_dir)
+    result = analyze(args.runs_dir, args.output_dir, decision_mode=args.decision_mode)
     print(json.dumps({"planned_denominator": result["planned_denominator"], "failures": len(result["failures"]), "decision_counts_by_benchmark": result["decision_counts_by_benchmark"]}, ensure_ascii=False))
 
 

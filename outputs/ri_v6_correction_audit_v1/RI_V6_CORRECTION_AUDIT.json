@@ -1,0 +1,35 @@
+{
+  "audit_id": "ri_v6_correction_audit_v1",
+  "audit_sha256": "aa67e9179f070b47b58bcd0b64396e82bb16ca1f1396608947f0ce5bd04fdc1c",
+  "baseline_commit": "ebdb494f9c9ff3f0c1c821d4723c28249fe4dcfd",
+  "checks": {
+    "common_scale_residual_invariant": true,
+    "f0_projection_norm": 4.47545209131181e-16,
+    "f0_value": 2.0029671421627253e-31,
+    "normalized_quadrature_mass_invariant": true,
+    "profile_status": "PROFILE_NOT_IMPLEMENTED",
+    "refinement": {
+      "current_value": 0.1001579809392238,
+      "difference": 0.00015798093922379797,
+      "noise_fraction": 0.01,
+      "noise_scale": 0.01,
+      "pass": false,
+      "previous_value": 0.1,
+      "threshold": 0.0001
+    },
+    "saeps_only_mode": "SAEPS_ONLY",
+    "saeps_only_truth_rejected": true
+  },
+  "classification": {
+    "bounded_closure_defect": "CONFIRMED_IMPLEMENTATION_DEFECT",
+    "nonlinear_profile": "UNTESTED",
+    "oracle_input_defect": "CONFIRMED_IMPLEMENTATION_DEFECT",
+    "physical_residual_scale": "CONFIRMED_IMPLEMENTATION_DEFECT",
+    "scientific_incremental_value": "INCONCLUSIVE"
+  },
+  "config_path": "configs/ri_v6_correction.yaml",
+  "config_sha256": "4ad65e0a5ed0170585bde8e5a39567dae1a07a1aaebbdfe982c5749c8aba0c78",
+  "old_output_namespace_preserved": true,
+  "schema_version": 1,
+  "scope": "P0 deterministic correction checks; no PINN retraining or confirmation"
+}

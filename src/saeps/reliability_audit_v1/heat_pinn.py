@@ -76,6 +76,12 @@ class HeatPINNConfig:
     weight_data: float = 10.0
     weight_ic: float = 10.0
     weight_bc: float = 2.0
+    # ``legacy`` preserves archived RI-2 objective semantics.  New RI-v6
+    # development runs opt into the dimensionless ratio residual and balanced
+    # collocation quadrature without overwriting historical records.
+    residual_version: str = "legacy"
+    s_phys: float = 1.0
+    normalize_pde_quadrature: bool = False
     gamma_alpha: float = 1.0e-4
     # Declared pilot stationarity threshold for the mean weighted objective.
     # This is a training validity gate, not a test-truth-selected parameter.
@@ -102,6 +108,10 @@ class HeatPINNConfig:
             raise ValueError("lbfgs_max_iter must be positive")
         if self.lower_log_parameter >= self.upper_log_parameter:
             raise ValueError("log-parameter bounds must be ordered")
+        if self.residual_version not in {"legacy", "ri_v6_normalized"}:
+            raise ValueError("residual_version must be 'legacy' or 'ri_v6_normalized'")
+        if not np.isfinite(self.s_phys) or self.s_phys <= 0:
+            raise ValueError("s_phys must be finite and strictly positive")
 
     @property
     def torch_dtype(self) -> torch.dtype:
@@ -216,7 +226,15 @@ def _residual_blocks(
     grad_x = grad_u[:, :1]
     grad_t = grad_u[:, 1:2]
     grad_xx = torch.autograd.grad(grad_x, collocation, torch.ones_like(grad_x), create_graph=create_graph, retain_graph=True)[0][:, :1]
-    pde = phys["C"] * grad_t - phys["k"] * grad_xx
+    if config.residual_version == "ri_v6_normalized":
+        pde = (grad_t - (phys["k"] / phys["C"]) * grad_xx) / config.s_phys
+        if config.normalize_pde_quadrature:
+            # Equal quadrature mass keeps the objective invariant when the
+            # same domain is represented with a different number of points.
+            total_rows = config.n_collocation + observation.values.numel() + config.n_ic + config.n_bc
+            pde = pde * torch.sqrt(torch.as_tensor(float(total_rows) / config.n_collocation, dtype=dtype))
+    else:
+        pde = phys["C"] * grad_t - phys["k"] * grad_xx
 
     data_coords = torch.stack((observation.x, observation.t), dim=1).detach().requires_grad_(True)
     data_pred = model(data_coords, phys["a"]).reshape(-1)
@@ -465,12 +483,16 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
             current = weighted_residual(model, config, observation, log_parameters, create_graph=True)
             objective = 0.5 * torch.mean(current * current)
             objective.backward()
-            with torch.no_grad():
-                for value in log_parameters.values():
-                    value.clamp_(config.lower_log_parameter, config.upper_log_parameter)
             return objective
 
         lbfgs.step(closure)
+        # Projection is deliberately outside the closure.  The closure's
+        # gradient therefore always corresponds to the parameters it evaluated;
+        # after a projected step all diagnostics are recomputed below.  Runs
+        # that touch a bound are reported separately as boundary/KKT states.
+        with torch.no_grad():
+            for value in log_parameters.values():
+                value.clamp_(config.lower_log_parameter, config.upper_log_parameter)
     elapsed = time.perf_counter() - start
     residual, Jw, Jp = _jacobians(model, config, observation, log_parameters)
     raw = Jp.T @ Jp
@@ -486,7 +508,18 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
     final_loss = float(0.5 * torch.mean(residual * residual).item())
     gradients = torch.autograd.grad(0.5 * torch.mean(weighted_residual(model, config, observation, log_parameters, create_graph=True) ** 2), tuple(model.parameters()) + tuple(log_parameters.values()), allow_unused=True)
     grad_norm = float(torch.sqrt(sum(torch.sum(g.detach() ** 2) for g in gradients if g is not None)).item())
-    fit_status = "PASS" if compute_status == "PASS" and np.isfinite(grad_norm) and grad_norm <= config.grad_tolerance and final_loss <= config.loss_tolerance else "FAIL"
+    bound_report = {
+        name: float(value.detach().cpu().item()) for name, value in log_parameters.items()
+    }
+    at_bound = any(
+        abs(value - config.lower_log_parameter) <= 1.0e-12
+        or abs(value - config.upper_log_parameter) <= 1.0e-12
+        for value in bound_report.values()
+    )
+    # A boundary iterate is not an interior stationary checkpoint.  Keep its
+    # diagnostics, but exclude it from the historical FIT_QUALIFIED set until
+    # a separate KKT check has been run.
+    fit_status = "PASS" if compute_status == "PASS" and np.isfinite(grad_norm) and grad_norm <= config.grad_tolerance and final_loss <= config.loss_tolerance and not at_bound else "FAIL"
     # Profiles are intentionally not implemented in this pilot; never imply that
     # a local Jacobian is a nonlinear profile result.
     profile_status = "NOT_ELIGIBLE"
@@ -502,7 +535,7 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
     fim = observation_fim(Jobs, sigma=max(config.noise_sigma, 1.0e-12))
     run = HeatPINNRun(config, observation, model, log_parameters, residual, Jw, Jp, raw, finite_gamma, fim, gamma, final_loss, grad_norm, compute_status, fit_status, profile_status)
     source_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-    run.manifest.update({"config_sha256": config.as_hash(), "source_sha256": source_hash, "code_sha256": source_hash, "git_commit": _git_revision(), "elapsed_training_seconds": elapsed, "profile_implemented": False, "coordinate_system": "log(k),log(C),log(a)", "residual_normalization": "weighted residual blocks; mean-square objective", "solver_iterations": {"adam": config.epochs, "lbfgs": config.lbfgs_max_iter if config.use_lbfgs else 0}})
+    run.manifest.update({"config_sha256": config.as_hash(), "source_sha256": source_hash, "code_sha256": source_hash, "git_commit": _git_revision(), "elapsed_training_seconds": elapsed, "profile_implemented": False, "profile_status_detail": "PROFILE_NOT_IMPLEMENTED", "coordinate_system": "log(k),log(C),log(a)", "residual_normalization": "weighted residual blocks; mean-square objective", "solver_iterations": {"adam": config.epochs, "lbfgs": config.lbfgs_max_iter if config.use_lbfgs else 0}, "log_parameter_bounds": {"lower": config.lower_log_parameter, "upper": config.upper_log_parameter, "values": bound_report, "at_boundary": at_bound}, "boundary_status": "BOUNDARY_KKT_REQUIRES_SEPARATE_CHECK" if at_bound else "INTERIOR_CANDIDATE"})
     if config.output_dir:
         run.save(config.output_dir)
     return run
