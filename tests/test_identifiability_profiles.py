@@ -50,6 +50,26 @@ def test_two_time_and_flux_interventions_create_informative_profiles():
     assert b6["objective_span_half_chi2"] > 1.0
 
 
+def test_early_time_b2_profile_is_weak_but_not_structurally_flat():
+    profile = profile_heat_observation(generate_analytic_observations("B2", data_seed=10))
+    values = np.asarray([row["objective_half_chi2"] for row in profile["points"]])
+    assert profile["flat_profile"] is False
+    assert profile["profile_status"] == "PASS"
+    assert profile["grid_rule"].startswith("31 log-spaced")
+    assert np.isfinite(values).all()
+    # The early-time design carries much less curvature than B1 at 1% noise.
+    b1 = profile_heat_observation(generate_analytic_observations("B1", data_seed=10))
+    assert profile["objective_span_half_chi2"] < b1["objective_span_half_chi2"]
+
+
+def test_early_time_b2_profile_is_present_but_practically_shallow():
+    b1 = profile_heat_observation(generate_analytic_observations("B1", noise_rho=0.0))
+    b2 = profile_heat_observation(generate_analytic_observations("B2", noise_rho=0.0))
+    assert b2["profile_status"] == "PASS"
+    assert b2["flat_profile"] is False
+    assert b2["objective_span_half_chi2"] < b1["objective_span_half_chi2"]
+
+
 def test_profile_is_reproducible_for_noisy_data():
     first = profile_heat_observation(generate_analytic_observations("B6", data_seed=42))
     second = profile_heat_observation(generate_analytic_observations("B6", data_seed=42))
