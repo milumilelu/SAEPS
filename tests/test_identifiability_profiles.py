@@ -56,6 +56,9 @@ def test_early_time_b2_profile_is_weak_but_not_structurally_flat():
     assert profile["flat_profile"] is False
     assert profile["profile_status"] == "PASS"
     assert profile["grid_rule"].startswith("31 log-spaced")
+    assert profile["scan_domain"]["closed"] is True
+    assert profile["nuisance_domain"]["closed"] is True
+    assert profile["branch_status"] == "SINGLE_PRINCIPAL"
     assert np.isfinite(values).all()
     # The early-time design carries much less curvature than B1 at 1% noise.
     b1 = profile_heat_observation(generate_analytic_observations("B1", data_seed=10))

@@ -2,6 +2,7 @@
   "any_nuisance_boundary": false,
   "benchmark": "B4",
   "boundary_truncated": false,
+  "branch_status": "FLAT",
   "flat_profile": true,
   "grid_rule": "31 log-spaced values in [reference/3, 3*reference]",
   "known_C": 1.2,
@@ -12,6 +13,12 @@
   "minimum_scan_value": 0.4816449370561384,
   "multimodal": false,
   "nuisance_boundary_count": 0,
+  "nuisance_domain": {
+    "closed": true,
+    "kind": "closed_log_relative_bounds",
+    "lower": -4.0,
+    "upper": 2.0
+  },
   "nuisance_log_bounds": [
     -4.0,
     2.0
@@ -431,5 +438,11 @@
   "reference_amplitude": 1.0,
   "reference_k": 0.6,
   "reference_kind": "independent_analytic_heat_profile",
+  "scan_domain": {
+    "closed": true,
+    "kind": "closed_predeclared_grid",
+    "lower": 0.19999999999999998,
+    "upper": 1.8000000000000003
+  },
   "schema_version": 1
 }

@@ -349,6 +349,18 @@ def profile_heat_observation(
         "reference_C": reference_C,
         "reference_amplitude": reference_amplitude,
         "nuisance_log_bounds": [low, high],
+        "scan_domain": {
+            "kind": "closed_predeclared_grid",
+            "lower": float(grid[0]),
+            "upper": float(grid[-1]),
+            "closed": True,
+        },
+        "nuisance_domain": {
+            "kind": "closed_log_relative_bounds",
+            "lower": low,
+            "upper": high,
+            "closed": True,
+        },
         "observations": data.to_jsonable(),
         "points": rows,
         "minimum_index": minimum_index,
@@ -361,6 +373,7 @@ def profile_heat_observation(
         "any_nuisance_boundary": bool(nuisance_boundary_count),
         "local_minima_count": len(local_minima),
         "multimodal": bool(len(local_minima) > 1),
+        "branch_status": "FLAT" if flat else ("MULTIPLE_LOCAL_MINIMA" if len(local_minima) > 1 else "SINGLE_PRINCIPAL"),
         "profile_status": profile_status,
     }
 
