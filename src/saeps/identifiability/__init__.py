@@ -190,6 +190,16 @@ def benchmark_rank(
     return numerical_rank(benchmark_observation_jacobian(benchmark, x, t, **kwargs))
 
 
+def observation_fim(jacobian: torch.Tensor, sigma: float = 1.0) -> torch.Tensor:
+    """Independent observation Fisher information for homoscedastic noise."""
+
+    if jacobian.ndim != 2:
+        raise ValueError("jacobian must be two-dimensional")
+    if sigma <= 0:
+        raise ValueError("sigma must be positive")
+    return (jacobian.T @ jacobian) / float(sigma) ** 2
+
+
 def add_observation_noise(
     observations: torch.Tensor,
     sigma: float,
@@ -259,4 +269,5 @@ __all__ = [
     "heat_flux",
     "heat_flux_sensitivities",
     "numerical_rank",
+    "observation_fim",
 ]

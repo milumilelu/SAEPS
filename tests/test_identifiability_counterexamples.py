@@ -16,6 +16,7 @@ from saeps.identifiability import (
     heat_temperature,
     heat_temperature_sensitivities,
     numerical_rank,
+    observation_fim,
 )
 
 
@@ -176,6 +177,14 @@ def test_benchmark_observation_jacobians_match_expected_ranks() -> None:
         actual = benchmark_rank(benchmark, *designs[benchmark])
         assert actual == rank
         assert benchmark_observation_jacobian(benchmark, *designs[benchmark]).ndim == 2
+
+
+def test_early_sparse_design_is_practically_weaker_with_same_structural_rank() -> None:
+    x = torch.tensor([0.2, 0.4, 0.7], dtype=DTYPE)
+    b1 = benchmark_observation_jacobian("B1", x, torch.full_like(x, 0.2))
+    b2 = benchmark_observation_jacobian("B2", x[:2], torch.full_like(x[:2], 1.0e-4))
+    assert numerical_rank(b1) == numerical_rank(b2) == 1
+    assert observation_fim(b2).item() < observation_fim(b1).item()
 
 
 def test_observation_noise_generator_is_seeded_and_preserves_shape() -> None:
