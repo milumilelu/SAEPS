@@ -5,6 +5,18 @@ heat-equation PINN pilot is a small, deterministic implementation intended for
 analytically controlled B1--B4 checks and provenance-complete development runs.
 """
 
+from .reliability import (
+    GAMMA_ALPHA_GRID,
+    DEFAULT_ERROR_TOLERANCE,
+    DEFAULT_INFORMATION_FLOOR,
+    DEFAULT_RANK_TOLERANCE,
+    classify_record,
+    effective_rank,
+    gamma_path_from_jacobians,
+    selective_metrics,
+    target_log_error,
+)
+
 from .heat_pinn import (
     HeatPINNConfig,
     HeatPINNRun,
@@ -27,4 +39,13 @@ __all__ = [
     "run_one",
     "train_heat_pinn",
     "run_heat_pinn",
+    "GAMMA_ALPHA_GRID",
+    "DEFAULT_ERROR_TOLERANCE",
+    "DEFAULT_INFORMATION_FLOOR",
+    "DEFAULT_RANK_TOLERANCE",
+    "classify_record",
+    "effective_rank",
+    "gamma_path_from_jacobians",
+    "selective_metrics",
+    "target_log_error",
 ]
