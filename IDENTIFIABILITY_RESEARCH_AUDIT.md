@@ -1,6 +1,6 @@
 # Identifiability Research Audit (SAEPS reliability_audit_v1)
 
-**Status: PROPOSED RESEARCH ARTIFACT — the proposed PINN experiments have not been executed.**
+**Status: AUDIT ARTIFACT; RI-2 development pilot executed separately; confirmation was not authorized.**
 
 This audit is a new, read-only interpretation layer. It does not replace or rewrite historical SAEPS records. The supplied review package was audited on 2026-09-12 against repository commit `71fd3b025824f59146851f2ebfb5068e8cc9addb`. Its package manifest SHA-256 is `27a7b81e3611a7cce635540f3663584120526c3e0c22464469e4be20c6d7232e`; the two source reports are `6bd8ff2082aa5096556907c779a3ee044cc4d2686252ee38dcbe58d8d41f4e56` and `8404be75996163a667579d92a7ba13ce108a2fdf1847da824a51d8b309852e3b`. Its seven independent NumPy algebra/analytic checks passed; no PINN training, repository-wide rerun, or confirmation experiment was performed for this artifact.
 
@@ -105,3 +105,4 @@ Failure of H1–H2 removes broad reliability claims. Failure of H3 narrows the c
 ## Audit conclusion
 
 SAEPS is a meaningful local operator with a reusable matrix-free implementation. The central scientific risk is interpretation: finite-γ curvature can be positive when an unanchored physical profile is flat, and local rank is not structural or global identifiability. The next defensible work is a small, analytically controlled identifiability suite with independent physical references and explicit abstention. Until those experiments are executed and pass their gates, the only supported claims remain the bounded historical finite-damping curvature comparisons and their stated limitations.
+
