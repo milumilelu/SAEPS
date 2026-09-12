@@ -104,5 +104,5 @@ Failure of H1–H2 removes broad reliability claims. Failure of H3 narrows the c
 
 ## Audit conclusion
 
-SAEPS is a meaningful local operator with a reusable matrix-free implementation. The central scientific risk is interpretation: finite-γ curvature can be positive when an unanchored physical profile is flat, and local rank is not structural or global identifiability. The next defensible work is to validate PINN-reoptimised profiles and matched independent-data decisions. The current evidence supports the bounded historical finite-damping comparisons, the analytic heat identifiability references and the physical B3→B6 intervention; it does not support a broad SAEPS reliability claim.
+SAEPS is a meaningful local operator with a reusable matrix-free implementation. The central scientific risk is interpretation: finite-γ curvature can be positive when an unanchored physical profile is flat, and local rank is not structural or global identifiability. The next defensible work is to validate PINN-reoptimised profiles and matched independent-data decisions. The current evidence supports the bounded historical finite-damping comparisons, the analytic heat identifiability references and the analytic physical-model B3→B6 intervention; it does not support a broad SAEPS reliability claim.
 
