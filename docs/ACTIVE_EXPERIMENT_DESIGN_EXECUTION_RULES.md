@@ -1,114 +1,164 @@
-# SAEPS 主动实验设计执行细则（AED-v1.0-DRAFT）
+# SAEPS-Active 实验验证执行细则（AED-v0.2-DRAFT）
 
-## 1. 文件性质
+## 1. 执行重点与授权边界
 
-本细则把 `SAEPS_主动实验设计转向方案包.zip` 转成可执行的治理和实验要求。它是**新方向的草案**，不改变 `docs/EXECUTION_CONTRACT.md`、`docs/LOCKED_PROTOCOL.md`、`configs/locked/`、历史 outputs、既有 `PROTOCOL_STOP` 或当前科学结论。所有节点初始为 `NOT_STARTED`；没有单独授权前不得训练 PINN、创建 confirmation config 或读取 confirmation 标签。
+本版响应任务更新：工作重点是**推进实验验证**，论文定位只用于确定可检验的主张、对照和指标。新的 `SAEPS_Active_论文方法与实验方案包.zip` 与粘贴文本是方法建议和待执行协议，不是已经完成的 PINN、主动反演、真实测量或提速结果。
 
-任务包中的 H1（决策效果）、H2（强基线比较）和 H3（解除混淆机制）是待验证假设，不是仓库结论。ZIP 中的随机矩阵恒等式和 B4 解析控制只证明代数/解析参考，不能写成主动选点效果、PINN 验证或 confirmation 结果。
+本细则不覆盖 `AGENTS.md`、`docs/EXECUTION_CONTRACT.md` 和 `docs/LOCKED_PROTOCOL.md`，不修改既有配置、历史结果、`PROTOCOL_STOP` 或 confirmation seeds `[10..19]`。新实验只能使用独立 `active_design_v2` namespace；在单独协议授权、seed/split 登记和配置 hash 冻结前，状态保持 `NOT_STARTED`，不得启动 confirmation。
 
-## 2. 隔离、来源与授权
+实验验证的证据链固定为：
 
-1. 首次实现前记录 ZIP SHA256、解压文件名、方案正文 SHA256、当前 git commit、Python/dtype/hardware 和工作树状态。附件给出的历史基线 commit 只作为来源锚点，不得假定它等于当前 checkout。
-2. 所有新代码、配置、raw outputs、manifest 和 evidence 使用独立 namespace：
-   - `configs/active_design_v1/`
-   - `outputs/runs/active_design_v1/`
-   - `docs/evidence/active_design_v1/`
-3. 不覆盖、不移动、不静默排除既有文件。当前工作树已有与本任务无关的删除和未跟踪文件；提交或推送前必须重新分类，不能把整仓库声明为 clean。
-4. AED development seed、held-out seed、confirmation seed 必须在新协议授权时单独登记。不得复用既有 v2 confirmation `[10..19]`，不得把当前 development seed 当成新方向的 confirmation。
-5. 只有用户/正式协议明确授权后，才能把 AED-6 的 development gate 转成锁定配置。锁定后修改候选池、成本、噪声、loss、网络、gamma、阈值、seed 或聚合规则，必须停止并写入 `docs/ISSUES.md`。
+```text
+状态适应建模 → 候选评分 → 上界筛除 → 盲选动作
+→ 获取候选观测 → 统一重反演 → 真实目标收益与端到端成本
+```
 
-## 3. 首版科学范围
+不把论文写作、文献新颖性判断或旧诊断审计当作实验完成条件。
 
-主线问题是：在已有少量观测、存在 neural state / nuisance 适应和参数混淆时，下一次可实现测量应如何选择，才能以更小累计测量成本改善目标参数或参数组合的反演。
+## 2. 首要实验顺序
 
-首版 action 只允许 `a=(sensor_type, x, t, cost, noise_model)`，其中 `sensor_type` 为温度或经过标定的热流。改变热源/边界激励属于后续扩展；若未来加入，必须使用条件化前向模型或另行求解，并把额外成本显式计入。在线不可逆过程只允许选择当前之后的时刻；历史时刻只能用于离线设计对照，不能伪装成在线动作。
+执行顺序是 `E0 → E1 → E2/E3 → E4/E5 → 聚合审计`。
 
-首版场景为：
+- **E0** 先证明实现、输入权限和筛除逻辑正确。
+- **E1** 是第一真实科学门：验证高分候选是否在真实 query+refit 后改善目标，而不是只验证矩阵恒等式。
+- 只有 E1 出现稳定、可解释的实际收益，才进入 E2/E3 机制实验。
+- E4 工程扩展与 E5 计算效率最后执行，避免在排序无效时扩大工作量。
 
-- **B4→B5：未知初始幅度。** 选择位置/时间的温度测量，检验是否能解除初始幅度与 `k` 的混淆。
-- **B3→B6：共同尺度。** 在温度测量外加入成本与噪声已定义的热流测量，检验是否能解除 `k/C` 共同尺度混淆。
-- **B1：正面对照。** 检查方法不会在本来信息充分的场景明显倒退。
+开发阶段可采用方案建议的流程规模：4 个合格 checkpoint × 6 个候选 × 每候选 2 个独立噪声副本，最多 48 次后续重反演。该规模只用于流程和趋势检查，不构成最终统计或 confirmation。
 
-解析预期用于 sanity check，不能硬编码“B4 必须选另一时刻”或“B3 必须选热流”。选择器不得访问未选候选的真实测量值、测试真值或答案标签。
+## 3. 实验隔离和数据权限
 
-## 4. 数学对象与实现约束
+1. 记录新 ZIP SHA256 `09745BC5B254B49184774260E905CA7B88DE8F1B6BF32BB36993CD0152A285DD`、manifest、方案文件哈希、基线 commit、当前 git commit、硬件和工作树状态。
+2. 新代码、配置、raw outputs 和 evidence 分别放入 `src/saeps/active_design/`、`configs/active_design_v2/`、`outputs/runs/active_design_v2/` 和 `docs/evidence/active_design_v2/`。
+3. `world_id` 表示一套物理参数、nuisance 和观测噪声 realization。方法在同一 world 共享初始数据和噪声；噪声按 `world_id × action_id × replicate_id` 固定。
+4. 隐藏真值、未购买候选标签、真值 FIM/profile 只能由数据生成器和离线评价器使用。selector 不得读取 `y_a`、测试真值或答案标签。
+5. 物理 plug-in FIM 可使用当前估计值，但作为独立具名基线，必须计入其前向求解成本，不能进入 SAEPS 主评分。
+6. 新观测增加数据项，不得以新的样本总数重缩放旧数据；物理残差使用固定域求积权重；恒为零约束行不得改变非零数据项权重。
 
-在固定线性化点、固定残差尺度、固定旧观测权重和固定 `gamma > 0` 下，令
+## 4. 需先实现并验证的局部模型
 
-\[
-M=J_w^T J_w+\gamma I,\quad B=J_w^T J_p,\quad C=J_p^T J_p,
-\]
-\[
-Z=M^{-1}B,\quad F=C-B^T Z.
-\]
-
-候选观测先按已知正定协方差 `R_a` 白化，得到 `H_w,H_p`。若噪声相关，先做联合/条件白化，不能套用独立块公式。定义 `E_a=H_p-H_w Z`，候选增量为
+固定 checkpoint、旧权重、残差尺度和状态惩罚 `Gamma_z`，令 `z=(theta,nu)`，`xi=log(p/p_ref)`：
 
 \[
-\Delta F_a=E_a^T(I+H_wM^{-1}H_w^T)^{-1}E_a,\qquad F_{new}=F+\Delta F_a.
+A=\partial\bar r/\partial z,\quad B=\partial\bar r/\partial\xi,
+\]
+\[
+M=A^TA+\Gamma_z,\quad Z=M^{-1}A^TB,\quad F=B^TB-B^TAZ.
 \]
 
-实现必须调用线性求解，不显式形成 `M^{-1}`。必须提供：
-
-- explicit 与 matrix-free / JVP-VJP 路径的一致性；
-- 直接重新消元与低秩更新的一致性；
-- `ΔF` 对称化后的非负特征值检查；
-- CG/迭代求解次数、相对残差、JVP/VJP 次数、批处理和预条件器记录；
-- 固定 `M` 比较的边界检查。候选改变旧权重、gamma 或重新训练后，必须重新线性化，不能声称仍是同一个精确更新。
-
-`F` 和 `ΔF` 是有限阻尼 PINN 目标的局部 GN 对象，不得称为真实 Fisher 信息、后验精度或自动的 Bayesian information gain。低秩恒等式不蕴含非线性重训后的参数误差必然下降。
-
-## 5. 评分、批次与不确定性
-
-首版评分使用固定物理坐标下的弱方向子空间：
+候选噪声白化导数为 `C_a`、`D_a`，并定义：
 
 \[
-\mathrm{score}(a)=\frac{\operatorname{trace}(V_{weak}^T\Delta F_aV_{weak})}{\mathrm{cost}(a)}.
+E_a=D_a-C_aZ,\quad S_a=I+C_aM^{-1}C_a^T,
+\quad \Delta_a=E_a^TS_a^{-1}E_a.
 \]
 
-`V_weak` 只能由当前允许的信息构造，不得从测试真值选择。多候选批次应逐次更新局部块，避免重复挑选冗余动作。若用多个数据相容 checkpoint 做保守评分，必须把它标为有限集合代理，不能称为完整后验。
+只用线性求解，不显式形成逆矩阵。必须有 explicit、matrix-free/JVP-VJP 和直接重消元三条路径的数值一致性，以及白化、相关噪声条件化、重复 PDE 点权重和候选标签隔离测试。
 
-必须至少比较：random、fixed-uniform、predictive-variance/ensemble、正确处理 nuisance 的 physical plug-in FIM（oracle 真值 FIM 单列）、明确实现的 `PIED-TIP`，以及 SAEPS acquisition、去状态补偿消融和固定/保守 gamma 变体。`H_p^T H_p` 不能作为唯一对手。
+`Gamma_z` 中的网络数值阻尼与物理 nuisance 真实先验分开；没有真实先验的 nuisance 不得凭空增加先验精度。`M` 不可解时记录 solver/numerical failure，不用正则化悄悄制造可辨识性。`F`、`Delta_a` 是局部 GN 对象，不是 Fisher、后验精度或 Bayesian information gain。
 
-## 6. 最小执行顺序
+## 5. 主评分和上界筛除
 
-### AED-1：治理与工程边界
+每个实验任务先固定目标 `g(xi)` 和目标尺度 `W_g`。例如 E3 使用 `log(k)-log(C)` 或完整 `[log(k),log(C)]`。令 `L=W_g ∂g/∂xi`、`K=F+epsilon I`：
 
-建立 namespace、来源 manifest、seed 分配表和停止规则；把任务包现有检查复制为只读 evidence。此阶段不训练、不选点、不读取新测量标签。
+\[
+V(F)=\operatorname{tr}(LK^{-1}L^T),\qquad
+U(a)=\frac{V(F)-V(F+\Delta_a)}{c(a\mid D_r)}.
+\]
 
-### AED-2：代数与 API
+`epsilon I` 是设计正则，不是观测信息；`U` 是局部目标设计代理，不是真实 MSE 或校准后验。不得先删除 null 子空间后声称全参数设计。
 
-先用 tiny/实际 residual 的开发对象验证白化、低秩更新、直接重消元、PSD 和计数。相关噪声、奇异/近奇异候选协方差、solve 失败都必须有显式 terminal status；不能用静默正则化掩盖失败。
+利用 `S_a >= I` 得到：
 
-### AED-3：动作与候选池
+\[
+0\preceq\Delta_a\preceq E_a^TE_a,qquad
+0\le U(a)\le \overline U(a),
+\]
 
-在开发阶段固定 B1/B3/B4 候选池、三档预算、成本和噪声模型。把在线/离线时间规则写入机器可读配置。候选排序稳定性必须在不看真实新测量值的条件下检查。
+其中 `U_upper` 用 `E_a^T E_a` 替换 `Delta_a`。每轮严格按以下流程执行：
 
-### AED-4：强基线开发
+1. 共同求解 `Z`，构造 `F,K,L`；
+2. 对全部可行候选计算便宜 `U_upper`，固定降序和候选 ID 并列规则；
+3. 对仍可能获胜的候选计算精确 `U`，更新最佳值；
+4. 剩余上界低于当前最佳时停止，否则继续精算；
+5. 读取真实 `y_a` 前锁定 selected action、cost 和 model hash；
+6. 追加数据、统一预算重反演，再刷新下一轮模型。
 
-只使用通过既有 checkpoint 资格门的模型和新分配的 development seeds。每个方法使用相同初始数据、候选池、预算和重训预算；每个失败 run 留在 denominator 中并写 `failure_reason`。禁止按照结果删除难例、替换 seed 或重新选择场景。
+筛除只保证固定局部模型、精确算术下与穷举选择一致，不保证全局预算最优、实际误差下降或严格浮点认证。必须记录近并列回退、最坏情况全精算、所有候选导数、求解次数、排序、预条件、缓存、wall time 和内存。
 
-### AED-5：最小闭环
+## 6. E0：代数、完整目标和权限验证
 
-每个入选场景先做一次完整候选排序，再执行一次实际加点和重新估计。最低输出包含：参数个体误差、可辨识组合误差、场预测误差、累计测量成本、选点时间、SAEPS solve 时间、重训时间、profile 时间和峰值内存（可可靠取得时）。
+**输入：** tiny/实际 residual 的开发 checkpoint、固定候选池、固定 `Gamma_z`/`epsilon`。
 
-### AED-6：开发门
+**验证：**
 
-在读 confirmation 之前检查：数据兼容性、stationarity、profile 完成、排序稳定性、B1 是否明显倒退、至少一个 nuisance 场景是否有预算收益，以及与 physical FIM/PIED-TIP 的端到端成本比较。若 SAEPS 不胜过 physical FIM，但有稳定边际成本优势，只能据此收窄 claim；若两者均无优势，停止扩大模型名称和场景。
+- `Delta_a` 与直接新增行重消元一致；
+- explicit 与 matrix-free/JVP-VJP 一致；
+- `Delta_a` 对称化后的特征值满足预设数值容差；
+- 独立/相关噪声白化正确；
+- 重复 PDE 点只分摊求积权重，不改变完整目标；
+- selector 在读取 `y_a` 之前完成并记录动作；
+- 上界筛除与全候选精算同选，且保留回退记录。
 
-### AED-7/AED-8：仅在新协议授权后
+E0 通过只说明工程实现对应定义，不能写成 PINN 主动反演效果。
 
-授权后再锁定 config/hash/seed/聚合器，执行独立 held-out/confirmation 闭环并自动生成 manifest、raw results、figures、tables、summary。聚合必须保留计划 denominator 和所有 terminal status；最终科学状态仍只能为 `SUPPORTED`、`PARTIALLY_SUPPORTED` 或 `NOT_SUPPORTED`。
+## 7. E1：候选排序与真实重反演
 
-## 7. 运行记录与审计字段
+这是第一优先级。固定 4 个 checkpoint、6 个候选、目标和预算；每个候选由独立评价器生成 2 个噪声副本。对每个 world：
 
-每个 run 至少记录：`schema_version, run_id, timestamp, git_commit, source_zip_hash, config_path, config_hash, seed, split, benchmark, action_schema, candidate_pool, budget, sensor_layout, noise_model, architecture, dtype, hardware, optimizer, checkpoint_id, stationarity, residuals, parameter_error, identifiable_combination_error, field_error, selected_actions, cumulative_cost, gamma, CG_iterations, CG_relative_residual, JVP_count, VJP_count, training_time, selection_time, saeps_time, reoptimized_time, peak_memory, status, failure_reason`。
+1. 用相同初始数据运行 selector，不能读取候选标签；
+2. 记录全部候选 `U`、`U_upper`、selected action 和计算成本；
+3. 追加被选观测，按相同 optimizer/stopping/re-fit budget 重反演；
+4. 评价目标误差变化、预测 `U` 与实际收益的 rank correlation、top-action regret；
+5. 保留未选候选的离线评价，用于验证而不回流选择器。
 
-状态沿用仓库规则；不得漏写最终状态。truth-dependent 数值必须标记 `validation_only`。figures、tables 和论文摘要只从同一自动聚合数据源生成，不能手工填数字。
+实际收益定义为：
 
-## 8. 停止与偏差
+\[
+\Delta_{real}(a)=E_g^{before}-E_g^{after\ query+refit}.
+\]
 
-以下任一情况必须保留产物并写入 `docs/ISSUES.md`：理论公式和实现无法对应；explicit/matrix-free 持续不一致；候选白化或 solve 不稳定；候选池无法满足在线因果约束；所有可行动作都不能解除已知退化；SAEPS 不优于正确强基线；或需要修改已锁定 active config。科学失败不通过换 benchmark、调 gamma、删 seed 或降低门槛修复。
+如果“矩阵算得正确但排序与真实收益长期无关”，将 E1 记为科学失败，停止扩大主动实验，不调参挽救。
 
-本细则完成后，项目仍处于“新方向已登记、尚未授权执行”的状态。它不把 ZIP 中的解析结果升级为实验结论，也不改变既有 SAEPS 验证项目的完成状态。
+## 8. E2/E3：机制验证
+
+### E2：未知初始幅度与时间信息
+
+B4→B5 同时提供同快照的更多空间点和不同时间候选，验证是否购买真正解除初始幅度—`k` 补偿的时间信息。主指标为 `k` 个体误差—预算、动作时间分布和独立 profile；B1 已知幅度作为正面对照。同快照加密不能替代时间信息。历史时刻只能称离线 pool-based 对照，在线版本不得回购过去时间；重启实验记录重启成本和 nuisance 是否共享。
+
+### E3：混合测量与目标切换
+
+B3→B6 在同一 world、checkpoint、候选池和噪声下比较：扩散率目标 `log(k)-log(C)` 与完整目标 `[log(k),log(C)]`。温度成本 1、热流成本 2 是归一化实验设定，并加同成本对照；不得硬编码热流永远第一。只有温度候选时共同尺度不可解除，保留为负对照。
+
+## 9. E4/E5：扩展和效率
+
+E4 仅在 E1/E2/E3 通过后执行一个二维各向异性非稳态导热案例。使用至少两个独立模态、独立有限差分/有限体积生成器和同一个高精度物理逆求解器重放各方法选择的观测集合；数值案例不能称实验室验证。
+
+E5 在相同 checkpoint、目标、阻尼、候选池和费用下比较全候选精算与上界筛除，候选池 64/256/1024。保留四项消融：不处理 nuisance、去掉 `S_a` 使用 `E_a^T E_a`、目标无关评分、关闭筛除。阻尼和设计正则只做有限敏感性，不进行大规模扫描。
+
+## 10. 强基线、公平性和指标
+
+主比较至少包括 random/space-filling、predictive uncertainty（含 ensemble 成本）、nuisance-aware physical plug-in FIM、PIED-MoTE/FIST 的明确序贯适配、SAEPS 全精算和 SAEPS 上界筛除。所有方法共享初始数据、候选池、world、噪声、预算和重反演预算；不能限制对手更新而允许 SAEPS 更新；不能故意让物理 FIM 逐候选重解 PDE 来制造提速。
+
+主指标为：
+
+\[
+E_g(b)=\frac{1}{\dim g}\|W_g(g(\hat\xi_b)-g(\xi^\star))\|^2,
+\]
+
+并报告误差—累计测量成本曲线、AUBC、固定预算终点误差、达标比例、`Delta_real`、rank correlation、regret、`C_measurement` 与 `C_computation`。未达标轨迹保留。统计按独立 world 配对重采样；网络初始化属于嵌套重复。
+
+## 11. 运行状态与停止条件
+
+仓库 run 的最终 `status` 仍只能是 `PASS`、`CHECKPOINT_INVALID`、`PROFILE_FAILURE`、`SOLVER_FAILURE`、`NUMERICAL_FAILURE`。主动过程的 `termination_reason` 单独记录 `BUDGET_EXHAUSTED`、`NO_FEASIBLE_ACTION`、`ACQUISITION_UNRESOLVED`、`TARGET_NOT_IDENTIFIED` 等原因，不新造 status 绕过聚合。
+
+每个 run 至少记录 world/action/replicate、target 定义、候选 hash、先选后读顺序、`Gamma_z`/`epsilon`、`F/Delta/U/U_upper`、solve/JVP/VJP 计数、timings、measurement/computation/refit cost、误差和失败原因。真值字段标为 `validation_only`。
+
+不可辨识本身不是禁止选点的理由；只有 checkpoint 无效、solver/数值失败、输入泄漏、预算耗尽、无可行动作，或 E1 长期不能改善真实目标，才停止对应轨迹。profile 尚未实现应如实标记范围缺失，不能伪装通过。
+
+## 12. E1 开发门与最终裁决
+
+E1 开发门至少要求 E0 通过、selector 无输入泄漏、强基线公平可运行、失败记录完整，并在至少两个机制任务中出现稳定可解释的真实收益（目标误差、达标成本或相近精度下的实际计算优势）。不预设 30% 或 10× 等结果阈值；阈值必须在新协议锁定前确定。
+
+若 SAEPS 与 physical FIM 精度接近但更便宜，可收窄为计算优势；若二者均无优势，停止扩展。正式科学状态只能为 `SUPPORTED`、`PARTIALLY_SUPPORTED` 或 `NOT_SUPPORTED`。方案包现有 24 组矩阵、12 组筛除同选及解析控制，只能作为 algebra/reference evidence，不能写成新的 PINN、真实测量收益、校准或提速结果。
 

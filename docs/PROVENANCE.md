@@ -108,3 +108,17 @@ matrix or locked configuration is modified. See `docs/UPGRADE_MATRIX_PILOT.md`.
 - Attached `acquisition_identity_checks.json` is recorded as supplied algebraic
   reference evidence only. The bundled script was not rerun in the current
   environment because its dependency closure was not active.
+
+## Active experimental design paper protocol — 2026-09-12
+
+- Source package: `任务说明/SAEPS_Active_论文方法与实验方案包.zip`
+- ZIP SHA256: `09745BC5B254B49184774260E905CA7B88DE8F1B6BF32BB36993CD0152A285DD`
+- Package manifest: README, paper method/protocol, `active_design_reference.py`,
+  `algebra_checks.json`, and `manifest.json`; manifest file hashes are retained
+  in the supplied package.
+- Scope: proposal-only. The updated experimental priority is E0 input/algebra
+  isolation followed by E1 candidate ranking versus real query+refit. No new
+  PINN, active loop, calibration, speedup or confirmation result is claimed.
+- Supersedes: the generic AED-v1 planning emphasis. It preserves the old
+  isolation rule but changes the scientific main score to target utility `U(a)`
+  and adds current-round upper-bound screening plus E0–E5 validation stages.

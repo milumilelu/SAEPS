@@ -1,27 +1,35 @@
 # TASKS.md — SAEPS v2.0
 
-## 2026-09-12 — Active experimental design proposal (AED-v1.0-DRAFT)
+## 2026-09-12 — Active experimental design proposal (AED-v0.2-DRAFT)
 
 Status: `NOT_STARTED` (proposal-only; no execution authorization). This is an
-isolated future branch for state-adaptation-aware active experimental design.
-It does not modify the v2/v4/v5 protocol, locked configurations, historical
-outputs, or `PROTOCOL_STOP`.
+isolated future branch for goal-oriented sequential measurement design. The
+operational priority is experimental validation: E0 implementation/input
+isolation, then E1 candidate ranking versus real query+refit before any larger
+mechanism or efficiency campaign. It does not modify the v2/v4/v5 protocol,
+locked configurations, historical outputs, or `PROTOCOL_STOP`.
 
-- [x] Read and provenance-hash the supplied task package.
-- [x] Register the isolated task tree in `docs/ACTIVE_EXPERIMENT_DESIGN_TASK_TREE.md`.
-- [x] Write executable governance and scientific boundaries in
+- [x] Read and provenance-hash the updated paper/method task package.
+- [x] Supersede the generic v1 task tree with the E0–E5 validation tree in
+  `docs/ACTIVE_EXPERIMENT_DESIGN_TASK_TREE.md`.
+- [x] Rewrite execution rules around E1 real ranking-to-refit validation,
+  target utility and upper-bound screening in
   `docs/ACTIVE_EXPERIMENT_DESIGN_EXECUTION_RULES.md`.
 - [ ] Obtain separate protocol authorization and assign new AED development
   seeds/config namespace.
-- [ ] Implement and validate the low-rank candidate update on actual tiny
-  residuals, including white-noise and correlated-noise paths.
-- [ ] Run the bounded B1/B3/B4 development ranking and one real add-measurement
-  re-estimation per selected nuisance scenario.
+- [ ] E0: implement and validate the low-rank candidate update, target utility,
+  input isolation and upper-bound/ exhaustive-choice agreement.
+- [ ] E1: run bounded candidate ranking followed by real add-measurement
+  re-estimation and paired world-level evaluation.
+- [ ] E2/E3: run time-information and mixed-sensor target-switch mechanisms only
+  after the E1 development gate passes.
 - [ ] Lock any follow-on AED protocol only after the development gate passes.
 
 Evidence: the two AED planning documents above and the package hash recorded in
 `docs/PROVENANCE.md`. The package's precomputed algebra JSON is not a PINN or
-active-selection validation result.
+active-selection validation result. The prior generic AED-v1 document is
+superseded for planning purposes; its governance and historical isolation rules
+remain preserved by the repository protocol.
 
 ## 2026-09-12 — RI-v6 P0 correction layer
 
