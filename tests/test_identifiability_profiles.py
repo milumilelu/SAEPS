@@ -86,4 +86,5 @@ def test_profile_builder_emits_all_six_curve_records(tmp_path):
     assert index["benchmarks"] == ["B1", "B2", "B3", "B4", "B5", "B6"]
     curve_lines = (tmp_path / "PROFILE_CURVES.csv").read_text(encoding="utf-8").splitlines()
     assert len(curve_lines) == 1 + 6 * 31
+    assert (tmp_path / "PROFILE_CURVES.svg").read_text(encoding="utf-8").startswith("<svg ")
     assert all((tmp_path / f"{benchmark}_ANALYTIC_PROFILE.json").exists() for benchmark in index["benchmarks"])

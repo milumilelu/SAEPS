@@ -12,6 +12,9 @@ import csv
 import json
 from pathlib import Path
 import sys
+from xml.sax.saxutils import escape
+
+import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT / "src") not in sys.path:
@@ -99,7 +102,67 @@ def build(output_dir: Path, *, noise_rho: float = 0.01, data_seed: int = 10) -> 
         writer = csv.DictWriter(stream, fieldnames=list(curve_rows[0]))
         writer.writeheader()
         writer.writerows(curve_rows)
+    _write_profile_svg(output_dir / "PROFILE_CURVES.svg", [
+        (benchmark, profile_heat_observation(generate_analytic_observations(
+            benchmark, k=DEFAULT_K, C=DEFAULT_C, amplitude=DEFAULT_AMPLITUDE,
+            noise_rho=noise_rho, data_seed=data_seed
+        ), parameter_grid=grid))
+        for benchmark in BENCHMARKS
+    ])
     return index
+
+
+def _write_profile_svg(path: Path, profiles: list[tuple[str, dict]]) -> None:
+    """Write a dependency-free overview plot of the six profile curves.
+
+    The ordinate is ``log10(1 + Delta half-chi2)`` so the informative and
+    flat profiles can share one deterministic view without clipping.  This is
+    a visualization only; all estimands remain in the JSON/CSV artifacts.
+    """
+
+    width, height = 900, 620
+    panel_w, panel_h = 280, 250
+    margin_x, margin_y = 20, 40
+    gap_x, gap_y = 15, 25
+    x_min, x_max = -float(np.log(3.0)), float(np.log(3.0))
+    fragments = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<title>Independent analytic heat-equation profile curves</title>',
+        '<desc>Six frozen 31-point profiles. The ordinate is log10(1 plus objective delta).</desc>',
+        '<rect width="100%" height="100%" fill="white"/>',
+    ]
+    for index, (benchmark, profile) in enumerate(profiles):
+        col, row = index % 3, index // 3
+        left = margin_x + col * (panel_w + gap_x)
+        top = margin_y + row * (panel_h + gap_y)
+        plot_left, plot_top = left + 38, top + 28
+        plot_right, plot_bottom = left + panel_w - 10, top + panel_h - 32
+        values = np.asarray([float(point["objective_delta_half_chi2"]) for point in profile["points"]])
+        y_values = np.log10(1.0 + np.maximum(values, 0.0))
+        y_max = max(float(np.max(y_values)), 1.0e-12)
+        y_max = max(y_max * 1.08, 1.0)
+        points = []
+        for point, y_value in zip(profile["points"], y_values):
+            x_value = float(point["scan_log_offset"])
+            px = plot_left + (x_value - x_min) / (x_max - x_min) * (plot_right - plot_left)
+            py = plot_bottom - float(y_value) / y_max * (plot_bottom - plot_top)
+            points.append(f"{px:.3f},{py:.3f}")
+        fragments.extend([
+            f'<g id="{escape(benchmark)}">',
+            f'<text x="{left + 8}" y="{top + 16}" font-family="sans-serif" font-size="14" font-weight="bold">{escape(benchmark)} ({escape(str(profile["profile_status"]))})</text>',
+            f'<line x1="{plot_left}" y1="{plot_bottom}" x2="{plot_right}" y2="{plot_bottom}" stroke="#222"/>',
+            f'<line x1="{plot_left}" y1="{plot_top}" x2="{plot_left}" y2="{plot_bottom}" stroke="#222"/>',
+            f'<polyline fill="none" stroke="#0072B2" stroke-width="1.7" points="{" ".join(points)}"/>',
+            f'<text x="{plot_left - 4}" y="{plot_bottom + 22}" font-family="sans-serif" font-size="10" text-anchor="middle">−ln3</text>',
+            f'<text x="{plot_right}" y="{plot_bottom + 22}" font-family="sans-serif" font-size="10" text-anchor="middle">ln3</text>',
+            f'<text x="{plot_left - 7}" y="{plot_top + 4}" font-family="sans-serif" font-size="10" text-anchor="end">{y_max:.1f}</text>',
+            f'<text x="{plot_left - 7}" y="{plot_bottom + 4}" font-family="sans-serif" font-size="10" text-anchor="end">0</text>',
+            f'<text x="{(plot_left + plot_right) / 2:.1f}" y="{plot_bottom + 34}" font-family="sans-serif" font-size="10" text-anchor="middle">log(k/k_ref)</text>',
+            f'<text transform="translate({left + 12},{(plot_top + plot_bottom) / 2:.1f}) rotate(-90)" font-family="sans-serif" font-size="10" text-anchor="middle">log10(1+Δχ²/2)</text>',
+            '</g>',
+        ])
+    fragments.append('</svg>')
+    path.write_text("\n".join(fragments) + "\n", encoding="utf-8", newline="\n")
 
 
 def main() -> None:
