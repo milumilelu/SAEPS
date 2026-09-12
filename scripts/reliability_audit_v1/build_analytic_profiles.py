@@ -8,6 +8,7 @@ an index containing the declared grid, data seed and covariance scales.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 from pathlib import Path
 
@@ -31,6 +32,7 @@ def build(output_dir: Path, *, noise_rho: float = 0.01, data_seed: int = 10) -> 
     output_dir.mkdir(parents=True, exist_ok=True)
     grid = frozen_profile_grid(DEFAULT_K)
     rows = []
+    curve_rows = []
     for benchmark in BENCHMARKS:
         data = generate_analytic_observations(
             benchmark,
@@ -43,6 +45,20 @@ def build(output_dir: Path, *, noise_rho: float = 0.01, data_seed: int = 10) -> 
         profile = profile_heat_observation(data, parameter_grid=grid)
         path = output_dir / f"{benchmark}_ANALYTIC_PROFILE.json"
         write_profile_json(profile, path)
+        for index, point in enumerate(profile["points"]):
+            curve_rows.append(
+                {
+                    "benchmark": benchmark,
+                    "grid_index": index,
+                    "scan_parameter": point["scan_parameter"],
+                    "scan_value": point["scan_value"],
+                    "objective_half_chi2": point["objective_half_chi2"],
+                    "objective_delta_half_chi2": point["objective_delta_half_chi2"],
+                    "nuisance": json.dumps(point["nuisance"], sort_keys=True),
+                    "status": point["status"],
+                    "boundary": point["boundary"],
+                }
+            )
         rows.append(
             {
                 "benchmark": benchmark,
@@ -73,6 +89,11 @@ def build(output_dir: Path, *, noise_rho: float = 0.01, data_seed: int = 10) -> 
         encoding="utf-8",
         newline="\n",
     )
+    curve_path = output_dir / "PROFILE_CURVES.csv"
+    with curve_path.open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(curve_rows[0]))
+        writer.writeheader()
+        writer.writerows(curve_rows)
     return index
 
 

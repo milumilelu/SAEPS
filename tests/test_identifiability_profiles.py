@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from scripts.reliability_audit_v1.build_analytic_profiles import build
+
 from saeps.identifiability.profile_reference import (
     DEFAULT_C,
     DEFAULT_K,
@@ -77,3 +79,11 @@ def test_profile_is_reproducible_for_noisy_data():
     first = profile_heat_observation(generate_analytic_observations("B6", data_seed=42))
     second = profile_heat_observation(generate_analytic_observations("B6", data_seed=42))
     assert first == second
+
+
+def test_profile_builder_emits_all_six_curve_records(tmp_path):
+    index = build(tmp_path, noise_rho=0.01, data_seed=10)
+    assert index["benchmarks"] == ["B1", "B2", "B3", "B4", "B5", "B6"]
+    curve_lines = (tmp_path / "PROFILE_CURVES.csv").read_text(encoding="utf-8").splitlines()
+    assert len(curve_lines) == 1 + 6 * 31
+    assert all((tmp_path / f"{benchmark}_ANALYTIC_PROFILE.json").exists() for benchmark in index["benchmarks"])
