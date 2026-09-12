@@ -447,7 +447,8 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
         Jobs = Jobs * torch.tensor([config.k_true, config.amplitude_true], dtype=config.torch_dtype)
     fim = observation_fim(Jobs, sigma=max(config.noise_sigma, 1.0e-12))
     run = HeatPINNRun(config, observation, model, log_parameters, residual, Jw, Jp, raw, finite_gamma, fim, gamma, final_loss, grad_norm, compute_status, fit_status, profile_status)
-    run.manifest.update({"config_sha256": config.as_hash(), "git_commit": _git_revision(), "elapsed_training_seconds": elapsed, "profile_implemented": False})
+    source_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    run.manifest.update({"config_sha256": config.as_hash(), "source_sha256": source_hash, "git_commit": _git_revision(), "elapsed_training_seconds": elapsed, "profile_implemented": False})
     if config.output_dir:
         run.save(config.output_dir)
     return run
