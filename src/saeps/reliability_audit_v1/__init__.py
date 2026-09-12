@@ -13,6 +13,7 @@ from .heat_pinn import (
     generate_heat_observations,
     heat_pinn_residual,
     run_one,
+    train_heat_pinn,
     run_heat_pinn,
 )
 
@@ -24,5 +25,6 @@ __all__ = [
     "generate_heat_observations",
     "heat_pinn_residual",
     "run_one",
+    "train_heat_pinn",
     "run_heat_pinn",
 ]

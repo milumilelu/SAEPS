@@ -465,6 +465,7 @@ __all__ = [
     "weighted_residual",
     "heat_pinn_residual",
     "run_one",
+    "train_heat_pinn",
 ]
 
 # Public aliases keep the adapter convenient for tests and small scripts while
@@ -472,3 +473,4 @@ __all__ = [
 HeatPINN = _StateNet
 heat_pinn_residual = weighted_residual
 run_one = run_heat_pinn
+train_heat_pinn = run_heat_pinn
