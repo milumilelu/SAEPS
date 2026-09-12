@@ -1,6 +1,6 @@
 # Identifiability Experiment Protocol (reliability_audit_v1)
 
-**Protocol status: PROPOSED / NOT EXECUTED.** This document is an executable design, not a results report. It creates a new namespace and leaves all historical SAEPS outputs and locked configurations untouched.
+**Protocol status: DEVELOPMENT PILOT EXECUTED / CONFIRMATION NOT AUTHORIZED.** The protocol remains a design for future confirmation; RI-0/RI-1 and the 24-case RI-2 development pilot are recorded separately. It creates a new namespace and leaves all historical SAEPS outputs and locked configurations untouched.
 
 ## Objective and estimands
 
@@ -112,4 +112,5 @@ If a gate fails, record `PROTOCOL_STOP` and retain all runs. A scientific failur
 ## Required run-manifest minimum
 
 Each manifest must include protocol/code/config/source hashes; benchmark; data/noise/initialisation seeds; physical and nuisance parameters; observation type and covariance; coordinate and residual weights; gamma and scale definition; execution/numerical/fit/profile/decision statuses; failure reason; raw paths for (F_{raw},F_\gamma,I_{obs}), profiles and estimates; rank/tolerance/subspace errors; parameter and combination errors; training/diagnostic/reference time; memory; JVP/VJP/HVP and solver iterations; checkpoint hash. All aggregates must be reproducible from these manifests, with failed and not-started denominators visible.
+
 
