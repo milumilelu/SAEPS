@@ -1,0 +1,34 @@
+[
+  {
+    "node": "E4D",
+    "task": "dev01",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 4.391469300026074,
+    "sampled_peak_rss_bytes": 5472256,
+    "os_peak_working_set_bytes": 5550080,
+    "memory_limit_bytes": 10383268249,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  {
+    "node": "E4D",
+    "task": "verified01",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 3.476448299945332,
+    "sampled_peak_rss_bytes": 341794816,
+    "os_peak_working_set_bytes": 346132480,
+    "memory_limit_bytes": 10641591500,
+    "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+    "timeout_seconds": 600,
+    "observed_process_ids": [
+      17992,
+      20728
+    ],
+    "process_tree_kill_enforced": true,
+    "timing_kind": "measured"
+  }
+]

@@ -95,3 +95,11 @@ record input and script SHA256. The derived audit also records the ZIP hash,
 audit script hash, base commit, environment and pre-existing worktree changes.
 All new numerical data are under `outputs/runs/v5/upgrade_pilot/`; no historical
 matrix or locked configuration is modified. See `docs/UPGRADE_MATRIX_PILOT.md`.
+
+## Phase 1C — prospective development evidence
+
+User authorization: “你试试1、2、3”. Frozen execution commit a7ad495.
+Protocol and source hashes: revision_week/outputs/phase1c_development_v1/snapshot.json.
+Raw results, full planned denominators, costs, independent reload checks and
+artifact hashes are under that namespace. Prior outputs are read-only and
+validated against the frozen snapshot. Original main-checkout changes are untouched.

@@ -583,6 +583,7 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 - [x] 最终科学裁决 `PARTIALLY_SUPPORTED`；paper readiness为 `CLAIM_NARROWING_REQUIRED`；
 - [x] 禁止后续V5 scientific execution；不补seed、不救援、不重新校准。
 
+
 ## Branch cleanup Stage A — 2026-09-09
 
 **状态:** `PASSED` — Git audit and dry-run only; Stage B not authorized.
@@ -602,3 +603,45 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 - [x] Verified two remote heads, four tags, two protected worktrees and seven required provenance SHAs.
 - [x] Unified validator unchanged: 147 passed / 1 failed / 1 skipped; known missing files untouched.
 - [x] Recorded BRANCH_HISTORY.md and ordered machine logs; local cleanup-only commit, no branch-code push.
+
+
+## Phase 1C — bounded user-authorized development
+
+**状态:** `PASSED` — bounded execution and engineering validation complete; scientific limitations retained.
+
+- Authorization: user requested stationarity diagnosis, distinguishable curvature steps and improved SO-ADAPT estimation.
+- Prospective protocol: `revision_week/PHASE1C_DEVELOPMENT.md`; config/code committed before measurements.
+- Initial regression verification: 45 tests passed; fixed 2 saved roots, 12 prior strict states, 16 new candidates and 25 historical matrix records. No training or new seeds.
+- Original main checkout has unrelated changes; isolated SO worktree and historical results preserved. No confirmation execution or automatic push.
+- Completed results and numerical failures: `revision_week/outputs/phase1c_development_v1/FINAL_REPORT.md` and `CLOSEOUT.json`.
+- SO local-use evidence remains limited to the valid development root. The new fixed-budget energy estimator is not supported as an improvement. Independent freeze remains deferred.
+
+## Phase 2 execution specification — user-requested design
+
+**状态:** `PASSED` — specification and decision-logic delivery only.
+
+- Read and archived the user-provided Phase 2 proposal; audited available historical sources without new scientific runs.
+- Detailed rules: revision_week/protocols/phase2/PHASE2_EXECUTION_RULES.md.
+- Machine configuration, dependency graph and tested gates cover all requested experiment families and conditional stops.
+- Actual numerical execution remains NOT_STARTED: handler implementation, all-ref seed audit and executable lock are not complete.
+- E0-C has a documented current input gap; no implicit reconstruction training is authorized by this specification.
+
+
+## Phase 2 actual execution
+
+**状态:** `IN_PROGRESS` — development engineering passed; fresh execution awaits immutable lock.
+
+- Real development data, failures and costs: revision_week/outputs/phase2_v1/DEVELOPMENT_REPORT.md.
+- New source modules implement the whole conditional DAG; historical results and unrelated original worktree edits preserved.
+
+
+## Phase 2 closeout
+
+**状态:** `PASSED` — conditional workflow complete, not all numerical experiments executed.
+
+- Generated scientific findings and retained failures: revision_week/outputs/phase2_v1/final/PHASE2_REPORT.md.
+- New scalar and multi conclusions remain separate; all historical conclusions are unchanged.
+
+### Phase 2 reporting audit — PASSED
+E5C denominator 45 preserved: 40 complete, 1 interrupted, 4 unstarted. Original derived report archived; immutable source hashes and 149 manifests verified. See final/REPORTING_CORRECTION.json and AUDIT_CLOSEOUT.py. No numerical reruns.
+

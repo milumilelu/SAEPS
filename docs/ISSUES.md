@@ -670,3 +670,47 @@ every valid historical sample. All worsened rows are retained in
 gamma or checkpoint were changed to remove this outcome. The exact-GN control
 does not establish deployable efficiency. Stop at this requested layer; no
 large-network or confirmation execution follows from these results.
+
+## I-P1C-001 — Allen-Cahn bounded Newton follow-up fails local state validity
+
+Classification: numerical failure. The fixed prospective Newton procedure reaches
+negative state-Hessian eigenvalues or its iteration limit on the saved Allen-Cahn
+states. Its common starts remain invalid; corresponding candidate comparisons
+retain PROFILE_FAILURE without a replacement root or further rescue.
+Evidence: revision_week/outputs/phase1c_development_v1/CLOSEOUT.json and FINAL_REPORT.md.
+The failure concerns this solver and local path, not proof that no valid minimizer exists.
+
+## I-P1C-002 — Fixed short residual-energy estimator does not improve certification practicality
+
+Classification: scientific failure. The fixed extra PCG work does not provide a
+consistently tighter numerical upper estimate. Original SO-ADAPT terminal states,
+original stopping and all unavailable history remain intact. Oracle interval
+checks pass, while new estimator pass counts deteriorate. No after-the-fact
+iteration search or combination with the old bound was used to inflate success.
+Evidence: revision_week/outputs/phase1c_development_v1/ADAPT_ESTIMATOR.csv.
+Resolution: stop this bounded estimator experiment; retain research-only scope,
+and defer independent confirmation. No rigorous certificate or speedup claim.
+
+## I-PHASE2-SPEC-001 — Robustness anchor inputs are insufficient in inspected outputs
+
+Classification: implementation failure (input/provenance availability).
+The current v4_8 robustness noise/sparsity directory contains exact-curvature
+summaries but no saved state/full G/H tensors or pt/npz checkpoint files needed
+to compute SO at those exact historical states. This is not a negative result
+about SO. All-ref/cache inspection remains part of execution preflight. If no
+matching source exists, record every affected planned position as unavailable;
+do not silently retrain the seed or reverse-engineer blocks from scalar Schur
+summaries. Other independent nodes may proceed under their specified gates.
+Evidence: revision_week/protocols/phase2/SOURCE_AUDIT.json.
+
+
+### Phase2 pre-lock engineering diagnostics
+
+Classification: implementation failure / numerical failure, resolved before fresh execution. NumPy block input lists were normalized to arrays; prior failed E0/E6 attempts remain archived. Plain CG lost conjugacy on compact Burgers centers; deterministic two-pass A-conjugacy restoration and true residual verification passed the unchanged tolerances and iteration budget. Exact stationary solver points require two saved zero-displacement plateau revalidations; no positive-step manufacture. E6 oracle k=8 effectivity fails its predeclared scientific gate; E6-P is a protocol stop, not an engineering error.
+
+Phase2 manifests use the explicitly authorized revision_week/outputs/phase2_v1/run_manifests namespace. The legacy outputs/runs tree is itself immutable under V5; the initial newly added manifests were moved, without changing historical files or weakening the old validator. Initial debug attempts had uncommitted-code hashes; final development acceptance is repeated under a committed executable and separately identified. User explicitly authorized continued pushes to the currently PUBLIC milumilelu/SAEPS repository in this session.
+
+## Phase 2 closeout reporting correction
+
+Classification: implementation failure (derived reporting only, corrected).
+The frozen finalizer represented all five missing E5C pass outputs as solver failures. Process/setup evidence establishes an interrupted cold pass followed by four unstarted passes. Section 16 requires null numerical statuses for those unstarted positions. AUDIT_CLOSEOUT.py corrects only derived artifacts, archives their prior versions, and verifies frozen executable/configuration hashes. No numerical worker, seed or raw record changed. E1/E4C availability-limited PARTIALLY_SUPPORTED labels are explicitly not independent support for SO. Revision-week 85 tests and repository validator passed after correction.

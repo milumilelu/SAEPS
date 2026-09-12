@@ -1,0 +1,47 @@
+{
+  "group": "burgers",
+  "seed": 1009,
+  "status": "CHECKPOINT_INVALID",
+  "binding_valid": false,
+  "failure_reason": "trial_budget_exhausted",
+  "state_gradient": 0.0015568497292738268,
+  "unanchored_state_SPD": {
+    "mu_value": null,
+    "lambda_min_A_numeric": -0.7526088681110131,
+    "eigen_residual": 9.095524796880623e-10,
+    "orthogonality_error": 3.263763576573068e-15,
+    "symmetry_error": 8.539314272583656e-17,
+    "numerical_margin": 7.688311277686117e-07,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "indicator_only",
+    "spd_status": "not_SPD"
+  },
+  "anchored_state_SPD": {
+    "mu_value": null,
+    "lambda_min_A_numeric": -0.7361405260220525,
+    "eigen_residual": 1.3487351865207132e-09,
+    "orthogonality_error": 2.985078122321386e-15,
+    "symmetry_error": 8.539314187399725e-17,
+    "numerical_margin": 7.688102421923031e-07,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "indicator_only",
+    "spd_status": "not_SPD"
+  },
+  "reload_bitwise": true,
+  "metrics": null,
+  "gamma": 0.016468342129201223,
+  "checkpoint_sha256": "16c00ca5f8308227fc7ad26076f88baddb7f94fc2f5f9f4082ec560a577d59de",
+  "training_seconds": 4.238410200108774,
+  "root_lbfgs_seconds": 3.922780800028704,
+  "root_corrector_seconds": 6.326582700014114,
+  "curvature_seconds": 0.053841100074350834,
+  "counts": {
+    "objective": 1508,
+    "gradient": 1508,
+    "hessian": 162
+  },
+  "explicit_JVP_VJP_counts": 0,
+  "explicit_jacobians": 1,
+  "explicit_hessians": 163,
+  "CG_iterations": 0
+}

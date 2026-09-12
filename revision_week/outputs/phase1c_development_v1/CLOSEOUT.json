@@ -1,0 +1,263 @@
+{
+  "engineering": "PASSED",
+  "tests": 45,
+  "independent_state_audits": [
+    {
+      "task": "burgers_55_plus_candidate0_strict",
+      "status": "PASS",
+      "failure_reason": null,
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 1.9171797148054153e-07,
+      "new_gradient": 3.035335919623854e-11,
+      "accepted_newton_steps": 2,
+      "final_min_eigen": 0.06448814050015084,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.00539877567019298,
+      "objective_change": -2.3200029775072295e-06
+    },
+    {
+      "task": "burgers_55_plus_candidate1_strict",
+      "status": "PASS",
+      "failure_reason": null,
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 4.358519308344284e-08,
+      "new_gradient": 2.677564804200875e-13,
+      "accepted_newton_steps": 2,
+      "final_min_eigen": 0.06423171723749348,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.004205357830331312,
+      "objective_change": -7.922117364334014e-07
+    },
+    {
+      "task": "burgers_55_plus_start_strict",
+      "status": "PASS",
+      "failure_reason": null,
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 1.4445615272682627e-08,
+      "new_gradient": 1.3192774843359183e-13,
+      "accepted_newton_steps": 2,
+      "final_min_eigen": 0.06450575261513515,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.0011519930863623125,
+      "objective_change": -1.1753894835209167e-07
+    },
+    {
+      "task": "burgers_55_minus_candidate0_strict",
+      "status": "PASS",
+      "failure_reason": null,
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 6.492623443022177e-08,
+      "new_gradient": 1.8145380696139872e-14,
+      "accepted_newton_steps": 2,
+      "final_min_eigen": 0.06467048522017561,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.001689309317723424,
+      "objective_change": -1.578179280592451e-07
+    },
+    {
+      "task": "burgers_55_minus_candidate1_strict",
+      "status": "PASS",
+      "failure_reason": null,
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 1.3972397667777775e-07,
+      "new_gradient": 4.1805460427857424e-12,
+      "accepted_newton_steps": 2,
+      "final_min_eigen": 0.06450575261125441,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.004203319613703964,
+      "objective_change": -1.1603438552221235e-06
+    },
+    {
+      "task": "burgers_55_minus_start_strict",
+      "status": "PASS",
+      "failure_reason": null,
+      "old_termination_evidence": "other_LBFGS_termination_not_logged",
+      "old_gradient": 1.2188259005376574e-08,
+      "new_gradient": 7.808223994191572e-13,
+      "accepted_newton_steps": 2,
+      "final_min_eigen": 0.06456338020791766,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.0007203829646885578,
+      "objective_change": -4.094506467211545e-08
+    },
+    {
+      "task": "allen_cahn_84_plus_candidate0_strict",
+      "status": "PROFILE_FAILURE",
+      "failure_reason": "state_not_SPD",
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 3.9019533004321444e-08,
+      "new_gradient": 9.57164803980874e-05,
+      "accepted_newton_steps": 1,
+      "final_min_eigen": -0.0051193309687745485,
+      "final_SPD_status": "not_SPD",
+      "newton_step_norm": 0.04707857474269766,
+      "objective_change": -2.801350523967683e-06
+    },
+    {
+      "task": "allen_cahn_84_plus_candidate1_strict",
+      "status": "PROFILE_FAILURE",
+      "failure_reason": "state_not_SPD",
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 6.806510814640921e-08,
+      "new_gradient": 3.914654989925224e-05,
+      "accepted_newton_steps": 1,
+      "final_min_eigen": -0.006773621308162827,
+      "final_SPD_status": "not_SPD",
+      "newton_step_norm": 0.04773050023374211,
+      "objective_change": -7.301611318288881e-06
+    },
+    {
+      "task": "allen_cahn_84_plus_start_strict",
+      "status": "PROFILE_FAILURE",
+      "failure_reason": "state_not_SPD",
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 3.750854784589344e-08,
+      "new_gradient": 7.698096519937202e-05,
+      "accepted_newton_steps": 1,
+      "final_min_eigen": -0.005407611588145801,
+      "final_SPD_status": "not_SPD",
+      "newton_step_norm": 0.045906465419908574,
+      "objective_change": -2.977261521486252e-06
+    },
+    {
+      "task": "allen_cahn_84_minus_candidate0_strict",
+      "status": "PROFILE_FAILURE",
+      "failure_reason": "iteration_limit",
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 3.131558303337841e-08,
+      "new_gradient": 6.517883093329141e-06,
+      "accepted_newton_steps": 8,
+      "final_min_eigen": 0.001481379070047286,
+      "final_SPD_status": "numerically_SPD",
+      "newton_step_norm": 0.05531759304156768,
+      "objective_change": -2.935941114334817e-06
+    },
+    {
+      "task": "allen_cahn_84_minus_candidate1_strict",
+      "status": "PROFILE_FAILURE",
+      "failure_reason": "state_not_SPD",
+      "old_termination_evidence": "max_eval_reached",
+      "old_gradient": 2.873896766910988e-08,
+      "new_gradient": 4.566006250041529e-05,
+      "accepted_newton_steps": 1,
+      "final_min_eigen": -0.002242856585179023,
+      "final_SPD_status": "not_SPD",
+      "newton_step_norm": 0.024954415820006477,
+      "objective_change": -1.1091204150937006e-06
+    },
+    {
+      "task": "allen_cahn_84_minus_start_strict",
+      "status": "PROFILE_FAILURE",
+      "failure_reason": "state_not_SPD",
+      "old_termination_evidence": "max_iter_reached",
+      "old_gradient": 2.4118185018728604e-08,
+      "new_gradient": 5.3424825643971386e-05,
+      "accepted_newton_steps": 1,
+      "final_min_eigen": -0.0007736256240023681,
+      "final_SPD_status": "not_SPD",
+      "newton_step_norm": 0.01922291733770476,
+      "objective_change": -1.2099135021093055e-06
+    }
+  ],
+  "candidate_audits": [
+    {
+      "root": "burgers_55",
+      "offset": 0.05,
+      "method": "RAW",
+      "gradient": 2.1419263789162233e-14
+    },
+    {
+      "root": "burgers_55",
+      "offset": 0.05,
+      "method": "SAEPS-GN",
+      "gradient": 6.876059025184206e-14
+    },
+    {
+      "root": "burgers_55",
+      "offset": 0.05,
+      "method": "SO",
+      "gradient": 1.8839880081689609e-13
+    },
+    {
+      "root": "burgers_55",
+      "offset": 0.05,
+      "method": "EXACT-REDUCED-ORACLE",
+      "gradient": 4.1185164979102184e-13
+    },
+    {
+      "root": "burgers_55",
+      "offset": -0.05,
+      "method": "RAW",
+      "gradient": 2.2031581961640136e-13
+    },
+    {
+      "root": "burgers_55",
+      "offset": -0.05,
+      "method": "SAEPS-GN",
+      "gradient": 1.0373125050731948e-11
+    },
+    {
+      "root": "burgers_55",
+      "offset": -0.05,
+      "method": "SO",
+      "gradient": 5.348329669505868e-12
+    },
+    {
+      "root": "burgers_55",
+      "offset": -0.05,
+      "method": "EXACT-REDUCED-ORACLE",
+      "gradient": 5.588465135222259e-15
+    }
+  ],
+  "audit_seconds": 1.7084076999453828,
+  "engineering_checks": [
+    {
+      "name": "tests",
+      "status": "PASS",
+      "seconds": 3.223373100045137
+    },
+    {
+      "name": "repository",
+      "status": "PASS",
+      "seconds": 9.302404499961995
+    }
+  ],
+  "new_accounted_seconds": 35.99997909999976,
+  "prefreeze_test_command_seconds": 3.8343419,
+  "prefreeze_timing_source": "tool-measured command wall time",
+  "historical_phase1_seconds": 43.54764920009564,
+  "historical_reconstruction_seconds": 3801.8915909999632,
+  "historical_phase1b_success_seconds": 442.608485499979,
+  "previous_corrective_seconds": 133.40117250007089,
+  "cumulative_accounted_excluding_historical_reconstruction_and_estimated_failures": 655.5572863001453,
+  "historical_failed_estimates": {
+    "note": "wall times estimated from the session timeline, not instrumented; development/debugging attempts, no results used from them",
+    "attempts": [
+      {
+        "kind": "recovery run 1 (missing torch.set_default_dtype(float64))",
+        "wall_seconds_estimate": "<660",
+        "outcome": "all 4 replays failed; environment bug"
+      },
+      {
+        "kind": "recovery run 2 (retain_graph bug in state export)",
+        "wall_seconds_estimate": "~600",
+        "outcome": "replays ran but export crashed; no results used"
+      },
+      {
+        "kind": "pilot run 1 (root-gate convention + offset formatting)",
+        "wall_seconds_estimate": "0.6",
+        "outcome": "placeholder rows only, no solves"
+      },
+      {
+        "kind": "pilot runs 2-4 (no_grad gradient, missing import)",
+        "wall_seconds_estimate": "<300",
+        "outcome": "crashed before any solve"
+      }
+    ]
+  },
+  "matrix_estimator_seconds": 0.0020358003675937653,
+  "matrix_spectrum_seconds": 0.012530899839475751,
+  "matrix_oracle_seconds": 0.0007284997263923287,
+  "matrix_extra_A_matvecs": 189,
+  "original_results_preserved": 235
+}

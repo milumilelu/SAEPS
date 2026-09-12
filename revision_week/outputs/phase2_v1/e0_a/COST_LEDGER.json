@@ -1,0 +1,47 @@
+[
+  {
+    "node": "E0",
+    "task": "dev01",
+    "exit_code": 1,
+    "status": "SOLVER_FAILURE",
+    "failure_reason": "worker_exit_nonzero",
+    "wall_seconds": 1.9166287000989541,
+    "sampled_peak_rss_bytes": 5468160,
+    "os_peak_working_set_bytes": 5545984,
+    "memory_limit_bytes": 10643567411,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  {
+    "node": "E0",
+    "task": "dev02",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 4.269502799957991,
+    "sampled_peak_rss_bytes": 5472256,
+    "os_peak_working_set_bytes": 5550080,
+    "memory_limit_bytes": 9913224396,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  {
+    "node": "E0",
+    "task": "verified01",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 3.7237701000412926,
+    "sampled_peak_rss_bytes": 212541440,
+    "os_peak_working_set_bytes": 212619264,
+    "memory_limit_bytes": 10649665536,
+    "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+    "timeout_seconds": 600,
+    "observed_process_ids": [
+      9064,
+      24572
+    ],
+    "process_tree_kill_enforced": true,
+    "timing_kind": "measured"
+  }
+]

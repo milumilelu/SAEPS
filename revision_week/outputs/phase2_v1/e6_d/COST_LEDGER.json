@@ -1,0 +1,60 @@
+[
+  {
+    "node": "E6D",
+    "task": "dev01",
+    "exit_code": 1,
+    "status": "SOLVER_FAILURE",
+    "failure_reason": "worker_exit_nonzero",
+    "wall_seconds": 1.6290159999625757,
+    "sampled_peak_rss_bytes": 5468160,
+    "os_peak_working_set_bytes": 5545984,
+    "memory_limit_bytes": 10481110220,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  {
+    "node": "E6D",
+    "task": "dev02",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 2.0210895999334753,
+    "sampled_peak_rss_bytes": 5468160,
+    "os_peak_working_set_bytes": 5545984,
+    "memory_limit_bytes": 9603756851,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  {
+    "node": "E6D",
+    "task": "dev03",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 1.624034499982372,
+    "sampled_peak_rss_bytes": 5464064,
+    "os_peak_working_set_bytes": 5541888,
+    "memory_limit_bytes": 9870295040,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  {
+    "node": "E6D",
+    "task": "verified01",
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 1.6498849999625236,
+    "sampled_peak_rss_bytes": 212631552,
+    "os_peak_working_set_bytes": 212733952,
+    "memory_limit_bytes": 10639769600,
+    "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+    "timeout_seconds": 600,
+    "observed_process_ids": [
+      35624,
+      44056
+    ],
+    "process_tree_kill_enforced": true,
+    "timing_kind": "measured"
+  }
+]
