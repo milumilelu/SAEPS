@@ -7,7 +7,7 @@ cases:
     residual: w + p - y
     jacobian_state: [[1.0]]
     jacobian_parameter: [[1.0]]
-    gamma_grid: [1.0e-6, 1.0e-3, 1.0, 1.0e3]
+    gamma_grid: [1.0e-6, 1.0e-3, 1.0, 1.0e+3]
     expected:
       unrestricted_zero_damping_curvature: 0.0
       finite_gamma_formula: gamma/(1+gamma)
