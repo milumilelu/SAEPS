@@ -10,11 +10,12 @@ def test_ri2_aggregation_preserves_missing_and_failed_runs(tmp_path: Path) -> No
     plan = {
         "protocol_id": "reliability_audit_v1",
         "phase": "RI-2",
-        "planned_runs": 3,
+        "planned_runs": 4,
         "records": [
             {"run_id": "r0", "benchmark": "B1", "execution_status": "NOT_STARTED"},
             {"run_id": "r1", "benchmark": "B1", "execution_status": "NOT_STARTED"},
             {"run_id": "r2", "benchmark": "B2", "execution_status": "NOT_STARTED"},
+            {"run_id": "r3", "benchmark": "B2", "execution_status": "NOT_STARTED"},
         ],
     }
     plan_path = tmp_path / "run_plan.json"
@@ -30,15 +31,20 @@ def test_ri2_aggregation_preserves_missing_and_failed_runs(tmp_path: Path) -> No
         json.dumps({"run_id": "unexpected", "status": "NUMERICAL_FAILURE"}),
         encoding="utf-8",
     )
+    (records / "r2.json").write_text(
+        json.dumps({"run_id": "r2", "execution_status": None, "status": "FAILED"}),
+        encoding="utf-8",
+    )
 
     summary = aggregate_ri2(plan_path, records)
-    assert summary["planned"] == 3
-    assert summary["completed"] == 2
+    assert summary["planned"] == 4
+    assert summary["completed"] == 3
     assert summary["not_started"] == 1
-    assert summary["terminal"] == 2
-    assert summary["status_counts"] == {"NOT_STARTED": 1, "PASS": 1, "SOLVER_FAILURE": 1}
-    assert len(summary["records"]) == 3
-    assert summary["records"][2]["status"] == "NOT_STARTED"
+    assert summary["terminal"] == 3
+    assert summary["status_counts"] == {"FAILED": 1, "NOT_STARTED": 1, "PASS": 1, "SOLVER_FAILURE": 1}
+    assert len(summary["records"]) == 4
+    assert summary["records"][2]["status"] == "FAILED"
+    assert summary["records"][3]["status"] == "NOT_STARTED"
     assert summary["records"][1]["failure_reason"] == "diverged"
     assert summary["unknown_observed_run_ids"] == ["unexpected"]
     assert summary["orphan_records"][0]["status"] == "NUMERICAL_FAILURE"
