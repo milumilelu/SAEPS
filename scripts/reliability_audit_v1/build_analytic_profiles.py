@@ -49,7 +49,10 @@ def build(output_dir: Path, *, noise_rho: float = 0.01, data_seed: int = 10) -> 
                 "path": path.name,
                 "grid_size": len(profile["points"]),
                 "profile_status": profile["profile_status"],
+                "branch_status": profile["branch_status"],
                 "flat_profile": profile["flat_profile"],
+                "boundary_truncated": profile["boundary_truncated"],
+                "nuisance_boundary_count": profile["nuisance_boundary_count"],
                 "minimum_scan_value": profile["minimum_scan_value"],
                 "objective_span_half_chi2": profile["objective_span_half_chi2"],
             }
