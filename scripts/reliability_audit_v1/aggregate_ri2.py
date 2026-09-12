@@ -76,6 +76,9 @@ def aggregate_ri2(run_plan_path: Path, records_dir: Path | None = None) -> dict[
         # directories. Aggregates are excluded so prior summaries cannot be
         # mistaken for run records.
         candidates = list(records_dir.glob("*.json")) + list(records_dir.rglob("manifest.json"))
+        if any(path.name == "manifest.json" for path in candidates):
+            # The runner's pilot_index duplicates these per-run manifests.
+            candidates = [path for path in candidates if path.name != "pilot_index.json"]
         for path in sorted(set(candidates)):
             if path.name in {"summary.json", "run_plan.json"}:
                 continue
