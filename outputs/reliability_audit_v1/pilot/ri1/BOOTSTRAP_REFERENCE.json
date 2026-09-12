@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "protocol_id": "reliability_audit_v1",
+  "reference_kind": "analytic_physical_bootstrap",
+  "data_seed": 10,
+  "noise_rho": 0.01,
+  "rows": [
+    {
+      "benchmark": "B1",
+      "replicates": 30,
+      "estimate_median": 0.6,
+      "estimate_mean": 0.6000000000000001,
+      "estimate_std": 1.1292025708167404e-16,
+      "quantiles_05_95": [
+        0.6,
+        0.6
+      ],
+      "truth_in_interval": true,
+      "interval_kind": "bootstrap percentile over analytic profile scan minima"
+    },
+    {
+      "benchmark": "B2",
+      "replicates": 30,
+      "estimate_median": 0.5269915929928896,
+      "estimate_mean": 0.9532290784427837,
+      "estimate_std": 0.7842334600233907,
+      "quantiles_05_95": [
+        0.19999999999999998,
+        1.8000000000000003
+      ],
+      "truth_in_interval": true,
+      "interval_kind": "bootstrap percentile over analytic profile scan minima"
+    },
+    {
+      "benchmark": "B6",
+      "replicates": 30,
+      "estimate_median": 0.6,
+      "estimate_mean": 0.6000000000000001,
+      "estimate_std": 1.1292025708167404e-16,
+      "quantiles_05_95": [
+        0.6,
+        0.6
+      ],
+      "truth_in_interval": true,
+      "interval_kind": "bootstrap percentile over analytic profile scan minima"
+    }
+  ],
+  "truth_used_only_for_posthoc_coverage": true,
+  "pin_retraining_performed": false,
+  "interpretation": "Development reference only; no PINN uncertainty calibration or confidence claim."
+}
