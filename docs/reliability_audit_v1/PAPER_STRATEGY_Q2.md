@@ -32,7 +32,7 @@ Potential titles, to be selected only after confirmation, are:
 The existing record supports only bounded statements:
 
 1. The implementation computes a finite-γ state-eliminated residual-space GN curvature and has an explicit/matrix-free numerical verification history.
-2. On the declared valid V5 Burgers and Allen–Cahn checkpoints, SAEPS was closer than frozen-state GN to the declared finite-damping local reference under paired comparisons (12/15 and 9/10 planned/valid groups respectively).
+2. On the declared valid V5 Burgers and Allen–Cahn checkpoints, SAEPS was closer than frozen-state GN to the declared finite-damping local reference under paired comparisons (Burgers: 12/15 planned, 12 valid; Allen–Cahn: 9/10 planned, 9 valid).
 3. Matrix-free state elimination provides a practical cost path, including cost-only measurements up to 100001 state parameters.
 4. Historical nonlinear-profile, two-parameter, SO-independent-centre and low-cost-certification limitations are material and must be reported.
 
@@ -92,4 +92,3 @@ Subject to current scope and quartile verification, plausible venues are *Journa
 ## Go / revise / stop recommendation
 
 Proceed to a full Q2 submission only if G1–G5 in the protocol are met and the claim ledger has no unsupported headline claim. Proceed with limited claims if the method correctly exposes combinations and failures but intervention or calibration is absent. Revise the method if SAEPS adds no decision value beyond physical FIM/profile or if decisions flip under ordinary representation changes. Stop broad reliability expansion if it can avoid errors only by universal abstention, if independent references contradict its decisions, or if valid centres remain too scarce for the planned denominator.
-
