@@ -268,6 +268,7 @@ class HeatPINNRun:
         result = dict(self.manifest)
         result.update(
             {
+                "run_id": f"ri2-{self.config.benchmark}-d{self.config.data_seed}-o{self.config.optimizer_seed}",
                 "schema_version": 1,
                 "protocol_id": "reliability_audit_v1",
                 "benchmark": self.config.benchmark,
@@ -373,7 +374,10 @@ def run_heat_pinn(config: HeatPINNConfig | None = None) -> HeatPINNRun:
     np.random.seed(int(config.optimizer_seed))
     observation = generate_heat_observations(config)
     model = _StateNet(config.width, config.depth).to(dtype=config.torch_dtype)
-    initial = {"k": np.log(config.k_true), "C": np.log(config.C_true), "a": np.log(abs(config.amplitude_true))}
+    # Fixed development initialisation, independent of the hidden/test truth.
+    # The truth is used only for deterministic data generation and the separate
+    # analytic reference FIM.
+    initial = {"k": np.log(0.5), "C": np.log(1.0), "a": np.log(1.0)}
     log_parameters = {name: nn.Parameter(torch.tensor(initial[name], dtype=config.torch_dtype)) for name in config.unknown_parameters}
     optimizer = torch.optim.Adam(list(model.parameters()) + list(log_parameters.values()), lr=config.learning_rate)
     start = time.perf_counter()
