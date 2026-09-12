@@ -1,0 +1,31 @@
+# Analytic identifiability sanity checks.  These cases are independent of
+# PINN checkpoints and are retained as permanent regression references.
+schema_version: 1
+namespace: identifiability
+cases:
+  - id: state_parameter_compensation
+    residual: w + p - y
+    jacobian_state: [[1.0]]
+    jacobian_parameter: [[1.0]]
+    gamma_grid: [1.0e-6, 1.0e-3, 1.0, 1.0e3]
+    expected:
+      unrestricted_zero_damping_curvature: 0.0
+      finite_gamma_formula: gamma/(1+gamma)
+      interpretation: state adaptation removes all physical sensitivity
+  - id: parameter_only_rank_deficiency
+    jacobian_parameter: [[1.0, 1.0], [2.0, 2.0]]
+    expected:
+      rank: 1
+      null_direction: [1.0, -1.0]
+      identifiable_combination: p1 + p2
+  - id: heat_temperature_only_k_C
+    solution: a*sin(pi*x)*exp(-pi^2*(k/C)*t)
+    parameters: [k, C]
+    expected:
+      identifiable_combination: k/C
+      sensitivity_rank: 1
+  - id: heat_two_times_with_unknown_amplitude
+    solution: a*sin(pi*x)*exp(-pi^2*(k/C)*t)
+    observations: [temperature_at_t0, temperature_at_t1]
+    expected:
+      amplitude_and_decay_rate_identifiable: true
