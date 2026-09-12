@@ -1,0 +1,21 @@
+# RI-v6 P0 correction-layer settings.  This file is development-only and does
+# not alter the v2/v5 locked configurations or any archived run.
+protocol_id: ri_v6_correction_audit_v1
+baseline_commit: ebdb494f9c9ff3f0c1c821d4723c28249fe4dcfd
+execution_scope: deterministic_p0_checks_only
+confirmation_authorized: false
+run_large_confirmation: false
+decision_modes:
+  - SAEPS_ONLY
+  - PHYSICAL_FIM_PLUGIN
+  - ORACLE_FIM_REFERENCE
+  - FIM_ASSISTED_SAEPS
+residual:
+  version: ri_v6_normalized
+  equation: '(u_t - (k/C) * u_xx) / s_phys'
+  s_phys: 1.0
+  normalize_pde_quadrature: true
+reference_refinement:
+  noise_fraction: 0.01
+  comparison: absolute_two_level_difference
+profile_status: PROFILE_NOT_IMPLEMENTED

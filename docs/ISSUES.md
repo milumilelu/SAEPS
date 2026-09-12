@@ -1,5 +1,19 @@
 # ISSUES.md
 
+## RI-V6-P0 — Correction layer status (2026-09-12)
+
+Classification: implementation failure (confirmed) with scientific scope
+`INCONCLUSIVE`. The RI-v6 review identified oracle/reference-FIM input
+flow-through, LBFGS closure mutation, common-scale PDE residual degeneracy,
+mislabelled profile eligibility, F0 subtraction cancellation and a reference
+threshold mismatch. A new non-destructive correction layer addresses these
+interfaces with deterministic P0 tests and keeps the legacy output namespace,
+labels, lock and `PROTOCOL_STOP` unchanged. The nonlinear profile and matched
+RAW–SAEPS discrimination remain `UNTESTED`; no confirmation training was run.
+
+Evidence: `outputs/ri_v6_correction_audit_v1/RI_V6_CORRECTION_AUDIT.json`,
+`docs/evidence/RI_V6_P0_CORRECTION.md`, and `docs/ISSUES_RI_V6.md`.
+
 ## I-P1B-CORRECTION — Retained review findings and corrective authorization
 
 Classification: implementation failure and historical protocol deviation.
