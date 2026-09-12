@@ -45,6 +45,7 @@ def main() -> int:
                 {
                     "schema_version": 1,
                     "protocol_id": "reliability_audit_v1",
+                    "run_id": f"ri2-{config.benchmark}-d{config.data_seed}-o{config.optimizer_seed}",
                     "benchmark": config.benchmark,
                     "data_seed": config.data_seed,
                     "optimizer_seed": config.optimizer_seed,
