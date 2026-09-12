@@ -26,6 +26,7 @@ from saeps.reliability_audit_v1.heat_pinn import (  # noqa: E402
     _StateNet,
     _jacobians,
     generate_heat_observations,
+    weighted_residual,
 )
 from saeps.reliability_audit_v1.reliability import (  # noqa: E402
     GAMMA_ALPHA_GRID,
@@ -41,6 +42,28 @@ from torch import nn  # noqa: E402
 
 def _hash_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _jacobians_from_checkpoint(model: _StateNet, config: HeatPINNConfig, observation: Any, logs: dict[str, nn.Parameter], manifest: dict[str, Any]) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Recompute Jacobians while preserving the manifest's pilot coordinate map.
+
+    Early RI-2 B4 manifests treated ``a`` as a physical column; later adapter
+    revisions classify it as a nuisance coordinate.  The saved F_raw shape and
+    manifest unknown list are authoritative for this retrospective analysis.
+    """
+    manifest_unknown = tuple(str(name) for name in (manifest.get("unknown_parameters") or ()))
+    if manifest_unknown == tuple(config.unknown_parameters):
+        return _jacobians(model, config, observation, logs)
+    residual = weighted_residual(model, config, observation, logs, create_graph=True)
+    state_parameters = tuple(model.parameters())
+    physical_parameters = tuple(logs[name] for name in manifest_unknown)
+    state_rows: list[torch.Tensor] = []
+    physical_rows: list[torch.Tensor] = []
+    for value in residual:
+        grads = torch.autograd.grad(value, state_parameters + physical_parameters, retain_graph=True, allow_unused=True)
+        state_rows.append(torch.cat([g.reshape(-1) if g is not None else torch.zeros(p.numel(), dtype=residual.dtype) for g, p in zip(grads[:len(state_parameters)], state_parameters)]))
+        physical_rows.append(torch.cat([g.reshape(-1) if g is not None else torch.zeros(1, dtype=residual.dtype) for g in grads[len(state_parameters):]]))
+    return residual.detach(), torch.stack(state_rows).detach(), torch.stack(physical_rows).detach()
 
 
 def _load_jacobians(manifest: dict[str, Any], run_dir: Path, cache_dir: Path) -> tuple[np.ndarray, np.ndarray, dict[str, str]]:
@@ -66,7 +89,7 @@ def _load_jacobians(manifest: dict[str, Any], run_dir: Path, cache_dir: Path) ->
     logs_payload = payload.get("log_parameters", {})
     logs = {name: nn.Parameter(torch.as_tensor(logs_payload[name], dtype=config.torch_dtype)) for name in config.trainable_parameters}
     observation = generate_heat_observations(config)
-    _, jw, jp = _jacobians(model, config, observation, logs)
+    _, jw, jp = _jacobians_from_checkpoint(model, config, observation, logs, manifest)
     state = jw.detach().cpu().numpy()
     parameter = jp.detach().cpu().numpy()
     out_dir = cache_dir / str(manifest["run_id"])
