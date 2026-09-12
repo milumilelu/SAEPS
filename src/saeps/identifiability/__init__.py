@@ -110,6 +110,105 @@ def heat_temperature_sensitivities(
     return torch.stack((d_k, d_C, d_a), dim=-1)
 
 
+def heat_flux(
+    x: torch.Tensor,
+    t: torch.Tensor,
+    k: float | torch.Tensor,
+    C: float | torch.Tensor,
+    amplitude: float | torch.Tensor = 1.0,
+) -> torch.Tensor:
+    """Heat flux ``q=-k T_x`` for the single-mode solution."""
+
+    k_value = torch.as_tensor(k, dtype=x.dtype, device=x.device)
+    c_value = torch.as_tensor(C, dtype=x.dtype, device=x.device)
+    a_value = torch.as_tensor(amplitude, dtype=x.dtype, device=x.device)
+    return -k_value * a_value * torch.pi * torch.cos(torch.pi * x) * torch.exp(
+        -torch.pi**2 * (k_value / c_value) * t
+    )
+
+
+def heat_flux_sensitivities(
+    x: torch.Tensor,
+    t: torch.Tensor,
+    k: float,
+    C: float,
+    amplitude: float = 1.0,
+) -> torch.Tensor:
+    """Analytic sensitivities of flux with columns ``(k, C)``."""
+
+    if k <= 0 or C <= 0:
+        raise ValueError("k and C must be positive")
+    flux = heat_flux(x, t, k, C, amplitude)
+    z = torch.pi**2 * t * float(k) / float(C)
+    d_k = flux * (1.0 / float(k) - torch.pi**2 * t / float(C))
+    d_C = flux * (z / float(C))
+    return torch.stack((d_k, d_C), dim=-1)
+
+
+def benchmark_observation_jacobian(
+    benchmark: str,
+    x: torch.Tensor,
+    t: torch.Tensor,
+    *,
+    k: float = 0.6,
+    C: float = 1.2,
+    amplitude: float = 1.0,
+) -> torch.Tensor:
+    """Return the independent physical observation Jacobian for B1--B6.
+
+    The benchmark labels follow the identifiability protocol: B1/B2 estimate
+    ``k`` from temperature only, B3 estimates ``(k,C)`` from temperature,
+    B4 profiles ``(k, amplitude)`` at one snapshot, B5 uses two snapshots for
+    that pair, and B6 combines temperature and calibrated heat flux for
+    ``(k,C)``.  ``x`` and ``t`` are flattened observation coordinates; callers
+    control sparse/early designs through those tensors.
+    """
+
+    label = str(benchmark).strip().upper()
+    if label not in {"B1", "B2", "B3", "B4", "B5", "B6"}:
+        raise ValueError("benchmark must be one of B1, B2, B3, B4, B5, B6")
+    temperature = heat_temperature_sensitivities(x, t, k, C, amplitude)
+    if label in {"B1", "B2"}:
+        return temperature[:, :1]
+    if label == "B3":
+        return temperature[:, :2]
+    if label in {"B4", "B5"}:
+        return temperature[:, (0, 2)]
+    # B6: both observation modalities constrain the same physical pair.
+    flux = heat_flux_sensitivities(x, t, k, C, amplitude)
+    return torch.cat((temperature[:, :2], flux), dim=0)
+
+
+def benchmark_rank(
+    benchmark: str,
+    x: torch.Tensor,
+    t: torch.Tensor,
+    **kwargs: float,
+) -> int:
+    """Numerical rank of a B1--B6 independent observation Jacobian."""
+
+    return numerical_rank(benchmark_observation_jacobian(benchmark, x, t, **kwargs))
+
+
+def add_observation_noise(
+    observations: torch.Tensor,
+    sigma: float,
+    seed: int,
+) -> torch.Tensor:
+    """Add reproducible zero-mean Gaussian noise for pilot data generation."""
+
+    if sigma < 0:
+        raise ValueError("sigma must be non-negative")
+    generator = torch.Generator(device=observations.device).manual_seed(int(seed))
+    noise = torch.randn(
+        observations.shape,
+        dtype=observations.dtype,
+        device=observations.device,
+        generator=generator,
+    )
+    return observations + float(sigma) * noise
+
+
 def numerical_rank(matrix: torch.Tensor, relative_tolerance: float = 1.0e-10) -> int:
     """SVD rank using a scale-relative cutoff."""
 
@@ -150,9 +249,14 @@ def counterexample_metadata() -> dict[str, Any]:
 
 __all__ = [
     "counterexample_metadata",
+    "add_observation_noise",
+    "benchmark_observation_jacobian",
+    "benchmark_rank",
     "exact_zero_damping_curvature",
     "finite_gamma_reduced_curvature",
     "heat_temperature",
     "heat_temperature_sensitivities",
+    "heat_flux",
+    "heat_flux_sensitivities",
     "numerical_rank",
 ]
