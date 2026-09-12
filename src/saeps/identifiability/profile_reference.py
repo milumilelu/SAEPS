@@ -302,7 +302,7 @@ def profile_heat_observation(
             clipped = float(np.clip(amplitude, a_lower, a_upper))
             boundary = bool(clipped != amplitude or clipped in (a_lower, a_upper))
             amplitude = clipped
-            C_value = DEFAULT_C
+            C_value = known_C
             nuisance["a"] = amplitude
         elif data.benchmark in {"B3", "B6"}:
             def objective_log_C(log_c: float) -> float:
@@ -336,6 +336,7 @@ def profile_heat_observation(
         row["objective_delta_half_chi2"] = float(row["objective_half_chi2"] - minimum_value)
     boundary_truncated = bool(minimum_index in (0, len(rows) - 1)) and not flat
     profile_status = "FLAT" if flat else ("BOUNDARY_TRUNCATED" if boundary_truncated else "PASS")
+    nuisance_boundary_count = int(sum(bool(row["boundary"]) for row in rows))
     return {
         "schema_version": 1,
         "reference_kind": "independent_analytic_heat_profile",
@@ -356,6 +357,8 @@ def profile_heat_observation(
         "objective_span_half_chi2": span,
         "flat_profile": flat,
         "boundary_truncated": boundary_truncated,
+        "nuisance_boundary_count": nuisance_boundary_count,
+        "any_nuisance_boundary": bool(nuisance_boundary_count),
         "local_minima_count": len(local_minima),
         "multimodal": bool(len(local_minima) > 1),
         "profile_status": profile_status,

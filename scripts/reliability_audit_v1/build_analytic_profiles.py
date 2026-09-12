@@ -1,4 +1,4 @@
-"""Build the frozen independent analytic profile artifacts for B1/B3--B6.
+"""Build the frozen independent analytic profile artifacts for B1--B6.
 
 The command has no PINN or test-truth optimisation path.  It uses the
 closed-form heat observations and writes one JSON artifact per benchmark plus
@@ -22,7 +22,7 @@ from saeps.identifiability.profile_reference import (
 )
 
 
-BENCHMARKS = ("B1", "B3", "B4", "B5", "B6")
+BENCHMARKS = ("B1", "B2", "B3", "B4", "B5", "B6")
 
 
 def build(output_dir: Path, *, noise_rho: float = 0.01, data_seed: int = 10) -> dict:
