@@ -122,3 +122,11 @@ matrix or locked configuration is modified. See `docs/UPGRADE_MATRIX_PILOT.md`.
 - Supersedes: the generic AED-v1 planning emphasis. It preserves the old
   isolation rule but changes the scientific main score to target utility `U(a)`
   and adds current-round upper-bound screening plus E0–E5 validation stages.
+
+## Phase 1C — prospective development evidence
+
+User authorization: “你试试1、2、3”. Frozen execution commit a7ad495.
+Protocol and source hashes: revision_week/outputs/phase1c_development_v1/snapshot.json.
+Raw results, full planned denominators, costs, independent reload checks and
+artifact hashes are under that namespace. Prior outputs are read-only and
+validated against the frozen snapshot. Original main-checkout changes are untouched.

@@ -1,0 +1,3208 @@
+{
+  "E1": {
+    "planned": 20,
+    "terminal_records": 20,
+    "pdes": [
+      {
+        "group": "burgers",
+        "planned": 10,
+        "valid": 0,
+        "wins": 0,
+        "pair_logs": [],
+        "median_logR_floor": null
+      },
+      {
+        "group": "allen_cahn",
+        "planned": 10,
+        "valid": 0,
+        "wins": 0,
+        "pair_logs": [],
+        "median_logR_floor": null
+      }
+    ],
+    "conclusion": "PARTIALLY_SUPPORTED",
+    "bootstrap95": null,
+    "bootstrap_role": "descriptive_not_binding",
+    "rows": [
+      {
+        "group": "allen_cahn",
+        "seed": 1016,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.00012099993438448513,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.008180865496957507,
+          "eigen_residual": 4.4866148799716305e-11,
+          "orthogonality_error": 2.5167718486918163e-15,
+          "symmetry_error": 5.548983569832856e-17,
+          "numerical_margin": 1.711834691166009e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.007464077920438839,
+          "eigen_residual": 3.628580120801322e-11,
+          "orthogonality_error": 2.44182172676363e-15,
+          "symmetry_error": 5.548983514615774e-17,
+          "numerical_margin": 1.7104367864920043e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0007167875702799587,
+        "checkpoint_sha256": "7d1084f199c659092f522b5d86843ed6fa0d6631df7de4497d6a0328a3364f75",
+        "training_seconds": 4.09141210000962,
+        "root_lbfgs_seconds": 4.01688050001394,
+        "root_corrector_seconds": 4.632846500026062,
+        "curvature_seconds": 0.040897400001995265,
+        "counts": {
+          "objective": 1573,
+          "gradient": 1573,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.758754099952057,
+          "sampled_peak_rss_bytes": 321056768,
+          "os_peak_working_set_bytes": 323178496,
+          "memory_limit_bytes": 10513393254,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            38432,
+            48760
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1017,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.001354496790858233,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.34493343649428254,
+          "eigen_residual": 6.728058647621685e-11,
+          "orthogonality_error": 2.5867200011046577e-15,
+          "symmetry_error": 6.077747077743288e-17,
+          "numerical_margin": 3.653033143847266e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.34340078278460723,
+          "eigen_residual": 4.555490972479265e-11,
+          "orthogonality_error": 3.186452711347157e-15,
+          "symmetry_error": 6.077747017173191e-17,
+          "numerical_margin": 3.660083908140953e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0015326537053608818,
+        "checkpoint_sha256": "ebbe28939775344b4f3710f8797292053dfb8a7043f7fc22dfd88c98f7c2216d",
+        "training_seconds": 4.247140999999829,
+        "root_lbfgs_seconds": 3.958086399943568,
+        "root_corrector_seconds": 4.529625200084411,
+        "curvature_seconds": 0.03848559991456568,
+        "counts": {
+          "objective": 1526,
+          "gradient": 1526,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.80888240004424,
+          "sampled_peak_rss_bytes": 320368640,
+          "os_peak_working_set_bytes": 320667648,
+          "memory_limit_bytes": 10632498380,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            31916,
+            39376
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1018,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 6.64793658066192e-07,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -7.042420263710513e-06,
+          "eigen_residual": 8.04739310120362e-11,
+          "orthogonality_error": 2.439197227979736e-15,
+          "symmetry_error": 4.8200770752716644e-17,
+          "numerical_margin": 2.4204861408178764e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": 0.0010067911377755019,
+          "lambda_min_A_numeric": 0.0010068152636356683,
+          "eigen_residual": 6.157367243834803e-11,
+          "orthogonality_error": 1.848901287786767e-15,
+          "symmetry_error": 4.8200770272742916e-17,
+          "numerical_margin": 2.4125860166452974e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "numerical_bound_estimate",
+          "spd_status": "numerically_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": {
+          "fro": {
+            "error_GN": 1.425367242080739,
+            "error_SO": 0.07035272904846579,
+            "strict_SO_win": true,
+            "strict_GN_win": false,
+            "logR_floor": 3.008663197988716,
+            "logR": 3.008663197988716,
+            "relative_GN": 0.19313848563158054,
+            "relative_SO": 0.00953285521605941,
+            "reference_resolved": true
+          },
+          "spectral": {
+            "error_GN": 1.425367242080739,
+            "error_SO": 0.07035272904846579,
+            "strict_SO_win": true,
+            "strict_GN_win": false,
+            "logR_floor": 3.008663197988716,
+            "logR": 3.008663197988716,
+            "relative_GN": 0.19313848563158054,
+            "relative_SO": 0.00953285521605941,
+            "reference_resolved": true
+          }
+        },
+        "gamma": 0.0010138576832286444,
+        "checkpoint_sha256": "5d652a11c48699c4b21325103146a11cdffa4d4f4f873c8b5d964e9b0e5a3074",
+        "training_seconds": 4.364242400042713,
+        "root_lbfgs_seconds": 4.034857299993746,
+        "root_corrector_seconds": 4.797184499911964,
+        "curvature_seconds": 0.0375714999390766,
+        "counts": {
+          "objective": 1550,
+          "gradient": 1550,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 15.186724600032903,
+          "sampled_peak_rss_bytes": 320774144,
+          "os_peak_working_set_bytes": 322895872,
+          "memory_limit_bytes": 10569170944,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            26036,
+            49548
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1019,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.00038794293243018564,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.07969674438822102,
+          "eigen_residual": 3.120116397144367e-11,
+          "orthogonality_error": 3.963750648602357e-15,
+          "symmetry_error": 8.548493671964915e-17,
+          "numerical_margin": 1.7952630854586734e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.07894808583331928,
+          "eigen_residual": 3.352923794602533e-11,
+          "orthogonality_error": 2.3027700266974647e-15,
+          "symmetry_error": 8.548493586799574e-17,
+          "numerical_margin": 1.783014172506382e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.000748658556634184,
+        "checkpoint_sha256": "2d321fe3219621cf96da9d1f68058bdb81c155b79f02f6dae5eeb080b20e7898",
+        "training_seconds": 4.253058300004341,
+        "root_lbfgs_seconds": 3.8640055999858305,
+        "root_corrector_seconds": 4.603731899987906,
+        "curvature_seconds": 0.03924009995535016,
+        "counts": {
+          "objective": 1546,
+          "gradient": 1546,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.756248300080188,
+          "sampled_peak_rss_bytes": 324124672,
+          "os_peak_working_set_bytes": 326246400,
+          "memory_limit_bytes": 10564052582,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            32788,
+            42380
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1020,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.000519424207478063,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.6540104972908584,
+          "eigen_residual": 4.460806839899564e-11,
+          "orthogonality_error": 2.5760923687341717e-15,
+          "symmetry_error": 4.8760277455849306e-17,
+          "numerical_margin": 2.4471371867311227e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.6529870682617012,
+          "eigen_residual": 5.4658866096321e-11,
+          "orthogonality_error": 2.551558180508969e-15,
+          "symmetry_error": 4.876027697150733e-17,
+          "numerical_margin": 2.4478895103078057e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0010234290324069527,
+        "checkpoint_sha256": "810e7c456f82751d3f8b3703ad4ba78992d152f094b7a61373c65862e275820b",
+        "training_seconds": 4.184459800017066,
+        "root_lbfgs_seconds": 4.041577099938877,
+        "root_corrector_seconds": 4.529289299971424,
+        "curvature_seconds": 0.04160909994971007,
+        "counts": {
+          "objective": 1562,
+          "gradient": 1562,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.798392400029115,
+          "sampled_peak_rss_bytes": 319979520,
+          "os_peak_working_set_bytes": 322101248,
+          "memory_limit_bytes": 10530701312,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            8112,
+            39064
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1021,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.0002017529262331484,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.039072829194795114,
+          "eigen_residual": 1.20562359507708e-10,
+          "orthogonality_error": 2.1763708281726303e-15,
+          "symmetry_error": 7.666523301060593e-17,
+          "numerical_margin": 3.187593680266555e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.03773763415326218,
+          "eigen_residual": 6.025045585578878e-11,
+          "orthogonality_error": 2.7942529972415718e-15,
+          "symmetry_error": 7.66652322476265e-17,
+          "numerical_margin": 3.189852168003988e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.001335195042124527,
+        "checkpoint_sha256": "21b883599293a1551c2afd148e6b8ac7c68b0eaaeb778f7e51ec94d13f172748",
+        "training_seconds": 4.212706100079231,
+        "root_lbfgs_seconds": 3.9562467000214383,
+        "root_corrector_seconds": 4.600378799950704,
+        "curvature_seconds": 0.04064009990543127,
+        "counts": {
+          "objective": 1561,
+          "gradient": 1561,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.755673400009982,
+          "sampled_peak_rss_bytes": 319983616,
+          "os_peak_working_set_bytes": 322093056,
+          "memory_limit_bytes": 10498405171,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            44580,
+            45744
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1022,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.00029470828057113785,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.046579551514169044,
+          "eigen_residual": 1.8233760818616124e-10,
+          "orthogonality_error": 2.743696117266905e-15,
+          "symmetry_error": 2.1821832341592015e-17,
+          "numerical_margin": 7.886028232053937e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.04328205640502682,
+          "eigen_residual": 1.6321069869392213e-10,
+          "orthogonality_error": 2.0605999419882044e-15,
+          "symmetry_error": 2.182183212462248e-17,
+          "numerical_margin": 7.861460911579348e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0032974951129040716,
+        "checkpoint_sha256": "a29622bd63abd9fc86d2d0820c0b40019e8b51728d1973c9f27e6f5fc395e2ed",
+        "training_seconds": 4.179976299987175,
+        "root_lbfgs_seconds": 4.0751078999601305,
+        "root_corrector_seconds": 4.556316199945286,
+        "curvature_seconds": 0.0380853998940438,
+        "counts": {
+          "objective": 1571,
+          "gradient": 1571,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.834975000005215,
+          "sampled_peak_rss_bytes": 322490368,
+          "os_peak_working_set_bytes": 324603904,
+          "memory_limit_bytes": 10448882892,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            47400,
+            50192
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1023,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.00013189657179367418,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.042220434719433333,
+          "eigen_residual": 9.414790530439991e-11,
+          "orthogonality_error": 2.8979348718795065e-15,
+          "symmetry_error": 5.526999369562449e-17,
+          "numerical_margin": 2.7748489844331298e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.04106057309920824,
+          "eigen_residual": 6.964557198331714e-11,
+          "orthogonality_error": 4.3038630456135326e-15,
+          "symmetry_error": 5.5269993145296606e-17,
+          "numerical_margin": 2.7887758862986618e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.001159861621977595,
+        "checkpoint_sha256": "8643aee8ea49cd0052fe148a9843c199540fce6746024866534b8368178c1f95",
+        "training_seconds": 4.145083999959752,
+        "root_lbfgs_seconds": 4.01297889999114,
+        "root_corrector_seconds": 4.5421191999921575,
+        "curvature_seconds": 0.038817399996332824,
+        "counts": {
+          "objective": 1550,
+          "gradient": 1550,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.75883030006662,
+          "sampled_peak_rss_bytes": 320323584,
+          "os_peak_working_set_bytes": 322445312,
+          "memory_limit_bytes": 10414040678,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            14880,
+            15512
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1024,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 8.202269805362484e-05,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.023288478910438958,
+          "eigen_residual": 3.1931033205179e-11,
+          "orthogonality_error": 2.5552372188260722e-15,
+          "symmetry_error": 6.057958349918072e-17,
+          "numerical_margin": 2.0169073556761033e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.022444625566944702,
+          "eigen_residual": 2.6379897474876482e-11,
+          "orthogonality_error": 2.234068711718936e-15,
+          "symmetry_error": 6.057958289736688e-17,
+          "numerical_margin": 2.0136241385252025e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.000843853339611631,
+        "checkpoint_sha256": "6f0b3558667ddae4a7d17dda61dfa9f739a3a57816ea604c6d479a0a87947ef7",
+        "training_seconds": 4.293279799981974,
+        "root_lbfgs_seconds": 3.9286552000558004,
+        "root_corrector_seconds": 4.4824689999222755,
+        "curvature_seconds": 0.036132600042037666,
+        "counts": {
+          "objective": 1567,
+          "gradient": 1567,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.800000500050373,
+          "sampled_peak_rss_bytes": 320180224,
+          "os_peak_working_set_bytes": 322301952,
+          "memory_limit_bytes": 10336908083,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            5224,
+            24720
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1025,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.00021659844211298248,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.05609120335972978,
+          "eigen_residual": 1.7779486852792379e-10,
+          "orthogonality_error": 2.5588809969336686e-15,
+          "symmetry_error": 1.5935236151113784e-17,
+          "numerical_margin": 8.70353249289788e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.052441935184512234,
+          "eigen_residual": 2.2602977771348217e-10,
+          "orthogonality_error": 2.2731873772017536e-15,
+          "symmetry_error": 1.5935235992409253e-17,
+          "numerical_margin": 8.69788778673712e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0036492681786097947,
+        "checkpoint_sha256": "aa5da60dfd7a28d74cf73a6cf7dd1007b6a1a4b5c6070b16b707b2112adff5c5",
+        "training_seconds": 4.171195600065403,
+        "root_lbfgs_seconds": 4.0299984000157565,
+        "root_corrector_seconds": 4.533660700079054,
+        "curvature_seconds": 0.03713229997083545,
+        "counts": {
+          "objective": 1555,
+          "gradient": 1555,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 14.752167499973439,
+          "sampled_peak_rss_bytes": 320106496,
+          "os_peak_working_set_bytes": 322228224,
+          "memory_limit_bytes": 10296111923,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            16916,
+            31420
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1006,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.0013651677009972043,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -2.588452508283706,
+          "eigen_residual": 2.4422643657586306e-10,
+          "orthogonality_error": 2.9029511638911946e-15,
+          "symmetry_error": 7.62049465376796e-17,
+          "numerical_margin": 1.4077635622151691e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -2.5854336623615537,
+          "eigen_residual": 2.513500229622505e-10,
+          "orthogonality_error": 3.0025866047641227e-15,
+          "symmetry_error": 7.620494577681244e-17,
+          "numerical_margin": 1.4081360635435267e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0030188459217496463,
+        "checkpoint_sha256": "5fd0e186a6b3fcc270925868891a22afe75899c037a4fd027fe391d816839a2d",
+        "training_seconds": 4.291404900024645,
+        "root_lbfgs_seconds": 3.9197355000069365,
+        "root_corrector_seconds": 6.1469981999835,
+        "curvature_seconds": 0.05607270007021725,
+        "counts": {
+          "objective": 1504,
+          "gradient": 1504,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.39546559995506,
+          "sampled_peak_rss_bytes": 334557184,
+          "os_peak_working_set_bytes": 335654912,
+          "memory_limit_bytes": 10521857228,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            8608,
+            46668
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1007,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.004477824875980033,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -5.6677608032470665,
+          "eigen_residual": 2.3328985244345217e-10,
+          "orthogonality_error": 3.416940361670828e-15,
+          "symmetry_error": 6.860163839353188e-17,
+          "numerical_margin": 1.3850868988062182e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -5.6647979266704755,
+          "eigen_residual": 2.249529795712495e-10,
+          "orthogonality_error": 3.4156687853762267e-15,
+          "symmetry_error": 6.860163770955738e-17,
+          "numerical_margin": 1.384999765092098e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0029628765758037265,
+        "checkpoint_sha256": "2880122f0feff51b2cbb43c99a7bd533a2574a284a58efea20b8cb2003e4fbe7",
+        "training_seconds": 4.211399800027721,
+        "root_lbfgs_seconds": 3.9272926000412554,
+        "root_corrector_seconds": 6.231772999977693,
+        "curvature_seconds": 0.05584329995326698,
+        "counts": {
+          "objective": 1462,
+          "gradient": 1462,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.414136299979873,
+          "sampled_peak_rss_bytes": 340561920,
+          "os_peak_working_set_bytes": 340992000,
+          "memory_limit_bytes": 10510942208,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            24732,
+            52100
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1008,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.001702314439493093,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -1.097398639461034,
+          "eigen_residual": 2.335483264167836e-10,
+          "orthogonality_error": 2.736551833992747e-15,
+          "symmetry_error": 4.159830117028456e-17,
+          "numerical_margin": 2.588851036917941e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -1.0918397924436176,
+          "eigen_residual": 3.3211479431750906e-10,
+          "orthogonality_error": 2.942715906493281e-15,
+          "symmetry_error": 4.159830075491575e-17,
+          "numerical_margin": 2.590984456565765e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.005558847022640622,
+        "checkpoint_sha256": "a05b2783901206acd30fda84b79f78ef493c03fc333d99af000b492463dbda59",
+        "training_seconds": 4.2495676999678835,
+        "root_lbfgs_seconds": 3.9384211000287905,
+        "root_corrector_seconds": 6.400440700002946,
+        "curvature_seconds": 0.05395860003773123,
+        "counts": {
+          "objective": 1506,
+          "gradient": 1506,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.656703499960713,
+          "sampled_peak_rss_bytes": 341118976,
+          "os_peak_working_set_bytes": 341381120,
+          "memory_limit_bytes": 10592996556,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            13344,
+            34896
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1009,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.0015568497292738268,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.7526088681110131,
+          "eigen_residual": 9.095524796880623e-10,
+          "orthogonality_error": 3.263763576573068e-15,
+          "symmetry_error": 8.539314272583656e-17,
+          "numerical_margin": 7.688311277686117e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.7361405260220525,
+          "eigen_residual": 1.3487351865207132e-09,
+          "orthogonality_error": 2.985078122321386e-15,
+          "symmetry_error": 8.539314187399725e-17,
+          "numerical_margin": 7.688102421923031e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.016468342129201223,
+        "checkpoint_sha256": "16c00ca5f8308227fc7ad26076f88baddb7f94fc2f5f9f4082ec560a577d59de",
+        "training_seconds": 4.238410200108774,
+        "root_lbfgs_seconds": 3.922780800028704,
+        "root_corrector_seconds": 6.326582700014114,
+        "curvature_seconds": 0.053841100074350834,
+        "counts": {
+          "objective": 1508,
+          "gradient": 1508,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.504323000088334,
+          "sampled_peak_rss_bytes": 338472960,
+          "os_peak_working_set_bytes": 338632704,
+          "memory_limit_bytes": 10556316057,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            18992,
+            29468
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1010,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.0015966920995212981,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.8709866551630479,
+          "eigen_residual": 1.5266769214391768e-10,
+          "orthogonality_error": 3.1293184554146715e-15,
+          "symmetry_error": 8.070088608411416e-17,
+          "numerical_margin": 1.7106118817141881e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.8673117672988014,
+          "eigen_residual": 3.6088332034425474e-10,
+          "orthogonality_error": 3.418554073660593e-15,
+          "symmetry_error": 8.070088527719025e-17,
+          "numerical_margin": 1.7137570754257337e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.003674887867410708,
+        "checkpoint_sha256": "372ef4318630046e61fba701ecd88bf9d10b1e36ea83fbba464e854818b6e737",
+        "training_seconds": 4.250345699954778,
+        "root_lbfgs_seconds": 3.966420300072059,
+        "root_corrector_seconds": 6.197074700030498,
+        "curvature_seconds": 0.05531600001268089,
+        "counts": {
+          "objective": 1526,
+          "gradient": 1526,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.440295099979267,
+          "sampled_peak_rss_bytes": 339673088,
+          "os_peak_working_set_bytes": 339935232,
+          "memory_limit_bytes": 10531605708,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            12524,
+            34156
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1011,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.00202100787623976,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -2.902308054910711,
+          "eigen_residual": 3.674143775680789e-10,
+          "orthogonality_error": 3.543447224976968e-15,
+          "symmetry_error": 6.255067727225778e-17,
+          "numerical_margin": 1.6554735607615558e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -2.8987575979936206,
+          "eigen_residual": 7.889107884102851e-10,
+          "orthogonality_error": 3.0519059887369712e-15,
+          "symmetry_error": 6.255067664649319e-17,
+          "numerical_margin": 1.65794406446835e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.003550456917401998,
+        "checkpoint_sha256": "94a5070b96d1bb48d1a5af52daf34acf1af84f1f6bc6eed3a9a5ebf4bbc98b19",
+        "training_seconds": 4.16494829999283,
+        "root_lbfgs_seconds": 3.9400545000098646,
+        "root_corrector_seconds": 6.376783399959095,
+        "curvature_seconds": 0.05518800008576363,
+        "counts": {
+          "objective": 1508,
+          "gradient": 1508,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.54842689994257,
+          "sampled_peak_rss_bytes": 340041728,
+          "os_peak_working_set_bytes": 340307968,
+          "memory_limit_bytes": 10530458828,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            14528,
+            24344
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1012,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.005589636043872131,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -6.381102182712162,
+          "eigen_residual": 8.227284722679207e-10,
+          "orthogonality_error": 3.1637632150205366e-15,
+          "symmetry_error": 5.761586427441535e-17,
+          "numerical_margin": 3.0344827929837835e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -6.374600766313831,
+          "eigen_residual": 7.802470063159668e-10,
+          "orthogonality_error": 2.8616418597366843e-15,
+          "symmetry_error": 5.761586369879019e-17,
+          "numerical_margin": 3.032091971425445e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.006501416395831036,
+        "checkpoint_sha256": "db05fd3e3161ee51522ba593cbea65bfefb49899faee1068b0dd387188d7fdb0",
+        "training_seconds": 4.179071899969131,
+        "root_lbfgs_seconds": 3.844784500077367,
+        "root_corrector_seconds": 6.183992200065404,
+        "curvature_seconds": 0.06173110008239746,
+        "counts": {
+          "objective": 1495,
+          "gradient": 1495,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.238391400082037,
+          "sampled_peak_rss_bytes": 335630336,
+          "os_peak_working_set_bytes": 338100224,
+          "memory_limit_bytes": 10431620710,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            4500,
+            20424
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1013,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.000634561582285819,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.2635847459784988,
+          "eigen_residual": 1.4432676565148832e-10,
+          "orthogonality_error": 3.1909639040664602e-15,
+          "symmetry_error": 4.923752583564689e-17,
+          "numerical_margin": 8.423518402462926e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.26177824547356016,
+          "eigen_residual": 1.4227548633109508e-10,
+          "orthogonality_error": 3.5175370075754562e-15,
+          "symmetry_error": 4.9237525343718e-17,
+          "numerical_margin": 8.429218256576348e-08,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0018065005038407184,
+        "checkpoint_sha256": "388dc1054086f391c6a879fe3aa8d18d9438f729bf2d04e160e4c9d411123a35",
+        "training_seconds": 4.245304699987173,
+        "root_lbfgs_seconds": 4.079495399957523,
+        "root_corrector_seconds": 6.293083099997602,
+        "curvature_seconds": 0.06089680001605302,
+        "counts": {
+          "objective": 1509,
+          "gradient": 1509,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.64480840007309,
+          "sampled_peak_rss_bytes": 338128896,
+          "os_peak_working_set_bytes": 338337792,
+          "memory_limit_bytes": 10436663705,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            42712,
+            44640
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1014,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.001794417978616166,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.754793728236789,
+          "eigen_residual": 1.9271197320498383e-10,
+          "orthogonality_error": 3.389669677418651e-15,
+          "symmetry_error": 7.62745130625888e-17,
+          "numerical_margin": 2.2917629134600683e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.7498837630896239,
+          "eigen_residual": 1.8986997777572493e-10,
+          "orthogonality_error": 3.7342149194062515e-15,
+          "symmetry_error": 7.627451230161717e-17,
+          "numerical_margin": 2.2934301642240132e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.00490996515212474,
+        "checkpoint_sha256": "3dd1bbbb36e62f147d40fb9adcb08c71bf5eb0e0b3094e6ee2af21645ada91ee",
+        "training_seconds": 4.127691500005312,
+        "root_lbfgs_seconds": 3.9157408999744803,
+        "root_corrector_seconds": 6.311311300029047,
+        "curvature_seconds": 0.05410710000433028,
+        "counts": {
+          "objective": 1510,
+          "gradient": 1510,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.462579499930143,
+          "sampled_peak_rss_bytes": 340402176,
+          "os_peak_working_set_bytes": 340541440,
+          "memory_limit_bytes": 10331268710,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            14664,
+            38376
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      },
+      {
+        "group": "burgers",
+        "seed": 1015,
+        "status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "failure_reason": "trial_budget_exhausted",
+        "state_gradient": 0.002472033233795416,
+        "unanchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.5843877236669415,
+          "eigen_residual": 2.2007468921578744e-10,
+          "orthogonality_error": 3.4134784716706913e-15,
+          "symmetry_error": 3.974264098943803e-17,
+          "numerical_margin": 1.7332490852573687e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "anchored_state_SPD": {
+          "mu_value": null,
+          "lambda_min_A_numeric": -0.5806692468818775,
+          "eigen_residual": 2.5860371952483974e-10,
+          "orthogonality_error": 3.317098191147352e-15,
+          "symmetry_error": 3.9742640592216567e-17,
+          "numerical_margin": 1.7332758201120253e-07,
+          "mu_source": "dense_eigh_with_numerical_margin",
+          "bound_status": "indicator_only",
+          "spd_status": "not_SPD"
+        },
+        "reload_bitwise": true,
+        "metrics": null,
+        "gamma": 0.0037184767940119,
+        "checkpoint_sha256": "9d183794f84dbe761b43947f2ca1bc2402c5c1f15138a0accca626872edc43c4",
+        "training_seconds": 4.211670899996534,
+        "root_lbfgs_seconds": 3.945274999947287,
+        "root_corrector_seconds": 6.3310441001085564,
+        "curvature_seconds": 0.0566842999542132,
+        "counts": {
+          "objective": 1514,
+          "gradient": 1514,
+          "hessian": 162
+        },
+        "explicit_JVP_VJP_counts": 0,
+        "explicit_jacobians": 1,
+        "explicit_hessians": 163,
+        "CG_iterations": 0,
+        "process": {
+          "exit_code": 0,
+          "status": "PASS",
+          "failure_reason": null,
+          "wall_seconds": 16.589117900002748,
+          "sampled_peak_rss_bytes": 340017152,
+          "os_peak_working_set_bytes": 340156416,
+          "memory_limit_bytes": 10319115059,
+          "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+          "timeout_seconds": 1800,
+          "observed_process_ids": [
+            11472,
+            43392
+          ],
+          "process_tree_kill_enforced": true,
+          "timing_kind": "measured"
+        }
+      }
+    ]
+  },
+  "E3": {
+    "planned_candidates": 160,
+    "accepted": 0,
+    "valid_candidates": 0,
+    "attempted_candidates": 0,
+    "planned_roots": 20,
+    "complete_roots": 0,
+    "root_wins": 0,
+    "roots": [
+      {
+        "group": "allen_cahn",
+        "seed": 1016,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1017,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1018,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1019,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1020,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1021,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1022,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1023,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1024,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "allen_cahn",
+        "seed": 1025,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1006,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1007,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1008,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1009,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1010,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1011,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1012,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1013,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1014,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      },
+      {
+        "group": "burgers",
+        "seed": 1015,
+        "complete_pair": false,
+        "mean_SO_minus_GN": null,
+        "error_estimate": null,
+        "strict_SO_win": false,
+        "sides": []
+      }
+    ],
+    "evidence_role": "conditional_secondary_on_E1_roots"
+  },
+  "E4C": {
+    "planned": 10,
+    "valid": 0,
+    "frobenius_wins": 0,
+    "spectral_wins": 0,
+    "median_logR_floor": null,
+    "conditional_sign_p": null,
+    "conclusion": "PARTIALLY_SUPPORTED"
+  },
+  "development": {
+    "selection": {
+      "E0": "verified01",
+      "E4D": "verified01",
+      "E6D": "verified01"
+    },
+    "development_attempt_selection_reason": "Only engineering-corrected attempts; all earlier attempts and costs retained.",
+    "E0": {
+      "planned": 25,
+      "available": 21,
+      "classes": {
+        "appropriate": 19,
+        "wrong_direction": 1,
+        "overshoot": 1,
+        "unresolved": 0
+      },
+      "gamma_cells": 150,
+      "robustness_planned": 14,
+      "robustness_available": 0
+    },
+    "E4D": {
+      "all_original_valid_reloaded": true,
+      "available": 8,
+      "joint_frobenius_spectral_wins": 8,
+      "median_logR_frobenius": 5.610330214601873,
+      "median_logR_spectral": 5.489184980651792
+    },
+    "E4C_allowed": true,
+    "E6D": {
+      "k": 8,
+      "defect": "terminal",
+      "coverage": 21,
+      "finite_intervals": 21,
+      "median_effectivity": 66.34053099816049,
+      "q90_effectivity": 275.6571692153967
+    },
+    "E6P_allowed": false,
+    "E5AB": [
+      {
+        "center": "burgers_55",
+        "MF_status": "PASS",
+        "curvature_absolute_error": 5.2855874344004405e-08,
+        "curvature_relative_error": 1.7291636107147029e-09,
+        "HVP_relative_errors": [
+          1.7445899482899676e-16,
+          4.482107910840214e-16,
+          2.556462391448028e-16,
+          3.0712781124589464e-16,
+          2.825730950089988e-16,
+          5.382878892821453e-12
+        ],
+        "adjoint_errors": [
+          0.0,
+          0.0,
+          1.849828213145184e-17,
+          1.0685084659130926e-17,
+          1.536493720649051e-17,
+          3.1077867925764935e-19
+        ],
+        "CG": [
+          {
+            "iterations": 49,
+            "verified_relative_residual": 2.489143250084012e-11,
+            "target_converged": true
+          }
+        ],
+        "JVP_VJP_adjoint_errors": [
+          1.9262703663405688e-16,
+          1.7592234068883983e-16,
+          3.8104191552677683e-16,
+          6.043571907769584e-16,
+          1.1860831069362382e-15,
+          2.5146551507759796e-14
+        ],
+        "passed": true,
+        "status": "PASS",
+        "failure_reason": null
+      },
+      {
+        "center": "burgers_59",
+        "MF_status": "PASS",
+        "curvature_absolute_error": 1.7059082324522024e-07,
+        "curvature_relative_error": 4.797409551608033e-09,
+        "HVP_relative_errors": [
+          5.067127973752112e-16,
+          1.8676447732996148e-16,
+          2.328442431445956e-16,
+          1.832050493943807e-16,
+          2.4618374933695595e-16,
+          1.6303963740715596e-12
+        ],
+        "adjoint_errors": [
+          1.3054857437415803e-17,
+          1.4599024203466146e-17,
+          0.0,
+          5.659848150996313e-17,
+          5.898785229440673e-17,
+          5.114699980293218e-18
+        ],
+        "CG": [
+          {
+            "iterations": 56,
+            "verified_relative_residual": 3.5147778810352855e-12,
+            "target_converged": true
+          }
+        ],
+        "JVP_VJP_adjoint_errors": [
+          1.1410289134141019e-16,
+          5.9316790887753565e-16,
+          2.422553014746754e-16,
+          0.0,
+          3.8730975452448666e-15,
+          3.341771304121721e-14
+        ],
+        "passed": true,
+        "status": "PASS",
+        "failure_reason": null
+      },
+      {
+        "center": "burgers_67",
+        "MF_status": "PASS",
+        "curvature_absolute_error": 1.7466514705688496e-06,
+        "curvature_relative_error": 4.691465985436307e-08,
+        "HVP_relative_errors": [
+          3.150878669112851e-16,
+          1.7594325377376943e-16,
+          3.073389876439922e-16,
+          2.7919473158304588e-16,
+          1.356168192961297e-16,
+          2.7605151104849307e-12
+        ],
+        "adjoint_errors": [
+          4.20568057651659e-18,
+          1.3672822918649482e-17,
+          3.00500279346875e-17,
+          6.590529541953695e-17,
+          3.8149673265021114e-17,
+          4.707890498785569e-18
+        ],
+        "CG": [
+          {
+            "iterations": 51,
+            "verified_relative_residual": 3.1944250579681956e-11,
+            "target_converged": true
+          }
+        ],
+        "JVP_VJP_adjoint_errors": [
+          2.9185535657396735e-16,
+          1.8663806614890276e-16,
+          8.247159844719826e-16,
+          4.620100709349574e-16,
+          3.5284186500548824e-16,
+          2.4424906541753444e-15
+        ],
+        "passed": true,
+        "status": "PASS",
+        "failure_reason": null
+      },
+      {
+        "center": "allen_cahn_84",
+        "MF_status": "PASS",
+        "curvature_absolute_error": 4.1524409688520336e-08,
+        "curvature_relative_error": 7.490806218652412e-09,
+        "HVP_relative_errors": [
+          1.7443091093129994e-16,
+          1.4245282861043654e-16,
+          5.865846581231242e-16,
+          2.299607286852669e-16,
+          3.8098811760307833e-16,
+          1.6896094993772792e-12
+        ],
+        "adjoint_errors": [
+          3.7284588598793057e-17,
+          1.6383509532265946e-17,
+          4.882451840854025e-17,
+          4.118757941262007e-17,
+          2.4918203790423383e-17,
+          2.1294227060479663e-17
+        ],
+        "CG": [
+          {
+            "iterations": 31,
+            "verified_relative_residual": 1.5546983953148953e-11,
+            "target_converged": true
+          }
+        ],
+        "JVP_VJP_adjoint_errors": [
+          0.0,
+          3.212170545318964e-15,
+          2.453592884421596e-14,
+          6.193007325279825e-16,
+          1.262792712578762e-16,
+          1.687538997430238e-14
+        ],
+        "passed": true,
+        "status": "PASS",
+        "failure_reason": null
+      }
+    ],
+    "E5AB_engineering_pass": true,
+    "solver_development_records": 2,
+    "solver_development_pass": true
+  },
+  "E2": {
+    "planned": 20,
+    "computed_roots": 0,
+    "gate_C_pass": 0,
+    "E3_ready": 0
+  },
+  "E5C": {
+    "planned": 45,
+    "valid": 40
+  },
+  "cost": {
+    "worker_processes": [
+      {
+        "node": "E0",
+        "task": "dev01",
+        "exit_code": 1,
+        "status": "SOLVER_FAILURE",
+        "failure_reason": "worker_exit_nonzero",
+        "wall_seconds": 1.9166287000989541,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10643567411,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "E0",
+        "task": "dev02",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 4.269502799957991,
+        "sampled_peak_rss_bytes": 5472256,
+        "os_peak_working_set_bytes": 5550080,
+        "memory_limit_bytes": 9913224396,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "E0",
+        "task": "verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.7237701000412926,
+        "sampled_peak_rss_bytes": 212541440,
+        "os_peak_working_set_bytes": 212619264,
+        "memory_limit_bytes": 10649665536,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 600,
+        "observed_process_ids": [
+          9064,
+          24572
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1016",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.758754099952057,
+        "sampled_peak_rss_bytes": 321056768,
+        "os_peak_working_set_bytes": 323178496,
+        "memory_limit_bytes": 10513393254,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          38432,
+          48760
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1017",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.80888240004424,
+        "sampled_peak_rss_bytes": 320368640,
+        "os_peak_working_set_bytes": 320667648,
+        "memory_limit_bytes": 10632498380,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          31916,
+          39376
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1018",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 15.186724600032903,
+        "sampled_peak_rss_bytes": 320774144,
+        "os_peak_working_set_bytes": 322895872,
+        "memory_limit_bytes": 10569170944,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          26036,
+          49548
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1019",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.756248300080188,
+        "sampled_peak_rss_bytes": 324124672,
+        "os_peak_working_set_bytes": 326246400,
+        "memory_limit_bytes": 10564052582,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          32788,
+          42380
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1020",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.798392400029115,
+        "sampled_peak_rss_bytes": 319979520,
+        "os_peak_working_set_bytes": 322101248,
+        "memory_limit_bytes": 10530701312,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          8112,
+          39064
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1021",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.755673400009982,
+        "sampled_peak_rss_bytes": 319983616,
+        "os_peak_working_set_bytes": 322093056,
+        "memory_limit_bytes": 10498405171,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          44580,
+          45744
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1022",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.834975000005215,
+        "sampled_peak_rss_bytes": 322490368,
+        "os_peak_working_set_bytes": 324603904,
+        "memory_limit_bytes": 10448882892,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          47400,
+          50192
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1023",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.75883030006662,
+        "sampled_peak_rss_bytes": 320323584,
+        "os_peak_working_set_bytes": 322445312,
+        "memory_limit_bytes": 10414040678,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          14880,
+          15512
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1024",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.800000500050373,
+        "sampled_peak_rss_bytes": 320180224,
+        "os_peak_working_set_bytes": 322301952,
+        "memory_limit_bytes": 10336908083,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          5224,
+          24720
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "allen_cahn_1025",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 14.752167499973439,
+        "sampled_peak_rss_bytes": 320106496,
+        "os_peak_working_set_bytes": 322228224,
+        "memory_limit_bytes": 10296111923,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          16916,
+          31420
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1006",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.39546559995506,
+        "sampled_peak_rss_bytes": 334557184,
+        "os_peak_working_set_bytes": 335654912,
+        "memory_limit_bytes": 10521857228,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          8608,
+          46668
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1007",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.414136299979873,
+        "sampled_peak_rss_bytes": 340561920,
+        "os_peak_working_set_bytes": 340992000,
+        "memory_limit_bytes": 10510942208,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          24732,
+          52100
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1008",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.656703499960713,
+        "sampled_peak_rss_bytes": 341118976,
+        "os_peak_working_set_bytes": 341381120,
+        "memory_limit_bytes": 10592996556,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          13344,
+          34896
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1009",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.504323000088334,
+        "sampled_peak_rss_bytes": 338472960,
+        "os_peak_working_set_bytes": 338632704,
+        "memory_limit_bytes": 10556316057,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          18992,
+          29468
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1010",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.440295099979267,
+        "sampled_peak_rss_bytes": 339673088,
+        "os_peak_working_set_bytes": 339935232,
+        "memory_limit_bytes": 10531605708,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          12524,
+          34156
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1011",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.54842689994257,
+        "sampled_peak_rss_bytes": 340041728,
+        "os_peak_working_set_bytes": 340307968,
+        "memory_limit_bytes": 10530458828,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          14528,
+          24344
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1012",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.238391400082037,
+        "sampled_peak_rss_bytes": 335630336,
+        "os_peak_working_set_bytes": 338100224,
+        "memory_limit_bytes": 10431620710,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          4500,
+          20424
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1013",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.64480840007309,
+        "sampled_peak_rss_bytes": 338128896,
+        "os_peak_working_set_bytes": 338337792,
+        "memory_limit_bytes": 10436663705,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          42712,
+          44640
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1014",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.462579499930143,
+        "sampled_peak_rss_bytes": 340402176,
+        "os_peak_working_set_bytes": 340541440,
+        "memory_limit_bytes": 10331268710,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          14664,
+          38376
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E1",
+        "task": "burgers_1015",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 16.589117900002748,
+        "sampled_peak_rss_bytes": 340017152,
+        "os_peak_working_set_bytes": 340156416,
+        "memory_limit_bytes": 10319115059,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          11472,
+          43392
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1026",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 24.1315476000309,
+        "sampled_peak_rss_bytes": 331444224,
+        "os_peak_working_set_bytes": 331689984,
+        "memory_limit_bytes": 10178491187,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          14532,
+          28996
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1027",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.843372299917974,
+        "sampled_peak_rss_bytes": 334303232,
+        "os_peak_working_set_bytes": 334389248,
+        "memory_limit_bytes": 10312862924,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          36724,
+          51548
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1028",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.474281400092877,
+        "sampled_peak_rss_bytes": 330121216,
+        "os_peak_working_set_bytes": 330203136,
+        "memory_limit_bytes": 10287916646,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          36752,
+          48312
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1029",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.70629480003845,
+        "sampled_peak_rss_bytes": 336187392,
+        "os_peak_working_set_bytes": 336269312,
+        "memory_limit_bytes": 10253451264,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          17464,
+          37264
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1030",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.466476000030525,
+        "sampled_peak_rss_bytes": 330010624,
+        "os_peak_working_set_bytes": 330092544,
+        "memory_limit_bytes": 10266270105,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          34472,
+          47168
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1031",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.415546800009906,
+        "sampled_peak_rss_bytes": 331202560,
+        "os_peak_working_set_bytes": 331284480,
+        "memory_limit_bytes": 10214837452,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          11144,
+          52108
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1032",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.706949599902146,
+        "sampled_peak_rss_bytes": 332058624,
+        "os_peak_working_set_bytes": 332640256,
+        "memory_limit_bytes": 10229930393,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          10016,
+          32228
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1033",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.83883479994256,
+        "sampled_peak_rss_bytes": 332206080,
+        "os_peak_working_set_bytes": 332288000,
+        "memory_limit_bytes": 10205374054,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          22516,
+          44596
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1034",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.579995599924587,
+        "sampled_peak_rss_bytes": 331841536,
+        "os_peak_working_set_bytes": 331919360,
+        "memory_limit_bytes": 10163712819,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          3188,
+          31688
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4C",
+        "task": "multi_1035",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 23.544839999987744,
+        "sampled_peak_rss_bytes": 330620928,
+        "os_peak_working_set_bytes": 330702848,
+        "memory_limit_bytes": 10079348326,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1800,
+        "observed_process_ids": [
+          12232,
+          25116
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E4D",
+        "task": "dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 4.391469300026074,
+        "sampled_peak_rss_bytes": 5472256,
+        "os_peak_working_set_bytes": 5550080,
+        "memory_limit_bytes": 10383268249,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "E4D",
+        "task": "verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.476448299945332,
+        "sampled_peak_rss_bytes": 341794816,
+        "os_peak_working_set_bytes": 346132480,
+        "memory_limit_bytes": 10641591500,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 600,
+        "observed_process_ids": [
+          17992,
+          20728
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_compact_explicit_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.573970399913378,
+        "sampled_peak_rss_bytes": 5472256,
+        "os_peak_working_set_bytes": 5550080,
+        "memory_limit_bytes": 10347416780,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_compact_explicit_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.4463879999238998,
+        "sampled_peak_rss_bytes": 326045696,
+        "os_peak_working_set_bytes": 331759616,
+        "memory_limit_bytes": 10621524377,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          21124,
+          27008
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_compact_mf_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 5.01414179999847,
+        "sampled_peak_rss_bytes": 5476352,
+        "os_peak_working_set_bytes": 5554176,
+        "memory_limit_bytes": 10434002944,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_compact_mf_dev02",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.7611600999953225,
+        "sampled_peak_rss_bytes": 5472256,
+        "os_peak_working_set_bytes": 5550080,
+        "memory_limit_bytes": 9620570112,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_compact_mf_dev03",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.140216799918562,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 9806338457,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_compact_mf_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.2059134000446647,
+        "sampled_peak_rss_bytes": 296300544,
+        "os_peak_working_set_bytes": 296378368,
+        "memory_limit_bytes": 10620502016,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          11496,
+          25856
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_export",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.507618400035426,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10403977625,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 60
+      },
+      {
+        "node": "E5AB",
+        "task": "allen_cahn_84_export_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.4434746999759227,
+        "sampled_peak_rss_bytes": 211972096,
+        "os_peak_working_set_bytes": 214810624,
+        "memory_limit_bytes": 10644026163,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 60,
+        "observed_process_ids": [
+          8876,
+          25524
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_compact_explicit_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.694249099935405,
+        "sampled_peak_rss_bytes": 5459968,
+        "os_peak_working_set_bytes": 5537792,
+        "memory_limit_bytes": 10441385574,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_compact_explicit_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.4366169000277296,
+        "sampled_peak_rss_bytes": 338993152,
+        "os_peak_working_set_bytes": 342597632,
+        "memory_limit_bytes": 10611392512,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          46912,
+          48088
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_compact_mf_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 7.317703000037,
+        "sampled_peak_rss_bytes": 5476352,
+        "os_peak_working_set_bytes": 5554176,
+        "memory_limit_bytes": 10455102259,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_compact_mf_dev02",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.5703584000002593,
+        "sampled_peak_rss_bytes": 5476352,
+        "os_peak_working_set_bytes": 5554176,
+        "memory_limit_bytes": 9667425075,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_compact_mf_dev03",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.7152579999528825,
+        "sampled_peak_rss_bytes": 5476352,
+        "os_peak_working_set_bytes": 5554176,
+        "memory_limit_bytes": 9641079603,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_compact_mf_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.5173871000297368,
+        "sampled_peak_rss_bytes": 296284160,
+        "os_peak_working_set_bytes": 296366080,
+        "memory_limit_bytes": 10627144089,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          11968,
+          35636
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_export",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.6462259000400081,
+        "sampled_peak_rss_bytes": 5459968,
+        "os_peak_working_set_bytes": 5537792,
+        "memory_limit_bytes": 10447329689,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 60
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_55_export_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.3866293000755832,
+        "sampled_peak_rss_bytes": 211324928,
+        "os_peak_working_set_bytes": 215179264,
+        "memory_limit_bytes": 10602374758,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 60,
+        "observed_process_ids": [
+          19328,
+          39932
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_compact_explicit_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.5871303000021726,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10460056780,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_compact_explicit_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.5929726000176743,
+        "sampled_peak_rss_bytes": 343441408,
+        "os_peak_working_set_bytes": 343859200,
+        "memory_limit_bytes": 10620629811,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          7232,
+          41564
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_compact_mf_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 8.72712950001005,
+        "sampled_peak_rss_bytes": 5476352,
+        "os_peak_working_set_bytes": 5554176,
+        "memory_limit_bytes": 10458529792,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_compact_mf_dev02",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.774289399967529,
+        "sampled_peak_rss_bytes": 5705728,
+        "os_peak_working_set_bytes": 5713920,
+        "memory_limit_bytes": 9625491865,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_compact_mf_dev03",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.653408100013621,
+        "sampled_peak_rss_bytes": 5480448,
+        "os_peak_working_set_bytes": 5558272,
+        "memory_limit_bytes": 9804365824,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_compact_mf_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.721576299984008,
+        "sampled_peak_rss_bytes": 295813120,
+        "os_peak_working_set_bytes": 295899136,
+        "memory_limit_bytes": 10602781081,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          23688,
+          37764
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_export",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.5245521999895573,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10487362355,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 60
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_59_export_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.3801479999674484,
+        "sampled_peak_rss_bytes": 212201472,
+        "os_peak_working_set_bytes": 214499328,
+        "memory_limit_bytes": 10644078592,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 60,
+        "observed_process_ids": [
+          1744,
+          16076
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_compact_explicit_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.7372054000152275,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10474235494,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_compact_explicit_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.49472129996866,
+        "sampled_peak_rss_bytes": 339202048,
+        "os_peak_working_set_bytes": 343158784,
+        "memory_limit_bytes": 10616651776,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          12524,
+          16404
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_compact_mf_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 8.201089399983175,
+        "sampled_peak_rss_bytes": 5476352,
+        "os_peak_working_set_bytes": 5554176,
+        "memory_limit_bytes": 10484482048,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_compact_mf_dev02",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.7747196999844164,
+        "sampled_peak_rss_bytes": 5472256,
+        "os_peak_working_set_bytes": 5550080,
+        "memory_limit_bytes": 9651676774,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_compact_mf_dev03",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.630682499962859,
+        "sampled_peak_rss_bytes": 5480448,
+        "os_peak_working_set_bytes": 5558272,
+        "memory_limit_bytes": 9803281203,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 120
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_compact_mf_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.5128862999845296,
+        "sampled_peak_rss_bytes": 296648704,
+        "os_peak_working_set_bytes": 296730624,
+        "memory_limit_bytes": 10619607449,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 120,
+        "observed_process_ids": [
+          10156,
+          34736
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_export",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.5032648999476805,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10501731123,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 60
+      },
+      {
+        "node": "E5AB",
+        "task": "burgers_67_export_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.3610007000388578,
+        "sampled_peak_rss_bytes": 211001344,
+        "os_peak_working_set_bytes": 215089152,
+        "memory_limit_bytes": 10618358988,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 60,
+        "observed_process_ids": [
+          19336,
+          39296
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n100001_m213",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 51.27064070000779,
+        "sampled_peak_rss_bytes": 1046962176,
+        "os_peak_working_set_bytes": 1047072768,
+        "memory_limit_bytes": 9274638336,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          37068,
+          52012
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n100001_m3413",
+        "exit_code": 1,
+        "status": "SOLVER_FAILURE",
+        "failure_reason": "resource_limit",
+        "wall_seconds": 305.658325000084,
+        "sampled_peak_rss_bytes": 8928632832,
+        "os_peak_working_set_bytes": 8928935936,
+        "memory_limit_bytes": 8884951449,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          12460,
+          12532
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n100001_m853",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 210.01443129999097,
+        "sampled_peak_rss_bytes": 3360579584,
+        "os_peak_working_set_bytes": 3360686080,
+        "memory_limit_bytes": 9409003520,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          9776,
+          32840
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n10001_m213",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 7.8705621000844985,
+        "sampled_peak_rss_bytes": 377794560,
+        "os_peak_working_set_bytes": 377876480,
+        "memory_limit_bytes": 9749463040,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          28780,
+          32788
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n10001_m3413",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 100.75556429999415,
+        "sampled_peak_rss_bytes": 1578795008,
+        "os_peak_working_set_bytes": 1578901504,
+        "memory_limit_bytes": 9710426521,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          28640,
+          49196
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n10001_m853",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 24.349584299954586,
+        "sampled_peak_rss_bytes": 609128448,
+        "os_peak_working_set_bytes": 609361920,
+        "memory_limit_bytes": 9715531776,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          14612,
+          25552
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n1001_m213",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 4.701589600066654,
+        "sampled_peak_rss_bytes": 303042560,
+        "os_peak_working_set_bytes": 303124480,
+        "memory_limit_bytes": 9788787916,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          10916,
+          50564
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n1001_m3413",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 12.36618939996697,
+        "sampled_peak_rss_bytes": 422948864,
+        "os_peak_working_set_bytes": 423026688,
+        "memory_limit_bytes": 9738659430,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          20548,
+          25580
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E5C",
+        "task": "n1001_m853",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 5.91615790000651,
+        "sampled_peak_rss_bytes": 336277504,
+        "os_peak_working_set_bytes": 336355328,
+        "memory_limit_bytes": 9727793561,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 1200,
+        "observed_process_ids": [
+          16580,
+          35900
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "E6D",
+        "task": "dev01",
+        "exit_code": 1,
+        "status": "SOLVER_FAILURE",
+        "failure_reason": "worker_exit_nonzero",
+        "wall_seconds": 1.6290159999625757,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 10481110220,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "E6D",
+        "task": "dev02",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.0210895999334753,
+        "sampled_peak_rss_bytes": 5468160,
+        "os_peak_working_set_bytes": 5545984,
+        "memory_limit_bytes": 9603756851,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "E6D",
+        "task": "dev03",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.624034499982372,
+        "sampled_peak_rss_bytes": 5464064,
+        "os_peak_working_set_bytes": 5541888,
+        "memory_limit_bytes": 9870295040,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "E6D",
+        "task": "verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 1.6498849999625236,
+        "sampled_peak_rss_bytes": 212631552,
+        "os_peak_working_set_bytes": 212733952,
+        "memory_limit_bytes": 10639769600,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 600,
+        "observed_process_ids": [
+          35624,
+          44056
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "PREFLIGHT",
+        "task": "allen_cahn_84_solver_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 8.97869969997555,
+        "sampled_peak_rss_bytes": 5517312,
+        "os_peak_working_set_bytes": 5595136,
+        "memory_limit_bytes": 9408099123,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "PREFLIGHT",
+        "task": "allen_cahn_84_solver_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 7.40139279991854,
+        "sampled_peak_rss_bytes": 309604352,
+        "os_peak_working_set_bytes": 316522496,
+        "memory_limit_bytes": 10622196121,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 600,
+        "observed_process_ids": [
+          31592,
+          49724
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      },
+      {
+        "node": "PREFLIGHT",
+        "task": "burgers_55_solver_dev01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 3.3258457999909297,
+        "sampled_peak_rss_bytes": 5472256,
+        "os_peak_working_set_bytes": 5550080,
+        "memory_limit_bytes": 9420508364,
+        "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+        "timeout_seconds": 600
+      },
+      {
+        "node": "PREFLIGHT",
+        "task": "burgers_55_solver_verified01",
+        "exit_code": 0,
+        "status": "PASS",
+        "failure_reason": null,
+        "wall_seconds": 2.9432149999774992,
+        "sampled_peak_rss_bytes": 325959680,
+        "os_peak_working_set_bytes": 326049792,
+        "memory_limit_bytes": 10616350310,
+        "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+        "timeout_seconds": 600,
+        "observed_process_ids": [
+          5668,
+          22488
+        ],
+        "process_tree_kill_enforced": true,
+        "timing_kind": "measured"
+      }
+    ],
+    "worker_seconds": 1424.6211650997866,
+    "estimated_interruption_upper_bound_seconds": 0,
+    "preflight_seed_scan_seconds": 49.508069599978626,
+    "preflight_source_review_seconds": 0.6521504999836907,
+    "measured_activity_seconds": 1600.6726406998932,
+    "instrumented_engineering_command_seconds": 125.89125550014433,
+    "accounting": "Measured process walls including startup, failed development, warmups and reference work; recorded engineering commands are separate. Early uninstrumented shell/test commands, dependency network wait, and model reasoning are not included. Shared trajectory fields are not summed twice.",
+    "estimated_seconds": null,
+    "historical_costs": {
+      "audit_seconds": 1.7084076999453828,
+      "new_accounted_seconds": 35.99997909999976,
+      "prefreeze_test_command_seconds": 3.8343419,
+      "historical_phase1_seconds": 43.54764920009564,
+      "historical_reconstruction_seconds": 3801.8915909999632,
+      "historical_phase1b_success_seconds": 442.608485499979,
+      "previous_corrective_seconds": 133.40117250007089,
+      "cumulative_accounted_excluding_historical_reconstruction_and_estimated_failures": 655.5572863001453,
+      "matrix_estimator_seconds": 0.0020358003675937653,
+      "matrix_spectrum_seconds": 0.012530899839475751,
+      "matrix_oracle_seconds": 0.0007284997263923287
+    },
+    "cumulative_accounted_excluding_historical_reconstruction_and_estimated_failures": 2256.2299270000385
+  },
+  "WORKFLOW_COMPLETE": true,
+  "ALL_NUMERICAL_EXPERIMENTS_EXECUTED": false,
+  "limitations": [
+    "E0-C original 14 states/full blocks unavailable; no reconstruction training.",
+    "E2/E3 are secondary on E1 roots, not new independent samples.",
+    "All spectral endpoints and objective precision estimates are numerical diagnostics, not rigorous certificates.",
+    "E5 large-network results establish cost only."
+  ]
+}

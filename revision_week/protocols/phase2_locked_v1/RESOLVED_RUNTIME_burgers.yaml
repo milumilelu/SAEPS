@@ -1,0 +1,136 @@
+additional_training:
+  adam_epochs: 800
+  adam_learning_rate: 0.001
+  enabled: true
+  lbfgs_max_iterations: 300
+  maximum_retries: 1
+  trigger: either_locked_stationarity_gate_fails
+benchmark:
+  coordinate: log_mu
+  equation: u_t + u*u_x = mu*u_xx
+  initial_condition: sin(2*pi*x)
+  initial_parameter: 0.08
+  truth_parameter: 0.05
+benchmarks:
+  Burgers:
+    coordinate: log_mu
+    equation: u_t + u*u_x = mu*u_xx
+    initial_condition: sin(2*pi*x)
+    initial_parameter: 0.08
+    truth_parameter: 0.05
+bootstrap:
+  confidence_level: 0.95
+  invalid_pair_rule: exclude_from_numeric_bootstrap_but_retain_planned_denominator_10
+  method: paired_percentile
+  resamples: 10000
+  rng_seed: 20260819
+checkpoint_gates:
+  state_rmse_max_validation_only: 0.15
+confirmation_seeds:
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+contract_id: SAEPS-JCP-EXEC-v2.0
+development_seeds:
+- 0
+- 1
+- 2
+device: cpu
+domain:
+  t:
+  - 0.0
+  - 0.4
+  x:
+  - 0.0
+  - 1.0
+dtype: float64
+forward_solver:
+  method: periodic_second_order_fd_rk4
+  spatial_points: 128
+  time_steps: 2000
+gamma:
+  alpha_grid:
+  - 1.0e-12
+  - 1.0e-10
+  - 1.0e-08
+  - 1.0e-06
+  - 0.0001
+  - 0.01
+  cg_acceptance: 1.0e-08
+  cg_max_iterations: 500
+  cg_tolerance: 1.0e-10
+  explicit_mf_relative_tolerance: 1.0e-06
+  nominal_alpha: 1.0e-08
+  plateau_relative_tolerance: 0.05
+  selector: smallest_cg_eligible_point_with_explicit_plateau_to_preceding_gamma
+loss_weights:
+  boundary: 2.0
+  data: 10.0
+  initial: 10.0
+  pde: 5.0
+network:
+  architecture: tanh_mlp_2x16x1
+  hidden_width: 16
+optimizer:
+  adam_epochs: 1600
+  adam_learning_rate: 0.003
+  lbfgs_max_iterations: 300
+  lbfgs_tolerance_change: 1.0e-12
+  lbfgs_tolerance_grad: 1.0e-10
+phase: P5_SCALAR_CONFIRMATION
+points:
+  boundary_times: 48
+  data: 128
+  initial: 48
+  pde: 96
+profile:
+  fit_quality:
+    maximum_design_condition: 1.0e5
+    maximum_normalized_rmse: 0.03
+    minimum_r_squared: 0.99
+    positive_curvature_required: true
+  initialization: every_point_from_same_checkpoint_theta
+  objective: 0.5_mean_weighted_residual_squared
+  offsets:
+  - -0.075
+  - -0.05
+  - -0.025
+  - 0.0
+  - 0.025
+  - 0.05
+  - 0.075
+  optimizer:
+    adam_learning_rate: 0.001
+    adam_warmup_epochs: 500
+    history_size: 50
+    inner_iterations: 50
+    line_search: strong_wolfe
+    name: LBFGS
+    outer_steps_max: 15
+    tolerance_change: 1.0e-14
+    tolerance_grad: 1.0e-12
+  previous_point_continuation: forbidden
+  stopping:
+    minimum_outer_steps: 3
+    normalized_gradient: 0.005
+    plateau_window: 3
+    relative_loss_change: 0.002
+schema_version: 1
+scientific_gate:
+  median_D_must_be_positive: true
+  strong_ci_lower_must_be_positive: true
+  wins_required_out_of_planned_10: 9
+selected_benchmark: Burgers
+selection_basis: classical_curvature_clarity_after_hard_gate_and_stationarity_ties
+selection_evidence_run: p4-screening-s0-20260819T080159.676328+0000-56ebdbadfb52
+sensor_layout: fixed_seeded_uniform_per_run
+stationarity_gates:
+  parameter: 0.02
+  theta: 0.02

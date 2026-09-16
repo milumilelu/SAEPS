@@ -1,0 +1,22 @@
+{
+  "role": "user-authorized prospective development: stationarity, distinguishable steps, directional error estimation",
+  "roots": ["burgers_55", "allen_cahn_84"],
+  "offsets": [0.05, -0.05],
+  "new_training": 0,
+  "new_seeds": 0,
+  "newton_iterations": 8,
+  "newton_backtracks": 12,
+  "gradient_gate": 1e-8,
+  "newton_target": 1e-10,
+  "step_fraction": 0.1,
+  "trust_radius": 0.1,
+  "shift_beta_scale": 1e-6,
+  "armijo": 1e-4,
+  "candidate_solves": 16,
+  "estimator_iterations": 8,
+  "per_worker_seconds": 300,
+  "total_worker_seconds": 1800,
+  "estimator_scope": "fixed 8 diagonal-PCG iterations estimate terminal defect energy; original approximation and stopping unchanged; dense numerical mu retained and charged, not rigorous or matrix-free certification",
+  "step_scope": "scalar roots only; no suitable independent multi-parameter SO state is admitted in this run; no confirmation or downstream experiment",
+  "decision": "report all outcomes once; no retry, gate relaxation, seed replacement or outcome-based radius tuning"
+}

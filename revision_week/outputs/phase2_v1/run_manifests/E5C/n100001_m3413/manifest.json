@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "phase": "E5C",
+  "run_id": "phase2_v1",
+  "node": "E5C",
+  "name": "n100001_m3413",
+  "job": {
+    "kind": "scale",
+    "n": 100001,
+    "m": 3413
+  },
+  "process": {
+    "exit_code": 1,
+    "status": "SOLVER_FAILURE",
+    "failure_reason": "resource_limit",
+    "wall_seconds": 305.658325000084,
+    "sampled_peak_rss_bytes": 8928632832,
+    "os_peak_working_set_bytes": 8928935936,
+    "memory_limit_bytes": 8884951449,
+    "memory_source": "Windows Job process tree, 20ms sum RSS samples; sum of process OS peaks is an upper estimate of simultaneous working-set peak",
+    "timeout_seconds": 1200,
+    "observed_process_ids": [
+      12460,
+      12532
+    ],
+    "process_tree_kill_enforced": true,
+    "timing_kind": "measured"
+  },
+  "raw_directory": "revision_week\\outputs\\phase2_v1\\tasks\\E5C\\n100001_m3413",
+  "split": "preregistered_secondary",
+  "attempt": 1,
+  "config_hash": "c02bbd6e00c115d756636ac93a30af60e38dbe42ab5d6134d775dffe6db31130",
+  "git_commit": "39288b47199cfc16d0e6bbcf08df68a0b1bff193",
+  "files": [
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E5C/n100001_m3413/claim.json",
+      "sha256": "250fea5542359c491361847288fa7d75098f7a87abd99f7a6b40732e384626a2",
+      "raw_sha256": "250fea5542359c491361847288fa7d75098f7a87abd99f7a6b40732e384626a2"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E5C/n100001_m3413/process.json",
+      "sha256": "4791f1d67cc8d76984c47f204c67eb5b24c32a439d7ffd9b19815343f031a7b0",
+      "raw_sha256": "4791f1d67cc8d76984c47f204c67eb5b24c32a439d7ffd9b19815343f031a7b0"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E5C/n100001_m3413/process_started.json",
+      "sha256": "8aa33550650b711e3c5231df9245547d969d7dd9eb34bf7edeac9637a24d7f95",
+      "raw_sha256": "8aa33550650b711e3c5231df9245547d969d7dd9eb34bf7edeac9637a24d7f95"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E5C/n100001_m3413/setup.json",
+      "sha256": "1e4fe594dc226f35d01bfcb993ffc6d29264d3812adc56a30c0746ea0cb5b638",
+      "raw_sha256": "1e4fe594dc226f35d01bfcb993ffc6d29264d3812adc56a30c0746ea0cb5b638"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E5C/n100001_m3413/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E5C/n100001_m3413/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

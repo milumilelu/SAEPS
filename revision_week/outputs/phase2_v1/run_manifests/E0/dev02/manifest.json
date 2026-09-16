@@ -1,0 +1,651 @@
+{
+  "node": "E0",
+  "name": "dev02",
+  "job": {
+    "kind": "scalar_history"
+  },
+  "process": {
+    "exit_code": 0,
+    "status": "PASS",
+    "failure_reason": null,
+    "wall_seconds": 4.269502799957991,
+    "sampled_peak_rss_bytes": 5472256,
+    "os_peak_working_set_bytes": 5550080,
+    "memory_limit_bytes": 9913224396,
+    "memory_source": "native GetProcessMemoryInfo, sampled 20ms; OS peak separately",
+    "timeout_seconds": 600
+  },
+  "raw_directory": "revision_week\\outputs\\phase2_v1\\tasks\\E0\\dev02",
+  "config_hash": "79bc22623c11295b9bbc8bb7af2584b5d8903402409b46930050682e30f2f5c8",
+  "git_commit": "e89d9e0065b7943904030d5b16b99f3d5d29b912",
+  "files": [
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/claim.json",
+      "sha256": "08c23f27a62adcf2e49319bc7757f57178e13e13617b7a57690cf4d5b6de448a"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/GAMMA_SWEEP.csv",
+      "sha256": "c4183f831af54bee32c9c1f46f658f8d0fb9a4428e0e3302d8ad441ea54c9824"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/MECHANISM.csv",
+      "sha256": "3b6617ae73473adf7abf0a8ab00477153af8e7b899a03c6f08b29fa4e9cbe5a3"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/process.json",
+      "sha256": "41be5d3139a7e706f193a8b3dd4650d86fbc57acf9aeab76216c3bf5cbab0d9e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/process_started.json",
+      "sha256": "8b7101754e297d22f3f7843b52b385f7f4683c21e30546932c60731b3c3c7417"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/result.json",
+      "sha256": "fd6a04a73cf2f182357e7e6de410a5c587c1972a2ccbd32b0c52bfdae7ae6685"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/ROBUSTNESS.csv",
+      "sha256": "35e764beb2ae4c7579404e7069dd4a23f4b5e22b9e961cf5a5eecd0a816a71b9"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/worker_terminal.json",
+      "sha256": "67f68af395d75fad6798b2520b7e7fd3d967a2472305f22c3a86138e2cd725af"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_alpha_0.0001.json",
+      "sha256": "f7c852c4d0f3b70ab5614694d02ccdd1cba2a54de4ffad33bc6330d2f3c1bf84"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_alpha_0.01.json",
+      "sha256": "8383ef8493adaf0caec0c238f3247c547f39daab2974632370a179fa395113c1"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_alpha_1e-06.json",
+      "sha256": "d0ffd990f551c75a8f4fae11007b36135cf12930eb9c9824093bd41cbafc65f6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_alpha_1e-08.json",
+      "sha256": "7c18c0e2631e92b3e61a486a8acd11837d8aed7764ca0a357cbecd2d94069414"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_alpha_1e-10.json",
+      "sha256": "6dca6b70f40986ab6211d412cbe86644c83b2874031ab48ddfb12282ec9d2b8f"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_alpha_1e-12.json",
+      "sha256": "64d88068fabd3d25d320df73dc0e3acdfb03100a96f47cc1990230f4d23d15a8"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_75_nominal.json",
+      "sha256": "83c329707c91e5160a487304bd1ce4ed9470c10d1e922a3975f663764d393cee"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_alpha_0.0001.json",
+      "sha256": "f1ba31b6938c11addff1a8d7ff376bc2afeedc10c03d0971039c64481625fa78"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_alpha_0.01.json",
+      "sha256": "5a83f59fbb3b6b5f022ed74199d48701c5425823562f7749d8073049ace00db3"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_alpha_1e-06.json",
+      "sha256": "2a7dfd60e24d7594d664fe65ebc6306f41f2237f003e7c34e68f2004f5dc2d04"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_alpha_1e-08.json",
+      "sha256": "6489b71cfd066d258b986027247fc8d05cc1a0370df4e0907ef459284435ac6f"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_alpha_1e-10.json",
+      "sha256": "a4ed95637ca1b8224d3352420fa9d98e8e1aa2c7c29635e070ec85f83963a339"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_alpha_1e-12.json",
+      "sha256": "29eb2e68234a47789f112730efec7b5a00f8e3bc8b3dd0f50f550f4afba25605"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_76_nominal.json",
+      "sha256": "3c48adcc319a15ce2a2ec8b7c5df59ac9e02062054153b714f62efd712e530be"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_alpha_0.0001.json",
+      "sha256": "72b20f2753e44a50f7e5aa1211f0849b00a3f1844edf88d07a72e008e6503476"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_alpha_0.01.json",
+      "sha256": "e93995704f39ce0cf1b0c49ec6bd8d07b654b2713e0d4ed9562807b6257bab7b"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_alpha_1e-06.json",
+      "sha256": "0628e013eaffaa79ac83b02351cbdd39bc649e8224a4f844ebfc1337097a01e5"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_alpha_1e-08.json",
+      "sha256": "9b46acd69a7c0436d8a18e69dcebe0ceec0b63bc95197e8df0bb2121ced5c353"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_alpha_1e-10.json",
+      "sha256": "2cca0dfff7fe6c6821cfca3206eaee8428d0becfc975dac93c033467412ded2d"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_alpha_1e-12.json",
+      "sha256": "63df26761ab9001228381f8887bc38af7a9a280fae81553411736e4b05718a9c"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_77_nominal.json",
+      "sha256": "3d3963a3b2aa86360fb21492d1a631dfda1942121a3c530ec43e33361cd861f0"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_alpha_0.0001.json",
+      "sha256": "e299e4fbd38f745655844070b15450058a149d9aa7f8bced677cea056c07d537"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_alpha_0.01.json",
+      "sha256": "85c8310bfa18c6357c217ac98b47244d87970c5c76d59c8689849354b7401131"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_alpha_1e-06.json",
+      "sha256": "5370112aae2dd2ffb607e541ba98a925b1ec0809c59873005e2f4c2e4a5c5da6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_alpha_1e-08.json",
+      "sha256": "660c185c27947d157534ae7656dc2614d1d9414773fe1eb928d7d4b53dc66cc6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_alpha_1e-10.json",
+      "sha256": "53cbb6576be88832e29fc13f16c1e26e8f78c6f28451216d0d6a589dfecc2b99"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_alpha_1e-12.json",
+      "sha256": "1b207463814c25da73f29977197672d3b2e081ee2a1a2bf4bd551996b6a41080"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_78_nominal.json",
+      "sha256": "412b1fb3bd2efab4d1dfccbad69b39e5f5648fe510ed4cf6d0c43c01b1cd8f19"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_alpha_0.0001.json",
+      "sha256": "e16514f6832a10de85f617cf788a3dc0241c6af946a074155694c39e185bb3eb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_alpha_0.01.json",
+      "sha256": "a5135a431a88a474928811c80158913a052b63d71415b58cb36e48969333d5eb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_alpha_1e-06.json",
+      "sha256": "b786d09d93e1ba49a2578cd49cfb8eb422fd5b5ad3e7c30b286bf16d8e09c53c"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_alpha_1e-08.json",
+      "sha256": "161f4c21c3987314cceeef20ccb2626b12373d2c1f8fdbc844a695606ffcd9f0"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_alpha_1e-10.json",
+      "sha256": "e78aa83ea6c0b2f090dd792fbe18e12f6da43f673100e5f2de879242500d51a4"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_alpha_1e-12.json",
+      "sha256": "04d6d4d7c6600a42b4e67be74af5955af119917ffcecfa7479eabb89c533f5e8"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_79_nominal.json",
+      "sha256": "2296ff35a8dd7e0a3929b14fe205346cfb6d7ce68d0197be0e41e95e55036958"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_alpha_0.0001.json",
+      "sha256": "ec374d94bb9c3f5ae678c2acafa43b59a9ca9ee8485ae19953e1751784ce4aaf"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_alpha_0.01.json",
+      "sha256": "2e0f5ba547577b8815e2adc6ee8678734c0814d5a7b135c3579035286fc8d925"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_alpha_1e-06.json",
+      "sha256": "183f1573685be913e5a00fbb570fe3e24935b8ade1fb352729e4a55e2fde7053"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_alpha_1e-08.json",
+      "sha256": "5b76a2a9075cebe0e14fd1db5be89f00aa933ea046e8ac73bfb9f4e0e37efcc6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_alpha_1e-10.json",
+      "sha256": "c034512df1885856524f057b31e429efba18cd457acd9ee12c77087175f67d3d"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_alpha_1e-12.json",
+      "sha256": "8b8bb197d24ad6f75e57ab56a9d696700d9577655cefc471b4f6df3fb7e48f1d"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_80_nominal.json",
+      "sha256": "798128d5c87ee5d556f80149ad1e79d4096475760bf172a93e695a5c5bdc3543"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_alpha_0.0001.json",
+      "sha256": "9caa1bc630c94abc8c97b7960297374364dea1d90c62905d8ebb56d6d8c73c90"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_alpha_0.01.json",
+      "sha256": "0b5a7af16c22daa766d956e89aec503e6151472d0760e95986c46f4597bd3d4d"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_alpha_1e-06.json",
+      "sha256": "e4ada9ab5c5a40f18922b170d3972106c51857e5c001082006106c12b7857104"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_alpha_1e-08.json",
+      "sha256": "5303b4ecac14073017a152e708ce68de9b81be35034f0a9916f674ab53fc1859"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_alpha_1e-10.json",
+      "sha256": "ae8e821fa2805bd440cfcbd474841dd0ccfb5ce03be971c5b7adaa4449f330d5"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_alpha_1e-12.json",
+      "sha256": "df48b10287897212192156eace5f1d56a120f2b1c3462061a9d210e5a9a4136e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_82_nominal.json",
+      "sha256": "2902ceddb0fd47435e92c48593c51c0836b793bc04a69bc09531496c82623616"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_alpha_0.0001.json",
+      "sha256": "0b48d6de4df7fe69809081f8372cfbd9d3a2ac3503cfbfab735e2183c69c88e4"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_alpha_0.01.json",
+      "sha256": "640692b03fed7396125b4ddcc11e8e458dbe6429b67d0594319e79fb2f0d78bc"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_alpha_1e-06.json",
+      "sha256": "fd29cd96a3392074093a75365765e7a9941e1646a1e9954a1a49c384ccf48091"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_alpha_1e-08.json",
+      "sha256": "f50abecdf31388661582d8a5f135a16082d7f2df8f0c2de759cf7064a3d2469a"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_alpha_1e-10.json",
+      "sha256": "248fc40ceef4ffec59e9029f9932dcbea768bd103274a1da59b5b0ca155d4971"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_alpha_1e-12.json",
+      "sha256": "5dcb18f445071be80af8d745a76616e662fd4b75d2f46a06c2cea2c22260524b"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_83_nominal.json",
+      "sha256": "53d06c5cba02a9fde5afdb460bc6862980a9750d7192b6dcc8f725087240cc97"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_alpha_0.0001.json",
+      "sha256": "88ae7982faf6e4aeafb2e8b580568948111939a89e0137caba185d09a82763f6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_alpha_0.01.json",
+      "sha256": "c5801c71f555ed074e526a2fda39140d2d512bdd54cc8e122755d2cca221662f"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_alpha_1e-06.json",
+      "sha256": "6f22659bb1e078c19729c6604dba4aad180e3f55358cbb75b83ceda49beb04c3"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_alpha_1e-08.json",
+      "sha256": "546d16c59db1cc8d7403eeb38c4d6a6725fc3ae4c60893fed1cd9815abc2b01f"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_alpha_1e-10.json",
+      "sha256": "47c82086b7f6ddbd99a13af96112091cd94d7a576a105d7c0249dee4ed8dd72f"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_alpha_1e-12.json",
+      "sha256": "90f5b1778829b363de0a61e3db0520e98d8f785bb8c70f61d3377c26601f825c"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/allen_cahn_84_nominal.json",
+      "sha256": "db399662c19da690e0db5571fc6247540afc0139845c45e38f9ad0104b43fac7"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_alpha_0.0001.json",
+      "sha256": "cfd1930cd4480850b7360452cc34ce0cf0217df7dea29786bfc0bc2f84bf34e0"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_alpha_0.01.json",
+      "sha256": "2ab54fe7b28430a5e4732abdac7552e7ab100515a1b21848ae18e3a703530561"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_alpha_1e-06.json",
+      "sha256": "117516840f9bbae62db72bd6d1f6009fbc265f071eb9e6d2476852cc789b8113"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_alpha_1e-08.json",
+      "sha256": "51469e2204234a591e00a60e0383be0c3856c1f3099ef197af44f37d1a156d37"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_alpha_1e-10.json",
+      "sha256": "722e5c2b8395cd2f462e4bdacd93839d10cbdf4d43c4918e132830a04ee1eaa5"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_alpha_1e-12.json",
+      "sha256": "d9b2aa260e17cdefc43c1083f9b88a0fc7b56ab5d5ee15d8191a5a5e43d66f0e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_55_nominal.json",
+      "sha256": "2aab7183140092072169c6b19f7ed90dfd27ee168b667c41702265c8a6c9c785"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_alpha_0.0001.json",
+      "sha256": "de1d45ae0e5d2435bd05d71b627c4c7999cd55e51054c82b8fa8313cb977b2b2"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_alpha_0.01.json",
+      "sha256": "161fafbb322e90ef54c464aad937392a1e6cd7e4d331b0dd67a5c80c2d4d8b9c"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_alpha_1e-06.json",
+      "sha256": "f57f49125f65918d28cda0e0f83360f85e08497f34c3359c5ce48c8ac73a0bdb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_alpha_1e-08.json",
+      "sha256": "fcb5a9b2138272dc9cb89c2349fd02b6279ea8bc49c0b6ae60dc3bad5bf5c61c"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_alpha_1e-10.json",
+      "sha256": "d6d70ac95f21f0a615d81ca1c2a2dbaf51336655a5ca9b0d7d75d705b0522b63"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_alpha_1e-12.json",
+      "sha256": "500e4073d1aaae7e175581305a37049d0219a037170c10d07dc57270d2e63e5a"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_56_nominal.json",
+      "sha256": "7d53b7727b19c62f89c413218c9dc88d97b00bbee7201b2968134d565cb80f89"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_alpha_0.0001.json",
+      "sha256": "b9a3190883a98d56762f66e02af5554b68812ace0a0707e6892125f7f595fa6e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_alpha_0.01.json",
+      "sha256": "6c3f49fdaa5c1b4d8949950fec5236d3eb2a6ea99a511fc5f0e8430166a59c59"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_alpha_1e-06.json",
+      "sha256": "e205ef7430ac3d13753ff6e37c83fb084d12402065074409aea75c2f9bad4235"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_alpha_1e-08.json",
+      "sha256": "b283802b9b40e3c80fd154ec6dcf19e44320510256ea797b86f4735ddf65f652"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_alpha_1e-10.json",
+      "sha256": "a38a4b961b3984f141cf1f83d69385bad02ac3ff5691aaafd57c2710021d9463"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_alpha_1e-12.json",
+      "sha256": "9f4db9690d6602f175900a9267d53429bcecbc630fcabe3a036c47d776d7edbe"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_58_nominal.json",
+      "sha256": "7dcdf7b657bf89da1a91737d931f07d181f082a07042550632a8f5919ff4f6cd"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_alpha_0.0001.json",
+      "sha256": "466f01fa2401569d5c58b7e120dfe63385ca31e2f23babaecd321a55116b7c2a"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_alpha_0.01.json",
+      "sha256": "9d7aa177b9cd6c3f9554e39929d4de4efe1319d370fea910971c1b26892483c9"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_alpha_1e-06.json",
+      "sha256": "6ce558afe6464cfc8ef7ff168794659080febe66923fba84ece19fd79b67f1a7"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_alpha_1e-08.json",
+      "sha256": "7fffb3412077f7138a6a3350bea3d1e9ec5badcb0d0e1363f3c76372c1cbb1a6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_alpha_1e-10.json",
+      "sha256": "bb3c3715d8422078f85d2cf0c1563b433fe1a76c37e6965169f8f7213f152233"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_alpha_1e-12.json",
+      "sha256": "e6f9addacbad62d86bbf97b55650d51c508b69260d203a87444894c134be1df4"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_59_nominal.json",
+      "sha256": "00c71a11eba9f58f5e86e0a4e3ff93b2a41596d9d2c116c16b625d977e7d714e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_alpha_0.0001.json",
+      "sha256": "6cbcb9cc2e079419dd3386a853b95801f9e6e311c356a19cb20c62aced1aa617"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_alpha_0.01.json",
+      "sha256": "fb68fbf7f726fad6c15bfff1d7f1d16fa36fb484ffd0d18c5c8ff925b0987e2e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_alpha_1e-06.json",
+      "sha256": "483edfe3346af5e3a1a7ceaf0e456967c13b53780a788140c041a6a397d3a957"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_alpha_1e-08.json",
+      "sha256": "8660dab468551d993e1ac8e5e6e89d29e40d6261a4f7fdf761cdb47b2c174de8"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_alpha_1e-10.json",
+      "sha256": "d7df2b59401a3a0a4bcb639b1f3b0b74846d5a0f15a2ac77fade05e48309c2a9"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_alpha_1e-12.json",
+      "sha256": "ab17dd3778a481f7850be64348381b9258902d1b5690b2c4053051df1f0937dc"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_60_nominal.json",
+      "sha256": "3963fd9cba7b51fb675c86c3bbb26abaac259d4daf04556e12befb5f1860dfba"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_alpha_0.0001.json",
+      "sha256": "e7dad01ca71bfd60df4093ccafffe4aaa65dc71e2553e23da3f9b1bd3e20b725"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_alpha_0.01.json",
+      "sha256": "b9cb916a80f58a3d17be14c6d4b84aa33270dba73e84d0a9706ba26f272a8b56"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_alpha_1e-06.json",
+      "sha256": "1a41cc5a75e3249759a55e09f6fc9ff4004e2e278675d36c09d70fe23e178f83"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_alpha_1e-08.json",
+      "sha256": "e5128aae76a81231a644d9b639941af8459c7b20fff1a84563bd7c98420e600b"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_alpha_1e-10.json",
+      "sha256": "80f625a5614dc5b50afb522380fd7b0c4dbd785d15eb02eaa4b4d03dadbdd377"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_alpha_1e-12.json",
+      "sha256": "412014e02302fa205d09d322de158f12e04f283fb9e0f56241dc3d5e882e18d8"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_62_nominal.json",
+      "sha256": "557e23a1b6a1ac892fbf00f611bcc891efcab95d00bcb2a34b3bcbe22b5a8cd5"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_alpha_0.0001.json",
+      "sha256": "4858054d3bcf958abb91714a7d3d7e2b960c252e8161ce965db7256748a42513"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_alpha_0.01.json",
+      "sha256": "43cd33aabc2aba374d4f1e36f4c4662786c4c032d1bddc8397f1589f70abcbba"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_alpha_1e-06.json",
+      "sha256": "1f31e73481d99bdadbad80dd2359a0ce4c146492dedfe84cd047405e90086365"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_alpha_1e-08.json",
+      "sha256": "0e003236efc51a4e1f2febefb07bb4dcc53116797f66102f7a57b5699ac11b1b"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_alpha_1e-10.json",
+      "sha256": "79fc9c8b34391a544351e2636bd3e0ee046c1ee17475d2d6742e1c23cc991cae"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_alpha_1e-12.json",
+      "sha256": "46e026bc5ebe511e46e4af7a3ad41a584136c8523f10662f997e2e51a909b06f"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_64_nominal.json",
+      "sha256": "060f2554f56f2f0a9efddf81a009770edf997133e3a0e7e1d1237adcf45da11a"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_alpha_0.0001.json",
+      "sha256": "5e96a395820c63962eb35fbcc04ee73b2279968add27722d270a020ebc906960"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_alpha_0.01.json",
+      "sha256": "aa38ac8dce59e9e307c9fc0472c9691985f991b63bef9c81f302cac1dc1ef0eb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_alpha_1e-06.json",
+      "sha256": "13189145bbe26f55c203eac6faab5686e3376866482645e5f887590a7218b50a"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_alpha_1e-08.json",
+      "sha256": "ce1df4d7ab2d1c427b019b2aff0687a7bd4f569a194640449004a563b4dffe55"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_alpha_1e-10.json",
+      "sha256": "8a6a90db8c1bf11c361057c7520cd29f2115dfa5f57e2c2fc9af14bfe4628abb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_alpha_1e-12.json",
+      "sha256": "58d5994c7ba720336ab99ed9f521a14e22ad734480e1cbc07a38c2508c0be701"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_65_nominal.json",
+      "sha256": "73eeb7e98c2b3d372a62367ff7493d6cfead4a7771f618449ecfd59915c84a5e"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_alpha_0.0001.json",
+      "sha256": "a9594ac994ef48c4163791fa3d33622310a094dd51826c54cf2944bda788d671"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_alpha_0.01.json",
+      "sha256": "77ca963dfb194e01290d5c8dd735febc0e99470c0e673d7cdfb1ebd308673141"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_alpha_1e-06.json",
+      "sha256": "d9cbe4000df14f0e61cff18dd8b15ea4308f5d12708ccb2ffe6c8bca9afe960d"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_alpha_1e-08.json",
+      "sha256": "86c02e2529d8a8d1c7383584108259dfe5c24f13063c8b19651b9e2223453677"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_alpha_1e-10.json",
+      "sha256": "426035bd62289891e55b0d46cc31e5a1d82e6dd0a6a710676031dae7b15527df"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_alpha_1e-12.json",
+      "sha256": "bba2adce8651e611497f78379c8087c502ec5c2800619e09c77155e2f8a238c3"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_66_nominal.json",
+      "sha256": "aa74ae26e06c4f5c445c0ba448c071a6d5868168ae983333ea124264ee68efff"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_alpha_0.0001.json",
+      "sha256": "090e00baca93f26466b3e22fd05b987bc753b3b3998f6e9fb75d36cd8743b3cf"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_alpha_0.01.json",
+      "sha256": "5625f864db97dcc2e8489d21f2b571df13ff068b0dc915cdb9a6ada9b11d08f8"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_alpha_1e-06.json",
+      "sha256": "44fecf538f604c8caccb5e5197957b176195a09a9873641127aee183780a25c9"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_alpha_1e-08.json",
+      "sha256": "bcc6605abb8e7df1ff198bb0a82436ef0415a6e43575cf72ca238dcc05a16871"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_alpha_1e-10.json",
+      "sha256": "1f0a3866f892760f6f3f8224163a15b170ce1c5dfaf67fb28ac123a30db00b25"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_alpha_1e-12.json",
+      "sha256": "a4bef280d6deb94bc1b6a7b48b487b1b4f940276df098244b14abdff994861f1"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_67_nominal.json",
+      "sha256": "4a262fcca45e77a5313b869177a4d99eda4caf5805044aff5442a3e5e1d22fb6"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_alpha_0.0001.json",
+      "sha256": "dd45ba9487fb7bfb3eb7fbd9ec33a01774e66e5ba483e734d8d13e5a0d712f58"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_alpha_0.01.json",
+      "sha256": "8fbe88b0d9a30130e56fd2127b2b9ab0ededae9ac4237f07aa83ed76aee1f4bc"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_alpha_1e-06.json",
+      "sha256": "92a36b19b3646481c7789374290af0f5a25da9475aff7bcc63e0c28eef16105b"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_alpha_1e-08.json",
+      "sha256": "bdcc0e66487a6120c07b03509391d650be59f89fc56d12267db73fa349b617e8"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_alpha_1e-10.json",
+      "sha256": "a84f2c5100de79d2dfdedd548c091230499b4307f1a1d77436e87423bbef1ba0"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_alpha_1e-12.json",
+      "sha256": "539b77c293193665191aefb670a4283e9d642561509be1587c8d1b38bc8a65e9"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_68_nominal.json",
+      "sha256": "2d499408c200e9a0afdd8584f4d664b6c366c394b988d0e5bd3981ae622d64eb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_alpha_0.0001.json",
+      "sha256": "9347e0d21f08178932bc2aa8f505ae3f7a936e05898778e35da35eb9d6292eae"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_alpha_0.01.json",
+      "sha256": "96917b6aefa96121be5fa57b83de0bbb34138eb60fdbeed8fea57e3179cb065d"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_alpha_1e-06.json",
+      "sha256": "c00003d127ff6495017c2813fcfcdcf4e46cef7b5369af58ed66b3c0d27711bb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_alpha_1e-08.json",
+      "sha256": "3d9bee6d7d561d3441567da8463cf90c7895dd1af87fb7af7e8960335b26dc70"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_alpha_1e-10.json",
+      "sha256": "48ce962d551de94a9246590b20d83457bb10ff5b3c154b2e71df2d17da7a7721"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_alpha_1e-12.json",
+      "sha256": "a80e8c85b6a61489f39c8e9a9bbced116292be72bc53b1f4abb37fb62fd1c4eb"
+    },
+    {
+      "path": "revision_week/outputs/phase2_v1/tasks/E0/dev02/raw/burgers_69_nominal.json",
+      "sha256": "d956d0047d5568cdd54b45dca27431888169a4460aa2a73bc610a9548fdfae6a"
+    }
+  ]
+}

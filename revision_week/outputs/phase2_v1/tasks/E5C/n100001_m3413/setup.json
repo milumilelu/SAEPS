@@ -1,0 +1,182 @@
+{
+  "n": 100001,
+  "m": 3413,
+  "runtime": {
+    "schema_version": 1,
+    "phase": "P2_CONFIRMATION",
+    "contract_id": "SAEPS-JCP-EXEC-v2.0",
+    "development_config_hash": "439c80c7e16611f913f05cfb6aa7e60aefcefc3a7bea6e3061583879c93b26bd",
+    "development_run_id": "p2-development-s0-20260819T072005.205758+0000-bc9e08a3bcd1",
+    "development_seeds": [
+      0,
+      1,
+      2
+    ],
+    "confirmation_seeds": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "dtype": "float64",
+    "device": "cpu",
+    "pde": {
+      "domain": [
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "diffusion": 0.05,
+      "reaction": 1.0,
+      "lambda_star": 1.0,
+      "truth": "sin(pi*x)*exp(-t) + 0.2*sin(3*pi*x)*sin(2*pi*t)"
+    },
+    "network": {
+      "architecture": "tanh_mlp_2x25000x1",
+      "hidden_width": 25000
+    },
+    "training": {
+      "sampling": "locked_tensor_grid_same_as_diagnostic",
+      "pde_points": 81,
+      "data_points": 81,
+      "initial_points": 17,
+      "boundary_points_per_side": 17,
+      "loss_weights": {
+        "pde": 5.0,
+        "data": 10.0,
+        "initial": 10.0,
+        "boundary": 2.0
+      },
+      "adam_epochs": 1200,
+      "adam_learning_rate": 0.01,
+      "lbfgs_max_iterations": 300,
+      "lbfgs_tolerance_grad": 1e-10,
+      "lbfgs_tolerance_change": 1e-12
+    },
+    "diagnostic": {
+      "pde_grid": [
+        39,
+        39
+      ],
+      "data_grid": [
+        39,
+        39
+      ],
+      "initial_points": 123,
+      "boundary_points_per_side": 124
+    },
+    "fourier_library": {
+      "spatial_frequencies": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "temporal_modes": [
+        "constant",
+        "sin1",
+        "cos1",
+        "sin2",
+        "cos2"
+      ],
+      "svd_relative_tolerance": 1e-10,
+      "orthogonality_tolerance": 1e-10,
+      "selection_statistic": "median_development_tangent_overlap",
+      "parallel_rule": "maximum",
+      "perpendicular_rule": "minimum_among_empirically_orthogonal_candidates"
+    },
+    "selected_sources": {
+      "q_parallel": "sin3x_sin2t",
+      "q_perpendicular": "sin4x_constantt",
+      "normalization": "unit discrete L2 norm on locked diagnostic PDE grid",
+      "empirical_inner_product": 3.0357660829594124e-18
+    },
+    "alpha_values": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "gamma": {
+      "alpha_grid": [
+        1e-12,
+        1e-10,
+        1e-08,
+        1e-06,
+        0.0001,
+        0.01
+      ],
+      "cg_tolerance": 1e-10,
+      "cg_acceptance": 1e-08,
+      "cg_max_iterations": 300,
+      "explicit_mf_relative_tolerance": 1e-06,
+      "plateau_relative_tolerance": 0.05,
+      "selector": "smallest_cg_eligible_point_with_explicit_plateau_to_preceding_gamma",
+      "nominal_alpha": 1e-10
+    },
+    "confirmation_rules": {
+      "checkpoint_training_loss_max": 0.1,
+      "checkpoint_theta_stationarity_max": 0.01,
+      "monotonic_absolute_tolerance": 1e-08,
+      "spearman_median_gate": 0.9,
+      "monotonic_seed_gate": 8
+    }
+  },
+  "gamma": 824968.4220356626,
+  "lambda_estimate": 82496842.20356625,
+  "seconds": 152.77054890000727,
+  "counts": {
+    "residual": 1,
+    "jvp_theta": 21,
+    "vjp_theta": 21
+  },
+  "power_matvecs": 21,
+  "base_manifest": {
+    "artifact_role": "V5_RECONSTRUCTED_ENGINEERING_CHECKPOINT",
+    "attempt": 1,
+    "device": "cpu",
+    "diagnostic_set_hash": "e4c1e32825c130faa216186b7f7b87a0bf2910e3e0b5d80a027d0b255dffd06e",
+    "dtype": "float64",
+    "environment": {
+      "device": "cpu",
+      "dtype": "float64",
+      "git_branch": "main",
+      "git_commit": "68f7f9e1d7de0f94fa6b5f6565bc377592a3642f",
+      "git_dirty": false,
+      "git_status_porcelain": "",
+      "machine": "AMD64",
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "2.3.5",
+        "torch": "2.13.0"
+      },
+      "platform": "Windows-11-10.0.26100-SP0",
+      "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+      "python_executable": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\.venv\\Scripts\\python.exe",
+      "python_version": "3.12.13",
+      "timestamp": "2026-08-23T08:36:24.529165+00:00",
+      "torch_cuda_available": false
+    },
+    "historical_tensor_identity_claimed": false,
+    "model_state_hash": "8eba3c192ac862a7462541f837aec0104517e0769c91b72b8ac5633d8d8921b5",
+    "model_state_path": "outputs/runs/v5/checkpoints/scalability_base/seed_120/model_state.pt",
+    "phase": "V5_ENGINEERING_RECONSTRUCTION",
+    "reconstruction_commit": "68f7f9e1d7de0f94fa6b5f6565bc377592a3642f",
+    "replacement_permitted": false,
+    "retry_permitted": false,
+    "schema_version": 1,
+    "source_config_hash": "6fa7068d59eac6c286b2310d4ad66d7ce16ed3ebb3a84b4743717759fc8d619b",
+    "source_protocol": "configs/v4_7/scalability.yaml",
+    "source_seed": 120,
+    "status": "PASS"
+  },
+  "claim": "cost_only_function_preserving_widening"
+}

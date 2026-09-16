@@ -1,0 +1,43 @@
+flowchart TD
+  PREFLIGHT["PREFLIGHT: engineering_and_resources"]
+  E0["E0: engineering_pass"]
+  PREFLIGHT --> E0
+  E4D["E4D: engineering_pass"]
+  PREFLIGHT --> E4D
+  E6D["E6D: engineering_pass"]
+  PREFLIGHT --> E6D
+  E5AB["E5AB: engineering_pass"]
+  PREFLIGHT --> E5AB
+  LOCK["LOCK: implementation_complete_registry_resolved"]
+  E0 --> LOCK
+  E4D --> LOCK
+  E6D --> LOCK
+  E5AB --> LOCK
+  E1["E1: mandatory_after_engineering_lock"]
+  LOCK --> E1
+  E2["E2: each_binding_valid_E1_root_regardless_SO_win"]
+  E1 --> E2
+  E4C["E4C: gate_E"]
+  E2 --> E4C
+  E4D --> E4C
+  LOCK --> E4C
+  E5C["E5C: E5AB_engineering_pass_independent_of_E4C_stop"]
+  E4C --> E5C
+  E5AB --> E5C
+  E3["E3: gate_D_per_PDE_independent_of_E5C_stop"]
+  E2 --> E3
+  E5C --> E3
+  E6P["E6P: gate_F_independent_of_E3_stop"]
+  E3 --> E6P
+  E6D --> E6P
+  FINAL["FINAL: all_terminal_dispositions_including_failure"]
+  E0 --> FINAL
+  E4D --> FINAL
+  E6D --> FINAL
+  E5AB --> FINAL
+  E1 --> FINAL
+  E2 --> FINAL
+  E3 --> FINAL
+  E4C --> FINAL
+  E5C --> FINAL
+  E6P --> FINAL

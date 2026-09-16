@@ -1,0 +1,13 @@
+{
+  "node": {
+    "id": "E1",
+    "depends_on": [
+      "LOCK"
+    ],
+    "budget_seconds": 36000,
+    "handler": "fresh_scalar",
+    "condition": "mandatory_after_engineering_lock",
+    "planned": 20
+  },
+  "lock_sha256": "50a53e8410518a2fd3d6d5a1c600ad53e9996c907b668ae974f9d8feee14e257"
+}

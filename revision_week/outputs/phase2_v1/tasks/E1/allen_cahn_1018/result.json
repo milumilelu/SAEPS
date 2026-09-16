@@ -1,0 +1,70 @@
+{
+  "group": "allen_cahn",
+  "seed": 1018,
+  "status": "CHECKPOINT_INVALID",
+  "binding_valid": false,
+  "failure_reason": "trial_budget_exhausted",
+  "state_gradient": 6.64793658066192e-07,
+  "unanchored_state_SPD": {
+    "mu_value": null,
+    "lambda_min_A_numeric": -7.042420263710513e-06,
+    "eigen_residual": 8.04739310120362e-11,
+    "orthogonality_error": 2.439197227979736e-15,
+    "symmetry_error": 4.8200770752716644e-17,
+    "numerical_margin": 2.4204861408178764e-08,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "indicator_only",
+    "spd_status": "not_SPD"
+  },
+  "anchored_state_SPD": {
+    "mu_value": 0.0010067911377755019,
+    "lambda_min_A_numeric": 0.0010068152636356683,
+    "eigen_residual": 6.157367243834803e-11,
+    "orthogonality_error": 1.848901287786767e-15,
+    "symmetry_error": 4.8200770272742916e-17,
+    "numerical_margin": 2.4125860166452974e-08,
+    "mu_source": "dense_eigh_with_numerical_margin",
+    "bound_status": "numerical_bound_estimate",
+    "spd_status": "numerically_SPD"
+  },
+  "reload_bitwise": true,
+  "metrics": {
+    "fro": {
+      "error_GN": 1.425367242080739,
+      "error_SO": 0.07035272904846579,
+      "strict_SO_win": true,
+      "strict_GN_win": false,
+      "logR_floor": 3.008663197988716,
+      "logR": 3.008663197988716,
+      "relative_GN": 0.19313848563158054,
+      "relative_SO": 0.00953285521605941,
+      "reference_resolved": true
+    },
+    "spectral": {
+      "error_GN": 1.425367242080739,
+      "error_SO": 0.07035272904846579,
+      "strict_SO_win": true,
+      "strict_GN_win": false,
+      "logR_floor": 3.008663197988716,
+      "logR": 3.008663197988716,
+      "relative_GN": 0.19313848563158054,
+      "relative_SO": 0.00953285521605941,
+      "reference_resolved": true
+    }
+  },
+  "gamma": 0.0010138576832286444,
+  "checkpoint_sha256": "5d652a11c48699c4b21325103146a11cdffa4d4f4f873c8b5d964e9b0e5a3074",
+  "training_seconds": 4.364242400042713,
+  "root_lbfgs_seconds": 4.034857299993746,
+  "root_corrector_seconds": 4.797184499911964,
+  "curvature_seconds": 0.0375714999390766,
+  "counts": {
+    "objective": 1550,
+    "gradient": 1550,
+    "hessian": 162
+  },
+  "explicit_JVP_VJP_counts": 0,
+  "explicit_jacobians": 1,
+  "explicit_hessians": 163,
+  "CG_iterations": 0
+}

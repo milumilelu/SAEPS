@@ -1,0 +1,38 @@
+{
+  "status": "PASSED",
+  "scope": "plan consistency only; numerical execution unavailable",
+  "topological_order": [
+    "PREFLIGHT",
+    "E0",
+    "E4D",
+    "E6D",
+    "E5AB",
+    "LOCK",
+    "E1",
+    "E2",
+    "E4C",
+    "E5C",
+    "E3",
+    "E6P",
+    "FINAL"
+  ],
+  "total_activity_seconds": 118800,
+  "execution_ready": false,
+  "missing_implementation": [
+    "preflight_and_development",
+    "historical_scalar",
+    "historical_multi",
+    "lanczos_oracle",
+    "compact_MF_parity",
+    "freeze_all",
+    "fresh_scalar",
+    "locality",
+    "fresh_multi",
+    "scalability",
+    "one_step",
+    "practical_endpoint",
+    "aggregate_validate_sync"
+  ],
+  "numerical_experiments_started": 0,
+  "known_input_gap": "E0-C original state/full blocks not found in inspected anchor directory"
+}
