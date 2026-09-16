@@ -1,0 +1,39 @@
+{
+  "scope": "package synthetic unit tests plus repository-adapter integration tests against the frozen tag",
+  "command": "python -m pytest -q tests --junitxml=reports/local_tests.xml",
+  "passed": 28,
+  "failed": 0,
+  "warnings": 18,
+  "warning_summary": "PyTorch torch.jit.script deprecation in automatic differentiation internals",
+  "elapsed_seconds": 2.87,
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "numpy": "2.3.5",
+    "PyYAML": "6.0.3",
+    "pytest": "9.1.1"
+  },
+  "test_breakdown": {
+    "package_synthetic": 20,
+    "repository_adapter_integration": 8
+  },
+  "real_repository_integration_executed": true,
+  "frozen_evidence_tag": "jcp-submission-v1",
+  "new_PINN_training_executed": false,
+  "historical_confirmation_rerun": false,
+  "historical_records_modified": false,
+  "prior_pack_environment": {
+    "note": "recorded when the pack was authored; preserved, not a claim about this run",
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "packages": {
+      "torch": "2.10.0+cpu",
+      "numpy": "2.3.5",
+      "PyYAML": "6.0.3",
+      "pytest": "9.0.2"
+    },
+    "passed": 20,
+    "real_repository_integration_executed": false
+  }
+}

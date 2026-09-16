@@ -1,0 +1,78 @@
+protocol_id: SAEPS-PAPER-REVISION-20260916-v1
+status: PROPOSED_NOT_EXECUTED
+repository: milumilelu/SAEPS
+evidence_ref: jcp-submission-v1
+evidence_commit: d5a231d857e410b96ae66174fb98fec9c8b9b34a
+observed_main_commit: e602c24175a1662a54c806b9c6dc5c34ad5367a2
+training_executed: false
+historical_policy:
+  read_only: true
+  replacement_forbidden: true
+  automatic_reconstruction: false
+  preserve_failed_cohorts: true
+output_namespace: experiments/paper_revision_20260916
+numerics:
+  dtype: float64
+  objective: half_sum_weighted_squared_residuals
+  scalar_error_floor: 1.0e-8
+  matrix_error_floor: 1.0e-30
+  gamma_alpha_primary: 1.0e-8
+  solver_relative_residual: 1.0e-8
+  symmetry_relative_tolerance: 1.0e-8
+  log_identity_rtol: 1.0e-10
+  log_identity_atol: 1.0e-12
+  compare_at_same_anchor_gamma_metric: true
+E3:
+  benchmark: manufactured_positive_saturating_reaction_diffusion
+  domain_x: [0.0, 1.0]
+  domain_t: [0.0, 0.4]
+  diffusion: 0.01
+  rho_known: 1.0
+  kappa_truth: 1.2
+  kappa_initial: 0.8
+  field_transform: softplus_plus_0.05
+  architecture: [2, 16, 1]
+  activation: tanh
+  noise_levels: [0.0, 0.02]
+  points: {pde: 96, data: 128, initial: 48, boundary_times: 48}
+  block_weights: {pde: 5.0, data: 10.0, initial: 10.0, boundary: 2.0}
+  development_data_seeds: [916001, 916002]
+  heldout_data_seeds: [916101, 916102, 916103, 916104, 916105, 916106]
+  initialization_seeds: [926001, 926002]
+  optimizer_proposal:
+    adam_steps: 3000
+    adam_learning_rate: 0.001
+    lbfgs_max_iterations: 1000
+    fixed_parameter_state_polish_max_iterations: 1000
+    joint_parameter_refinement: false
+  development_changes_allowed: true
+  heldout_requires_protocol_snapshot: true
+  statistical_unit: data_seed
+  initializer_aggregation: median_within_data_seed
+E6:
+  enabled_in_extended_plan: true
+  noise_level: 0.02
+  data_seeds: [916101, 916102, 916103]
+  initialization_seeds: [926001, 926002]
+  additional_architectures: [[2, 32, 1], [2, 16, 16, 1]]
+  initial_training_budget: same_as_E3
+  independent_confirmation: false
+  label: preplanned_paired_architecture_extension
+E7:
+  new_center_data_seeds: [916101, 916102, 916103]
+  initialization_seed: 926001
+  noise_level: 0.02
+  architecture: [2, 16, 1]
+  log_parameter_step_grid: [0.1, 0.03, 0.01, 0.003, 0.001, 0.0003, 0.0001]
+  state_gradient_tolerances: [1.0e-8, 1.0e-10, 1.0e-12]
+  total_gradient_required: true
+  reanchor_forbidden: true
+  gamma_reestimation_forbidden: true
+  max_inner_iterations_per_point: 1000
+  wall_cap_seconds_per_center: 7200
+E8:
+  gamma_alpha_grid: [1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2]
+  solvers: [dense_reference, CG, scaled_augmented_LSQR]
+  timing_repeats: 3
+  initial_guess: zero
+  separately_report: [setup, solve, verification, full_diagnostic, training, state_polish]

@@ -1,0 +1,195 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "E2_fixed_anchor_stationarity_sensitivity",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "objective": "ell(theta, lambda_old) + gamma/2 * ||theta - theta_old||^2",
+  "gamma_rule": "gamma = alpha * lambda_max(J_theta^T J_theta) at the anchor, alpha = 1e-8",
+  "alpha": 1e-08,
+  "anchor_policy": "theta_old is the recorded checkpoint state; parameter held at its recorded value; no re-anchoring, no gamma re-estimation",
+  "max_inner_iterations_per_level": 1000,
+  "target_levels": [
+    1e-06,
+    1e-08,
+    1e-10
+  ],
+  "prescribed_scalar_queue_availability": [
+    {
+      "point_id": "scalar:Burgers:55",
+      "binding_valid": true,
+      "state_tensor_available": false,
+      "status": "NOT_AVAILABLE",
+      "reason": "scalar posthoc record stores parameter/state blocks only; no theta, no observation set, no residual",
+      "source_path": "outputs/posthoc/exact_fixed_state_v3/burgers/seed_55.json",
+      "source_sha256": "0a9675fc92a1582e708edb6cf531f45cb49db7fb27b7a4be6e08e9621b92565f"
+    },
+    {
+      "point_id": "scalar:Burgers:60",
+      "binding_valid": true,
+      "state_tensor_available": false,
+      "status": "NOT_AVAILABLE",
+      "reason": "scalar posthoc record stores parameter/state blocks only; no theta, no observation set, no residual",
+      "source_path": "outputs/posthoc/exact_fixed_state_v3/burgers/seed_60.json",
+      "source_sha256": "e9279d0066d2e70f795eff0bd9a61085ddafe6ea718ebaf52f0166fe438f4252"
+    },
+    {
+      "point_id": "scalar:Burgers:69",
+      "binding_valid": true,
+      "state_tensor_available": false,
+      "status": "NOT_AVAILABLE",
+      "reason": "scalar posthoc record stores parameter/state blocks only; no theta, no observation set, no residual",
+      "source_path": "outputs/posthoc/exact_fixed_state_v3/burgers/seed_69.json",
+      "source_sha256": "08bfd58eae9a6ecab524e7c8ad84968f73eac544cd0765dd1247c26155c7da16"
+    },
+    {
+      "point_id": "scalar:Allen-Cahn:75",
+      "binding_valid": true,
+      "state_tensor_available": false,
+      "status": "NOT_AVAILABLE",
+      "reason": "scalar posthoc record stores parameter/state blocks only; no theta, no observation set, no residual",
+      "source_path": "outputs/posthoc/exact_fixed_state_v3/allen_cahn/seed_75.json",
+      "source_sha256": "b005c48821a818eca397a9e4f6c878d5d36bf297c95edbd04e9d53f4e9e93151"
+    },
+    {
+      "point_id": "scalar:Allen-Cahn:79",
+      "binding_valid": true,
+      "state_tensor_available": false,
+      "status": "NOT_AVAILABLE",
+      "reason": "scalar posthoc record stores parameter/state blocks only; no theta, no observation set, no residual",
+      "source_path": "outputs/posthoc/exact_fixed_state_v3/allen_cahn/seed_79.json",
+      "source_sha256": "f245f5791150ab94e672b3751b8f08c2161cec27ddbcbe5c50de47c526834645"
+    },
+    {
+      "point_id": "scalar:Allen-Cahn:84",
+      "binding_valid": true,
+      "state_tensor_available": false,
+      "status": "NOT_AVAILABLE",
+      "reason": "scalar posthoc record stores parameter/state blocks only; no theta, no observation set, no residual",
+      "source_path": "outputs/posthoc/exact_fixed_state_v3/allen_cahn/seed_84.json",
+      "source_sha256": "b9c36ff5592c8bb1eb194728081363b05ba980b4020556db4b2041b03b85990c"
+    }
+  ],
+  "prescribed_scalar_queue_status": "NOT_AVAILABLE",
+  "units": [
+    {
+      "seed": 215,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "fd9682a663ffadb89df93503789be6f8a3676668b0928b0cbb66f4a732261dc9",
+      "checkpoint_sha256": "8c8d1edb99599912644eb2157e32173048ba54b38b599512177fa61d9a951346",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_215/model_state.pt",
+      "gamma": 0.0034764247629556167,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 216,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "337a11628f4ab518f4b00de677c218dc8ecf915e73f497032c016c072610fc82",
+      "checkpoint_sha256": "bf7c38619fccf36cce978531dba37777feec21f31e7a6d5a70a88e4e82312749",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_216/model_state.pt",
+      "gamma": 8.352518461952853,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 217,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "f12858b0ba2ed752a9375d25822ea1273c85305885819fc93580d26999f7f749",
+      "checkpoint_sha256": "fc9655df82edc90bafc770afc7de85f0fb42f9587b6fa863829f13a5ddd5c826",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_217/model_state.pt",
+      "gamma": 0.989577481710372,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 218,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "4b56de94abe3802b28241d853a3b27516d6409a16b4f3a12edd55d6a38f19ed3",
+      "checkpoint_sha256": "e6dd7d077ce517832f88a49005225258903e0fafadc2469760051f5c0f9053ca",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_218/model_state.pt",
+      "gamma": 0.539365701918219,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 219,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "5ad1a7e4f591c971bff08021299afb0b81d78a9dcc8028a1951d5f4537e4a137",
+      "checkpoint_sha256": "5cef8c1e88abd55fa6664b8b0659170839c8d51ac37768daea6623a3c2987067",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_219/model_state.pt",
+      "gamma": 0.010217778027689424,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 220,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "b247185687960d77da2d81abb15674546fad44ed21c0b8bec6796038737ecf19",
+      "checkpoint_sha256": "778ac415db51f001d31008c5e49b335049b7ed5b7b0cd369707e32e871e54ebc",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_220/model_state.pt",
+      "gamma": 3.5117756454303874,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 221,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "29ff43d5d056d8025ff5af2f9d6aaf2a0fa46d208aa1c2eccfe259df33118430",
+      "checkpoint_sha256": "c2c375cee87011529374edcd0c7b4fcc46c12d6c64fc5d598987f73e6e20ef5e",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_221/model_state.pt",
+      "gamma": 0.9364647659424228,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 222,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "fdebf1c8293055a774500cbaf5588a05362e470f2c88c869010be31073e985af",
+      "checkpoint_sha256": "c483cd7a6414a879c231d5e5e76e9c5ec947a68e5b71a07c06766519e6383e46",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_222/model_state.pt",
+      "gamma": 0.5439254742879828,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 223,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "250bcb36fc3d780f41a86ed7f35e1b6acb94e19c785b2c7bf2788e752e71263a",
+      "checkpoint_sha256": "ce77f0f0cf55ff149edaec57a449725f020a663ef4971214340d633a848a617e",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_223/model_state.pt",
+      "gamma": 0.1667075138313655,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    },
+    {
+      "seed": 224,
+      "anchor_is_checkpoint_state": true,
+      "parameter_frozen": true,
+      "anchor_theta_sha256": "b8c36ff4ff424c90025762d3860a2eb89c4c21629c3e44723d67ff97e4d16628",
+      "checkpoint_sha256": "55015a890291669fc24c3486ff3902cf88e460eba8a49e892f940822b82016c0",
+      "checkpoint_path": "outputs/runs/v5/checkpoints/two_parameter_confirmation/seed_224/model_state.pt",
+      "gamma": 3.736022509960798,
+      "reanchor_forbidden": true,
+      "gamma_reestimation_forbidden": true
+    }
+  ],
+  "counts": {
+    "two_parameter_centres_run": 10,
+    "two_parameter_binding_valid": 8,
+    "scalar_prescribed_points_unavailable": 6
+  }
+}

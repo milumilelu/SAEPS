@@ -1,0 +1,83 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "E1_parameter_gradient_identity",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "coordinate_identity_checked": "H_ll - G_ll - diag(g_l) = 0 in log coordinates; H_aa - G_aa = 0 in physical coordinates",
+  "objective": "sum objective 0.5 * sum r_i^2 (historical training used the mean, i.e. this objective / m)",
+  "config": {
+    "declared_width": 12,
+    "effective_width": 6,
+    "gamma_alpha": 1e-08
+  },
+  "adapter_validation": [
+    {
+      "seed": 215,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 216,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 217,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 218,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 219,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 220,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 221,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 222,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 223,
+      "point_regeneration_max_abs_deviation": 0.0
+    },
+    {
+      "seed": 224,
+      "point_regeneration_max_abs_deviation": 0.0
+    }
+  ],
+  "counts": {
+    "two_parameter_planned": 10,
+    "two_parameter_binding_valid": 8,
+    "two_parameter_rebuilt": 10,
+    "two_parameter_log_identity_satisfied": 10,
+    "two_parameter_physical_identity_satisfied": 10,
+    "scalar_archived_points": 25,
+    "scalar_archived_binding_valid": 21,
+    "scalar_archived_identity_satisfied": 21
+  },
+  "scalar_limitation": "The scalar archive stores parameter/state blocks but no state tensor, observation set or residual, so the identity is re-derived from the stored blocks only and is NOT_AVAILABLE as an independent autograd check.",
+  "valid_rebuilt_seeds": [
+    215,
+    216,
+    217,
+    218,
+    220,
+    222,
+    223,
+    224
+  ],
+  "max_log_identity_error": 1.2163025278894145e-13,
+  "max_physical_identity_error": 2.2737367544323206e-13
+}

@@ -1,0 +1,31 @@
+{
+  "status": "PARTIALLY_EXECUTED",
+  "tasks": {
+    "E0": "PASSED",
+    "E1": "PASSED",
+    "E2": "PARTIAL_SCALAR_QUEUE_NOT_AVAILABLE",
+    "E3": "NOT_RUN",
+    "E4": "NOT_RUN",
+    "E5": "NOT_RUN",
+    "E6": "NOT_RUN",
+    "E7": "NOT_RUN",
+    "E8": "NOT_RUN"
+  },
+  "evidence_ref": "jcp-submission-v1",
+  "evidence_commit": "d5a231d857e410b96ae66174fb98fec9c8b9b34a",
+  "training_executed": false,
+  "historical_records_modified": false,
+  "historical_seeds_replaced": false,
+  "repository_export_adapter_implemented": true,
+  "full_training_runner_implemented": false,
+  "support_scripts_tested": true,
+  "notes": [
+    "E0 reproduces every paper-facing statistic from the frozen tag and exports the experiment settings the manuscript left implicit.",
+    "E1 verifies H_ll - G_ll = diag(g_l) and H_aa - G_aa = 0 on ten real two-parameter checkpoints by autograd, and validates the adapter by regenerating the archived collocation points bit-exactly.",
+    "E1 on the scalar cohort is block-level self-consistency only: the scalar archive stores no state tensor, observation set or residual.",
+    "E2 ran on the ten two-parameter centres. The prescribed scalar queue (Burgers 55/60/69, Allen-Cahn 75/79/84) is NOT_AVAILABLE for lack of state tensors and was not reconstructed.",
+    "E3-E8 remain unexecuted; they require new training or new implementations."
+  ],
+  "report": "reports/E0_E1_E2_REPORT.md",
+  "output_manifest": "reports/output_manifest.json"
+}

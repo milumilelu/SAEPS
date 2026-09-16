@@ -1,0 +1,889 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "E0_data_and_statistics_audit",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "training_executed": false,
+  "historical_records_modified": false,
+  "scalar": {
+    "classification": "NEW_POSTHOC_READ_ONLY",
+    "source_ref": "jcp-submission-v1",
+    "source_commit": "d5a231d857e410b96ae66174fb98fec9c8b9b34a",
+    "training_executed": false,
+    "cohorts": {
+      "Burgers": {
+        "planned": 15,
+        "available": 15,
+        "valid": 12,
+        "wins_among_valid": 12,
+        "planned_wins": 12,
+        "missing": 0,
+        "median_E_raw": 27.726845369989668,
+        "median_E_SAEPS": 0.07503228596679316,
+        "ratio_of_median_errors": 369.53219554393775,
+        "median_paired_ratio": 335.3762891407971,
+        "paired_ratio_count": 12,
+        "zero_SAEPS_error_count": 0,
+        "one_sided_sign_p_valid_non_ties": 0.000244140625,
+        "rows": [
+          {
+            "seed": 55,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 22.204466950692016,
+            "E_SAEPS": 0.07896165264683183,
+            "D": 22.125505298045184
+          },
+          {
+            "seed": 56,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 19.98787594368345,
+            "E_SAEPS": 0.09228635641137681,
+            "D": 19.89558958727207
+          },
+          {
+            "seed": 57,
+            "status": "CHECKPOINT_INVALID",
+            "binding_valid": false,
+            "failure_reason": "frozen center policy failed"
+          },
+          {
+            "seed": 58,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 28.794432657872466,
+            "E_SAEPS": 0.014205395885719103,
+            "D": 28.78022726198675
+          },
+          {
+            "seed": 59,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 25.598835719256087,
+            "E_SAEPS": 0.021715011023100337,
+            "D": 25.577120708232986
+          },
+          {
+            "seed": 60,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 27.413699989364403,
+            "E_SAEPS": 0.09673677812004086,
+            "D": 27.316963211244364
+          },
+          {
+            "seed": 61,
+            "status": "CHECKPOINT_INVALID",
+            "binding_valid": false,
+            "failure_reason": "frozen center policy failed"
+          },
+          {
+            "seed": 62,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 30.44641962672299,
+            "E_SAEPS": 0.0711029192867545,
+            "D": 30.375316707436234
+          },
+          {
+            "seed": 63,
+            "status": "CHECKPOINT_INVALID",
+            "binding_valid": false,
+            "failure_reason": "frozen center policy failed"
+          },
+          {
+            "seed": 64,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 23.655225482578217,
+            "E_SAEPS": 0.06994578374279685,
+            "D": 23.58527969883542
+          },
+          {
+            "seed": 65,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 30.283573453596514,
+            "E_SAEPS": 0.1005405439049031,
+            "D": 30.18303290969161
+          },
+          {
+            "seed": 66,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 28.039990750614937,
+            "E_SAEPS": 0.08431587634006277,
+            "D": 27.955674874274873
+          },
+          {
+            "seed": 67,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 38.672922061212496,
+            "E_SAEPS": 0.04202628007674943,
+            "D": 38.63089578113575
+          },
+          {
+            "seed": 68,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 29.811114325398563,
+            "E_SAEPS": 0.20705105793242895,
+            "D": 29.604063267466135
+          },
+          {
+            "seed": 69,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 25.279239989429993,
+            "E_SAEPS": 0.055107913353732524,
+            "D": 25.22413207607626
+          }
+        ]
+      },
+      "Allen-Cahn": {
+        "planned": 10,
+        "available": 10,
+        "valid": 9,
+        "wins_among_valid": 9,
+        "planned_wins": 9,
+        "missing": 0,
+        "median_E_raw": 20.372758405523594,
+        "median_E_SAEPS": 0.2785667026005181,
+        "ratio_of_median_errors": 73.13421961539815,
+        "median_paired_ratio": 78.64382690368946,
+        "paired_ratio_count": 9,
+        "zero_SAEPS_error_count": 0,
+        "one_sided_sign_p_valid_non_ties": 0.001953125,
+        "rows": [
+          {
+            "seed": 75,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 19.722305039086642,
+            "E_SAEPS": 0.2447844734604011,
+            "D": 19.47752056562624
+          },
+          {
+            "seed": 76,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 16.212699749122212,
+            "E_SAEPS": 0.11989208107810757,
+            "D": 16.092807668044106
+          },
+          {
+            "seed": 77,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 22.22182914600695,
+            "E_SAEPS": 0.390496875238999,
+            "D": 21.831332270767952
+          },
+          {
+            "seed": 78,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 21.914595788340858,
+            "E_SAEPS": 0.2816779769517264,
+            "D": 21.63291781138913
+          },
+          {
+            "seed": 79,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 25.18322217722653,
+            "E_SAEPS": 0.466723310546641,
+            "D": 24.71649886667989
+          },
+          {
+            "seed": 80,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 20.372758405523594,
+            "E_SAEPS": 0.36626326604931475,
+            "D": 20.00649513947428
+          },
+          {
+            "seed": 81,
+            "status": "CHECKPOINT_INVALID",
+            "binding_valid": false,
+            "failure_reason": "frozen center policy failed"
+          },
+          {
+            "seed": 82,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 19.313335071139413,
+            "E_SAEPS": 0.15552413475287816,
+            "D": 19.157810936386536
+          },
+          {
+            "seed": 83,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 17.707638350254037,
+            "E_SAEPS": 0.21819187737819457,
+            "D": 17.48944647287584
+          },
+          {
+            "seed": 84,
+            "status": "PASS",
+            "binding_valid": true,
+            "failure_reason": null,
+            "E_raw": 21.907551540446683,
+            "E_SAEPS": 0.2785667026005181,
+            "D": 21.628984837846165
+          }
+        ]
+      }
+    },
+    "input_sha256": {
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_55.json": "0a1ae595e79bacca0120886cc359661bf3e9a338321c8e5b9a8b3cc8c604a50d",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_56.json": "9bc1a80035f9e069c8cc051b4eb5f22cd5a44923f693b46694db7bb6e3696ed9",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_57.json": "2a5e4c17867297ee93f58f8c86bb088b4dff50888ae68f75837f72fc7b68e1f1",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_58.json": "1f75cb495052c851ca51c398f7f4a21900980311ceb06a771c16df2e08909b0c",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_59.json": "36c5316ae48bc4cbd3063f7f0b3da7ff970a53adb2458af819d9a689311d2238",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_60.json": "1b4a2775fd016ee434a995020176119688c6345394a69442e9584ba03013023e",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_61.json": "70c9da8b406001aca0dd756e19b09cb0ac432cc9b0a4116483a591675d032a6a",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_62.json": "8c279706729133025afb22db7d5f05447f67dfe4cdcae6c4be155e1f6a098378",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_63.json": "8cefdaf53346b16293b73c28daf97bf7732d186e251cb2fcc60c728b20299e26",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_64.json": "2733714391527ec41b3117ea39a116d1bd72acf5df149f260f5426166cf41c86",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_65.json": "f253b6f6d42abd62fd7227c6e1fb1defa603f5fa559cde5ef9fa808f6167d8a1",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_66.json": "562343550143efba9ba77864a5e685e71f665a10d2818479c1fee35147fb3495",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_67.json": "517f0086bb2f268623e5a6766427313ecff7e9be1ac4275065d5f7808224f3df",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_68.json": "0147ba2024ce942539ee20fec862c4f1b40629a09ddbb622fc24c9b0f1943d8f",
+      "outputs/runs/v4_2_corrected_confirmation/records/seed_69.json": "c496650d35fec45c3c989c32aaf901c6a2b87e2e28a6fad66a88d666a12f4f72",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_75/result.json": "e78d196f5f5d839d5c38c6627b4f03fa14422b4e88bcbc8d985f434455d8f9d6",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_76/result.json": "93a062b7e93eb607338a5e95d6244cba5533d2604603e4d910a5b84bc8c9fa8c",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_77/result.json": "c439b48b00478cd529cfa23c1326d3dc10821cb24bd8e3519211ecc82c7c3d8e",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_78/result.json": "237930d71463fef4134eb3a533ab1c2b643311f3b6c6a4aeb6d6cbb7a69bff9d",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_79/result.json": "ffdf49a514e36c817a6b18c50569becedba90e229e14f6b1873b2efbe984b967",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_80/result.json": "f67402c4ab8ae7e57d1afc01fc98ad21bc949e0ae5206cd5146254f137312f51",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_81/result.json": "d296013e599cf3c56249d7034f6497387994235d7b8cdf8b1fff5836a82b3e50",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_82/result.json": "174b71f2ef26b517a855df568bc83db8bc9f65fcb8733918742dc8281e66471f",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_83/result.json": "e953696c1d02821ec1700233ace0a5c3587096c0d9f05b70561ec4af853dae68",
+      "outputs/runs/v4_4_allen_cahn_confirmation/architecture_w8/seed_84/result.json": "4989b81fbf5289521807e19cdbed78cacc0203a2f82ebac16bd150d01e32fa23"
+    }
+  },
+  "two_parameter": {
+    "planned": 10,
+    "available": 10,
+    "valid": 8,
+    "planned_wins": 8,
+    "valid_win_count": 8,
+    "one_sided_exact_sign_test_p": 0.00390625,
+    "median_E_raw2": 14.50727815741004,
+    "median_E_SAEPS2": 0.0278784800098164,
+    "ratio_of_median_errors": 520.3755065664207,
+    "median_paired_ratio": 477.0636793357053,
+    "gate_minimum_valid": 9,
+    "gate_minimum_planned_wins": 9,
+    "gate_valid_pass": false,
+    "gate_planned_win_pass": false,
+    "scientific_status": "INCONCLUSIVE",
+    "rows": [
+      {
+        "seed": 215,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 17.36427297037272,
+        "E_SAEPS2": 0.02593274363031036,
+        "D2": 17.33834022674241,
+        "failure_reason": null
+      },
+      {
+        "seed": 216,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 9.57217482401285,
+        "E_SAEPS2": 0.021155217512198593,
+        "D2": 9.55101960650065,
+        "failure_reason": null
+      },
+      {
+        "seed": 217,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 14.415407707072074,
+        "E_SAEPS2": 0.010997948053294687,
+        "D2": 14.40440975901878,
+        "failure_reason": null
+      },
+      {
+        "seed": 218,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 14.599148607748006,
+        "E_SAEPS2": 0.020191331221580146,
+        "D2": 14.578957276526426,
+        "failure_reason": null
+      },
+      {
+        "seed": 219,
+        "terminal_status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "planned_win": false,
+        "E_raw2": null,
+        "E_SAEPS2": null,
+        "D2": null,
+        "failure_reason": "frozen center gate failed"
+      },
+      {
+        "seed": 220,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 9.237280187956998,
+        "E_SAEPS2": 0.0385360054509923,
+        "D2": 9.198744182506005,
+        "failure_reason": null
+      },
+      {
+        "seed": 221,
+        "terminal_status": "CHECKPOINT_INVALID",
+        "binding_valid": false,
+        "planned_win": false,
+        "E_raw2": null,
+        "E_SAEPS2": null,
+        "D2": null,
+        "failure_reason": "frozen center gate failed"
+      },
+      {
+        "seed": 222,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 14.96143392010795,
+        "E_SAEPS2": 0.029824216389322436,
+        "D2": 14.931609703718628,
+        "failure_reason": null
+      },
+      {
+        "seed": 223,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 15.508026283725204,
+        "E_SAEPS2": 0.11855684979903316,
+        "D2": 15.389469433926172,
+        "failure_reason": null
+      },
+      {
+        "seed": 224,
+        "terminal_status": "PASS",
+        "binding_valid": true,
+        "planned_win": true,
+        "E_raw2": 12.340504790665083,
+        "E_SAEPS2": 0.09526263396873369,
+        "D2": 12.24524215669635,
+        "failure_reason": null
+      }
+    ],
+    "source_path": "docs/evidence/v5/V5_TWO_PARAMETER_CONFIRMATION_REPORT.json",
+    "source_sha256": "73a5ffb112e7a9c630d9ae9e5579ce5ca718e5d7a46c53210dac5d7c810628c8"
+  },
+  "robustness": {
+    "completed": 60,
+    "planned_total": null,
+    "binding_valid": 52,
+    "integrity_gate": "PASS",
+    "adjudication": {
+      "architecture": "WIDE_CENTER_AVAILABILITY_LIMITATION",
+      "engineering_execution": "PASSED",
+      "method_or_threshold_change_authorized": false,
+      "noise_sparsity": "DESCRIPTIVE_EVIDENCE_WITH_RETAINED_FAILURES"
+    },
+    "architecture": {
+      "binding_valid": 9,
+      "planned": 15,
+      "widths": {
+        "architecture=narrow": {
+          "binding_valid": 5,
+          "invalid_seeds": [],
+          "median_F_raw_valid": 650.6093744251888,
+          "median_F_se_valid": 40.36262291070394,
+          "median_eta_valid": 0.06679330136133348,
+          "planned": 5,
+          "status_counts": {
+            "CHECKPOINT_INVALID": 0,
+            "NUMERICAL_FAILURE": 0,
+            "PASS": 5,
+            "SOLVER_FAILURE": 0
+          },
+          "valid_seeds": [
+            135,
+            136,
+            137,
+            138,
+            139
+          ]
+        },
+        "architecture=nominal": {
+          "binding_valid": 4,
+          "invalid_seeds": [
+            138
+          ],
+          "median_F_raw_valid": 645.1497503107854,
+          "median_F_se_valid": 40.17284756835914,
+          "median_eta_valid": 0.045835364362742936,
+          "planned": 5,
+          "status_counts": {
+            "CHECKPOINT_INVALID": 1,
+            "NUMERICAL_FAILURE": 0,
+            "PASS": 4,
+            "SOLVER_FAILURE": 0
+          },
+          "valid_seeds": [
+            135,
+            136,
+            137,
+            139
+          ]
+        },
+        "architecture=wide": {
+          "binding_valid": 0,
+          "invalid_seeds": [
+            135,
+            136,
+            137,
+            138,
+            139
+          ],
+          "median_F_raw_valid": null,
+          "median_F_se_valid": null,
+          "median_eta_valid": null,
+          "planned": 5,
+          "status_counts": {
+            "CHECKPOINT_INVALID": 5,
+            "NUMERICAL_FAILURE": 0,
+            "PASS": 0,
+            "SOLVER_FAILURE": 0
+          },
+          "valid_seeds": []
+        }
+      }
+    },
+    "exact_anchors": {
+      "binding_valid": 14,
+      "median_D_valid": 38.01626632017748,
+      "median_E_SAEPS_valid": 0.08791709977948256,
+      "median_E_raw_valid": 38.13176112505073,
+      "planned": 15,
+      "strict_SAEPS_wins": 14
+    },
+    "noise_sparsity_summary": {
+      "binding_valid": 43,
+      "planned": 45
+    },
+    "noise_sparsity_cells": {
+      "noise=0.01_fraction=0.2": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 1142.381958980302,
+        "median_F_se_valid": 13.907667260552916,
+        "median_eta_valid": 0.011868432036391773,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0.01_fraction=0.5": {
+        "binding_valid": 4,
+        "invalid_seeds": [
+          130
+        ],
+        "median_F_raw_valid": 1084.6882857255193,
+        "median_F_se_valid": 26.019826261229735,
+        "median_eta_valid": 0.023829828115760843,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 1,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 4,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0.01_fraction=1": {
+        "binding_valid": 4,
+        "invalid_seeds": [
+          132
+        ],
+        "median_F_raw_valid": 909.7380228562455,
+        "median_F_se_valid": 33.22496353145451,
+        "median_eta_valid": 0.03365697147762971,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 4,
+          "SOLVER_FAILURE": 1
+        },
+        "valid_seeds": [
+          130,
+          131,
+          133,
+          134
+        ]
+      },
+      "noise=0.05_fraction=0.2": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 1289.5322486893565,
+        "median_F_se_valid": 16.29599971709201,
+        "median_eta_valid": 0.012864475998164385,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0.05_fraction=0.5": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 1131.5404533652645,
+        "median_F_se_valid": 24.854872917510875,
+        "median_eta_valid": 0.022852570833238776,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0.05_fraction=1": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 955.0375040391892,
+        "median_F_se_valid": 36.39985128744866,
+        "median_eta_valid": 0.03782325695942314,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0_fraction=0.2": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 1211.7802467834986,
+        "median_F_se_valid": 12.050999264489805,
+        "median_eta_valid": 0.010413230368100383,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0_fraction=0.5": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 1070.533586773945,
+        "median_F_se_valid": 27.897032233568133,
+        "median_eta_valid": 0.026054626501227134,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      },
+      "noise=0_fraction=1": {
+        "binding_valid": 5,
+        "invalid_seeds": [],
+        "median_F_raw_valid": 914.9273943611126,
+        "median_F_se_valid": 35.150475223898354,
+        "median_eta_valid": 0.033729299995518734,
+        "planned": 5,
+        "status_counts": {
+          "CHECKPOINT_INVALID": 0,
+          "NUMERICAL_FAILURE": 0,
+          "PASS": 5,
+          "SOLVER_FAILURE": 0
+        },
+        "valid_seeds": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ]
+      }
+    },
+    "source_path": "docs/evidence/v4_8_robustness.json",
+    "source_sha256": "56fb4dc8b5325c3b0a05feaec71e69140602d10316285fcba5be5b284104b212"
+  },
+  "settings": {
+    "two_parameter": {
+      "pde": "coupled manufactured reaction-diffusion, Dirichlet boundary (not periodic)",
+      "declared_hidden_width": 12,
+      "effective_hidden_width": 6,
+      "states_per_field": 25,
+      "state_parameter_count": 50,
+      "residual_count_expected": 736,
+      "loss_weights": {
+        "pde_u": 5.0,
+        "pde_v": 5.0,
+        "data_u": 10.0,
+        "data_v": 10.0,
+        "initial_u": 10.0,
+        "initial_v": 10.0,
+        "boundary_u": 2.0,
+        "boundary_v": 2.0
+      },
+      "gamma_alpha": 1e-08,
+      "training_objective": "0.5 * mean_i r_i^2 (mean); exported Hessian uses 0.5 * sum_i r_i^2"
+    },
+    "noise_sparsity": {
+      "noise_levels": [
+        0.0,
+        0.01,
+        0.05
+      ],
+      "observation_fractions": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "seed_count": 5,
+      "exact_anchor_cells": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.01,
+          0.5
+        ],
+        [
+          0.05,
+          0.2
+        ]
+      ],
+      "planned_noise_sparsity_runs": 45,
+      "planned_architecture_runs": 15,
+      "report_failures_in_denominator": true,
+      "scientific_gate": "DESCRIPTIVE_ONLY"
+    },
+    "architecture_robustness": {
+      "widths": [
+        8,
+        16,
+        32
+      ],
+      "labels": [
+        "narrow",
+        "nominal",
+        "wide"
+      ]
+    },
+    "scalability": {
+      "gamma_alpha": 0.01,
+      "primary_accuracy_gamma_alpha": 1e-08,
+      "state_parameter_counts": [
+        1001,
+        10001,
+        100001
+      ],
+      "initial_guess_each_repeat": "zero",
+      "repeats_per_condition": 3,
+      "cg_tolerance": 1e-10,
+      "cg_max_iterations": 500,
+      "power_iterations": 20,
+      "synthetic_residual_padding": false,
+      "residual_count_settings": {
+        "213": {
+          "pde_grid": [
+            9,
+            9
+          ],
+          "data_grid": [
+            9,
+            9
+          ],
+          "initial_points": 17,
+          "boundary_points_per_side": 17
+        },
+        "853": {
+          "pde_grid": [
+            19,
+            19
+          ],
+          "data_grid": [
+            19,
+            19
+          ],
+          "initial_points": 45,
+          "boundary_points_per_side": 43
+        },
+        "3413": {
+          "pde_grid": [
+            39,
+            39
+          ],
+          "data_grid": [
+            39,
+            39
+          ],
+          "initial_points": 123,
+          "boundary_points_per_side": 124
+        }
+      }
+    },
+    "loss_scale_note": "Historical training minimised the mean squared residual; the manuscript Hessian uses the sum objective. Derivatives differ by the residual count m, and a damping used with the mean objective must be divided by m."
+  },
+  "cost": {
+    "condition": "outputs/runs/v5/residual_scalability/n_100001/m_3413",
+    "repeats": [
+      {
+        "repeat": 1,
+        "setup_seconds": 62.83241139999882,
+        "solve_seconds": 40.40066430000297,
+        "wall_seconds": 40.400665199995274,
+        "cg_iterations": 11,
+        "JVP_count": 14,
+        "VJP_count": 14,
+        "gamma": 824968.4220356626,
+        "lambda_max_power_estimate": 82496842.20356625,
+        "verified_relative_residual": 7.818540964455124e-11,
+        "initial_guess": "zero",
+        "state_parameter_count": 100001,
+        "residual_count": 3413,
+        "peak_memory_bytes": null,
+        "peak_memory_unavailable_reason": "unavailable_native_cpu_tensor_peak",
+        "role": "cost_only_timing"
+      },
+      {
+        "repeat": 2,
+        "setup_seconds": 62.83241139999882,
+        "solve_seconds": 41.429773099996964,
+        "wall_seconds": 41.429773800002295,
+        "cg_iterations": 11,
+        "JVP_count": 14,
+        "VJP_count": 14,
+        "gamma": 824968.4220356626,
+        "lambda_max_power_estimate": 82496842.20356625,
+        "verified_relative_residual": 7.818540964455124e-11,
+        "initial_guess": "zero",
+        "state_parameter_count": 100001,
+        "residual_count": 3413,
+        "peak_memory_bytes": null,
+        "peak_memory_unavailable_reason": "unavailable_native_cpu_tensor_peak",
+        "role": "cost_only_timing"
+      },
+      {
+        "repeat": 3,
+        "setup_seconds": 62.83241139999882,
+        "solve_seconds": 40.966886199996225,
+        "wall_seconds": 40.96688670000003,
+        "cg_iterations": 11,
+        "JVP_count": 14,
+        "VJP_count": 14,
+        "gamma": 824968.4220356626,
+        "lambda_max_power_estimate": 82496842.20356625,
+        "verified_relative_residual": 7.818540964455124e-11,
+        "initial_guess": "zero",
+        "state_parameter_count": 100001,
+        "residual_count": 3413,
+        "peak_memory_bytes": null,
+        "peak_memory_unavailable_reason": "unavailable_native_cpu_tensor_peak",
+        "role": "cost_only_timing"
+      }
+    ],
+    "setup_seconds_median": 62.83241139999882,
+    "setup_seconds_min": 62.83241139999882,
+    "setup_seconds_max": 62.83241139999882,
+    "solve_seconds_median": 40.966886199996225,
+    "wall_seconds_median": 40.96688670000003,
+    "timing_scope_note": "setup and iteration times are recorded separately; their sum is not an end-to-end cost, and checkpoint loading and residual construction are outside the recorded iteration timer."
+  }
+}

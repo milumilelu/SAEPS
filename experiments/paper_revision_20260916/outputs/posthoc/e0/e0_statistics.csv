@@ -1,0 +1,7 @@
+cohort,family,planned,available,valid,wins_among_valid,median_E_raw,median_E_SAEPS,ratio_of_median_errors,median_paired_ratio,one_sided_sign_p,median_metric
+Burgers,scalar,15,15,12,12,27.726845369989668,0.07503228596679316,369.53219554393775,335.3762891407971,0.000244140625,curvature error E
+Allen-Cahn,scalar,10,10,9,9,20.372758405523594,0.2785667026005181,73.13421961539815,78.64382690368946,0.001953125,curvature error E
+coupled two-parameter,two_parameter,10,10,8,8,14.50727815741004,0.0278784800098164,520.3755065664207,477.0636793357053,0.00390625,reduced curvature value (E_raw2 / E_SAEPS2)
+architecture narrow,robustness,5,5,5,,650.6093744251888,40.36262291070394,,,,"median F_raw / F_SAEPS over binding-valid centres, not an error"
+architecture nominal,robustness,5,5,4,,645.1497503107854,40.17284756835914,,,,"median F_raw / F_SAEPS over binding-valid centres, not an error"
+architecture wide,robustness,5,5,0,,,,,,,"median F_raw / F_SAEPS over binding-valid centres, not an error"
