@@ -1,11 +1,10 @@
 {
-  "scope": "package synthetic unit tests plus repository-adapter integration tests against the frozen tag",
+  "scope": "package synthetic tests, repository-adapter integration tests, and E3/drift tests against the frozen tag",
   "command": "python -m pytest -q tests --junitxml=reports/local_tests.xml",
-  "passed": 28,
+  "passed": 39,
   "failed": 0,
   "warnings": 18,
   "warning_summary": "PyTorch torch.jit.script deprecation in automatic differentiation internals",
-  "elapsed_seconds": 2.87,
   "python": "3.12.14",
   "platform": "Windows-11-10.0.26100-SP0",
   "packages": {
@@ -16,11 +15,13 @@
   },
   "test_breakdown": {
     "package_synthetic": 20,
-    "repository_adapter_integration": 8
+    "repository_adapter_integration": 8,
+    "e3_and_curvature_drift": 11
   },
   "real_repository_integration_executed": true,
   "frozen_evidence_tag": "jcp-submission-v1",
-  "new_PINN_training_executed": false,
+  "new_PINN_training_executed": true,
+  "new_training_scope": "E3 development cohort only (8 fits, new benchmark); no historical PINN retrained",
   "historical_confirmation_rerun": false,
   "historical_records_modified": false,
   "prior_pack_environment": {

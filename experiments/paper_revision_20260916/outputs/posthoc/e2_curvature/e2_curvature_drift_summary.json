@@ -1,0 +1,41 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "E2_curvature_drift",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "objective": "1/2 ||r(theta, lambda_0)||^2 + gamma/2 ||theta - theta_0||^2 (sum scale, m=736)",
+  "gamma_policy": "gamma fixed at its level-0 value for every level; alpha = 1e-8; never re-estimated during refinement",
+  "gamma_source_rule": "historical_recorded when the frozen record stores it; otherwise a new post-hoc sensitivity target computed by the same frozen rule on the archived state",
+  "whitening_policy": "repo convention rebuilds the metric per level; the drift comparison holds the anchor metric fixed",
+  "iteration_path": [
+    0,
+    25,
+    100,
+    400,
+    1000
+  ],
+  "counts": {
+    "centres": 10,
+    "grid_rows": 50,
+    "terminal_rows": 10,
+    "valid_centres": 8,
+    "gamma_from_history": 8,
+    "gamma_new_posthoc": 2
+  },
+  "matrix_consistency": {
+    "rows": 24,
+    "max_relative_error": 2.2666867527168245e-11
+  },
+  "terminal_reference_drift_max": 0.004481432094345918,
+  "terminal_reference_drift_min": 2.6100917243412216e-06,
+  "terminal_SAEPS_error_max": 0.12204708677728705,
+  "terminal_drift_over_SAEPS2_max": 0.06920084867593344,
+  "terminal_drift_over_SAEPS2_min": 0.0001292506453458448,
+  "same_magnitude_as_SAEPS_error": [],
+  "method_ordering_changed_centres": []
+}

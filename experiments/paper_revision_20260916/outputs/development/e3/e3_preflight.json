@@ -1,0 +1,36 @@
+{
+  "classification": "NEW_EXPERIMENT_VERIFICATION",
+  "task": "E3_preflight",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "residual_count": 368,
+  "state_parameter_count": 65,
+  "checks": {
+    "truth_u_t_autograd_vs_analytic": 5.551115123125783e-17,
+    "truth_u_xx_autograd_vs_analytic": 4.440892098500626e-15,
+    "source_satisfies_pde_at_truth": 0.0,
+    "periodic_boundary_value_gap": 0.0,
+    "periodic_boundary_slope_gap": 2.220446049250313e-16,
+    "network_branches_analytic_vs_autograd": {
+      "u": 0.0,
+      "u_t": 1.6653345369377348e-16,
+      "u_x": 2.220446049250313e-16,
+      "u_xx": 1.1102230246251565e-16
+    },
+    "truth_minimum_value": 0.791314133743065
+  },
+  "nonaffine_identity": {
+    "affine_prediction_g_l": 38.73922628503675,
+    "log_identity_left_H_minus_G": -3.7971193847665,
+    "left_H_minus_G_minus_g": -42.536345669803254,
+    "right_kappa2_sum_r_d2r": -42.536345669803254,
+    "absolute_difference": 0.0,
+    "relative_difference": 0.0,
+    "kappa": 1.2
+  }
+}
