@@ -15,7 +15,7 @@
 | E3 开发队列 | `PASSED`（8/8 通过精确约化；SAEPS 8/8 胜出） |
 | E3 预算收敛 | `PASSED`（中位变化 7.7% → 2.2%；最终预算 1e5） |
 | E3 协议冻结 | 已冻结（`reports/E3_FROZEN_PROTOCOL.json`，失败关闭） |
-| E3 留出队列 | `RUNNING`（24 个拟合，对冻结快照运行） |
+| E3 留出队列 | `PASSED`（24/24 有效、6/6 数据种子完整、SAEPS 24/24 胜出） |
 | E4–E8 | `NOT_STARTED` |
 
 详见 `reports/E0_E3_REPORT.md` 与 `reports/experiment_status.json`。

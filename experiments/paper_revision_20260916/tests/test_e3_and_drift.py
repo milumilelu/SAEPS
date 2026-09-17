@@ -197,3 +197,32 @@ def test_budget_convergence_monotone_in_median() -> None:
     medians = [document["per_budget"][str(b)]["median_E_SAEPS"] for b in (10000, 30000, 100000)]
     assert medians[0] > medians[1] > medians[2]
     assert document["per_budget"]["100000"]["valid"] == 8
+
+
+def test_heldout_aggregate_is_complete_and_paired() -> None:
+    """Regression guard: the aggregate must read typed rows, not raw CSV strings.
+
+    Filtering the raw string rows against float noise levels silently produced empty
+    groups and zero wins, so the noise breakdown and the win count are asserted here.
+    """
+    import json
+
+    path = Path(__file__).resolve().parents[1] / "outputs/heldout/e3/e3_aggregate.json"
+    if not path.is_file():
+        pytest.skip("held-out aggregate not available")
+    document = json.loads(path.read_text(encoding="utf-8"))
+    assert document["statistical_unit"] == "data_seed"
+    assert document["fits_valid"] == document["fits_planned"] == 24
+    assert document["data_seeds_complete"] == document["data_seeds_planned"] == 6
+    assert document["invalid_fits"] == []
+    across = document["across_data_seeds"]
+    assert across["wins"] == across["non_ties"] == 24
+    assert across["median_E_SAEPS"] < across["median_E_raw"]
+    assert across["ratio_of_medians_R1"] > 1000
+    assert across["median_paired_ratio_R2"] > 1000
+    for level, block in document["by_noise_level"].items():
+        assert block["fits_valid"] == 12, level
+        assert block["wins"] == 12, level
+    for entry in document["within_data_seed"]:
+        assert entry["fits_valid"] == entry["fits_planned"] == 4
+        assert entry["wins"] == 4
