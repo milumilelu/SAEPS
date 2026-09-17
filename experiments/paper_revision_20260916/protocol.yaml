@@ -43,7 +43,7 @@ E3:
     adam_steps: 3000
     adam_learning_rate: 0.001
     lbfgs_max_iterations: 1000
-    fixed_parameter_state_polish_max_iterations: 30000
+    fixed_parameter_state_polish_max_iterations: 100000
     fixed_parameter_state_polish_max_iterations_initial: 1000
     joint_parameter_refinement: false
   development_change_log:
@@ -61,9 +61,29 @@ E3:
         matrices must stop moving when the budget is raised further. The curvature outcome
         was not used to pick the budget.
       outcome: >-
-        Development fits pass the exact reduction again. E_SAEPS moves from 7.52e-4 at 1e4
-        to 7.60e-4 at 3e4, about 1 percent, and the method conclusion is identical at both,
-        so no favourable budget was selected.
+        Development fits pass the exact reduction again. E_SAEPS moves 53.2% at worst
+        between 1e4 and 3e4, so 3e4 was still not converged in absolute terms and a
+        higher-budget check was required before freezing.
+      heldout_unchanged: true
+    - date: 2026-09-17
+      field: E3.optimizer_proposal.fixed_parameter_state_polish_max_iterations
+      from: 30000
+      to: 100000
+      reason: >-
+        3e4 passed the reduction for 8/8 fits but the reported error still moved by up to
+        53.2% against 1e4, so the values could not be called converged. A 1e5 cohort was
+        run as the convergence check.
+      selection_rule: >-
+        Same rule as before, applied to the convergence trend only: stationarity plus the
+        change in the reported quantities between successive budgets. Progression of the
+        cohort median E_SAEPS: 1.293e-3 (1e4) -> 1.193e-3 (3e4) -> 1.166e-3 (1e5), i.e.
+        successive changes of 7.7% then 2.2%. 1e5 also gives 8/8 valid fits and puts every
+        fitted state at a normalised gradient between 1.0e-8 and 4.3e-8.
+      outcome: >-
+        The cohort median is near-converged at 1e5 while individual fits still move by up
+        to 14.2% between 3e4 and 1e5, so per-fit absolute values retain a disclosed
+        sensitivity even though the aggregate is stable. Method ordering and the roughly
+        four-order gap are unchanged at every budget tested.
       heldout_unchanged: true
   development_changes_allowed: true
   heldout_requires_protocol_snapshot: true

@@ -156,3 +156,44 @@ def test_invalid_centres_have_no_historical_gamma() -> None:
         )
         assert record.get("gamma") is None
         assert record.get("binding_valid") is False
+
+
+def test_frozen_protocol_matches_live_files() -> None:
+    """The freeze must be checkable: live hashes have to match the recorded ones."""
+    import hashlib
+    import json
+
+    snapshot = Path(__file__).resolve().parents[1] / "reports/E3_FROZEN_PROTOCOL.json"
+    if not snapshot.is_file():
+        pytest.skip("protocol not frozen yet")
+    document = json.loads(snapshot.read_text(encoding="utf-8"))
+    namespace = snapshot.parents[1]
+    for name, expected in document["frozen_files"].items():
+        actual = hashlib.sha256((namespace / name).read_bytes()).hexdigest()
+        assert actual == expected, f"{name} changed after freezing"
+    assert document["heldout"]["authorized"] is True
+
+
+def test_heldout_guard_rejects_before_freeze(monkeypatch) -> None:
+    """A missing snapshot must stop the held-out cohort rather than run unguarded."""
+    import e3_saturation as E
+
+    monkeypatch.setattr(E, "FROZEN_SNAPSHOT", Path("does_not_exist.json"))
+    with pytest.raises(RuntimeError, match="no frozen protocol snapshot"):
+        E.verify_frozen_snapshot()
+
+
+def test_budget_convergence_monotone_in_median() -> None:
+    """Median E_SAEPS should fall as the polish budget grows."""
+    import json
+
+    path = (
+        Path(__file__).resolve().parents[1]
+        / "outputs/development/e3_budget_convergence.json"
+    )
+    if not path.is_file():
+        pytest.skip("convergence summary not available")
+    document = json.loads(path.read_text(encoding="utf-8"))
+    medians = [document["per_budget"][str(b)]["median_E_SAEPS"] for b in (10000, 30000, 100000)]
+    assert medians[0] > medians[1] > medians[2]
+    assert document["per_budget"]["100000"]["valid"] == 8

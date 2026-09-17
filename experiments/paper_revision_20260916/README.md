@@ -13,7 +13,9 @@
 | E2 曲率漂移 | `PASSED` |
 | E3 预检 | `PASSED` |
 | E3 开发队列 | `PASSED`（8/8 通过精确约化；SAEPS 8/8 胜出） |
-| E3 留出队列 | `NOT_RUN` |
+| E3 预算收敛 | `PASSED`（中位变化 7.7% → 2.2%；最终预算 1e5） |
+| E3 协议冻结 | 已冻结（`reports/E3_FROZEN_PROTOCOL.json`，失败关闭） |
+| E3 留出队列 | `RUNNING`（24 个拟合，对冻结快照运行） |
 | E4–E8 | `NOT_STARTED` |
 
 详见 `reports/E0_E3_REPORT.md` 与 `reports/experiment_status.json`。
@@ -72,13 +74,24 @@ python src/manifest_outputs.py
 
 ## 开发阶段变更记录
 
-`protocol.yaml` 的 `development_change_log` 记录 E3 状态精修预算由 1000 改为 30000。
-原因为：1000 次迭代后状态远未驻点（归一化梯度 2.1e-4），精确状态 Hessian 块非正定，
-8/8 开发拟合的约化失败。选择规则只看驻点性与预算完整性，不看曲率胜负。
+`protocol.yaml` 的 `development_change_log` 记录 E3 状态精修预算两次调整
+（1000 → 30000 → 100000）。1000 次迭代后状态远未驻点（归一化梯度 2.1e-4），
+精确状态 Hessian 块非正定，8/8 开发拟合的约化失败。
+选择规则只看驻点性与预算收敛趋势，不看曲率胜负。
 **α=1e-8 无需改动，它不是失败原因。**
 
-**预算敏感性需披露**：`E_SAEPS` 在 1e4 与 3e4 之间变化 1.1% – 53.2%。
-方法排序与约 4 个数量级的差距在两种预算下都成立，但绝对误差尚未确认收敛。
+**收敛情况**：中位 \(E_{SAEPS}\) 逐级变化 7.7% → 2.2%；3e4→1e5 时 8 点中 5 点变化 < 1%，
+最差单点 14.2%。队列级统计量接近收敛，**单点绝对值仍带敏感性，必须披露**。
+
+## 冻结与留出
+
+`reports/E3_FROZEN_PROTOCOL.json` 记录 `protocol.yaml` 与 `src/e3_saturation.py` 的
+SHA256。留出运行器在快照缺失、哈希不符或未授权时**直接拒绝运行**：
+
+```bash
+python src/freeze_protocol.py --reason "..." --development-summary <json>
+python src/e3_saturation.py --heldout --out <dir>   # 校验冻结快照后才开始
+```
 
 ## 记录规则
 

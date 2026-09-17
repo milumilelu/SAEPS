@@ -1,0 +1,60 @@
+{
+  "classification": "NEW_EXPERIMENT_DERIVED",
+  "task": "E3_budget_convergence",
+  "note": "derived from the development cohorts in this namespace; no training here",
+  "per_budget": {
+    "10000": {
+      "fits": 8,
+      "valid": 6,
+      "median_E_SAEPS": 0.001293050427850002,
+      "median_E_raw": 16.172253628298186,
+      "max_normalized_state_gradient": 1.0318040935541154e-05,
+      "SAEPS_wins": 6
+    },
+    "30000": {
+      "fits": 8,
+      "valid": 8,
+      "median_E_SAEPS": 0.0011932076795705313,
+      "median_E_raw": 16.15946115232964,
+      "max_normalized_state_gradient": 3.1830951619285673e-06,
+      "SAEPS_wins": 8
+    },
+    "100000": {
+      "fits": 8,
+      "valid": 8,
+      "median_E_SAEPS": 0.0011663252467134827,
+      "median_E_raw": 16.159439288786558,
+      "max_normalized_state_gradient": 4.2477549583855566e-08,
+      "SAEPS_wins": 8
+    }
+  },
+  "transitions": [
+    {
+      "from": 10000,
+      "to": 30000,
+      "max_relative_change": 0.5319312357007142,
+      "max_relative_change_point": [
+        "916001",
+        "926002",
+        "0.02"
+      ],
+      "median_relative_change": 0.07818245181982858,
+      "points_changing_under_one_percent": 0,
+      "comparable_points": 6
+    },
+    {
+      "from": 30000,
+      "to": 100000,
+      "max_relative_change": 0.1419256614604254,
+      "max_relative_change_point": [
+        "916002",
+        "926002",
+        "0.02"
+      ],
+      "median_relative_change": 0.0007148868462271826,
+      "points_changing_under_one_percent": 5,
+      "comparable_points": 8
+    }
+  ],
+  "conclusion": "The cohort median converges (successive changes 7.7% then 2.2%) and the method ordering is identical at every budget, but individual fits still move by up to 14.2% between 3e4 and 1e5, so per-fit absolute values keep a disclosed sensitivity."
+}

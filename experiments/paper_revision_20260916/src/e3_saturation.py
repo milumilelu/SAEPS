@@ -438,6 +438,36 @@ def load_config(repo: Path, commit: str) -> dict[str, Any]:
     }
 
 
+FROZEN_SNAPSHOT = Path(__file__).resolve().parents[1] / "reports/E3_FROZEN_PROTOCOL.json"
+
+
+def verify_frozen_snapshot() -> dict[str, Any]:
+    """Fail closed unless the live protocol and executable still match the frozen hashes.
+
+    The held-out cohort must run against exactly the configuration that development
+    settled on.  A mismatch means the protocol moved after freezing, so the run is
+    refused rather than silently reinterpreted.
+    """
+    import hashlib
+
+    if not FROZEN_SNAPSHOT.is_file():
+        raise RuntimeError(
+            f"no frozen protocol snapshot at {FROZEN_SNAPSHOT}; "
+            "run src/freeze_protocol.py before the held-out cohort"
+        )
+    snapshot = json.loads(FROZEN_SNAPSHOT.read_text(encoding="utf-8"))
+    namespace = FROZEN_SNAPSHOT.parents[1]
+    for name, expected in snapshot["frozen_files"].items():
+        actual = hashlib.sha256((namespace / name).read_bytes()).hexdigest()
+        if actual != expected:
+            raise RuntimeError(
+                f"frozen protocol mismatch for {name}: expected {expected}, found {actual}"
+            )
+    if not snapshot.get("heldout", {}).get("authorized"):
+        raise RuntimeError("frozen snapshot does not authorize the held-out cohort")
+    return snapshot
+
+
 def train_fit(
     config: dict[str, Any], data_seed: int, init_seed: int, noise_level: float
 ) -> dict[str, Any]:
@@ -705,6 +735,21 @@ def main() -> None:
     seeds = (
         config["development_data_seeds"] if args.develop else config["heldout_data_seeds"]
     )
+    if args.heldout:
+        snapshot = verify_frozen_snapshot()
+        (out / "frozen_protocol_reference.json").write_text(
+            json.dumps(
+                {
+                    "frozen_at_utc": snapshot["frozen_at_utc"],
+                    "repo_head": snapshot["repo_head"],
+                    "frozen_files": snapshot["frozen_files"],
+                    "reason": snapshot["reason"],
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
     run_cohort(config, seeds, out, repo, commit)
     print(out)
 

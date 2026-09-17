@@ -7,7 +7,9 @@
     "E2_CURVATURE_DRIFT": "PASSED",
     "E3_PREFLIGHT": "PASSED",
     "E3_DEVELOPMENT": "PASSED",
-    "E3_HELDOUT": "NOT_RUN",
+    "E3_BUDGET_CONVERGENCE": "PASSED",
+    "E3_PROTOCOL_FROZEN": true,
+    "E3_HELDOUT": "RUNNING",
     "E4": "NOT_RUN",
     "E5": "NOT_RUN",
     "E6": "NOT_RUN",
@@ -31,8 +33,10 @@
     "E3 blocker resolved at development stage: the exact reduction failed for 8/8 fits because the 1000-iteration state polish left the state non-stationary. The polish budget was raised to 30000 on a stationarity and budget-completeness criterion recorded in protocol.yaml development_change_log. No clamping and no damping substitution was applied.",
     "E3 development at 30000: 8/8 pass the exact reduction, SAEPS wins 8/8, median E_raw 16.16 against median E_SAEPS 1.19e-3 (about 1.35e4x), median kappa relative error 1.19%, and the non-affine identity holds to 8.0e-15 on the real fits.",
     "E3 error decomposition: E_fix is as bad as E_raw, so the improvement comes entirely from the state-elimination relaxation term, which GN reproduces to E_relax = 5.5e-6.",
-    "E3 budget sensitivity must be disclosed: E_SAEPS moves by 1.1%-53.2% between budgets 1e4 and 3e4. The method ordering and the four-order gap hold at both, but the absolute values are not converged.",
-    "The E3 held-out cohort has not been run; a higher-budget convergence check is advisable before freezing."
+    "E3 budget convergence: the cohort median E_SAEPS moves 7.7% then 2.2% across budgets 1e4/3e4/1e5, and 5 of 8 fits change by under 1% between 3e4 and 1e5; the worst single fit still moves 14.2%, so cohort statistics are near-converged while per-fit absolute values retain a disclosed sensitivity.",
+    "Final E3 budget set to 1e5 on stationarity and convergence-trend grounds only; SAEPS wins 8/8 at every budget tested.",
+    "E3 protocol frozen in reports/E3_FROZEN_PROTOCOL.json with SHA256 of protocol.yaml and src/e3_saturation.py. The held-out runner fails closed if the snapshot is missing, mismatched or unauthorized.",
+    "E3 held-out cohort (24 fits) is running against the frozen snapshot; results not yet available."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json"
