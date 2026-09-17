@@ -43,8 +43,28 @@ E3:
     adam_steps: 3000
     adam_learning_rate: 0.001
     lbfgs_max_iterations: 1000
-    fixed_parameter_state_polish_max_iterations: 1000
+    fixed_parameter_state_polish_max_iterations: 30000
+    fixed_parameter_state_polish_max_iterations_initial: 1000
     joint_parameter_refinement: false
+  development_change_log:
+    - date: 2026-09-17
+      field: E3.optimizer_proposal.fixed_parameter_state_polish_max_iterations
+      from: 1000
+      to: 30000
+      reason: >-
+        1000 iterations left the state far from stationary (normalised state gradient
+        2.1e-4). The exact state Hessian block was then indefinite, so the damped
+        reduction failed for 8/8 development fits.
+      selection_rule: >-
+        Chosen on stationarity and budget stability only: the normalised state gradient
+        must be small, the damped state block must be positive definite, and the reported
+        matrices must stop moving when the budget is raised further. The curvature outcome
+        was not used to pick the budget.
+      outcome: >-
+        Development fits pass the exact reduction again. E_SAEPS moves from 7.52e-4 at 1e4
+        to 7.60e-4 at 3e4, about 1 percent, and the method conclusion is identical at both,
+        so no favourable budget was selected.
+      heldout_unchanged: true
   development_changes_allowed: true
   heldout_requires_protocol_snapshot: true
   statistical_unit: data_seed

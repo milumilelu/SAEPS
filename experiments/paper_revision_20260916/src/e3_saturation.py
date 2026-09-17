@@ -668,6 +668,13 @@ def main() -> None:
     mode.add_argument("--heldout", action="store_true")
     parser.add_argument("--repo", type=Path, default=A.repo_root())
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument(
+        "--polish-budget",
+        type=int,
+        default=None,
+        help="override the state-polish budget; used to show the reported quantities "
+        "stop moving as the budget grows",
+    )
     args = parser.parse_args()
     torch.set_default_dtype(torch.float64)
     repo = args.repo.resolve()
@@ -690,6 +697,11 @@ def main() -> None:
         raise FileExistsError(out)
     out.mkdir(parents=True, exist_ok=True)
     config = load_config(repo, commit)
+    if args.polish_budget is not None:
+        config["optimizer"] = dict(config["optimizer"])
+        config["optimizer"]["fixed_parameter_state_polish_max_iterations"] = (
+            args.polish_budget
+        )
     seeds = (
         config["development_data_seeds"] if args.develop else config["heldout_data_seeds"]
     )

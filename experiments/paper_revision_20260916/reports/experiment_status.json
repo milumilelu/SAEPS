@@ -6,7 +6,8 @@
     "E2": "PARTIAL_SCALAR_QUEUE_NOT_AVAILABLE",
     "E2_CURVATURE_DRIFT": "PASSED",
     "E3_PREFLIGHT": "PASSED",
-    "E3_DEVELOPMENT": "BLOCKED_REFERENCE_REDUCTION_NONPOSITIVE_STATE_BLOCK",
+    "E3_DEVELOPMENT": "PASSED",
+    "E3_HELDOUT": "NOT_RUN",
     "E4": "NOT_RUN",
     "E5": "NOT_RUN",
     "E6": "NOT_RUN",
@@ -27,7 +28,11 @@
     "E2 scalar queue NOT_AVAILABLE (no state tensors). The two-parameter post-hoc run met its objective but the previous wording (small gradient implies large state error) was an over-claim and has been corrected to a sensitivity statement.",
     "E2 curvature drift: over the eight valid centres the exact reference drifts by 0.013%-6.9% of the SAEPS error, and the method ordering never changes. The wording is bounded to 'stable over the tested refinement range'.",
     "E3 preflight passes fully, and the non-affine identity H - G - g = kappa^2 sum r d2r/dkappa2 holds exactly, with the non-affine term (-42.54) comparable in size to the log-gradient term (+38.74).",
-    "E3 development: kappa is recovered to 0.30%-2.41%, but the exact reduction fails at alpha=1e-8 for 8/8 fits because the state block is not positive definite. No clamping and no damping substitution was applied. The held-out cohort stays blocked until this is resolved at development stage."
+    "E3 blocker resolved at development stage: the exact reduction failed for 8/8 fits because the 1000-iteration state polish left the state non-stationary. The polish budget was raised to 30000 on a stationarity and budget-completeness criterion recorded in protocol.yaml development_change_log. No clamping and no damping substitution was applied.",
+    "E3 development at 30000: 8/8 pass the exact reduction, SAEPS wins 8/8, median E_raw 16.16 against median E_SAEPS 1.19e-3 (about 1.35e4x), median kappa relative error 1.19%, and the non-affine identity holds to 8.0e-15 on the real fits.",
+    "E3 error decomposition: E_fix is as bad as E_raw, so the improvement comes entirely from the state-elimination relaxation term, which GN reproduces to E_relax = 5.5e-6.",
+    "E3 budget sensitivity must be disclosed: E_SAEPS moves by 1.1%-53.2% between budgets 1e4 and 3e4. The method ordering and the four-order gap hold at both, but the absolute values are not converged.",
+    "The E3 held-out cohort has not been run; a higher-budget convergence check is advisable before freezing."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json"
