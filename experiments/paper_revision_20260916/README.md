@@ -16,7 +16,10 @@
 | E3 预算收敛 | `PASSED`（中位变化 7.7% → 2.2%；最终预算 1e5） |
 | E3 协议冻结 | 已冻结（`reports/E3_FROZEN_PROTOCOL.json`，失败关闭） |
 | E3 留出队列 | `PASSED`（24/24 有效、6/6 数据种子完整、SAEPS 24/24 胜出） |
-| E4–E8 | `NOT_STARTED` |
+| E4 坐标与度量 | `PASSED`（80/80 必需检查） |
+| E5 弱方向诊断 | `PASSED`（8/8 方向可分辨） |
+| E8 同阻尼成本 | `RUNNING` |
+| E6/E7 | `NOT_STARTED` |
 
 详见 `reports/E0_E3_REPORT.md` 与 `reports/experiment_status.json`。
 

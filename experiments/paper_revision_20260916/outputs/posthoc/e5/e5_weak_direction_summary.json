@@ -1,0 +1,596 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "E5_weak_direction_diagnostic",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "parameter_metric": "plain Euclidean metric on the log coefficients",
+  "metric_rationale": "fixed before any result and independent of the three curvatures compared; the whitened space is not used to pick the raw weak direction because F_raw is approximately the identity there",
+  "eigengap_resolution_threshold": 0.1,
+  "centres_total": 10,
+  "centres_valid": 8,
+  "centres_valid_with_resolved_directions": 8,
+  "median_angle_raw_vs_exact_degrees": 2.864336567159883,
+  "median_angle_SAEPS_vs_exact_degrees": 0.45113894211785077,
+  "exact_curvature_signs": {
+    "215": [
+      "positive",
+      "positive"
+    ],
+    "216": [
+      "positive",
+      "positive"
+    ],
+    "217": [
+      "positive",
+      "positive"
+    ],
+    "218": [
+      "positive",
+      "positive"
+    ],
+    "220": [
+      "positive",
+      "positive"
+    ],
+    "222": [
+      "positive",
+      "positive"
+    ],
+    "223": [
+      "positive",
+      "positive"
+    ],
+    "224": [
+      "positive",
+      "positive"
+    ]
+  },
+  "per_seed": {
+    "215": {
+      "status": "PASS",
+      "gamma": 0.0034764247629556176,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            40.156613183943094,
+            422.42574393401696
+          ],
+          "weakest_direction": [
+            -0.7968200179779853,
+            -0.60421673176896
+          ],
+          "eigengap": 0.904938054177362,
+          "weakest_eigenvalue": 40.156613183943094
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            1.57769246702774,
+            22.101527949255363
+          ],
+          "weakest_direction": [
+            -0.7011745284981661,
+            -0.7129896777551373
+          ],
+          "eigengap": 0.9286161359228156,
+          "weakest_eigenvalue": 1.57769246702774
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            1.6051265157472825,
+            22.121308413917237
+          ],
+          "weakest_direction": [
+            -0.7074807252483368,
+            -0.7067326392647275
+          ],
+          "eigengap": 0.9274398021259246,
+          "weakest_eigenvalue": 1.6051265157472825
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 8.306187764343784,
+        "angle_raw_vs_exact": 7.7971923389943685,
+        "angle_SAEPS_vs_exact": 0.5089954253491756
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 17.36427297037272,
+      "legacy_E_SAEPS2": 0.02593274363031036
+    },
+    "216": {
+      "status": "PASS",
+      "gamma": 8.352518461952851,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            30.64819926831214,
+            334.99638788752986
+          ],
+          "weakest_direction": [
+            -0.7285815607306055,
+            -0.6849590567058406
+          ],
+          "eigengap": 0.9085118515409132,
+          "weakest_eigenvalue": 30.64819926831214
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            3.4406718555501525,
+            24.980066500643897
+          ],
+          "weakest_direction": [
+            -0.7034424217124414,
+            -0.7107522489133157
+          ],
+          "eigengap": 0.8622633028033987,
+          "weakest_eigenvalue": 3.4406718555501525
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            3.390976958775089,
+            24.914105209513146
+          ],
+          "weakest_direction": [
+            -0.7083044678322068,
+            -0.7059070624727694
+          ],
+          "eigengap": 0.8638932873463068,
+          "weakest_eigenvalue": 3.390976958775089
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 2.0637660938829328,
+        "angle_raw_vs_exact": 1.6704836349958616,
+        "angle_SAEPS_vs_exact": 0.3932824588865259
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 9.57217482401285,
+      "legacy_E_SAEPS2": 0.021155217512198593
+    },
+    "217": {
+      "status": "PASS",
+      "gamma": 0.9895774817103726,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            41.39549842605663,
+            365.5885422052131
+          ],
+          "weakest_direction": [
+            -0.7552282298355317,
+            -0.6554619141181962
+          ],
+          "eigengap": 0.8867702522175315,
+          "weakest_eigenvalue": 41.39549842605663
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            3.062326630289385,
+            18.99623384615925
+          ],
+          "weakest_direction": [
+            -0.7851817932602096,
+            -0.6192653320933454
+          ],
+          "eigengap": 0.8387929599577687,
+          "weakest_eigenvalue": 3.062326630289385
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            3.093301666911845,
+            18.99325736767538
+          ],
+          "weakest_direction": [
+            -0.7824612244595054,
+            -0.6226993112388447
+          ],
+          "eigengap": 0.8371368529878221,
+          "weakest_eigenvalue": 3.093301666911845
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 2.6921790562585257,
+        "angle_raw_vs_exact": 2.4411624727026497,
+        "angle_SAEPS_vs_exact": 0.25101658355542805
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 14.415407707072074,
+      "legacy_E_SAEPS2": 0.010997948053294687
+    },
+    "218": {
+      "status": "PASS",
+      "gamma": 0.5393657019182189,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            36.39608427678735,
+            354.09009858605924
+          ],
+          "weakest_direction": [
+            -0.7488583063748162,
+            -0.6627301388751247
+          ],
+          "eigengap": 0.8972123636833592,
+          "weakest_eigenvalue": 36.39608427678735
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            2.5117091701984156,
+            20.364388200306607
+          ],
+          "weakest_direction": [
+            -0.7049863511464459,
+            -0.7092208715888304
+          ],
+          "eigengap": 0.876661692681708,
+          "weakest_eigenvalue": 2.5117091701984156
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            2.447761454672017,
+            20.262388077760477
+          ],
+          "weakest_direction": [
+            -0.7054525256349717,
+            -0.7087571756781298
+          ],
+          "eigengap": 0.8791967933257274,
+          "weakest_eigenvalue": 2.447761454672017
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 3.663136028193415,
+        "angle_raw_vs_exact": 3.625462906527867,
+        "angle_SAEPS_vs_exact": 0.03767312165424898
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 14.599148607748006,
+      "legacy_E_SAEPS2": 0.020191331221580146
+    },
+    "219": {
+      "status": "PASS",
+      "gamma": 0.010217778027689424,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            29.562121493448444,
+            315.91233069205964
+          ],
+          "weakest_direction": [
+            -0.6973129169556173,
+            -0.7167668350634315
+          ],
+          "eigengap": 0.9064230211315665,
+          "weakest_eigenvalue": 29.562121493448444
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            1.519860998041655,
+            19.134959865370913
+          ],
+          "weakest_direction": [
+            -0.6892789435706114,
+            -0.7244960579259088
+          ],
+          "eigengap": 0.9205715084465795,
+          "weakest_eigenvalue": 1.519860998041655
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            1.4438233199105106,
+            19.06338007268792
+          ],
+          "weakest_direction": [
+            -0.6814477583149362,
+            -0.731866758834932
+          ],
+          "eigengap": 0.9242619454469633,
+          "weakest_eigenvalue": 1.4438233199105106
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 0.6387564716185375,
+        "angle_raw_vs_exact": 1.2549347124510726,
+        "angle_SAEPS_vs_exact": 0.6161782408317481
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": null,
+      "legacy_E_SAEPS2": null
+    },
+    "220": {
+      "status": "PASS",
+      "gamma": 3.511775645430386,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            23.131359890281942,
+            318.0585296119956
+          ],
+          "weakest_direction": [
+            -0.7244301011054776,
+            -0.6893482636609073
+          ],
+          "eigengap": 0.9272732603068364,
+          "weakest_eigenvalue": 23.131359890281942
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            2.7382961679548803,
+            25.122971386089482
+          ],
+          "weakest_direction": [
+            -0.7079569070468057,
+            -0.7062556320233633
+          ],
+          "eigengap": 0.8910042874358777,
+          "weakest_eigenvalue": 2.7382961679548803
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            2.621109958297505,
+            24.98667412332457
+          ],
+          "weakest_direction": [
+            -0.7101008441419853,
+            -0.7040999866132935
+          ],
+          "eigengap": 0.8950996861222618,
+          "weakest_eigenvalue": 2.621109958297505
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 1.3525337200728282,
+        "angle_raw_vs_exact": 1.178338714426181,
+        "angle_SAEPS_vs_exact": 0.1741950056442287
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 9.237280187956998,
+      "legacy_E_SAEPS2": 0.0385360054509923
+    },
+    "221": {
+      "status": "PASS",
+      "gamma": 0.9364647659424233,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            37.83066244694487,
+            393.7947281329032
+          ],
+          "weakest_direction": [
+            -0.7259891351330864,
+            -0.6877061695729603
+          ],
+          "eigengap": 0.9039330398700074,
+          "weakest_eigenvalue": 37.83066244694487
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            4.095165928266713,
+            23.015259000710554
+          ],
+          "weakest_direction": [
+            -0.6965922698766213,
+            -0.7174672184484364
+          ],
+          "eigengap": 0.8220673541783613,
+          "weakest_eigenvalue": 4.095165928266713
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            4.091815081424274,
+            22.993089970653468
+          ],
+          "weakest_direction": [
+            -0.6993045723585226,
+            -0.7148238349960524
+          ],
+          "eigengap": 0.8220415313188989,
+          "weakest_eigenvalue": 4.091815081424274
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 2.396957794177905,
+        "angle_raw_vs_exact": 2.1799581852757814,
+        "angle_SAEPS_vs_exact": 0.2169996088997466
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": null,
+      "legacy_E_SAEPS2": null
+    },
+    "222": {
+      "status": "PASS",
+      "gamma": 0.543925474287983,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            38.638088536837415,
+            375.83350199239214
+          ],
+          "weakest_direction": [
+            -0.7376352109698406,
+            -0.6751994487094006
+          ],
+          "eigengap": 0.89719360213497,
+          "weakest_eigenvalue": 38.638088536837415
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            2.2932886906629655,
+            22.139901375801625
+          ],
+          "weakest_direction": [
+            -0.6757709216007031,
+            -0.7371117021991553
+          ],
+          "eigengap": 0.8964182969139386,
+          "weakest_eigenvalue": 2.2932886906629655
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            2.237860000647524,
+            22.114542854215465
+          ],
+          "weakest_direction": [
+            -0.6674049854239665,
+            -0.7446949613306343
+          ],
+          "eigengap": 0.8988059569939995,
+          "weakest_eigenvalue": 2.237860000647524
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 5.016314201964446,
+        "angle_raw_vs_exact": 5.6632646491923415,
+        "angle_SAEPS_vs_exact": 0.6469504472283116
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 14.96143392010795,
+      "legacy_E_SAEPS2": 0.029824216389322436
+    },
+    "223": {
+      "status": "PASS",
+      "gamma": 0.1667075138313656,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            26.601314092856825,
+            330.0128665992196
+          ],
+          "weakest_direction": [
+            -0.6623529406272372,
+            -0.7491919527347125
+          ],
+          "eigengap": 0.9193931001327822,
+          "weakest_eigenvalue": 26.601314092856825
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            1.8596022675048824,
+            17.99983370084574
+          ],
+          "weakest_direction": [
+            -0.6453422617397008,
+            -0.7638935562057633
+          ],
+          "eigengap": 0.8966878084313908,
+          "weakest_eigenvalue": 1.8596022675048824
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            1.6709438771295644,
+            17.988757624855165
+          ],
+          "weakest_direction": [
+            -0.6182994667359872,
+            -0.785942599325163
+          ],
+          "eigengap": 0.907111768807157,
+          "weakest_eigenvalue": 1.6709438771295644
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 1.288227324010129,
+        "angle_raw_vs_exact": 3.287510661617116,
+        "angle_SAEPS_vs_exact": 1.9992833376069565
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 15.508026283725204,
+      "legacy_E_SAEPS2": 0.11855684979903316
+    },
+    "224": {
+      "status": "PASS",
+      "gamma": 3.736022509960798,
+      "entries": {
+        "F_raw": {
+          "eigenvalues": [
+            23.122701393984457,
+            271.9225924160756
+          ],
+          "weakest_direction": [
+            -0.7446493518872139,
+            -0.6674558732485258
+          ],
+          "eigengap": 0.9149658688212128,
+          "weakest_eigenvalue": 23.122701393984457
+        },
+        "F_SAEPS": {
+          "eigenvalues": [
+            2.128069181083861,
+            17.644355206110063
+          ],
+          "weakest_direction": [
+            -0.7212274595433495,
+            -0.6926983121104353
+          ],
+          "eigengap": 0.8793909351616923,
+          "weakest_eigenvalue": 2.128069181083861
+        },
+        "H_red_exact": {
+          "eigenvalues": [
+            1.9465342027706067,
+            17.47344628626962
+          ],
+          "weakest_direction": [
+            -0.7347210255149457,
+            -0.6783693792221658
+          ],
+          "eigengap": 0.8886004414423865,
+          "weakest_eigenvalue": 1.9465342027706067
+        }
+      },
+      "angles": {
+        "angle_raw_vs_SAEPS": 1.9730747771187818,
+        "angle_raw_vs_exact": 0.8453413676201267,
+        "angle_SAEPS_vs_exact": 1.1277334094987452
+      },
+      "directions_resolved": true,
+      "exact_eigen_signs": [
+        "positive",
+        "positive"
+      ],
+      "legacy_E_raw2": 12.340504790665083,
+      "legacy_E_SAEPS2": 0.09526263396873369
+    }
+  },
+  "claim_boundary": "Local diagnostic only. This does not show improved parameter recovery accuracy, and negative exact curvature is reported as a sign, never as a variance."
+}

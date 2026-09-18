@@ -10,8 +10,8 @@
     "E3_BUDGET_CONVERGENCE": "PASSED",
     "E3_PROTOCOL_FROZEN": true,
     "E3_HELDOUT": "PASSED",
-    "E4": "NOT_RUN",
-    "E5": "NOT_RUN",
+    "E4": "PASSED",
+    "E5": "PASSED",
     "E6": "NOT_RUN",
     "E7": "NOT_RUN",
     "E8": "NOT_RUN"
@@ -36,7 +36,9 @@
     "E3 budget convergence: the cohort median E_SAEPS moves 7.7% then 2.2% across budgets 1e4/3e4/1e5, and 5 of 8 fits change by under 1% between 3e4 and 1e5; the worst single fit still moves 14.2%, so cohort statistics are near-converged while per-fit absolute values retain a disclosed sensitivity.",
     "Final E3 budget set to 1e5 on stationarity and convergence-trend grounds only; SAEPS wins 8/8 at every budget tested.",
     "E3 protocol frozen in reports/E3_FROZEN_PROTOCOL.json with SHA256 of protocol.yaml and src/e3_saturation.py. The held-out runner fails closed if the snapshot is missing, mismatched or unauthorized.",
-    "E3 held-out (frozen 1e5) is complete and confirms development on fresh data seeds: 24/24 fits valid, 6/6 data seeds complete, no exclusions, SAEPS wins 24/24 with a one-sided sign-test p of 5.96e-08. Median E_raw 16.8165 against median E_SAEPS 1.0603e-3; R1 (ratio of medians) 15860 and R2 (median paired ratio) 13257 are both reported because they differ. Median kappa relative error 1.15%. The decomposition repeats the development mechanism: median E_fix 16.8177 is as bad as E_raw, so the gain comes from the state-elimination relaxation term, which GN reproduces to E_relax 1.3e-05. Noise does not weaken it (12/12 wins at both levels)."
+    "E3 held-out (frozen 1e5) is complete and confirms development on fresh data seeds: 24/24 fits valid, 6/6 data seeds complete, no exclusions, SAEPS wins 24/24 with a one-sided sign-test p of 5.96e-08. Median E_raw 16.8165 against median E_SAEPS 1.0603e-3; R1 (ratio of medians) 15860 and R2 (median paired ratio) 13257 are both reported because they differ. Median kappa relative error 1.15%. The decomposition repeats the development mechanism: median E_fix 16.8177 is as bad as E_raw, so the gain comes from the state-elimination relaxation term, which GN reproduces to E_relax 1.3e-05. Noise does not weaken it (12/12 wins at both levels).",
+    "E4: all 80 required checks pass across 10 centres. The param-coordinate Gauss-Newton reduction is equivariant to 2.0e-12, while the exact reduced Hessian needs the diag(a*g_a) term and the naive form fails by 0.44%-4.9%. Keeping the metric T^T T leaves the reduced curvature invariant (<=9.2e-11) whereas the identity metric does not, and invariance is deliberately not required there. No claim of invariance under arbitrary reparameterisation.",
+    "E5: 8/8 valid centres have resolved weak directions (relative eigengap 0.82-0.93 against a 0.1 threshold), in a pre-declared Euclidean metric on the log coefficients rather than the whitened space. Median angle to the exact weak direction is 0.45 degrees for SAEPS against 2.86 degrees for raw. Exact curvature is positive definite at all 8, so no negative-curvature sign report was needed. The boundary is stated: local diagnostic only, no claim of improved parameter recovery."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json"

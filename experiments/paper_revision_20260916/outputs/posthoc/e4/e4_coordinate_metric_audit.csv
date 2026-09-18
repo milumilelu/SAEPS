@@ -1,0 +1,151 @@
+binding_valid,condition_number,gradient_term_norm,note,quantity,relative_error,required,seed,stationarity_parameter_gradient_norm,test,tolerance,transform
+True,,,,F_se(lambda) - D F_se(a) D,9.333214075731256e-14,True,215,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),9.508408094748549e-14,True,215,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.29217169271031906,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.013183728899796389,False,215,0.37314916869558845,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,215,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",7.566290926344676e-12,True,215,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",7.566290926344676e-12,False,215,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",3.569100450701691e-16,False,215,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,215,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.951688598730065e-12,True,215,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.001841106583857551,False,215,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,215,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,215,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",2.893758383146028e-12,True,215,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.011894873372704172,False,215,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236647,False,215,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,1.6274147420104972e-13,True,216,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),1.3259093648197475e-13,True,216,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.24363312440941487,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.009660371401622814,False,216,0.3287507872212642,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,216,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",3.4756681248326174e-11,True,216,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",3.4756681248326174e-11,False,216,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",4.0564193954802014e-16,False,216,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,216,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",5.827317632318862e-12,True,216,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.013782229115892788,False,216,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,216,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,216,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.2856662453614736e-11,True,216,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.016395515052321997,False,216,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236648,False,216,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,1.8813050962173907e-13,True,217,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),2.3208987308327646e-13,True,217,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.11975944007556862,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.006221386261650272,False,217,0.15931518224762892,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,217,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",8.993722060195529e-11,True,217,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",8.993722060195529e-11,False,217,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",4.279770724927469e-16,False,217,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,217,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",7.356447522726125e-12,True,217,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.019506575774105618,False,217,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745233,False,217,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,217,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",4.1274003865338694e-11,True,217,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.04496197919859036,False,217,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236647,False,217,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,5.427913013774862e-13,True,218,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),9.41986357072942e-13,True,218,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.11545781662312908,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.005631913842669638,False,218,0.15888955394572862,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,218,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",1.9602598142411243e-11,True,218,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",1.9602598142411243e-11,False,218,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",3.926060482905582e-16,False,218,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,218,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",3.080564208120097e-12,True,218,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.012935856965892448,False,218,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,218,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,218,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",2.340063223733061e-12,True,218,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.03728453620511334,False,218,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236647,False,218,,state_metric_control2_identity_metric_penalty,,diag_cond100
+False,,,,F_se(lambda) - D F_se(a) D,8.434114687740329e-14,True,219,,parameter_coordinate_gn_equivariance,1e-10,
+False,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),7.775530090965491e-14,True,219,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+False,,0.32629040602979764,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.01697538225960159,False,219,0.478901050693636,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+False,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,219,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+False,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",9.666136429411453e-12,True,219,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+False,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",9.666136429411453e-12,False,219,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+False,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",4.857302303757799e-16,False,219,,state_metric_control2_identity_metric_penalty,,orthogonal
+False,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,219,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+False,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.377247056454592e-12,True,219,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+False,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.004026163622837722,False,219,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+False,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745233,False,219,,state_metric_control2_identity_metric_penalty,,diag_cond10
+False,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,219,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+False,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",2.33072933678728e-12,True,219,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+False,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.012274316962865127,False,219,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+False,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236648,False,219,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,2.4485005698767693e-13,True,220,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),7.973695893438759e-14,True,220,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.22590525706438605,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.008936793915162852,False,220,0.3294297613345808,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,220,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",9.244707378382786e-11,True,220,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",9.244707378382786e-11,False,220,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",4.823958206763473e-16,False,220,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,220,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.2133858326344139e-11,True,220,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.022426594209910354,False,220,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745233,False,220,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,220,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.1610348240403377e-11,True,220,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.06094468872850654,False,220,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236647,False,220,,state_metric_control2_identity_metric_penalty,,diag_cond100
+False,,,,F_se(lambda) - D F_se(a) D,1.9664349458549387e-12,True,221,,parameter_coordinate_gn_equivariance,1e-10,
+False,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),1.1582186920012702e-12,True,221,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+False,,0.10356969910759024,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.004432263667711654,False,221,0.13241864642858264,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+False,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,221,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+False,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",2.7010617212006084e-11,True,221,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+False,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",2.7010617212006084e-11,False,221,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+False,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",4.522503024456439e-16,False,221,,state_metric_control2_identity_metric_penalty,,orthogonal
+False,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,221,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+False,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",6.583351526797655e-12,True,221,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+False,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.03163511973981626,False,221,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+False,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,221,,state_metric_control2_identity_metric_penalty,,diag_cond10
+False,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,221,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+False,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",3.968295760629217e-12,True,221,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+False,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.04496644715698943,False,221,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+False,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236648,False,221,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,2.270784218614201e-13,True,222,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),2.826019683776363e-13,True,222,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.3588154525309868,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.016128192606369524,False,222,0.4973714861948726,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,222,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",4.133134359817919e-11,True,222,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",4.133134359817919e-11,False,222,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",5.839721988313945e-16,False,222,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,222,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",2.283582926193741e-11,True,222,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.04313834870868845,False,222,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,222,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,222,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",3.191295880476318e-11,True,222,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.08134575551276987,False,222,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236648,False,222,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,2.985009320735542e-13,True,223,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),2.594096038256799e-13,True,223,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.8809817531898246,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.04879767218580625,False,223,1.324123985739265,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,223,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",1.709089124215353e-11,True,223,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",1.709089124215353e-11,False,223,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",3.1755952678260936e-16,False,223,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,223,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",4.169128638941377e-12,True,223,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.013989361592532674,False,223,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,223,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,223,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.335070871209209e-11,True,223,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.021782973805739948,False,223,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236648,False,223,,state_metric_control2_identity_metric_penalty,,diag_cond100
+True,,,,F_se(lambda) - D F_se(a) D,6.180154720441655e-13,True,224,,parameter_coordinate_gn_equivariance,1e-10,
+True,,,,H_red(lambda) - (D H_red(a) D + diag(a g_a)),6.767100947615316e-13,True,224,,parameter_coordinate_exact_equivariance_with_gradient_term,1e-10,
+True,,0.5317179720782605,drops the gradient term; must fail at a non-stationary point,H_red(lambda) - D H_red(a) D,0.02992236531517061,False,224,0.8106843706264275,parameter_coordinate_exact_naive_without_gradient_term,1e-10,
+True,1.000000000000001,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,224,,state_metric_control1_metric_TtT_penalty,1e-10,orthogonal
+True,1.000000000000001,,,"H_red(z, metric T^T T) - H_red(theta)",1.9714807199720127e-11,True,224,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,orthogonal
+True,1.000000000000001,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",1.9714807199720127e-11,False,224,,state_metric_control2_identity_metric_reduced_curvature,,orthogonal
+True,1.000000000000001,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",4.534410298631675e-16,False,224,,state_metric_control2_identity_metric_penalty,,orthogonal
+True,10.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,224,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond10
+True,10.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.4203187603618314e-11,True,224,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond10
+True,10.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.006153067127055161,False,224,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond10
+True,10.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.6726585515745234,False,224,,state_metric_control2_identity_metric_penalty,,diag_cond10
+True,100.0,,,"|penalty(z, T^T T) - penalty(theta)| relative",0.0,True,224,,state_metric_control1_metric_TtT_penalty,1e-10,diag_cond100
+True,100.0,,,"H_red(z, metric T^T T) - H_red(theta)",1.067419553839577e-11,True,224,,state_metric_control1_metric_TtT_reduced_curvature,1e-08,diag_cond100
+True,100.0,,"the identity metric changes the objective; invariance is not expected, and for the orthogonal transform the two metrics coincide","H_red(z, identity metric) - H_red(theta)",0.07943040749772289,False,224,,state_metric_control2_identity_metric_reduced_curvature,,diag_cond100
+True,100.0,,expected to be non-zero except for the orthogonal transform,"|penalty(z, identity metric) - penalty(theta)| relative",0.9344734073236647,False,224,,state_metric_control2_identity_metric_penalty,,diag_cond100
