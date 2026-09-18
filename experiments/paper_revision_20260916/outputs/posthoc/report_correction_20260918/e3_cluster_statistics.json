@@ -1,0 +1,107 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "statistics_correction",
+  "source_path": "outputs/heldout/e3/e3_all_fits.csv",
+  "source_sha256": "de68f3cd66cc7fb5beefa1e9de684b99cbbaf7e2739431f5c5b30681b5967e3c",
+  "declared_statistical_unit": "data_seed",
+  "declared_initializer_aggregation": "median_within_data_seed",
+  "planned_grid_size": 24,
+  "membership_duplicates": [],
+  "membership_missing": [],
+  "membership_unexpected": [],
+  "fit_level_summary": {
+    "aggregation_unit": "fit",
+    "independence_claimed": false,
+    "fits_planned": 24,
+    "fits_observed": 24,
+    "fits_valid": 24,
+    "fits_improved": 24,
+    "median_E_raw": 16.800491558297068,
+    "median_E_SAEPS": 0.0012466421922557517,
+    "ratio_of_medians": 13476.594697871742,
+    "median_paired_ratio": 13257.167846501672,
+    "note": "descriptive; these 24 fits are not 24 independent data sets"
+  },
+  "per_noise_layer": {
+    "0.0": {
+      "aggregation_unit": "data_seed",
+      "initializer_aggregation": "median within data seed",
+      "independent_units": 6,
+      "fits_valid": 12,
+      "seeds_improved": 6,
+      "one_sided_sign_test_p": 0.015625,
+      "median_E_raw": 16.811789626518078,
+      "median_E_SAEPS": 0.0013277387202668338,
+      "note": "the two noise layers share data seeds and are not independent of each other"
+    },
+    "0.02": {
+      "aggregation_unit": "data_seed",
+      "initializer_aggregation": "median within data seed",
+      "independent_units": 6,
+      "fits_valid": 12,
+      "seeds_improved": 6,
+      "one_sided_sign_test_p": 0.015625,
+      "median_E_raw": 16.820039555388167,
+      "median_E_SAEPS": 0.0012710632123656615,
+      "note": "the two noise layers share data seeds and are not independent of each other"
+    }
+  },
+  "data_seed_level_summary": {
+    "aggregation_unit": "data_seed",
+    "initializer_aggregation": "median within data seed",
+    "noise_aggregation": "median across noise layers within data seed (POST HOC: the protocol fixes the initializer rule but does not fix a noise-merge rule)",
+    "independent_units": 6,
+    "units_improved": 6,
+    "one_sided_sign_test_p": 0.015625,
+    "median_E_raw": 16.816532527701696,
+    "median_E_SAEPS": 0.0010602976245172922,
+    "ratio_of_medians": 15860.20013518142,
+    "median_paired_ratio": 13257.167846501672,
+    "per_seed": [
+      {
+        "data_seed": 916101,
+        "fits_valid": 4,
+        "median_E_raw": 18.061935862066747,
+        "median_E_SAEPS": 0.0020743048077915788,
+        "improved": true
+      },
+      {
+        "data_seed": 916102,
+        "fits_valid": 4,
+        "median_E_raw": 16.800491558297068,
+        "median_E_SAEPS": 0.0009224449385141187,
+        "improved": true
+      },
+      {
+        "data_seed": 916103,
+        "fits_valid": 4,
+        "median_E_raw": 15.665239370431236,
+        "median_E_SAEPS": 0.0005661812607430934,
+        "improved": true
+      },
+      {
+        "data_seed": 916104,
+        "fits_valid": 4,
+        "median_E_raw": 18.635038167760808,
+        "median_E_SAEPS": 0.001198150310520466,
+        "improved": true
+      },
+      {
+        "data_seed": 916105,
+        "fits_valid": 4,
+        "median_E_raw": 16.44396519250061,
+        "median_E_SAEPS": 0.0008995842991814358,
+        "improved": true
+      },
+      {
+        "data_seed": 916106,
+        "fits_valid": 4,
+        "median_E_raw": 16.832573497106328,
+        "median_E_SAEPS": 0.0019306507649514176,
+        "improved": true
+      }
+    ]
+  },
+  "primary_inference": "data_seed_level_summary",
+  "multiple_comparison_note": "The two noise layers are two tests over the same six seeds. If they are treated as one family the layer p-values must be reported as unadjusted, with the shared-seed dependence disclosed; they must not be combined into twelve independent units."
+}

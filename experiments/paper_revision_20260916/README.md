@@ -28,7 +28,7 @@
 
 - 历史证据固定在标签 `jcp-submission-v1` = `d5a231d857e410b96ae66174fb98fec9c8b9b34a`。
 - 所有历史输入通过 `git show` 只读读取，不检出、不写入。
-- 未训练任何 PINN；未重跑或替换任何历史种子。
+- 未重跑或替换任何历史种子。**新训练仅限本命名空间的新基准**（E3/E6），不涉及任何历史 PINN；历史 `jcp-submission-v1` 结果保持只读。
 - 缺失的原始张量记录为 `NOT_AVAILABLE`，不用重建数据冒充原始归档。
 - 所有输出目录拒绝覆盖。
 
@@ -48,7 +48,7 @@ src/audit_repository.py, audit_archive.py, numerics.py, plan_jobs.py,
 tests/                 包合成测试 + 仓库适配器集成测试
 outputs/posthoc/       E0/E1/E2 产出
 outputs/development/   E3 预检与开发队列产出
-outputs/heldout/       预留（E3 留出队列尚未获准运行）
+outputs/heldout/       E3 留出队列与 E7 profile 核验产出
 reports/               报告、状态、输出清单
 ```
 
@@ -71,10 +71,25 @@ python src/manifest_outputs.py
 
 `plan_jobs.py` 只输出排程，不执行训练。
 
-## 尚未实现 / 尚未获准
+## 尚未实现
 
-- E3 留出队列（24 个拟合）：开发阶段已通过，协议快照已就绪，尚未运行。
-- E4/E5/E7/E8 的复用型分析；E6 中型网络扩展。
+- 论文正文回填（E0–E8 结果尚未整合进稿件）。
+- E2 指定的标量队列仍为 `NOT_AVAILABLE`（原始状态张量未存档）。
+
+## 更正记录（2026-09-18）
+
+两处实质性错误已修正，细节见 `outputs/posthoc/report_correction_20260918/`：
+
+1. **`E_GN_fix` 定义用错**：运行脚本输出的是 `|F_se - F_raw|/(|H_fix|+eps)`，
+   论文定义是 `|F_raw - H_fix|/(|H_red|+eps)`。留出队列中位值由 0.943847 更正为 **0.00118074**。
+   `E_raw`/`E_SAEPS`/`E_fix`/`E_relax` 未受影响。冻结脚本未改动。
+2. **符号检验单位用错**：`p = 5.96e-08` 等于 `2^-24`，把 24 个相关拟合当成独立单位。
+   主推断应回到数据种子级：**`p = 2^-6 = 0.015625`**。
+
+## 证据提交区分
+
+- `evidence_ref` / `evidence_commit`：历史证据固定标签 `jcp-submission-v1`。
+- 新实验的执行提交见各commit信息；`jcp-submission-v1` 是历史标签，**不是**新实验的执行提交。
 
 ## 开发阶段变更记录
 

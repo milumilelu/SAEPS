@@ -13,13 +13,13 @@
     "E4": "PASSED",
     "E5": "PASSED",
     "E6": "PASSED",
-    "E7": "PASSED",
+    "E7": "PASSED_WITH_DISCLOSED_LIMITS",
     "E8": "PASSED"
   },
   "evidence_ref": "jcp-submission-v1",
   "evidence_commit": "d5a231d857e410b96ae66174fb98fec9c8b9b34a",
   "training_executed": true,
-  "training_scope": "E3 development cohort only (8 fits, new benchmark, new identity); no historical PINN was retrained",
+  "training_scope": "New training is confined to the new benchmarks in this namespace: the E3 development cohort, the 1e4/1e5 budget controls, the 24-fit E3 held-out cohort, the E6 centres across three architectures, and the E6/E7 shared centre cache. No historical PINN was retrained and no historical seed was replaced.",
   "historical_records_modified": false,
   "historical_seeds_replaced": false,
   "repository_export_adapter_implemented": true,
@@ -41,9 +41,16 @@
     "E5: 8/8 valid centres have resolved weak directions (relative eigengap 0.82-0.93 against a 0.1 threshold), in a pre-declared Euclidean metric on the log coefficients rather than the whitened space. Median angle to the exact weak direction is 0.45 degrees for SAEPS against 2.86 degrees for raw. Exact curvature is positive definite at all 8, so no negative-curvature sign report was needed. The boundary is stated: local diagnostic only, no claim of improved parameter recovery.",
     "E8: 72 runs at a matched gamma (all methods share one gamma per level), zero initial guess, one discarded warm-up and three timed repeats per condition; every status PASS. CG's cost falls about 17x as alpha rises from 1e-8 to 1e-2 (10.63 s to 0.60 s, 650 to 29 iterations) while scaled LSQR's cost is nearly flat (143.9 s to 98.9 s, 4300 to 3118 iterations). LSQR costs 14-150x more than CG but is 4 orders more accurate at the weakest damping (1.19e-12 against 2.99e-08). The preconditioner build is under 1% of the LSQR total, so the iterations, not the preparation, are the expensive stage. Peak native tensor memory is not claimed and the optional large-scale operator timing was not run.",
     "E8 also exposed a real implementation error caught by comparing against the historical record: the refined LSQR helper's Fse is already the reduced value, not a correction to subtract from F_raw. The wrong assembly gave a 17.2 relative error against the dense solve and would have been reported as 'LSQR fails at weak damping'; the corrected assembly gives 1.19e-12, matching the historical 1.47e-12. This is why the E0-style source cross-check earns its place.",
-    "E7 independently confirms the exact Schur reference by re-minimising the state at displaced parameters and reading the curvature from a symmetric difference, with the anchor, the parameter and gamma all frozen. 21 of 21 branches are comparable and 20 of 21 steps pass the 10% acceptance; the median relative difference is 1.23e-3 and the best is 1.9e-5. The error is V-shaped in the step size with the optimum at h=0.003-0.01, and the smallest step h=1e-4 is the worst, which is the expected h^-2 amplification of state-optimisation error. That limitation is disclosed: the graded tolerances are reached only 5/42 at 1e-8 and 0/42 at 1e-10 and 1e-12, so no claim of arbitrary-precision profile resolution is made. The method comparison (SAEPS wins 21/21 against the same reference) is reported separately and does not enter the reference-check filter.",
-    "E6 completes the plan: three genuinely trained architectures on the same data, noise and initializations. All 18 centres have a valid exact reduction (6/6 for each of n=65, n=129, n=337), SAEPS wins 18/18, and the median E_SAEPS improves with size from 9.224e-4 to 6.087e-4 to 4.322e-4, so the advantage is not an artifact of the compact network. The mechanism is unchanged (median E_fix equals E_raw, E_GN_fix about 0.944, E_relax about 1e-5). Median training time is not monotone: 272 s, 526 s, 371 s. The assembled state Hessian matches an independent HVP to 1.5e-15 at the largest architecture. Labeled a preplanned paired architecture extension with independent_confirmation false; it does not revise the historical width-32 result, which remains 0/5 valid."
+    "E6 completes the plan: three genuinely trained architectures on the same data, noise and initializations. All 18 centres have a valid exact reduction (6/6 for each of n=65, n=129, n=337), SAEPS wins 18/18, and the median E_SAEPS improves with size from 9.224e-4 to 6.087e-4 to 4.322e-4, so the advantage is not an artifact of the compact network. The mechanism is unchanged (median E_fix equals E_raw, E_GN_fix about 0.944, E_relax about 1e-5). Median training time is not monotone: 272 s, 526 s, 371 s. The assembled state Hessian matches an independent HVP to 1.5e-15 at the largest architecture. Labeled a preplanned paired architecture extension with independent_confirmation false; it does not revise the historical width-32 result, which remains 0/5 valid.",
+    "E7 four-level scope, from existing records: COMPUTABLE 21/21 steps; STATIONARITY_RESOLVED 0/21, since no step reaches the tightest tolerance on both sides and only 5 of 126 refinements reach any graded tolerance; BRANCH_COMPARABLE 21/21; REFERENCE_AGREEMENT 20/21 within 10 percent. So the defensible claim is numerical consistency at a fixed anchor and damping, NOT a strictly converged independent profile check. Proximity to the Schur reference is deliberately not used to define comparability, which would be circular."
   ],
   "report": "reports/E0_E3_REPORT.md",
-  "output_manifest": "reports/output_manifest.json"
+  "output_manifest": "reports/output_manifest.json",
+  "evidence_commit_note": "This is the historical evidence tag jcp-submission-v1. It is NOT the execution commit of the new experiments in this namespace; those are recorded per-commit in git history.",
+  "report_corrections_20260918": {
+    "E_GN_fix_definition": "was |F_se - F_raw|/(|H_fix|+eps); corrected to |F_raw - H_fix|/(|H_red|+eps). Held-out median 0.943847 -> 0.00118074. E_raw/E_SAEPS/E_fix/E_relax unaffected.",
+    "sign_test_unit": "was 2^-24 over 24 correlated fits; primary inference corrected to the data-seed unit, 2^-6 = 0.015625.",
+    "outputs": "outputs/posthoc/report_correction_20260918/",
+    "frozen_files_modified": false
+  }
 }

@@ -1,7 +1,7 @@
 {
   "scope": "package synthetic tests, repository-adapter integration tests, E3 and curvature-drift tests, and freeze-guard tests against the frozen tag",
   "command": "python -m pytest -q tests --junitxml=reports/local_tests.xml",
-  "passed": 70,
+  "passed": 79,
   "failed": 0,
   "warnings": 18,
   "warning_summary": "PyTorch torch.jit.script deprecation in automatic differentiation internals",
@@ -19,7 +19,8 @@
     "e3_curvature_drift_freeze_aggregate": 15,
     "e4_e5": 9,
     "e8": 7,
-    "e6_e7": 11
+    "e6_e7": 11,
+    "report_correction": 9
   },
   "real_repository_integration_executed": true,
   "frozen_evidence_tag": "jcp-submission-v1",
@@ -40,5 +41,5 @@
     "passed": 20,
     "real_repository_integration_executed": false
   },
-  "elapsed_seconds": 3.92
+  "elapsed_seconds": 4.0
 }

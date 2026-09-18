@@ -1,0 +1,37 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "metric_definition_correction",
+  "manuscript_definitions": {
+    "C_exact": "H_fix_exact - H_red_exact",
+    "C_GN": "F_raw - F_se_GN",
+    "E_raw": "|F_raw - H_red| / (|H_red| + eps)",
+    "E_SAEPS": "|F_se - H_red| / (|H_red| + eps)",
+    "E_fix": "|H_fix - H_red| / (|H_red| + eps)",
+    "E_GN_fix": "|F_raw - H_fix| / (|H_red| + eps)",
+    "E_relax": "|C_GN - C_exact| / (|C_exact| + eps)",
+    "identity": "F_se - H_red = (F_raw - H_fix) - (C_GN - C_exact)",
+    "epsilon": 1e-08
+  },
+  "reported_definition_that_was_wrong": "|F_se - F_raw| / (|H_fix| + eps)",
+  "unaffected_metrics": [
+    "E_raw",
+    "E_SAEPS",
+    "E_fix",
+    "E_relax"
+  ],
+  "rows_audited": 48,
+  "rows_corrected": 46,
+  "max_identity_residual": 0.0,
+  "median_E_GN_fix_reported": 0.9438466162689425,
+  "median_E_GN_fix_recomputed": 0.0011316873787210512,
+  "checks": {
+    "regression_row_found": true,
+    "regression_recomputed_matches_expected": true,
+    "regression_reported_matches_expected": true,
+    "all_identity_residuals_hold": true,
+    "degenerate_case_gives_zero": true,
+    "e_raw_and_e_saeps_unchanged": true
+  },
+  "frozen_files_modified": false,
+  "note": "The frozen training script is not edited. This correction is a derived, read-only recomputation; the old column is retained as E_GN_fix_reported and the new one is E_GN_fix_recomputed."
+}
