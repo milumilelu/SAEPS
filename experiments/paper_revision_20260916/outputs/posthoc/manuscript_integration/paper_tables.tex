@@ -1,0 +1,98 @@
+\begin{table}[!htbp]
+\centering
+\caption{Held-out non-affine benchmark, corrected metrics.
+Columns give the median over the twenty-four fits and the median over the six data seeds.
+The data seed is the statistical unit; initializations are repeats inside a seed.
+All five metrics are recomputed from the archived curvature values under the definitions of Eq.~\eqref{eq:fixed_state_exact_error}.}
+\label{tab:e3_heldout}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
+\toprule
+Metric & Fit median ($n=24$) & Seed median ($n=6$) \\
+\midrule
+Raw Gauss--Newton error $E_{\mathrm{raw}}$ & 16.8005 & 16.8165 \\
+SAEPS error $\Esa$ & 1.247e-3 & 1.060e-3 \\
+Exact state-freezing error $E_{\mathrm{fix}}$ & 16.8016 & 16.8177 \\
+Fixed-state GN truncation $E_{\mathrm{GN,fix}}$ & 1.181e-3 & 1.117e-3 \\
+Relaxation-correction error $E_{\mathrm{relax}}$ & 1.259e-5 & 1.319e-5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!htbp]
+\centering
+\caption{Per-seed held-out results for the non-affine benchmark.
+Each row pools the two initializations and two noise levels by median.
+Every seed improves, so the one-sided sign test over six independent seeds gives $p=2^{-6}$.}
+\label{tab:e3_seeds}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Data seed & $E_{\mathrm{raw}}$ & $\Esa$ & $E_{\mathrm{GN,fix}}$ \\
+\midrule
+916101 & 18.0619 & 2.074e-3 & 1.674e-3 \\
+916102 & 16.8005 & 9.224e-4 & 8.326e-4 \\
+916103 & 15.6652 & 5.662e-4 & 5.494e-4 \\
+916104 & 18.6350 & 1.198e-3 & 1.401e-3 \\
+916105 & 16.4440 & 8.996e-4 & 7.100e-4 \\
+916106 & 16.8326 & 1.931e-3 & 1.452e-3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!htbp]
+\centering
+\caption{Architecture extension on the non-affine benchmark.
+Each architecture is trained on the same data seeds, initializations and noise levels.
+All eighteen centres admit the exact reduction.}
+\label{tab:e6_architecture}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+Architecture & $n_\theta$ & Valid & Median $E_{\mathrm{raw}}$ & Median $\Esa$ & Median $\kappa$ error \\
+\midrule
+2--16--1 (base) & 65 & 6/6 & 16.7966 & 9.224e-4 & 0.0130 \\
+2--32--1 (wide) & 129 & 6/6 & 16.9314 & 6.087e-4 & 7.905e-3 \\
+2--16--16--1 (deep) & 337 & 6/6 & 17.2655 & 4.322e-4 & 4.592e-3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!htbp]
+\centering
+\caption{Profile-resolution check, reported at four separate levels.
+Agreement with the exact reference is a numerical statement; it is reported apart from stationarity.}
+\label{tab:e7_scope}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lc}
+\toprule
+Level & Count \\
+\midrule
+Symmetric difference evaluated & 21/21 \\
+Both branches reach the tightest tolerance & 0/21 \\
+Branches comparable (no jump) & 21/21 \\
+Agreement with the exact reference within 10\% & 20/21 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[!htbp]
+\centering
+\caption{Cost at a matched damping on one archived centre.
+Every method solves the same system at the same $\gamma$ from a zero initial guess.
+Times are medians over three repeats after a discarded warm-up.
+Accuracy is the relative difference from the dense factorization.}
+\label{tab:e8_cost}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{ccccc}
+\toprule
+$\alpha$ & CG (s) & LSQR (s) & CG accuracy & LSQR accuracy \\
+\midrule
+1e-08 & 10.63 & 143.27 & 2.993e-8 & 1.194e-12 \\
+1e-06 & 3.97 & 126.67 & 2.333e-9 & 8.179e-14 \\
+0.0001 & 1.43 & 105.79 & 2.147e-10 & 1.099e-14 \\
+0.01 & 0.60 & 98.29 & 2.638e-11 & 6.111e-16 \\
+\bottomrule
+\end{tabular}
+\end{table}

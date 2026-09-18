@@ -45,7 +45,8 @@
     "E7 four-level scope, from existing records: COMPUTABLE 21/21 steps; STATIONARITY_RESOLVED 0/21, since no step reaches the tightest tolerance on both sides and only 5 of 126 refinements reach any graded tolerance; BRANCH_COMPARABLE 21/21; REFERENCE_AGREEMENT 20/21 within 10 percent. So the defensible claim is numerical consistency at a fixed anchor and damping, NOT a strictly converged independent profile check. Proximity to the Schur reference is deliberately not used to define comparability, which would be circular.",
     "L-BFGS stop-reason audit complete. In torch 2.13.0+cpu max_eval defaults to max_iter*5//4 and the loop breaks on current_evals >= max_eval before the gradient or change tolerances. 27 of the 30 E2 records were bound by the FUNCTION-EVALUATION budget (closure calls 1251 against max_eval 1250, n_iter only 625), so the old budget_exhausted flag reported False misleadingly; three records (seed 220) stopped below both budgets and the records cannot identify which condition fired. An instrumented reproduction of the same configuration bound on the ITERATION budget instead, so the binding constraint must not be generalised between cases. E3/E6/E7 recorded only accepted iterations, so their stop reason is UNKNOWN and was not reconstructed by re-running.",
     "Adapter fidelity table added: 24/24 comparisons across the eight historically valid two-parameter points pass, with F_raw and H_red_exact_gamma bit-exact and the worst relative difference 2.27e-11 against a declared acceptance of 1e-6. The table carries the provenance needed to reproduce the comparison, and a test asserts it agrees with the earlier e2_matrix_consistency.csv.",
-    "Narrative pass over the manuscript: 97 replacements raised the register from defensive to positive. Measured negation fell 0.166 to 0.019 per sentence and disclaimers to zero, while the passive register (0.35), first-person rate (0.005) and the 20-word ceiling (98.6 percent) were preserved and the compile output is byte-identical in pages and warnings. Two defects were caught by the accompanying tests: a rewrite that silently deleted a scientific boundary, and four cross-references invented to sections that do not exist. Both are fixed."
+    "Narrative pass over the manuscript: 97 replacements raised the register from defensive to positive. Measured negation fell 0.166 to 0.019 per sentence and disclaimers to zero, while the passive register (0.35), first-person rate (0.005) and the 20-word ceiling (98.6 percent) were preserved and the compile output is byte-identical in pages and warnings. Two defects were caught by the accompanying tests: a rewrite that silently deleted a scientific boundary, and four cross-references invented to sections that do not exist. Both are fixed.",
+    "Manuscript content integration: four new sections and five generated tables added from the machine-readable artifacts, with every number referenced through a generated macro rather than typed. Compiles to 32 pages with zero undefined references and zero overfull boxes. The new material matches the register of the rest (negation 0.019 per sentence, disclaimers 0.001), and the E7 stationarity limitation is carried into the paper as 0/21."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json",
@@ -97,5 +98,44 @@
       "four invented cross-references pointed at sections that do not exist"
     ],
     "not_modified": "paper/revise/SAEPS_manuscript_revised.tex is untouched; the output is a new file"
+  },
+  "manuscript_integration_20260918": {
+    "output": "paper/revise/SAEPS_manuscript_integrated.tex (+ compiled PDF, paper_numbers.tex, paper_tables.tex)",
+    "added_sections": [
+      "sec:nonaffine_setup (Eq. saturation_system, nonaffine_identity)",
+      "sec:nonaffine_results",
+      "sec:architecture",
+      "sec:profile_resolution",
+      "sec:matched_cost"
+    ],
+    "added_tables": [
+      "tab:e3_heldout",
+      "tab:e3_seeds",
+      "tab:e6_architecture",
+      "tab:e7_scope",
+      "tab:e8_cost"
+    ],
+    "generate_from_artifacts": true,
+    "hardcoded_numbers": false,
+    "compile": "32 pages, 0 undefined references, 0 overfull, 1 underfull",
+    "register": {
+      "negation_per_sentence": 0.019,
+      "disclaimer_per_sentence": 0.001,
+      "passive_per_sentence": 0.355,
+      "share_at_most_20_words": 0.978,
+      "first_person_per_sentence": 0.004
+    },
+    "new_content_only": {
+      "sentences_added": 98,
+      "negation_per_sentence": 0.019,
+      "disclaimer_per_sentence": 0.007
+    },
+    "boundaries_kept": [
+      "E7 stationarity 0/21 reported in tab:e7_scope",
+      "E6 labelled preplanned paired extension",
+      "historical width-32 unchanged",
+      "both improvement ratios reported",
+      "seed-level sign test"
+    ]
   }
 }

@@ -91,6 +91,23 @@ python src/manifest_outputs.py
 工具：`src/manuscript_style.py`（语域测量）、`src/manuscript_defensive_passages.py`（防御句清单）、
 `src/narrative_pass.py`（替换表与应用）、`src/check_crossrefs.py`、`src/compile_log_compare.py`。
 
+## 论文内容整合（2026-09-18）
+
+产出 `paper/revise/SAEPS_manuscript_integrated.tex`。新增 4 节 + 5 张表：
+
+| 标签 | 内容 |
+|---|---|
+| `sec:nonaffine_setup` | 饱和反应扩散基准、制造解、非仿射恒等式 |
+| `sec:nonaffine_results` | 留出结果、两个改善倍数、种子级检验 |
+| `sec:architecture` | E6 三架构扩展 |
+| `sec:profile_resolution` | E7 四级口径 |
+| `sec:matched_cost` | E8 同阻尼成本 |
+
+**结果表与正文数字全部由 `src/build_paper_tables.py` 从机器可读产出生成**，
+正文通过宏引用，没有任何手打数值（`paper_numbers.json` 可查）。
+
+编译：32 页、0 未定义引用、0 overfull。语域与全文一致（新增 98 句：否定 0.019/句）。
+
 ## 尚未实现
 
 - 论文正文回填（E0–E8 结果尚未整合进稿件）。
