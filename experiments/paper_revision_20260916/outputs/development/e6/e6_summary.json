@@ -1,0 +1,67 @@
+{
+  "classification": "NEW_EXPERIMENT",
+  "task": "E6_architecture_accuracy",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "label": "preplanned_paired_architecture_extension",
+  "independent_confirmation": false,
+  "training_budget": 100000,
+  "design": "paired: same data seeds, same initializations, same noise for every architecture",
+  "by_architecture": {
+    "base_2_16_1": {
+      "state_parameters": 65,
+      "fits": 6,
+      "centres_available": 6,
+      "centre_availability_rate": 1.0,
+      "median_E_raw": 16.79662666408509,
+      "median_E_SAEPS": 0.0009224449385141187,
+      "median_E_fix": 16.795794079824788,
+      "median_E_GN_fix": 0.9437935703502386,
+      "median_E_relax": 6.329771569937026e-06,
+      "SAEPS_wins": 6,
+      "median_kappa_relative_error": 0.013021023866082542,
+      "median_train_seconds": 272.18414504999964,
+      "median_polish_iterations": 70348.0,
+      "max_hvp_relative_difference": 6.684843242656102e-16
+    },
+    "wide_2_32_1": {
+      "state_parameters": 129,
+      "fits": 6,
+      "centres_available": 6,
+      "centre_availability_rate": 1.0,
+      "median_E_raw": 16.931359564574073,
+      "median_E_SAEPS": 0.0006087276537267003,
+      "median_E_fix": 16.931263599547357,
+      "median_E_GN_fix": 0.9442196520072582,
+      "median_E_relax": 1.215530806927372e-05,
+      "SAEPS_wins": 6,
+      "median_kappa_relative_error": 0.007905028380414403,
+      "median_train_seconds": 526.2005493000006,
+      "median_polish_iterations": 75999.5,
+      "max_hvp_relative_difference": 5.925881475899078e-16
+    },
+    "deep_2_16_16_1": {
+      "state_parameters": 337,
+      "fits": 6,
+      "centres_available": 6,
+      "centre_availability_rate": 1.0,
+      "median_E_raw": 17.265526244378304,
+      "median_E_SAEPS": 0.00043223501955742485,
+      "median_E_fix": 17.2650160493138,
+      "median_E_GN_fix": 0.9452476536977938,
+      "median_E_relax": 4.515903494867636e-06,
+      "SAEPS_wins": 6,
+      "median_kappa_relative_error": 0.00459217671376753,
+      "median_train_seconds": 370.8824853999995,
+      "median_polish_iterations": 69430.5,
+      "max_hvp_relative_difference": 1.5391719768019498e-15
+    }
+  },
+  "hvp_check": "the assembled state Hessian is compared against an independent forward-over-reverse Hessian-vector product on fixed random directions",
+  "claim_boundary": "Architecture extension only. Failures are reported as unavailable centres and are not replaced by function-preserving widening; nothing here revises the historical width-32 result, which produced no valid centre."
+}

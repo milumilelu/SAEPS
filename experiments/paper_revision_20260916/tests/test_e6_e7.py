@@ -93,3 +93,68 @@ def test_method_comparison_is_separate_from_the_reference_check() -> None:
         assert "E_raw_same_reference" in row
         assert "E_SAEPS_same_reference" in row
         assert row["SAEPS_wins_same_reference"] in ("True", "False")
+
+
+E6 = Path(__file__).resolve().parents[1] / "outputs/development/e6"
+
+
+def e6_rows(name: str) -> list[dict]:
+    path = E6 / name
+    if not path.is_file():
+        pytest.skip(f"{name} not available")
+    with path.open(encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
+def test_e6_is_a_paired_architecture_design() -> None:
+    """Same data seeds and initializations for every architecture, or the pairing is broken."""
+    data = e6_rows("e6_architecture_accuracy.csv")
+    assert len(data) == 18
+    keys = {}
+    for row in data:
+        keys.setdefault(row["label"], set()).add(
+            (row["data_seed"], row["initialization_seed"], row["noise_level"])
+        )
+    assert len(keys) == 3
+    first = next(iter(keys.values()))
+    for label, group in keys.items():
+        assert group == first, label
+
+
+def test_e6_reports_failures_rather_than_replacing_them() -> None:
+    """No centre may be silently replaced by function-preserving widening."""
+    data = e6_rows("e6_center_availability.csv")
+    assert len(data) == 18
+    for row in data:
+        assert row["reference_reduction_status"] in ("PASS", "REFERENCE_REDUCTION_FAILED")
+        assert row["centre_available"] in ("True", "False")
+    document = json.loads((E6 / "e6_summary.json").read_text(encoding="utf-8"))
+    assert "widening" in document["claim_boundary"].lower()
+    assert document["independent_confirmation"] is False
+
+
+def test_e6_state_counts_match_the_specified_architectures() -> None:
+    data = e6_rows("e6_architecture_accuracy.csv")
+    counts = {row["label"]: int(row["state_parameters"]) for row in data}
+    assert counts["base_2_16_1"] == 65
+    assert counts["wide_2_32_1"] == 129
+    assert counts["deep_2_16_16_1"] == 337
+
+
+def test_e6_hvp_check_is_tight() -> None:
+    """The assembled Hessian must match an independent HVP, at every architecture."""
+    data = e6_rows("e6_architecture_accuracy.csv")
+    worst = max(float(r["hvp_max_relative_difference"]) for r in data)
+    assert worst < 1.0e-12, worst
+
+
+def test_e6_accuracy_does_not_degrade_with_size() -> None:
+    """The claim under test: the SAEPS advantage survives leaving the compact network."""
+    document = json.loads((E6 / "e6_summary.json").read_text(encoding="utf-8"))
+    by_arch = document["by_architecture"]
+    base = by_arch["base_2_16_1"]["median_E_SAEPS"]
+    for label in ("wide_2_32_1", "deep_2_16_16_1"):
+        assert by_arch[label]["median_E_raw"] < 1.0e6
+        assert by_arch[label]["median_E_SAEPS"] < base * 1.5, label
+    for label, block in by_arch.items():
+        assert block["SAEPS_wins"] == block["centres_available"], label
