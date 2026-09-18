@@ -40,6 +40,14 @@ import repo_adapter as A  # noqa: E402
 CG_TOLERANCE = 1.0e-10
 CG_MAX_ITERATIONS = 500
 
+COST_FIELDS = [
+    "seed", "benchmark", "state_parameters", "residuals", "alpha", "gamma", "lambda_max",
+    "method", "repeat", "initial_guess", "warmup_discarded", "status", "iterations",
+    "relative_residual", "setup_seconds", "spectral_seconds", "preconditioner_seconds",
+    "solve_seconds", "verification_seconds", "reported_total_seconds",
+    "accuracy_vs_dense_reference", "jacobian_setup_seconds_per_centre",
+]
+
 # The widened archived centre, used only for operator-level timing.  It is an
 # engineering measurement: it says nothing about training feasibility or accuracy.
 LARGE_CENTRE = "outputs/runs/v5/checkpoints/scalability_base/seed_120/model_state.pt"
@@ -195,9 +203,12 @@ def lsqr_reference(linearization, gamma: float, j_theta, j_lam) -> dict:
         diagonal[index] = torch.dot(product, product) + gamma
     preconditioner = time.perf_counter() - t0
 
-    # The refined LSQR helper returns scalar diagnostics, not a solution vector, so the
-    # 2x2 reduced matrix is rebuilt the way the repository's own frozen pipeline does:
-    # three right-hand sides, one per basis column plus their sum.
+    # The refined LSQR helper returns scalar curvatures, not a solution vector.  Its
+    # "Fse" is already the reduced value along the right-hand side, so the 2x2 matrix is
+    # assembled directly -- it is NOT a correction to be subtracted from F_raw.  The
+    # repository's frozen pipeline builds it the same way and then checks it against the
+    # explicit reduction.  Three right-hand sides are needed: one per basis column plus
+    # their sum, which fixes the off-diagonal.
     basis = [j_lam[:, 0], j_lam[:, 1], j_lam[:, 0] + j_lam[:, 1]]
     t0 = time.perf_counter()
     values = []
@@ -213,9 +224,8 @@ def lsqr_reference(linearization, gamma: float, j_theta, j_lam) -> dict:
         iterations.append(int(solved["total_iterations"]))
     solve = time.perf_counter() - t0
 
-    f_raw = j_lam.T @ j_lam
     off_diagonal = 0.5 * (values[2] - values[0] - values[1])
-    reduced = f_raw - torch.tensor(
+    reduced = torch.tensor(
         [[values[0], off_diagonal], [off_diagonal, values[1]]], dtype=torch.float64
     )
 
@@ -267,6 +277,14 @@ def main() -> None:
 
     config = A.two_parameter_config(repo, commit)
     rows = []
+    # Streamed as produced. This workload runs for over an hour and a total-only write at
+    # the end loses every completed condition if the process is interrupted.
+    cost_path = out / "e8_matched_gamma_cost.csv"
+    cost_handle = cost_path.open("x", newline="", encoding="utf-8")
+    cost_writer = csv.DictWriter(cost_handle, fieldnames=COST_FIELDS)
+    cost_writer.writeheader()
+    cost_handle.flush()
+
     for seed in args.seeds:
         state = A.load_checkpoint(repo, commit, seed)
         theta = state["theta"].detach().clone()
@@ -297,41 +315,38 @@ def main() -> None:
                     total = time.perf_counter() - started
                     output = result["output"]
                     denominator = float(torch.linalg.matrix_norm(reference).item())
-                    rows.append(
-                        {
-                            "seed": seed,
-                            "benchmark": state["benchmark"],
-                            "state_parameters": int(theta.numel()),
-                            "residuals": int(A.residual_count(theta, lam, points, config)),
-                            "alpha": alpha,
-                            "gamma": gamma,
-                            "lambda_max": lambda_max,
-                            "method": method,
-                            "repeat": repeat,
-                            "initial_guess": "zero",
-                            "warmup_discarded": True,
-                            "status": result["status"],
-                            "iterations": result["iterations"],
-                            "relative_residual": result["relative_residual"],
-                            "setup_seconds": result["setup_seconds"],
-                            "spectral_seconds": result["spectral_seconds"],
-                            "preconditioner_seconds": result["preconditioner_seconds"],
-                            "solve_seconds": result["solve_seconds"],
-                            "verification_seconds": result["verification_seconds"],
-                            "reported_total_seconds": total,
-                            "jacobian_setup_seconds_per_centre": jacobian_seconds,
-                            "accuracy_vs_dense_reference": float(
-                                torch.linalg.matrix_norm(output - reference).item()
-                            )
-                            / max(denominator, 1.0e-30),
-                        }
-                    )
+                    row = {
+                        "seed": seed,
+                        "benchmark": state["benchmark"],
+                        "state_parameters": int(theta.numel()),
+                        "residuals": int(A.residual_count(theta, lam, points, config)),
+                        "alpha": alpha,
+                        "gamma": gamma,
+                        "lambda_max": lambda_max,
+                        "method": method,
+                        "repeat": repeat,
+                        "initial_guess": "zero",
+                        "warmup_discarded": True,
+                        "status": result["status"],
+                        "iterations": result["iterations"],
+                        "relative_residual": result["relative_residual"],
+                        "setup_seconds": result["setup_seconds"],
+                        "spectral_seconds": result["spectral_seconds"],
+                        "preconditioner_seconds": result["preconditioner_seconds"],
+                        "solve_seconds": result["solve_seconds"],
+                        "verification_seconds": result["verification_seconds"],
+                        "reported_total_seconds": total,
+                        "jacobian_setup_seconds_per_centre": jacobian_seconds,
+                        "accuracy_vs_dense_reference": float(
+                            torch.linalg.matrix_norm(output - reference).item()
+                        )
+                        / max(denominator, 1.0e-30),
+                    }
+                    rows.append(row)
+                    cost_writer.writerow(row)
+                    cost_handle.flush()
 
-    fieldnames = sorted({k for row in rows for k in row})
-    with (out / "e8_matched_gamma_cost.csv").open("x", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
+    cost_handle.close()
 
     manifest = {
         "classification": "NEW_POSTHOC_READ_ONLY",

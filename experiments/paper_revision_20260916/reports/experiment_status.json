@@ -14,7 +14,7 @@
     "E5": "PASSED",
     "E6": "NOT_RUN",
     "E7": "NOT_RUN",
-    "E8": "NOT_RUN"
+    "E8": "PASSED"
   },
   "evidence_ref": "jcp-submission-v1",
   "evidence_commit": "d5a231d857e410b96ae66174fb98fec9c8b9b34a",
@@ -38,7 +38,9 @@
     "E3 protocol frozen in reports/E3_FROZEN_PROTOCOL.json with SHA256 of protocol.yaml and src/e3_saturation.py. The held-out runner fails closed if the snapshot is missing, mismatched or unauthorized.",
     "E3 held-out (frozen 1e5) is complete and confirms development on fresh data seeds: 24/24 fits valid, 6/6 data seeds complete, no exclusions, SAEPS wins 24/24 with a one-sided sign-test p of 5.96e-08. Median E_raw 16.8165 against median E_SAEPS 1.0603e-3; R1 (ratio of medians) 15860 and R2 (median paired ratio) 13257 are both reported because they differ. Median kappa relative error 1.15%. The decomposition repeats the development mechanism: median E_fix 16.8177 is as bad as E_raw, so the gain comes from the state-elimination relaxation term, which GN reproduces to E_relax 1.3e-05. Noise does not weaken it (12/12 wins at both levels).",
     "E4: all 80 required checks pass across 10 centres. The param-coordinate Gauss-Newton reduction is equivariant to 2.0e-12, while the exact reduced Hessian needs the diag(a*g_a) term and the naive form fails by 0.44%-4.9%. Keeping the metric T^T T leaves the reduced curvature invariant (<=9.2e-11) whereas the identity metric does not, and invariance is deliberately not required there. No claim of invariance under arbitrary reparameterisation.",
-    "E5: 8/8 valid centres have resolved weak directions (relative eigengap 0.82-0.93 against a 0.1 threshold), in a pre-declared Euclidean metric on the log coefficients rather than the whitened space. Median angle to the exact weak direction is 0.45 degrees for SAEPS against 2.86 degrees for raw. Exact curvature is positive definite at all 8, so no negative-curvature sign report was needed. The boundary is stated: local diagnostic only, no claim of improved parameter recovery."
+    "E5: 8/8 valid centres have resolved weak directions (relative eigengap 0.82-0.93 against a 0.1 threshold), in a pre-declared Euclidean metric on the log coefficients rather than the whitened space. Median angle to the exact weak direction is 0.45 degrees for SAEPS against 2.86 degrees for raw. Exact curvature is positive definite at all 8, so no negative-curvature sign report was needed. The boundary is stated: local diagnostic only, no claim of improved parameter recovery.",
+    "E8: 72 runs at a matched gamma (all methods share one gamma per level), zero initial guess, one discarded warm-up and three timed repeats per condition; every status PASS. CG's cost falls about 17x as alpha rises from 1e-8 to 1e-2 (10.63 s to 0.60 s, 650 to 29 iterations) while scaled LSQR's cost is nearly flat (143.9 s to 98.9 s, 4300 to 3118 iterations). LSQR costs 14-150x more than CG but is 4 orders more accurate at the weakest damping (1.19e-12 against 2.99e-08). The preconditioner build is under 1% of the LSQR total, so the iterations, not the preparation, are the expensive stage. Peak native tensor memory is not claimed and the optional large-scale operator timing was not run.",
+    "E8 also exposed a real implementation error caught by comparing against the historical record: the refined LSQR helper's Fse is already the reduced value, not a correction to subtract from F_raw. The wrong assembly gave a 17.2 relative error against the dense solve and would have been reported as 'LSQR fails at weak damping'; the corrected assembly gives 1.19e-12, matching the historical 1.47e-12. This is why the E0-style source cross-check earns its place."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json"

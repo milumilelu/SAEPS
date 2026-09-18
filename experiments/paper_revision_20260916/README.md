@@ -18,7 +18,7 @@
 | E3 留出队列 | `PASSED`（24/24 有效、6/6 数据种子完整、SAEPS 24/24 胜出） |
 | E4 坐标与度量 | `PASSED`（80/80 必需检查） |
 | E5 弱方向诊断 | `PASSED`（8/8 方向可分辨） |
-| E8 同阻尼成本 | `RUNNING` |
+| E8 同阻尼成本 | `PASSED`（72 次运行全部 PASS） |
 | E6/E7 | `NOT_STARTED` |
 
 详见 `reports/E0_E3_REPORT.md` 与 `reports/experiment_status.json`。
