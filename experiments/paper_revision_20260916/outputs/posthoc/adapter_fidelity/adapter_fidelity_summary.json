@@ -1,0 +1,25 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "adapter_fidelity",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "quantities": [
+    "F_raw",
+    "F_se_GN_explicit",
+    "H_red_exact_gamma"
+  ],
+  "centres_total": 10,
+  "centres_reported": 10,
+  "comparisons": 24,
+  "comparisons_passing": 24,
+  "max_relative_difference": 2.2666867527168245e-11,
+  "max_absolute_difference": 5.045272038293334e-10,
+  "declared_relative_acceptance": 1e-06,
+  "rationale": "Bit-exact point regeneration does not by itself prove that the residual map is reproduced: a wrong weight or config override would preserve both the points and the E1 coordinate identity. Rebuilding the three reduced matrices and comparing them to the archive closes that gap.",
+  "note": "Supersedes e2_matrix_consistency.csv, which carries the same recomputation under a different column layout. The two must agree."
+}
