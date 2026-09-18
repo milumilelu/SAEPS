@@ -1,0 +1,35 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "lbfgs_stop_reason_audit",
+  "torch_version": "2.13.0+cpu",
+  "max_eval_rule": "torch LBFGS default max_eval = max_iter * 5 // 4 when not passed",
+  "break_order": [
+    "n_iter == max_iter",
+    "current_evals >= max_eval",
+    "gradient tolerance",
+    "step/change tolerance",
+    "function-change tolerance"
+  ],
+  "E2": {
+    "records": 30,
+    "binding_function_evaluation_budget": 27,
+    "binding_iteration_budget": 0,
+    "flags_misleading": 27
+  },
+  "E3_E6_E7": {
+    "records": 168,
+    "stop_reason": "UNKNOWN",
+    "why": "these cohorts recorded only accepted iterations, so the evaluation budget cannot be checked against max_eval from the saved output"
+  },
+  "instrumented_reproduction": {
+    "label": "instrumented reproduction (new measurement, not a reconstruction)",
+    "budget": 1000,
+    "max_eval": 1250,
+    "n_iter": 1000,
+    "closure_calls": 1100,
+    "state_func_evals": 1100,
+    "binding_budget": "iteration_budget",
+    "stop_reason": "max_iter reached: n_iter=1000 against max_iter=1000"
+  },
+  "correction": "The E2 'budget_exhausted' flag was derived from n_iter >= max_iter only. It reported False while the evaluation budget was in fact the binding constraint, so the field must not be read as 'the optimisation converged'."
+}
