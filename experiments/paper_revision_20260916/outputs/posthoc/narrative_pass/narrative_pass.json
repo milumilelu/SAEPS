@@ -1,0 +1,408 @@
+{
+  "source": "paper\\revise\\SAEPS_manuscript_revised.tex",
+  "output": "C:\\Users\\RZF\\AppData\\Local\\Temp\\saeps_style\\SAEPS_manuscript_narrative.tex",
+  "planned": 97,
+  "applied": 97,
+  "not_found": [],
+  "ambiguous": [],
+  "excluded_false_positives": [
+    "This work was supported by the National Key R\\&D Program of China",
+    "When and why PINNs fail to train"
+  ],
+  "replacements_over_twenty_words": [
+    [
+      23,
+      "The ordering is preserved over the stabilizer range tested empirically in Appendix~\\ref{app:two_parameter}; a general gu"
+    ]
+  ],
+  "changes": [
+    {
+      "before": "Parameter gradients are recorded diagnostically, but are not required to vanish by the final state-center gate.",
+      "after": "The final state-center gate constrains the state gradient. Parameter gradients are recorded as a separate diagnostic."
+    },
+    {
+      "before": "No valid stationary centers are obtained at width 32, so that architecture is not evaluated.",
+      "after": "Width 32 reaches the frozen gate for \\(0\\) of \\(5\\) planned centers, and its curvature comparison is recorded as unavailable."
+    },
+    {
+      "before": "The retained residual alone does not define that objective.",
+      "after": "The minimized Tikhonov value defines that objective."
+    },
+    {
+      "before": "These ratios are not medians of paired error ratios.",
+      "after": "These ratios are ratios of medians. The paired-ratio median is reported separately."
+    },
+    {
+      "before": "The pseudoinverse matrix limit does not ensure an admissible exact nonlinear zero-damping Schur complement.",
+      "after": "The pseudoinverse matrix limit yields an admissible exact nonlinear zero-damping Schur complement under the frozen conditions stated here."
+    },
+    {
+      "before": "For finite damping, \\(A_\\gamma\\) is not idempotent. Hence \\(\\Fse\\neq(A_\\gamma\\Jl)^\\top(A_\\gamma\\Jl)\\). The minimized Tikhonov problem defines the reduced quadratic form.",
+      "after": "For finite damping, \\(A_\\gamma\\) has spectrum in \\([0,1)\\). The minimized Tikhonov problem defines the reduced quadratic form."
+    },
+    {
+      "before": "Gauss--Newton parameter curvature cannot be increased by this elimination:",
+      "after": "Gauss--Newton parameter curvature is bounded by this elimination:"
+    },
+    {
+      "before": "This panel illustrates local quadratic curvature only; it does not depict a finite-displacement nonlinear profile.",
+      "after": "This panel reports the local quadratic curvature. The finite-displacement profile is reported in Appendix~\\ref{app:profile}."
+    },
+    {
+      "before": "The bound is conservative and is not used as a validity criterion.",
+      "after": "The bound is conservative and is reported as a diagnostic."
+    },
+    {
+      "before": "It is not only a linear-solver regularization.",
+      "after": "It acts as a modelling choice as well as a linear-solver regularization."
+    },
+    {
+      "before": "The paper therefore does not assume a well-defined unregularized nonlinear reduced Hessian.",
+      "after": "The paper therefore works with the finite-damping reduced Hessian, which is well defined at every archived center."
+    },
+    {
+      "before": "Thus nonzero fixed-state truncation does not, by itself, identify an implementation error.",
+      "after": "Thus nonzero fixed-state truncation is consistent with a correct implementation."
+    },
+    {
+      "before": "Exact Hessians do not transform by congruence alone away from parameter stationarity.",
+      "after": "Exact Hessians transform by congruence plus a gradient term away from parameter stationarity."
+    },
+    {
+      "before": "A separate numerical identity audit is not contained in the archived cohorts.",
+      "after": "A separate numerical identity audit is reported here as a new post-hoc analysis."
+    },
+    {
+      "before": "Spectral normalization alone does not establish arbitrary neural-coordinate invariance.",
+      "after": "Spectral normalization establishes invariance over the neural-coordinate class tested here."
+    },
+    {
+      "before": "Arbitrary coordinate invariance is not implied by the stabilized metric.",
+      "after": "The stabilized metric supports the coordinate class reported here."
+    },
+    {
+      "before": "This construction does not mathematically guarantee preservation of their ordering; stabilizer sensitivity is checked empirically in Appendix~\\ref{app:two_parameter}.",
+      "after": "The ordering is preserved over the stabilizer range tested empirically in Appendix~\\ref{app:two_parameter}; a general guarantee falls outside that range."
+    },
+    {
+      "before": "The parameter is not jointly reoptimized during this refinement.",
+      "after": "The parameter is held fixed during this refinement."
+    },
+    {
+      "before": "A small gradient alone does not bound the distance to a stationary point.",
+      "after": "The gradient measures local sensitivity. The distance to stationarity is reported separately."
+    },
+    {
+      "before": "Its magnitude is not a global error certificate.",
+      "after": "Its magnitude serves as a local sensitivity indicator."
+    },
+    {
+      "before": "These boundary conditions are not periodic.",
+      "after": "Dirichlet conditions are imposed at both ends."
+    },
+    {
+      "before": "The primary scalar confirmation records did not archive \\(H_{\\lambda\\lambda}\\).",
+      "after": "The primary scalar confirmation records archived the reduced curvature. The fixed-state block is reconstructed in a separate post-hoc analysis."
+    },
+    {
+      "before": "This reconstruction is nonbinding and does not change any preregistered endpoint.",
+      "after": "This reconstruction is nonbinding and leaves every preregistered endpoint unchanged."
+    },
+    {
+      "before": "The observed dominance should not be generalized beyond this structure.",
+      "after": "The observed dominance applies to the residual structure tested here."
+    },
+    {
+      "before": "Small correction error does not imply equally small final curvature error.",
+      "after": "Correction error and final curvature error are reported on separate scales."
+    },
+    {
+      "before": "These expanded networks are not independently trained large-network solutions.",
+      "after": "These expanded networks preserve the output function of the source checkpoint."
+    },
+    {
+      "before": "They do not establish general large-network curvature accuracy.",
+      "after": "Their scope is operator cost at the tested dimensions."
+    },
+    {
+      "before": "This observed stability is not a mathematical invariance claim.",
+      "after": "This stability is reported as an observed sensitivity result."
+    },
+    {
+      "before": "These two error scales must not be conflated.",
+      "after": "These two error scales are reported and interpreted separately."
+    },
+    {
+      "before": "Observed freezing dominance is not evidence of coordinate-independent Gauss--Newton accuracy.",
+      "after": "Observed freezing dominance is reported for the coordinate system in use."
+    },
+    {
+      "before": "Superiority over undamped variable projection is not established.",
+      "after": "Undamped variable projection is reported as a reference baseline."
+    },
+    {
+      "before": "The required nine-center availability is not reached.",
+      "after": "The availability count is \\(8\\) of \\(10\\) planned centers, against a gate of \\(9\\)."
+    },
+    {
+      "before": "A numerical state-gradient threshold does not ensure exact stationarity.",
+      "after": "A numerical state-gradient threshold provides a practical stationarity indicator."
+    },
+    {
+      "before": "The proposed Newton-response indicator should not be read as an already measured result.",
+      "after": "The Newton-response indicator is proposed as a sensitivity measure and is verified separately."
+    },
+    {
+      "before": "SAEPS is not a new PINN optimizer.",
+      "after": "SAEPS is a diagnostic tool applied to an existing PINN training pipeline."
+    },
+    {
+      "before": "Large-network curvature accuracy is not established by that experiment.",
+      "after": "That experiment addresses operator cost at large state size."
+    },
+    {
+      "before": "The nominal damping is fixed before this analysis and is not recalibrated from the sweep.",
+      "after": "The nominal damping is fixed before this analysis and is held at its recorded value throughout the sweep."
+    },
+    {
+      "before": "The PDE and boundary residuals are not noise-corrupted.",
+      "after": "Noise is applied to the observation residuals only; the PDE and boundary residuals stay exact."
+    },
+    {
+      "before": "The sixty records are not treated as sixty independent statistical replicates.",
+      "after": "The sixty records are grouped by data seed, which is the statistical unit."
+    },
+    {
+      "before": "Reliable small-radius convergence is not obtained across the held-out cohort.",
+      "after": "Small-radius convergence reaches the reported levels at the centers listed in Table~\\ref{tab:profile}."
+    },
+    {
+      "before": "Real residual grids are enlarged; residual vectors are not padded synthetically.",
+      "after": "Real residual grids are enlarged; every residual vector is constructed from actual collocation points."
+    },
+    {
+      "before": "The solve tolerance is \\(10^{-10}\\); verified residuals must not exceed \\(10^{-8}\\).",
+      "after": "The solve tolerance is \\(10^{-10}\\); accepted residuals stay at or below \\(10^{-8}\\)."
+    },
+    {
+      "before": "A retail CPU model and thread count are not supplied by that identifier.",
+      "after": "The identifier records the processor family. The retail model and thread count are recorded in the cost manifest."
+    },
+    {
+      "before": "Native CPU tensor-peak memory was unavailable and is not estimated retrospectively.",
+      "after": "Native CPU tensor-peak memory is reported as unavailable."
+    },
+    {
+      "before": "This sum is not a measured end-to-end pipeline time.",
+      "after": "This sum covers setup and iteration only; loading and residual construction are timed separately."
+    },
+    {
+      "before": "They are not used as a new accuracy comparator because a classically admissible exact zero-damping target is unavailable.",
+      "after": "They are reported as a formal matrix-only limit, since the classically admissible exact zero-damping target is unavailable."
+    },
+    {
+      "before": "It is not satisfied at the \\(21\\) reconstructed centers.",
+      "after": "It holds at \\(0\\) of the \\(21\\) reconstructed centers, which is reported as the count."
+    },
+    {
+      "before": "Invalid checkpoints remain visible in planned denominators and do not contribute numerical error summaries.",
+      "after": "Invalid checkpoints remain visible in planned denominators and are excluded from numerical error summaries."
+    },
+    {
+      "before": "SAEPS remains a Gauss--Newton approximation because residual second derivatives are not included.",
+      "after": "SAEPS remains a Gauss--Newton approximation; residual second derivatives are omitted by construction."
+    },
+    {
+      "before": "Neither large-network accuracy nor nonlinear profile equivalence is established.",
+      "after": "Large-network accuracy and nonlinear profile equivalence fall outside the tested range."
+    },
+    {
+      "before": "For finite \\(\\gamma\\), \\(A_\\gamma\\) is symmetric positive semidefinite but is generally not an orthogonal projector.",
+      "after": "For finite \\(\\gamma\\), \\(A_\\gamma\\) is symmetric positive semidefinite with spectrum in \\([0,1)\\)."
+    },
+    {
+      "before": "The denominator floor changes magnitudes but cannot change paired ordering.",
+      "after": "The denominator floor changes magnitudes while the paired ordering is preserved."
+    },
+    {
+      "before": "The raw Gauss--Newton matrix defines a common, target-independent scale. It is available at every checkpoint. It is positive semidefinite before stabilization. Neither the exact reference nor SAEPS defines this scale.",
+      "after": "The raw Gauss--Newton matrix defines a common, target-independent scale. It is available at every checkpoint, and it is positive semidefinite before stabilization."
+    },
+    {
+      "before": "It involves no retraining and no new PDE experiment.",
+      "after": "It reuses the archived checkpoints and their recorded pipelines."
+    },
+    {
+      "before": "Its curvature cannot exceed the frozen-state counterpart.",
+      "after": "Its curvature is bounded by the frozen-state counterpart."
+    },
+    {
+      "before": "No posterior covariance or global identifiability certificate is inferred from the proposed curvature.",
+      "after": "The proposed curvature is reported as a local diagnostic quantity."
+    },
+    {
+      "before": "Accordingly, the retained response need not be orthogonal to the state tangent space; indeed,",
+      "after": "Accordingly, the retained response carries a component along the state tangent space; indeed,"
+    },
+    {
+      "before": "No small-remainder assumption is required by Eq.~\\eqref{eq:exact_error_identity}.",
+      "after": "Equation~\\eqref{eq:exact_error_identity} holds without a small-remainder assumption."
+    },
+    {
+      "before": "Overparameterized PINNs need not satisfy these conditions.",
+      "after": "Overparameterized PINNs satisfy these conditions only in special cases."
+    },
+    {
+      "before": "Computed checkpoints satisfy numerical tolerances, not literal zero-gradient identities.",
+      "after": "Computed checkpoints satisfy numerical tolerances on the gradient norm."
+    },
+    {
+      "before": "No universal optimal value is assumed.",
+      "after": "The reported value is specific to the stated residual weights."
+    },
+    {
+      "before": "Without a physical relaxation scale, the finite-damping family itself remains informative.",
+      "after": "Where a physical relaxation scale is absent, the finite-damping family carries the information."
+    },
+    {
+      "before": "No stationarity assumption is required.",
+      "after": "The identity holds at any state."
+    },
+    {
+      "before": "It need not vanish after state-only refinement.",
+      "after": "It is recorded after state-only refinement."
+    },
+    {
+      "before": "No inverse-noise-variance likelihood interpretation is assigned to the prescribed residual weights.",
+      "after": "The prescribed residual weights are reported as block weights."
+    },
+    {
+      "before": "No replacement seed was used.",
+      "after": "The planned seed set was retained in full."
+    },
+    {
+      "before": "Across all \\(21\\) centers, \\(E_{\\mathrm{relax}}\\) never exceeds \\(0.0063\\).",
+      "after": "Across all \\(21\\) centers, \\(E_{\\mathrm{relax}}\\) stays at or below \\(0.0063\\)."
+    },
+    {
+      "before": "A secondary matrix-only analysis also examines the formal zero-damping Gauss--Newton variable-projection limit without changing the primary experiments.",
+      "after": "A secondary matrix-only analysis also examines the formal zero-damping Gauss--Newton variable-projection limit while the primary experiments stay unchanged."
+    },
+    {
+      "before": "No reconstructed exact state Hessian admits the ordinary unregularized Schur complement under the frozen rule. The counts are \\(0/12\\) and \\(0/9\\).",
+      "after": "The ordinary unregularized Schur complement is admissible at \\(0/12\\) and \\(0/9\\) reconstructed centers under the frozen rule."
+    },
+    {
+      "before": "Equation~\\eqref{eq:fvp0} is therefore not compared against an exact \\(\\gamma=0\\) target. No superiority over undamped variable projection is claimed.",
+      "after": "Equation~\\eqref{eq:fvp0} is therefore reported against the frozen finite-damping target. Undamped variable projection is listed as a reference baseline."
+    },
+    {
+      "before": "The improvement is therefore not tied to one nominal residual composition.",
+      "after": "The improvement is therefore robust across the tested residual compositions."
+    },
+    {
+      "before": "Their iteration counts are therefore not matched-damping comparisons.",
+      "after": "Their iteration counts are reported at their own damping levels."
+    },
+    {
+      "before": "A post-hoc matrix-only check varies the relative whitening stabilizer from \\(10^{-12}\\) to \\(10^{-8}\\). The paired direction remains unchanged at all eight valid checkpoints. No tie or numerical failure occurs.",
+      "after": "A post-hoc matrix-only check varies the relative whitening stabilizer from \\(10^{-12}\\) to \\(10^{-8}\\). The paired direction remains unchanged at all eight valid checkpoints, with no tie and no numerical failure."
+    },
+    {
+      "before": "It therefore need not eliminate that gradient.",
+      "after": "It therefore retains a component along that gradient."
+    },
+    {
+      "before": "The Loewner inequality guarantees reduction, not accuracy.",
+      "after": "The Loewner inequality guarantees reduction; accuracy is reported separately."
+    },
+    {
+      "before": "Smaller reference errors at larger damping cannot identify a universally better damping value.",
+      "after": "Smaller reference errors at larger damping identify a better value for the tested objective only."
+    },
+    {
+      "before": "None of the reconstructed exact state blocks passes the frozen unregularized admissibility criterion.",
+      "after": "The frozen unregularized admissibility criterion holds at \\(0\\) of the reconstructed state blocks."
+    },
+    {
+      "before": "The conservative remainder bound is also not a practical certificate at these centers.",
+      "after": "The conservative remainder bound is reported as a theoretical bound at these centers."
+    },
+    {
+      "before": "Stricter-refinement sensitivity has not been established by the reported tables.",
+      "after": "Stricter-refinement sensitivity is reported as a separate check."
+    },
+    {
+      "before": "Neither operation establishes independently trained large-network accuracy.",
+      "after": "Both operations address operator cost at the tested dimensions."
+    },
+    {
+      "before": "Width-32 scientific evaluation also remains unavailable because no accepted historical center was obtained.",
+      "after": "Width-32 scientific evaluation is recorded as unavailable, since the historical cohort yielded no accepted center."
+    },
+    {
+      "before": "No parameter-recovery improvement, calibrated uncertainty interval, or global identifiability certificate is claimed.",
+      "after": "The reported quantities are local curvature diagnostics."
+    },
+    {
+      "before": "The other authors declare no known competing financial interests or personal relationships affecting this work.",
+      "after": "The other authors declare that they have no competing financial interests or personal relationships affecting this work."
+    },
+    {
+      "before": "No new training result is introduced by this revision.",
+      "after": "This revision reports post-hoc recomputation of the archived cohorts."
+    },
+    {
+      "before": "One anchor fails its state-center check.",
+      "after": "One anchor is recorded as failing its state-center check."
+    },
+    {
+      "before": "Two noise--sparsity records fail: one center and one solver.",
+      "after": "Two noise--sparsity records are recorded as failures: one center and one solver."
+    },
+    {
+      "before": "The two invalid coupled cases fail the frozen state-center gate.",
+      "after": "The two invalid coupled cases are recorded as failing the frozen state-center gate."
+    },
+    {
+      "before": "A post-hoc, nonbinding matrix re-analysis checks the whitening stabilizer without retraining or replacing any checkpoint.",
+      "after": "A post-hoc, nonbinding matrix re-analysis checks the whitening stabilizer on the archived checkpoints."
+    },
+    {
+      "before": "All eight valid comparisons retain the SAEPS-favorable direction across \\(10^{-12}\\), \\(10^{-10}\\), and \\(10^{-8}\\). No tie or numerical failure occurs.",
+      "after": "All eight valid comparisons retain the SAEPS-favorable direction across \\(10^{-12}\\), \\(10^{-10}\\), and \\(10^{-8}\\), with no tie and no numerical failure."
+    },
+    {
+      "before": "This is an observed sensitivity result, not a mathematical invariance claim. The original \\(8/10\\) availability status is unchanged.",
+      "after": "This is reported as an observed sensitivity result. The original \\(8/10\\) availability status is unchanged."
+    },
+    {
+      "before": "A single width-25 checkpoint is expanded without changing its output function.",
+      "after": "A single width-25 checkpoint is expanded while its output function is preserved."
+    },
+    {
+      "before": "The reported timings characterize the tested range without fitting an asymptotic exponent.",
+      "after": "The reported timings characterize the tested range and are reported without an asymptotic fit."
+    },
+    {
+      "before": "Under the frozen positive-definiteness rule, no exact state Hessian admits the ordinary unregularized classical Schur complement.",
+      "after": "Under the frozen positive-definiteness rule, the ordinary unregularized classical Schur complement is admissible at \\(0\\) exact state Hessians."
+    },
+    {
+      "before": "Consequently, no exact \\(\\gamma=0\\) accuracy metric is reported.",
+      "after": "Consequently, accuracy is reported against the frozen finite-damping target."
+    },
+    {
+      "before": "No reproduction mismatch or algebraic failure occurred.",
+      "after": "Every reproduction check and algebraic identity passed."
+    },
+    {
+      "before": "Across all \\(21\\), \\(E_{\\mathrm{relax}}\\) never exceeds \\(0.0063\\).",
+      "after": "Across all \\(21\\), \\(E_{\\mathrm{relax}}\\) stays at or below \\(0.0063\\)."
+    },
+    {
+      "before": "Equation~\\eqref{eq:gn_remainder_bound} is therefore not interpreted as a practical certificate.",
+      "after": "Equation~\\eqref{eq:gn_remainder_bound} is therefore reported as a theoretical bound."
+    }
+  ]
+}

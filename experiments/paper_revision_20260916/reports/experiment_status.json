@@ -44,7 +44,8 @@
     "E6 completes the plan: three genuinely trained architectures on the same data, noise and initializations. All 18 centres have a valid exact reduction (6/6 for each of n=65, n=129, n=337), SAEPS wins 18/18, and the median E_SAEPS improves with size from 9.224e-4 to 6.087e-4 to 4.322e-4, so the advantage is not an artifact of the compact network. The mechanism is unchanged (median E_fix equals E_raw, E_GN_fix about 0.944, E_relax about 1e-5). Median training time is not monotone: 272 s, 526 s, 371 s. The assembled state Hessian matches an independent HVP to 1.5e-15 at the largest architecture. Labeled a preplanned paired architecture extension with independent_confirmation false; it does not revise the historical width-32 result, which remains 0/5 valid.",
     "E7 four-level scope, from existing records: COMPUTABLE 21/21 steps; STATIONARITY_RESOLVED 0/21, since no step reaches the tightest tolerance on both sides and only 5 of 126 refinements reach any graded tolerance; BRANCH_COMPARABLE 21/21; REFERENCE_AGREEMENT 20/21 within 10 percent. So the defensible claim is numerical consistency at a fixed anchor and damping, NOT a strictly converged independent profile check. Proximity to the Schur reference is deliberately not used to define comparability, which would be circular.",
     "L-BFGS stop-reason audit complete. In torch 2.13.0+cpu max_eval defaults to max_iter*5//4 and the loop breaks on current_evals >= max_eval before the gradient or change tolerances. 27 of the 30 E2 records were bound by the FUNCTION-EVALUATION budget (closure calls 1251 against max_eval 1250, n_iter only 625), so the old budget_exhausted flag reported False misleadingly; three records (seed 220) stopped below both budgets and the records cannot identify which condition fired. An instrumented reproduction of the same configuration bound on the ITERATION budget instead, so the binding constraint must not be generalised between cases. E3/E6/E7 recorded only accepted iterations, so their stop reason is UNKNOWN and was not reconstructed by re-running.",
-    "Adapter fidelity table added: 24/24 comparisons across the eight historically valid two-parameter points pass, with F_raw and H_red_exact_gamma bit-exact and the worst relative difference 2.27e-11 against a declared acceptance of 1e-6. The table carries the provenance needed to reproduce the comparison, and a test asserts it agrees with the earlier e2_matrix_consistency.csv."
+    "Adapter fidelity table added: 24/24 comparisons across the eight historically valid two-parameter points pass, with F_raw and H_red_exact_gamma bit-exact and the worst relative difference 2.27e-11 against a declared acceptance of 1e-6. The table carries the provenance needed to reproduce the comparison, and a test asserts it agrees with the earlier e2_matrix_consistency.csv.",
+    "Narrative pass over the manuscript: 97 replacements raised the register from defensive to positive. Measured negation fell 0.166 to 0.019 per sentence and disclaimers to zero, while the passive register (0.35), first-person rate (0.005) and the 20-word ceiling (98.6 percent) were preserved and the compile output is byte-identical in pages and warnings. Two defects were caught by the accompanying tests: a rewrite that silently deleted a scientific boundary, and four cross-references invented to sections that do not exist. Both are fixed."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json",
@@ -54,5 +55,47 @@
     "sign_test_unit": "was 2^-24 over 24 correlated fits; primary inference corrected to the data-seed unit, 2^-6 = 0.015625.",
     "outputs": "outputs/posthoc/report_correction_20260918/",
     "frozen_files_modified": false
+  },
+  "narrative_pass_20260918": {
+    "target": "paper/revise/SAEPS_manuscript_revised.tex",
+    "output": "paper/revise/SAEPS_manuscript_narrative.tex (+ compiled PDF)",
+    "replacements_applied": 97,
+    "measured_before_after": {
+      "negation_per_sentence": [
+        0.166,
+        0.019
+      ],
+      "disclaimer_per_sentence": [
+        0.076,
+        0.0
+      ],
+      "concessive_per_sentence": [
+        0.011,
+        0.006
+      ],
+      "passive_per_sentence": [
+        0.355,
+        0.353
+      ],
+      "share_at_most_20_words": [
+        0.986,
+        0.986
+      ],
+      "mean_words_per_sentence": [
+        9.8,
+        9.93
+      ],
+      "sentences": [
+        633,
+        634
+      ]
+    },
+    "compile_check": "28 pages, 0 undefined references, 0 overfull boxes, identical to the pre-pass compile",
+    "rule": "state what holds with its scope instead of negating what does not; no scientific boundary removed",
+    "defects_caught_and_fixed_by_the_tests": [
+      "one rewrite silently deleted the boundary that ordering preservation carries no general guarantee",
+      "four invented cross-references pointed at sections that do not exist"
+    ],
+    "not_modified": "paper/revise/SAEPS_manuscript_revised.tex is untouched; the output is a new file"
   }
 }

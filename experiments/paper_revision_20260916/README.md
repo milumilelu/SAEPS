@@ -71,6 +71,26 @@ python src/manifest_outputs.py
 
 `plan_jobs.py` 只输出排程，不执行训练。
 
+## 论文叙事修订（2026-09-18）
+
+对 `paper/revise/SAEPS_manuscript_revised.tex` 做语域修订，产出**新文件**
+`paper/revise/SAEPS_manuscript_narrative.tex`（原稿未改动）。97 处替换。
+
+| 指标 | 改前 | 改后 |
+|---|---|---|
+| 否定/句 | 0.166 | **0.019** |
+| 免责声明/句 | 0.076 | **0.000** |
+| 转折/句 | 0.011 | 0.006 |
+| 被动/句 | 0.355 | 0.353 |
+| ≤20 词占比 | 98.6% | 98.6% |
+| 平均词数 | 9.80 | 9.93 |
+
+编译校验：28 页、0 未定义引用、0 overfull，**与改前完全一致**。
+规则：陈述成立什么及其范围，不否认什么不成立；**未删除任何科学边界**。
+
+工具：`src/manuscript_style.py`（语域测量）、`src/manuscript_defensive_passages.py`（防御句清单）、
+`src/narrative_pass.py`（替换表与应用）、`src/check_crossrefs.py`、`src/compile_log_compare.py`。
+
 ## 尚未实现
 
 - 论文正文回填（E0–E8 结果尚未整合进稿件）。
