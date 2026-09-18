@@ -13,7 +13,7 @@
     "E4": "PASSED",
     "E5": "PASSED",
     "E6": "NOT_RUN",
-    "E7": "NOT_RUN",
+    "E7": "PASSED",
     "E8": "PASSED"
   },
   "evidence_ref": "jcp-submission-v1",
@@ -40,7 +40,8 @@
     "E4: all 80 required checks pass across 10 centres. The param-coordinate Gauss-Newton reduction is equivariant to 2.0e-12, while the exact reduced Hessian needs the diag(a*g_a) term and the naive form fails by 0.44%-4.9%. Keeping the metric T^T T leaves the reduced curvature invariant (<=9.2e-11) whereas the identity metric does not, and invariance is deliberately not required there. No claim of invariance under arbitrary reparameterisation.",
     "E5: 8/8 valid centres have resolved weak directions (relative eigengap 0.82-0.93 against a 0.1 threshold), in a pre-declared Euclidean metric on the log coefficients rather than the whitened space. Median angle to the exact weak direction is 0.45 degrees for SAEPS against 2.86 degrees for raw. Exact curvature is positive definite at all 8, so no negative-curvature sign report was needed. The boundary is stated: local diagnostic only, no claim of improved parameter recovery.",
     "E8: 72 runs at a matched gamma (all methods share one gamma per level), zero initial guess, one discarded warm-up and three timed repeats per condition; every status PASS. CG's cost falls about 17x as alpha rises from 1e-8 to 1e-2 (10.63 s to 0.60 s, 650 to 29 iterations) while scaled LSQR's cost is nearly flat (143.9 s to 98.9 s, 4300 to 3118 iterations). LSQR costs 14-150x more than CG but is 4 orders more accurate at the weakest damping (1.19e-12 against 2.99e-08). The preconditioner build is under 1% of the LSQR total, so the iterations, not the preparation, are the expensive stage. Peak native tensor memory is not claimed and the optional large-scale operator timing was not run.",
-    "E8 also exposed a real implementation error caught by comparing against the historical record: the refined LSQR helper's Fse is already the reduced value, not a correction to subtract from F_raw. The wrong assembly gave a 17.2 relative error against the dense solve and would have been reported as 'LSQR fails at weak damping'; the corrected assembly gives 1.19e-12, matching the historical 1.47e-12. This is why the E0-style source cross-check earns its place."
+    "E8 also exposed a real implementation error caught by comparing against the historical record: the refined LSQR helper's Fse is already the reduced value, not a correction to subtract from F_raw. The wrong assembly gave a 17.2 relative error against the dense solve and would have been reported as 'LSQR fails at weak damping'; the corrected assembly gives 1.19e-12, matching the historical 1.47e-12. This is why the E0-style source cross-check earns its place.",
+    "E7 independently confirms the exact Schur reference by re-minimising the state at displaced parameters and reading the curvature from a symmetric difference, with the anchor, the parameter and gamma all frozen. 21 of 21 branches are comparable and 20 of 21 steps pass the 10% acceptance; the median relative difference is 1.23e-3 and the best is 1.9e-5. The error is V-shaped in the step size with the optimum at h=0.003-0.01, and the smallest step h=1e-4 is the worst, which is the expected h^-2 amplification of state-optimisation error. That limitation is disclosed: the graded tolerances are reached only 5/42 at 1e-8 and 0/42 at 1e-10 and 1e-12, so no claim of arbitrary-precision profile resolution is made. The method comparison (SAEPS wins 21/21 against the same reference) is reported separately and does not enter the reference-check filter."
   ],
   "report": "reports/E0_E3_REPORT.md",
   "output_manifest": "reports/output_manifest.json"

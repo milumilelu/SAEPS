@@ -1,0 +1,36 @@
+{
+  "classification": "NEW_EXPERIMENT",
+  "task": "E7_profile_resolution",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "centres": 3,
+  "step_grid": [
+    0.1,
+    0.03,
+    0.01,
+    0.003,
+    0.001,
+    0.0003,
+    0.0001
+  ],
+  "state_gradient_tolerances": [
+    1e-08,
+    1e-10,
+    1e-12
+  ],
+  "max_inner_iterations_per_point": 1000,
+  "wall_cap_seconds_per_center": 7200.0,
+  "reanchor_forbidden": true,
+  "gamma_reestimation_forbidden": true,
+  "steps_evaluated": 21,
+  "steps_comparable": 21,
+  "steps_passing_reference_check": 20,
+  "median_relative_difference": 0.001234825030143306,
+  "min_relative_difference": 1.9084624326509892e-05,
+  "claim_boundary": "The reference check and the method comparison are separate. A failure here does not invalidate the local algebraic results; it bounds the profile interpretation. Optimisation error is amplified by h^-2, so the smallest step is not automatically the most accurate."
+}
