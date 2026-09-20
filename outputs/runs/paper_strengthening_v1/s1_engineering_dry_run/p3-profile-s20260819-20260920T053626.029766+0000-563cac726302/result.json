@@ -1,0 +1,132 @@
+{
+  "checks": {
+    "all_reoptimized_points_pass": true,
+    "combined_stopping_rule": true,
+    "failed_point_status": true,
+    "independent_initialization_reproducibility": true,
+    "known_frozen_curvature": true,
+    "known_minimum": true,
+    "known_reoptimized_curvature": true,
+    "missing_point_not_interpolated": true,
+    "point_order_invariance": true
+  },
+  "comparison_example": {
+    "D_paired": 0.9787499999999988,
+    "E_raw": 0.978749999999999,
+    "E_saeps": 2.7755575615628904e-16
+  },
+  "config_hash": "707a3d7d97d063a4dce9bfb5778533fe7256a7b71e58c8f12b9476758a0c65c9",
+  "elapsed_seconds": 0.9782279999999446,
+  "errors": {
+    "frozen_curvature_relative": 9.818775960045607e-16,
+    "minimum_absolute": 3.469446951953614e-18,
+    "order_invariance_max_absolute": 0.0,
+    "reoptimized_curvature_relative": 2.7755575615628914e-16,
+    "reproducibility_max_absolute": 0.0
+  },
+  "estimated": {
+    "frozen_curvature": 3.1659999999999964,
+    "minimum": 0.030000000000000002,
+    "reoptimized_curvature": 1.6000000000000005,
+    "reoptimized_normalized_rmse": 4.097899027589427e-16,
+    "reoptimized_r_squared": 1.0
+  },
+  "forced_failure": {
+    "failure_reason": "combined optimizer/plateau/gradient stopping rule not satisfied",
+    "status": "PROFILE_FAILURE"
+  },
+  "known": {
+    "frozen_curvature": 3.1659999999999995,
+    "minimum": 0.03,
+    "reoptimized_curvature": 1.6
+  },
+  "phase": "P3",
+  "points": [
+    {
+      "closure_calls": 7,
+      "loss": 0.22592,
+      "normalized_gradient": 0.0,
+      "offset": -0.15,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.21352000000000002,
+      "normalized_gradient": 0.0,
+      "offset": -0.1,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.20512000000000002,
+      "normalized_gradient": 0.0,
+      "offset": -0.05,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 3,
+      "loss": 0.20072,
+      "normalized_gradient": 0.0,
+      "offset": 0.0,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.20032,
+      "normalized_gradient": 0.0,
+      "offset": 0.05,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.20392000000000002,
+      "normalized_gradient": 0.0,
+      "offset": 0.1,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    },
+    {
+      "closure_calls": 7,
+      "loss": 0.21152,
+      "normalized_gradient": 0.0,
+      "offset": 0.15,
+      "outer_steps": 3,
+      "relative_loss_change": 0.0,
+      "status": "PASS"
+    }
+  ],
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "c358a1bb07859ea49ead00e764bced4541c70e84",
+    "git_dirty": true,
+    "git_status_porcelain": "D FINAL_VALIDATION_REPORT.md\n D PUBLIC_RELEASE_REPORT.md\n D REPRODUCIBILITY.md\n D \"SAEPS Master Research Program v4.0.md\"\n D V4_FINAL_AUDIT_REPORT.md\n D V5_FINAL_JCP_AUDIT_REPORT.md\n D V5_JCP_MINIMAL_PROTOCOL.md\n D pelican_bicycle_wing_puzzle.svg\n?? .workbuddy/\n?? CODEX_SAEPS_7DAY_EXPERIMENT_PLAN.md\n?? REACHABILITY_REPORT.md\n?? SAEPS-linux-preflight/\n?? SAEPS-so-week1/\n?? SAEPS_E2_E3_followup.md\n?? SAEPS_reliability_research_package.zip\n?? SAEPS_report_correction_tasks_20260918.md\n?? docs/paper_strengthening/\n?? exact_fixed_state_baseline.py\n?? \"paper/Cover Letter.docx\"\n?? paper/README.txt\n?? paper/fig1.pdf\n?? paper/highlights.docx\n?? paper/manuscript.aux\n?? paper/manuscript.log\n?? paper/manuscript.out\n?? paper/manuscript.spl\n?? paper/manuscript.tex\n?? paper/manuscript3.pdf\n?? paper/revise/SAEPS_E2_E3_followup.md\n?? paper/revise/SAEPS_experiment_tasks.md\n?? paper/revise/SAEPS_manuscript_integrated.pdf\n?? paper/revise/SAEPS_manuscript_integrated.tex\n?? paper/revise/SAEPS_manuscript_narrative.pdf\n?? paper/revise/SAEPS_manuscript_narrative.tex\n?? paper/revise/SAEPS_manuscript_revised.pdf\n?? paper/revise/SAEPS_manuscript_revised.tex\n?? paper/revise/SAEPS_revision_notes.md\n?? paper/revise/SAEPS_revision_package.zip\n?? paper/revise/integration_log.json\n?? paper/revise/narrative_pass_changelog.json\n?? paper/revise/paper_numbers.json\n?? paper/revise/paper_numbers.tex\n?? paper/revise/paper_tables.tex\n?? paper/word_export/\n?? \"paper/\\346\\256\\213\\345\\267\\256\\347\\251\\272\\351\\227\\264\\346\\267\\267\\346\\267\\206-\\347\\212\\266\\346\\200\\201\\351\\200\\202\\345\\272\\224\\346\\200\\247\\345\\210\\206\\346\\236\\220.pptx\"\n?? sic/\n?? tmp_current_goal.txt\n?? \"\\344\\273\\273\\345\\212\\241\\350\\257\\264\\346\\230\\216/\"\n?? \"\\345\\217\\202\\350\\200\\203\\346\\226\\207\\347\\214\\256/\"",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.14",
+    "timestamp": "2026-09-20T05:36:26.029766+00:00",
+    "torch_cuda_available": false
+  },
+  "run_id": "p3-profile-s20260819-20260920T053626.029766+0000-563cac726302",
+  "schema_version": 1,
+  "status": "PASS"
+}

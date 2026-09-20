@@ -2,9 +2,9 @@
 
 **版本:** `Q2-STRENGTHENING-v1.0`
 **日期:** 2026-09-20
-**状态:** `PROPOSAL_ONLY / NOT_STARTED`
+**状态:** `S0 PASSED / S1 PASSED_ENGINEERING / S2 NOT_STARTED`
 **适用对象:** `paper/revise/SAEPS_manuscript_integrated.tex` 及其机器可读证据
-**执行类型:** 独立的论文补强与新证据提案，不修改历史 confirmation 结果
+**执行类型:** 独立的论文补强与新证据提案；S1 已完成工程 dry-run，不修改历史 confirmation 结果
 
 ## 1. 目标与边界
 

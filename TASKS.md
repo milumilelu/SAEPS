@@ -2,20 +2,23 @@
 
 ## 2026-09-20 — Q2 paper-strengthening execution specification
 
-Status: `NOT_STARTED` (proposal-only; no new confirmation or PINN execution is
+Status: `IN_PROGRESS` (proposal-only; no new confirmation or PINN execution is
 authorized by this entry). The specification is isolated from historical P0–P9
 results and locked configurations. It prioritizes nonlinear profile validation,
 strong baselines, generalization limits, and claim narrowing before submission.
 
 - [x] Drafted `paper/revise/SAEPS_Q2_STRENGTHENING_EXECUTION_SPEC.md`.
-- [ ] S0 claim ledger and reviewer-risk matrix.
-- [ ] S1 profile engineering dry-run and stationarity audit.
+- [x] S0 claim ledger and reviewer-risk matrix.
+- [x] S1 profile engineering dry-run and stationarity audit (engineering PASS;
+  historical V5 bridge scientific status remains NOT_SUPPORTED).
 - [ ] S2 development freeze for any new profile protocol.
 - [ ] S3 independently authorized profile/baseline validation.
 - [ ] S4 generalization extension or explicit limited-claims decision.
 - [ ] S5 manuscript, artifact, and submission audit.
 
 Evidence: `paper/revise/SAEPS_Q2_STRENGTHENING_EXECUTION_SPEC.md`.
+S1 evidence: `docs/paper_strengthening/S1_ENGINEERING_DRY_RUN.md` and
+`docs/paper_strengthening/S1_ENGINEERING_DRY_RUN.json`.
 
 ## 2026-09-12 — Active experimental design proposal (AED-v0.2-DRAFT)
 
