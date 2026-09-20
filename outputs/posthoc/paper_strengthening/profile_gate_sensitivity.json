@@ -1,0 +1,188 @@
+{
+  "audit_type": "E7_GATE_SENSITIVITY_POSTHOC",
+  "claim_boundary": "A relaxed gradient threshold can classify numerical optimization as adequate, but it does not certify finite-displacement profile curvature. The h^-2 error budget and multiscale fit remain separate requirements.",
+  "interpretation": "Threshold sensitivity only; no locked verdict is changed.",
+  "source_scope": {
+    "BRANCH_COMPARABLE": [
+      21,
+      21
+    ],
+    "COMPUTABLE": [
+      21,
+      21
+    ],
+    "REFERENCE_AGREEMENT": [
+      20,
+      21
+    ],
+    "STATIONARITY_RESOLVED": [
+      0,
+      21
+    ],
+    "any_tolerance_reached": [
+      5,
+      126
+    ]
+  },
+  "source_sha256": {
+    "experiments\\paper_revision_20260916\\outputs\\heldout\\e7\\e7_profile_resolution.csv": "11d7cd271fd9d6ee4a3d7e8410d147f9b0c0d12b9de5cf288d3bd4ed5279c555",
+    "experiments\\paper_revision_20260916\\outputs\\heldout\\e7\\e7_scope_levels.json": "a87c840cbd2e8ba2031cc500e09effd51909bce43fb970142f721ba60fc61064"
+  },
+  "steps": [
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 6.968180540276219e-08,
+      "step": 0.1
+    },
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 2.0894006565322214e-08,
+      "step": 0.03
+    },
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 1.8893659414945613e-08,
+      "step": 0.01
+    },
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 1.1307355339298778e-08,
+      "step": 0.003
+    },
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 8.474660965258829e-09,
+      "step": 0.001
+    },
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 1.882735860334149e-08,
+      "step": 0.0003
+    },
+    {
+      "data_seed": "916101",
+      "max_branch_gradient": 1.2060507066453912e-08,
+      "step": 0.0001
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 3.9168690191474245e-08,
+      "step": 0.1
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 5.771075895675818e-08,
+      "step": 0.03
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 6.08491123443506e-08,
+      "step": 0.01
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 3.4430407749575056e-08,
+      "step": 0.003
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 3.262967764031388e-08,
+      "step": 0.001
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 3.318914342052453e-08,
+      "step": 0.0003
+    },
+    {
+      "data_seed": "916102",
+      "max_branch_gradient": 3.3887563992338625e-08,
+      "step": 0.0001
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 1.6530594729911532e-08,
+      "step": 0.1
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 3.481830283198332e-08,
+      "step": 0.03
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 1.560447366984934e-08,
+      "step": 0.01
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 1.1805492452228771e-08,
+      "step": 0.003
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 2.325126893035477e-08,
+      "step": 0.001
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 1.1551233124066001e-08,
+      "step": 0.0003
+    },
+    {
+      "data_seed": "916103",
+      "max_branch_gradient": 1.32061664259787e-08,
+      "step": 0.0001
+    }
+  ],
+  "threshold_counts": {
+    "1e-04": {
+      "branch_pass": 42,
+      "branch_total": 42,
+      "step_pass": 21,
+      "step_total": 21
+    },
+    "1e-05": {
+      "branch_pass": 42,
+      "branch_total": 42,
+      "step_pass": 21,
+      "step_total": 21
+    },
+    "1e-06": {
+      "branch_pass": 42,
+      "branch_total": 42,
+      "step_pass": 21,
+      "step_total": 21
+    },
+    "1e-07": {
+      "branch_pass": 42,
+      "branch_total": 42,
+      "step_pass": 21,
+      "step_total": 21
+    },
+    "1e-08": {
+      "branch_pass": 5,
+      "branch_total": 42,
+      "step_pass": 1,
+      "step_total": 21
+    },
+    "1e-09": {
+      "branch_pass": 0,
+      "branch_total": 42,
+      "step_pass": 0,
+      "step_total": 21
+    },
+    "1e-10": {
+      "branch_pass": 0,
+      "branch_total": 42,
+      "step_pass": 0,
+      "step_total": 21
+    },
+    "1e-12": {
+      "branch_pass": 0,
+      "branch_total": 42,
+      "step_pass": 0,
+      "step_total": 21
+    }
+  }
+}
