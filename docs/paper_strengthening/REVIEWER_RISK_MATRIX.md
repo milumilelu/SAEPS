@@ -1,7 +1,7 @@
 # Q2 补强 Reviewer Risk Matrix
 
-**Namespace:** `paper_strengthening_v1`  
-**阶段:** `S0 PASSED / DEVELOPMENT_ONLY`  
+**Namespace:** `paper_strengthening_v1`
+**阶段:** `S0 PASSED / DEVELOPMENT_ONLY`
 **日期:** 2026-09-20
 
 | ID | 审稿人可能的质疑 | 当前证据 | 风险级别 | 补强动作 | 关闭条件 |
@@ -21,4 +21,3 @@
 `R2 > R1 > R3 > R7 > R4 > R5 > R6 > R8 > R9`。
 
 若 R2 无法关闭，不得通过扩大实验数量掩盖 profile stationarity 缺口；论文应采用 Claim Ledger 的收缩版本。
-

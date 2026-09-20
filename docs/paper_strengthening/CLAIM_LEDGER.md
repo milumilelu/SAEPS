@@ -1,8 +1,8 @@
 # Q2 补强 Claim Ledger
 
-**Namespace:** `paper_strengthening_v1`  
-**阶段:** `S0 PASSED / DEVELOPMENT_ONLY`  
-**日期:** 2026-09-20  
+**Namespace:** `paper_strengthening_v1`
+**阶段:** `S0 PASSED / DEVELOPMENT_ONLY`
+**日期:** 2026-09-20
 **说明:** 本台账冻结当前稿件可使用的主张边界；它不授权新的 confirmation。
 
 | ID | 当前主张 | 证据 | 统计单位/分母 | 允许措辞 | 禁止措辞 | 状态 |
@@ -23,4 +23,3 @@
 > SAEPS is a finite-damping, checkpoint-dependent local Gauss–Newton state-elimination diagnostic whose exact-reference error is evaluated under declared synthetic inverse-PINN conditions.
 
 若新 profile gate 通过，才可将主张扩展为 nonlinear profile prediction，并必须同步更新本表、摘要和 `docs/ISSUES.md`。
-
