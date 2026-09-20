@@ -21,6 +21,18 @@ generalization limits, and claim narrowing before submission.
 - [ ] S3 independently authorized profile/baseline validation.
 - [ ] S4 generalization extension or explicit limited-claims decision.
 - [ ] S5 manuscript, artifact, and submission audit.
+- [x] Generated limited-claims writing materials from machine-readable evidence:
+  `docs/paper_strengthening/WRITING_MATERIALS_LIMITED_CLAIMS.md` and its
+  reproducible builder `scripts/build_limited_claims_materials.py`.
+
+### S2-v2 numerical modification audit — 2026-09-20
+
+- [x] Added isolated `paper_strengthening_v2` center-consistent profile development configuration.
+- [x] Added objective non-increase protection, tighter stationarity candidates, state-Hessian condition/error-budget records, symmetric `H(h)` versus `h^2` fit, and independent-start diagnostics.
+- [x] Retained all failed candidates in separate namespaces (`v2`, `v2_retry`, `v2_newton`, `v2_direct_newton`, `v2_damped_newton`, `v2_scaled_damped_newton`, `v2_basin_newton`).
+- [x] Completed the best full cohort (`v2_basin_newton`): no candidate fit window passed all records; no confirmation authorized.
+- [x] Recorded final numerical modification decision in `docs/paper_strengthening/S2_V2_MODIFICATION_REPORT.md`; scientific profile status remains `NOT_SUPPORTED`.
+- [ ] S3 remains blocked pending a separately authorized protocol; no confirmation executable was created.
 
 Evidence: `paper/revise/SAEPS_Q2_STRENGTHENING_EXECUTION_SPEC.md`.
 S1 evidence: `docs/paper_strengthening/S1_ENGINEERING_DRY_RUN.md` and
