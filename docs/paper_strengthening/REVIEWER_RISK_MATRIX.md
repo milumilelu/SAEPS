@@ -1,13 +1,13 @@
 # Q2 补强 Reviewer Risk Matrix
 
 **Namespace:** `paper_strengthening_v1`
-**阶段:** `S0 PASSED / DEVELOPMENT_ONLY`
+**阶段:** `S0 PASSED / S1 PASSED_ENGINEERING / S2 FAILED_FIT_QUALITY`
 **日期:** 2026-09-20
 
 | ID | 审稿人可能的质疑 | 当前证据 | 风险级别 | 补强动作 | 关闭条件 |
 |---|---|---|---|---|---|
 | R1 | 方法只是经典 Schur/variable projection 的重新命名 | 稿件已承认经典来源，但缺少统一替代基线 | HIGH | 建立 raw、fixed exact、SAEPS、VP0/SVD、profile/FIM registry | 主表明确显示新增诊断价值；不宣称新代数定理 |
-| R2 | exact-Hessian Schur 不等于 nonlinear reoptimized profile | 历史 profile 仅 1/5 valid；0/21 达到最严格 stationarity | CRITICAL | S1 dry-run；S2 冻结 profile 规则；S3 独立 profile validation | profile stationarity、fit-quality 和分母全部预先冻结且可审计 |
+| R2 | exact-Hessian Schur 不等于 nonlinear reoptimized profile | 历史 profile 仅 1/5 valid；S2 的 9 个 development records 虽通过 point gate，但没有候选 fit window 在完整 cohort 通过未改变的 fit-quality gate | CRITICAL | 保留失败点与 fit-window 审计；采用收缩主张；不启动未授权 S3 | 只有新协议在独立数据上同时通过 stationarity、fit-quality 和分母门槛后才能关闭 |
 | R3 | 一维合成问题不足以支持泛化 | 主要结果来自 Burgers/Allen–Cahn；two-parameter 8/10 | HIGH | 完成两参数协议或加入预先指定的二维/非合成 benchmark | 独立问题结果或明确 LIMITED_CLAIMS |
 | R4 | gamma、坐标、权重变化会改变结论 | 已有 gamma sweep、coordinate identity 和部分 architecture audit | MEDIUM | 统一 gamma/coordinate/weight sensitivity table | 排序稳定性与翻转区域全部报告 |
 | R5 | 只保留有利 seed 或把相关 fit 当独立样本 | 当前记录保留失败分母；E3 使用 seed 作为统计单位 | MEDIUM | 每张表报告 planned/valid/failed；seed-level paired aggregation | raw-to-aggregate 自动校验通过 |

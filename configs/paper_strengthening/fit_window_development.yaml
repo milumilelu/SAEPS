@@ -1,0 +1,33 @@
+schema_version: 1
+protocol_id: SAEPS-Q2-STRENGTHENING-S2-FIT-WINDOW
+phase: S2_FIT_WINDOW_DEVELOPMENT
+namespace: paper_strengthening_v1
+source_summary: outputs/runs/paper_strengthening_v1/s2_profile_development/S2_DEVELOPMENT_SUMMARY.json
+source_records_are_read_only: true
+fit_quality_source: configs/p3_profile.yaml
+candidate_windows:
+  - id: all_common_scales
+    retain_h_count: 3
+    relative_h_values: [0.04, 0.02, 0.01]
+  - id: two_finest_scales
+    retain_h_count: 2
+    relative_h_values: [0.02, 0.01]
+  - id: finest_pair_only
+    retain_h_count: 1
+    relative_h_values: [0.01]
+selection_rule:
+  role: development_only_fit_window_audit
+  ordered_criteria:
+    - maximize_window_scale_count
+    - maximize_seed_count_passing_all_fit_quality_gates
+    - minimize_median_normalized_rmse
+    - lexicographic_window_id
+  required_fit_quality_gates:
+    minimum_r_squared: 0.999999
+    maximum_normalized_rmse: 1.0e-6
+    maximum_design_condition: 1.0e5
+    positive_curvature_required: true
+  no_threshold_relaxation: true
+  no_interpolation: true
+  no_paper_facing_claims: true
+output_path: outputs/runs/paper_strengthening_v1/s2_profile_development/S2_FIT_WINDOW_SUMMARY.json

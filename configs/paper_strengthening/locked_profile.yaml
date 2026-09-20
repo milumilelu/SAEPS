@@ -1,0 +1,90 @@
+schema_version: 1
+protocol_id: SAEPS-Q2-STRENGTHENING-S2-LOCK
+phase: S2_PROFILE_DEVELOPMENT_CLOSED_WITH_FIT_FAILURE
+namespace: paper_strengthening_v1
+execution_authorized: false
+confirmation_authorized: false
+benchmark: Allen-Cahn
+source_checkpoint_family: allen_cahn
+source_checkpoint_namespace: outputs/runs/v5/checkpoints/allen_cahn
+development_seeds:
+- 70
+- 71
+- 72
+gamma_alpha: 1.0e-08
+selected_development_arm: coarse_grid_tol_1e-7
+profile_points:
+- -0.08
+- -0.04
+- -0.02
+- -0.01
+- 0.01
+- 0.02
+- 0.04
+- 0.08
+h_values_for_symmetric_curvature:
+- 0.08
+- 0.04
+- 0.02
+- 0.01
+independent_start_from_common_theta0: true
+continuation_forbidden: true
+normalized_gradient_tolerance: 1.0e-07
+point_gate:
+  optimizer_termination_required: true
+  loss_plateau_required: true
+  normalized_gradient_required: true
+  exact_local_minimum_hessian_gate_required: true
+  missing_point_rule: retain_PROFILE_FAILURE_and_exclude_the_curve_from_valid_fit
+fit_window: all_retained_profile_points_plus_center
+fit_quality:
+  minimum_r_squared: 0.999999
+  maximum_normalized_rmse: 1.0e-06
+  maximum_design_condition: 1.0e5
+  positive_curvature_required: true
+resolution_diagnostic:
+  role: reported_development_diagnostic_until_independent_validation_is_authorized
+  last_two_curvature_relative_change: report_only
+  exact_finite_gamma_relative_error: report_only
+source_config: configs/paper_strengthening/development.yaml
+source_config_sha256: 3fb293b944336cb6ba50aeb93ab5ecac5b3d9f0bb4bb387e0f6f4aa23938dc6a
+development_summary: outputs/runs/paper_strengthening_v1/s2_profile_development/S2_DEVELOPMENT_SUMMARY.json
+development_summary_sha256: d7e6f572754f6a02ca28eff9a2b06d43fa6928572228c4428c7dfbde51db6ace
+fit_quality_audit: outputs/runs/paper_strengthening_v1/s2_profile_development/S2_FIT_QUALITY_AUDIT.json
+fit_quality_audit_sha256: 7181083d846c0a093fafca366ac7c2bb30fc95e0a6b9bbb47b8fc626ecf7344a
+selection_rule:
+  role: development_only_protocol_freeze
+  ordered_criteria:
+  - maximize_seed_count_with_all_profile_points_pass
+  - maximize_total_profile_point_pass_count
+  - minimize_median_last_two_curvature_relative_change
+  - minimize_median_finest_profile_exact_relative_error
+  - lexicographic_arm_id
+  forbidden_metrics:
+  - D
+  - E_raw
+  - E_SAEPS
+  - eta
+  - figure_appearance
+  minimum_seed_count_for_freeze: 2
+selected_arm_summary:
+  all_points_pass_seed_count: 3
+  arm_id: coarse_grid_tol_1e-7
+  median_finest_profile_exact_relative_error: 0.006349868144431889
+  median_last_two_curvature_relative_change: 0.0031946405142260948
+  planned_seed_count: 3
+  selection_key:
+  - -3
+  - -24
+  - 0.0031946405142260948
+  - 0.006349868144431889
+  - coarse_grid_tol_1e-7
+  total_profile_pass_count: 24
+  total_profile_point_count: 24
+status: FAILED
+engineering_gate: FAILED
+scientific_profile_claim_authorized: false
+failure_reason: No predeclared fit window passed unchanged P3 R2, normalized-RMSE,
+  condition-number and positive-curvature gates for all retained records.
+fit_window_audit: outputs/runs/paper_strengthening_v1/s2_profile_development/S2_FIT_WINDOW_SUMMARY.json
+fit_window_audit_sha256: 600f5a3a47b01554f508394b06d0d2a9cba111a2d85697a732b05793ceabc234

@@ -728,3 +728,17 @@ Phase2 manifests use the explicitly authorized revision_week/outputs/phase2_v1/r
 
 Classification: implementation failure (derived reporting only, corrected).
 The frozen finalizer represented all five missing E5C pass outputs as solver failures. Process/setup evidence establishes an interrupted cold pass followed by four unstarted passes. Section 16 requires null numerical statuses for those unstarted positions. AUDIT_CLOSEOUT.py corrects only derived artifacts, archives their prior versions, and verifies frozen executable/configuration hashes. No numerical worker, seed or raw record changed. E1/E4C availability-limited PARTIALLY_SUPPORTED labels are explicitly not independent support for SO. Revision-week 85 tests and repository validator passed after correction.
+
+## I-Q2-001 — S2 profile fit-quality freeze failed
+
+```text
+date: 2026-09-20
+issue_id: I-Q2-001
+phase: Q2 paper-strengthening S2 profile development
+classification: scientific failure
+description: The bounded S2 development queue reused immutable Allen-Cahn checkpoints 70--72 and evaluated three predeclared step-grid/tolerance arms. All 9 records and 72 profile points passed the optimizer, stationarity and exact local-minimum gates. However, none of the predeclared multi-scale fit windows passed the unchanged P3 R^2, normalized-RMSE, design-condition and positive-curvature gates for all retained records. The finest-pair-only window passes 7/9 records but is not a multi-scale resolution certificate and has a negative curvature on seed72.
+evidence: outputs/runs/paper_strengthening_v1/s2_profile_development/S2_DEVELOPMENT_SUMMARY.json; outputs/runs/paper_strengthening_v1/s2_profile_development/S2_FIT_WINDOW_SUMMARY.json; docs/paper_strengthening/S2_DEVELOPMENT_DECISION.md.
+affected_runs: paper_strengthening_v1 S2 development records only; historical P0--P9 and V5 outputs are unchanged.
+protocol_impact: S2 engineering gate is FAILED. No profile confirmation, rescue, threshold relaxation, seed replacement or fit-window selection based on a favorable result is authorized. The nonlinear-profile claim remains NOT_SUPPORTED and the manuscript must use the claim ledger's finite-damping local-diagnostic wording.
+resolution_or_status: STOP bounded strengthening at S2; retain all raw records and report the limitation. A new independently authorized protocol would be required to continue.
+```

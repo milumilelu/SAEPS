@@ -1,0 +1,46 @@
+schema_version: 1
+protocol_id: SAEPS-Q2-STRENGTHENING-S2
+phase: S2_PROFILE_DEVELOPMENT
+namespace: paper_strengthening_v1
+execution_authorized: true
+confirmation_authorized: false
+benchmark: Allen-Cahn
+source_checkpoint_family: allen_cahn
+source_checkpoint_namespace: outputs/runs/v5/checkpoints/allen_cahn
+development_seeds: [70, 71, 72]
+source_records_are_read_only: true
+gamma_alpha: 1.0e-8
+profile_objective: 0.5_mean_residual_squared_plus_gamma_over_2m_state_displacement_squared
+independent_start_from_common_theta0: true
+continuation_forbidden: true
+arms:
+  - id: standard_grid_tol_1e-6
+    h_values: [0.04, 0.02, 0.01, 0.005]
+    normalized_gradient_tolerance: 1.0e-6
+  - id: standard_grid_tol_1e-7
+    h_values: [0.04, 0.02, 0.01, 0.005]
+    normalized_gradient_tolerance: 1.0e-7
+  - id: coarse_grid_tol_1e-7
+    h_values: [0.08, 0.04, 0.02, 0.01]
+    normalized_gradient_tolerance: 1.0e-7
+stopping_rule:
+  optimizer_termination_required: true
+  loss_plateau_required: true
+  normalized_gradient_required: true
+  local_minimum_exact_hessian_gate_required: true
+fit_resolution_diagnostics:
+  reference: exact_finite_gamma_hessian_schur
+  report_finest_relative_error: true
+  report_last_two_curvature_relative_change: true
+  no_paper_facing_claims: true
+selection_rule:
+  role: development_only_protocol_freeze
+  ordered_criteria:
+    - maximize_seed_count_with_all_profile_points_pass
+    - maximize_total_profile_point_pass_count
+    - minimize_median_last_two_curvature_relative_change
+    - minimize_median_finest_profile_exact_relative_error
+    - lexicographic_arm_id
+  forbidden_metrics: [D, E_raw, E_SAEPS, eta, figure_appearance]
+  minimum_seed_count_for_freeze: 2
+output_root: outputs/runs/paper_strengthening_v1/s2_profile_development
