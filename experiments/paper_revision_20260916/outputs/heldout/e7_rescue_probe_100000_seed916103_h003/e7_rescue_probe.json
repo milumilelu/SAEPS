@@ -1,0 +1,47 @@
+{
+  "classification": "DEVELOPMENT_ONLY_RESCUE_PROBE",
+  "historical_e7_output_untouched": true,
+  "source_protocol_sha256": "107e68103fe09d4e91e4da17027ef2519f0964a8481e5a4c6be4eebe2414b5b9",
+  "source_code_sha256": "58aeeefbdd2c88f1d79565daebadf6668341eba828d060f166b58ab57571ec1d",
+  "seed": 916103,
+  "steps": [
+    0.003
+  ],
+  "max_inner_iterations": 100000,
+  "gradient_tolerance": 1e-08,
+  "gamma": 0.0027136335934580956,
+  "reference": 1.7717379293609774,
+  "rows": [
+    {
+      "seed": 916103,
+      "step": 0.003,
+      "side": "plus",
+      "max_iterations": 100000,
+      "iterations": 85580,
+      "normalized_full_penalty_gradient": 6.631131757181936e-09,
+      "max_abs_gradient": 3.66187735976152e-05,
+      "phi": 0.0040280338021279555,
+      "displacement_from_anchor": 0.02134192909319737,
+      "wall_seconds": 254.06364980000217,
+      "symmetric_curvature": 1.4966718515982183,
+      "reference": 1.7717379293609774,
+      "relative_difference": 0.1552521245972133
+    },
+    {
+      "seed": 916103,
+      "step": 0.003,
+      "side": "minus",
+      "max_iterations": 100000,
+      "iterations": 83044,
+      "normalized_full_penalty_gradient": 5.262015603701907e-09,
+      "max_abs_gradient": 2.6834340443676608e-05,
+      "phi": 0.0041037944090417675,
+      "displacement_from_anchor": 0.023564475990032436,
+      "wall_seconds": 255.71538389999478,
+      "symmetric_curvature": 1.4966718515982183,
+      "reference": 1.7717379293609774,
+      "relative_difference": 0.1552521245972133
+    }
+  ],
+  "claim_boundary": "This probe tests budget sensitivity only. It is not confirmation and cannot change the original E7 0/21 stationarity verdict."
+}

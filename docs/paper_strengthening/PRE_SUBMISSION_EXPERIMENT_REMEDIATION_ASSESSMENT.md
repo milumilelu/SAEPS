@@ -15,7 +15,7 @@
 
 | 检查报告意见 | 能否补救 | 推荐动作 | 能解决什么 | 不能解决什么 |
 |---|---|---|---|---|
-| Profile 收敛未建立 | **不能在当前协议内补救** | 保留 21/21 可计算、21/21 branch-comparable、20/21 参照接近、0/21 严格驻点、5/126 refinement 达标，以及历史 1/5；新增三层状态定义 | 让审稿人清楚 numerical consistency 与 convergence 的区别，并解释诊断的有限范围 | 不能把 20/21 改写成 profile validation，也不能证明局部二次模型在有限位移下可靠 |
+| Profile 收敛未建立 | **可通过新 rescue protocol 部分补救** | 保留原 0/21、1/5 结果；提高预算、修正 raw/normalized stop mismatch，并用多尺度误差预算和独立起点形成新 cohort | 若新 cohort 通过，可恢复“independently converged profile”支撑；当前 probe 已确认预算是部分失败源 | 916103 的 h=0.003 在 100000 步后仍有 15.5% 误差，说明不能只降门槛或只加预算 |
 | Profile 失败原因诊断 | **可以补强** | 使用 S2 v1/v2、中心一致性、Newton/basin、fit-window 和误差预算报告“数值/科学原因未决” | 说明已检查 conditioning、center consistency、finite-difference amplification 和 basin reachability | 不能排除方法在有限位移下本身失效 |
 | 经典 variable-projection / Schur 基线缺失 | **部分可以补救** | 把已有 VP0/SVD 后验结果作为非绑定 baseline appendix；报告 0/12、0/9 classical admissibility 和 TSVD 敏感性；明确无 exact γ=0 gold standard | 说明经典无阻尼目标为何在这些中心不可用，并回应“SAEPS 不是凭空与 raw 比”的问题 | 不能宣称 SAEPS 已优于经典 VP；matched finite-γ VP 与 SAEPS 代数上相同，不能当作独立阳性结果 |
 | 双参数 8/10 未达 9/10 | **可以通过降级定位补救** | 从主结论移到 secondary/directional evidence；保留失败 seed、state-center gate 和 `inconclusive` verdict | 降低过度外推风险，完整回答为何不能称为 joint-geometry confirmation | 不能补成 9/10，也不能证明跨问题泛化 |
@@ -29,36 +29,40 @@
 
 E7 的 profile 点并非算不出来。21/21 个步长满足 branch-comparison，20/21 与 Schur reference 在 10% 内接近；失败集中在优化精度和小步长误差地板：
 
-- 三个梯度门槛是 (10^{-8},10^{-10},10^{-12})，但每个位移点最多 1000 次 L-BFGS 迭代；
-- 记录显示 (10^{-8}) 级只有 5/42 branch refinements 达标，(10^{-10}) 和 (10^{-12}) 级为 0/42；
-- 对称差分的优化误差按 (h^{-2}) 放大，所以 (h=10^{-4}) 处即使 branch 可比，也可能出现明显曲率误差；
+- 三个梯度门槛是 `10^-8`, `10^-10`, `10^-12`，但每个位移点最多 1000 次 L-BFGS 迭代；
+- 记录显示 `10^-8` 级只有 5/42 branch refinements 达标，`10^-10` 和 `10^-12` 级为 0/42；
+- 对称差分的优化误差按 `h^-2` 放大，所以 `h=10^-4` 处即使 branch 可比，也可能出现明显曲率误差；
 - 既有误差呈 V 形：大步长受局部截断影响，小步长受 profile 优化误差影响；
 - 历史 V5 bridge 的 5 个 seed 都可计算，但只有 1/5 同时满足最细 profile error 和 last-two curvature-change 门槛。
 
-因此，原门控并非无意义地严格；它对于“严格有限位移 profile 收敛”这个强命题是合理的，但把全局固定梯度阈值直接用于所有 (h) 会把 solver precision、曲率分辨率和科学有效性混在一起。门控更像是**对强主张过严、对数值误差结构又不够针对**。
+因此，原门控并非无意义地严格；它对于“严格有限位移 profile 收敛”这个强命题是合理的，但把全局固定梯度阈值直接用于所有步长会把 solver precision、曲率分辨率和科学有效性混在一起。门控更像是**对强主张过严、对数值误差结构又不够针对**。
+
+还有一个更具体的实现问题：E7 把声明的 normalized-gradient levels 直接传给 PyTorch L-BFGS 的 `tolerance_grad`，但 L-BFGS 判断的是未归一化的最大绝对梯度；验收时又用 `||g||/(m max(||theta||,1))` 重新归一化。两者不是同一个量纲。已有 CSV 中同一 branch 在三个 tolerance 下得到完全相同的 objective 和 gradient，说明这些 level 实际上没有形成三条独立的收敛轨迹；固定的 `max_iter=1000` 和默认 `max_eval` 才是主要停止因素。这是可以修复的 implementation/numerical issue，不能把它简单写成方法失败。
 
 ### 可执行的 rescue protocol
 
 如果目标是保留 nonlinear-profile 支撑，应启动新的 S3 development/rescue，而不是改写 V5 结果。最小闭环为：
 
-1. 固定原锚点、原 (gamma)、原步长方向和独立起点规则；
-2. 将 1000 次预算提高到预先声明的预算，采用 safeguarded Newton/CG 或 L-BFGS + Newton polish；
-3. 用 positive-Hessian 下的 objective-error bound 设定每个 (h) 的允许 profile 误差：
-   [
-   2,deltaPhi(h)/h^2 leq 	au_{m profile}|H_{m red}|,
-   ]
-   不再只用一个与 (h) 无关的梯度数字；
+1. 固定原锚点、原 gamma、原步长方向和独立起点规则；
+2. 将 1000 次预算提高到预先声明的预算，采用 safeguarded Newton/CG 或 L-BFGS + Newton polish；同时把 optimizer 的 raw-gradient stop 与验收用的 normalized-gradient stop 分开实现，并记录真实 stop reason；
+3. 用 positive-Hessian 下的 objective-error bound 设定每个步长的允许 profile 误差：`2 deltaPhi(h) / h^2 <= tau_profile * |H_red|`，不再只用一个与步长无关的梯度数字；
 4. 对每个分支增加 independent-start repeat 和 objective non-increase 检查；
-5. 至少保留三个尺度，分别检查 branch stationarity、局部最小值、曲率随 (h^2) 的 plateau 和误差预算；
-6. 在看到结果前锁定 fit window、(	au_{m profile})、重复起点和失败处理。
+5. 至少保留三个尺度，分别检查 branch stationarity、局部最小值、曲率随 `h^2` 的 plateau 和误差预算；
+6. 在看到结果前锁定 fit window、`tau_profile`、重复起点和失败处理。
 
 只有当独立 rescue cohort 同时通过这些条件，才能把“SAEPS agrees with independently converged nonlinear profile curvature”重新列为 supported claim。若新 cohort 只显示更好的 numerical consistency，仍不能跳过 convergence certificate。
 
 ### 当前数据支持的门控敏感性结论
 
-对 E7 已保存的梯度记录做只读审计可见：若只把梯度门槛放宽到 (10^{-7}) 或 (10^{-6})，42/42 branches 都会被标记为数值达标；但这并不自动修复 (h^{-2}) 放大，也不能证明 profile 曲率误差已受控。反过来，原 (10^{-8}) 门槛下只有 1/21 个双侧 step 同时达标，说明“0/21 strict stationarity”主要反映门槛与预算组合，而不是 21 个点完全没有下降。
+对 E7 已保存的梯度记录做只读审计可见：若只把梯度门槛放宽到 `10^-7` 或 `10^-6`，42/42 branches 都会被标记为数值达标；但这并不自动修复 `h^-2` 放大，也不能证明 profile 曲率误差已受控。反过来，原 `10^-8` 门槛下只有 1/21 个双侧 step 同时达标，说明“0/21 strict stationarity”主要反映门槛与预算组合，而不是 21 个点完全没有下降。
 
 这个审计支持“门控需要按误差预算重构”，不支持事后把 0/21 改报成 PASS。
+
+### Rescue probe 已得到的判别证据
+
+在不覆盖原 E7 输出的独立 namespace 中，30,000 步 probe 对三个中心的三个中间步长进行了测试。916101 的三步相对误差为 0.008%–0.139%，916102 为 0.897%–2.611%，916103 在 0.01 和 0.001 处为 0.090% 和 0.367%，但 0.003 处为 14.41%。将该点预算提高到 100,000 步后，梯度降至 `5.3e-9`–`6.6e-9`，相对误差仍为 15.53%。
+
+这说明：1000 步预算确实解释了部分失败，但 profile 缺口不能归结为门槛过严。916103 的中间步长需要额外的 branch/basin 或有限位移非线性诊断。完整结果见 `docs/paper_strengthening/E7_RESCUE_PROBE_REPORT.md`。
 
 ## 风险2：经典基线怎样补救
 
