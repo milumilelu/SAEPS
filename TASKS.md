@@ -14,7 +14,10 @@ generalization limits, and claim narrowing before submission.
   historical V5 bridge scientific status remains NOT_SUPPORTED).
 - [x] S2 bounded development executed; profile-point gates passed but no
   candidate fit window passed the unchanged P3 fit-quality gate. S2 is
-  `FAILED`, and no profile confirmation is authorized.
+  `FAILED`, and no profile confirmation is authorized. A follow-up center-
+  refinement diagnostic explains the seed-72 negative curvature but still
+  fails the multi-scale fit gate; see
+  `docs/paper_strengthening/S2_CENTER_REFINEMENT_ANALYSIS.md`.
 - [ ] S3 independently authorized profile/baseline validation.
 - [ ] S4 generalization extension or explicit limited-claims decision.
 - [ ] S5 manuscript, artifact, and submission audit.

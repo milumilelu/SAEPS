@@ -1,0 +1,33 @@
+schema_version: 1
+protocol_id: SAEPS-Q2-STRENGTHENING-S2-CENTER-REFINEMENT
+phase: S2_CENTER_REFINEMENT_DEVELOPMENT
+namespace: paper_strengthening_v1
+execution_authorized: true
+confirmation_authorized: false
+benchmark: Allen-Cahn
+source_arm: coarse_grid_tol_1e-7
+source_profile_root: outputs/runs/paper_strengthening_v1/s2_profile_development/arm_coarse_grid_tol_1e-7
+development_seeds: [70, 71, 72]
+gamma_alpha: 1.0e-8
+center_objective: 0.5_mean_residual_squared_plus_gamma_over_2m_state_displacement_squared
+center_refinement:
+  required: true
+  independent_start: source_checkpoint_theta0
+  normalized_gradient_tolerance: 1.0e-7
+  exact_local_minimum_hessian_gate_required: true
+profile_points_reused_read_only: true
+continuation_forbidden: true
+fit_windows:
+  - id: all_four_scales
+    h_values: [0.08, 0.04, 0.02, 0.01]
+  - id: three_common_scales
+    h_values: [0.04, 0.02, 0.01]
+  - id: two_finest_scales
+    h_values: [0.02, 0.01]
+fit_quality_source: configs/p3_profile.yaml
+selection_rule:
+  role: development_only_center_definition_diagnostic
+  no_threshold_relaxation: true
+  no_profile_point_replacement: true
+  no_paper_facing_claims: true
+output_root: outputs/runs/paper_strengthening_v1/s2_center_refinement_diagnostic

@@ -1,0 +1,154 @@
+{
+  "benchmark": "Allen-Cahn",
+  "center_after_loss_mean": 0.0008849056710714181,
+  "center_before_loss_mean": 0.0008849052656708024,
+  "center_diagnostics": {
+    "gradient_pass": true,
+    "gradient_tolerance": 1e-07,
+    "hessian_pass": true,
+    "hessian_symmetry_relative_error": 1.0093449037970832e-16,
+    "hessian_tau": 4.9347753433886265e-08,
+    "local_minimum_gate": "PASS",
+    "loss_mean": 0.0008849056710714181,
+    "maximum_state_eigenvalue_mean_objective": 493.4775343388626,
+    "minimum_state_eigenvalue_mean_objective": 4.940793133571007e-06,
+    "negative_eigenvalue_count": 0,
+    "normalized_objective_gradient": 9.938185768805645e-08
+  },
+  "center_loss_improvement": -4.054006157465026e-10,
+  "center_optimization": {
+    "cycles": [
+      {
+        "cycle": 0,
+        "gradient_pass": true,
+        "gradient_tolerance": 1e-07,
+        "hessian_pass": true,
+        "hessian_symmetry_relative_error": 1.0093449037970832e-16,
+        "hessian_tau": 4.9347753433886265e-08,
+        "local_minimum_gate": "PASS",
+        "loss_mean": 0.0008849056710714181,
+        "maximum_state_eigenvalue_mean_objective": 493.4775343388626,
+        "minimum_state_eigenvalue_mean_objective": 4.940793133571007e-06,
+        "negative_eigenvalue_count": 0,
+        "normalized_objective_gradient": 9.938185768805645e-08,
+        "trust_relative_radius": 0.03
+      }
+    ],
+    "escape_cycles_used": 0,
+    "failure_reason": null,
+    "final": {
+      "cycle": 0,
+      "gradient_pass": true,
+      "gradient_tolerance": 1e-07,
+      "hessian_pass": true,
+      "hessian_symmetry_relative_error": 1.0093449037970832e-16,
+      "hessian_tau": 4.9347753433886265e-08,
+      "local_minimum_gate": "PASS",
+      "loss_mean": 0.0008849056710714181,
+      "maximum_state_eigenvalue_mean_objective": 493.4775343388626,
+      "minimum_state_eigenvalue_mean_objective": 4.940793133571007e-06,
+      "negative_eigenvalue_count": 0,
+      "normalized_objective_gradient": 9.938185768805645e-08,
+      "trust_relative_radius": 0.03
+    },
+    "initial_polish": {
+      "closure_calls": 3500,
+      "failure_reason": null,
+      "gradient_pass": true,
+      "loss_mean": 0.0008849056710714181,
+      "normalized_gradient": 9.938185768805645e-08,
+      "outer_steps": 28,
+      "plateau_pass": true,
+      "status": "PASS"
+    },
+    "negative_direction_probes": [],
+    "status": "PASS"
+  },
+  "config_hash": "7ed1a0716233d5822c2194b30ce168aad44c69cb2fa3bb0cb09aa80b96c49243",
+  "confirmation_authorized": false,
+  "curvatures_with_refined_center": [
+    {
+      "curvature": 5.435896425432223,
+      "h": 0.08
+    },
+    {
+      "curvature": 5.425234813326964,
+      "h": 0.04
+    },
+    {
+      "curvature": 5.40320677665157,
+      "h": 0.02
+    },
+    {
+      "curvature": 5.299023310260716,
+      "h": 0.01
+    }
+  ],
+  "elapsed_seconds": 9.36900179999975,
+  "fit_windows": {
+    "all_four_scales": {
+      "curvature": 0.014776264377541369,
+      "design_condition": 807.0701238902677,
+      "fit_quality_gate": "FAIL",
+      "normalized_rmse": 0.0012754783673175024,
+      "point_count": 8,
+      "r_squared": 0.9999782653982942,
+      "status": "PASS"
+    },
+    "three_common_scales": {
+      "curvature": 0.014757409038890168,
+      "design_condition": 3086.0672769878975,
+      "fit_quality_gate": "FAIL",
+      "normalized_rmse": 0.0003462520502031275,
+      "point_count": 6,
+      "r_squared": 0.9999987252033014,
+      "status": "PASS"
+    },
+    "two_finest_scales": {
+      "curvature": 0.014723071002698825,
+      "design_condition": 11952.286212866793,
+      "fit_quality_gate": "FAIL",
+      "normalized_rmse": 0.00010427432806599071,
+      "point_count": 4,
+      "r_squared": 0.9999999130720655,
+      "status": "PASS"
+    }
+  },
+  "gamma": 0.0018078137925064673,
+  "gamma_alpha": 1e-08,
+  "namespace": "paper_strengthening_v1",
+  "phase": "S2_CENTER_REFINEMENT_DEVELOPMENT",
+  "profile_points_reused_read_only": true,
+  "protocol_id": "SAEPS-Q2-STRENGTHENING-S2-CENTER-REFINEMENT",
+  "provenance": {
+    "device": "cpu",
+    "dtype": "float64",
+    "git_branch": "main",
+    "git_commit": "20fb48cac9c4bbc4595368271b3f6738a52ebdc9",
+    "git_dirty": true,
+    "git_status_porcelain": "D FINAL_VALIDATION_REPORT.md\n D PUBLIC_RELEASE_REPORT.md\n D REPRODUCIBILITY.md\n D \"SAEPS Master Research Program v4.0.md\"\n D V4_FINAL_AUDIT_REPORT.md\n D V5_FINAL_JCP_AUDIT_REPORT.md\n D V5_JCP_MINIMAL_PROTOCOL.md\n D pelican_bicycle_wing_puzzle.svg\n?? .workbuddy/\n?? CODEX_SAEPS_7DAY_EXPERIMENT_PLAN.md\n?? REACHABILITY_REPORT.md\n?? SAEPS-linux-preflight/\n?? SAEPS-so-week1/\n?? SAEPS_E2_E3_followup.md\n?? SAEPS_reliability_research_package.zip\n?? SAEPS_report_correction_tasks_20260918.md\n?? configs/paper_strengthening/center_refinement_development.yaml\n?? exact_fixed_state_baseline.py\n?? \"paper/Cover Letter.docx\"\n?? paper/README.txt\n?? paper/fig1.pdf\n?? paper/highlights.docx\n?? paper/manuscript.aux\n?? paper/manuscript.log\n?? paper/manuscript.out\n?? paper/manuscript.spl\n?? paper/manuscript.tex\n?? paper/manuscript3.pdf\n?? paper/revise/SAEPS_E2_E3_followup.md\n?? paper/revise/SAEPS_experiment_tasks.md\n?? paper/revise/SAEPS_manuscript_integrated.pdf\n?? paper/revise/SAEPS_manuscript_integrated.tex\n?? paper/revise/SAEPS_manuscript_narrative.pdf\n?? paper/revise/SAEPS_manuscript_narrative.tex\n?? paper/revise/SAEPS_manuscript_revised.pdf\n?? paper/revise/SAEPS_manuscript_revised.tex\n?? paper/revise/SAEPS_revision_notes.md\n?? paper/revise/SAEPS_revision_package.zip\n?? paper/revise/integration_log.json\n?? paper/revise/narrative_pass_changelog.json\n?? paper/revise/paper_numbers.json\n?? paper/revise/paper_numbers.tex\n?? paper/revise/paper_tables.tex\n?? paper/word_export/\n?? \"paper/\\346\\256\\213\\345\\267\\256\\347\\251\\272\\351\\227\\264\\346\\267\\267\\346\\267\\206-\\347\\212\\266\\346\\200\\201\\351\\200\\202\\345\\272\\224\\346\\200\\247\\345\\210\\206\\346\\236\\220.pptx\"\n?? scripts/run_paper_strengthening_s2_center_refinement.py\n?? sic/\n?? tmp_current_goal.txt\n?? \"\\344\\273\\273\\345\\212\\241\\350\\257\\264\\346\\230\\216/\"\n?? \"\\345\\217\\202\\350\\200\\203\\346\\226\\207\\347\\214\\256/\"",
+    "machine": "AMD64",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.3.5",
+      "torch": "2.13.0"
+    },
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_executable": "C:\\Users\\RZF\\Desktop\\博士课题资料\\SAEPS\\.venv\\Scripts\\python.exe",
+    "python_version": "3.12.14",
+    "timestamp": "2026-09-20T06:51:19.375302+00:00",
+    "torch_cuda_available": false
+  },
+  "role": "development_only_center_definition_diagnostic",
+  "schema_version": 1,
+  "seed": 71,
+  "source_hashes": {
+    "configs/p4_screening.yaml": "9f0fb03f3165f4977f79bfe356973c3c4e5c3bec83c143a444fa695e01d1187c",
+    "configs/v4_3/allen_cahn_development.yaml": "955df5cdbabe375e1b627253579e50c1bb26fde3b5e185aee7fa9df483c57038",
+    "source_checkpoint_manifest": "f937437ee699bacdc6137ac9327663fa1ca13b2e43b06eab2a228e9dc1353a87",
+    "source_model_state": "408c7675ac688a97bc495c8eb0144006a0faa17f88cc5d3dc3c46d62942b0888",
+    "source_profile_record": "a85474d1f57307f5e846ab2bdcabd6ab716baefa6cb11c9aaa24d639702feadc"
+  },
+  "status": "PASS"
+}

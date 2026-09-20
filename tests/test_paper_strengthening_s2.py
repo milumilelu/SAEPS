@@ -54,3 +54,29 @@ def test_s2_failed_lock_hashes_and_authorization_are_auditable() -> None:
     assert lock["scientific_profile_claim_authorized"] is False
     assert record["locked_config_sha256"] == observed
     assert record["status"] == "FAILED"
+
+
+def test_center_refinement_diagnostic_explains_seed72_without_authorizing_claims() -> None:
+    summary = _read(
+        "outputs/runs/paper_strengthening_v1/s2_center_refinement_diagnostic/S2_CENTER_REFINEMENT_SUMMARY.json"
+    )
+    assert summary["planned_denominator"] == 3
+    assert summary["terminal_count"] == 3
+    assert summary["center_gate_pass_count"] == 3
+    assert summary["confirmation_authorized"] is False
+    assert summary["scientific_profile_claim_authorized"] is False
+    records = sorted(
+        (ROOT / "outputs/runs/paper_strengthening_v1/s2_center_refinement_diagnostic").rglob(
+            "result.json"
+        )
+    )
+    assert len(records) == 3
+    seed72 = json.loads(next(path for path in records if "seed_72" in str(path)).read_text(encoding="utf-8"))
+    assert seed72["center_loss_improvement"] > 0.0
+    assert all(
+        row["curvature"] > 0.0 for row in seed72["curvatures_with_refined_center"]
+    )
+    assert all(
+        row["fit_quality_pass_count"] == 0
+        for row in summary["fit_window_summaries"]
+    )
