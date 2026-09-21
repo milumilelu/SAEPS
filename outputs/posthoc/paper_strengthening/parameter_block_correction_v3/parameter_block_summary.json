@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "classification": "POSTHOC_READ_ONLY_MECHANISM_ANALYSIS",
+  "protocol": "configs/paper_strengthening/parameter_block_correction_v1.yaml",
+  "git_commit": "33e1c5daa964c5026efcac1f2da3d78acb1e9a61",
+  "new_training": false,
+  "planned_rows": 39,
+  "identity_pass_rows": 39,
+  "architecture_rows": 18,
+  "exact_block_rows": 21,
+  "exact_block_planned_files": 25,
+  "exact_block_excluded_files": [
+    {
+      "path": "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_81.json",
+      "benchmark": "Allen-Cahn",
+      "seed": 81,
+      "analysis_valid": false,
+      "numerical_status": null,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    },
+    {
+      "path": "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_57.json",
+      "benchmark": "Burgers",
+      "seed": 57,
+      "analysis_valid": false,
+      "numerical_status": null,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    },
+    {
+      "path": "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_61.json",
+      "benchmark": "Burgers",
+      "seed": 61,
+      "analysis_valid": false,
+      "numerical_status": null,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    },
+    {
+      "path": "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_63.json",
+      "benchmark": "Burgers",
+      "seed": 63,
+      "analysis_valid": false,
+      "numerical_status": null,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    }
+  ],
+  "groups": {
+    "E6_architecture::base_2_16_1": {
+      "planned_rows": 6,
+      "median_E_raw": 16.79662666408509,
+      "median_E_SAEPS": 0.0009224449385141187,
+      "median_E_block": 0.0001067762922272631,
+      "block_vs_se_wins": 6,
+      "block_vs_raw_wins": 6,
+      "all_identity_checks_pass": true,
+      "signed_error_median_raw": 28.057043625093694,
+      "signed_error_median_se": -0.0010039251720748155,
+      "signed_error_median_block": -0.00010893267315914557
+    },
+    "E6_architecture::deep_2_16_16_1": {
+      "planned_rows": 6,
+      "median_E_raw": 17.265526244378304,
+      "median_E_SAEPS": 0.00043223501955742485,
+      "median_E_block": 7.96562719621757e-05,
+      "block_vs_se_wins": 5,
+      "block_vs_raw_wins": 6,
+      "all_identity_checks_pass": true,
+      "signed_error_median_raw": 28.113244007388964,
+      "signed_error_median_se": 0.0004122085468409864,
+      "signed_error_median_block": 0.00010686574111495872
+    },
+    "E6_architecture::wide_2_32_1": {
+      "planned_rows": 6,
+      "median_E_raw": 16.931359564574073,
+      "median_E_SAEPS": 0.0006087276537267003,
+      "median_E_block": 0.00020921796065509097,
+      "block_vs_se_wins": 5,
+      "block_vs_raw_wins": 6,
+      "all_identity_checks_pass": true,
+      "signed_error_median_raw": 28.087312241217987,
+      "signed_error_median_se": -0.0001052417411848694,
+      "signed_error_median_block": 8.35724637067159e-05
+    },
+    "exact_fixed_state_v3::Allen-Cahn": {
+      "planned_rows": 9,
+      "median_E_raw": 20.372758405523587,
+      "median_E_SAEPS": 0.2785667026012501,
+      "median_E_block": 0.045473057240858504,
+      "block_vs_se_wins": 9,
+      "block_vs_raw_wins": 9,
+      "all_identity_checks_pass": true,
+      "signed_error_median_raw": 102.77748533761579,
+      "signed_error_median_se": 1.3505670594493608,
+      "signed_error_median_block": -0.22511314237685554
+    },
+    "exact_fixed_state_v3::Burgers": {
+      "planned_rows": 12,
+      "median_E_raw": 27.72684536998967,
+      "median_E_SAEPS": 0.07503228598062522,
+      "median_E_block": 0.08849221225993426,
+      "block_vs_se_wins": 5,
+      "block_vs_raw_wins": 12,
+      "all_identity_checks_pass": true,
+      "signed_error_median_raw": 763.2960912881338,
+      "signed_error_median_se": 0.9805829576437759,
+      "signed_error_median_block": -1.7365543049619419
+    }
+  },
+  "source_sha256": {
+    "experiments\\paper_revision_20260916\\outputs\\development\\e6\\e6_architecture_accuracy.csv": "a1d164abf366788d31d5c5ca74937f3ec50b21c950faebd8e4a201587e32146d",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_75.json": "b005c48821a818eca397a9e4f6c878d5d36bf297c95edbd04e9d53f4e9e93151",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_76.json": "bc8cf9109132040319e2c7278cb8823ab23e42fd669bbad93afc7b0d7fe0161e",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_77.json": "3d707ba0ee110688bbe955d5044b6f1938261f589d2b58b75fe181ebc2807c83",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_78.json": "637368ec4fa0bb0e5025e71f9e130c1abab65af1fcb497e2d631092e01ec0768",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_79.json": "f245f5791150ab94e672b3751b8f08c2161cec27ddbcbe5c50de47c526834645",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_80.json": "df584bfaf877afebed06f5cbef9fc816df1b424e4cb4af8d36a483cdc8659966",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_81.json": "a444f6c30ec8d8512f717a911328e1c33ba243de610d3dd77ddf4c1a7657d16d",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_82.json": "ed9176c5b69126855a0a097ff0ccb778761d606e671f88dad5ed4d6545c5c1e5",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_83.json": "7db6776bbcfe203f773d412edf83a938350335e1208850d199a0897e1f82598c",
+    "outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_84.json": "b9c36ff5592c8bb1eb194728081363b05ba980b4020556db4b2041b03b85990c",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_55.json": "0a9675fc92a1582e708edb6cf531f45cb49db7fb27b7a4be6e08e9621b92565f",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_56.json": "910873f8b314ebfdf7e7db39d6b7679e6c727c20114b80440423621155de33bc",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_57.json": "8a6128bfab73cc8b0baba77ab399adc2fad312226078996d7b58f092c1e55ed2",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_58.json": "9e5771bdbdc7b11449cd6e5b12535f354f05c29462b2080aab05a6c088529115",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_59.json": "c114a44f04d4fa224ac87315a478f79a22596d161a0c12579f998cf31be74b69",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_60.json": "e9279d0066d2e70f795eff0bd9a61085ddafe6ea718ebaf52f0166fe438f4252",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_61.json": "309a291b6ca56fcac0ddc00709cca5568f3f62042b046f50b4f7589a967f094e",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_62.json": "1ec4ec3b09ca34c62c863d8744fac2f5560b445cd55c6c1c9b4778b8babb352e",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_63.json": "044553b825d9c26331914cf41dfbde143970d44e37bf20df0f6ff1ae54cd5205",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_64.json": "e627436c9468e2e3060aa3d3ad9120ccdd6d8c67e6a301c3b7b7ddc5311be627",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_65.json": "2cbb071aa476043dc13283501ddc231a6ddf14f6dc242c34c39d17a78b01bc02",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_66.json": "0825ba2c573b65180691f28433ed5d0ee1785061a47d974cfc017217682883ce",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_67.json": "8fd2dbdb2b09d82c1bc069362ba0d041e993f5d608416b7066e121e378517cae",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_68.json": "0e291feac3f34c20b92ff0882abd768a6a853ea2142399f119eb0f1bf39eeac2",
+    "outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_69.json": "08bfd58eae9a6ecab524e7c8ad84968f73eac544cd0765dd1247c26155c7da16"
+  },
+  "claim_boundary": "The correction is a paired posthoc candidate. Rows share data seeds and initialisations within cohorts; this is not an independent confirmation or a universal dominance result."
+}

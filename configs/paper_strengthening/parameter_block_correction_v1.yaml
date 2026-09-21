@@ -1,0 +1,18 @@
+protocol_id: SAEPS-PAPER-REVISION-PARAMETER-BLOCK-V1
+status: DEVELOPMENT_ONLY
+classification: POSTHOC_READ_ONLY_MECHANISM_ANALYSIS
+purpose: signed_error_decomposition_and_low_dimensional_exact_parameter_block_correction
+historical_outputs_immutable: true
+new_training: false
+sources:
+  architecture_csv: experiments/paper_revision_20260916/outputs/development/e6/e6_architecture_accuracy.csv
+  exact_block_root: outputs/posthoc/exact_fixed_state_v3
+formula:
+  f_block: H_lambda_lambda_exact - G_lambda_theta (G_theta_theta + gamma I)^-1 G_theta_lambda
+  equivalent_update: F_se_GN + H_lambda_lambda_exact - G_lambda_lambda
+  denominator_floor: 1.0e-8
+claim_boundary: >-
+  Development-only posthoc analysis. The 18 architecture rows are paired,
+  non-independent records and are not a confirmation result. The correction
+  is evaluated as a mechanism-derived candidate; no universal dominance,
+  covariance interpretation or nonlinear-profile claim is authorized.

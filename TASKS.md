@@ -749,3 +749,16 @@ E5C denominator 45 preserved: 40 complete, 1 interrupted, 4 unstarted. Original 
 - [x] All 12/12 rows passed, with maximum verified residual 7.01e-11 and maximum difference from dense reference 2.99e-8;
 - [x] Reported the result as matched-damping operator agreement only; no large-network trained-accuracy claim was added.
 
+## Q2 paper-strengthening — parameter-block correction posthoc audit
+
+**状态:** `PASSED` — read-only development mechanism analysis
+
+- [x] Declared an isolated `parameter_block_correction_v1` development protocol;
+- [x] Recomputed the low-dimensional exact-parameter-block correction from the saved E6 architecture table and exact-block v3 records;
+- [x] Preserved signed errors, paired denominators and all saved invalid exact-block files;
+- [x] Verified `F_block = F_se_GN + H_ll_exact - G_ll` for 39/39 valid rows;
+- [x] Generated machine-readable rows, summary and report under `outputs/posthoc/paper_strengthening/parameter_block_correction_v3/`;
+- [x] Added regression tests for the algebraic identity and source denominators.
+
+Scientific interpretation: the correction improves the E6 architecture rows in 16/18 cases (18/18 remain better than raw), while the independent scalar posthoc queue gives 9/9 improvements for Allen--Cahn and 5/12 for Burgers. This is paired posthoc evidence, not a confirmation result or a universal dominance claim.
+

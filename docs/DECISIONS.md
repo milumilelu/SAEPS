@@ -24,6 +24,14 @@ affected_configs:
 authorizing_protocol:
 ```
 
+## D-Q2-005 — Retain low-dimensional exact parameter-block correction as a candidate
+
+Date: 2026-09-21. Scope: development-only, read-only posthoc analysis.
+
+The saved E6 architecture table and exact-block v3 records were reprocessed without retraining or changing any locked configuration. The candidate
+`F_block = H_ll - G_lt (G_tt + gamma I)^-1 G_tl` was evaluated with signed errors on a common `|H_red|+1e-8` denominator. The algebraic equivalent
+`F_block = F_se_GN + H_ll - G_ll` passed for all 39 valid rows. The 18 E6 architecture rows improved over SAEPS in 16/18 cases and remained better than raw in 18/18; the exact-block queue improved 9/9 Allen--Cahn and 5/12 Burgers rows, with four of 25 planned exact-block files retained as invalid and excluded from valid comparisons. These are paired, posthoc mechanism results, not independent confirmation and not evidence of universal dominance. Evidence: `outputs/posthoc/paper_strengthening/parameter_block_correction_v3/parameter_block_summary.json`.
+
 ## D-000 — Adopt v2.0
 
 ```text

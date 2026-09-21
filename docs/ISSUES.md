@@ -742,3 +742,73 @@ affected_runs: paper_strengthening_v1 S2 development records only; historical P0
 protocol_impact: S2 engineering gate is FAILED. No profile confirmation, rescue, threshold relaxation, seed replacement or fit-window selection based on a favorable result is authorized. The nonlinear-profile claim remains NOT_SUPPORTED and the manuscript must use the claim ledger's finite-damping local-diagnostic wording.
 resolution_or_status: STOP bounded strengthening at S2; retain all raw records and report the limitation. A new independently authorized protocol would be required to continue.
 ```
+
+## I-Q2-002 — S2-v2 center/profile numerical modifications remain unsuccessful
+
+```text
+date: 2026-09-20
+issue_id: I-Q2-002
+phase: Q2 paper-strengthening S2-v2 numerical modification development
+classification: numerical failure / scientific failure
+description: Center-consistent finite-gamma objectives, tighter 1e-8 and 1e-9 stationarity candidates, Newton polishing, damped saddle rescue, and a basin-finder plus strict-polish workflow were evaluated in isolated development namespaces. The best complete cohort has only 5/48 profile points passing across six records; two seeds fail the center objective non-increase gate and no multi-scale fit window passes any complete record cohort. A valid h=0.02 pair has a relative loss-error budget of about 4.14e-4, below the registered 5% budget, so the remaining limitation is local profile-state optimization/availability rather than the stated finite-difference error budget.
+evidence: docs/paper_strengthening/S2_V2_MODIFICATION_REPORT.md; outputs/runs/paper_strengthening_v2_basin_newton/s2_profile_development/S2_V2_DEVELOPMENT_SUMMARY.json; outputs/runs/paper_strengthening_v2_basin_newton/s2_profile_development/.
+affected_runs: paper_strengthening_v2* development namespaces only; v1 S2, locked configurations and historical outputs are unchanged.
+protocol_impact: No confirmation executable or scientific profile claim is authorized. The nonlinear-profile bridge remains NOT_SUPPORTED. Further solver or benchmark changes require a separately authorized protocol and must not be selected from confirmation outcomes.
+resolution_or_status: STOP the current bounded modification series; retain every failed and partial record and narrow the manuscript claim to the finite-damping, checkpoint-dependent local diagnostic.
+```
+
+## I-Q2-003 — Corrected E7 profile rescue does not establish a three-scale certificate
+
+```text
+date: 2026-09-21
+issue_id: I-Q2-003
+phase: Q2 paper-strengthening E7 rescue v2
+classification: numerical failure / scientific failure
+description: A separately declared rescue protocol separated the residual-normalised
+gradient gate from LBFGS raw-gradient stopping, added safeguarded Newton polishing,
+positive-Hessian objective-error bounds, two independent starts and a fixed three-scale
+h^2 fit. All 9 planned profile points were executed. Five points pass the complete
+point-level certificate, but no centre passes the three-scale profile certificate.
+Centre 916101 has 3/3 point-level passes but h^2-fit R^2=0.404 and 12.2% intercept
+error; 916102 has 2/3 points because one displaced branch fails independent-start and
+positive-Hessian checks; 916103 has 0/3 point-level passes. The strict fallback was
+used and retained on 15/36 independent-start records.
+evidence: outputs/posthoc/paper_strengthening/e7_rescue_v2_summary.json;
+docs/paper_strengthening/E7_RESCUE_V2_REPORT.md;
+configs/paper_strengthening/e7_profile_rescue_v2.yaml.
+affected_runs: E7 rescue v2 development namespace only; locked E7, V5.2B and all
+historical confirmation outputs are unchanged.
+protocol_impact: The solver mismatch and part of the original budget limitation are
+repaired diagnostically, but the nonlinear-profile equivalence claim remains
+unsupported. The result identifies finite-displacement curvature drift and basin/
+positive-Hessian reachability as remaining limitations; no threshold relaxation or
+retrospective reclassification is authorized.
+resolution_or_status: Rescue protocol completed with scientific gate FAILED. Retain
+the stronger finite-damping local-diagnostic claim and report the profile bridge as
+unresolved/unsupported.
+```
+
+## I-Q2-004 — Matched-alpha audit does not extend large-state accuracy
+
+```text
+date: 2026-09-21
+issue_id: I-Q2-004
+phase: Q2 paper-strengthening matched-alpha operator audit
+classification: scientific scope limitation
+description: A read-only small coupled checkpoint audit evaluates explicit dense,
+matrix-free CG and scaled LSQR at alpha=1e-8, 1e-6, 1e-4 and 1e-2. All 12/12
+same-gamma rows pass, with maximum verified residual 7.01e-11 and maximum dense
+reference difference 2.99e-8. The audit does not include a trained 100001-state
+alpha=1e-8 checkpoint and therefore cannot establish large-network accuracy.
+evidence: outputs/posthoc/paper_strengthening/e8_matched_alpha_summary.json;
+docs/paper_strengthening/E8_MATCHED_ALPHA_AUDIT.md;
+configs/paper_strengthening/e8_matched_alpha_audit.yaml.
+protocol_impact: The operator-feasibility claim is strengthened across the damping
+grid, while the existing alpha=1e-2 large-state result remains cost-only.
+resolution_or_status: PASSED as a descriptive audit; retain the stated scope limit.
+```
+## I-Q2-005 — Parameter-block correction is beneficial but not uniformly dominant
+
+Date: 2026-09-21. Classification: scientific limitation (development-only posthoc).
+
+The low-dimensional exact parameter-block correction improves 16/18 paired E6 architecture records, but worsens two individual records. In the saved scalar exact-block queue it improves 9/9 Allen--Cahn and 5/12 Burgers valid rows; four of 25 planned files are already invalid frozen centers and remain excluded with their saved reasons. The worsened rows are retained because signed GN and relaxation errors can cancel. No threshold, seed, benchmark, gamma or locked configuration was changed. Evidence: `outputs/posthoc/paper_strengthening/parameter_block_correction_v3/parameter_block_rows.csv` and `parameter_block_summary.json`.
