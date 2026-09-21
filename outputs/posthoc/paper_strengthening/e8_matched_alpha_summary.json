@@ -1,0 +1,96 @@
+{
+  "audit_type": "E8_MATCHED_ALPHA_OPERATOR_AUDIT",
+  "historical_outputs_immutable": true,
+  "planned_rows": 12,
+  "observed_rows": 12,
+  "pass_rows": 12,
+  "complete_grid": true,
+  "max_relative_residual": 7.005515523561471e-11,
+  "max_accuracy_vs_dense_reference": 2.992839728037326e-08,
+  "by_alpha": {
+    "1e-08": {
+      "rows": 3,
+      "pass": 3,
+      "max_relative_residual": 7.005515523561471e-11,
+      "max_accuracy_vs_dense_reference": 2.992839728037326e-08,
+      "methods": {
+        "explicit": {
+          "iterations": 1,
+          "reported_total_seconds": 0.000324200009345077
+        },
+        "CG": {
+          "iterations": 650,
+          "reported_total_seconds": 10.893647000004421
+        },
+        "scaled_LSQR": {
+          "iterations": 4300,
+          "reported_total_seconds": 147.6644978999975
+        }
+      }
+    },
+    "1e-06": {
+      "rows": 3,
+      "pass": 3,
+      "max_relative_residual": 5.01691274795683e-11,
+      "max_accuracy_vs_dense_reference": 2.332883438054252e-09,
+      "methods": {
+        "explicit": {
+          "iterations": 1,
+          "reported_total_seconds": 0.00020629999926313758
+        },
+        "CG": {
+          "iterations": 233,
+          "reported_total_seconds": 4.097976399993058
+        },
+        "scaled_LSQR": {
+          "iterations": 3755,
+          "reported_total_seconds": 127.72257810000156
+        }
+      }
+    },
+    "0.0001": {
+      "rows": 3,
+      "pass": 3,
+      "max_relative_residual": 5.6077949523421384e-11,
+      "max_accuracy_vs_dense_reference": 2.1472131742267418e-10,
+      "methods": {
+        "explicit": {
+          "iterations": 1,
+          "reported_total_seconds": 0.0002066000015474856
+        },
+        "CG": {
+          "iterations": 79,
+          "reported_total_seconds": 1.6037219999998342
+        },
+        "scaled_LSQR": {
+          "iterations": 3356,
+          "reported_total_seconds": 118.2112621999986
+        }
+      }
+    },
+    "0.01": {
+      "rows": 3,
+      "pass": 3,
+      "max_relative_residual": 6.196946559167148e-11,
+      "max_accuracy_vs_dense_reference": 2.6379397941299184e-11,
+      "methods": {
+        "explicit": {
+          "iterations": 1,
+          "reported_total_seconds": 0.00020480000239331275
+        },
+        "CG": {
+          "iterations": 29,
+          "reported_total_seconds": 0.7327311999979429
+        },
+        "scaled_LSQR": {
+          "iterations": 3118,
+          "reported_total_seconds": 106.83722770000168
+        }
+      }
+    }
+  },
+  "source_sha256": "381fc1e3ca42aef89cf461df68954820070d74976044e0eb512cefc1d665ee17",
+  "resource_manifest_sha256": "45438c4139a7e449722afcc9858ac4989a66a7ca1508e6a6d84da73e38cf33b7",
+  "config_sha256": "8a9f6494df98c9d5b447bb33f37369dc6ee74672d73fd2725797c433da0aa0f7",
+  "claim_boundary": "Same-gamma dense/CG/LSQR agreement only; no large-network trained accuracy claim."
+}

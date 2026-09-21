@@ -1,0 +1,15 @@
+protocol_id: SAEPS-PAPER-REVISION-E8-MATCHED-ALPHA-AUDIT
+status: DEVELOPMENT_ONLY
+purpose: same_gamma_dense_cg_lsqr_operator_agreement
+historical_outputs_immutable: true
+source_runner: experiments/paper_revision_20260916/src/e8_matched_cost.py
+seeds: [215]
+repeats: 1
+alpha_grid: [1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2]
+methods: [explicit, CG, scaled_LSQR]
+initial_guess: zero
+reference: dense_cholesky_at_same_gamma
+claim_boundary: >-
+  This is an operator correctness and matched-damping audit. It does not validate
+  trained large-network curvature accuracy or transfer the alpha=1e-2 scalability
+  result into an alpha=1e-8 accuracy claim.

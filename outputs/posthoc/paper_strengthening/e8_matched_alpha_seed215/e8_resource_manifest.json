@@ -1,0 +1,59 @@
+{
+  "classification": "NEW_POSTHOC_READ_ONLY",
+  "task": "E8_matched_gamma_cost",
+  "environment": {
+    "repository": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS",
+    "ref": "jcp-submission-v1",
+    "commit": "jcp-submission-v1",
+    "commit_subject": "Record SAEPS public release audit (#6)",
+    "commit_date": "2026-08-27T13:53:16+08:00"
+  },
+  "resources": {
+    "device": "cpu",
+    "dtype": "float64",
+    "cpu_model": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "torch_threads": 14,
+    "torch_interop_threads": 14,
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch": "2.13.0+cpu",
+    "numpy": "2.3.5",
+    "cpu_count": 20,
+    "cuda_available": false,
+    "gpu_timing_synchronised": "not applicable, no GPU timing is reported",
+    "peak_memory_convention": "process RSS peak via tracemalloc is not available for native tensors; no peak tensor memory is claimed. RSS is NOT the native tensor allocation peak."
+  },
+  "conditions": {
+    "alpha_grid": [
+      1e-08,
+      1e-06,
+      0.0001,
+      0.01
+    ],
+    "gamma_rule": "alpha * lambda_max(J_theta^T J_theta), computed once per centre",
+    "methods": [
+      "explicit",
+      "CG",
+      "scaled_LSQR"
+    ],
+    "repeats": 1,
+    "warmup": "one discarded run per (centre, alpha, method)",
+    "initial_guess": "zero",
+    "reference": "dense Cholesky solve at the same gamma",
+    "seeds": [
+      215
+    ]
+  },
+  "stage_reporting": [
+    "setup",
+    "spectral",
+    "preconditioner",
+    "solve",
+    "verification",
+    "reported_total"
+  ],
+  "training_and_polish_excluded": true,
+  "large_scale_operator_timing_run": false,
+  "large_scale_note": "The optional widened-centre operator timing was not run. Nothing in this file claims training feasibility or curvature accuracy at large state size.",
+  "claim_boundary": "Cost comparison only, at matched damping. A larger alpha is a different geometry and is not selected on accuracy grounds."
+}
