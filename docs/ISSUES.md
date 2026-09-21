@@ -812,3 +812,9 @@ resolution_or_status: PASSED as a descriptive audit; retain the stated scope lim
 Date: 2026-09-21. Classification: scientific limitation (development-only posthoc).
 
 The low-dimensional exact parameter-block correction improves 16/18 paired E6 architecture records, but worsens two individual records. In the saved scalar exact-block queue it improves 9/9 Allen--Cahn and 5/12 Burgers valid rows; four of 25 planned files are already invalid frozen centers and remain excluded with their saved reasons. The worsened rows are retained because signed GN and relaxation errors can cancel. No threshold, seed, benchmark, gamma or locked configuration was changed. Evidence: `outputs/posthoc/paper_strengthening/parameter_block_correction_v3/parameter_block_rows.csv` and `parameter_block_summary.json`.
+
+## I-Q2-006 — Profile resolution and certificate gates diverge
+
+Date: 2026-09-21. Classification: numerical/scientific limitation (development-only posthoc).
+
+The saved E7 rescue cohort shows that reference agreement and full profile-point validity are different quantities: 3/3, 1/3 and 0/3 points are within 10% at `h=0.01`, `0.003` and `0.001`, while full point certificates are 2/3, 1/3 and 2/3. This supports a resolution/branch-control limitation but does not identify a unique cause and must not be described as proof of GN truncation or nonlinear-profile convergence. Evidence: `outputs/posthoc/paper_strengthening/profile_resolution_v1/PROFILE_RESOLUTION_REPORT.md`.

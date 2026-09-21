@@ -616,3 +616,9 @@ reason: Explicit, CG and scaled LSQR all pass at the same gamma for four alpha l
 provenance: configs/paper_strengthening/e8_matched_alpha_audit.yaml; outputs/posthoc/paper_strengthening/e8_matched_alpha_summary.json; docs/paper_strengthening/E8_MATCHED_ALPHA_AUDIT.md.
 impact: This supports same-gamma matrix-free operator agreement, not trained large-network accuracy. The alpha=1e-2 scalability result remains cost-only.
 ```
+
+## D-Q2-006 — Separate profile reference agreement from profile validity
+
+Date: 2026-09-21. Scope: development-only, read-only posthoc analysis.
+
+All nine E7 rescue points were regrouped by the fixed step grid. At `h=0.01`, 3/3 points are within 10% of the local Schur reference but only 2/3 pass the complete point certificate. At `h=0.003`, 1/3 are within 10%; at `h=0.001`, 0/3 are within 10% although 2/3 pass the point certificate. The audit keeps these denominators separate and does not infer a convergence or Gauss--Newton causality result. Evidence: `configs/paper_strengthening/profile_resolution_posthoc_v1.yaml`; `outputs/posthoc/paper_strengthening/profile_resolution_v1/profile_resolution_summary.json`.

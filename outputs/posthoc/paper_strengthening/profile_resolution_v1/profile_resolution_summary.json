@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "classification": "POSTHOC_READ_ONLY_PROFILE_RESOLUTION_AUDIT",
+  "protocol": "configs/paper_strengthening/profile_resolution_posthoc_v1.yaml",
+  "new_training": false,
+  "git_commit": "83c9dcfc2d29f9672a05a1093b73279a3303002f",
+  "planned_points": 9,
+  "reference_tolerance": 0.1,
+  "by_step": [
+    {
+      "step": 0.01,
+      "planned_points": 3,
+      "reference_agreement_count": 3,
+      "profile_point_valid_count": 2,
+      "branch_comparable_count": 2,
+      "gradient_gate_count": 2,
+      "positive_hessian_count": 2,
+      "objective_bound_count": 2,
+      "median_relative_difference": 0.012917179373492847,
+      "max_relative_difference": 0.0601194939292603
+    },
+    {
+      "step": 0.003,
+      "planned_points": 3,
+      "reference_agreement_count": 1,
+      "profile_point_valid_count": 1,
+      "branch_comparable_count": 1,
+      "gradient_gate_count": 1,
+      "positive_hessian_count": 1,
+      "objective_bound_count": 1,
+      "median_relative_difference": 0.17556560867255122,
+      "max_relative_difference": 0.6672634640863735
+    },
+    {
+      "step": 0.001,
+      "planned_points": 3,
+      "reference_agreement_count": 0,
+      "profile_point_valid_count": 2,
+      "branch_comparable_count": 2,
+      "gradient_gate_count": 2,
+      "positive_hessian_count": 2,
+      "objective_bound_count": 2,
+      "median_relative_difference": 1.2265543518872943,
+      "max_relative_difference": 6.00491449638986
+    }
+  ],
+  "centre_fit_rows": [
+    [
+      {
+        "intercept": 1.475046783549534,
+        "slope_h2": 2126.9776247260006,
+        "r2": 0.40447079713163225,
+        "relative_error_to_reference": 0.12159083121484787,
+        "relative_span": 0.19904871462551124,
+        "predictions": [
+          1.687744546022134,
+          1.494189582172068,
+          1.47717376117426
+        ],
+        "data_seed": 916101,
+        "profile_valid": false
+      }
+    ],
+    [
+      {
+        "status": "INSUFFICIENT_VALID_POINTS",
+        "valid_points": 2,
+        "data_seed": 916102,
+        "profile_valid": false
+      }
+    ],
+    [
+      {
+        "status": "INSUFFICIENT_VALID_POINTS",
+        "valid_points": 0,
+        "data_seed": 916103,
+        "profile_valid": false
+      }
+    ]
+  ],
+  "source_sha256": "f413da4766e6cf5587d57d1f9c0ee2637bef5b3cbb471e26daf2ebd7989d7d9a",
+  "claim_boundary": "Reference agreement and full profile-point validity are separate counts; this audit does not certify a nonlinear profile."
+}

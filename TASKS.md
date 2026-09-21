@@ -762,3 +762,14 @@ E5C denominator 45 preserved: 40 complete, 1 interrupted, 4 unstarted. Original 
 
 Scientific interpretation: the correction improves the E6 architecture rows in 16/18 cases (18/18 remain better than raw), while the independent scalar posthoc queue gives 9/9 improvements for Allen--Cahn and 5/12 for Burgers. This is paired posthoc evidence, not a confirmation result or a universal dominance claim.
 
+## Q2 paper-strengthening — profile resolution posthoc audit
+
+**状态:** `PASSED` — read-only resolution analysis
+
+- [x] Reused all 9 corrected E7 rescue points without retraining;
+- [x] Separated reference agreement at 10% from branch comparability, normalized-gradient, positive-Hessian and objective-bound gates;
+- [x] Generated per-point and per-step machine-readable outputs under `outputs/posthoc/paper_strengthening/profile_resolution_v1/`;
+- [x] Added a regression test preserving the 9-point denominator.
+
+Scientific interpretation: at `h=0.01`, 3/3 points agree with the Schur reference within 10% but only 2/3 pass the complete certificate; at `h=0.003`, 1/3 agrees; at `h=0.001`, 0/3 agrees despite 2/3 point certificates. This bounds the saved numerical resolution and branch evidence; it does not establish nonlinear-profile convergence or GN causality.
+
