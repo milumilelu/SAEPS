@@ -730,3 +730,22 @@ Historical terminal programs/locks unchanged; no push or new confirmation.
 ### Phase 2 reporting audit — PASSED
 E5C denominator 45 preserved: 40 complete, 1 interrupted, 4 unstarted. Original derived report archived; immutable source hashes and 149 manifests verified. See final/REPORTING_CORRECTION.json and AUDIT_CLOSEOUT.py. No numerical reruns.
 
+## Q2 paper-strengthening — E7 corrected profile rescue v2
+
+**状态:** `PASSED` — development execution complete; scientific profile certificate `FAILED`
+
+- [x] Frozen a separate development-only rescue config with immutable historical-output boundary;
+- [x] Separated normalized-gradient acceptance from LBFGS raw-gradient stopping;
+- [x] Added safeguarded Newton polish, positive-Hessian objective-error bound, independent starts and fixed three-scale (h^2) fit;
+- [x] Executed all 9 planned profile points across seeds 916101–916103, retaining 36 start records and 15 strict fallbacks;
+- [x] Aggregated raw outputs automatically: 5/9 point certificates, 0/3 complete profile certificates;
+- [x] Recorded I-Q2-003; original E7 0/21 and V5 1/5 verdicts remain unchanged.
+
+## Q2 paper-strengthening — matched-alpha operator audit
+
+**状态:** `PASSED` — descriptive operator-feasibility evidence complete
+
+- [x] Evaluated explicit dense, matrix-free CG and scaled LSQR at the same gamma for α = 10^-8, 10^-6, 10^-4, 10^-2 on seed 215;
+- [x] All 12/12 rows passed, with maximum verified residual 7.01e-11 and maximum difference from dense reference 2.99e-8;
+- [x] Reported the result as matched-damping operator agreement only; no large-network trained-accuracy claim was added.
+

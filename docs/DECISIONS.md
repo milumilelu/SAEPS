@@ -586,3 +586,25 @@ E1 must run its full planned cohort once engineering lock passes even when E0
 scientific results are unfavorable. E2/E3 on E1 roots remain secondary analysis.
 Numerical execution is NOT_STARTED; no fresh seeds are frozen or trained here.
 See revision_week/protocols/phase2/PHASE2_EXECUTION_RULES.md and phase2_spec.json.
+
+## D-Q2-003 — Open and close E7 corrected profile rescue v2
+
+```text
+date: 2026-09-21
+decision_id: D-Q2-003
+decision: Accept the E7 rescue v2 as a completed development-only diagnostic and retain its scientific gate failure.
+reason: The new executable fixes the normalized-gradient/raw-gradient stopping mismatch and adds independent-start, positive-Hessian, objective-error and h^2 multi-scale checks. All 9 planned points ran; 5/9 point certificates and 0/3 complete centre certificates passed.
+provenance: configs/paper_strengthening/e7_profile_rescue_v2.yaml; outputs/posthoc/paper_strengthening/e7_rescue_v2_summary.json; docs/paper_strengthening/E7_RESCUE_V2_REPORT.md.
+impact: Historical E7/V5 files and verdicts remain immutable. The finite-damping local diagnostic remains supported by its prior exact-reference evidence, while nonlinear-profile equivalence remains unsupported.
+```
+
+## D-Q2-004 — Accept matched-alpha operator audit with cost-only scope
+
+```text
+date: 2026-09-21
+decision_id: D-Q2-004
+decision: Accept the 12-row matched-alpha operator audit as descriptive engineering evidence.
+reason: Explicit, CG and scaled LSQR all pass at the same gamma for four alpha levels on seed215; the maximum verified residual is 7.01e-11 and the maximum dense-reference difference is 2.99e-8.
+provenance: configs/paper_strengthening/e8_matched_alpha_audit.yaml; outputs/posthoc/paper_strengthening/e8_matched_alpha_summary.json; docs/paper_strengthening/E8_MATCHED_ALPHA_AUDIT.md.
+impact: This supports same-gamma matrix-free operator agreement, not trained large-network accuracy. The alpha=1e-2 scalability result remains cost-only.
+```
