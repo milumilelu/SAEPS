@@ -1,0 +1,30 @@
+protocol_id: SAEPS-PAPER-REVISION-E7-RESCUE-V2
+status: DEVELOPMENT_ONLY
+purpose: corrected_profile_solver_and_multiscale_certificate
+historical_outputs_immutable: true
+source_protocol: experiments/paper_revision_20260916/protocol.yaml
+data_seeds: [916101, 916102, 916103]
+initialization_seed: 926001
+noise_level: 0.02
+architecture: [2, 16, 1]
+steps: [0.01, 0.003, 0.001]
+independent_starts: [implicit_prediction, anchor]
+solver:
+  normalized_gradient_target: 1.0e-8
+  lbfgs_max_iterations: 30000
+  lbfgs_max_eval: 37500
+  newton_max_steps: 8
+  newton_normalized_gradient_target: 1.0e-10
+  line_search_c1: 1.0e-4
+  min_line_search_fraction: 1.0e-6
+  hessian_shift_floor: 1.0e-10
+certificate:
+  profile_error_fraction: 0.05
+  fit_r2_minimum: 0.80
+  fit_relative_error_maximum: 0.10
+  start_gap_relative_floor: 1.0e-10
+  positive_hessian_required: true
+claim_boundary: >-
+  Development-only rescue. It cannot change the historical E7 0/21 stationarity
+  or V5 1/5 profile verdicts. A profile is certified only when both starts,
+  positive Hessian, objective-error budget, and the fixed three-scale h^2 fit pass.

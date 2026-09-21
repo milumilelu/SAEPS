@@ -1,0 +1,32 @@
+{
+  "classification": "DEVELOPMENT_ONLY_RESCUE_V2",
+  "historical_e7_output_untouched": true,
+  "config": "configs\\paper_strengthening\\e7_profile_rescue_v2.yaml",
+  "config_sha256": "2c3c98249a721979f6899bb79ebcbf581c9e602092ba3e3f1f26b60528ba68b6",
+  "source_protocol_sha256": "107e68103fe09d4e91e4da17027ef2519f0964a8481e5a4c6be4eebe2414b5b9",
+  "source_code_sha256": "58aeeefbdd2c88f1d79565daebadf6668341eba828d060f166b58ab57571ec1d",
+  "rescue_code_sha256": "910fc8360483fafb637b12f34ba2e39e1240a8896829c7a608e9b0f3108e363b",
+  "planned_centres": 3,
+  "planned_profile_points": 9,
+  "profile_points_valid": 3,
+  "profile_points_total": 3,
+  "profiles_valid": 0,
+  "profiles_total": 1,
+  "fit_rows": [
+    {
+      "intercept": 1.475046783549534,
+      "slope_h2": 2126.9776247260006,
+      "r2": 0.40447079713163225,
+      "relative_error_to_reference": 0.12159083121484787,
+      "relative_span": 0.19904871462551124,
+      "predictions": [
+        1.687744546022134,
+        1.494189582172068,
+        1.47717376117426
+      ],
+      "data_seed": 916101,
+      "profile_valid": false
+    }
+  ],
+  "claim_boundary": "Development-only rescue. It cannot change the historical E7 0/21 stationarity or V5 1/5 profile verdicts. A profile is certified only when both starts, positive Hessian, objective-error budget, and the fixed three-scale h^2 fit pass."
+}
