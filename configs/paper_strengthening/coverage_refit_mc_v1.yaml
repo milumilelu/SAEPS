@@ -1,0 +1,14 @@
+protocol_id: SAEPS-PAPER-REVISION-COVERAGE-REFIT-MC-V1
+status: DEVELOPMENT_ONLY
+purpose: expanded_noisy_data_refitting_monte_carlo_validation
+historical_outputs_immutable: true
+replicates: 30
+seed_start: 980001
+noise_level: 0.02
+architecture: [2, 8, 1]
+points: {pde: 48, data: 64, initial: 24, boundary_times: 24}
+optimizer: {adam_steps: 400, adam_learning_rate: 0.001, lbfgs_max_iterations: 500, fixed_parameter_state_polish_max_iterations: 1500}
+gamma_alpha: 1.0e-8
+claim_boundary: >-
+  Development-only Monte Carlo evidence. Coverage estimates are exploratory and
+  require a larger preregistered confirmation study for final claims.
