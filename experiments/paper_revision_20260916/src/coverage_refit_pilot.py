@@ -53,12 +53,27 @@ def main() -> None:
                 sigma=noise*float(E3.truth(fit['points'].data_x,fit['points'].data_t).std(unbiased=False).item())
                 row['observation_sigma']=sigma
                 # Information is in the weighted sum objective; convert to a Wald interval in log-kappa.
+                # Sandwich variance for the weighted least-squares objective.  Only the
+                # data block carries observation noise; PDE/IC/BC residuals are deterministic
+                # constraints.  If J_w is the weighted data Jacobian, B=sigma^2*w_data*J_w'J_w.
+                width=int(cfg['architecture'][1]); counts=cfg['points']; n_pde=int(counts['pde'])
+                from torch.autograd.functional import jacobian
+                # Full joint sandwich: data noise enters through the state columns,
+                # then nuisance-state uncertainty propagates into lambda.
+                jtheta=jacobian(lambda t:E3.weighted_residual(t,fit['lam'],fit['points'],fit['local']), fit['theta'], strategy='forward-mode', vectorize=True)
+                jlam=jacobian(lambda l:E3.weighted_residual(fit['theta'],l,fit['points'],fit['local']), fit['lam'], strategy='forward-mode', vectorize=True)
+                J=torch.cat([jtheta,jlam],dim=1); A=J.T@J
+                wdata=float(cfg['block_weights']['data']); data_slice=slice(n_pde,n_pde+int(counts['data']))
+                Bmat=torch.zeros_like(A); Jd=J[data_slice,:]; Bmat=sigma*sigma*wdata*(Jd.T@Jd)
+                cov=torch.linalg.pinv(A)@Bmat@torch.linalg.pinv(A); base_se=math.sqrt(max(float(cov[-1,-1].item()),1e-30))
+                B=base_se
                 methods={'raw':curv['F_raw'],'saeps':curv['F_se_GN'],'parameter_block':curv['H_fix_exact']}
                 for name,F in methods.items():
-                    F=max(float(F),1e-30); se_lam=sigma/math.sqrt(F); k=fit['kappa_estimate']
+                    F=max(float(F),1e-30); se_lam=base_se*math.sqrt(max(curv['F_raw'],1e-30)/F); k=fit['kappa_estimate']
                     lo=k*math.exp(-1.96*se_lam); hi=k*math.exp(1.96*se_lam)
                     row[f'{name}_ci_low']=lo; row[f'{name}_ci_high']=hi
                     row[f'{name}_covered']=bool(lo<=cfg['kappa_truth']<=hi)
+                row['sandwich_B']=B
                 row.update({'F_raw':curv['F_raw'],'F_se_GN':curv['F_se_GN'],'H_fix_exact':curv['H_fix_exact'],'H_red_exact':curv['H_red_exact'],'status':'PASS'})
         except Exception as exc:
             row['failure_reason']=f'{type(exc).__name__}: {exc}'
