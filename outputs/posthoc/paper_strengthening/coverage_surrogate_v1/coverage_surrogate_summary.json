@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "classification": "POSTHOC_LOCAL_GAUSSIAN_COVERAGE_SURROGATE",
+  "protocol": "configs/paper_strengthening/coverage_surrogate_posthoc_v1.yaml",
+  "new_training": false,
+  "git_commit": "7cec245aca29fe25fc1ff2b77a9254638f86b4d3",
+  "planned_exact_files": 25,
+  "valid_exact_files": 21,
+  "excluded_exact_files": [
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\outputs\\posthoc\\exact_fixed_state_v3\\allen_cahn\\seed_81.json",
+      "benchmark": "Allen-Cahn",
+      "seed": 81,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_57.json",
+      "benchmark": "Burgers",
+      "seed": 57,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_61.json",
+      "benchmark": "Burgers",
+      "seed": 61,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    },
+    {
+      "path": "C:\\Users\\RZF\\Desktop\\\u535a\u58eb\u8bfe\u9898\u8d44\u6599\\SAEPS\\outputs\\posthoc\\exact_fixed_state_v3\\burgers\\seed_63.json",
+      "benchmark": "Burgers",
+      "seed": 63,
+      "failure_reason": "frozen center policy failed",
+      "original_status": "CHECKPOINT_INVALID"
+    }
+  ],
+  "nominal_levels": [
+    0.9,
+    0.95,
+    0.99
+  ],
+  "summary": [
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.9,
+      "method": "SAEPS",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.8542403596181534,
+      "min_surrogate_coverage": 0.8255892863209531,
+      "max_surrogate_coverage": 0.8798908151292593
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.9,
+      "method": "block",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.907736685941289,
+      "min_surrogate_coverage": 0.8977823088427175,
+      "max_surrogate_coverage": 0.9107438987269147
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.9,
+      "method": "raw",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.27800414358567127,
+      "min_surrogate_coverage": 0.25213188165986566,
+      "max_surrogate_coverage": 0.30823656727962434
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.95,
+      "method": "SAEPS",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.9169666141514687,
+      "min_surrogate_coverage": 0.8944140463330392,
+      "max_surrogate_coverage": 0.935985824544624
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.95,
+      "method": "block",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.9551551185320666,
+      "min_surrogate_coverage": 0.9484969917185211,
+      "max_surrogate_coverage": 0.9571205607650468
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.95,
+      "method": "raw",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.3283999732273193,
+      "min_surrogate_coverage": 0.29830493471757213,
+      "max_surrogate_coverage": 0.36336933458220333
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.99,
+      "method": "SAEPS",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.9772739426522001,
+      "min_surrogate_coverage": 0.9665699428847847,
+      "max_surrogate_coverage": 0.9850689513857165
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.99,
+      "method": "block",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.9916226617309576,
+      "min_surrogate_coverage": 0.9895068410229193,
+      "max_surrogate_coverage": 0.9922124955011817
+    },
+    {
+      "benchmark": "Allen-Cahn",
+      "nominal_level": 0.99,
+      "method": "raw",
+      "valid_rows": 9,
+      "median_surrogate_coverage": 0.42258789698050103,
+      "min_surrogate_coverage": 0.3853106727641,
+      "max_surrogate_coverage": 0.4653072257786639
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.9,
+      "method": "SAEPS",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.8935084615387274,
+      "min_surrogate_coverage": 0.8656449801762856,
+      "max_surrogate_coverage": 0.9164935053778043
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.9,
+      "method": "block",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.9119135725097666,
+      "min_surrogate_coverage": 0.881130692195913,
+      "max_surrogate_coverage": 0.9248227620153457
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.9,
+      "method": "raw",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.2410832788744275,
+      "min_surrogate_coverage": 0.20601858962316322,
+      "max_surrogate_coverage": 0.2804349437492657
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.95,
+      "method": "SAEPS",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.9455612306807747,
+      "min_surrogate_coverage": 0.925569940419368,
+      "max_surrogate_coverage": 0.9608158854152888
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.95,
+      "method": "block",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.9578784828332022,
+      "min_surrogate_coverage": 0.9368740142952316,
+      "max_surrogate_coverage": 0.9660161976851467
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.95,
+      "method": "raw",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.28540957903055975,
+      "min_surrogate_coverage": 0.24433039639934795,
+      "max_surrogate_coverage": 0.3312198073059398
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.99,
+      "method": "SAEPS",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.9885110037438241,
+      "min_surrogate_coverage": 0.980948498770017,
+      "max_surrogate_coverage": 0.9932768200772562
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.99,
+      "method": "block",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.9924351823014207,
+      "min_surrogate_coverage": 0.9854029232270411,
+      "max_surrogate_coverage": 0.9946719218899331
+    },
+    {
+      "benchmark": "Burgers",
+      "nominal_level": 0.99,
+      "method": "raw",
+      "valid_rows": 12,
+      "median_surrogate_coverage": 0.3692048548555963,
+      "min_surrogate_coverage": 0.3174234880367093,
+      "max_surrogate_coverage": 0.4260572737971462
+    }
+  ],
+  "claim_boundary": "Analytic local-Gaussian feasibility screen only; empirical coverage requires repeated noisy-data refitting."
+}

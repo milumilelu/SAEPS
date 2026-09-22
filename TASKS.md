@@ -773,3 +773,14 @@ Scientific interpretation: the correction improves the E6 architecture rows in 1
 
 Scientific interpretation: at `h=0.01`, 3/3 points agree with the Schur reference within 10% but only 2/3 pass the complete certificate; at `h=0.003`, 1/3 agrees; at `h=0.001`, 0/3 agrees despite 2/3 point certificates. This bounds the saved numerical resolution and branch evidence; it does not establish nonlinear-profile convergence or GN causality.
 
+## Q2 paper-strengthening — local-Gaussian coverage feasibility screen
+
+**状态:** `PASSED` — analytic development pre-screen; empirical coverage not yet executed
+
+- [x] Computed nominal 90/95/99% Wald coverage surrogates from the saved exact reduced curvature;
+- [x] Compared raw, SAEPS and parameter-block information on 21 valid scalar records, retaining 4 excluded files in the planned denominator;
+- [x] Added an explicit claim boundary: this is not noisy-data refitting or finite-sample coverage;
+- [x] Added regression tests for the Gaussian coverage formula.
+
+At nominal 95%, the raw surrogate median is 0.328 for Allen--Cahn and 0.285 for Burgers; SAEPS is 0.917 and 0.946; the parameter-block candidate is 0.955 and 0.958. This supports an end-to-end refitting pilot, but does not establish statistical coverage.
+
