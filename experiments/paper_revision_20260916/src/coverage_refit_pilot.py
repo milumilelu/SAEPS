@@ -14,10 +14,10 @@ def main() -> None:
     args = ap.parse_args(); cfg_path = ROOT / args.config
     cfg0 = {'protocol_id':'SAEPS-PAPER-REVISION-COVERAGE-REFIT-PILOT-V1','architecture':[2,8,1],
             'points':{'pde':48,'data':64,'initial':24,'boundary_times':24},
-            'optimizer':{'adam_steps':400,'adam_learning_rate':0.001,'lbfgs_max_iterations':500,'fixed_parameter_state_polish_max_iterations':1500},
+            'optimizer':{'adam_steps':400,'adam_learning_rate':0.001,'lbfgs_max_iterations':500,'fixed_parameter_state_polish_max_iterations':(1500 if 'conv_l1' in str(cfg_path) else 5000 if 'conv_l2' in str(cfg_path) else 15000 if 'conv_l3' in str(cfg_path) else 1500)},
             'gamma_alpha':1e-8,'exact_hessian':{'backend':'dense','symmetry_tolerance':1e-8,'positive_eigenvalue_relative_tolerance':1e-10},
             'noise_level':0.02,'initialization_seed':971001,
-            'data_seeds':([980000+i for i in range(1,31)] if 'coverage_refit_mc' in str(cfg_path) else [970001,970002,970003,970004,970005,970006,970007,970008,970009,970010])}
+            'data_seeds':([990000+i for i in range(1,11)] if 'coverage_refit_conv' in str(cfg_path) else [980000+i for i in range(1,31)] if 'coverage_refit_mc' in str(cfg_path) else [970001,970002,970003,970004,970005,970006,970007,970008,970009,970010])}
     cfg = {'dtype':'float64','domain_t':[0.0,0.4],'diffusion':0.01,'rho_known':1.0,
            'kappa_truth':1.2,'kappa_initial':0.8,'architecture':cfg0['architecture'],
            'points':cfg0['points'],'block_weights':{'pde':5.0,'data':10.0,'initial':10.0,'boundary':2.0},
