@@ -1,0 +1,21 @@
+protocol_id: SAEPS-PAPER-REVISION-COVERAGE-REFIT-PILOT-V1
+status: DEVELOPMENT_ONLY
+purpose: bounded_noisy_data_refitting_coverage_pilot
+historical_outputs_immutable: true
+benchmark: manufactured_positive_saturating_reaction_diffusion
+replicates: 10
+data_seeds: [970001, 970002, 970003, 970004, 970005, 970006, 970007, 970008, 970009, 970010]
+initialization_seed: 971001
+noise_level: 0.02
+architecture: [2, 8, 1]
+points: {pde: 48, data: 64, initial: 24, boundary_times: 24}
+optimizer:
+  adam_steps: 400
+  adam_learning_rate: 0.001
+  lbfgs_max_iterations: 500
+  fixed_parameter_state_polish_max_iterations: 1500
+gamma_alpha: 1.0e-8
+exact_hessian: {backend: dense, symmetry_tolerance: 1.0e-8}
+claim_boundary: >-
+  Development pilot only. Empirical coverage estimates are exploratory,
+  preserve every replicate and failure, and cannot establish a final coverage claim.
